@@ -1,4 +1,4 @@
-# Project title and description
+# CivicTechJobs
 
 CivicTechJobs is a project of Hack for LA. CivicTechJobs helps technology practitioners interested in having civic impact to find job opportunities from a central hub of listings. The website's main features include a linklist to public interest job boards and other resources relevent to their focused journey to work on projects and solve problems with a public benefit.
 
