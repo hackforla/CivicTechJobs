@@ -2,7 +2,14 @@ name: 'Blank Issue Form'
 description: 'Form version of HackforLA blank issue template'
 
 body:
-  - type: input
+  - type: textarea
+    id: dependency-explanation
+    attributes:
+      label: Dependency
+      description: If there is a dependency, please explain what it is.
+      value: |
+        - [ ] Dependency 1
+  - type: textarea
     id: overview
     attributes:
       label: Overview
@@ -26,16 +33,3 @@ body:
       description: "Provide links to resources or instructions that may help with this issue. This can include files to be worked on, external sites with solutions, documentation, etc."
     validations:
       required: true
-  - type: dropdown
-    id: dependency
-    attributes:
-      label: Is there a dependency?
-      options:
-        - "Yes"
-        - "No"
-    validations:
-      required: true
-  - type: textarea
-    id: dependency-explanation
-    attributes:
-      label: If Yes, please explain
