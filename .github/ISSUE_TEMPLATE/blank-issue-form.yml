@@ -14,6 +14,8 @@ body:
     attributes:
       label: Overview
       description: Clearly state the purpose of this issue in 2 sentences or less
+      placeholder: |
+        Example: As a [developer/programmer/designer/member of the team/etc], we need to [insert some sort of standard, such as "keep out code clean" or "fix bugs" or "make sure website appears welcoming"]. For this issue, we will [do something to fulfill our standard, such as "edit the code in the data folder" or "correct a bug in out components" or "increase the title size on the homepage"].
     validations:
       required: true
   - type: textarea
