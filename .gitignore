@@ -1,0 +1,12 @@
+node_modules
+secret_key.txt
+
+config/__pycache__
+frontend/__pycache__
+frontend/migrations/__pycache__
+frontend/static/frontend/*
+!frontend/static/frontend/.gitkeep
+frontend/templates/frontend/*
+!frontend/templates/frontend/.gitkeep
+server/__pycache__
+server/migrations/__pycache__

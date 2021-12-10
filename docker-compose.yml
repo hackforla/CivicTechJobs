@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  pgdb:
+    image: postgres
+    container_name: pgdb
+    volumes:
+      - postgres_data:/lib/postgresql/data
+    environment:
+      POSTGRES_NAME: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+  webpack:
+    build:
+      context: .
+      dockerfile: docker/webpack
+    command: npm run watch
+    volumes:
+      - .:/code
+
+  django:
+    build: 
+      context: .
+      dockerfile: docker/django
+    container_name: django
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - pgdb
+
+volumes:
+  postgres_data:
