@@ -7,7 +7,7 @@ body:
     attributes:
       label: Dependency
       description: If there is a dependency, please explain what it is.
-      placeholder: |
+      value: |
         - [ ] Dependency 1
   - type: textarea
     id: overview
