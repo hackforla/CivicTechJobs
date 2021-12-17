@@ -10,7 +10,7 @@ jobs:
       - name: Checking out repo
         uses: actions/checkout@v2
       - name: Move Issue
-        uses: Aveline-art/miniature-octo-sniffle@v0.0.1-alpha
+        uses: 100Automations/miniature-octo-sniffle@v0.0.1-alpha
         with:
           # required
           config-file: './.github/workflows/sortOpenedIssues/config.json'
