@@ -1,1 +1,2 @@
-@use 'font';
+@forward 'breakpoints' as breakpoint-*;
+@forward 'font' as font-*;
