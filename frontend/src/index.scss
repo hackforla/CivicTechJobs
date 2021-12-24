@@ -11,15 +11,15 @@ body {
     text-align: center;
 
     @include breakpoint-media-min(mobile) {
-        color: blue
+        color: purple
     }
 
     @include breakpoint-media-min(smtablet) {
-        color: green
+        color: blue
     }
 
     @include breakpoint-media-min(lgtablet) {
-        color: yellow
+        color: green
     }
 
     @include breakpoint-media-min(laptop) {
