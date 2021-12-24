@@ -17,11 +17,11 @@ $breakpoints-min: (
 
 @mixin media-min($name) {
   @if $name == mobile {
-    @media (max-width: (map-get($map: $breakpoints-min, $key: smtablet)-1px)) {
+    @media only screen and (max-width: (map-get($map: $breakpoints-min, $key: smtablet)-1px)) {
       @content;
     }
   } @else {
-    @media (min-width: map-get($map: $breakpoints-min, $key: $name)) {
+    @media only screen and (min-width: map-get($map: $breakpoints-min, $key: $name)) {
       @content;
     }
   }
