@@ -9,10 +9,10 @@ BREAKPOINTS:
 
 /* There is a hidden mobile breakpoint that uses max-width calculated as smtablet - 1px */
 $breakpoints-min: (
-  smtablet: 577px,
-  lgtablet: 769px,
-  laptop: 1025px,
-  desktop: 1201px,
+  'smtablet': 577px,
+  'lgtablet': 769px,
+  'laptop': 1025px,
+  'desktop': 1201px,
 );
 
 @mixin media-min($name) {
