@@ -15,13 +15,13 @@ $breakpoints-min: (
   'desktop': 1201px,
 );
 
-@mixin media-min($name) {
-  @if $name == mobile {
+@mixin media-min($device) {
+  @if $device == mobile {
     @media only screen and (max-width: (map-get($map: $breakpoints-min, $key: smtablet)-1px)) {
       @content;
     }
   } @else {
-    @media only screen and (min-width: map-get($map: $breakpoints-min, $key: $name)) {
+    @media only screen and (min-width: map-get($map: $breakpoints-min, $key: $device)) {
       @content;
     }
   }
