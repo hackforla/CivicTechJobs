@@ -1,0 +1,28 @@
+/* 
+BREAKPOINTS:
+<= 576px for mobile phones
+577px-768px for small tablets
+769px-1024px for tablets, small laptops
+1025px-1200px for medium laptops, small monitors
+>= 1201px large laptops, medium monitors, desktops
+*/
+
+/* There is a hidden mobile breakpoint that uses max-width calculated as smtablet - 1px */
+$breakpoints-min: (
+  'smtablet': 577px,
+  'lgtablet': 769px,
+  'laptop': 1025px,
+  'desktop': 1201px,
+);
+
+@mixin media-min($device) {
+  @if $device == mobile {
+    @media only screen and (max-width: (map-get($map: $breakpoints-min, $key: smtablet)-1px)) {
+      @content;
+    }
+  } @else {
+    @media only screen and (min-width: map-get($map: $breakpoints-min, $key: $device)) {
+      @content;
+    }
+  }
+}

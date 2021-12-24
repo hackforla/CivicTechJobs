@@ -1,4 +1,4 @@
-@use  "components/Basics";
+@use "components/Basics" as *;
 
 body {
     font-family: Roboto;
@@ -9,4 +9,24 @@ body {
     font-style: normal;
     font-size: 20px;
     text-align: center;
+
+    @include breakpoint-media-min(mobile) {
+        color: purple
+    }
+
+    @include breakpoint-media-min(smtablet) {
+        color: blue
+    }
+
+    @include breakpoint-media-min(lgtablet) {
+        color: green
+    }
+
+    @include breakpoint-media-min(laptop) {
+        color: orange
+    }
+
+    @include breakpoint-media-min(desktop) {
+        color: red
+    }
 }
