@@ -83,3 +83,8 @@ You must have created a new file, through Docker, in your local repo. Since this
 </details>
 
 ## Additional Resources
+[Git Documentation](https://git-scm.com/doc)
+[Docker Documentation](https://docs.docker.com/)
+
+[Frontend Architecture](https://github.com/hackforla/CivicTechJobs/wiki/Frontend-Architecture)
+[Backend Architecture](https://github.com/hackforla/CivicTechJobs/wiki/Backend-Architecture)
