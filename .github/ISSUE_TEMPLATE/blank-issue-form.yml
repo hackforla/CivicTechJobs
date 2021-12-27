@@ -33,5 +33,7 @@ body:
     attributes:
       label: "Resources/Instructions"
       description: "Provide links to resources or instructions that may help with this issue. This can include files to be worked on, external sites with solutions, documentation, etc."
+      value: |
+        [Resource](https://github.com/hackforla/CivicTechJobs/wiki/Resources)
     validations:
       required: true
