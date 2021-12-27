@@ -24,7 +24,7 @@ Docker - [Windows](https://docs.docker.com/desktop/windows/install/) - [macOS](h
 ## Environmental Setup
 
 1. [Fork our repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository)
-2. [Clone our repository to your PC](https://docs.github.com/en/get-started/quickstart/fork-a-repo#cloning-your-forked-repository)
+2. [Clone our repository to a local version on your PC](https://docs.github.com/en/get-started/quickstart/fork-a-repo#cloning-your-forked-repository)
 3. [Configuring Git to sync your fork with the original repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo#configuring-git-to-sync-your-fork-with-the-original-repository)
 
 ## Running Docker
@@ -44,5 +44,36 @@ Make sure to turn on Docker by opening the Docker program on your desktop.
 <summary>can't find a suitable configuration file in this directory or any parent: not found</summary>
 <br>
 Make sure that your terminal location is in a directory with a <code>docker-compose.yml</code> file. And make sure that the file is not hidden.
+<br>
+</details>
+
+## Contributing to our project (for freelancers)
+
+1. Find a developer issue to work on from our [prioritized backlog](https://github.com/hackforla/CivicTechJobs/projects/1#column-10928271). (Hint: look for the 'frontend' or 'backend' label)
+2. [From your local repo, create a branch off of main.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
+3. Make changes to the project on that branch based on your issue.
+4. [Create a pull request through the forked repo on your Github Account](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork). Be sure to follow the instructions on the pull request template.
+5. Done! Now just wait for a team member to get back to you with feedback on your changes!
+
+> Important note: **We do not want to be flooded with pull requests** Please, do **NOT** take on another issue or open a second pull request until the pull request and linked issue are resolved by a team member.
+
+## Contributing to our project (for members of our dev team)
+
+1. Find a developer issue to work on from our [prioritized backlog](https://github.com/hackforla/CivicTechJobs/projects/1#column-10928271). (Hint: look for the 'frontend' or 'backend' label)
+2. Assign yourself to the issue. (Hint: see [step 4](https://docs.github.com/en/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users#assigning-an-individual-issue-or-pull-request).)
+3. Move the issue from the prioritized backlog to the in progress [https://github.com/hackforla/CivicTechJobs/projects/1#column-10928272] column. (Hint, see [step 5](https://docs.github.com/en/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar).)
+4. [From your local repo, create a branch off of main.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
+5. Make changes to the project on that branch based on your issue.
+6. [Create a pull request through the forked repo on your Github Account](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork). Be sure to follow the instructions on the pull request template.
+7. Done! Now just wait for a team member to get back to you with feedback on your changes!
+
+> Important note: **We do not want to be flooded with pull requests** Please, do **NOT** take on another issue or open a second pull request until the pull request and linked issue are resolved by a team member. To take another issue, please ask the technical lead for an appropriate issue to take.
+
+### Troubleshooting Errors
+
+<details>
+<summary>error: insufficient permission for adding an object to repository database </summary>
+<br>
+You must have created a new file, through Docker, in your local repo. Since this file "belongs" to the container, you need to transfer permission by running, <code>sudo chown -R $USER:$USER .</code>. (See [step 3](https://docs.docker.com/samples/django/#create-a-django-project) for more info.)
 <br>
 </details>
