@@ -74,6 +74,6 @@ Make sure that your terminal location is in a directory with a <code>docker-comp
 <details>
 <summary>error: insufficient permission for adding an object to repository database </summary>
 <br>
-You must have created a new file, through Docker, in your local repo. Since this file "belongs" to the container, you need to transfer permission by running, <code>sudo chown -R $USER:$USER .</code>. (See [step 3](https://docs.docker.com/samples/django/#create-a-django-project) for more info.)
+You must have created a new file, through Docker, in your local repo. Since this file "belongs" to the container, you need to transfer permission by running, <code>sudo chown -R $USER:$USER .</code>. (See <a src='https://docs.docker.com/samples/django/#create-a-django-project'>step 3</a> for more info.)
 <br>
 </details>
