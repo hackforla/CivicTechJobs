@@ -15,7 +15,7 @@ Git - [Windows](https://git-scm.com/download/win) - [macOS](https://git-scm.com/
 <details>
 <summary>Note on macOS</summary>
 <br>
-The macOS version of git involves downloading extra programs, such as Homebrew. In some cases this program can run up to 8GB of storage space, which might be too much for some. In that scenario, a [miniature version Homebrew can be installed through XCode](https://www.datacamp.com/community/tutorials/homebrew-install-use). But do be warned that the containers for our project also takes up a substantial amount of disk space as well. Do also consider freeing up your disk space by deleting or backing up unneeded files like photos or videos and delete programs that are no longer useful. Your OS's native disk cleaner can also help clear out unused cache files.
+The macOS version of git involves downloading extra programs, such as Homebrew. In some cases this program can run up to 8GB of storage space, which might be too much for some. In that scenario, a <a href='https://www.datacamp.com/community/tutorials/homebrew-install-use'>miniature version Homebrew can be installed through XCode</a>. But do be warned that the containers for our project also takes up a substantial amount of disk space as well. Do also consider freeing up your disk space by deleting or backing up unneeded files like photos or videos and delete programs that are no longer useful. Your OS's native disk cleaner can also help clear out unused cache files.
 <br>
 </details>
 
