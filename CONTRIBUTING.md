@@ -4,7 +4,7 @@
 
 Thank you for investing your time for our project. Anything you contribute will be reflected on our repository at hackforla/civictechjobs.
 
-Before starting, make sure you read our [code of conduct](). Also, consider joining our organization officially, especially if you enjoyed contributing to us. This allows access to our developer meetings so that you can influence the direction of the project as a whole.
+Before starting, make sure you read our [code of conduct](https://github.com/hackforla/codeofconduct). Also, consider joining our organization officially, especially if you enjoyed contributing to us. This allows access to our developer meetings so that you can influence the direction of the project as a whole.
 
 This guide outlines the environmental setup, and steps when working on an issue and creating a PR. Feel free to use the table of contents to jump to specific sections of this guide.
 
@@ -61,7 +61,7 @@ Make sure that your terminal location is in a directory with a <code>docker-comp
 
 1. Find a developer issue to work on from our [prioritized backlog](https://github.com/hackforla/CivicTechJobs/projects/1#column-10928271). (Hint: look for the 'frontend' or 'backend' label)
 2. Assign yourself to the issue. (Hint: see [step 4](https://docs.github.com/en/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users#assigning-an-individual-issue-or-pull-request).)
-3. Move the issue from the prioritized backlog to the in progress [https://github.com/hackforla/CivicTechJobs/projects/1#column-10928272] column. (Hint, see [step 5](https://docs.github.com/en/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar).)
+3. Move the issue from the prioritized backlog to the [in progress](https://github.com/hackforla/CivicTechJobs/projects/1#column-10928272) column. (Hint, see [step 5](https://docs.github.com/en/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar).)
 4. [From your local repo, create a branch off of main.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
 5. Make changes to the project on that branch based on your issue.
 6. [Create a pull request through the forked repo on your Github Account](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork). Be sure to follow the instructions on the pull request template.
@@ -77,3 +77,5 @@ Make sure that your terminal location is in a directory with a <code>docker-comp
 You must have created a new file, through Docker, in your local repo. Since this file "belongs" to the container, you need to transfer permission by running, <code>sudo chown -R $USER:$USER .</code>. (See <a href='https://docs.docker.com/samples/django/#create-a-django-project'>step 3</a> for more info.)
 <br>
 </details>
+
+## Additional Resources
