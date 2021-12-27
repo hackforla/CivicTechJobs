@@ -10,7 +10,7 @@ This guide outlines the environmental setup, and steps when working on an issue 
 
 ## If you are ever stuck or need clarification
 
-You can contact our team members and schedule a pair programming session with one of our developers. All of us have been through these steps, and am more than happy to help. By helping you, we can better improve our documentation and ensure the continual growth of this project!
+You can [contact our team members](https://github.com/Aveline-art/CivicTechJobs/tree/contributing-create#contact-info) and schedule a pair programming session with one of our developers. All of us have been through these steps, and am more than happy to help. By helping you, we can better improve our documentation and ensure the continual growth of this project!
 
 ## Required Downloads
 
