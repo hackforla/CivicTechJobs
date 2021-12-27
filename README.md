@@ -29,11 +29,13 @@ Civic Tech technology practitioners are a diverse and interdisciplinary group of
 Explain the different ways people can contribute. For example:
 
 - Join the [Slack](https://hackforla.slack.com/archives/C02509WHFQQ) Channel and say hello! we have team meetings every tuesday at 5PM PST
-- To help with user research, {do ABC}.
-- To provide design support, {do XYZ}.
-- To contribute to the code, follow the instructions below.
+- Provide UX/UI design support.
+- Help us with usability testing..
+- To contribute as a developer, refer to our instructions below (WIP)
 
-Remember to provide direct links to each channel.
+
+Please see the [Civic Tech Jobs Wiki](https://github.com/hackforla/CivicTechJobs/wiki) for detailed information.
+
 
 
 
@@ -68,11 +70,6 @@ To create a new issue, please use the blank issue template (available when you c
 
 - Provide instructions.
 
-
-
-# Contact info
-
-Include at least one way (or more, if possible) to reach your team with questions or comments.
 
 
 ### Licensing
