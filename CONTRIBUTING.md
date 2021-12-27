@@ -8,6 +8,10 @@ Before starting, make sure you read our [code of conduct](https://github.com/hac
 
 This guide outlines the environmental setup, and steps when working on an issue and creating a PR. Feel free to use the table of contents to jump to specific sections of this guide.
 
+## If you are ever stuck or need clarification
+
+You can contact our team members and schedule a pair programming session with one of our developers. All of us have been through these steps, and am more than happy to help. By helping you, we can better improve our documentation and ensure the continual growth of this project!
+
 ## Required Downloads
 
 Git - [Windows](https://git-scm.com/download/win) - [macOS](https://git-scm.com/download/mac) - [Linux/Unix](https://git-scm.com/download/linux)
