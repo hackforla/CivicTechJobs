@@ -52,9 +52,16 @@ To create an issue as a member of our team, locate the appropriate template for 
 
 To review code, please take a look at this [guide from another project](https://github.com/hackforla/website/wiki/How-to-Review-Pull-Requests). Not all the information there will be relevant to this project, but it should nonetheless get your started.
 
-## Additional Resources
-[Git Documentation](https://git-scm.com/doc)<br>
-[Docker Documentation](https://docs.docker.com/)<br>
+## Frequently Asked Questions
 
-[Frontend Architecture](https://github.com/hackforla/CivicTechJobs/wiki/Frontend-Architecture)<br>
-[Backend Architecture](https://github.com/hackforla/CivicTechJobs/wiki/Backend-Architecture)<br>
+### Error Messages
+
+
+### Troubleshooting Errors
+
+<details>
+<summary>1. error: insufficient permission for adding an object to repository database </summary>
+<br>
+You must have created a new file, through Docker, in your local repo. Since this file "belongs" to the container, you need to transfer permission by running, <code>sudo chown -R $USER:$USER .</code>. (See <a href='https://docs.docker.com/samples/django/#create-a-django-project'>step 3</a> for more info.)
+<br>
+</details>
