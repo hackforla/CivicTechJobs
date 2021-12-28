@@ -1,6 +1,6 @@
 # Welcome to the CivicTechJobs Contributing Guide
 
-###### Note: This guide is for developers. If you are look to contribute as a project manager, go [here](). For UI, go [here](). And lastly, for UX, go [here]().
+> ###### Note: This guide is for developers. If you are look to contribute as a project manager, go [here](). For UI, go [here](). And lastly, for UX, go [here]().
 
 Thank you for investing your time for our project. Anything you contribute will be reflected on our repository at [hackforla/civictechjobs](https://github.com/hackforla/CivicTechJobs).
 
@@ -18,7 +18,7 @@ We do not currently have a dedicated issue template for creating issues for cont
 
 ### Resolving Issue
 
-###### Note: Before you start, make sure to visit out [installation instructions]() to set up your development environment.
+? ###### Note: Before you start, make sure to visit out [installation instructions]() to set up your development environment.
 
 1. Find a developer issue to work on from our [prioritized backlog](https://github.com/hackforla/CivicTechJobs/projects/1#column-10928271). (Hint: look for the 'frontend' or 'backend' label). The size label will signal the amount of work the issue might involve, with a higher number indicating greater work.
 2. [From your local repo, create a branch off of main.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
