@@ -4,7 +4,7 @@
 
 Thank you for investing your time for our project. Anything you contribute will be reflected on our repository at [hackforla/civictechjobs](https://github.com/hackforla/CivicTechJobs).
 
-Before starting, make sure you read our [code of conduct](https://github.com/hackforla/codeofconduct). Also, consider joining our organization officially, especially if you enjoyed contributing to us. This gives you access to our developer meetings so that you can influence the direction of the project as a whole.
+Before starting, make sure you read our [code of conduct](https://github.com/hackforla/codeofconduct). Also, consider [joining our team as a volunteer](https://github.com/hackforla/CivicTechJobs/wiki/Joining-the-Team), especially if you enjoyed contributing to us. This gives you access to our developer meetings so that you can influence the direction of the project as a whole.
 
 This guide outlines the three ways you can contribute to us as a developer: creating issues, resolving issues, or review a pull requests. Moreover, this guide is split into freelancer and development team sections. Feel free to skip to the section that you feel is most relevant for you!
 
