@@ -18,7 +18,7 @@ We do not currently have a dedicated issue template for creating issues for cont
 
 ### Resolving Issue
 
-> ###### Note: Before you start, make sure to visit out [installation instructions]() to set up your development environment.
+> ###### Note: Before you start, make sure to visit out [installation instructions](https://github.com/hackforla/CivicTechJobs/wiki/Installation-Instructions) to set up your development environment.
 
 1. Find a developer issue to work on from our [prioritized backlog](https://github.com/hackforla/CivicTechJobs/projects/1#column-10928271). (Hint: look for the 'frontend' or 'backend' label). The size label will signal the amount of work the issue might involve, with a higher number indicating greater work.
 2. [From your local repo, create a branch off of main.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
@@ -36,7 +36,7 @@ To create an issue as a member of our team, locate the appropriate template for 
 
 ### Resolving Issues
 
-###### Note: Before you start, make sure to visit out [installation instructions]() to set up your development environment.
+###### Note: Before you start, make sure to visit out [installation instructions](https://github.com/hackforla/CivicTechJobs/wiki/Installation-Instructions) to set up your development environment.
 
 1. Find a developer issue to work on from our [prioritized backlog](https://github.com/hackforla/CivicTechJobs/projects/1#column-10928271). (Hint: look for the 'frontend' or 'backend' label). The size label will signal the amount of work the issue might involve, with a higher number indicating greater work.
 2. Assign yourself to the issue. (Hint: see [step 4](https://docs.github.com/en/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users#assigning-an-individual-issue-or-pull-request).)
