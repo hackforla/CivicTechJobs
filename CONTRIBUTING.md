@@ -56,9 +56,6 @@ To review code, please take a look at this [guide from another project](https://
 
 ### Error Messages
 
-
-### Troubleshooting Errors
-
 <details>
 <summary>1. error: insufficient permission for adding an object to repository database </summary>
 <br>
