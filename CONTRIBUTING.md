@@ -62,3 +62,9 @@ To review code, please take a look at this [guide from another project](https://
 You must have created a new file, through Docker, in your local repo. Since this file "belongs" to the container, you need to transfer permission by running, <code>sudo chown -R $USER:$USER .</code>. (See <a href='https://docs.docker.com/samples/django/#create-a-django-project'>step 3</a> for more info.)
 <br>
 </details>
+
+## Additional Resources
+
+[Frontend Architecture](https://github.com/hackforla/CivicTechJobs/wiki/Frontend-Architecture)<br>
+[Backend Architecture](https://github.com/hackforla/CivicTechJobs/wiki/Backend-Architecture)<br>
+[GitHub Architecture](https://github.com/hackforla/CivicTechJobs/wiki/GitHub-Architecture)<br>
