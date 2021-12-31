@@ -7,7 +7,7 @@ function App() {
             <h1>Hi</h1>
             <div><span className="red">change the browser window size to see the color change responsively,</span> while this does not change at all!</div>
             <br></br>
-            <div className="red">CivicTechJobs unites ambitious technology practitioners with volunteer opportunities from a central hub of listings to build digital products, programs, and services.</div>
+            <div className="red text-center">CivicTechJobs unites ambitious technology practitioners with volunteer opportunities from a central hub of listings to build digital products, programs, and services.</div>
             <div className="title-1">Title 1</div>
             <div className="title-2">Title 2</div>
             <div className="title-3">Title 3</div>

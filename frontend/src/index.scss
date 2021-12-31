@@ -9,7 +9,6 @@ body {
     font-weight: normal;
     font-style: normal;
     font-size: 20px;
-    text-align: center;
 
     @include breakpoint-media-min(mobile) {
         color: $color-grey-dark
