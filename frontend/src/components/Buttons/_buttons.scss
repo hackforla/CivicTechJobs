@@ -1,0 +1,20 @@
+@use "../Basics" as *;
+
+button.btn {
+    border: none;
+    border-radius: 64px;
+    font-weight: bold;
+    height: 32px;
+    padding: 7px 24px;
+    width: 90px;
+}
+
+.btn-blue {
+    background-color: $color-blue;
+    color: $color-white;
+}
+
+a.btn {
+    padding: 7px 24px;
+}
+
