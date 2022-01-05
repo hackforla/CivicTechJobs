@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { render } from "react-dom";
 import { Button, ButtonLink } from "./Buttons/Buttons";
 import * as Images from "../assets/images/images";
@@ -7,24 +7,34 @@ function App() {
   return (
     <div>
       <h1>Hi</h1>
-      <Button class="btn-icon btn-primary">Donate</Button>
-      <ButtonLink class="btn-lg btn-primary">Donate</ButtonLink>
-      <div>
-        <span className="red text-center">
-          Change the browser window size to see the color change responsively,
-        </span>{" "}
-        while this does not change at all!
-      </div>
-      <br></br>
-      <br></br>
-      <ButtonLink class="btn-icon btn-primary">Donate</ButtonLink>
-      <div>
-        <span className="red text-center">
-          Change the browser window size to see the color change responsively,
-        </span>{" "}
-        while this does not change at all!
-      </div>
-      <br></br>
+      <ButtonShowcase>
+        {
+          ["sm", "md", "lg", "icon"].map((size) => {
+            return <Button class={`btn-${size} btn-secondary`}>Donate</Button>
+          })
+        }
+      </ButtonShowcase>
+      <ButtonShowcase>
+        {
+          ["sm", "md", "lg", "icon"].map((size) => {
+            return <ButtonLink class={`btn-${size} btn-secondary`}>Donate</ButtonLink>
+          })
+        }
+      </ButtonShowcase>
+      <ButtonShowcase>
+        {
+          ["sm", "md", "lg"].map((size) => {
+            return <Button class={`btn-${size}-long btn-primary`}>Join Us</Button>
+          })
+        }
+      </ButtonShowcase>
+      <ButtonShowcase>
+        {
+          ["sm", "md", "lg"].map((size) => {
+            return <ButtonLink class={`btn-${size}-long btn-primary`}>Join Us</ButtonLink>
+          })
+        }
+      </ButtonShowcase>
       <img src={Images.LogoHorizontal} width="400"></img>
       <div>Horizontal</div>
       <br></br>
@@ -67,6 +77,22 @@ function App() {
       <div className="paragraph-4">Paragraph 4</div>
       <div className="paragraph-5">Paragraph 5</div>
     </div>
+  );
+}
+
+function ButtonShowcase(props) {
+  return (
+    <Fragment>
+      {props.children}
+      <div>
+        <span className="red text-center">
+          Change the browser window size to see the color change responsively,
+        </span>{" "}
+        while this does not change at all!
+      </div>
+      <br></br>
+      <br></br>
+    </Fragment>
   );
 }
 
