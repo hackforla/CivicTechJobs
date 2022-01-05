@@ -35,33 +35,35 @@ function App() {
           })
         }
       </ButtonShowcase>
-      <img src={Images.LogoHorizontal} width="400"></img>
+      <img src={Images.LogoHorizontal} height="50"></img>
       <div>Horizontal</div>
       <br></br>
-      <img src={Images.LogoMark} width="200"></img>
+      <img src={Images.LogoMark} height="50"></img>
       <div>Logomark</div>
       <br></br>
-      <img src={Images.LogoStacked} width="400"></img>
+      <img src={Images.LogoStacked} height="50"></img>
       <div>Stacked</div>
       <br></br>
-      <img src={Images.LogoType} width="400"></img>
+      <img src={Images.LogoType} height="50"></img>
       <div>Logotype</div>
       <br></br>
-      <img src={Images.LogoVertical} width="400"></img>
+      <img src={Images.LogoVertical} height="50"></img>
       <div>Vertical</div>
       <br></br>
-      <img src={Images.LogoWordmark} width="400"></img>
+      <img src={Images.LogoWordmark} height="50"></img>
       <div>Wordmark</div>
       <br></br>
-      <img src={Images.CopIconData} width="100"></img>
-      <img src={Images.CopIconEngineering} width="100"></img>
-      <img src={Images.CopIconOps} width="100"></img>
-      <img src={Images.CopIconProduct} width="100"></img>
-      <img src={Images.CopIconUiux} width="100"></img>
+      <img src={Images.CopIconData} height="50"></img>
+      <img src={Images.CopIconEngineering} height="50"></img>
+      <img src={Images.CopIconOps} height="50"></img>
+      <img src={Images.CopIconProduct} height="50"></img>
+      <img src={Images.CopIconUiux} height="50"></img>
+      <br></br>
       <div>COP Icons</div>
-      <img src={Images.IconDownArrow} width="100"></img>
-      <img src={Images.IconHamburgerMenu} width="100"></img>
-      <img src={Images.IconX} width="100"></img>
+      <img src={Images.IconDownArrow} height="50"></img>
+      <img src={Images.IconHamburgerMenu} height="50"></img>
+      <img src={Images.IconX} height="50"></img>
+      <br></br>
       <div>Majesticons</div>
       <div className="title-1">Title 1</div>
       <div className="title-2">Title 2</div>
