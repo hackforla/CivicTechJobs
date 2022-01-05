@@ -1,63 +1,74 @@
+@use "sass:map";
+
 @use "../Basics" as *;
 
-button.btn {
-    border: none;
-    font-weight: bold;
+@mixin all-buttons {
+  border: none;
+  font-weight: bold;
 }
 
-button.btn-sm {
+@mixin button($size) {
+  @include all-buttons();
+
+  @if $size == "sm" {
+    @extend .title-7;
     border-radius: 64px;
     height: 32px;
-    padding: 0px 24px;
+  } @else if $size == "md" {
+    @extend .title-6;
+    border-radius: 64px;
+    height: 40px;
+  } @else if $size == "lg" {
+    @extend .title-5;
+    border-radius: 64px;
+    height: 48px;
+  } @else if $size == "icon" {
+    border-radius: 24px;
+    height: 40px;
+  }
 }
 
-.btn-sm-long {
-    border-radius: 64px;
-    height: 32px;
-    padding: 0px 40px;
+.btn-sm {
+  padding: 7.64px 24px;
+  @include button(sm);
+
+  &-long {
+    padding: 7.64px 40px;
+    @include button(sm);
+  }
 }
 
 .btn-md {
-    border-radius: 64px;
-    height: 40px;
-    padding: 0px 32px;
-}
+  padding: 10.37px 32px;
+  @include button(md);
 
-.btn-md-long {
-    border-radius: 64px;
-    height: 40px;
-    padding: 0px 48px;
+  &-long {
+    padding: 10.37px 48px;
+    @include button(md);
+  }
 }
 
 .btn-lg {
-    border-radius: 64px;
-    height: 48px;
-    padding: 0px 40px;
-}
+  padding: 11.96px 40px;
+  @include button(lg);
 
-.btn-lg-long {
-    border-radius: 64px;
-    height: 40px;
-    padding: 0px 56px;
+  &-long {
+    padding: 11.96px 56px;
+    @include button(lg);
+  }
 }
 
 .btn-icon {
-    border-radius: 24px;
-    height: 40px;
-    padding: 0px 24px;
+  padding: 10.37px 24px;
+  @include button("icon");
 }
 
 .btn-primary {
-    background-color: $color-blue-dark;
-    color: $color-white;
+  background-color: $color-blue-dark;
+  color: $color-white;
 }
 
 .btn-secondary {
-    background-color: $color-blue;
-    color: $color-white;
+  background-color: $color-blue;
+  color: $color-white;
 }
-
-a.btn {
-    padding: 7px 24px;
-}
-

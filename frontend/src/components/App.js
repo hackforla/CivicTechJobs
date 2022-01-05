@@ -1,14 +1,22 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-import { Button, ButtonLink } from "./Buttons/Buttons"
+import { Button, ButtonLink } from "./Buttons/Buttons";
 import * as Images from "../assets/images/images";
 
 function App() {
   return (
     <div>
       <h1>Hi</h1>
-      <Button class="btn-secondary btn-sm">Donate</Button>
-      <ButtonLink class="btn-secondary">Donate</ButtonLink>
+      <Button class="btn-icon btn-primary">Donate</Button>
+      <div>
+        <span className="red text-center">
+          Change the browser window size to see the color change responsively,
+        </span>{" "}
+        while this does not change at all!
+      </div>
+      <br></br>
+      <br></br>
+      <ButtonLink class="btn-icon btn-primary">Donate</ButtonLink>
       <div>
         <span className="red text-center">
           Change the browser window size to see the color change responsively,
