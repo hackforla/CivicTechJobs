@@ -8,6 +8,7 @@ function App() {
     <div>
       <h1>Hi</h1>
       <Button class="btn-icon btn-primary">Donate</Button>
+      <ButtonLink class="btn-lg btn-primary">Donate</ButtonLink>
       <div>
         <span className="red text-center">
           Change the browser window size to see the color change responsively,

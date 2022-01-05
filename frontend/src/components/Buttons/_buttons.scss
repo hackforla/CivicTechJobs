@@ -4,62 +4,69 @@
 
 @mixin all-buttons {
   border: none;
+  display: inline-flex;
   font-weight: bold;
 }
 
 @mixin button($size) {
   @include all-buttons();
 
+  $heights: (
+    "sm": 32px,
+    "md": 40px,
+    "lg": 48px,
+    "icon": 40px,
+  );
+
+  height: map.get($heights, $size);
+  line-height: map.get($heights, $size);
+
   @if $size == "sm" {
     @extend .title-7;
     border-radius: 64px;
-    height: 32px;
   } @else if $size == "md" {
     @extend .title-6;
     border-radius: 64px;
-    height: 40px;
   } @else if $size == "lg" {
     @extend .title-5;
     border-radius: 64px;
-    height: 48px;
   } @else if $size == "icon" {
     border-radius: 24px;
-    height: 40px;
   }
 }
 
 .btn-sm {
-  padding: 7.64px 24px;
+  padding: 0px 24px;
   @include button(sm);
 
   &-long {
-    padding: 7.64px 40px;
+    padding: 0px 40px;
     @include button(sm);
   }
 }
 
 .btn-md {
-  padding: 10.37px 32px;
+  padding: 0px 32px;
   @include button(md);
 
   &-long {
-    padding: 10.37px 48px;
+    padding: 0px 48px;
     @include button(md);
   }
 }
 
 .btn-lg {
-  padding: 11.96px 40px;
+  padding: 0px 40px;
   @include button(lg);
 
   &-long {
-    padding: 11.96px 56px;
+    padding: 0px 56px;
     @include button(lg);
   }
 }
 
 .btn-icon {
-  padding: 10.37px 24px;
+  padding: 0px 24px;
   @include button("icon");
 }
 
