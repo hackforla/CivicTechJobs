@@ -1,12 +1,24 @@
+import PropTypes from 'prop-types';
 import React from "react";
 import "./_Buttons.scss";
 
-function Button(props) {
-  return <button className={`${props.class}`}>{props.children}</button>;
+function Button({ size = "sm", color = "primary", ...props }) {
+  console.log(props)
+
+
+  return (
+    <button className={`btn-${size} btn-${color} ${props.class || ""}`} disabled={true}>
+      {props.children}
+    </button>
+  );
 }
 
-function ButtonLink(props) {
-  return <a className={`${props.class}`}>{props.children}</a>;
+function ButtonLink({ size = "sm", color = "primary", ...props }) {
+  return (
+    <a className={`btn-${size} btn-${color} ${props.class || ""}`}>
+      {props.children}
+    </a>
+  );
 }
 
 export { Button, ButtonLink };

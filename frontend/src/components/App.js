@@ -9,29 +9,29 @@ function App() {
       <h1>Hi</h1>
       <ButtonShowcase>
         {
-          ["sm", "md", "lg", "icon"].map((size) => {
-            return <Button class={`btn-${size} btn-secondary`}>Donate</Button>
+          ["sm", "md", "lg", "icon"].map((size, index) => {
+            return <Button key={index} size={size} color='secondary'>Donate</Button>
           })
         }
       </ButtonShowcase>
       <ButtonShowcase>
         {
-          ["sm", "md", "lg", "icon"].map((size) => {
-            return <ButtonLink class={`btn-${size} btn-secondary`}>Donate</ButtonLink>
+          ["sm", "md", "lg", "icon"].map((size, index) => {
+            return <ButtonLink key={index} size={size} color='secondary'>Donate</ButtonLink>
           })
         }
       </ButtonShowcase>
       <ButtonShowcase>
         {
-          ["sm", "md", "lg"].map((size) => {
-            return <Button class={`btn-${size}-long btn-primary`}>Join Us</Button>
+          ["sm", "md", "lg"].map((size, index) => {
+            return <Button key={index} size={size} color='primary'>Join Us</Button>
           })
         }
       </ButtonShowcase>
       <ButtonShowcase>
         {
-          ["sm", "md", "lg"].map((size) => {
-            return <ButtonLink class={`btn-${size}-long btn-primary`}>Join Us</ButtonLink>
+          ["sm", "md", "lg"].map((size, index) => {
+            return <ButtonLink key={index} size={size} color='primary'>Join Us</ButtonLink>
           })
         }
       </ButtonShowcase>
