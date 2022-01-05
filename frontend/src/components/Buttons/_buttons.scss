@@ -2,14 +2,57 @@
 
 button.btn {
     border: none;
-    border-radius: 64px;
     font-weight: bold;
-    height: 32px;
-    padding: 7px 24px;
-    width: 90px;
 }
 
-.btn-blue {
+button.btn-sm {
+    border-radius: 64px;
+    height: 32px;
+    padding: 0px 24px;
+}
+
+.btn-sm-long {
+    border-radius: 64px;
+    height: 32px;
+    padding: 0px 40px;
+}
+
+.btn-md {
+    border-radius: 64px;
+    height: 40px;
+    padding: 0px 32px;
+}
+
+.btn-md-long {
+    border-radius: 64px;
+    height: 40px;
+    padding: 0px 48px;
+}
+
+.btn-lg {
+    border-radius: 64px;
+    height: 48px;
+    padding: 0px 40px;
+}
+
+.btn-lg-long {
+    border-radius: 64px;
+    height: 40px;
+    padding: 0px 56px;
+}
+
+.btn-icon {
+    border-radius: 24px;
+    height: 40px;
+    padding: 0px 24px;
+}
+
+.btn-primary {
+    background-color: $color-blue-dark;
+    color: $color-white;
+}
+
+.btn-secondary {
     background-color: $color-blue;
     color: $color-white;
 }
