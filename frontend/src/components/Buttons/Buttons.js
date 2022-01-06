@@ -8,6 +8,7 @@ function Button({ size = "sm", color = "primary", ...props }) {
   return (
     <Tag
       className={combineClasses(
+        "btn",
         `btn-${size}`,
         `btn-${color}`,
         props.disabled && "disabled",

@@ -2,15 +2,15 @@
 
 @use "../Basics" as *;
 
-@mixin all-buttons {
+// Button class for all buttons
+.btn {
   border: none;
   display: inline-flex;
   font-weight: bold;
 }
 
+// Button classes concerning size
 @mixin button-size($size) {
-  @include all-buttons();
-
   $heights: (
     "sm": 32px,
     "md": 40px,
@@ -18,58 +18,57 @@
     "icon": 40px,
   );
 
-  height: map.get($heights, $size);
-  line-height: map.get($heights, $size);
+  .btn-#{$size} {
+    height: map.get($heights, $size);
+    line-height: map.get($heights, $size);
 
-  @if $size == "sm" {
-    @extend .title-7;
-    border-radius: 64px;
-  } @else if $size == "md" {
-    @extend .title-6;
-    border-radius: 64px;
-  } @else if $size == "lg" {
-    @extend .title-5;
-    border-radius: 64px;
-  } @else if $size == "icon" {
-    border-radius: 24px;
+    // Specific to small buttons
+    @if $size == "sm" {
+      @extend .title-7;
+      border-radius: 64px;
+      padding: 0px 24px;
+      // long variant
+      &-long {
+        @extend .btn-#{$size};
+        padding: 0px 40px;
+      }
+
+      // Specific to medium buttons
+    } @else if $size == "md" {
+      @extend .title-6;
+      border-radius: 64px;
+      padding: 0px 32px;
+      // long variant
+      &-long {
+        @extend .btn-#{$size};
+        padding: 0px 48px;
+      }
+
+      // Specific to large buttons
+    } @else if $size == "lg" {
+      @extend .title-5;
+      border-radius: 64px;
+      padding: 0px 40px;
+      // long variant
+      &-long {
+        @extend .btn-#{$size};
+        padding: 0px 56px;
+      }
+
+      // Specific to icon buttons
+    } @else if $size == "icon" {
+      border-radius: 24px;
+      padding: 0px 24px;
+    }
   }
 }
 
-.btn-sm {
-  @include button-size(sm);
-  padding: 0px 24px;
+@include button-size("sm");
+@include button-size("md");
+@include button-size("lg");
+@include button-size("icon");
 
-  &-long {
-    @extend .btn-sm;
-    padding: 0px 40px;
-  }
-}
-
-.btn-md {
-  @include button-size(md);
-  padding: 0px 32px;
-
-  &-long {
-    @extend .btn-md;
-    padding: 0px 48px;
-  }
-}
-
-.btn-lg {
-  @include button-size(lg);
-  padding: 0px 40px;
-
-  &-long {
-    @extend .btn-lg;
-    padding: 0px 56px;
-  }
-}
-
-.btn-icon {
-  @include button-size("icon");
-  padding: 0px 24px;
-}
-
+// Button classes concerning color themes
 @mixin button-theme($theme) {
   .btn-#{$theme} {
     @if $theme == "primary" {
