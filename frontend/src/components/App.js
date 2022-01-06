@@ -1,12 +1,14 @@
 import React, { Component, Fragment } from "react";
 import { render } from "react-dom";
-import { Button, ButtonLink } from "./Buttons/Buttons";
+import { Button } from "./Buttons/Buttons";
 import * as Images from "../assets/images/images";
 
 function App() {
   return (
     <div>
       <h1>Hi</h1>
+      <Button>Test</Button>
+      <br></br>
       <ButtonShowcase>
         {
           ["sm", "md", "lg", "icon"].map((size, index) => {
@@ -17,21 +19,21 @@ function App() {
       <ButtonShowcase>
         {
           ["sm", "md", "lg", "icon"].map((size, index) => {
-            return <ButtonLink key={index} size={size} color='secondary'>Donate</ButtonLink>
+            return <Button href="" key={index} size={size} color='secondary'>Donate</Button>
           })
         }
       </ButtonShowcase>
       <ButtonShowcase>
         {
           ["sm", "md", "lg"].map((size, index) => {
-            return <Button key={index} size={size} color='primary'>Join Us</Button>
+            return <Button key={index} size={size} variant='long' color='primary'>Join Us</Button>
           })
         }
       </ButtonShowcase>
       <ButtonShowcase>
         {
           ["sm", "md", "lg"].map((size, index) => {
-            return <ButtonLink key={index} size={size} color='primary'>Join Us</ButtonLink>
+            return <Button key={index} size={size} color='primary' variant='long'>Join Us</Button>
           })
         }
       </ButtonShowcase>
