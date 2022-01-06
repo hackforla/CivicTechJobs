@@ -23,6 +23,7 @@ function Button({ size = "sm", color = "primary", ...props }) {
 Button.propTypes = {
   class: PropTypes.string,
   color: PropTypes.oneOf(["primary", "secondary"]),
+  href: PropTypes.string,
   disabled: PropTypes.bool,
   size: PropTypes.oneOf([
     "sm",
