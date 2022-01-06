@@ -7,12 +7,10 @@ function App() {
   return (
     <div>
       <h1>Hi</h1>
-      <Button>Test</Button>
-      <br></br>
       <ButtonShowcase>
         {
           ["sm", "md", "lg", "icon"].map((size, index) => {
-            return <Button key={index} size={size} color='secondary'>Donate</Button>
+            return <Button key={index} size={size} color='secondary' disabled>Donate</Button>
           })
         }
       </ButtonShowcase>
