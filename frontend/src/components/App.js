@@ -8,32 +8,40 @@ function App() {
     <div>
       <h1>Hi</h1>
       <ButtonShowcase>
-        {
-          ["sm", "md", "lg", "icon"].map((size, index) => {
-            return <Button key={index} size={size} color='secondary' disabled>Donate</Button>
-          })
-        }
+        {["sm", "md", "lg", "icon"].map((size, index) => {
+          return (
+            <Button key={index} size={size} color="secondary" disabled>
+              Donate
+            </Button>
+          );
+        })}
       </ButtonShowcase>
       <ButtonShowcase>
-        {
-          ["sm", "md", "lg", "icon"].map((size, index) => {
-            return <Button href="" key={index} size={size} color='secondary'>Donate</Button>
-          })
-        }
+        {["sm", "md", "lg", "icon"].map((size, index) => {
+          return (
+            <Button href="" key={index} size={size} color="secondary">
+              Donate
+            </Button>
+          );
+        })}
       </ButtonShowcase>
       <ButtonShowcase>
-        {
-          ["sm", "md", "lg"].map((size, index) => {
-            return <Button key={index} size={size} variant='long' color='primary'>Join Us</Button>
-          })
-        }
+        {["sm", "md", "lg"].map((size, index) => {
+          return (
+            <Button key={index} size={size + "-long"} color="primary">
+              Join Us
+            </Button>
+          );
+        })}
       </ButtonShowcase>
       <ButtonShowcase>
-        {
-          ["sm", "md", "lg"].map((size, index) => {
-            return <Button key={index} size={size} color='primary' variant='long'>Join Us</Button>
-          })
-        }
+        {["sm", "md", "lg"].map((size, index) => {
+          return (
+            <Button key={index} size={size + "-long"} color="primary">
+              Join Us
+            </Button>
+          );
+        })}
       </ButtonShowcase>
       <img src={Images.LogoHorizontal} height="50"></img>
       <div>Horizontal</div>

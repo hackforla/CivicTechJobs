@@ -3,18 +3,16 @@ import React from "react";
 import "./_Buttons.scss";
 
 function Button({ size = "sm", color = "primary", ...props }) {
-  const Tag = 'href' in props ? 'a' : 'button'
+  const Tag = "href" in props ? "a" : "button";
 
   return (
     <Tag
       className={combineClasses(
-        `btn-${size}${props.variant ? `-${props.variant}` : ""}`,
+        `btn-${size}`,
         `btn-${color}`,
-        props.variant,
-        props.class,
-        props.disabled && "disabled"
+        props.disabled && "disabled",
+        props.class
       )}
-
       href={props.href}
     >
       {props.children}
@@ -23,12 +21,18 @@ function Button({ size = "sm", color = "primary", ...props }) {
 }
 
 Button.propTypes = {
-  active: PropTypes.bool,
   class: PropTypes.string,
   color: PropTypes.oneOf(["primary", "secondary"]),
   disabled: PropTypes.bool,
-  size: PropTypes.oneOf(["sm", "md", "lg", "icon"]),
-  variant: PropTypes.oneOf(["long"]),
+  size: PropTypes.oneOf([
+    "sm",
+    "md",
+    "lg",
+    "icon",
+    "sm-long",
+    "md-long",
+    "lg-long",
+  ]),
 };
 
 function combineClasses(...args) {
