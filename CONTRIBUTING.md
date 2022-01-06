@@ -1,6 +1,6 @@
 # Welcome to the CivicTechJobs Contributing Guide
 
-> ###### Note: This guide is for developers. If you are look to contribute as a project manager, go [here](). For UI, go [here](). And lastly, for UX, go [here]().
+> Note: This guide is for developers. If you are look to contribute as a project manager, go [here](). For UI, go [here](). And lastly, for UX, go [here]().
 
 Thank you for investing your time to our project. Anything you contribute will be reflected on our repository at [hackforla/civictechjobs](https://github.com/hackforla/CivicTechJobs).
 
