@@ -8,7 +8,7 @@
   font-weight: bold;
 }
 
-@mixin button($size) {
+@mixin button-size($size) {
   @include all-buttons();
 
   $heights: (
@@ -36,46 +36,56 @@
 }
 
 .btn-sm {
+  @include button-size(sm);
   padding: 0px 24px;
-  @include button(sm);
 
   &-long {
+    @extend .btn-sm;
     padding: 0px 40px;
-    @include button(sm);
   }
 }
 
 .btn-md {
+  @include button-size(md);
   padding: 0px 32px;
-  @include button(md);
 
   &-long {
+    @extend .btn-md;
     padding: 0px 48px;
-    @include button(md);
   }
 }
 
 .btn-lg {
+  @include button-size(lg);
   padding: 0px 40px;
-  @include button(lg);
 
   &-long {
+    @extend .btn-lg;
     padding: 0px 56px;
-    @include button(lg);
   }
 }
 
 .btn-icon {
+  @include button-size("icon");
   padding: 0px 24px;
-  @include button("icon");
 }
 
-.btn-primary {
-  background-color: $color-blue-dark;
-  color: $color-white;
+@mixin button-theme($theme) {
+  .btn-#{$theme} {
+    @if $theme == "primary" {
+      background-color: $color-blue-dark;
+      color: $color-white;
+    } @else if $theme == "secondary" {
+      background-color: $color-blue;
+      color: $color-white;
+    }
+
+    &.disabled {
+      background-color: $color-grey;
+      color: $color-grey-light;
+    }
+  }
 }
 
-.btn-secondary {
-  background-color: $color-blue;
-  color: $color-white;
-}
+@include button-theme("primary");
+@include button-theme("secondary");
