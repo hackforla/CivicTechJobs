@@ -2,8 +2,9 @@ import PropTypes from "prop-types";
 import React from "react";
 import "./_Buttons.scss";
 
+// Default button size/colour is small/primary
 function Button({ size = "sm", color = "primary", ...props }) {
-  const Tag = "href" in props ? "a" : "button";
+  const Tag = "href" in props ? "a" : "button"; // conditionally rendered tags
 
   return (
     <Tag
@@ -15,17 +16,20 @@ function Button({ size = "sm", color = "primary", ...props }) {
         props.class
       )}
       href={props.href}
+      onClick={() => props.onClick}
     >
       {props.children}
     </Tag>
   );
 }
 
+// Type declaration for props
 Button.propTypes = {
   class: PropTypes.string,
   color: PropTypes.oneOf(["primary", "secondary"]),
-  href: PropTypes.string,
   disabled: PropTypes.bool,
+  href: PropTypes.string,
+  onClick: PropTypes.func,
   size: PropTypes.oneOf([
     "sm",
     "md",
@@ -37,15 +41,13 @@ Button.propTypes = {
   ]),
 };
 
+/**
+ * Takes an array of different and combine them into one string to be placed in an element's class attribute.
+ * @param  {...any} args an array of anything
+ * @returns a joined string after filtering out non-strings from args
+ */
 function combineClasses(...args) {
-  let classes = [];
-  for (const arg of args) {
-    if (arg) {
-      classes.push(arg);
-    }
-  }
-
-  return classes.join(" ");
+  return args.filter((x) => typeof x === "string").join(" ");
 }
 
 export { Button };
