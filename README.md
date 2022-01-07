@@ -17,60 +17,31 @@ Civic Tech technology practitioners are a diverse and interdisciplinary group of
 
 ### Technology used
 
+#### Collaboration Technologies
 - [Github Project Board](https://github.com/hackforla/CivicTechJobs/projects/1)
 - [Slack](https://hackforla.slack.com/archives/C02509WHFQQ)
 - [Google Drive](https://drive.google.com/drive/u/0/folders/0AMdnUkSXicNCUk9PVA) 
 - [Figma](https://www.figma.com/file/G5bOqhud6azbxyR9El9Ygp/Civic-Tech-Jobs?node-id=0%3A1)
 
-
+#### Project Technology Stack
+- [Django](https://www.djangoproject.com/)
+- [Django Rest Framework](https://www.django-rest-framework.org/)
+- [React](https://reactjs.org/)
+- [Webpack](https://webpack.js.org/)
+- [Babel](https://babeljs.io/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Docker](https://www.docker.com/)
+- [GitHub Actions](https://github.com/features/actions)
 
 # How to contribute
 
-Explain the different ways people can contribute. For example:
+## As a developer:
 
-- Join the [Slack](https://hackforla.slack.com/archives/C02509WHFQQ) Channel and say hello! we have team meetings every tuesday at 5PM PST
-- Provide UX/UI design support.
-- Help us with usability testing..
-- To contribute as a developer, refer to our instructions below (WIP)
+Please visit our [CONTRIBUTING.md](https://github.com/hackforla/CivicTechJobs/blob/main/CONTRIBUTING.md) for information on contributing as a developer, installation instructions, and links to helpful documentation.
 
+## Submitting a Bug
 
-Please see the [Civic Tech Jobs Wiki](https://github.com/hackforla/CivicTechJobs/wiki) for detailed information.
-
-
-
-
-## Installation instructions
-
-1. Step-by-step instructions help new contributors get a development environment up and running quickly.
-2. You'll want to find the balance between being specific enough for novices to follow, without being so specific that you reinvent the wheel by providing overly-basic instructions that can be found elsewhere.
-3. Feel free to adapt this section and its sub-sections to your own processes.
-4. Alternatively, you can move everything from *Installation instructions* through *Testing* to a separate **Contributing.md** file to keep your **ReadMe.md** more succinct.
-
-
-### Working with issues
-
-- Explain how to submit a bug.
-- Explain how to submit a feature request.
-- Explain how to contribute to an existing issue.
-
-To create a new issue, please use the blank issue template (available when you click New Issue).  If you want to create an issue for other projects to use, please create the issue in your own repository and send a slack message to one of your hack night hosts with the link.
-
-
-### Working with forks and branches
-
-- Explain your guidelines here.
-
-
-### Working with pull requests and reviews
-
-- Explain your process.
-
-
-### Testing
-
-- Provide instructions.
-
-
+We do not currently have a dedicated issue template for contributors outside of our team to report bugs. For now, please [open a blank issue](https://github.com/hackforla/CivicTechJobs/issues/new) and describe your inquiry as best as you can. Once you are finished, [add your newly opened issue to our Project Management project board](https://docs.github.com/en/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar).
 
 ### Licensing
 
