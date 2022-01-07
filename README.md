@@ -23,7 +23,7 @@ Civic Tech technology practitioners are a diverse and interdisciplinary group of
 - [Google Drive](https://drive.google.com/drive/u/0/folders/0AMdnUkSXicNCUk9PVA) 
 - [Figma](https://www.figma.com/file/G5bOqhud6azbxyR9El9Ygp/Civic-Tech-Jobs?node-id=0%3A1)
 
-### Project Technology Stack
+### Project Tech Stack
 - [Django](https://www.djangoproject.com/)
 - [Django Rest Framework](https://www.django-rest-framework.org/)
 - [React](https://reactjs.org/)
