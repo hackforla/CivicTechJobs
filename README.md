@@ -37,7 +37,7 @@ Civic Tech technology practitioners are a diverse and interdisciplinary group of
 
 ### As a developer:
 
-Please visit our [CONTRIBUTING.md](https://github.com/hackforla/CivicTechJobs/blob/main/CONTRIBUTING.md) for information on contributing as a developer, installation instructions, and links to helpful documentation.
+Please visit our [CONTRIBUTING.md](https://github.com/hackforla/CivicTechJobs/blob/main/CONTRIBUTING.md) for information on contributing as a developer, installing and running this project locally, and our architecture.
 
 ### Submitting a Bug
 
