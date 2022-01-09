@@ -35,6 +35,12 @@ Civic Tech technology practitioners are a diverse and interdisciplinary group of
 
 ## How to contribute
 
+### As a project manager, UI designer, or UX researcher:
+
+- Join the [Slack](https://hackforla.slack.com/archives/C02509WHFQQ) Channel and say hello! we have team meetings every tuesday at 5PM PST
+- Provide UX/UI design support.
+- Help us with usability testing.
+
 ### As a developer:
 
 Please visit our [CONTRIBUTING.md](https://github.com/hackforla/CivicTechJobs/blob/main/CONTRIBUTING.md) for information on contributing as a developer, installing and running this project locally, and our architecture.
