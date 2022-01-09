@@ -1,83 +1,72 @@
-.title-1 {
+@mixin title($size) {
+  .title-#{$size} {
     font-family: Roboto;
-    font-size: 48px;
     font-weight: bold;
-    line-height: 58px;
+
+    @if $size == 1 {
+      font-size: 48px;
+      line-height: 58px;
+    } @else if $size == 2 {
+      font-size: 36px;
+      line-height: 44px;
+    } @else if $size == 3 {
+      font-size: 28px;
+      line-height: 34px;
+    } @else if $size == 4 {
+      font-size: 24px;
+      line-height: 30px;
+    } @else if $size == 5 {
+      font-size: 20px;
+      line-height: 24px;
+    } @else if $size == 6 {
+      font-size: 16px;
+      line-height: 20px;
+    } @else if $size == 7 {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
 }
 
-.title-2 {
-    font-family: Roboto;
-    font-size: 36px;
-    font-weight: bold;
-    line-height: 44px;
-}
-
-.title-3 {
-    font-family: Roboto;
-    font-size: 28px;
-    font-weight: bold;
-    line-height: 34px;
-}
-
-.title-4 {
-    font-family: Roboto;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 30px;
-}
-
-.title-5 {
-    font-family: Roboto;
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 24px;
-}
-
-.title-6 {
-    font-family: Roboto;
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 20px;
-}
-
-.title-7 {
-    font-family: Roboto;
-    font-size: 14px;
-    font-weight: bold;
-    line-height: 18px;
-}
+@include title(1);
+@include title(2);
+@include title(3);
+@include title(4);
+@include title(5);
+@include title(6);
+@include title(7);
 
 .paragraph-1 {
-    font-family: Roboto;
-    font-size: 20px;
-    font-weight: normal;
-    line-height: 24px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 24px;
 }
 
 .paragraph-2 {
-    font-family: Roboto;
-    font-size: 18px;
-    font-weight: normal;
-    line-height: 22px;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 22px;
 }
 
 .paragraph-3 {
-    font-family: Roboto;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 20px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 20px;
 }
 
 .paragraph-4 {
-    font-family: Roboto;
-    font-size: 15px;
-    font-weight: normal;
-    line-height: 18px;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: normal;
+  line-height: 18px;
 }
 
 .paragraph-5 {
-    font-family: Roboto;
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 18px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 18px;
 }
