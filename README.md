@@ -49,8 +49,4 @@ Please visit our [CONTRIBUTING.md](https://github.com/hackforla/CivicTechJobs/bl
 
 We do not currently have a dedicated issue template for contributors outside of our team to report bugs. For now, please [open a blank issue](https://github.com/hackforla/CivicTechJobs/issues/new) and describe your inquiry as best as you can. Once you are finished, [add your newly opened issue to our Project Management project board](https://docs.github.com/en/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar).
 
-## Licensing
-
-Include details about the project's open source status.
-
 *this readme file sourced from [Jessica Sand](http://jessicasand.com/other-stuff/just-enough-docs/)*
