@@ -30,8 +30,8 @@ Explain the different ways people can contribute. For example:
 
 - Join the [Slack](https://hackforla.slack.com/archives/C02509WHFQQ) Channel and say hello! we have team meetings every tuesday at 5PM PST
 - Provide UX/UI design support.
-- Help us with usability testing..
-- To contribute as a developer, refer to our instructions below (WIP)
+- Help us with usability testing..[
+- To contribute as a developer, refer to the [Civic Tech Jobs CONTRIBUTING.md](https://github.com/hackforla/CivicTechJobs/blob/main/CONTRIBUTING.md) file
 
 
 Please see the [Civic Tech Jobs Wiki](https://github.com/hackforla/CivicTechJobs/wiki) for detailed information.
