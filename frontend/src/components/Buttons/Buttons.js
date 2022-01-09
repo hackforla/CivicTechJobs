@@ -16,6 +16,7 @@ function Button({ size = "sm", color = "primary", ...props }) {
         props.class
       )}
       href={props.href}
+      target={props.href ? props.target : null}
       onClick={() => props.onClick}
     >
       {props.children}
@@ -38,6 +39,13 @@ Button.propTypes = {
     "sm-long",
     "md-long",
     "lg-long",
+  ]),
+  target: PropTypes.oneOf([
+    "_blank",
+    "_self",
+    "_parent",
+    "_top",
+    PropTypes.string,
   ]),
 };
 
