@@ -2,7 +2,9 @@
 
 @use "../Basics" as *;
 
-// Button class for all buttons
+/***********************************
+*** Button class for all buttons ***
+***********************************/
 .btn {
   border: none;
   display: inline-flex;
@@ -10,8 +12,34 @@
   text-decoration: none;
 }
 
-// Button classes concerning size
+/**********************************************
+*** Button classes concerning size (normal) ***
+**********************************************/
 @mixin button-size($size) {
+  // Specific to small buttons
+  @if $size == "sm" {
+    @include title(7);
+    border-radius: 64px;
+    padding: 0px 24px;
+
+    // Specific to medium buttons
+  } @else if $size == "md" {
+    @include title(6);
+    border-radius: 64px;
+    padding: 0px 32px;
+
+    // Specific to large buttons
+  } @else if $size == "lg" {
+    @include title(5);
+    border-radius: 64px;
+    padding: 0px 40px;
+
+    // Specific to icon buttons
+  } @else if $size == "icon" {
+    border-radius: 24px;
+    padding: 0px 24px;
+  }
+  
   $heights: (
     "sm": 32px,
     "md": 40px,
@@ -19,73 +47,94 @@
     "icon": 40px,
   );
 
-  .btn-#{$size} {
-    height: map.get($heights, $size);
-    line-height: map.get($heights, $size);
+  height: map.get($heights, $size);
+  line-height: map.get($heights, $size);
+}
 
-    // Specific to small buttons
-    @if $size == "sm" {
-      @extend .title-7;
-      border-radius: 64px;
-      padding: 0px 24px;
-      // long variant
-      &-long {
-        @extend .btn-#{$size};
-        padding: 0px 40px;
-      }
+.btn-sm {
+  @include button-size("sm");
+}
 
-      // Specific to medium buttons
-    } @else if $size == "md" {
-      @extend .title-6;
-      border-radius: 64px;
-      padding: 0px 32px;
-      // long variant
-      &-long {
-        @extend .btn-#{$size};
-        padding: 0px 48px;
-      }
+.btn-md {
+  @include button-size("md");
+}
 
-      // Specific to large buttons
-    } @else if $size == "lg" {
-      @extend .title-5;
-      border-radius: 64px;
-      padding: 0px 40px;
-      // long variant
-      &-long {
-        @extend .btn-#{$size};
-        padding: 0px 56px;
-      }
+.btn-lg {
+  @include button-size("lg");
+}
 
-      // Specific to icon buttons
-    } @else if $size == "icon" {
-      border-radius: 24px;
-      padding: 0px 24px;
-    }
+.btn-icon {
+  @include button-size("icon");
+}
+
+/********************************************
+*** Button classes concerning size (long) ***
+********************************************/
+@mixin button-size-long($size) {
+  @include button-size($size);
+  @if $size == "sm" {
+    padding: 0px 40px;
+  } @else if $size == "md" {
+    padding: 0px 48px;
+  } @else if $size == "lg" {
+    padding: 0px 56px;
   }
 }
 
-@include button-size("sm");
-@include button-size("md");
-@include button-size("lg");
-@include button-size("icon");
+.btn-sm-long {
+  @include button-size-long("sm");
+}
 
-// Button classes concerning color themes
+.btn-md-long {
+  @include button-size-long("md");
+}
+
+.btn-lg-long {
+  @include button-size-long("lg");
+}
+
+/*********************************************
+*** Button classes concerning color themes ***
+*********************************************/
 @mixin button-theme($theme) {
-  .btn-#{$theme} {
-    @if $theme == "primary" {
-      background-color: $color-blue-dark;
-      color: $color-white;
-    } @else if $theme == "secondary" {
-      background-color: $color-blue;
-      color: $color-white;
-    }
+  @if $theme == "primary" {
+    background-color: $color-blue-dark;
+    color: $color-white;
+  } @else if $theme == "secondary" {
+    background-color: $color-blue;
+    color: $color-white;
+  }
 
-    &.disabled {
-      background-color: $color-grey;
-      color: $color-grey-light;
+  &.disabled {
+    background-color: $color-grey;
+    color: $color-grey-light;
+  }
+}
+
+.btn-primary {
+  @include button-theme("primary");
+}
+
+.btn-secondary {
+  @include button-theme("secondary");
+}
+
+/****************************************************
+*** Button classes concerning size responsiveness ***
+****************************************************/
+@mixin button-responsive($size, $device) {
+  .btn-#{$size}-#{$device} {
+    @include breakpoint-media-max($device) {
+      @include button-size($size);
     }
   }
 }
 
-@include button-theme("primary");
-@include button-theme("secondary");
+@include button-responsive("md", "laptop");
+@include button-responsive("md", "lgtablet");
+@include button-responsive("md", "smtablet");
+@include button-responsive("md", "mobile");
+@include button-responsive("sm", "laptop");
+@include button-responsive("sm", "lgtablet");
+@include button-responsive("sm", "smtablet");
+@include button-responsive("sm", "mobile");
