@@ -152,27 +152,48 @@
 /****************************************************
 *** Button classes concerning size responsiveness ***
 ****************************************************/
-@mixin button-responsive($size, $device, $variant: null) {
-  @if $variant {
-    .btn-#{$size}-#{$variant}-#{$device} {
-      @include breakpoint-media-max($device) {
-        @include button-size($size);
-      }
-    }
-  } @else {
-    .btn-#{$size}-#{$device} {
-      @include breakpoint-media-max($device) {
-        @include button-size($size);
-      }
-    }
+@mixin button-responsive($size, $device) {
+  @include breakpoint-media-max($device) {
+    @include button-size($size);
   }
 }
 
-@include button-responsive("md", "laptop");
-@include button-responsive("md", "lgtablet");
-@include button-responsive("md", "smtablet");
-@include button-responsive("md", "mobile");
-@include button-responsive("sm", "laptop");
-@include button-responsive("sm", "lgtablet");
-@include button-responsive("sm", "smtablet");
-@include button-responsive("sm", "mobile");
+.btn-md-laptop,
+.btn-md-long-laptop {
+  @include button-responsive("md", "laptop");
+}
+
+.btn-md-lgtablet,
+.btn-md-long-lgtablet {
+  @include button-responsive("md", "lgtablet");
+}
+
+.btn-md-smtablet,
+.btn-md-long-smtablet {
+  @include button-responsive("md", "smtablet");
+}
+
+.btn-md-mobile,
+.btn-md-long-mobile {
+  @include button-responsive("md", "mobile");
+}
+
+.btn-sm-laptop,
+.btn-sm-long-laptop {
+  @include button-responsive("sm", "laptop");
+}
+
+.btn-sm-lgtablet,
+.btn-sm-long-lgtablet {
+  @include button-responsive("sm", "lgtablet");
+}
+
+.btn-sm-smtablet,
+.btn-sm-long-smtablet {
+  @include button-responsive("sm", "smtablet");
+}
+
+.btn-sm-mobile,
+.btn-sm-long-mobile {
+  @include button-responsive("sm", "mobile");
+}
