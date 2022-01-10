@@ -105,18 +105,48 @@
     color: $color-white;
   }
 
+  // When cannot be pressed
   &.disabled {
     background-color: $color-grey;
     color: $color-grey-light;
+    pointer-events: none;
   }
 }
 
 .btn-primary {
   @include button-theme("primary");
+  // When selected with a keyboard
+  &:focus {
+    background-color: $color-blue-dark-focused;
+  }
+
+  // When mouse is over it
+  &:hover {
+    background-color: $color-blue-dark-hover;
+  }
+
+  // When clicked
+  &:active {
+    background-color: $color-blue-dark-focused;
+  }
 }
 
 .btn-secondary {
   @include button-theme("secondary");
+  // When selected with a keyboard
+  &:focus {
+    background-color: $color-blue-focused;
+  }
+
+  // When mouse is over it
+  &:hover {
+    background-color: $color-blue-dark;
+  }
+
+  // When clicked
+  &:active {
+    background-color: $color-blue-focused;
+  }
 }
 
 /****************************************************
