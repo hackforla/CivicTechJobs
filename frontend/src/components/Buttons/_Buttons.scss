@@ -39,7 +39,7 @@
     border-radius: 24px;
     padding: 0px 24px;
   }
-  
+
   $heights: (
     "sm": 32px,
     "md": 40px,
@@ -122,10 +122,18 @@
 /****************************************************
 *** Button classes concerning size responsiveness ***
 ****************************************************/
-@mixin button-responsive($size, $device) {
-  .btn-#{$size}-#{$device} {
-    @include breakpoint-media-max($device) {
-      @include button-size($size);
+@mixin button-responsive($size, $device, $variant: null) {
+  @if $variant {
+    .btn-#{$size}-#{$variant}-#{$device} {
+      @include breakpoint-media-max($device) {
+        @include button-size($size);
+      }
+    }
+  } @else {
+    .btn-#{$size}-#{$device} {
+      @include breakpoint-media-max($device) {
+        @include button-size($size);
+      }
     }
   }
 }
