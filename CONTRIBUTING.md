@@ -12,11 +12,11 @@ Pro tip: Use the table of contents in the top-left corner to jump to specific se
 
 ## Contributing to our project (for freelancers)
 
-### Making Issues
+### Creating Issues
 
 We do not currently have a dedicated issue template for creating issues for contributors outside of our team. For now, please [open a blank issue](https://github.com/hackforla/CivicTechJobs/issues/new) and describe your inquiry as best as you can. Once you are finished, [add your newly opened issue to our Project Management project board](https://docs.github.com/en/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar).
 
-### Resolving Issue
+### Resolving Issues
 
 > **Note: Make sure to check out our [installation instructions](https://github.com/hackforla/CivicTechJobs/wiki/Installation-Instructions) to set up your development environment before working on any issues!**
 
@@ -30,7 +30,7 @@ We do not currently have a dedicated issue template for creating issues for cont
 
 ## Contributing to our project (for members of our dev team)
 
-### Making Issues
+### Creating Issues
 
 To create an issue as a member of our team, locate the appropriate template for your issue from the [new issue screen](https://github.com/hackforla/CivicTechJobs/issues/new/choose). Typically, you will not go wrong with [Blank Issue](https://github.com/hackforla/CivicTechJobs/issues/new?assignees=&labels=&template=blank-issue.md&title=) or the [form version](https://github.com/hackforla/CivicTechJobs/issues/new?assignees=&labels=&template=blank-issue-form.yml). If you need help, feel free to consult your development lead or other members of the team. Once you are finished, [add your newly opened issue to our Project Management project board](https://docs.github.com/en/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar).
 
