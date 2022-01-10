@@ -24,18 +24,14 @@ function App() {
       <br></br>
       <Button
         href="https://www.google.com/"
-        size="lg"
         color="primary"
-        class="btn-sm-mobile btn-md-lgtablet"
         target="_blank"
       >
         Donate
       </Button>
       <Button
         href="https://www.google.com/"
-        size="lg"
         color="secondary"
-        class="btn-sm-mobile btn-md-lgtablet"
         target="_blank"
       >
         Donate
@@ -44,6 +40,29 @@ function App() {
         <span className="red text-center">
           These buttons uses a tags and are responsive! Click them to open a new
           tab to Google.
+        </span>
+      </div>
+      <br></br>
+      <br></br>
+      <Button
+        href="https://www.google.com/"
+        color="primary"
+        target="_blank"
+        disabled
+      >
+        Donate
+      </Button>
+      <Button
+        href="https://www.google.com/"
+        color="secondary"
+        target="_blank"
+        disabled
+      >
+        Donate
+      </Button>
+      <div>
+        <span className="red text-center">
+          These are the same as the second ones, but disabled.
         </span>
       </div>
       <br></br>
