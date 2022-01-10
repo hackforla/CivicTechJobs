@@ -16,7 +16,8 @@ function App() {
       </Button>
       <div>
         <span className="red text-center">
-          These buttons uses button tags and are responsive! Resize your screen to see the breakpoints!
+          These buttons uses button tags and are responsive! Resize your screen
+          to see the breakpoints!
         </span>
       </div>
       <br></br>
@@ -41,16 +42,17 @@ function App() {
       </Button>
       <div>
         <span className="red text-center">
-          These buttons uses a tags and are responsive! Click them to open a new tab to Google.
+          These buttons uses a tags and are responsive! Click them to open a new
+          tab to Google.
         </span>
       </div>
       <br></br>
       <br></br>
       <Button size="icon" color="primary">
-        Donate
+        &#128269;
       </Button>
       <Button size="icon" color="secondary">
-        Donate
+        &#128269;
       </Button>
       <div>
         <span className="red text-center">
