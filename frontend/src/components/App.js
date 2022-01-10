@@ -38,7 +38,7 @@ function App() {
       </Button>
       <div>
         <span className="red text-center">
-          These buttons uses a tags and are responsive! Click them to open a new
+          These buttons uses a tags! Click them to open a new
           tab to Google.
         </span>
       </div>
