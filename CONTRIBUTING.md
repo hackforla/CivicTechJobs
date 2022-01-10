@@ -20,7 +20,7 @@ We do not currently have a dedicated issue template for creating issues for cont
 
 > **Note: Make sure to check out our [installation instructions](https://github.com/hackforla/CivicTechJobs/wiki/Installation-Instructions) to set up your development environment before working on any issues!**
 
-1. Find a developer issue to work on from our [prioritized backlog](https://github.com/hackforla/CivicTechJobs/projects/1#column-10928271). (Hint: look for the 'frontend' or 'backend' label). The size label will signal the amount of work the issue might involve, with a higher number indicating greater work.
+1. Find a developer issue to work on from our [prioritized backlog](https://github.com/hackforla/CivicTechJobs/projects/1#column-10928271). (Hint: look for the `frontend` or `backend` label). The `size` label will signal the amount of work the issue might involve, with a higher number indicating greater work. For a first time contributor, we recommend taking issues with the `good first issue` label or a `size` of 1 or 2.
 2. [From your local repo, create a branch off of main.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
 3. Make changes to the project on that branch based on your issue.
 4. [Create a pull request through the forked repo](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork). After you had opened the pull request, there will be instructions on the pull request template for you to follow.
@@ -38,7 +38,7 @@ To create an issue as a member of our team, locate the appropriate template for 
 
 > **Note: Make sure to check out our [installation instructions](https://github.com/hackforla/CivicTechJobs/wiki/Installation-Instructions) to set up your development environment before working on any issues!**
 
-1. Find a developer issue to work on from our [prioritized backlog](https://github.com/hackforla/CivicTechJobs/projects/1#column-10928271). (Hint: look for the 'frontend' or 'backend' label). The size label will signal the amount of work the issue might involve, with a higher number indicating greater work.
+1. Find a developer issue to work on from our [prioritized backlog](https://github.com/hackforla/CivicTechJobs/projects/1#column-10928271). (Hint: look for the `frontend` or `backend` label). The `size` label will signal the amount of work the issue might involve, with a higher number indicating greater work. For a development team member, we encourage taking the topmost `frontend` or `backend` issue, as they are arranged by priority by role.
 2. Assign yourself to the issue. (Hint: see [step 4](https://docs.github.com/en/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users#assigning-an-individual-issue-or-pull-request).)
 3. Move the issue from the prioritized backlog to the [in progress](https://github.com/hackforla/CivicTechJobs/projects/1#column-10928272) column. (Hint, see [step 5](https://docs.github.com/en/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar).)
 4. [From your local repo, create a branch off of main.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
