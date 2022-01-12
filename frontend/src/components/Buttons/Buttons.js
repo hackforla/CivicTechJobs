@@ -27,7 +27,7 @@ function Button({ size = "sm", color = "primary", ...props }) {
 // Type declaration for props
 Button.propTypes = {
   class: PropTypes.string,
-  color: PropTypes.oneOf(["primary", "secondary"]),
+  color: PropTypes.oneOf(["primary", "primary-dark"]),
   disabled: PropTypes.bool,
   href: PropTypes.string,
   onClick: PropTypes.func,

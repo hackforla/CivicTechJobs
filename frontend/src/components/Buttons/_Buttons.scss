@@ -100,7 +100,7 @@
   @if $theme == "primary" {
     background-color: $color-blue-dark;
     color: $color-white;
-  } @else if $theme == "secondary" {
+  } @else if $theme == "primary-dark" {
     background-color: $color-blue;
     color: $color-white;
   }
@@ -132,8 +132,8 @@
   }
 }
 
-.btn-secondary {
-  @include button-theme("secondary");
+.btn-primary-dark {
+  @include button-theme("primary-dark");
   // When selected with a keyboard
   &:focus {
     background-color: $color-blue-focused;
@@ -141,7 +141,9 @@
 
   // When mouse is over it
   &:hover {
-    background-color: $color-blue-dark;
+    background-color: $color-white;
+    color: $color-charcoal;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
   }
 
   // When clicked
