@@ -9,10 +9,10 @@ function App() {
       <h1>Hello, World!</h1>
       <h2>Buttons</h2>
       <Button size="lg" color="primary" class="btn-sm-mobile btn-md-lgtablet">
-        Donate
+        Log In
       </Button>
       <Button size="lg" color="secondary" class="btn-sm-mobile btn-md-lgtablet">
-        Donate
+        Log In
       </Button>
       <div>
         <span className="red text-center">
@@ -22,24 +22,15 @@ function App() {
       </div>
       <br></br>
       <br></br>
-      <Button
-        href="https://www.google.com/"
-        color="primary"
-        target="_blank"
-      >
-        Donate
+      <Button href="https://www.google.com/" color="primary" target="_blank">
+        Log In
       </Button>
-      <Button
-        href="https://www.google.com/"
-        color="secondary"
-        target="_blank"
-      >
-        Donate
+      <Button href="https://www.google.com/" color="secondary" target="_blank">
+        Log In
       </Button>
       <div>
         <span className="red text-center">
-          These buttons uses a tags! Click them to open a new
-          tab to Google.
+          These buttons uses a tags! Click them to open a new tab to Google.
         </span>
       </div>
       <br></br>
@@ -50,7 +41,7 @@ function App() {
         target="_blank"
         disabled
       >
-        Donate
+        Log In
       </Button>
       <Button
         href="https://www.google.com/"
@@ -58,7 +49,7 @@ function App() {
         target="_blank"
         disabled
       >
-        Donate
+        Log In
       </Button>
       <div>
         <span className="red text-center">
