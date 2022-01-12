@@ -8,12 +8,18 @@ function App() {
     <div>
       <h1>Hello, World!</h1>
       <h2>Buttons</h2>
-      <Button size="lg" color="primary" class="btn-sm-mobile btn-md-lgtablet">
-        Log In
-      </Button>
-      <Button size="lg" color="secondary" class="btn-sm-mobile btn-md-lgtablet">
-        Log In
-      </Button>
+      <DivWrapper>
+        <Button size="lg" color="primary" class="btn-sm-mobile btn-md-lgtablet">
+          Log In
+        </Button>
+        <Button
+          size="lg"
+          color="primary-dark"
+          class="btn-sm-mobile btn-md-lgtablet"
+        >
+          Log In
+        </Button>
+      </DivWrapper>
       <div>
         <span className="red text-center">
           These buttons uses button tags and are responsive! Resize your screen
@@ -22,12 +28,18 @@ function App() {
       </div>
       <br></br>
       <br></br>
-      <Button href="https://www.google.com/" color="primary" target="_blank">
-        Log In
-      </Button>
-      <Button href="https://www.google.com/" color="secondary" target="_blank">
-        Log In
-      </Button>
+      <DivWrapper>
+        <Button href="https://www.google.com/" color="primary" target="_blank">
+          Log In
+        </Button>
+        <Button
+          href="https://www.google.com/"
+          color="primary-dark"
+          target="_blank"
+        >
+          Log In
+        </Button>
+      </DivWrapper>
       <div>
         <span className="red text-center">
           These buttons uses a tags! Click them to open a new tab to Google.
@@ -35,22 +47,24 @@ function App() {
       </div>
       <br></br>
       <br></br>
-      <Button
-        href="https://www.google.com/"
-        color="primary"
-        target="_blank"
-        disabled
-      >
-        Log In
-      </Button>
-      <Button
-        href="https://www.google.com/"
-        color="secondary"
-        target="_blank"
-        disabled
-      >
-        Log In
-      </Button>
+      <DivWrapper>
+        <Button
+          href="https://www.google.com/"
+          color="primary"
+          target="_blank"
+          disabled
+        >
+          Log In
+        </Button>
+        <Button
+          href="https://www.google.com/"
+          color="primary-dark"
+          target="_blank"
+          disabled
+        >
+          Log In
+        </Button>
+      </DivWrapper>
       <div>
         <span className="red text-center">
           These are the same as the second ones, but disabled.
@@ -58,12 +72,14 @@ function App() {
       </div>
       <br></br>
       <br></br>
-      <Button size="icon" color="primary">
-        &#128269;
-      </Button>
-      <Button size="icon" color="secondary">
-        &#128269;
-      </Button>
+      <DivWrapper>
+        <Button size="icon" color="primary">
+          &#128269;
+        </Button>
+        <Button size="icon" color="primary-dark">
+          &#128269;
+        </Button>
+      </DivWrapper>
       <div>
         <span className="red text-center">
           These are icon buttons. They are not responsive.
@@ -117,6 +133,17 @@ function App() {
       <div className="paragraph-4">Paragraph 4</div>
       <div className="paragraph-5">Paragraph 5</div>
     </div>
+  );
+}
+
+function DivWrapper(props) {
+  return (
+    <Fragment>
+      <div style={{ padding: "10px 0px" }}>{props.children[0]}</div>
+      <div style={{ backgroundColor: "#030D2D", padding: "10px 0px" }}>
+        {props.children[1]}
+      </div>
+    </Fragment>
   );
 }
 
