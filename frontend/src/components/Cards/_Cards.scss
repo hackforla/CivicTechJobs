@@ -1,0 +1,43 @@
+@use "../Basics" as *;
+
+.card {
+  border-radius: 16px;
+}
+
+.cop-card-lg {
+  background-color: $color-grey-light;
+  min-height: 624px;
+  margin: 8px;
+  max-width: 1088px;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+}
+
+.cop-card-lg-x {
+  margin-right: 3.8vw;
+  margin-top: 47px;
+}
+
+.cop-card-lg-content {
+  padding-top: 96px;
+  padding-right: 10.2vw;
+  padding-left: 6.1vw;
+}
+
+.cop-card-sm {
+  background-color: $color-grey-light;
+  min-height: 550px;
+  margin: 8px;
+  max-width: 312px;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+}
+
+.cop-card-sm-x {
+  margin-right: 6vw;
+  margin-top: 23px;
+}
+
+.cop-card-sm-content {
+  padding-top: 74px;
+  padding-right: 6.4vw;
+  padding-left: 6.4vw;
+}
