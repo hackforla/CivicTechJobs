@@ -1,4 +1,5 @@
 @use "../Basics" as *;
+@use "../Utility/utils" as *;
 
 .card {
   border-radius: 16px;
@@ -10,6 +11,10 @@
   margin: 8px;
   max-width: 1088px;
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+
+  @include breakpoint-media-max("mobile") {
+    @include hidden;
+  }
 }
 
 .cop-card-lg-x {
@@ -29,6 +34,10 @@
   margin: 8px;
   max-width: 312px;
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+
+  @include breakpoint-media-min("smtablet") {
+    @include hidden;
+  }
 }
 
 .cop-card-sm-x {

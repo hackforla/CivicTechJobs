@@ -1,6 +1,6 @@
 // Only visibile to screen readers, but not visully on screen
 // Code providd by: https://accessibility.18f.gov/hidden-content/
-.sr-only {
+@mixin sr-only {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -11,6 +11,6 @@
   width: 1px;
 }
 
-.hidden {
+@mixin hidden {
   display: none;
 }
