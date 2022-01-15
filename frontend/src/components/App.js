@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { render } from "react-dom";
-import { CopCard } from "./Cards/Cards";
+import { CopCard, InnerCopCard } from "./Cards/Cards";
 import * as Images from "../assets/images/images";
 
 function App() {
@@ -8,20 +8,26 @@ function App() {
     <div style={{ margin: "10px" }}>
       <h1>Hello, World!</h1>
       <h2>Cards</h2>
-      <CopCard openState={true} size="lg">
-        <div className="title-3">COP Card - Not Mobile</div>
-        <span className="red">
-          Shrink your viewport to see this transition into the mobile version.{" "}
-        </span>
-        {lorem}
-      </CopCard>
-      <CopCard openState={true} size="sm">
-        <div className="title-4">COP Card - Mobile</div>
-        <span className="red">
-          Grow your viewport to see this transition into the non-mobile version.{" "}
-        </span>
-        {lorem}
-      </CopCard>
+      <div style={{ backgroundColor: "rgba(0,0,0,0.4)", padding: "20px 30px" }}>
+        <CopCard openState={true} size="lg">
+          <InnerCopCard>
+            <div className="title-3">COP Card - Not Mobile</div>
+            <span className="red">
+              Shrink your viewport to see this transition into the mobile
+              version. Also, click the "x" button to see the card disappear.{" "}
+            </span>
+            {lorem}
+          </InnerCopCard>
+        </CopCard>
+        <CopCard openState={true} size="sm">
+          <div className="title-4">COP Card - Mobile</div>
+          <span className="red">
+            Grow your viewport to see this transition into the non-mobile
+            version. Also, click the "x" button to see the card disappear.{" "}
+          </span>
+          {lorem}
+        </CopCard>
+      </div>
       <hr></hr>
       <h2>Logos</h2>
       <img src={Images.LogoHorizontal} height="50"></img>
