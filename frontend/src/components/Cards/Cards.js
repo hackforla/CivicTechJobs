@@ -4,57 +4,32 @@ import * as utility from "../Utility/utils";
 import { CloseButton } from "../Buttons/CloseButton";
 import "./_Cards.scss";
 
-function LargeCopCard({openState = false, ...props}) {
+function CopCard({ openState = false, size = "sm", ...props }) {
   const [isOpen, setIsOpen] = useState(openState);
 
   return (
     <div
       className={utility.combineClasses(
         "card",
-        "cop-card-lg",
+        `cop-card-${size}`,
         props.class,
         isOpen ? undefined : "disabled"
       )}
     >
       <CloseButton
-        class="cop-card-lg-x"
+        class={`cop-card-${size}-x`}
         onClick={() => setIsOpen(false)}
       ></CloseButton>
-      <div className="cop-card-lg-content">{props.children}</div>
-    </div>
-  );
-}
-
-function SmallCopCard({openState = false, ...props}) {
-  const [isOpen, setIsOpen] = useState(openState);
-
-  return (
-    <div
-      className={utility.combineClasses(
-        "card",
-        "cop-card-sm",
-        props.class,
-        isOpen ? undefined : "disabled"
-      )}
-    >
-      <CloseButton
-        class="cop-card-sm-x"
-        onClick={() => setIsOpen(false)}
-      ></CloseButton>
-      <div className="cop-card-sm-content">{props.children}</div>
+      <div className={`cop-card-${size}-content`}>{props.children}</div>
     </div>
   );
 }
 
 // Type declaration for props
-LargeCopCard.propTypes = {
+CopCard.propTypes = {
   class: PropTypes.string,
   openState: PropTypes.bool,
+  size: PropTypes.oneOf(["lg", "sm"]),
 };
 
-SmallCopCard.propTypes = {
-  class: PropTypes.string,
-  openState: PropTypes.bool,
-};
-
-export { LargeCopCard, SmallCopCard };
+export { CopCard };
