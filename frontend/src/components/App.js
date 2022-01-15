@@ -1,46 +1,56 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { render } from "react-dom";
+import { LargeCopCard, SmallCopCard } from "./Cards/Cards";
 import * as Images from "../assets/images/images";
 
 function App() {
   return (
-    <div>
-      <h1>Hi</h1>
-      <div>
-        <span className="red text-center">
-          Change the browser window size to see the color change responsively,
-        </span>{" "}
-        while this does not change at all!
-      </div>
-      <br></br>
-      <img src={Images.LogoHorizontal} width="400"></img>
+    <div style={{ margin: "10px" }}>
+      <h1>Hello, World!</h1>
+      <h2>Cards</h2>
+      <LargeCopCard>
+        <div className="title-3">COP Card - Not Mobile</div>
+        <span className="red">Shrink your viewport to see this transition into the mobile version. </span>
+        {lorem}
+      </LargeCopCard>
+      <SmallCopCard>
+        <div className="title-4">COP Card - Mobile</div>
+        <span className="red">Grow your viewport to see this transition into the non-mobile version. </span>
+        {lorem}
+      </SmallCopCard>
+      <hr></hr>
+      <h2>Logos</h2>
+      <img src={Images.LogoHorizontal} height="50"></img>
       <div>Horizontal</div>
       <br></br>
-      <img src={Images.LogoMark} width="200"></img>
+      <img src={Images.LogoMark} height="50"></img>
       <div>Logomark</div>
       <br></br>
-      <img src={Images.LogoStacked} width="400"></img>
+      <img src={Images.LogoStacked} height="50"></img>
       <div>Stacked</div>
       <br></br>
-      <img src={Images.LogoType} width="400"></img>
+      <img src={Images.LogoType} height="50"></img>
       <div>Logotype</div>
       <br></br>
-      <img src={Images.LogoVertical} width="400"></img>
+      <img src={Images.LogoVertical} height="50"></img>
       <div>Vertical</div>
       <br></br>
-      <img src={Images.LogoWordmark} width="400"></img>
+      <img src={Images.LogoWordmark} height="50"></img>
       <div>Wordmark</div>
-      <br></br>
-      <img src={Images.CopIconData} width="100"></img>
-      <img src={Images.CopIconEngineering} width="100"></img>
-      <img src={Images.CopIconOps} width="100"></img>
-      <img src={Images.CopIconProduct} width="100"></img>
-      <img src={Images.CopIconUiux} width="100"></img>
-      <div>COP Icons</div>
-      <img src={Images.IconDownArrow} width="100"></img>
-      <img src={Images.IconHamburgerMenu} width="100"></img>
-      <img src={Images.IconX} width="100"></img>
-      <div>Majesticons</div>
+      <hr></hr>
+      <h2>COP Icons</h2>
+      <img src={Images.CopIconData} height="50"></img>
+      <img src={Images.CopIconEngineering} height="50"></img>
+      <img src={Images.CopIconOps} height="50"></img>
+      <img src={Images.CopIconProduct} height="50"></img>
+      <img src={Images.CopIconUiux} height="50"></img>
+      <hr></hr>
+      <h2>Majesticons</h2>
+      <img src={Images.IconDownArrow} height="50"></img>
+      <img src={Images.IconHamburgerMenu} height="50"></img>
+      <img src={Images.IconX} height="50"></img>
+      <hr></hr>
+      <h2>Title Classes</h2>
       <div className="title-1">Title 1</div>
       <div className="title-2">Title 2</div>
       <div className="title-3">Title 3</div>
@@ -48,7 +58,8 @@ function App() {
       <div className="title-5">Title 5</div>
       <div className="title-6">Title 6</div>
       <div className="title-7">Title 7</div>
-      <br></br>
+      <hr></hr>
+      <h2>Paragraph Classes</h2>
       <div className="paragraph-1">Paragraph 1</div>
       <div className="paragraph-2">Paragraph 2</div>
       <div className="paragraph-3">Paragraph 3</div>
@@ -57,6 +68,9 @@ function App() {
     </div>
   );
 }
+
+const lorem =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
 render(<App />, document.getElementById("app"));
 
