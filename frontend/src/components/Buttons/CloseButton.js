@@ -8,7 +8,7 @@ function CloseButton(props) {
   return (
     <img
       src={IconX}
-      onClick={() => props.onClick}
+      onClick={props.onClick}
       className={utility.combineClasses("btn-close", props.class)}
     ></img>
   );

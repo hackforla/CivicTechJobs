@@ -11,6 +11,10 @@
   max-width: 1088px;
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
 
+  &.disabled {
+    @include hidden;
+  }
+
   @include breakpoint-media-max("mobile") {
     @include hidden;
   }
@@ -33,6 +37,10 @@
   margin: 8px;
   max-width: 312px;
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+
+  &.disabled {
+    @include hidden;
+  }
 
   @include breakpoint-media-min("smtablet") {
     @include hidden;

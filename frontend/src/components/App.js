@@ -8,12 +8,12 @@ function App() {
     <div style={{ margin: "10px" }}>
       <h1>Hello, World!</h1>
       <h2>Cards</h2>
-      <LargeCopCard>
+      <LargeCopCard openState={true}>
         <div className="title-3">COP Card - Not Mobile</div>
         <span className="red">Shrink your viewport to see this transition into the mobile version. </span>
         {lorem}
       </LargeCopCard>
-      <SmallCopCard>
+      <SmallCopCard openState={true}>
         <div className="title-4">COP Card - Mobile</div>
         <span className="red">Grow your viewport to see this transition into the non-mobile version. </span>
         {lorem}
