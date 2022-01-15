@@ -35,9 +35,11 @@ Civic Tech technology practitioners are a diverse and interdisciplinary group of
 
 ## How to contribute
 
+- Attend [Hack for LA onboarding](https://www.meetup.com/hackforla/events/)
+- Join the [Slack](https://hackforla.slack.com/archives/C02509WHFQQ) Channel and say hello! we have team meetings every tuesday at 5PM PST
+
 ### As a project manager, UI designer, or UX researcher:
 
-- Join the [Slack](https://hackforla.slack.com/archives/C02509WHFQQ) Channel and say hello! we have team meetings every tuesday at 5PM PST
 - Provide UX/UI design support.
 - Help us with usability testing.
 
