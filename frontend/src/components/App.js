@@ -9,7 +9,7 @@ function App() {
       <h1>Hello, World!</h1>
       <h2>Cards</h2>
       <div style={{ backgroundColor: "rgba(0,0,0,0.4)", padding: "20px 30px" }}>
-        <CopCard openState={true} size="lg">
+        <CopCard hidden={false} size="lg">
           <InnerCopCard>
             <div className="title-3">COP Card - Not Mobile</div>
             <span className="red">
@@ -19,7 +19,7 @@ function App() {
             {lorem}
           </InnerCopCard>
         </CopCard>
-        <CopCard openState={true} size="sm">
+        <CopCard hidden={false} size="sm">
           <div className="title-4">COP Card - Mobile</div>
           <span className="red">
             Grow your viewport to see this transition into the non-mobile
