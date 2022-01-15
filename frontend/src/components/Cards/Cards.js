@@ -25,6 +25,16 @@ function CopCard({ openState = false, size = "sm", ...props }) {
   );
 }
 
+function InnerCopCard(props) {
+  return (
+    <div
+      className={utility.combineClasses("card", "inner-cop-card", props.class)}
+    >
+      <div className="inner-cop-card-content">{props.children}</div>
+    </div>
+  );
+}
+
 // Type declaration for props
 CopCard.propTypes = {
   class: PropTypes.string,
@@ -32,4 +42,8 @@ CopCard.propTypes = {
   size: PropTypes.oneOf(["lg", "sm"]),
 };
 
-export { CopCard };
+InnerCopCard.propTypes = {
+  class: PropTypes.string,
+};
+
+export { CopCard, InnerCopCard };
