@@ -1,15 +1,15 @@
 @use "../Basics" as *;
 
-/*******************************
-*** Card class for all cards ***
-*******************************/
+/**************************
+*** Class for all cards ***
+**************************/
 .card {
   border-radius: 16px;
 }
 
-/***************************************
-*** Card classes for large COP cards ***
-***************************************/
+/**********************************
+*** Classes for large COP cards ***
+**********************************/
 .cop-card-lg {
   background-color: $color-grey-light;
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
@@ -41,9 +41,9 @@
   }
 }
 
-/***************************************
-*** Card classes for small COP cards ***
-***************************************/
+/**********************************
+*** Classes for small COP cards ***
+**********************************/
 .cop-card-sm {
   background-color: $color-grey-light;
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
@@ -51,7 +51,7 @@
   max-width: 312px;
   min-height: 550px;
 
-  &.disabled {
+  &.hidden {
     @include hidden;
   }
 
@@ -75,9 +75,9 @@
   }
 }
 
-/***************************************
-*** Card classes for inner COP cards ***
-***************************************/
+/**********************************
+*** Classes for inner COP cards ***
+**********************************/
 .inner-cop-card {
   background-color: $color-white;
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
@@ -92,5 +92,20 @@
     top: 48px;
     right: 3.3vw;
     left: 3.3vw;
+  }
+}
+
+/**********************************
+*** Classes for inner COP cards ***
+**********************************/
+.inner-cop-nav-card {
+  background-color: $color-white;
+  display: inline;
+  height: 64px;
+  width: 188px;
+
+  &.active {
+    background-color: $color-blue-dark;
+    color: $color-white;
   }
 }

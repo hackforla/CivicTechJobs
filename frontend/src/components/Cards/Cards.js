@@ -1,11 +1,14 @@
+// External Imports
 import PropTypes from "prop-types";
 import React, { useState } from "react";
+
+// Internal Imports
 import * as utility from "../Utility/utils";
 import { CloseButton } from "../Buttons/CloseButton";
 import "./_Cards.scss";
 
-function CopCard({ openState = false, size = "sm", ...props }) {
-  const [isOpen, setIsOpen] = useState(openState);
+function CopCard({ hidden = true, size = "sm", ...props }) {
+  const [isHidden, setIsHidden] = useState(hidden);
 
   return (
     <div
@@ -13,12 +16,12 @@ function CopCard({ openState = false, size = "sm", ...props }) {
         "card",
         `cop-card-${size}`,
         props.class,
-        isOpen ? undefined : "disabled"
+        isHidden ? "hidden" : undefined
       )}
     >
       <CloseButton
         class={`cop-card-${size}-x`}
-        onClick={() => setIsOpen(false)}
+        onClick={() => setIsHidden(false)}
       ></CloseButton>
       <div className={`cop-card-${size}-content`}>{props.children}</div>
     </div>
@@ -35,6 +38,24 @@ function InnerCopCard(props) {
   );
 }
 
+function InnerCopNavCard(props) {
+  const Tag = "href" in props ? "a" : "button"; // conditionally rendered tagss
+
+  return (
+    <Tag
+      className={utility.combineClasses(
+        "card",
+        "inner-cop-nav-card",
+        isActive ? "active" : undefined,
+        props.class
+      )}
+      onClick={props.onClick}
+    >
+      {props.children}
+    </Tag>
+  );
+}
+
 // Type declaration for props
 CopCard.propTypes = {
   class: PropTypes.string,
@@ -46,4 +67,10 @@ InnerCopCard.propTypes = {
   class: PropTypes.string,
 };
 
-export { CopCard, InnerCopCard };
+InnerCopNavCard.propTypes = {
+  class: PropTypes.string,
+  href: PropTypes.string,
+  onClick: PropTypes.func,
+};
+
+export { CopCard, InnerCopCard, InnerCopNavCard };

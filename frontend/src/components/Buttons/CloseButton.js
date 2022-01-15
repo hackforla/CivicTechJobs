@@ -1,5 +1,8 @@
+// Eternal Imports
 import React from "react";
 import PropTypes from "prop-types";
+
+// Internal Imports
 import * as utility from "../Utility/utils";
 import { IconX } from "../../assets/images/images";
 import "./_CloseButton.scss";
