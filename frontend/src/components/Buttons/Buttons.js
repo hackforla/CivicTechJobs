@@ -6,7 +6,7 @@ import "./_Buttons.scss";
 function Button({
   size = "sm",
   color = "primary",
-  variant = "", // empty string is falsy
+  length = "", // empty string is falsy
   ...props
 }) {
   const Tag = "href" in props ? "a" : "button"; // conditionally rendered tags
@@ -17,7 +17,7 @@ function Button({
         "btn",
         `btn-${size}`,
         `btn-${color}`,
-        variant && `btn-${variant}`,
+        length && `btn-${length}`,
         props.disabled && "disabled",
         props.class
       )}
@@ -36,6 +36,7 @@ Button.propTypes = {
   color: PropTypes.oneOf(["primary", "primary-dark"]),
   disabled: PropTypes.bool,
   href: PropTypes.string,
+  length: PropTypes.oneOf(["", "long"]),
   onClick: PropTypes.func,
   size: PropTypes.oneOf(["sm", "md", "lg", "icon"]),
   target: PropTypes.oneOf([
@@ -45,7 +46,6 @@ Button.propTypes = {
     "_top",
     PropTypes.string,
   ]),
-  variant: PropTypes.oneOf(["", "long"]),
 };
 
 /**
