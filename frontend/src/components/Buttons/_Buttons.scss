@@ -12,43 +12,52 @@
   text-decoration: none;
 }
 
-/**********************************************
-*** Button classes concerning size (normal) ***
-**********************************************/
+/**************************************************
+*** Button classes concerning size and variants ***
+**************************************************/
+
 @mixin button-size($size) {
+  $paddings: (
+    "sm": 24px,
+    "md": 32px,
+    "lg": 40px,
+    "icon": 24px,
+  );
+
+  $heights: (
+    "sm": 32px,
+    "md": 42px,
+    "lg": 51px,
+    "icon": 40px,
+  );
+
   // Specific to small buttons
   @if $size == "sm" {
     @include title(7);
     border-radius: 64px;
-    padding: 0px 24px;
 
     // Specific to medium buttons
   } @else if $size == "md" {
     @include title(6);
     border-radius: 64px;
-    padding: 0px 32px;
 
     // Specific to large buttons
   } @else if $size == "lg" {
     @include title(5);
     border-radius: 64px;
-    padding: 0px 40px;
 
     // Specific to icon buttons
   } @else if $size == "icon" {
     border-radius: 24px;
-    padding: 0px 24px;
   }
 
-  $heights: (
-    "sm": 32px,
-    "md": 40px,
-    "lg": 48px,
-    "icon": 40px,
-  );
-
+  padding: 0px map.get($paddings, $size);
   height: map.get($heights, $size);
   line-height: map.get($heights, $size);
+
+  &.btn-long {
+    padding: 0px map.get($paddings, $size) + 16px;
+  }
 }
 
 .btn-sm {
@@ -65,32 +74,6 @@
 
 .btn-icon {
   @include button-size("icon");
-}
-
-/********************************************
-*** Button classes concerning size (long) ***
-********************************************/
-@mixin button-size-long($size) {
-  @include button-size($size);
-  @if $size == "sm" {
-    padding: 0px 40px;
-  } @else if $size == "md" {
-    padding: 0px 48px;
-  } @else if $size == "lg" {
-    padding: 0px 56px;
-  }
-}
-
-.btn-sm-long {
-  @include button-size-long("sm");
-}
-
-.btn-md-long {
-  @include button-size-long("md");
-}
-
-.btn-lg-long {
-  @include button-size-long("lg");
 }
 
 /*********************************************
@@ -161,42 +144,13 @@
   }
 }
 
-.btn-md-laptop,
-.btn-md-long-laptop {
-  @include button-responsive("md", "laptop");
-}
+$sizes: "md", "sm";
+$devices: "laptop", "lgtablet", "smtablet", "mobile"; // order matters, since breakpoints are rendered media max, always go big -> small
 
-.btn-md-lgtablet,
-.btn-md-long-lgtablet {
-  @include button-responsive("md", "lgtablet");
-}
-
-.btn-md-smtablet,
-.btn-md-long-smtablet {
-  @include button-responsive("md", "smtablet");
-}
-
-.btn-md-mobile,
-.btn-md-long-mobile {
-  @include button-responsive("md", "mobile");
-}
-
-.btn-sm-laptop,
-.btn-sm-long-laptop {
-  @include button-responsive("sm", "laptop");
-}
-
-.btn-sm-lgtablet,
-.btn-sm-long-lgtablet {
-  @include button-responsive("sm", "lgtablet");
-}
-
-.btn-sm-smtablet,
-.btn-sm-long-smtablet {
-  @include button-responsive("sm", "smtablet");
-}
-
-.btn-sm-mobile,
-.btn-sm-long-mobile {
-  @include button-responsive("sm", "mobile");
+@each $size in $sizes {
+  @each $device in $devices {
+    .btn-#{$size}-#{$device} {
+      @include button-responsive($size, $device);
+    }
+  }
 }

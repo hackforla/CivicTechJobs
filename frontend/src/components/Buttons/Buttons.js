@@ -2,8 +2,13 @@ import PropTypes from "prop-types";
 import React from "react";
 import "./_Buttons.scss";
 
-// Default button size/colour is small/primary
-function Button({ size = "sm", color = "primary", ...props }) {
+// Default button size/colour/variant is small/primary/base
+function Button({
+  size = "sm",
+  color = "primary",
+  variant = "", // empty string is falsy
+  ...props
+}) {
   const Tag = "href" in props ? "a" : "button"; // conditionally rendered tags
 
   return (
@@ -12,6 +17,7 @@ function Button({ size = "sm", color = "primary", ...props }) {
         "btn",
         `btn-${size}`,
         `btn-${color}`,
+        variant && `btn-${variant}`,
         props.disabled && "disabled",
         props.class
       )}
@@ -31,15 +37,7 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   href: PropTypes.string,
   onClick: PropTypes.func,
-  size: PropTypes.oneOf([
-    "sm",
-    "md",
-    "lg",
-    "icon",
-    "sm-long",
-    "md-long",
-    "lg-long",
-  ]),
+  size: PropTypes.oneOf(["sm", "md", "lg", "icon"]),
   target: PropTypes.oneOf([
     "_blank",
     "_self",
@@ -47,6 +45,7 @@ Button.propTypes = {
     "_top",
     PropTypes.string,
   ]),
+  variant: PropTypes.oneOf(["", "long"]),
 };
 
 /**
