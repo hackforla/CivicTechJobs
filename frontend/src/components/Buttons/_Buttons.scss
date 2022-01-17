@@ -152,6 +152,8 @@ $theme-values: (
 /****************************************************
 *** Button classes concerning size responsiveness ***
 ****************************************************/
+
+// Note, since it uses media-max, make sure to always declare responsiveness from big to small; remember, order matters!
 @mixin button-responsive($device, $size: null, $length: null, $theme: null) {
   @include breakpoint-media-max($device) {
     @if $size {
