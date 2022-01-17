@@ -9,13 +9,13 @@ function App() {
       <h1>Hello, World!</h1>
       <h2>Buttons</h2>
       <DivWrapper>
-        <Button size="lg" color="primary" length="long" class="btn-sm-mobile btn-md-lgtablet">
+        <Button size="lg" color="primary" class="btn-md-to-sm">
           Log In
         </Button>
         <Button
           size="lg"
           color="primary-dark"
-          class="btn-sm-mobile btn-md-lgtablet"
+          class="btn-md-to-sm"
         >
           Log In
         </Button>
@@ -29,11 +29,17 @@ function App() {
       <br></br>
       <br></br>
       <DivWrapper>
-        <Button href="https://www.google.com/" color="primary" target="_blank">
+        <Button
+          href="https://www.google.com/"
+          length="long"
+          color="primary"
+          target="_blank"
+        >
           Log In
         </Button>
         <Button
           href="https://www.google.com/"
+          length="long"
           color="primary-dark"
           target="_blank"
         >
@@ -42,7 +48,7 @@ function App() {
       </DivWrapper>
       <div>
         <span className="red text-center">
-          These buttons uses a tags! Click them to open a new tab to Google.
+          These long buttons uses a tags! Click them to open a new tab to Google.
         </span>
       </div>
       <br></br>
@@ -67,7 +73,7 @@ function App() {
       </DivWrapper>
       <div>
         <span className="red text-center">
-          These are the same as the second ones, but disabled.
+          These are regular versions of the second ones, but disabled.
         </span>
       </div>
       <br></br>
@@ -82,7 +88,7 @@ function App() {
       </DivWrapper>
       <div>
         <span className="red text-center">
-          These are icon buttons. They are not responsive.
+          These are icon buttons.
         </span>
       </div>
       <hr></hr>

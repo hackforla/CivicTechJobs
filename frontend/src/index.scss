@@ -1,32 +1,38 @@
 @use "components/normalize";
 @use "components/Basics" as *;
+@use "components/Buttons/Buttons" as *;
 
 body {
-    font-family: Roboto;
+  font-family: Roboto;
 }
 
 .red {
-    font-weight: normal;
-    font-style: normal;
-    font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
 
-    @include breakpoint-media-min(mobile) {
-        color: $color-grey-dark
-    }
+  @include breakpoint-media-min(mobile) {
+    color: $color-grey-dark;
+  }
 
-    @include breakpoint-media-min(smtablet) {
-        color: $color-grey
-    }
+  @include breakpoint-media-min(smtablet) {
+    color: $color-grey;
+  }
 
-    @include breakpoint-media-min(lgtablet) {
-        color: $color-tan
-    }
+  @include breakpoint-media-min(lgtablet) {
+    color: $color-tan;
+  }
 
-    @include breakpoint-media-min(laptop) {
-        color: $color-blue
-    }
+  @include breakpoint-media-min(laptop) {
+    color: $color-blue;
+  }
 
-    @include breakpoint-media-min(desktop) {
-        color: $color-blue-dark
-    }
+  @include breakpoint-media-min(desktop) {
+    color: $color-blue-dark;
+  }
+}
+
+.btn-md-to-sm {
+  @include button-responsive("lgtablet", $size: "md");
+  @include button-responsive("mobile", $size: "sm");
 }
