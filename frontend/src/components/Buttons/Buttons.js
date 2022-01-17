@@ -17,7 +17,7 @@ function Button({
         "btn",
         `btn-${size}`,
         `btn-${color}`,
-        length && `btn-${length}`,
+        length && `btn-${size}-${length}`,
         props.disabled && "disabled",
         props.class
       )}

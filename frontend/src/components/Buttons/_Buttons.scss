@@ -2,6 +2,10 @@
 
 @use "../Basics" as *;
 
+
+$sizes: "lg", "md", "sm";
+$themes: "primary", "primary-dark";
+
 /***********************************
 *** Button class for all buttons ***
 ***********************************/
@@ -12,80 +16,123 @@
   text-decoration: none;
 }
 
-/**************************************************
-*** Button classes concerning size and variants ***
-**************************************************/
+/*************************************
+*** Button classes concerning size ***
+*************************************/
+$size-values: (
+  "sm": (
+    "height": 32px,
+    "padding": 24px,
+    "title": 7,
+  ),
+  "md": (
+    "height": 42px,
+    "padding": 32px,
+    "title": 6,
+  ),
+  "lg": (
+    "height": 51px,
+    "padding": 40px,
+    "title": 5,
+  ),
+  "icon": (
+    "height": 42px,
+    "padding": 24px,
+    "title": 6,
+  ),
+);
 
 @mixin button-size($size) {
-  $paddings: (
-    "sm": 24px,
-    "md": 32px,
-    "lg": 40px,
-    "icon": 24px,
-  );
+  $size-map: map.get($size-values, $size);
 
-  $heights: (
-    "sm": 32px,
-    "md": 42px,
-    "lg": 51px,
-    "icon": 40px,
-  );
+  @include title(map.get($size-map, "title"));
+  border-radius: 64px;
+  padding: 0px map.get($size-map, "padding");
+  height: map.get($size-map, "height");
+  line-height: map.get($size-map, "height");
+}
 
-  // Specific to small buttons
-  @if $size == "sm" {
-    @include title(7);
-    border-radius: 64px;
-
-    // Specific to medium buttons
-  } @else if $size == "md" {
-    @include title(6);
-    border-radius: 64px;
-
-    // Specific to large buttons
-  } @else if $size == "lg" {
-    @include title(5);
-    border-radius: 64px;
-
-    // Specific to icon buttons
-  } @else if $size == "icon" {
-    border-radius: 24px;
-  }
-
-  padding: 0px map.get($paddings, $size);
-  height: map.get($heights, $size);
-  line-height: map.get($heights, $size);
-
-  &.btn-long {
-    padding: 0px map.get($paddings, $size) + 16px;
+@each $size in $sizes {
+  .btn-#{$size} {
+    @include button-size($size);
   }
 }
 
-.btn-sm {
-  @include button-size("sm");
-}
-
-.btn-md {
-  @include button-size("md");
-}
-
-.btn-lg {
-  @include button-size("lg");
-}
-
+// icon is technically not a size for other mixins
 .btn-icon {
   @include button-size("icon");
+}
+
+/**************************************
+*** Button classes concerning lenth ***
+**************************************/
+
+@mixin button-length($size) {
+  padding: 0px map.get($size-values, $size, padding) + 16px;
+}
+
+@each $size in $sizes {
+  .btn-#{$size}-long {
+    @include button-length($size);
+  }
 }
 
 /*********************************************
 *** Button classes concerning color themes ***
 *********************************************/
+$theme-values: (
+  "primary": (
+    "background-color": $color-blue-dark,
+    "color": $color-white,
+    "focus": (
+      "background-color": $color-blue-dark-focused,
+    ),
+    "hover": (
+      "background-color": $color-blue-dark-hover,
+      "box-shadow": 0px 4px 4px rgba(0, 0, 0, 0.2),
+    ),
+    "active": (
+      "background-color": $color-blue-dark-focused,
+    ),
+  ),
+  "primary-dark": (
+    "background-color": $color-blue,
+    "color": $color-white,
+    "focus": (
+      "background-color": $color-blue-focused,
+    ),
+    "hover": (
+      "background-color": $color-white,
+      "box-shadow": 0px 4px 4px rgba(0, 0, 0, 0.2),
+      "color": $color-charcoal,
+    ),
+    "active": (
+      "background-color": $color-blue-focused,
+    ),
+  ),
+);
+
 @mixin button-theme($theme) {
-  @if $theme == "primary" {
-    background-color: $color-blue-dark;
-    color: $color-white;
-  } @else if $theme == "primary-dark" {
-    background-color: $color-blue;
-    color: $color-white;
+  $theme-map: map.get($theme-values, $theme);
+  background-color: map.get($theme-map, "background-color");
+  color: map.get($theme-map, "color");
+
+  &:focus {
+    @each $property, $value in map.get($theme-map, "focus") {
+      #{$property}: $value;
+    }
+  }
+
+  &:hover {
+    @each $property, $value in map.get($theme-map, "hover") {
+      #{$property}: $value;
+    }
+  }
+
+  &:active {
+    @each $property, $value in map.get($theme-map, "active") {
+      #{$property}: $value;
+    }
   }
 
   // When cannot be pressed
@@ -96,61 +143,27 @@
   }
 }
 
-.btn-primary {
-  @include button-theme("primary");
-  // When selected with a keyboard
-  &:focus {
-    background-color: $color-blue-dark-focused;
-  }
-
-  // When mouse is over it
-  &:hover {
-    background-color: $color-blue-dark-hover;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
-  }
-
-  // When clicked
-  &:active {
-    background-color: $color-blue-dark-focused;
-  }
-}
-
-.btn-primary-dark {
-  @include button-theme("primary-dark");
-  // When selected with a keyboard
-  &:focus {
-    background-color: $color-blue-focused;
-  }
-
-  // When mouse is over it
-  &:hover {
-    background-color: $color-white;
-    color: $color-charcoal;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
-  }
-
-  // When clicked
-  &:active {
-    background-color: $color-blue-focused;
+@each $theme in $themes {
+  .btn-#{$theme} {
+    @include button-theme($theme);
   }
 }
 
 /****************************************************
 *** Button classes concerning size responsiveness ***
 ****************************************************/
-@mixin button-responsive($size, $device) {
+@mixin button-responsive($device, $size: null, $length: null, $theme: null) {
   @include breakpoint-media-max($device) {
-    @include button-size($size);
-  }
-}
+    @if $size {
+      @include button-size($size);
+    }
 
-$sizes: "md", "sm";
-$devices: "laptop", "lgtablet", "smtablet", "mobile"; // order matters, since breakpoints are rendered media max, always go big -> small
+    @if $length {
+      @include button-length($length);
+    }
 
-@each $size in $sizes {
-  @each $device in $devices {
-    .btn-#{$size}-#{$device} {
-      @include button-responsive($size, $device);
+    @if $theme {
+      @include button-theme($theme);
     }
   }
 }

@@ -9,7 +9,7 @@ function App() {
       <h1>Hello, World!</h1>
       <h2>Buttons</h2>
       <DivWrapper>
-        <Button size="lg" color="primary" class="btn-sm-mobile btn-md-lgtablet">
+        <Button size="lg" color="primary" length="long" class="btn-sm-mobile btn-md-lgtablet">
           Log In
         </Button>
         <Button
