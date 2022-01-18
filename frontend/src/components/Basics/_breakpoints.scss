@@ -9,21 +9,12 @@ BREAKPOINTS:
 
 /* There is a hidden mobile breakpoint that uses max-width calculated as smtablet - 1px */
 $breakpoints-min: (
-  "smtablet": 577px,
-  "lgtablet": 769px,
-  "laptop": 1025px,
-  "desktop": 1201px,
+  'smtablet': 577px,
+  'lgtablet': 769px,
+  'laptop': 1025px,
+  'desktop': 1201px,
 );
 
-/* There is a hidden desktop breakpoint that uses min-width calculated as laptop + 1px */
-$breakpoints-max: (
-  "mobile": 576px,
-  "smtablet": 768px,
-  "lgtablet": 1024px,
-  "laptop": 1200px,
-);
-
-// Note: At this device and ABOVE, use @content properties & values.
 @mixin media-min($device) {
   @if $device == mobile {
     @media only screen and (max-width: (map-get($map: $breakpoints-min, $key: smtablet)-1px)) {
@@ -31,19 +22,6 @@ $breakpoints-max: (
     }
   } @else {
     @media only screen and (min-width: map-get($map: $breakpoints-min, $key: $device)) {
-      @content;
-    }
-  }
-}
-
-// Note: At this device and BELOW, use @content properties & values.
-@mixin media-max($device) {
-  @if $device == desktop {
-    @media only screen and (min-width: (map-get($map: $breakpoints-max, $key: laptop)+1px)) {
-      @content;
-    }
-  } @else {
-    @media only screen and (max-width: map-get($map: $breakpoints-max, $key: $device)) {
       @content;
     }
   }
