@@ -2,31 +2,49 @@
 @use "components/Basics" as *;
 
 body {
-    font-family: Roboto;
+  font-family: Roboto;
 }
 
 .red {
-    font-weight: normal;
-    font-style: normal;
-    font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
 
-    @include breakpoint-media-min(mobile) {
-        color: $color-grey-dark
-    }
+  @include breakpoint-media-min(mobile) {
+    color: $color-grey-dark;
+  }
 
-    @include breakpoint-media-min(smtablet) {
-        color: $color-grey
-    }
+  @include breakpoint-media-min(smtablet) {
+    color: $color-grey;
+  }
 
-    @include breakpoint-media-min(lgtablet) {
-        color: $color-tan
-    }
+  @include breakpoint-media-min(lgtablet) {
+    color: $color-tan;
+  }
 
-    @include breakpoint-media-min(laptop) {
-        color: $color-blue
-    }
+  @include breakpoint-media-min(laptop) {
+    color: $color-blue;
+  }
 
-    @include breakpoint-media-min(desktop) {
-        color: $color-blue-dark
-    }
+  @include breakpoint-media-min(desktop) {
+    color: $color-blue-dark;
+  }
+}
+
+.flex-item {
+  height: 160px;
+  box-sizing: border-box;
+  border: 1px solid blue;
+}
+
+.spaces {
+  background-color: lightcyan;
+  padding: 20px;
+  margin: 10px;
+}
+
+.spaces2 {
+  background-color: lightgray;
+  padding: 10px;
+  margin: 20px;
 }

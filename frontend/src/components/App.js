@@ -1,12 +1,56 @@
 import React, { Component, Fragment } from "react";
 import { render } from "react-dom";
 import { CopCard, InnerCopCard } from "./Cards/Cards";
+import { LargeCopCardLayout } from "./Layouts/Layouts";
 import * as Images from "../assets/images/images";
 
 function App() {
   return (
     <div style={{ margin: "10px" }}>
       <h1>Hello, World!</h1>
+      <h2>Playground</h2>
+      <div class="flex-container">
+        <div class="flex-item col-6">
+          <div className="spaces">1</div>
+        </div>
+        <div class="flex-item col-1">
+          <div className="spaces2">2</div>
+        </div>
+        <div class="flex-item col-1">
+          <div>3</div>
+        </div>
+        <div class="flex-item col-1">
+          <div>4</div>
+        </div>
+        <div class="flex-item col-1">
+          <div>5</div>
+        </div>
+        <div class="flex-item col-1">
+          <div>6</div>
+        </div>
+        <div class="flex-item col-1">
+          <div>7</div>
+        </div>
+        <div class="flex-item col-1">
+          <div>8</div>
+        </div>
+        <div class="flex-item col-1">
+          <div>9</div>
+        </div>
+        <div class="flex-item col-1">
+          <div>10</div>
+        </div>
+        <div class="flex-item col-1">
+          <div>11</div>
+        </div>
+        <div class="flex-item col-1">
+          <div>12</div>
+        </div>
+        <div class="flex-item col-1">
+          <div>13</div>
+        </div>
+      </div>
+      <hr></hr>
       <h2>Cards</h2>
       <div style={{ backgroundColor: "rgba(0,0,0,0.4)", padding: "20px 30px" }}>
         <CopCard hidden={false} size="lg">
