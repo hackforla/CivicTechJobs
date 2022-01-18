@@ -1,5 +1,8 @@
+// External Imports
 import PropTypes from "prop-types";
 import React from "react";
+
+// Internal Imports
 import "./_Buttons.scss";
 
 // Default button size/colour/variant is small/primary/base

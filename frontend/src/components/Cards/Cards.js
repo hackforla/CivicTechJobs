@@ -70,6 +70,7 @@ InnerCopCard.propTypes = {
 InnerCopNavCard.propTypes = {
   class: PropTypes.string,
   href: PropTypes.string,
+  isActive: PropTypes.bool,
   onClick: PropTypes.func,
 };
 
