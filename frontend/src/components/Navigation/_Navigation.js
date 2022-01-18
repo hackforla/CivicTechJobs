@@ -26,8 +26,8 @@ function InnerCopNav(props) {
   return (
     <nav className="inner-cop-nav">
       {communities.map((cop, index) => (
-        <InnerCopNavCard key={index}>
-          <img src={cop.icon} height="24"></img>
+        <InnerCopNavCard key={index} class="p-1">
+          <img src={cop.icon} height="24" className="pr-1"></img>
           <span className="title-6">{cop.name}</span>
         </InnerCopNavCard>
       ))}
