@@ -1,3 +1,5 @@
+@use "sass:map";
+
 .flex-container {
   box-sizing: border-box;
   display: flex;
@@ -5,7 +7,7 @@
 }
 
 $columns: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
-$spaces: (
+$space-abbrs: (
   "m": margin,
   "mt": margin-top,
   "mr": margin-right,
@@ -19,17 +21,25 @@ $spaces: (
 );
 $space-sizes: 0, 1, 2, 3, 4, 5;
 
+@mixin col-size($col) {
+  box-sizing: border-box;
+  flex: 1 1 calc(8.33% * #{$col});
+}
+
 @each $col in $columns {
   .col-#{$col} {
-    box-sizing: border-box;
-    flex: 1 1 calc(8.33% * #{$col});
+    @include col-size($col);
   }
 }
 
-@each $name, $translation in $spaces {
+@mixin spacing-size($type, $size) {
+  #{map.get($space-abbrs, $type)}: $size * 8px;
+}
+
+@each $name in map.keys($space-abbrs) {
   @each $size in $space-sizes {
     .#{$name}-#{$size} {
-      #{$translation}: $size * 8px;
+      @include spacing-size($name, $size);
     }
   }
 }

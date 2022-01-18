@@ -7,10 +7,6 @@ import * as utility from "../Utility/utils";
 import "./_Layouts.scss";
 
 function LargeCopCardLayout(props) {
-    const numChildren = React.Children.count(children) 
-    if (numChildren != 2) {
-        console.error(`Children count is ${numChildren < 2 ? "less than" : "greater than"} 2.`)
-    }
 
   return (
     <div className="flex-container">
