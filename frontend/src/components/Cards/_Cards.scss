@@ -17,7 +17,7 @@
   max-width: 1088px;
   min-height: 624px;
 
-  &.disabled {
+  &.hidden {
     @include hidden;
   }
 

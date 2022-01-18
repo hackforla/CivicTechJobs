@@ -21,7 +21,7 @@ function CopCard({ hidden = true, size = "sm", ...props }) {
     >
       <CloseButton
         class={`cop-card-${size}-x`}
-        onClick={() => setIsHidden(false)}
+        onClick={() => setIsHidden(true)}
       ></CloseButton>
       <div className={`cop-card-${size}-content`}>{props.children}</div>
     </div>
