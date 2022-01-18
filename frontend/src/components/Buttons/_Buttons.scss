@@ -1,0 +1,171 @@
+@use "sass:map";
+
+@use "../Basics" as *;
+
+
+$sizes: "lg", "md", "sm";
+$themes: "primary", "primary-dark";
+
+/***********************************
+*** Button class for all buttons ***
+***********************************/
+.btn {
+  border: none;
+  display: inline-flex;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/*************************************
+*** Button classes concerning size ***
+*************************************/
+$size-values: (
+  "sm": (
+    "height": 32px,
+    "padding": 24px,
+    "title": 7,
+  ),
+  "md": (
+    "height": 42px,
+    "padding": 32px,
+    "title": 6,
+  ),
+  "lg": (
+    "height": 51px,
+    "padding": 40px,
+    "title": 5,
+  ),
+  "icon": (
+    "height": 42px,
+    "padding": 24px,
+    "title": 6,
+  ),
+);
+
+@mixin button-size($size) {
+  $size-map: map.get($size-values, $size);
+
+  @include title(map.get($size-map, "title"));
+  border-radius: 64px;
+  padding: 0px map.get($size-map, "padding");
+  height: map.get($size-map, "height");
+  line-height: map.get($size-map, "height");
+}
+
+@each $size in $sizes {
+  .btn-#{$size} {
+    @include button-size($size);
+  }
+}
+
+// icon is technically not a size for other mixins
+.btn-icon {
+  @include button-size("icon");
+}
+
+/**************************************
+*** Button classes concerning lenth ***
+**************************************/
+
+@mixin button-length($size) {
+  padding: 0px map.get($size-values, $size, padding) + 16px;
+}
+
+@each $size in $sizes {
+  .btn-#{$size}-long {
+    @include button-length($size);
+  }
+}
+
+/*********************************************
+*** Button classes concerning color themes ***
+*********************************************/
+$theme-values: (
+  "primary": (
+    "background-color": $color-blue-dark,
+    "color": $color-white,
+    "focus": (
+      "background-color": $color-blue-dark-focused,
+    ),
+    "hover": (
+      "background-color": $color-blue-dark-hover,
+      "box-shadow": 0px 4px 4px rgba(0, 0, 0, 0.2),
+    ),
+    "active": (
+      "background-color": $color-blue-dark-focused,
+    ),
+  ),
+  "primary-dark": (
+    "background-color": $color-blue,
+    "color": $color-white,
+    "focus": (
+      "background-color": $color-blue-focused,
+    ),
+    "hover": (
+      "background-color": $color-white,
+      "box-shadow": 0px 4px 4px rgba(0, 0, 0, 0.2),
+      "color": $color-charcoal,
+    ),
+    "active": (
+      "background-color": $color-blue-focused,
+    ),
+  ),
+);
+
+@mixin button-theme($theme) {
+  $theme-map: map.get($theme-values, $theme);
+  background-color: map.get($theme-map, "background-color");
+  color: map.get($theme-map, "color");
+
+  &:focus {
+    @each $property, $value in map.get($theme-map, "focus") {
+      #{$property}: $value;
+    }
+  }
+
+  &:hover {
+    @each $property, $value in map.get($theme-map, "hover") {
+      #{$property}: $value;
+    }
+  }
+
+  &:active {
+    @each $property, $value in map.get($theme-map, "active") {
+      #{$property}: $value;
+    }
+  }
+
+  // When cannot be pressed
+  &.disabled {
+    background-color: $color-grey;
+    color: $color-grey-light;
+    pointer-events: none;
+  }
+}
+
+@each $theme in $themes {
+  .btn-#{$theme} {
+    @include button-theme($theme);
+  }
+}
+
+/****************************************************
+*** Button classes concerning size responsiveness ***
+****************************************************/
+
+// Note, since it uses media-max, make sure to always declare responsiveness from big to small; remember, order matters!
+@mixin button-responsive($device, $size: null, $length: null, $theme: null) {
+  @include breakpoint-media-max($device) {
+    @if $size {
+      @include button-size($size);
+    }
+
+    @if $length {
+      @include button-length($length);
+    }
+
+    @if $theme {
+      @include button-theme($theme);
+    }
+  }
+}
