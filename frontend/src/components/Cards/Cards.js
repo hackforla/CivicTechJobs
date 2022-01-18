@@ -38,7 +38,7 @@ function InnerCopCard(props) {
   );
 }
 
-function InnerCopNavCard(props) {
+function InnerCopNavCard({ isActive = false, ...props }) {
   const Tag = "href" in props ? "a" : "button"; // conditionally rendered tagss
 
   return (
