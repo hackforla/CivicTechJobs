@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import { render } from "react-dom";
 import { CopCard, InnerCopCard } from "./Cards/Cards";
 import { LargeCopCardLayout } from "./Layouts/Layouts";
+import { Button } from "./Buttons/Buttons";
 import * as Images from "../assets/images/images";
 import { InnerCopNav } from "./Navigation/_Navigation";
 
@@ -32,6 +33,86 @@ function App() {
           </span>
           {lorem}
         </CopCard>
+      </div>
+      <hr></hr>
+      <h2>Buttons</h2>
+      <DivWrapper>
+        <Button size="lg" color="primary" class="btn-md-to-sm">
+          Log In
+        </Button>
+        <Button size="lg" color="primary-dark" class="btn-md-to-sm">
+          Log In
+        </Button>
+      </DivWrapper>
+      <div>
+        <span className="red text-center">
+          These buttons uses button tags and are responsive! Resize your screen
+          to see the breakpoints!
+        </span>
+      </div>
+      <br></br>
+      <br></br>
+      <DivWrapper>
+        <Button
+          href="https://www.google.com/"
+          length="long"
+          color="primary"
+          target="_blank"
+        >
+          Log In
+        </Button>
+        <Button
+          href="https://www.google.com/"
+          length="long"
+          color="primary-dark"
+          target="_blank"
+        >
+          Log In
+        </Button>
+      </DivWrapper>
+      <div>
+        <span className="red text-center">
+          These long buttons uses a tags! Click them to open a new tab to
+          Google.
+        </span>
+      </div>
+      <br></br>
+      <br></br>
+      <DivWrapper>
+        <Button
+          href="https://www.google.com/"
+          color="primary"
+          target="_blank"
+          disabled
+        >
+          Log In
+        </Button>
+        <Button
+          href="https://www.google.com/"
+          color="primary-dark"
+          target="_blank"
+          disabled
+        >
+          Log In
+        </Button>
+      </DivWrapper>
+      <div>
+        <span className="red text-center">
+          These are regular versions of the second ones, but disabled.
+        </span>
+      </div>
+      <br></br>
+      <br></br>
+      <DivWrapper>
+        <Button size="icon" color="primary">
+          &#128269;
+        </Button>
+        <Button size="icon" color="primary-dark">
+          &#128269;
+        </Button>
+      </DivWrapper>
+      <div>
+        <span className="red text-center">These are icon buttons.</span>
       </div>
       <hr></hr>
       <h2>Logos</h2>
@@ -86,6 +167,17 @@ function App() {
 
 const lorem =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+
+function DivWrapper(props) {
+  return (
+    <Fragment>
+      <div style={{ padding: "10px 0px" }}>{props.children[0]}</div>
+      <div style={{ backgroundColor: "#030D2D", padding: "10px 0px" }}>
+        {props.children[1]}
+      </div>
+    </Fragment>
+  );
+}
 
 render(<App />, document.getElementById("app"));
 

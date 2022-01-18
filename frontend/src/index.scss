@@ -1,5 +1,6 @@
 @use "components/normalize";
 @use "components/Basics" as *;
+@use "components/Buttons/Buttons" as *;
 
 body {
   font-family: Roboto;
@@ -47,4 +48,9 @@ body {
   background-color: lightgray;
   padding: 10px;
   margin: 20px;
+}
+
+.btn-md-to-sm {
+  @include button-responsive("lgtablet", $size: "md");
+  @include button-responsive("mobile", $size: "sm");
 }
