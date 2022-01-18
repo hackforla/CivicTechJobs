@@ -116,35 +116,35 @@ function App() {
       </div>
       <hr></hr>
       <h2>Logos</h2>
-      <img src={Images.LogoHorizontal} height="50"></img>
+      <img src={Images.logoHorizontal} height="50"></img>
       <div>Horizontal</div>
       <br></br>
-      <img src={Images.LogoMark} height="50"></img>
+      <img src={Images.logoMark} height="50"></img>
       <div>Logomark</div>
       <br></br>
-      <img src={Images.LogoStacked} height="50"></img>
+      <img src={Images.logoStacked} height="50"></img>
       <div>Stacked</div>
       <br></br>
-      <img src={Images.LogoType} height="50"></img>
+      <img src={Images.logoType} height="50"></img>
       <div>Logotype</div>
       <br></br>
-      <img src={Images.LogoVertical} height="50"></img>
+      <img src={Images.logoVertical} height="50"></img>
       <div>Vertical</div>
       <br></br>
-      <img src={Images.LogoWordmark} height="50"></img>
+      <img src={Images.logoWordmark} height="50"></img>
       <div>Wordmark</div>
       <hr></hr>
       <h2>COP Icons</h2>
-      <img src={Images.CopIconData} height="50"></img>
-      <img src={Images.CopIconEngineering} height="50"></img>
-      <img src={Images.CopIconOps} height="50"></img>
-      <img src={Images.CopIconProduct} height="50"></img>
-      <img src={Images.CopIconUiux} height="50"></img>
+      <img src={Images.copIconData} height="50"></img>
+      <img src={Images.copIconEngineering} height="50"></img>
+      <img src={Images.copIconOps} height="50"></img>
+      <img src={Images.copIconProduct} height="50"></img>
+      <img src={Images.copIconUiux} height="50"></img>
       <hr></hr>
       <h2>Majesticons</h2>
-      <img src={Images.IconDownArrow} height="50"></img>
-      <img src={Images.IconHamburgerMenu} height="50"></img>
-      <img src={Images.IconX} height="50"></img>
+      <img src={Images.iconDownArrow} height="50"></img>
+      <img src={Images.iconHamburgerMenu} height="50"></img>
+      <img src={Images.iconX} height="50"></img>
       <hr></hr>
       <h2>Title Classes</h2>
       <div className="title-1">Title 1</div>

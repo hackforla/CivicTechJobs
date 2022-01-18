@@ -15,6 +15,8 @@ import * as utility from "../Utility/utils";
 import "./_Navigation.scss";
 
 function InnerCopNav(props) {
+  const [activeIndex, setActiveIndex] = useState(9);
+
   const communities = [
     { name: "UI/UX", icon: CopIconUiux },
     { name: "Engineering", icon: CopIconEngineering },
@@ -25,15 +27,34 @@ function InnerCopNav(props) {
 
   return (
     <nav className="inner-cop-nav">
-      {communities.map((cop, index) => (
-        <InnerCopNavCard key={index} class="p-1">
-          <img src={cop.icon} height="24" className="pr-1"></img>
-          <span className="title-6">{cop.name}</span>
-        </InnerCopNavCard>
-      ))}
+      {communities.map((cop, index) => {
+        const isActive = index == activeIndex;
+
+        return (
+          <InnerCopNavCard
+            key={index}
+            isActive={isActive ? true : false}
+            onClick={() => setActiveIndex(index)}
+            class="p-1"
+          >
+            <cop.icon
+              fill={isActive ? "white" : "black"}
+              stroke={isActive ? "white" : "black"}
+              strokeWidth="0.2"
+              height="24"
+              width="24"
+            />
+            <span className="title-6">{cop.name}</span>
+          </InnerCopNavCard>
+        );
+      })}
     </nav>
   );
 }
+
+/* 
+              fill={isActive ? "white" : "black"}
+              stroke={isActive ? "white" : "black"}*/
 
 InnerCopNav.propTypes = {};
 
