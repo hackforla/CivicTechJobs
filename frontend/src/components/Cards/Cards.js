@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import React, { useState } from "react";
 
 // Internal Imports
-import * as utility from "../Utility/utils";
+import { combineClasses } from "../Utility/utils";
 import { CloseButton } from "../Buttons/CloseButton";
 import "./_Cards.scss";
 
@@ -12,7 +12,7 @@ function CopCard({ hidden = true, size = "sm", ...props }) {
 
   return (
     <div
-      className={utility.combineClasses(
+      className={combineClasses(
         "card",
         `cop-card-${size}`,
         props.class,
@@ -30,9 +30,7 @@ function CopCard({ hidden = true, size = "sm", ...props }) {
 
 function InnerCopCard(props) {
   return (
-    <div
-      className={utility.combineClasses("card", "inner-cop-card", props.class)}
-    >
+    <div className={combineClasses("card", "inner-cop-card", props.class)}>
       <div className="inner-cop-card-content">{props.children}</div>
     </div>
   );
@@ -43,7 +41,7 @@ function InnerCopNavCard({ isActive = false, ...props }) {
 
   return (
     <Tag
-      className={utility.combineClasses(
+      className={combineClasses(
         "card",
         "inner-cop-nav-card",
         isActive ? "active" : undefined,
