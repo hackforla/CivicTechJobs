@@ -10,6 +10,22 @@ function App() {
   return (
     <div style={{ margin: "10px" }}>
       <h1>Hello, World!</h1>
+      <h2>Playground</h2>
+      <div className="flex-container">
+        <div className="col-6 flex-item"><div className="spaces">1</div></div>
+        <div className="col-1 flex-item">2</div>
+        <div className="col-1 flex-item">3</div>
+        <div className="col-1 flex-item">4</div>
+        <div className="col-1 flex-item">5</div>
+        <div className="col-1 flex-item">6</div>
+        <div className="col-1 flex-item">7</div>
+        <div className="col-1 flex-item">8</div>
+        <div className="col-1 flex-item">9</div>
+        <div className="col-1 flex-item">10</div>
+        <div className="col-1 flex-item">11</div>
+        <div className="col-1 flex-item">12</div>
+        <div className="col-1 flex-item">13</div>
+      </div>
       <h2>Cards</h2>
       <div style={{ backgroundColor: "rgba(0,0,0,0.4)", padding: "20px 30px" }}>
         <CopCard hidden={false} size="lg">
