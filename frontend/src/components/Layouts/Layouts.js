@@ -19,6 +19,7 @@ function LargeCopCardLayout({ gap = 2, ...props }) {
 
 LargeCopCardLayout.propTypes = {
   class: PropTypes.string,
+  gap: PropTypes.number,
   href: PropTypes.string,
   onClick: PropTypes.func,
 };
