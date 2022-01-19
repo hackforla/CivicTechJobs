@@ -1,0 +1,112 @@
+// Internal Imports
+@use "../Basics" as *;
+
+/**************************
+*** Class for all cards ***
+**************************/
+.card {
+  border-radius: 16px;
+}
+
+/**********************************
+*** Classes for large COP cards ***
+**********************************/
+.cop-card-lg {
+  background-color: $color-grey-light;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+  margin: 8px; // used to go over the box shadow
+  max-width: 1088px;
+  min-height: 624px;
+
+  &.hidden {
+    @include hidden;
+  }
+
+  @include breakpoint-media-max("smtablet") {
+    @include hidden;
+  }
+}
+
+.cop-card-lg-x {
+  margin: {
+    right: 3.8vw;
+    top: 47px;
+  }
+}
+
+.cop-card-lg-content {
+  padding: {
+    top: 96px;
+    right: 10.2vw;
+    left: 6.1vw;
+  }
+}
+
+/**********************************
+*** Classes for small COP cards ***
+**********************************/
+.cop-card-sm {
+  background-color: $color-grey-light;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+  margin: 8px;
+  max-width: 312px;
+  min-height: 550px;
+
+  &.hidden {
+    @include hidden;
+  }
+
+  @include breakpoint-media-min("lgtablet") {
+    @include hidden;
+  }
+}
+
+.cop-card-sm-x {
+  margin: {
+    top: 23px;
+    right: 6vw;
+  }
+}
+
+.cop-card-sm-content {
+  padding: {
+    top: 74px;
+    right: 6.4vw;
+    left: 6.4vw;
+  }
+}
+
+/**********************************
+*** Classes for inner COP cards ***
+**********************************/
+.inner-cop-card {
+  background-color: $color-white;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+  max-width: 625px;
+  min-height: 448px;
+}
+
+.inner-cop-card-content {
+  padding: {
+    top: 48px;
+    right: 3.3vw;
+    left: 3.3vw;
+  }
+}
+
+/**************************************
+*** Classes for inner COP nav cards ***
+**************************************/
+.inner-cop-nav-card {
+  background-color: $color-white;
+  border: none;
+  box-sizing: border-box;
+  display: inline;
+  max-width: 188px;
+  min-height: 64px;
+
+  &.active {
+    background-color: $color-blue-dark;
+    color: $color-white;
+  }
+}

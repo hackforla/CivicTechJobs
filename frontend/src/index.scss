@@ -32,6 +32,20 @@ body {
   }
 }
 
+.flex-item {
+  height: 160px;
+  box-sizing: border-box;
+  border: 1px solid blue;
+}
+
+.spaces {
+  background-color: lightcyan;
+}
+
+.spaces2 {
+  background-color: lightgray;
+}
+
 .btn-md-to-sm {
   @include button-responsive("lgtablet", $size: "md");
   @include button-responsive("mobile", $size: "sm");

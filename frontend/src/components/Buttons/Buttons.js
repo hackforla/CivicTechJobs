@@ -1,5 +1,9 @@
+// External Imports
 import PropTypes from "prop-types";
 import React from "react";
+
+// Internal Imports
+import { combineClasses } from "../Utility/utils";
 import "./_Buttons.scss";
 
 // Default button size/colour/variant is small/primary/base
@@ -47,14 +51,5 @@ Button.propTypes = {
     PropTypes.string,
   ]),
 };
-
-/**
- * Takes an array of different and combine them into one string to be placed in an element's class attribute.
- * @param  {...any} args an array of anything
- * @returns a joined string after filtering out non-strings from args
- */
-function combineClasses(...args) {
-  return args.filter((x) => typeof x === "string").join(" ");
-}
 
 export { Button };
