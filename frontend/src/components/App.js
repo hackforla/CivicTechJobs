@@ -1,18 +1,23 @@
 import React, { Component, Fragment } from "react";
 import { render } from "react-dom";
-import { CopCard, InnerCopCard } from "./Cards/Cards";
-import { LargeCopCardLayout } from "./Layouts/Layouts";
-import { Button } from "./Buttons/Buttons";
 import * as Images from "../assets/images/images";
+import { Button } from "./Buttons/Buttons";
+import { CopCard, InnerCopCard } from "./Cards/Cards";
+import { FullComponent } from "./Carousel/_Carousel";
+import { LargeCopCardLayout } from "./Layouts/Layouts";
 import { InnerCopNav } from "./Navigation/_Navigation";
 
 function App() {
   return (
     <div style={{ margin: "10px" }}>
       <h1>Hello, World!</h1>
+      <h2>Carousel</h2>
+      <FullComponent></FullComponent>
       <h2>Playground</h2>
       <div className="flex-container">
-        <div className="col-6 flex-item"><div className="spaces">1</div></div>
+        <div className="col-6 flex-item">
+          <div className="spaces">1</div>
+        </div>
         <div className="col-1 flex-item">2</div>
         <div className="col-1 flex-item">3</div>
         <div className="col-1 flex-item">4</div>
@@ -53,10 +58,10 @@ function App() {
       <hr></hr>
       <h2>Buttons</h2>
       <DivWrapper>
-        <Button size="lg" color="primary" class="btn-md-to-sm">
+        <Button size="lg" color="primary" addClass="btn-md-to-sm">
           Log In
         </Button>
-        <Button size="lg" color="primary-dark" class="btn-md-to-sm">
+        <Button size="lg" color="primary-dark" addClass="btn-md-to-sm">
           Log In
         </Button>
       </DivWrapper>
