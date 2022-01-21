@@ -23,7 +23,7 @@ function Button({
         `btn-${color}`,
         length && `btn-${size}-${length}`,
         props.disabled && "disabled",
-        props.class
+        props.addClass
       )}
       href={props.href}
       target={props.href ? props.target : null}
@@ -36,7 +36,7 @@ function Button({
 
 // Type declaration for props
 Button.propTypes = {
-  class: PropTypes.string,
+  addClass: PropTypes.string,
   color: PropTypes.oneOf(["primary", "primary-dark"]),
   disabled: PropTypes.bool,
   href: PropTypes.string,

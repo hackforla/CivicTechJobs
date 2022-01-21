@@ -35,7 +35,7 @@ function InnerCopNav(props) {
             key={index}
             isActive={isActive ? true : false}
             onClick={() => setActiveIndex(index)}
-            class="p-1"
+            addClass="p-1"
           >
             <cop.icon
               fill={isActive ? "white" : "black"}
@@ -51,10 +51,6 @@ function InnerCopNav(props) {
     </nav>
   );
 }
-
-/* 
-              fill={isActive ? "white" : "black"}
-              stroke={isActive ? "white" : "black"}*/
 
 InnerCopNav.propTypes = {};
 

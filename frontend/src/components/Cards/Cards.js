@@ -15,12 +15,12 @@ function CopCard({ hidden = true, size = "sm", ...props }) {
       className={combineClasses(
         "card",
         `cop-card-${size}`,
-        props.class,
+        props.addClass,
         isHidden ? "hidden" : undefined
       )}
     >
       <CloseButton
-        class={`cop-card-${size}-x`}
+        addClass={`cop-card-${size}-x`}
         onClick={() => setIsHidden(true)}
       ></CloseButton>
       <div className={`cop-card-${size}-content`}>{props.children}</div>
@@ -30,7 +30,7 @@ function CopCard({ hidden = true, size = "sm", ...props }) {
 
 function InnerCopCard(props) {
   return (
-    <div className={combineClasses("card", "inner-cop-card", props.class)}>
+    <div className={combineClasses("card", "inner-cop-card", props.addClass)}>
       <div className="inner-cop-card-content">{props.children}</div>
     </div>
   );
@@ -45,7 +45,7 @@ function InnerCopNavCard({ isActive = false, ...props }) {
         "card",
         "inner-cop-nav-card",
         isActive ? "active" : undefined,
-        props.class
+        props.addClass
       )}
       onClick={props.onClick}
     >
@@ -56,17 +56,17 @@ function InnerCopNavCard({ isActive = false, ...props }) {
 
 // Type declaration for props
 CopCard.propTypes = {
-  class: PropTypes.string,
+  addClass: PropTypes.string,
   openState: PropTypes.bool,
   size: PropTypes.oneOf(["lg", "sm"]),
 };
 
 InnerCopCard.propTypes = {
-  class: PropTypes.string,
+  addClass: PropTypes.string,
 };
 
 InnerCopNavCard.propTypes = {
-  class: PropTypes.string,
+  addClass: PropTypes.string,
   href: PropTypes.string,
   isActive: PropTypes.bool,
   onClick: PropTypes.func,

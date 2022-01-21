@@ -8,7 +8,7 @@ import "./_Layouts.scss";
 
 function LargeCopCardLayout({ gap = 2, ...props }) {
   return (
-    <div className={combineClasses("flex-container", props.class)}>
+    <div className={combineClasses("flex-container", props.addClass)}>
       <div className={combineClasses("col-3", `mr-${gap}`)}>
         {props.children[0]}
       </div>
@@ -18,7 +18,7 @@ function LargeCopCardLayout({ gap = 2, ...props }) {
 }
 
 LargeCopCardLayout.propTypes = {
-  class: PropTypes.string,
+  addClass: PropTypes.string,
   gap: PropTypes.number,
   href: PropTypes.string,
   onClick: PropTypes.func,
