@@ -1,33 +1,40 @@
 {
   "name": "civictechjobs",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "CivicTechJobs is a project of Hack for LA. CivicTechJobs helps technology practitioners interested in having civic impact to find job opportunities from a central hub of listings. The website's main features include a linklist to public interest job boards and other resources relevent to their focused journey to work on projects and solve problems with a public benefit.",
+  "main": "webpack.config.js",
   "scripts": {
     "watch": "webpack --mode development --watch",
     "build": "webpack --mode production --output-path ./frontend/static/frontend"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hackforla/CivicTechJobs.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hackforla/CivicTechJobs/issues"
+  },
+  "homepage": "https://github.com/hackforla/CivicTechJobs#readme",
   "devDependencies": {
-    "@babel/core": "^7.16.0",
-    "@babel/preset-env": "^7.16.0",
-    "@babel/preset-react": "^7.16.0",
+    "@babel/core": "^7.16.10",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
     "@svgr/webpack": "^6.2.0",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.5.1",
     "html-webpack-plugin": "^5.5.0",
-    "sass": "^1.44.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "sass": "^1.49.0",
     "sass-loader": "^12.4.0",
     "style-loader": "^3.3.1",
-    "webpack": "^5.65.0",
+    "webpack": "^5.67.0",
     "webpack-cli": "^4.9.1"
   },
   "dependencies": {
-    "prop-types": "^15.8.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-router-dom": "^6.0.2"
+    "prop-types": "^15.8.1"
   }
 }
