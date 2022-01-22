@@ -3,16 +3,22 @@ import { render } from "react-dom";
 import * as Images from "../assets/images/images";
 import { Button } from "./Buttons/Buttons";
 import { CopCard, InnerCopCard } from "./Cards/Cards";
-import { FullComponent } from "./Carousel/_Carousel";
+import { RPGCarousel } from "./Carousel/Carousel";
 import { LargeCopCardLayout } from "./Layouts/Layouts";
 import { InnerCopNav } from "./Navigation/_Navigation";
 
 function App() {
+  const data = [
+    { title: "Cop 0", text: lorem },
+    { title: "Cop 1", text: lorem },
+    { title: "Cop 2", text: lorem },
+    { title: "Cop 3", text: lorem },
+    { title: "Cop 4", text: lorem },
+  ];
+
   return (
     <div style={{ margin: "10px" }}>
       <h1>Hello, World!</h1>
-      <h2>Carousel</h2>
-      <FullComponent></FullComponent>
       <h2>Playground</h2>
       <div className="flex-container">
         <div className="col-6 flex-item">
@@ -46,14 +52,18 @@ function App() {
             </InnerCopCard>
           </LargeCopCardLayout>
         </CopCard>
-        <CopCard hidden={false} size="sm">
-          <div className="title-4">COP Card - Mobile</div>
-          <span className="red">
-            Grow your viewport to see this transition into the non-mobile
-            version. Also, click the "x" button to see the card disappear.{" "}
-          </span>
-          {lorem}
-        </CopCard>
+        <RPGCarousel
+          hidden={false}
+          selected={0}
+          items={data.map((datum) => {
+            return (
+              <CopCard hidden={false} size="sm">
+                <div className="title-4">{datum.title}</div>
+                {datum.text}
+              </CopCard>
+            );
+          })}
+        ></RPGCarousel>
       </div>
       <hr></hr>
       <h2>Buttons</h2>

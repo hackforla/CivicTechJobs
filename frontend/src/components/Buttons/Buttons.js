@@ -27,7 +27,7 @@ function Button({
       )}
       href={props.href}
       target={props.href ? props.target : null}
-      onClick={() => props.onClick}
+      onClick={props.onClick}
     >
       {props.children}
     </Tag>
