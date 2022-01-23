@@ -55,25 +55,20 @@ function ClickCarousel({ hidden = false, selected = 0, ...props }) {
 }
 
 // Given screenSize(px), itemSize(px), marginsLR(px), numItems, return scrollDif, startPosition
-function calc(screenSize, itemSize, marginsLR, numItems) {
-  const scrollDif = itemSize + marginsLR;
-  const edgeOffset = (screenSize - itemSize) / 2
-  const startLoss = edgeOffset - (marginsLR / 2)
+function carouselOffset(screenWidth, itemSize, totalMargins, numItems) {
+  const scrollDif = itemSize + totalMargins;
+  const edgeOffset = (screenWidth - itemSize) / 2
+  const startLoss = edgeOffset - (totalMargins / 2)
   const startPosition = scrollDif * numItems - startLoss;
 
   return [scrollDif, startPosition]
 }
 
+function ScrollCarousel({ hidden = false, itemSize, totalMargins, ...props }) {
+  const screenSize = window.innerWidth
+  const numChildren = React.Children.count(props.children)
+  
 
-// scroll points by screen size for second set objects (of 90% size)
-// 768: 3505 4213 4920 5627 6335, dif 707/708 
-// 668: 3060 3678 4295 4912 5529, dif 617/618
-// 568: 2615 3143 3670 4197 4725, dif 527/528 
-// 468: 2171 2608 3045 3482 3919, dif 437
-// 375: 1758 2112 2466 2819 3173, dif 353/354
-// -90 per 100 decrease in screen size
-
-function ScrollCarousel({ hidden = false, ...props }) {
   const size = 328;
   const rightEdge = 3280; // a 0
   const leftEdge = 1312; // at 4
