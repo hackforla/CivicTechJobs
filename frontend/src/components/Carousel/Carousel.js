@@ -54,27 +54,65 @@ function ClickCarousel({ hidden = false, selected = 0, ...props }) {
   );
 }
 
-// Given screenSize(px), itemSize(px), marginsLR(px), numItems, return scrollDif, startPosition
-function carouselOffset(screenWidth, itemSize, totalMargins, numItems) {
+// Given containe(px), itemSize(px), marginsLR(px), numItems, return scrollDif, startPosition
+function carouselOffset(containerSize, itemSize, totalMargins, numItems) {
   const scrollDif = itemSize + totalMargins;
-  const edgeOffset = (screenWidth - itemSize) / 2
-  const startLoss = edgeOffset - (totalMargins / 2)
+  const edgeOffset = (containerSize - itemSize) / 2;
+  const startLoss = edgeOffset - totalMargins / 2;
   const startPosition = scrollDif * numItems - startLoss;
 
-  return [scrollDif, startPosition]
+  return [scrollDif, startPosition, startLoss];
 }
 
-function ScrollCarousel({ hidden = false, itemSize, totalMargins, ...props }) {
-  const screenSize = window.innerWidth
-  const numChildren = React.Children.count(props.children)
-  
+function carouselPositionIndex(scrollDif, startLoss, index) {
+  return scrollDif * index - startLoss;
+}
 
-  const size = 328;
-  const rightEdge = 3280; // a 0
-  const leftEdge = 1312; // at 4
-  const fullRotation = 1640;
-  const [position, setPosition] = useState(1616);
-  const [isTouchOn, setIsTouchOn] = useState(true);
+// Type declaration for props
+ClickCarousel.propTypes = {
+  addClass: PropTypes.string,
+  hidden: PropTypes.bool,
+  items: PropTypes.arrayOf(PropTypes.element),
+  selected: PropTypes.number,
+};
+
+function ScrollCarousel({ hidden = false, itemSize, totalMargins, ...props }) {
+  const containerSize = window.innerWidth;
+  const numItems = React.Children.count(props.children);
+  const [scrollDif, startPosition, startLoss] = carouselOffset(
+    containerSize,
+    itemSize,
+    totalMargins,
+    numItems
+  );
+  const leftEdge = carouselPositionIndex(scrollDif, startLoss, numItems - 1);
+  const rightEdge = carouselPositionIndex(scrollDif, startLoss, 2 * numItems);
+  const fullRotation = scrollDif * numItems;
+
+  const [position, setPosition] = useState(startPosition);
+  const [touchStartX, setTouchStartX] = useState(null);
+  const [touchEndX, setTouchEndX] = useState(null);
+
+  useEffect(() => {
+    console.log(position);
+  }, [position]);
+
+  //if swipe detected, go to the next position, depending on swipe direction, requires ref to set the position
+  function handleTouchStart(e) {
+    setTouchStartX(e.targetTouches[0].pageX);
+  }
+
+  function handleTouchMove(e) {
+    setTouchEndX(e.targetTouches[0].pageX);
+  }
+
+  function handleTouchEnd(e) {
+    if (touchEndX > touchStartX) {
+      setPosition(position - scrollDif);
+    } else if (touchEndX < touchStartX) {
+      setPosition(position + scrollDif);
+    }
+  }
 
   function handleScroll(e) {
     const currentPosition = e.target.scrollLeft;
@@ -83,7 +121,7 @@ function ScrollCarousel({ hidden = false, itemSize, totalMargins, ...props }) {
 
     // https://stackoverflow.com/a/66029649
     // once Mozilla supports it, use: https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-stop
-    /*clearTimeout(e.target.scrollTimeout);
+    clearTimeout(e.target.scrollTimeout);
     e.target.scrollTimeout = setTimeout(function () {
       if (currentPosition >= rightEdge) {
         e.target.scrollLeft = currentPosition - fullRotation;
@@ -91,8 +129,7 @@ function ScrollCarousel({ hidden = false, itemSize, totalMargins, ...props }) {
         e.target.scrollLeft = currentPosition + fullRotation;
       }
       setPosition(e.target.scrollLeft);
-    }, timeOut);*/
-    setPosition(e.target.scrollLeft)
+    }, timeOut);
   }
 
   return (
@@ -101,10 +138,12 @@ function ScrollCarousel({ hidden = false, itemSize, totalMargins, ...props }) {
         className={combineClasses(
           "scroll-carousel",
           props.addClass,
-          isTouchOn ? "" : "disable-touch",
           hidden ? "hidden" : ""
         )}
         onScroll={(e) => handleScroll(e)}
+        onTouchStart={(e) => handleTouchStart(e)}
+        onTouchMove={(e) => handleTouchMove(e)}
+        onTouchEnd={(e) => handleTouchEnd(e)}
       >
         {props.children}
         {props.children}
@@ -116,16 +155,11 @@ function ScrollCarousel({ hidden = false, itemSize, totalMargins, ...props }) {
 }
 
 // Type declaration for props
-ClickCarousel.propTypes = {
-  addClass: PropTypes.string,
-  hidden: PropTypes.bool,
-  items: PropTypes.arrayOf(PropTypes.element),
-  selected: PropTypes.number,
-};
-
 ScrollCarousel.propTypes = {
   addClass: PropTypes.string,
   hidden: PropTypes.bool,
+  itemSize: PropTypes.number.isRequired,
+  totalMargins: PropTypes.number.isRequired,
 };
 
 export { ClickCarousel, ScrollCarousel };
