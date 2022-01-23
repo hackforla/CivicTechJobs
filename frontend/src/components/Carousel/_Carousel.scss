@@ -1,12 +1,49 @@
 // Internal Imports
 @use "../Basics" as *;
 
-.rpg-carousel {
+.click-carousel {
   &.hidden {
     @include hidden;
   }
 
   @include breakpoint-media-min("lgtablet") {
     @include hidden;
+  }
+}
+
+.scroll-carousel {
+  display: flex;
+  scroll-snap-type: x mandatory;
+  flex: 0 0 auto;
+
+  & > * {
+    scroll-snap-align: center;
+    flex: 0 0 auto;
+    @supports (scroll-snap-stop: always) {
+      scroll-snap-stop: always;
+    }
+  }
+
+  &.hidden {
+    @include hidden;
+  }
+
+  @include breakpoint-media-min("lgtablet") {
+    @include hidden;
+  }
+}
+
+//TODO delete once done
+.scroll-carousel-cop {
+  // matches small cop card
+  width: 100vw;
+  min-height: 550px;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  justify-self: center;
+
+  & > * {
+    width: 90vw;
+    max-width: none;
   }
 }
