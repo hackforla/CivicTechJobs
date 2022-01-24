@@ -1,6 +1,6 @@
 // External Imports
 import PropTypes from "prop-types";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
@@ -55,13 +55,12 @@ function ClickCarousel({ hidden = false, selected = 0, ...props }) {
 }
 
 // Given containe(px), itemSize(px), marginsLR(px), numItems, return scrollDif, startPosition
-function carouselOffset(containerSize, itemSize, totalMargins, numItems) {
+function carouselOffset(containerSize, itemSize, totalMargins) {
   const scrollDif = itemSize + totalMargins;
   const edgeOffset = (containerSize - itemSize) / 2;
   const startLoss = edgeOffset - totalMargins / 2;
-  const startPosition = scrollDif * numItems - startLoss;
 
-  return [scrollDif, startPosition, startLoss];
+  return [scrollDif, startLoss];
 }
 
 function carouselPositionIndex(scrollDif, startLoss, index) {
@@ -79,57 +78,72 @@ ClickCarousel.propTypes = {
 function ScrollCarousel({ hidden = false, itemSize, totalMargins, ...props }) {
   const containerSize = window.innerWidth;
   const numItems = React.Children.count(props.children);
-  const [scrollDif, startPosition, startLoss] = carouselOffset(
+  const [scrollDif, startLoss] = carouselOffset(
     containerSize,
     itemSize,
-    totalMargins,
-    numItems
+    totalMargins
   );
-  const leftEdge = carouselPositionIndex(scrollDif, startLoss, numItems - 1);
-  const rightEdge = carouselPositionIndex(scrollDif, startLoss, 2 * numItems);
-  const fullRotation = scrollDif * numItems;
+  // Note: the +/- one offset accounts for floating points
+  const leftEdge =
+    carouselPositionIndex(scrollDif, startLoss, numItems - 1) + 1;
+  const rightEdge =
+    carouselPositionIndex(scrollDif, startLoss, 2 * numItems) - 1;
+  const startPosition = carouselPositionIndex(scrollDif, startLoss, numItems);
+  const endPosition = carouselPositionIndex(
+    scrollDif,
+    startLoss,
+    2 * numItems - 1
+  );
 
   const [position, setPosition] = useState(startPosition);
-  const [touchStartX, setTouchStartX] = useState(null);
-  const [touchEndX, setTouchEndX] = useState(null);
+  const [behavior, setBehavior] = useState("instant");
+  const [tap, setTap] = useState(true);
+  const carouselRef = useRef(null);
 
   useEffect(() => {
-    console.log(position);
+    carouselRef.current.scroll({
+      left: position,
+      behavior: behavior,
+    });
   }, [position]);
 
-  //if swipe detected, go to the next position, depending on swipe direction, requires ref to set the position
   function handleTouchStart(e) {
-    setTouchStartX(e.targetTouches[0].pageX);
-  }
-
-  function handleTouchMove(e) {
-    setTouchEndX(e.targetTouches[0].pageX);
-  }
-
-  function handleTouchEnd(e) {
-    if (touchEndX > touchStartX) {
+    if (!tap) {
+      return;
+    }
+    const tapPoint = e.targetTouches[0].pageX;
+    if (tapPoint <= startLoss) {
+      if (position - scrollDif <= leftEdge) {
+        setTimeout(() => {
+          setBehavior("instant");
+          setPosition(endPosition);
+        }, 300);
+      }
+      setBehavior("smooth");
       setPosition(position - scrollDif);
-    } else if (touchEndX < touchStartX) {
+    } else if (tapPoint >= containerSize - startLoss) {
+      if (position + scrollDif >= rightEdge) {
+        setTimeout(() => {
+          setBehavior("instant");
+          setPosition(startPosition);
+        }, 300);
+      }
+      setBehavior("smooth");
       setPosition(position + scrollDif);
     }
   }
 
   function handleScroll(e) {
-    const currentPosition = e.target.scrollLeft;
-    var atSnappingPoint = e.target.scrollLeft % e.target.offsetWidth === 0;
-    var timeOut = atSnappingPoint ? 0 : 150; //see notes
+    setTap(false);
+    let timer;
 
-    // https://stackoverflow.com/a/66029649
-    // once Mozilla supports it, use: https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-stop
-    clearTimeout(e.target.scrollTimeout);
-    e.target.scrollTimeout = setTimeout(function () {
-      if (currentPosition >= rightEdge) {
-        e.target.scrollLeft = currentPosition - fullRotation;
-      } else if (currentPosition <= leftEdge) {
-        e.target.scrollLeft = currentPosition + fullRotation;
-      }
-      setPosition(e.target.scrollLeft);
-    }, timeOut);
+    if (e.target.scrollLeft == position) {
+      setTap(true);
+    }
+
+    timer = setTimeout(() => {
+      setTap(true);
+    }, 100);
   }
 
   return (
@@ -142,8 +156,7 @@ function ScrollCarousel({ hidden = false, itemSize, totalMargins, ...props }) {
         )}
         onScroll={(e) => handleScroll(e)}
         onTouchStart={(e) => handleTouchStart(e)}
-        onTouchMove={(e) => handleTouchMove(e)}
-        onTouchEnd={(e) => handleTouchEnd(e)}
+        ref={carouselRef}
       >
         {props.children}
         {props.children}

@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import * as Images from "../assets/images/images";
 import { Button } from "./Buttons/Buttons";
 import { CopCard, InnerCopCard } from "./Cards/Cards";
-import { RPGCarousel } from "./Carousel/Carousel";
+import { ClickCarousel, ScrollCarousel } from "./Carousel/Carousel";
 import { LargeCopCardLayout } from "./Layouts/Layouts";
 import { InnerCopNav } from "./Navigation/_Navigation";
 
@@ -17,7 +17,7 @@ function App() {
   ];
 
   return (
-    <div style={{ margin: "10px" }}>
+    <div>
       <h1>Hello, World!</h1>
       <h2>Playground</h2>
       <div className="flex-container">
@@ -38,7 +38,14 @@ function App() {
         <div className="col-1 flex-item">13</div>
       </div>
       <h2>Cards</h2>
-      <div style={{ backgroundColor: "rgba(0,0,0,0.4)", padding: "20px 30px" }}>
+      <div
+        style={{
+          backgroundColor: "rgba(0,0,0,0.4)",
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+        }}
+      >
         <CopCard hidden={false} size="lg">
           <LargeCopCardLayout>
             <InnerCopNav></InnerCopNav>
@@ -52,18 +59,20 @@ function App() {
             </InnerCopCard>
           </LargeCopCardLayout>
         </CopCard>
-        <RPGCarousel
-          hidden={false}
-          selected={0}
-          items={data.map((datum) => {
+        <ScrollCarousel
+          addClass="scroll-carousel-cop"
+          itemSize={0.85 * window.innerWidth}
+          totalMargins={16}
+        >
+          {data.map((datum, index) => {
             return (
-              <CopCard hidden={false} size="sm">
+              <CopCard hidden={false} size="sm" key={index}>
                 <div className="title-4">{datum.title}</div>
                 {datum.text}
               </CopCard>
             );
           })}
-        ></RPGCarousel>
+        </ScrollCarousel>
       </div>
       <hr></hr>
       <h2>Buttons</h2>

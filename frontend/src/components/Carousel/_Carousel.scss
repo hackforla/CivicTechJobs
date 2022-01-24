@@ -13,14 +13,14 @@
 
 .scroll-carousel {
   display: flex;
-  scroll-snap-type: x mandatory;
+  //scroll-snap-type: x mandatory;
   flex: 0 0 auto;
 
   & > * {
-    scroll-snap-align: center;
+    //scroll-snap-align: center;
     flex: 0 0 auto;
     @supports (scroll-snap-stop: always) {
-      scroll-snap-stop: always;
+      //scroll-snap-stop: always;
     }
   }
 
@@ -38,12 +38,12 @@
   // matches small cop card
   width: 100vw;
   min-height: 550px;
-  overflow-x: scroll;
+  overflow-x: hidden;
   scrollbar-width: none;
   justify-self: center;
 
   & > * {
-    width: 90vw;
+    width: 85vw;
     max-width: none;
   }
 }
