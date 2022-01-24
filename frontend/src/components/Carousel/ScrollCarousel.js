@@ -6,11 +6,10 @@ import React, { Fragment, useEffect, useRef, useState } from "react";
 import { combineClasses } from "../Utility/utils";
 import "./_ScrollCarousel.scss";
 
-// Note: This needs an aria labels to be compliant since it does not inherently use buttons but is nevetheless a click item. Or perhaps the entire scroll, even if hidden, is already compliant if there are labels on them????
 function ScrollCarousel({ hidden = false, itemSize, totalMargins, ...props }) {
   const containerSize = window.innerWidth;
   const numItems = React.Children.count(props.children);
-  const [scrollDif, edgeOffset, startLoss] = carouselOffset(
+  const [scrollDif, startLoss] = carouselOffset(
     containerSize,
     itemSize,
     totalMargins
@@ -113,7 +112,7 @@ function carouselOffset(containerSize, itemSize, totalMargins) {
   const edgeOffset = (containerSize - itemSize) / 2;
   const startLoss = edgeOffset - totalMargins / 2;
 
-  return [scrollDif, edgeOffset, startLoss];
+  return [scrollDif, startLoss];
 }
 
 function carouselPositionIndex(scrollDif, startLoss, index) {
