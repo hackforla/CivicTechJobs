@@ -6,6 +6,7 @@ import React, { Fragment, useEffect, useRef, useState } from "react";
 import { combineClasses } from "../Utility/utils";
 import "./_ScrollCarousel.scss";
 
+// Note, all the functions in this component mimics the expected behavior of scroll-snap-stop: always. Since this is not supported in FireFox, this needs to be recreated until support is reached.
 function ScrollCarousel({ hidden = false, itemSize, totalMargins, ...props }) {
   const containerSize = window.innerWidth;
   const numItems = React.Children.count(props.children);
@@ -77,24 +78,21 @@ function ScrollCarousel({ hidden = false, itemSize, totalMargins, ...props }) {
   }
 
   return (
-    <Fragment>
-      <div
-        className={combineClasses(
-          "scroll-carousel",
-          props.addClass,
-          hidden ? "hidden" : ""
-        )}
-        onTouchStart={(e) => handleTouchStart(e)}
-        onTouchMove={(e) => handleTouchMove(e)}
-        onTouchEnd={() => handleTouchEnd()}
-        ref={carouselRef}
-      >
-        {props.children}
-        {props.children}
-        {props.children}
-      </div>
-      <div>{position}</div>
-    </Fragment>
+    <div
+      className={combineClasses(
+        "scroll-carousel",
+        props.addClass,
+        hidden ? "hidden" : ""
+      )}
+      onTouchStart={(e) => handleTouchStart(e)}
+      onTouchMove={(e) => handleTouchMove(e)}
+      onTouchEnd={() => handleTouchEnd()}
+      ref={carouselRef}
+    >
+      {props.children}
+      {props.children}
+      {props.children}
+    </div>
   );
 }
 
@@ -121,7 +119,6 @@ function carouselOffset(containerSize, itemSize, totalMargins) {
   return [scrollDif, startLoss];
 }
 
-// Given scrollDif, startLoss, index
 /**
  * Calculates the scroll position of an item in a carousel
  * @param {number} scrollDif The difference between two items in a carousel, in px
