@@ -29,7 +29,8 @@ function ScrollCarousel({ hidden = false, itemSize, totalMargins, ...props }) {
 
   const [position, setPosition] = useState(startPosition);
   const [behavior, setBehavior] = useState("instant");
-  const [tap, setTap] = useState(true);
+  const [touch, setTouch] = useState(true);
+  const [touchStartX, setTouchStartX] = useState(null);
   const carouselRef = useRef(null);
 
   useEffect(() => {
@@ -40,11 +41,17 @@ function ScrollCarousel({ hidden = false, itemSize, totalMargins, ...props }) {
   }, [position]);
 
   function handleTouchStart(e) {
-    if (!tap) {
+    setTouch(true);
+    setTouchStartX(e.targetTouches[0].pageX);
+  }
+
+  function handleTouchMove(e) {
+    const tapDiff = e.targetTouches[0].pageX - touchStartX;
+    if (!touch) {
       return;
     }
-    const tapPoint = e.targetTouches[0].pageX;
-    if (tapPoint <= edgeOffset) {
+    if (tapDiff > 40) {
+      setTouch(false);
       if (position - scrollDif <= leftEdge) {
         setTimeout(() => {
           setBehavior("instant");
@@ -53,7 +60,8 @@ function ScrollCarousel({ hidden = false, itemSize, totalMargins, ...props }) {
       }
       setBehavior("smooth");
       setPosition(position - scrollDif);
-    } else if (tapPoint >= containerSize - edgeOffset) {
+    } else if (tapDiff < -40) {
+      setTouch(false);
       if (position + scrollDif >= rightEdge) {
         setTimeout(() => {
           setBehavior("instant");
@@ -65,17 +73,8 @@ function ScrollCarousel({ hidden = false, itemSize, totalMargins, ...props }) {
     }
   }
 
-  function handleScroll(e) {
-    setTap(false);
-    let timer;
-
-    if (e.target.scrollLeft == position) {
-      setTap(true);
-    }
-
-    timer = setTimeout(() => {
-      setTap(true);
-    }, 100);
+  function handleTouchEnd() {
+    setTouch(true);
   }
 
   return (
@@ -86,8 +85,9 @@ function ScrollCarousel({ hidden = false, itemSize, totalMargins, ...props }) {
           props.addClass,
           hidden ? "hidden" : ""
         )}
-        onScroll={(e) => handleScroll(e)}
         onTouchStart={(e) => handleTouchStart(e)}
+        onTouchMove={(e) => handleTouchMove(e)}
+        onTouchEnd={() => handleTouchEnd()}
         ref={carouselRef}
       >
         {props.children}
