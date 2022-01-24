@@ -106,7 +106,13 @@ ScrollCarousel.propTypes = {
   totalMargins: PropTypes.number.isRequired,
 };
 
-// Given containe(px), itemSize(px), marginsLR(px), numItems, return scrollDif, startPosition
+/**
+ * Calculates the scroll difference between items in a carousel, and the loss due to being the first item, which cannot be centered
+ * @param {number} containerSize Size of the carousel, in px
+ * @param {number} itemSize Size of an item in the carousel, in px
+ * @param {number} totalMargins L+R Margins between carousel items, in px
+ * @returns [number, number] The typical scroll difference, in px, from one item to another, and the loss of pixels due to being the first item being not inherently centered
+ */
 function carouselOffset(containerSize, itemSize, totalMargins) {
   const scrollDif = itemSize + totalMargins;
   const edgeOffset = (containerSize - itemSize) / 2;
@@ -115,6 +121,14 @@ function carouselOffset(containerSize, itemSize, totalMargins) {
   return [scrollDif, startLoss];
 }
 
+// Given scrollDif, startLoss, index
+/**
+ * Calculates the scroll position of an item in a carousel
+ * @param {number} scrollDif The difference between two items in a carousel, in px
+ * @param {number} startLoss The loss of pixels of the first item in a carousel
+ * @param {number} index The index position of an item in a carousel
+ * @returns number The exact scroll position of the item in index
+ */
 function carouselPositionIndex(scrollDif, startLoss, index) {
   return scrollDif * index - startLoss;
 }
