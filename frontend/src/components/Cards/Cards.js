@@ -21,12 +21,19 @@ function CopCard({ hidden = true, size = "sm", ...props }) {
     >
       <CloseButton
         addClass={`cop-card-${size}-x`}
-        onClick={() => setIsHidden(true)}
+        onClick={() => (props.onClick ? props.onClick() : setIsHidden(true))}
       ></CloseButton>
       <div className={`cop-card-${size}-content`}>{props.children}</div>
     </div>
   );
 }
+
+CopCard.propTypes = {
+  addClass: PropTypes.string,
+  onClick: PropTypes.func,
+  openState: PropTypes.bool,
+  size: PropTypes.oneOf(["lg", "sm"]),
+};
 
 function InnerCopCard(props) {
   return (
@@ -35,6 +42,10 @@ function InnerCopCard(props) {
     </div>
   );
 }
+
+InnerCopCard.propTypes = {
+  addClass: PropTypes.string,
+};
 
 function InnerCopNavCard({ isActive = false, ...props }) {
   const Tag = "href" in props ? "a" : "button"; // conditionally rendered tagss
@@ -53,17 +64,6 @@ function InnerCopNavCard({ isActive = false, ...props }) {
     </Tag>
   );
 }
-
-// Type declaration for props
-CopCard.propTypes = {
-  addClass: PropTypes.string,
-  openState: PropTypes.bool,
-  size: PropTypes.oneOf(["lg", "sm"]),
-};
-
-InnerCopCard.propTypes = {
-  addClass: PropTypes.string,
-};
 
 InnerCopNavCard.propTypes = {
   addClass: PropTypes.string,

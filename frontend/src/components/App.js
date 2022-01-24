@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { render } from "react-dom";
 import * as Images from "../assets/images/images";
 import { Button } from "./Buttons/Buttons";
@@ -15,6 +15,8 @@ function App() {
     { title: "Cop 3", text: lorem },
     { title: "Cop 4", text: lorem },
   ];
+
+  const [hideMobileModal, setHideMobileModal] = useState(false);
 
   return (
     <div>
@@ -50,7 +52,7 @@ function App() {
           <LargeCopCardLayout>
             <InnerCopNav></InnerCopNav>
             <InnerCopCard>
-              <div className="title-3">COP Card - Not Mobile</div>
+              <div className="title-3">COP Card</div>
               <span className="red">
                 Shrink your viewport to see this transition into the mobile
                 version. Also, click the "x" button to see the card disappear.{" "}
@@ -61,12 +63,21 @@ function App() {
         </CopCard>
         <ScrollCarousel
           addClass="scroll-carousel-cop"
+          hidden={hideMobileModal}
           itemSize={0.85 * window.innerWidth}
           totalMargins={16}
         >
           {data.map((datum, index) => {
             return (
-              <CopCard hidden={false} size="sm" key={index}>
+              <CopCard
+                hidden={false}
+                size="sm"
+                onClick={() => {
+                  console.log("clicked");
+                  setHideMobileModal(true);
+                }}
+                key={index}
+              >
                 <div className="title-4">{datum.title}</div>
                 {datum.text}
               </CopCard>

@@ -1,6 +1,6 @@
 // External Imports
 import PropTypes from "prop-types";
-import React, { Fragment, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
@@ -15,7 +15,7 @@ function ScrollCarousel({ hidden = false, itemSize, totalMargins, ...props }) {
     itemSize,
     totalMargins
   );
-  // Note: the +/- one offset accounts for floating points
+  // Note: the +/- one offset for the edges accounts for floating point discrepencies
   const leftEdge =
     carouselPositionIndex(scrollDif, startLoss, numItems - 1) + 1;
   const rightEdge =
