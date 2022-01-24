@@ -4,81 +4,13 @@ import React, { Fragment, useEffect, useRef, useState } from "react";
 
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
-import { Button } from "../Buttons/Buttons";
-import "./_Carousel.scss";
+import "./_ScrollCarousel.scss";
 
-function ClickCarousel({ hidden = false, selected = 0, ...props }) {
-  const [items, setItems] = useState([]);
-  const [lastIndex, setLastIndex] = useState(0);
-  const [index, setIndex] = useState(selected);
-  const [isHidden, setHidden] = useState(hidden);
-
-  useEffect(() => {
-    setItems(props.items);
-    setLastIndex(props.items.length - 1);
-  }, [props.items]);
-
-  function handleClick(increase) {
-    if (increase) {
-      console.log("clicked");
-      if (index == lastIndex) {
-        setIndex(0);
-      } else {
-        setIndex(index + 1);
-      }
-    } else {
-      if (index == 0) {
-        setIndex(lastIndex);
-      } else {
-        setIndex(index - 1);
-      }
-    }
-  }
-
-  return (
-    <div
-      className={combineClasses(
-        "click-carousel",
-        props.addClass,
-        isHidden ? "hidden" : ""
-      )}
-    >
-      <Button size="icon" onClick={() => handleClick(false)}>
-        &#8592;
-      </Button>
-      <Button size="icon" onClick={() => handleClick(true)}>
-        &#8594;
-      </Button>
-      {items ? items[index] : ""}
-    </div>
-  );
-}
-
-// Given containe(px), itemSize(px), marginsLR(px), numItems, return scrollDif, startPosition
-function carouselOffset(containerSize, itemSize, totalMargins) {
-  const scrollDif = itemSize + totalMargins;
-  const edgeOffset = (containerSize - itemSize) / 2;
-  const startLoss = edgeOffset - totalMargins / 2;
-
-  return [scrollDif, startLoss];
-}
-
-function carouselPositionIndex(scrollDif, startLoss, index) {
-  return scrollDif * index - startLoss;
-}
-
-// Type declaration for props
-ClickCarousel.propTypes = {
-  addClass: PropTypes.string,
-  hidden: PropTypes.bool,
-  items: PropTypes.arrayOf(PropTypes.element),
-  selected: PropTypes.number,
-};
-
+// Note: This needs an aria labels to be compliant since it does not inherently use buttons but is nevetheless a click item. Or perhaps the entire scroll, even if hidden, is already compliant if there are labels on them????
 function ScrollCarousel({ hidden = false, itemSize, totalMargins, ...props }) {
   const containerSize = window.innerWidth;
   const numItems = React.Children.count(props.children);
-  const [scrollDif, startLoss] = carouselOffset(
+  const [scrollDif, edgeOffset, startLoss] = carouselOffset(
     containerSize,
     itemSize,
     totalMargins
@@ -112,7 +44,7 @@ function ScrollCarousel({ hidden = false, itemSize, totalMargins, ...props }) {
       return;
     }
     const tapPoint = e.targetTouches[0].pageX;
-    if (tapPoint <= startLoss) {
+    if (tapPoint <= edgeOffset) {
       if (position - scrollDif <= leftEdge) {
         setTimeout(() => {
           setBehavior("instant");
@@ -121,7 +53,7 @@ function ScrollCarousel({ hidden = false, itemSize, totalMargins, ...props }) {
       }
       setBehavior("smooth");
       setPosition(position - scrollDif);
-    } else if (tapPoint >= containerSize - startLoss) {
+    } else if (tapPoint >= containerSize - edgeOffset) {
       if (position + scrollDif >= rightEdge) {
         setTimeout(() => {
           setBehavior("instant");
@@ -175,4 +107,17 @@ ScrollCarousel.propTypes = {
   totalMargins: PropTypes.number.isRequired,
 };
 
-export { ClickCarousel, ScrollCarousel };
+// Given containe(px), itemSize(px), marginsLR(px), numItems, return scrollDif, startPosition
+function carouselOffset(containerSize, itemSize, totalMargins) {
+  const scrollDif = itemSize + totalMargins;
+  const edgeOffset = (containerSize - itemSize) / 2;
+  const startLoss = edgeOffset - totalMargins / 2;
+
+  return [scrollDif, edgeOffset, startLoss];
+}
+
+function carouselPositionIndex(scrollDif, startLoss, index) {
+  return scrollDif * index - startLoss;
+}
+
+export { ScrollCarousel };

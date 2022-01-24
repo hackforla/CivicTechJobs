@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import * as Images from "../assets/images/images";
 import { Button } from "./Buttons/Buttons";
 import { CopCard, InnerCopCard } from "./Cards/Cards";
-import { ClickCarousel, ScrollCarousel } from "./Carousel/Carousel";
+import { ScrollCarousel } from "./Carousel/ScrollCarousel";
 import { LargeCopCardLayout } from "./Layouts/Layouts";
 import { InnerCopNav } from "./Navigation/_Navigation";
 
