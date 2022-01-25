@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useLayoutEffect, useState } from "react";
 import { render } from "react-dom";
 import * as Images from "../assets/images/images";
 import { Button } from "./Buttons/Buttons";
@@ -17,6 +17,11 @@ function App() {
   ];
 
   const [hideMobileModal, setHideMobileModal] = useState(false);
+  const [mobileCardWidth, setMobileCardWidth] = useState(window.innerWidth);
+
+  window.addEventListener("resize", () => {
+    setMobileCardWidth(window.innerWidth);
+  });
 
   return (
     <div>
@@ -64,7 +69,7 @@ function App() {
         <ScrollCarousel
           addClass="scroll-carousel-cop"
           hidden={hideMobileModal}
-          itemSize={0.85 * window.innerWidth}
+          itemSize={0.85 * mobileCardWidth}
           totalMargins={16}
         >
           {data.map((datum, index) => {
