@@ -17,11 +17,6 @@ function App() {
   ];
 
   const [hideMobileModal, setHideMobileModal] = useState(false);
-  const [mobileCardWidth, setMobileCardWidth] = useState(window.innerWidth);
-
-  window.addEventListener("resize", () => {
-    setMobileCardWidth(window.innerWidth);
-  });
 
   return (
     <div>
@@ -69,7 +64,7 @@ function App() {
         <ScrollCarousel
           addClass="scroll-carousel-cop"
           hidden={hideMobileModal}
-          itemSize={0.85 * mobileCardWidth}
+          itemSize={0.85 * window.innerWidth}
           totalMargins={16}
         >
           {data.map((datum, index) => {

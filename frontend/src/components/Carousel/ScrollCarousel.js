@@ -7,13 +7,14 @@ import { combineClasses } from "../Utility/utils";
 import "./_ScrollCarousel.scss";
 
 // Note, all the functions in this component mimics the expected behavior of scroll-snap-stop: always. Since this is not supported in FireFox, this needs to be recreated until support is reached.
-function ScrollCarousel({ hidden = false, itemSize, totalMargins, ...props }) {
-  const containerSize = window.innerWidth;
+function ScrollCarousel({ hidden = false, ...props }) {
+  const [containerSize, setContainerSize] = useState(window.innerWidth);
+  const [itemSize, setItemSize] = useState(props.itemSize);
   const numItems = React.Children.count(props.children);
   const [scrollDif, startLoss] = carouselOffset(
     containerSize,
     itemSize,
-    totalMargins
+    props.totalMargins
   );
   // Note: the +/- one offset for the edges accounts for floating point discrepencies
   const leftEdge =
@@ -26,6 +27,11 @@ function ScrollCarousel({ hidden = false, itemSize, totalMargins, ...props }) {
     startLoss,
     2 * numItems - 1
   );
+
+  window.addEventListener("resize", () => {
+    setContainerSize(window.innerWidth);
+    setItemSize(carouselRef.current.children[0].offsetWidth);
+  });
 
   useEffect(() => {
     // when the item size changes, reset position to where it should be, based on the item index
