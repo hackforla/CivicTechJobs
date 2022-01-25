@@ -3,6 +3,7 @@
 @use "sass:map";
 
 // Internal Imports
+@use "./breakpoints" as bp;
 @use "./spacing" as *;
 
 /******************************************
@@ -13,7 +14,6 @@
   display: flex;
   flex-wrap: wrap;
 }
-
 
 /******************
 *** Row classes ***
@@ -50,6 +50,16 @@ $columns: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
 
 @each $col in $columns {
   .col-#{$col} {
+    @include col-size($col);
+  }
+}
+
+/***********************************************
+*** Column classes concerning responsiveness ***
+************************************************/
+
+@mixin col-responsive($device, $col) {
+  @include bp.media-max($device) {
     @include col-size($col);
   }
 }

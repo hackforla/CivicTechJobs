@@ -2,6 +2,9 @@
 @use "sass:list";
 @use "sass:map";
 
+// Internal Imports
+@use "./breakpoints" as bp;
+
 $margin-abbrs: (
   "m": margin,
   "mt": margin-top,
@@ -50,7 +53,7 @@ $spacing-sizes: 0, 1, 2, 3, 4, 5;
 ************************************************/
 
 @mixin spacing-responsive($device, $type, $size) {
-  @include breakpoint-media-max($device) {
+  @include bp.media-max($device) {
     @include spacing-size($type, $size);
   }
 }
