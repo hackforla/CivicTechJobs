@@ -36,7 +36,7 @@ function ScrollCarousel({ hidden = false, ...props }) {
   useEffect(() => {
     // when the item size changes, reset position to where it should be, based on the item index
     setPosition(carouselPositionIndex(scrollDif, startLoss, index));
-  }, [props.itemSize, startPosition]);
+  }, [startPosition]);
 
   const [position, setPosition] = useState(startPosition);
   const [behavior, setBehavior] = useState("instant");
