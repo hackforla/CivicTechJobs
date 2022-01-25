@@ -44,7 +44,7 @@ function InnerCopNav(props) {
               height="24"
               width="24"
             />
-            <span className="title-6">{cop.name}</span>
+            <span className="nav-card-title">{cop.name}</span>
           </InnerCopNavCard>
         );
       })}
