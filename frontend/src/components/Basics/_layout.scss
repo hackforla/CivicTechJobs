@@ -3,7 +3,7 @@
 @use "sass:map";
 
 // Internal Imports
-@use "../Basics" as *;
+@use "./spacing" as *;
 
 /******************************************
 *** Container class to create a flexbox ***
@@ -12,6 +12,17 @@
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
+}
+
+
+/******************
+*** Row classes ***
+******************/
+
+.row {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
 }
 
 /*************************************

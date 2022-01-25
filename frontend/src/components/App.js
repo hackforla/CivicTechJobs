@@ -4,7 +4,6 @@ import * as Images from "../assets/images/images";
 import { Button } from "./Buttons/Buttons";
 import { CopCard, InnerCopCard } from "./Cards/Cards";
 import { ScrollCarousel } from "./Carousel/ScrollCarousel";
-import { LargeCopCardLayout } from "./Layouts/Layouts";
 import { InnerCopNav } from "./Navigation/_Navigation";
 
 function App() {
@@ -22,8 +21,8 @@ function App() {
     <div>
       <h1>Hello, World!</h1>
       <h2>Playground</h2>
-      <div className="flex-container">
-        <div className="col-6 flex-item">
+      <div className="flex-container mx-5">
+        <div className="col-6 flex-item mx-5">
           <div className="spaces">1</div>
         </div>
         <div className="col-1 flex-item">2</div>
@@ -38,6 +37,25 @@ function App() {
         <div className="col-1 flex-item">11</div>
         <div className="col-1 flex-item">12</div>
         <div className="col-1 flex-item">13</div>
+        <CopCard hidden={false} size="lg" addClass="col-12">
+          <div className="flex-container large-cop-layout--custom">
+            <div className="flex-item large-cop-nav--custom">2</div>
+            <div className="flex-item inner-cop-card--custom ml-2">3</div>
+            <div className="flex-item large-cop-nav--custom">
+              <InnerCopNav></InnerCopNav>
+            </div>
+            <div className="flex-item inner-cop-card--custom ml-2">
+              <InnerCopCard>
+                <div className="title-3">COP Card</div>
+                <span className="red">
+                  Shrink your viewport to see this transition into the mobile
+                  version. Also, click the "x" button to see the card disappear.{" "}
+                </span>
+                {lorem}
+              </InnerCopCard>
+            </div>
+          </div>
+        </CopCard>
       </div>
       <h2>Cards</h2>
       <div
@@ -49,7 +67,6 @@ function App() {
         }}
       >
         <CopCard hidden={false} size="lg">
-          <LargeCopCardLayout>
             <InnerCopNav></InnerCopNav>
             <InnerCopCard>
               <div className="title-3">COP Card</div>
@@ -59,7 +76,6 @@ function App() {
               </span>
               {lorem}
             </InnerCopCard>
-          </LargeCopCardLayout>
         </CopCard>
         <ScrollCarousel
           addClass="scroll-carousel-cop"
