@@ -1,18 +1,31 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment, useLayoutEffect, useState } from "react";
 import { render } from "react-dom";
-import { CopCard, InnerCopCard } from "./Cards/Cards";
-import { LargeCopCardLayout } from "./Layouts/Layouts";
-import { Button } from "./Buttons/Buttons";
 import * as Images from "../assets/images/images";
+import { Button } from "./Buttons/Buttons";
+import { CopCard, InnerCopCard } from "./Cards/Cards";
+import { ScrollCarousel } from "./Carousel/ScrollCarousel";
+import { LargeCopCardLayout } from "./Layouts/Layouts";
 import { InnerCopNav } from "./Navigation/_Navigation";
 
 function App() {
+  const data = [
+    { title: "Cop 0", text: lorem },
+    { title: "Cop 1", text: lorem },
+    { title: "Cop 2", text: lorem },
+    { title: "Cop 3", text: lorem },
+    { title: "Cop 4", text: lorem },
+  ];
+
+  const [hideMobileModal, setHideMobileModal] = useState(false);
+
   return (
-    <div style={{ margin: "10px" }}>
+    <div>
       <h1>Hello, World!</h1>
       <h2>Playground</h2>
       <div className="flex-container">
-        <div className="col-6 flex-item"><div className="spaces">1</div></div>
+        <div className="col-6 flex-item">
+          <div className="spaces">1</div>
+        </div>
         <div className="col-1 flex-item">2</div>
         <div className="col-1 flex-item">3</div>
         <div className="col-1 flex-item">4</div>
@@ -27,12 +40,19 @@ function App() {
         <div className="col-1 flex-item">13</div>
       </div>
       <h2>Cards</h2>
-      <div style={{ backgroundColor: "rgba(0,0,0,0.4)", padding: "20px 30px" }}>
+      <div
+        style={{
+          backgroundColor: "rgba(0,0,0,0.4)",
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+        }}
+      >
         <CopCard hidden={false} size="lg">
           <LargeCopCardLayout>
             <InnerCopNav></InnerCopNav>
             <InnerCopCard>
-              <div className="title-3">COP Card - Not Mobile</div>
+              <div className="title-3">COP Card</div>
               <span className="red">
                 Shrink your viewport to see this transition into the mobile
                 version. Also, click the "x" button to see the card disappear.{" "}
@@ -41,22 +61,37 @@ function App() {
             </InnerCopCard>
           </LargeCopCardLayout>
         </CopCard>
-        <CopCard hidden={false} size="sm">
-          <div className="title-4">COP Card - Mobile</div>
-          <span className="red">
-            Grow your viewport to see this transition into the non-mobile
-            version. Also, click the "x" button to see the card disappear.{" "}
-          </span>
-          {lorem}
-        </CopCard>
+        <ScrollCarousel
+          addClass="scroll-carousel-cop"
+          hidden={hideMobileModal}
+          itemSize={0.85 * window.innerWidth}
+          totalMargins={16}
+        >
+          {data.map((datum, index) => {
+            return (
+              <CopCard
+                hidden={false}
+                size="sm"
+                onClick={() => {
+                  console.log("clicked");
+                  setHideMobileModal(true);
+                }}
+                key={index}
+              >
+                <div className="title-4">{datum.title}</div>
+                {datum.text}
+              </CopCard>
+            );
+          })}
+        </ScrollCarousel>
       </div>
       <hr></hr>
       <h2>Buttons</h2>
       <DivWrapper>
-        <Button size="lg" color="primary" class="btn-md-to-sm">
+        <Button size="lg" color="primary" addClass="btn-md-to-sm">
           Log In
         </Button>
-        <Button size="lg" color="primary-dark" class="btn-md-to-sm">
+        <Button size="lg" color="primary-dark" addClass="btn-md-to-sm">
           Log In
         </Button>
       </DivWrapper>

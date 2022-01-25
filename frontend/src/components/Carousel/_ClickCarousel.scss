@@ -1,0 +1,12 @@
+// Internal Imports
+@use "../Basics" as *;
+
+.click-carousel {
+  &.hidden {
+    @include hidden;
+  }
+
+  @include breakpoint-media-min("lgtablet") {
+    @include hidden;
+  }
+}

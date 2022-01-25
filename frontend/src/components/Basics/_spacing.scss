@@ -1,0 +1,45 @@
+// External Imports
+@use "sass:map";
+
+$margin-abbrs: (
+  "m": margin,
+  "mt": margin-top,
+  "mr": margin-right,
+  "mb": margin-bottom,
+  "ml": margin-left,
+);
+$padding-abbrs: (
+  "p": padding,
+  "pt": padding-top,
+  "pr": padding-right,
+  "pb": padding-bottom,
+  "pl": padding-left,
+);
+$space-abbrs: map.merge($margin-abbrs, $padding-abbrs);
+$space-sizes: 0, 1, 2, 3, 4, 5;
+
+/***********************************************
+*** Spacing classes for margins and paddings ***
+***********************************************/
+
+@mixin spacing-size($type, $size) {
+  #{map.get($space-abbrs, $type)}: $size * 8px;
+}
+
+@each $name in map.keys($space-abbrs) {
+  @each $size in $space-sizes {
+    .#{$name}-#{$size} {
+      @include spacing-size($name, $size);
+    }
+  }
+}
+
+/************************************************
+*** Spacing classes concerning responsiveness ***
+************************************************/
+
+@mixin button-responsive($device, $type, $size) {
+  @include breakpoint-media-max($device) {
+    @include spacing-size($type, $size);
+  }
+}

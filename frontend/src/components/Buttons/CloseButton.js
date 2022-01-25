@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 // Internal Imports
-import * as utility from "../Utility/utils";
+import { combineClasses } from "../Utility/utils";
 import { iconX } from "../../assets/images/images";
 import "./_CloseButton.scss";
 
@@ -12,14 +12,14 @@ function CloseButton(props) {
     <img
       src={iconX}
       onClick={props.onClick}
-      className={utility.combineClasses("btn-close", props.class)}
+      className={combineClasses("btn-close", props.addClass)}
     ></img>
   );
 }
 
 // Type declaration for props
 CloseButton.propTypes = {
-  class: PropTypes.string,
+  addClass: PropTypes.string,
   onClick: PropTypes.func,
 };
 

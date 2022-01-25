@@ -1,0 +1,34 @@
+// Internal Imports
+@use "../Basics" as *;
+
+.scroll-carousel {
+  display: flex;
+  flex: 0 0 auto;
+
+  & > * {
+    flex: 0 0 auto;
+  }
+}
+
+//TODO delete once done
+.scroll-carousel-cop {
+  // matches small cop card
+  width: 100vw;
+  min-height: 550px;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  justify-self: center;
+
+  & > * {
+    width: 85vw;
+    max-width: none;
+  }
+
+  &.hidden {
+    @include hidden;
+  }
+
+  @include breakpoint-media-min("lgtablet") {
+    @include hidden;
+  }
+}

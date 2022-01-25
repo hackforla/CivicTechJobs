@@ -15,26 +15,37 @@ function CopCard({ hidden = true, size = "sm", ...props }) {
       className={combineClasses(
         "card",
         `cop-card-${size}`,
-        props.class,
+        props.addClass,
         isHidden ? "hidden" : undefined
       )}
     >
       <CloseButton
-        class={`cop-card-${size}-x`}
-        onClick={() => setIsHidden(true)}
+        addClass={`cop-card-${size}-x`}
+        onClick={() => (props.onClick ? props.onClick() : setIsHidden(true))}
       ></CloseButton>
       <div className={`cop-card-${size}-content`}>{props.children}</div>
     </div>
   );
 }
 
+CopCard.propTypes = {
+  addClass: PropTypes.string,
+  onClick: PropTypes.func,
+  openState: PropTypes.bool,
+  size: PropTypes.oneOf(["lg", "sm"]),
+};
+
 function InnerCopCard(props) {
   return (
-    <div className={combineClasses("card", "inner-cop-card", props.class)}>
+    <div className={combineClasses("card", "inner-cop-card", props.addClass)}>
       <div className="inner-cop-card-content">{props.children}</div>
     </div>
   );
 }
+
+InnerCopCard.propTypes = {
+  addClass: PropTypes.string,
+};
 
 function InnerCopNavCard({ isActive = false, ...props }) {
   const Tag = "href" in props ? "a" : "button"; // conditionally rendered tagss
@@ -45,7 +56,7 @@ function InnerCopNavCard({ isActive = false, ...props }) {
         "card",
         "inner-cop-nav-card",
         isActive ? "active" : undefined,
-        props.class
+        props.addClass
       )}
       onClick={props.onClick}
     >
@@ -54,19 +65,8 @@ function InnerCopNavCard({ isActive = false, ...props }) {
   );
 }
 
-// Type declaration for props
-CopCard.propTypes = {
-  class: PropTypes.string,
-  openState: PropTypes.bool,
-  size: PropTypes.oneOf(["lg", "sm"]),
-};
-
-InnerCopCard.propTypes = {
-  class: PropTypes.string,
-};
-
 InnerCopNavCard.propTypes = {
-  class: PropTypes.string,
+  addClass: PropTypes.string,
   href: PropTypes.string,
   isActive: PropTypes.bool,
   onClick: PropTypes.func,
