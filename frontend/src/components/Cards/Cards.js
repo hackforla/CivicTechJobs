@@ -19,11 +19,13 @@ function CopCard({ hidden = true, size = "sm", ...props }) {
         isHidden ? "hidden" : undefined
       )}
     >
-      <CloseButton
-        addClass={`cop-card-${size}-x`}
-        onClick={() => (props.onClick ? props.onClick() : setIsHidden(true))}
-      ></CloseButton>
-      <div className={`cop-card-${size}-content`}>{props.children}</div>
+      <div className="row justify-right">
+        <CloseButton
+          addClass={combineClasses(`cop-card-${size}-x`, "self-x-right")}
+          onClick={() => (props.onClick ? props.onClick() : setIsHidden(true))}
+        ></CloseButton>
+      </div>
+      <div className="row">{props.children}</div>
     </div>
   );
 }
@@ -38,7 +40,7 @@ CopCard.propTypes = {
 function InnerCopCard(props) {
   return (
     <div className={combineClasses("card", "inner-cop-card", props.addClass)}>
-      <div className="inner-cop-card-content">{props.children}</div>
+      {props.children}
     </div>
   );
 }
