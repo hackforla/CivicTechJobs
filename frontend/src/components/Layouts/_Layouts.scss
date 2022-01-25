@@ -1,4 +1,5 @@
 // External Imports
+@use "sass:list";
 @use "sass:map";
 
 // Internal Imports
@@ -22,11 +23,11 @@ $columns: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
   box-sizing: border-box;
   flex: 1 1 calc(8.33% * #{$col});
 
-  @each $name in map.keys($spacing-margin-abbrs) {
-    @each $size in $spacing-space-sizes {
+  @each $name in map.keys($margin-abbrs) {
+    @each $size in $spacing-sizes {
       &.#{$name}-#{$size} {
         // recalculates column size to accomodate margins
-        @if ($name == "m") {
+        @if (list.index("mx" "my" "px" "py", $name)) {
           flex: 1 1 calc(8.33% * #{$col} - #{$size} * 16px);
         } @else {
           flex: 1 1 calc(8.33% * #{$col} - #{$size} * 8px);

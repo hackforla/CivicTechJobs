@@ -12,9 +12,9 @@
 *** Classes for large COP cards ***
 **********************************/
 .cop-card-lg {
+  @include spacing-size("m", 1);
   background-color: $color-grey-light;
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
-  margin: 8px; // used to go over the box shadow
   max-width: 1088px;
   min-height: 624px;
 
@@ -28,10 +28,8 @@
 }
 
 .cop-card-lg-x {
-  margin: {
-    right: 3.8vw;
-    top: 47px;
-  }
+  @include spacing-size("mt", 5);
+  @include spacing-size("mr", 5);
 }
 
 .cop-card-lg-content {
@@ -46,9 +44,9 @@
 *** Classes for small COP cards ***
 **********************************/
 .cop-card-sm {
+  @include spacing-size("m", 1);
   background-color: $color-grey-light;
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
-  margin: 8px;
   max-width: 312px;
   min-height: 600px;
 
@@ -62,10 +60,8 @@
 }
 
 .cop-card-sm-x {
-  margin: {
-    top: 23px;
-    right: 6vw;
-  }
+  @include spacing-size("mt", 2);
+  @include spacing-size("mr", 2);
 }
 
 .cop-card-sm-content {

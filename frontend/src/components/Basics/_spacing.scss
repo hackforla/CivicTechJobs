@@ -1,4 +1,5 @@
 // External Imports
+@use "sass:list";
 @use "sass:map";
 
 $margin-abbrs: (
@@ -7,6 +8,8 @@ $margin-abbrs: (
   "mr": margin-right,
   "mb": margin-bottom,
   "ml": margin-left,
+  "mx": margin-right margin-left,
+  "my": margin-top margin-bottom,
 );
 $padding-abbrs: (
   "p": padding,
@@ -14,20 +17,28 @@ $padding-abbrs: (
   "pr": padding-right,
   "pb": padding-bottom,
   "pl": padding-left,
+  "px": padding-right padding-left,
+  "py": padding-top padding-bottom,
 );
-$space-abbrs: map.merge($margin-abbrs, $padding-abbrs);
-$space-sizes: 0, 1, 2, 3, 4, 5;
+$spacing-abbrs: map.merge($margin-abbrs, $padding-abbrs);
+$spacing-sizes: 0, 1, 2, 3, 4, 5;
 
 /***********************************************
 *** Spacing classes for margins and paddings ***
 ***********************************************/
 
-@mixin spacing-size($type, $size) {
-  #{map.get($space-abbrs, $type)}: $size * 8px;
+@mixin spacing-size($name, $size) {
+  @if (list.index("mx" "my" "px" "py", $name)) {
+    @each $attr in map.get($spacing-abbrs, $name) {
+      #{$attr}: $size * 8px;
+    }
+  } @else {
+    #{map.get($spacing-abbrs, $name)}: $size * 8px;
+  }
 }
 
-@each $name in map.keys($space-abbrs) {
-  @each $size in $space-sizes {
+@each $name in map.keys($spacing-abbrs) {
+  @each $size in $spacing-sizes {
     .#{$name}-#{$size} {
       @include spacing-size($name, $size);
     }
@@ -38,7 +49,7 @@ $space-sizes: 0, 1, 2, 3, 4, 5;
 *** Spacing classes concerning responsiveness ***
 ************************************************/
 
-@mixin button-responsive($device, $type, $size) {
+@mixin spacing-responsive($device, $type, $size) {
   @include breakpoint-media-max($device) {
     @include spacing-size($type, $size);
   }
