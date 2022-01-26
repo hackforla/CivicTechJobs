@@ -4,7 +4,6 @@ import * as Images from "../assets/images/images";
 import { Button } from "./Buttons/Buttons";
 import { CopCard, InnerCopCard } from "./Cards/Cards";
 import { ScrollCarousel } from "./Carousel/ScrollCarousel";
-import { LargeCopCardLayout } from "./Layouts/Layouts";
 import { InnerCopNav } from "./Navigation/_Navigation";
 
 function App() {
@@ -22,8 +21,8 @@ function App() {
     <div>
       <h1>Hello, World!</h1>
       <h2>Playground</h2>
-      <div className="flex-container">
-        <div className="col-6 flex-item">
+      <div className="flex-container mx-5">
+        <div className="col-6 flex-item mx-5">
           <div className="spaces">1</div>
         </div>
         <div className="col-1 flex-item">2</div>
@@ -41,25 +40,27 @@ function App() {
       </div>
       <h2>Cards</h2>
       <div
+        className="flex-container justify-center px-5"
         style={{
           backgroundColor: "rgba(0,0,0,0.4)",
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
         }}
       >
-        <CopCard hidden={false} size="lg">
-          <LargeCopCardLayout>
-            <InnerCopNav></InnerCopNav>
-            <InnerCopCard>
-              <div className="title-3">COP Card</div>
-              <span className="red">
-                Shrink your viewport to see this transition into the mobile
-                version. Also, click the "x" button to see the card disappear.{" "}
-              </span>
-              {lorem}
-            </InnerCopCard>
-          </LargeCopCardLayout>
+        <CopCard hidden={false} size="lg" addClass="col-12">
+          <div className="flex-container">
+            <div className="col-3">
+              <InnerCopNav></InnerCopNav>
+            </div>
+            <div className="col-9 ml-2">
+              <InnerCopCard>
+                <div className="title-3">COP Card</div>
+                <span className="red">
+                  Shrink your viewport to see this transition into the mobile
+                  version. Also, click the "x" button to see the card disappear.{" "}
+                </span>
+                {lorem}
+              </InnerCopCard>
+            </div>
+          </div>
         </CopCard>
         <ScrollCarousel
           addClass="scroll-carousel-cop"

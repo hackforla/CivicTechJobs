@@ -1,15 +1,27 @@
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .text-justify {
-    text-align: justify;
+  text-align: justify;
 }
 
 .text-left {
-    text-align: left;
+  text-align: left;
 }
 
 .text-right {
-    text-align: right;
+  text-align: right;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-left {
+  justify-content: start;
+}
+
+.justify-right {
+  justify-content: end;
 }
