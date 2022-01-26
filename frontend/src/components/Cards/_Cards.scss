@@ -12,9 +12,11 @@
 *** Classes for large COP cards ***
 **********************************/
 .cop-card-lg {
-  @include spacing-size("m", 1);
   background-color: $color-grey-light;
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+  margin: 8px; // used to go over the box shadow
+  max-width: 1088px;
+  min-height: 624px;
 
   &.hidden {
     @include hidden;
@@ -26,17 +28,29 @@
 }
 
 .cop-card-lg-x {
-  @include spacing-size("mt", 5);
-  @include spacing-size("mr", 5);
+  margin: {
+    right: 3.8vw;
+    top: 47px;
+  }
+}
+
+.cop-card-lg-content {
+  padding: {
+    top: 96px;
+    right: 10.2vw;
+    left: 6.1vw;
+  }
 }
 
 /**********************************
 *** Classes for small COP cards ***
 **********************************/
 .cop-card-sm {
-  @include spacing-size("m", 1);
   background-color: $color-grey-light;
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+  margin: 8px;
+  max-width: 312px;
+  min-height: 600px;
 
   &.hidden {
     @include hidden;
@@ -48,8 +62,18 @@
 }
 
 .cop-card-sm-x {
-  @include spacing-size("mt", 2);
-  @include spacing-size("mr", 2);
+  margin: {
+    top: 23px;
+    right: 6vw;
+  }
+}
+
+.cop-card-sm-content {
+  padding: {
+    top: 74px;
+    right: 6.4vw;
+    left: 6.4vw;
+  }
 }
 
 /**********************************
@@ -58,8 +82,16 @@
 .inner-cop-card {
   background-color: $color-white;
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
-  box-sizing: border-box;
+  max-width: 625px;
   min-height: 448px;
+}
+
+.inner-cop-card-content {
+  padding: {
+    top: 48px;
+    right: 3.3vw;
+    left: 3.3vw;
+  }
 }
 
 /**************************************
@@ -70,6 +102,7 @@
   border: none;
   box-sizing: border-box;
   display: inline;
+  max-width: 188px;
   min-height: 64px;
 
   &.active {

@@ -1,16 +1,5 @@
-// Internal Imports
-@use "../Basics" as *;
-
 .inner-cop-nav {
   display: flex;
   flex-direction: column;
   row-gap: 32px;
-}
-
-.nav-card-title {
-  @include title(6);
-
-  @include breakpoint-media-max("lgtablet") {
-    @include title(7);
-  }
 }
