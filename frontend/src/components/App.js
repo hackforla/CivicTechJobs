@@ -37,14 +37,20 @@ function App() {
         <div className="col-1 flex-item">11</div>
         <div className="col-1 flex-item">12</div>
         <div className="col-1 flex-item">13</div>
+      </div>
+      <h2>Cards</h2>
+      <div
+        className="flex-container justify-center px-5"
+        style={{
+          backgroundColor: "rgba(0,0,0,0.4)",
+        }}
+      >
         <CopCard hidden={false} size="lg" addClass="col-12">
-          <div className="flex-container large-cop-layout--custom">
-            <div className="flex-item large-cop-nav--custom">2</div>
-            <div className="flex-item inner-cop-card--custom ml-2">3</div>
-            <div className="flex-item large-cop-nav--custom">
+          <div className="flex-container">
+            <div className="col-3">
               <InnerCopNav></InnerCopNav>
             </div>
-            <div className="flex-item inner-cop-card--custom ml-2">
+            <div className="col-9 ml-2">
               <InnerCopCard>
                 <div className="title-3">COP Card</div>
                 <span className="red">
@@ -55,27 +61,6 @@ function App() {
               </InnerCopCard>
             </div>
           </div>
-        </CopCard>
-      </div>
-      <h2>Cards</h2>
-      <div
-        style={{
-          backgroundColor: "rgba(0,0,0,0.4)",
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-        }}
-      >
-        <CopCard hidden={false} size="lg">
-            <InnerCopNav></InnerCopNav>
-            <InnerCopCard>
-              <div className="title-3">COP Card</div>
-              <span className="red">
-                Shrink your viewport to see this transition into the mobile
-                version. Also, click the "x" button to see the card disappear.{" "}
-              </span>
-              {lorem}
-            </InnerCopCard>
         </CopCard>
         <ScrollCarousel
           addClass="scroll-carousel-cop"
