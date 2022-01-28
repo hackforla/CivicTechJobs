@@ -47,6 +47,7 @@ $size-values: (
   $size-map: map.get($size-values, $size);
 
   @include title(map.get($size-map, "title"));
+
   border-radius: 64px;
   padding: 0 map.get($size-map, "padding");
   height: map.get($size-map, "height");
@@ -90,7 +91,7 @@ $theme-values: (
     ),
     "hover": (
       "background-color": $color-blue-dark-hover,
-      "box-shadow": 0 4px 4px rgba(0, 0, 0 / 20%),
+      "box-shadow": 0 4px 4px rgb(0, 0, 0 / 20%),
     ),
     "active": (
       "background-color": $color-blue-dark-focused,
@@ -104,7 +105,7 @@ $theme-values: (
     ),
     "hover": (
       "background-color": $color-white,
-      "box-shadow": 0 4px 4px rgba(0, 0, 0 / 20%),
+      "box-shadow": 0 4px 4px rgb(0, 0, 0 / 20%),
       "color": $color-charcoal,
     ),
     "active": (
@@ -115,6 +116,7 @@ $theme-values: (
 
 @mixin button-theme($theme) {
   $theme-map: map.get($theme-values, $theme);
+
   background-color: map.get($theme-map, "background-color");
   color: map.get($theme-map, "color");
 

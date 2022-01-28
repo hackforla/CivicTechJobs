@@ -42,7 +42,7 @@ function App() {
       <div
         className="flex-container justify-center px-5"
         style={{
-          backgroundColor: "rgba(0,0,0,0.4)",
+          backgroundColor: "rgb(0,0,0 / 0.4)",
         }}
       >
         <CopCard hidden={false} size="lg" addClass="col-12">
