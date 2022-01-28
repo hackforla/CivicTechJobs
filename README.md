@@ -2,7 +2,7 @@
 
 CivicTechJobs is a project of Hack for LA. CivicTechJobs helps technology practitioners interested in having civic impact to find job opportunities from a central hub of listings. The website's main features include a linklist to public interest job boards and other resources relevent to their focused journey to work on projects and solve problems with a public benefit.
 
-The CivicTechJobs.org MVP website will be a platform to help prospective volunteers find inter disciplinary projects that will be useful for their career development while contributing to positive civic impact and a CMS for Hack for LA projects to be able to list their open roles.
+The CivicTechJobs.org MVP site will be a platform to help prospective volunteers find inter disciplinary projects that will be useful for their career development while contributing to positive civic impact and a CMS for Hack for LA projects to be able to list their open roles.
 
 The tool will match volunteers by availability, role, and program area. Future iterations of the platform will focus helping volunteers find volunteer opportunities that match paid job postings, so that a volunteer can better prepare themselves for the marketplace.
 
@@ -18,7 +18,7 @@ Civic Tech technology practitioners are a diverse and interdisciplinary group of
 ## Technology used
 
 ### Collaboration Technologies
-- [Github Project Board](https://github.com/hackforla/CivicTechJobs/projects/1)
+- [GitHub Project Board](https://github.com/hackforla/CivicTechJobs/projects/1)
 - [Slack](https://hackforla.slack.com/archives/C02509WHFQQ)
 - [Google Drive](https://drive.google.com/drive/u/0/folders/0AMdnUkSXicNCUk9PVA) 
 - [Figma](https://www.figma.com/file/G5bOqhud6azbxyR9El9Ygp/Civic-Tech-Jobs?node-id=0%3A1)
