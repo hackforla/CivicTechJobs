@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 ### Overview
-When your website is shared on slack, facebook, twitter, etc. It should automatically display with an image and title instead of just the URL.
+When your site is shared on slack, facebook, twitter, etc. It should automatically display with an image and title instead of just the URL.
 
 ### Action items
 Identify what to put in the following fields:

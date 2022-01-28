@@ -9,7 +9,7 @@ assignees: ''
 ---
 
 ### Overview
-Update the following fields for your project. These updated fields will then be updated to be shown on the website.
+Update the following fields for your project. These updated fields will then be updated to be shown on the site.
 
 ### Action Items
 - [ ] Update wording of anything currently on the project card (see [hackforla.org](https://www.hackforla.org/))
