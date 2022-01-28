@@ -1,4 +1,4 @@
-import React, { Fragment, useLayoutEffect, useState } from "react";
+import React, { Fragment, useState } from "react";
 import { render } from "react-dom";
 import * as Images from "../assets/images/images";
 import { Button } from "./Buttons/Buttons";
