@@ -49,7 +49,7 @@ jobs:
       - name: Lint Code Base
         uses: github/super-linter/slim@v4
         env:
-          CSS_FILE_NAME: .github/workflows/linterConfigs/.stylelintrc.json
+          CSS_FILE_NAME: ./.github/workflows/linterConfigs/.stylelintrc.json
           VALIDATE_ALL_CODEBASE: false
           VALIDATE_PYTHON: false
           VALIDATE_PYTHON_BLACK: false
