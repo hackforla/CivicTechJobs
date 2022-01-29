@@ -10,7 +10,7 @@ Fixes #
 - 
 - 
 
-<!-- Please attach full page screenshots of changes to the website's appearance before and after code changes in HTML drop boxes (see below template). DO NOT POST PICTURE OF YOUR CODE! -->
+<!-- Please attach full page screenshots of changes to the website's appearance before and after code changes in HTML drop boxes (see below template). DO NOT POST PICTURES OF YOUR CODE! -->
 
 ### Screenshots, if applicable
 
