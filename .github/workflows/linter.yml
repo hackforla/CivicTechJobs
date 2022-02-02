@@ -49,8 +49,8 @@ jobs:
       - name: Lint Code Base
         uses: github/super-linter/slim@v4
         env:
-          # JAVASCRIPT_DEFAULT_STYLE: prettier
-          VALIDATE_ALL_CODEBASE: true
+          JAVASCRIPT_DEFAULT_STYLE: prettier
+          VALIDATE_ALL_CODEBASE: true # true
           VALIDATE_MARKDOWN: false
           VALIDATE_PYTHON: false
           VALIDATE_PYTHON_BLACK: false
