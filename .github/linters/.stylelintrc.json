@@ -4,8 +4,7 @@
     "selector-class-pattern": null
   },
   "extends": [
-    "stylelint-config-standard-scss",
-    "stylelint-config-prettier-scss"
+    "stylelint-config-standard-scss"
   ],
   "ignoreFiles": ["../../frontend/src/components/_normalize.scss"]
 }
