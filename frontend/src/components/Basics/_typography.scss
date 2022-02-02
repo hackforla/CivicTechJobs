@@ -55,7 +55,7 @@
 }
 
 @mixin paragraph($size) {
-  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-family: Roboto;
   font-weight: normal;
 
   @if $size == 1 {
