@@ -3,6 +3,9 @@
     "font-family-no-missing-generic-family-keyword": null,
     "selector-class-pattern": null
   },
-  "extends": ["stylelint-config-standard-scss", "stylelint-config-prettier"],
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-prettier-scss"
+  ],
   "ignoreFiles": ["../../frontend/src/components/_normalize.scss"]
 }
