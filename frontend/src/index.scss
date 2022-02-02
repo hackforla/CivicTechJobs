@@ -3,7 +3,7 @@
 @use "components/Buttons/Buttons" as *;
 
 body {
-  font-family: Roboto;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
 }
 
 .red {
@@ -47,6 +47,7 @@ body {
 
 .card-content-margins--custom {
   @include spacing-size("mt", 3);
+
   @include breakpoint-media-max("desktop") {
     margin: {
       right: 80px;

@@ -18,14 +18,14 @@ Please write a user story for this feature suggestion in the following format: A
    - [ ] How long do you expect it take to implement this issue?
    - [ ] Who is needed to implement this feature (Could you implement it yourself?)
       - [ ] Design
-      - [ ] Front End
-      - [ ] Back End
+      - [ ] Frontend
+      - [ ] Backend
       - [ ] Database
    - [ ] What problem does this feature solve?
    - [ ] What technologies are needed for this feature?
 
 ### Resources/Instructions
-If there is a website which has documentation that helps with this issue provide the link(s) here:
+If there is a site which has documentation that helps with this issue provide the link(s) here:
 
 
 **Additional context**

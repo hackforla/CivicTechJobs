@@ -31,7 +31,7 @@ $spacing-sizes: 0, 1, 2, 3, 4, 5;
 ***********************************************/
 
 @mixin spacing-size($name, $size) {
-  @if (list.index("mx" "my" "px" "py", $name)) {
+  @if list.index("mx" "my" "px" "py", $name) {
     @each $attr in map.get($spacing-abbrs, $name) {
       #{$attr}: $size * 8px;
     }

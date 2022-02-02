@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 ### Overview
-Lighthouse is an open-source, automated tool for improving the quality of web pages. You can run it against any web page, public or requiring authentication. It has audits for performance, accessibility, progressive web apps, and more.  Hack For LA recommends that you run the tests and evaluate what changes you might want to make on your website to improve performance and accessability.
+Lighthouse is an open-source, automated tool for improving the quality of web pages. You can run it against any web page, public or requiring authentication. It has audits for performance, accessibility, progressive web apps, and more.  Hack For LA recommends that you run the tests and evaluate what changes you might want to make on your site to improve performance and accessability.
 
 ### How To Use
 Lighthouse is in the Audits panel of the Chrome DevTools. To run a report:

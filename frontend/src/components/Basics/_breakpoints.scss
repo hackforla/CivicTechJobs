@@ -1,4 +1,4 @@
-/* 
+/*
 BREAKPOINTS:
 <= 576px for mobile phones
 577px-768px for small tablets
@@ -26,7 +26,7 @@ $breakpoints-max: (
 // Note: At this device and ABOVE, use @content properties & values.
 @mixin media-min($device) {
   @if $device == mobile {
-    @media only screen and (max-width: (map-get($map: $breakpoints-min, $key: smtablet)-1px)) {
+    @media only screen and (max-width: (map-get($map: $breakpoints-min, $key: smtablet) - 1px)) {
       @content;
     }
   } @else {
@@ -39,7 +39,7 @@ $breakpoints-max: (
 // Note: At this device and BELOW, use @content properties & values.
 @mixin media-max($device) {
   @if $device == desktop {
-    @media only screen and (min-width: (map-get($map: $breakpoints-max, $key: laptop)+1px)) {
+    @media only screen and (min-width: (map-get($map: $breakpoints-max, $key: laptop) + 1px)) {
       @content;
     }
   } @else {

@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 ### Overview
-Provide collateral for the HackforLA website
+Provide collateral for the HackforLA site
 
 ### Action Items
 - [ ]   Gather items
@@ -24,7 +24,7 @@ Provide collateral for the HackforLA website
   - [ ]  Partner(s)
   - [ ]  Location
   - [ ]  Status
-- [ ]   Add project Card to website
+- [ ]   Add project Card to site
 
 ### Resources/Instructions
-See project cards on the hackforla.org website for examples
+See project cards on the hackforla.org site for examples
