@@ -4,7 +4,8 @@ import * as Images from "../assets/images/images";
 import { Button } from "./Buttons/Buttons";
 import { CopCard, InnerCopCard } from "./Cards/Cards";
 import { ScrollCarousel } from "./Carousel/ScrollCarousel";
-import { InnerCopNav } from "./Navigation/_Navigation";
+import { InnerCopNav } from "./Navigation/InnerCopNav";
+import { HeaderNav } from "./Navigation/HeaderNav";
 
 function App() {
   const data = [
@@ -19,13 +20,22 @@ function App() {
 
   return (
     <div>
+      <HeaderNav
+        logoDesktop={Images.logoHorizontal}
+        logoMobile={Images.logoStacked}
+        menu={[
+          { name: "Hack for LA", link: "/" },
+          { name: "How to Join", link: "/" },
+          { name: "Projects", link: "/" },
+        ]}
+      />
       <h1>Hello, World!</h1>
       <h2>Playground</h2>
       <div className="flex-container mx-5">
-        <div className="col-6 flex-item mx-5">
+        <div className="col-3 flex-item">
           <div className="spaces">1</div>
         </div>
-        <div className="col-1 flex-item">2</div>
+        <div className="col-9 flex-item">2</div>
         <div className="col-1 flex-item">3</div>
         <div className="col-1 flex-item">4</div>
         <div className="col-1 flex-item">5</div>
