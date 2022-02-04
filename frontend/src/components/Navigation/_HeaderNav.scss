@@ -42,6 +42,7 @@
 
 .header-nav-link {
   @include title(6);
+
   text-decoration: none;
 
   &:visited,
@@ -53,6 +54,7 @@
 
 .hamburger-icon {
   @include hidden;
+
   background: none;
   border: none;
 

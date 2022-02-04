@@ -66,11 +66,11 @@ function HeaderNav({ logoDesktop, logoMobile, menu, ...props }) {
 HeaderNav.propTypes = {
   logoDesktop: PropTypes.string.isRequired,
   logoMobile: PropTypes.string.isRequired,
-  menu: PropTypes.arrayOf.isRequired(
+  menu: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
       link: PropTypes.string,
-    })
+    }).isRequired
   ),
 };
 
