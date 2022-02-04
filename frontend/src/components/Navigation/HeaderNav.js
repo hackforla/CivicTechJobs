@@ -17,8 +17,10 @@ function HeaderNav({ logoDesktop, logoMobile, menu, ...props }) {
   const Logo = () => {
     return (
       <div className="flex-container align-center justify-left">
-        <img className="logo-desktop" src={logoDesktop} />
-        <img className="logo-mobile" src={logoMobile} />
+        <a href="/">
+          <img className="logo-desktop" src={logoDesktop} />
+          <img className="logo-mobile" src={logoMobile} />
+        </a>
       </div>
     );
   };
