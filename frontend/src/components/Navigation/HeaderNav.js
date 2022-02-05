@@ -8,9 +8,6 @@ import { IconHamburgerMenu } from "../../assets/images/images";
 import "./_HeaderNav.scss";
 import { Button } from "../Buttons/Buttons";
 
-// smtablet at px 768px
-// lgta
-
 function HeaderNav({ logoDesktop, logoMobile, menu, ...props }) {
   const [open, setOpen] = useState(false);
 

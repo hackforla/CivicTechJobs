@@ -9,13 +9,25 @@
   width: 100%;
 }
 
+.header-nav-logo {
+  @include col-size(5);
+  @include col-responsive("smtablet", 6);
+  @include col-responsive("mobile", 4);
+}
+
+.header-nav-menu {
+  @include col-size(7);
+  @include col-responsive("smtablet", 6);
+  @include col-responsive("mobile", 8);
+}
+
 .logo-desktop,
 .logo-mobile {
   width: 100%;
-  max-height: 44px;
+  max-height: 32px;
 
   @include breakpoint-media-max("mobile") {
-    height: 44px;
+    max-height: 44px;
   }
 }
 
@@ -30,18 +42,6 @@
   @include breakpoint-media-max("mobile") {
     display: block;
   }
-}
-
-.header-nav-logo {
-  @include col-size(5);
-  @include col-responsive("smtablet", 6);
-  @include col-responsive("mobile", 4);
-}
-
-.header-nav-menu {
-  @include col-size(7);
-  @include col-responsive("smtablet", 6);
-  @include col-responsive("mobile", 8);
 }
 
 .header-nav-link {
