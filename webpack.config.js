@@ -76,6 +76,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: "../../templates/frontend/index.html", //need to go back because will attempt to create file at output
       template: "/frontend/src/templates/index.html",
+      favicon: "./frontend/src/assets/images/svgs/logo-logomark.svg"
     }),
   ],
   watchOptions: {
