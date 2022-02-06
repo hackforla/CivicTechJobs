@@ -26,7 +26,8 @@ We do not currently have a dedicated issue template for creating issues for cont
 4. [Create a pull request from your fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork). After you had opened the pull request, there will be instructions on the [pull request template](https://github.com/hackforla/CivicTechJobs/blob/main/.github/pull_request_template.md?plain=1) for you to follow.
 5. Done! Now just wait for a team member to get back to you with feedback on your changes!
 
-> Important note: **We do not want to be flooded with pull requests!** Please, do **NOT** take on another issue or open a second pull request until your current pull request and linked issue are resolved by a team member.
+> Important note 1: **We do not want to be flooded with pull requests!** Please, do **NOT** take on another issue or open a second pull request until your current pull request and linked issue are resolved by a team member.
+> Important note 2: **Do not directly contact the team to review your pull request unless it has been over 72 hours since the pull request was opened.** As an open-source project, the team contribute to the project in their free time, which varies from week to week, day to day. We will, however, gladly answer any and all questions you may have.
 
 ## Contributing to our project (for members of our dev team)
 
@@ -46,7 +47,8 @@ To create an issue as a member of our team, locate the appropriate template for 
 6. [Create a pull request from your fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork). After you had opened the pull request, there will be instructions on the [pull request template](https://github.com/hackforla/CivicTechJobs/blob/main/.github/pull_request_template.md?plain=1) for you to follow.
 7. Done! Now just wait for a team member to get back to you with feedback on your changes!
 
-> Important note: **We do not want to be flooded with pull requests!** Please, do **NOT** take on another issue or open a second pull request until your current pull request and linked issue are resolved by a team member. To take on another issue, please ask the development lead for an appropriate additional issue to take on.
+> Important note 1: **We do not want to be flooded with pull requests!** Please, do **NOT** take on another issue or open a second pull request until your current pull request and linked issue are resolved by a team member. To take on another issue, please ask the development lead for an appropriate additional issue to take on.
+> Important note 2: **Do not directly contact the team to review your pull request unless it has been over 72 hours since the pull request was opened.** As an open-source project, the team contribute to the project in their free time, which varies from week to week, day to day. Feel free to ask any questions, however!
 
 ### Reviewing Code
 
