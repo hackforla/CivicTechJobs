@@ -14,3 +14,13 @@
 @mixin hidden {
   display: none;
 }
+
+.sr-only {
+  @include sr-only;
+}
+
+.hidden {
+  @include hidden;
+}
+
+
