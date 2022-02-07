@@ -1,4 +1,4 @@
-<!-- Please link an issue via keyword: https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword. -->
+<!-- Please link an issue via keyword. If you do not know what this means, please click this link: https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword. -->
 
 Fixes #
 
