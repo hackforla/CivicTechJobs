@@ -35,6 +35,10 @@ import logoType from "./svgs/logo-logotype.svg?url";
 import logoVertical from "./svgs/logo-vertical.svg?url";
 import logoWordmark from "./svgs/logo-wordmark.svg?url";
 
+// Group Background Image
+import groupBackground from "./svgs/group-background.svg?url"
+import groupBkgPattern from "./svgs/group-background-pattern.svg?url"
+
 export {
   // COP Icons
   CopIconData,
@@ -67,4 +71,7 @@ export {
   logoType,
   logoVertical,
   logoWordmark,
+  // Group Background Image
+  groupBackground,
+  groupBkgPattern
 };
