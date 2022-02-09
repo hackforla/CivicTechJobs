@@ -1,4 +1,7 @@
+// External Imports
 import React, { Fragment, useState } from "react";
+
+// Internal Imports
 import * as Images from "assets/images/images";
 import {
   Button,
@@ -8,6 +11,7 @@ import {
   InnerCopNav,
   HeaderNav,
 } from "components/components";
+import "./_Demo.scss";
 
 function Demo() {
   const data = [
