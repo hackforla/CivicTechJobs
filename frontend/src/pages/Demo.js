@@ -1,6 +1,4 @@
 import React, { Fragment, useState } from "react";
-import { render } from "react-dom";
-import { Route, Switch, Redirect } from "react-router-dom";
 import * as Images from "assets/images/images";
 import {
   Button,
@@ -11,13 +9,13 @@ import {
   HeaderNav,
 } from "components/components";
 
-function App() {
+function Demo() {
   const data = [
     { title: "Cop 0", text: lorem },
     { title: "Cop 1", text: lorem },
     { title: "Cop 2", text: lorem },
     { title: "Cop 3", text: lorem },
-    { title: "Cop 5", text: lorem },
+    { title: "Cop 4", text: lorem },
   ];
 
   const [hideMobileModal, setHideMobileModal] = useState(false);
@@ -245,6 +243,4 @@ function DivWrapper(props) {
   );
 }
 
-render(<App />, document.getElementById("app"));
-
-export default App;
+export default Demo;
