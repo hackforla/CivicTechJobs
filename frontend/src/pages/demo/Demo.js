@@ -1,10 +1,15 @@
 import React, { Fragment, useState } from "react";
-import { render } from "react-dom";
-import { Route, Switch, Redirect } from "react-router-dom";
 import * as Images from "assets/images/images";
-import { Button, CopCard, InnerCopCard, ScrollCarousel, InnerCopNav, HeaderNav } from "components/components"
+import {
+  Button,
+  CopCard,
+  InnerCopCard,
+  ScrollCarousel,
+  InnerCopNav,
+  HeaderNav,
+} from "components/components";
 
-function App() {
+function Demo() {
   const data = [
     { title: "Cop 0", text: lorem },
     { title: "Cop 1", text: lorem },
@@ -238,6 +243,4 @@ function DivWrapper(props) {
   );
 }
 
-render(<App />, document.getElementById("app"));
-
-export default App;
+export default Demo;
