@@ -1,0 +1,23 @@
+
+
+.image-parent{
+    position: relative;
+    border: solid red;
+    background-image: url(../../assets/images/svgs/group-background-pattern.svg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 100%;
+    transform: translateY(-20%);
+}
+
+.group-image{
+    width: 100%;
+}
+
+.mission-content{
+    position: relative;
+    background-color: #FFEFDB;
+    height: 500px;
+    z-index: -2;
+    top: -200px;
+}
