@@ -225,11 +225,13 @@ function App() {
       <div className="paragraph-4">Paragraph 4</div>
       <div className="paragraph-5">Paragraph 5</div>
       <Footer
-       menu={[
-        { name: "Credits", link: "/" },
-        { name: "Sitemap", link: "/" },
-        { name: "Join Us", link: "/" },
-      ]}
+        logoDesktop={Images.logoHorizontal}
+        logoMobile={Images.logoStacked}
+        menu={[
+          { name: "Credits", link: "/" },
+          { name: "Sitemap", link: "/" },
+          { name: "Join Us", link: "/" },
+        ]}
       />
     </div>
   );

@@ -5,3 +5,16 @@
   width: 1440px;
   height: 128px;
 }
+
+
+.logo{
+// using filter property to convert SVG color to white
+filter: invert(98%) sepia(98%) saturate(8%) hue-rotate(167deg) brightness(103%) contrast(105%);
+width:222px;
+height:40px;
+}
+
+.button-donate{
+  background-color: red;
+  
+}
