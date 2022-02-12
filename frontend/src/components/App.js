@@ -227,6 +227,7 @@ function App() {
       <Footer
         logoDesktop={Images.logoHorizontal}
         logoMobile={Images.logoStacked}
+        logoFooter={Images.IconLineFooter}
         menu={[
           { name: "Credits", link: "/" },
           { name: "Sitemap", link: "/" },
