@@ -1,40 +1,41 @@
-import React from 'react';
-import "./_Footer.scss"
-import { Button } from '../../components/Buttons/Buttons';
+import React from "react";
+import "./_Footer.scss";
+import { Button } from "../../components/Buttons/Buttons";
 
-const Footer = ({menu,logoDesktop,logoMobile}) => {
-
-  const Logo = ()=>{
+const Footer = ({ menu, logoDesktop, logoMobile }) => {
+  const Logo = () => {
     return (
       <div>
-           <img className='logo' src={logoDesktop} />
-          
+        <img className="logo-desktop-footer" src={logoDesktop} />
+        <img className="logo-mobile-footer" src={logoMobile} />
       </div>
-    )
-  }
+    );
+  };
 
+  return (
+    <div className="footer-nav ">
+      <div className="inner">
+      <Logo />
 
-  return ( 
-    <div className='footer-nav'>
-      <Logo/>
+      </div>
       
 
-    <div>
-    {
-        menu.map((item,idx)=>{
-          return <a key ={idx} href={item.url}>{item.name}</a>
-        })
-      }
-
+      <div className="inner">
+        {menu.map((item, idx) => {
+          return (
+            <a key={idx} href={item.url}>
+              {item.name}
+            </a>
+          );
+        })}
+      </div>
+      <div className="inner">
+        <Button color="primary" href="https://www.google.com"  size="sm">
+          Donate
+        </Button>
+      </div>
     </div>
-    <div >
-      <Button color="primary" href="https://www.google.com" color="">Donate</Button>
-    </div>
+  );
+};
 
-     
-
-    </div>
-   );
-}
- 
 export default Footer;
