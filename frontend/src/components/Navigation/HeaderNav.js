@@ -1,13 +1,12 @@
 // External Imports
 import PropTypes from "prop-types";
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 
 // Internal Imports
 import * as utility from "../Utility/utils";
 import { IconHamburgerMenu } from "../../assets/images/images";
 import "./_HeaderNav.scss";
 import { Button } from "../Buttons/Buttons";
-import { Fragment } from "react/cjs/react.production.min";
 
 function HeaderNav({ logoDesktop, logoMobile, menu, ...props }) {
   const [open, setOpen] = useState(false);
