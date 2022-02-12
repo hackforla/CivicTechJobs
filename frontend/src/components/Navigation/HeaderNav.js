@@ -65,6 +65,7 @@ function HeaderNav({ logoDesktop, logoMobile, menu, ...props }) {
           </button>
         </div>
       </nav>
+      <div></div>
     </Fragment>
   );
 }

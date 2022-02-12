@@ -7,6 +7,10 @@
   position: fixed;
   top: 0;
   width: 100vw;
+
+  & + div {
+    height: 64px;
+  }
 }
 
 .header-nav-logo {
