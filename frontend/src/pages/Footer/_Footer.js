@@ -24,7 +24,7 @@ const Footer = ({ menu, logoDesktop, logoMobile, logoFooter }) => {
             <>
               <img className="img-menu" key={idx} src={logoFooter} />
 
-              <a key={idx} href={item.url}>
+              <a key={idx} href={item.link}>
                 {item.name}
               </a>
             </>
@@ -32,7 +32,7 @@ const Footer = ({ menu, logoDesktop, logoMobile, logoFooter }) => {
         })}
       </div>
       <div className="inner">
-        <Button color="primary" href="https://www.google.com" size="sm">
+        <Button color="primary-dark" href="https://www.google.com" size="sm">
           Donate
         </Button>
       </div>

@@ -31,15 +31,7 @@
   }
 }
 
-.inner:nth-child(3) {
-  @include breakpoint-media-max("mobile") {
-    margin-bottom: 32px;
-    align-items: center;
-    justify-content: center;
-    grid-row-start: 2;
-  }
-}
-
+// Civic tech job Logo
 .inner:nth-child(1) {
   @include breakpoint-media-max("mobile") {
     margin-top: 32px;
@@ -51,8 +43,10 @@
   }
 }
 
+// Footer menu items
 .inner:nth-child(2) {
   color: #ffffff;
+
   @include breakpoint-media-max("mobile") {
     @include title(7);
     height: 20px;
@@ -64,6 +58,25 @@
     min-width: 272px;
     height: 22px;
     margin-top: 53px;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Donate button
+.inner:nth-child(3) {
+  @include breakpoint-media-max("mobile") {
+    margin-bottom: 32px;
+    align-items: center;
+    justify-content: center;
+    grid-row-start: 2;
   }
 }
 
