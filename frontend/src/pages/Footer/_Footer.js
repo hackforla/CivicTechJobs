@@ -7,10 +7,9 @@ const Footer = ({ menu, logoDesktop, logoMobile, logoFooter }) => {
     return (
       <div>
         <a href="/">
-        <img className="logo-desktop-footer" src={logoDesktop} />
-        <img className="logo-mobile-footer" src={logoMobile} />
+          <img className="logo-desktop-footer" src={logoDesktop} />
+          <img className="logo-mobile-footer" src={logoMobile} />
         </a>
-       
       </div>
     );
   };
@@ -27,7 +26,7 @@ const Footer = ({ menu, logoDesktop, logoMobile, logoFooter }) => {
             <>
               <img className="img-menu" key={idx} src={logoFooter} />
 
-              <a key={idx} href={item.link}>
+              <a key={item.id} href={item.link}>
                 {item.name}
               </a>
             </>

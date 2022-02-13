@@ -108,12 +108,14 @@
   }
 }
 
+// first Svf footer line 152 hidden on mobile view
 .img-menu:nth-child(1) {
   @include breakpoint-media-max("mobile") {
     display: none;
   }
 }
 
+//first SVG footer line visible 
 .img-menu:not(:first-child) {
   @include breakpoint-media-min("smtablet") {
     display: none;
