@@ -115,7 +115,7 @@
   }
 }
 
-//first SVG footer line visible 
+//first SVG footer line visible
 .img-menu:not(:first-child) {
   @include breakpoint-media-min("smtablet") {
     display: none;
