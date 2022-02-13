@@ -32,11 +32,35 @@
   }
 }
 
+.logo-desktop-footer,
+.logo-mobile-footer {
+  // using filter property to convert SVG color to white
+  filter: invert(98%) sepia(98%) saturate(8%) hue-rotate(167deg)
+    brightness(103%) contrast(105%);
+}
+
+.logo-desktop-footer {
+  @include breakpoint-media-max("mobile") {
+    @include hidden;
+  }
+}
+
+.logo-mobile-footer {
+  @include breakpoint-media-min("smtablet") {
+    @include hidden;
+  }
+  @include breakpoint-media-max("mobile") {
+    width: 71px;
+    height: 46px;
+  }
+}
+
 // Civic tech job Logo
 .inner:nth-child(1) {
   @include breakpoint-media-max("mobile") {
     margin-top: 32px;
   }
+
   .logo-desktop-footer {
     width: 222px;
     height: 40px;
@@ -46,7 +70,7 @@
 
 // Footer menu items
 .inner:nth-child(2) {
-  color: #ffffff;
+  color: #fff;
 
   a {
     text-decoration: none;
@@ -82,32 +106,6 @@
   }
 }
 
-.logo-desktop-footer,
-.logo-mobile-footer {
-  // using filter property to convert SVG color to white
-  filter: invert(98%) sepia(98%) saturate(8%) hue-rotate(167deg)
-    brightness(103%) contrast(105%);
-}
-
-.logo-desktop-footer {
-  @include breakpoint-media-max("mobile") {
-    @include hidden;
-  }
-}
-
-.logo-mobile-footer {
-  @include breakpoint-media-min("smtablet") {
-    @include hidden;
-  }
-}
-
-.logo-mobile-footer {
-  @include breakpoint-media-max("mobile") {
-    width: 71px;
-    height: 46px;
-  }
-}
-
 // first Svf footer line 152 hidden on mobile view
 .img-menu:nth-child(1) {
   @include breakpoint-media-max("mobile") {
@@ -115,7 +113,7 @@
   }
 }
 
-//first SVG footer line visible
+// first SVG footer line visible
 .img-menu:not(:first-child) {
   @include breakpoint-media-min("smtablet") {
     display: none;
