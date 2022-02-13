@@ -6,8 +6,11 @@ const Footer = ({ menu, logoDesktop, logoMobile, logoFooter }) => {
   const Logo = () => {
     return (
       <div>
+        <a href="/">
         <img className="logo-desktop-footer" src={logoDesktop} />
         <img className="logo-mobile-footer" src={logoMobile} />
+        </a>
+       
       </div>
     );
   };

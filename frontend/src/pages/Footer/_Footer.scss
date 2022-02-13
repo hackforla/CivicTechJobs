@@ -25,6 +25,7 @@
 .inner {
   display: flex;
   justify-self: center;
+  justify-content: space-between;
   align-items: center;
   @include breakpoint-media-min("smtablet") {
     margin-top: 44px;
@@ -47,19 +48,6 @@
 .inner:nth-child(2) {
   color: #ffffff;
 
-  @include breakpoint-media-max("mobile") {
-    @include title(7);
-    height: 20px;
-    margin-bottom: 40px;
-    width: 230px;
-  }
-  @include breakpoint-media-min("smtablet") {
-    @include title(6);
-    min-width: 272px;
-    height: 22px;
-    margin-top: 53px;
-  }
-
   a {
     text-decoration: none;
     color: white;
@@ -67,6 +55,20 @@
     &:hover {
       text-decoration: underline;
     }
+  }
+
+  @include breakpoint-media-max("mobile") {
+    @include title(7);
+    height: 20px;
+    margin-bottom: 40px;
+    width: 230px;
+  }
+
+  @include breakpoint-media-min("laptop") {
+    @include title(6);
+    min-width: 272px;
+    height: 22px;
+    margin-top: 53px;
   }
 }
 
@@ -85,12 +87,6 @@
   // using filter property to convert SVG color to white
   filter: invert(98%) sepia(98%) saturate(8%) hue-rotate(167deg)
     brightness(103%) contrast(105%);
-}
-
-.inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .logo-desktop-footer {
