@@ -8,7 +8,9 @@ body {
 
 .red {
   font-weight: normal;
+
   font-style: normal;
+
   font-size: 20px;
 
   @include breakpoint-media-min(mobile) {
@@ -16,6 +18,7 @@ body {
   }
 
   @include breakpoint-media-min(smtablet) {
+
     color: $color-grey;
   }
 
@@ -34,10 +37,12 @@ body {
 
 .flex-item {
   box-sizing: border-box;
+
   border: 1px solid blue;
 }
 
 .spaces {
+
   background-color: lightcyan;
 }
 
@@ -52,6 +57,7 @@ body {
     margin: {
       right: 80px;
       left: 80px;
+
       bottom: 80px;
     }
   }
@@ -68,6 +74,7 @@ body {
   padding: {
     top: 48px;
     right: 48px;
+    
     left: 48px;
   }
 
