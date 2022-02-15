@@ -1,6 +1,6 @@
 import React from "react";
 import "./_Footer.scss";
-import { Button } from "../Buttons/Buttons";
+import { Button } from "../../components/Buttons/Buttons";
 
 const Footer = ({ menu, logoDesktop, logoMobile, logoFooter }) => {
   const Logo = () => {
