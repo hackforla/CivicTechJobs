@@ -83,6 +83,7 @@
 
   @include breakpoint-media-max("mobile") {
     @include title(7);
+
     height: 20px;
     margin-bottom: 40px;
     width: 230px;
@@ -90,6 +91,7 @@
 
   @include breakpoint-media-min("laptop") {
     @include title(6);
+    
     min-width: 272px;
     height: 22px;
     margin-top: 53px;
