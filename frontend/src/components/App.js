@@ -6,6 +6,7 @@ import { CopCard, InnerCopCard } from "./Cards/Cards";
 import { ScrollCarousel } from "./Carousel/ScrollCarousel";
 import { InnerCopNav } from "./Navigation/InnerCopNav";
 import { HeaderNav } from "./Navigation/HeaderNav";
+import Footer from "./Footer/_Footer";
 
 function App() {
   const data = [
@@ -223,6 +224,16 @@ function App() {
       <div className="paragraph-3">Paragraph 3</div>
       <div className="paragraph-4">Paragraph 4</div>
       <div className="paragraph-5">Paragraph 5</div>
+      <Footer
+        logoDesktop={Images.logoHorizontal}
+        logoMobile={Images.logoStacked}
+        logoFooter={Images.IconLineFooter}
+        menu={[
+          { name: "Credits", link: "/", id: 2323231212 },
+          { name: "Sitemap", link: "/", id: 543435656 },
+          { name: "Join Us", link: "/", id: 87875656 },
+        ]}
+      />
     </div>
   );
 }
