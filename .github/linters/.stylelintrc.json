@@ -4,7 +4,7 @@
   },
   "extends": [
     "stylelint-config-standard-scss",
-    "stylelint-config-prettier-scss"
+    "stylelint-config-prettier"
   ],
   "ignoreFiles": ["../../frontend/src/components/_normalize.scss"]
 }
