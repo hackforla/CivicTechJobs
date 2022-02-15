@@ -1,48 +1,46 @@
 @import "../../components/Buttons/_Buttons.scss";
 @import "../../components/Basics/_breakpoints.scss";
 
-
-
-.image-parent{
-    margin-top: -10%;
-    @include media-max("smtablet"){
-        margin-top: 0;
-    }
-    position: relative;
-    background-image: url("../../assets/images/svgs/group-background-pattern.svg");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    width: 100%;
+.image-parent {
+  margin-top: -10%;
+  @include media-max("smtablet") {
+    margin-top: 0;
+  }
+  position: relative;
+  background-image: url("../../assets/images/svgs/group-background-pattern.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 100%;
 }
 
-.group-image{
-    width: 100%;
+.group-image {
+  width: 100%;
 }
 
 .svg-group-layer {
-    margin: 0 12%;
+  margin: 0 12%;
 }
 
-.mission-content{
-    padding-top: 8%;
-    margin-top: -10%;
-    position: relative;
-    background-color: #FFEFDB;
-    height: 400px;
-    z-index: -2;
+.mission-content {
+  padding-top: 8%;
+  margin-top: -10%;
+  position: relative;
+  background-color: #ffefdb;
+  height: 400px;
+  z-index: -2;
 }
 
-.top-content{
-    max-width: 705px;
-    margin: auto;
-    padding-left: 50px;
-    padding-right: 50px;
-    margin-top: 80px;
+.top-content {
+  max-width: 705px;
+  margin: auto;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-top: 80px;
 }
 
 .action-btn {
-    @include button-responsive("desktop", "lg");
-    @include button-responsive("laptop", "lg");
-    @include button-responsive("lgtablet", "lg");
-    @include button-responsive("smtablet", "md");
-  }
+  @include button-responsive("desktop", "lg");
+  @include button-responsive("laptop", "lg");
+  @include button-responsive("lgtablet", "lg");
+  @include button-responsive("smtablet", "md");
+}
