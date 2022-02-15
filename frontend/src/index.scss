@@ -72,10 +72,10 @@ body {
 
 .inner-cop-layout--custom {
   padding: {
-    top: 48px;
-    right: 48px;
+    top: 48px
+    right: 48px
     
-    left: 48px;
+    left: 48px
   }
 
   @include spacing-responsive("laptop", "p", 5);
