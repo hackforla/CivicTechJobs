@@ -6,7 +6,7 @@ import { CopCard, InnerCopCard } from "./Cards/Cards";
 import { ScrollCarousel } from "./Carousel/ScrollCarousel";
 import { InnerCopNav } from "./Navigation/InnerCopNav";
 import { HeaderNav } from "./Navigation/HeaderNav";
-import { LandingPage } from "../pages/landingPage/landingPage"
+import { LandingPage } from "../pages/landingPage/landingPage";
 
 function App() {
   const data = [
@@ -30,7 +30,7 @@ function App() {
           { name: "Projects", link: "/" },
         ]}
       />
-      <LandingPage/>
+      <LandingPage />
       <h1>Hello, World!</h1>
       <h2>Playground</h2>
       <div className="flex-container mx-5">
