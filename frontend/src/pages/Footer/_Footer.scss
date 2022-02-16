@@ -40,6 +40,10 @@
 }
 
 .logo-desktop-footer {
+  width: 222px;
+  height: 40px;
+  margin-left: 176px;
+
   @include breakpoint-media-max("mobile") {
     @include hidden;
   }
@@ -49,6 +53,7 @@
   @include breakpoint-media-min("smtablet") {
     @include hidden;
   }
+  
   @include breakpoint-media-max("mobile") {
     width: 71px;
     height: 46px;
@@ -59,12 +64,6 @@
 .inner:nth-child(1) {
   @include breakpoint-media-max("mobile") {
     margin-top: 32px;
-  }
-
-  .logo-desktop-footer {
-    width: 222px;
-    height: 40px;
-    margin-left: 176px;
   }
 }
 
@@ -89,12 +88,24 @@
     width: 230px;
   }
 
-  @include breakpoint-media-min("laptop") {
+  @include breakpoint-media-min("smtablet") {
     @include title(6);
-    
+
+    height: 20px;
+    margin-bottom: 40px;
+    width: 230px;
+    margin-left: 150px;
+    flex-direction: column;
+  }
+
+  @include breakpoint-media-min("lgtablet") {
+    @include title(6);
+
     min-width: 272px;
     height: 22px;
     margin-top: 53px;
+    margin-bottom: 0;
+    flex-direction: row;
   }
 }
 
