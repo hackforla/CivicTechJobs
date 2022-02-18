@@ -30,15 +30,16 @@
   background-color: #ffefdb;
   height: 420px;
   z-index: -2;
-  .down-arrow {
-    width: 24px;
+}
 
-    @include media-min("smtablet") {
-      display: none;
-    }
+.down-arrow {
+  width: 24px;
 
-    margin-bottom: 30px;
+  @include media-min("smtablet") {
+    display: none;
   }
+
+  margin-bottom: 30px;
 }
 
 .mission-content {
