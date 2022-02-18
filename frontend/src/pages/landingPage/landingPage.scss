@@ -31,11 +31,12 @@
   height: 420px;
   z-index: -2;
   .down-arrow {
-    width: 24px;
-    margin-bottom: 30px;
     @include media-min("smtablet") {
       display: none;
     }
+
+    width: 24px;
+    margin-bottom: 30px;
   }
 }
 
