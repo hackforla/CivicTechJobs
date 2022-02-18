@@ -12,7 +12,7 @@ import copIconProduct from "./svgs/cop-icon-product.svg?url";
 import copIconUiux from "./svgs/cop-icon-uiux.svg?url";
 
 // Icons
-import IconDownArrow from "./svgs/icon-down-arrow.svg";
+import IconDownArrow from "./svgs/icon-down-arrow.svg?url";
 import IconHamburgerMenu from "./svgs/icon-hamburger-menu.svg";
 import IconX from "./svgs/icon-x.svg";
 

@@ -1,12 +1,13 @@
 import React from "react";
 import { groupBackground } from "../../assets/images/images";
-import { groupBkgPattern } from "../../assets/images/images";
+import { IconDownArrow } from "../../assets/images/images";
+
 import "./landingPage.scss";
 
 function LandingPage() {
   const LandingImage = () => {
     return (
-      <div style={{ zIndex: "-1" }} className="image-parent">
+      <div className="image-parent">
         <div className="svg-group-layer">
           <img className="group-image " src={groupBackground} />
         </div>
@@ -30,11 +31,9 @@ function LandingPage() {
         <button className="action-btn btn btn-primary">Join us</button>
       </div>
       <LandingImage />
-      <div className="mission-content flex-container">
-        <div
-          style={{ margin: "auto", maxWidth: "800px" }}
-          className="pr-4 pl-4 align-center text-center"
-        >
+      <div className="mission-section flex-container">
+        <div className="mission-content pr-4 pl-4 align-center text-center">
+          <img className="down-arrow" src={IconDownArrow} />
           <h1>Our Misson</h1>
           <p>
             We bring together civic-minded volunteers from diverse backgrounds

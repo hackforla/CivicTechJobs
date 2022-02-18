@@ -2,6 +2,7 @@
 @import "../../components/Basics/breakpoints";
 
 .image-parent {
+  z-index: -1;
   margin-top: -10%;
   @include media-max("smtablet") {
     margin-top: 0;
@@ -22,13 +23,25 @@
   margin: 0 12%;
 }
 
-.mission-content {
+.mission-section {
   padding-top: 8%;
-  margin-top: -10%;
+  margin-top: -12%;
   position: relative;
   background-color: #ffefdb;
-  height: 400px;
+  height: 420px;
   z-index: -2;
+  .down-arrow {
+    width: 24px;
+    margin-bottom: 30px;
+    @include media-min("smtablet") {
+      display: none;
+    }
+  }
+}
+
+.mission-content {
+  margin: auto;
+  max-width: 800px;
 }
 
 .top-content {
