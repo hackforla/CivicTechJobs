@@ -225,8 +225,8 @@ function App() {
       <div className="paragraph-4">Paragraph 4</div>
       <div className="paragraph-5">Paragraph 5</div>
       <Footer
-        logoDesktop={Images.logoHorizontal}
-        logoMobile={Images.logoStacked}
+        logoDesktop={Images.logoHorizontalFooter}
+        logoMobile={Images.logoStackerFooter}
         logoFooter={Images.IconLineFooter}
         menu={[
           { name: "Credits", link: "/", id: 2323231212 },

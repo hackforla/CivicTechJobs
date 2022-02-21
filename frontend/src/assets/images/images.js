@@ -31,6 +31,10 @@ import LogoVertical from "./svgs/logo-vertical.svg";
 import LogoWordmark from "./svgs/logo-wordmark.svg";
 
 import logoHorizontal from "./svgs/logo-horizontal.svg?url";
+//Added white horizon footer logo
+import logoHorizontalFooter from "./svgs/logo-horizontal-footer.svg?url";
+//Added white stacked footer logo 
+import logoStackerFooter from "./svgs/logo-stacked-footer.svg?url";
 import logoMark from "./svgs/logo-logomark.svg?url";
 import logoStacked from "./svgs/logo-stacked.svg?url";
 import logoType from "./svgs/logo-logotype.svg?url";
@@ -59,6 +63,8 @@ export {
   IconLineFooter,
   // CTJ Logos
   LogoHorizontal,
+  logoHorizontalFooter,
+  logoStackerFooter,
   LogoMark,
   LogoStacked,
   LogoType,
