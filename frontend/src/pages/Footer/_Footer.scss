@@ -72,6 +72,7 @@ button {
     &:not(:first-child) {
       display: none;
     }
+
     &:nth-child(1) {
       display: block;
       left: 0;
@@ -84,9 +85,11 @@ button {
   }
   @include breakpoint-media-max("mobile") {
     width: 20px;
+
     &:not(:first-child) {
       display: block;
     }
+
     &:nth-child(1) {
       display: none;
     }
