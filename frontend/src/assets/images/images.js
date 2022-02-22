@@ -15,8 +15,6 @@ import copIconUiux from "./svgs/cop-icon-uiux.svg?url";
 import IconDownArrow from "./svgs/icon-down-arrow.svg";
 import IconHamburgerMenu from "./svgs/icon-hamburger-menu.svg";
 import IconX from "./svgs/icon-x.svg";
-//added Line 152 for footer
-import IconLineFooter from "./svgs/icon-footer-line.svg?url";
 
 import iconDownArrow from "./svgs/icon-down-arrow.svg?url";
 import iconHamburgerMenu from "./svgs/icon-hamburger-menu.svg?url";
@@ -60,7 +58,6 @@ export {
   iconDownArrow,
   iconHamburgerMenu,
   iconX,
-  IconLineFooter,
   // CTJ Logos
   LogoHorizontal,
   logoHorizontalFooter,

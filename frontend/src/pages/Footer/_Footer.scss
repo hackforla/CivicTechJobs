@@ -5,130 +5,108 @@
   height: 128px;
   width: 100%;
   bottom: 0;
-  display: grid;
-  gap: 32px;
-  grid-template-areas:
-    "third"
-    "second"
-    "first";
   align-items: center;
-  justify-content: center;
-  @include breakpoint-media-min("smtablet") {
-    grid-template-columns: 27.6% 30.25% 36.66%;
-  }
-  @include breakpoint-media-max("mobile") {
-    gap: 0;
-    height: 226px;
-  }
-}
-
-.inner {
-  display: flex;
   justify-self: center;
-  justify-content: space-between;
-  align-items: center;
-  @include breakpoint-media-min("smtablet") {
-    margin-top: 44px;
+  @include breakpoint-media-max("mobile") {
+    height: 226px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
   }
 }
-
-// .logo-desktop-footer,
-// .logo-mobile-footer {
-//   // using filter property to convert SVG color to white
-//   filter: invert(98%) sepia(98%) saturate(8%) hue-rotate(167deg)
-//     brightness(103%) contrast(105%);
-// }
 
 .logo-desktop-footer {
-  width: 222px;
-  height: 40px;
-  margin-left: 176px;
-
   @include breakpoint-media-max("mobile") {
-    @include hidden;
+    display: none;
   }
 }
 
 .logo-mobile-footer {
-  @include breakpoint-media-min("smtablet") {
-    @include hidden;
-  }
-  
+  display: none;
   @include breakpoint-media-max("mobile") {
     width: 71px;
     height: 46px;
+    display: block;
   }
 }
 
-// Civic tech job Logo
-.inner:nth-child(1) {
+.inner-one {
+  margin-left: 176px;
   @include breakpoint-media-max("mobile") {
-    margin-top: 32px;
+    margin-left: 0;
+    margin-bottom: -17px;
   }
 }
 
-// Footer menu items
-.inner:nth-child(2) {
-  color: #fff;
+.inner-two {
+  @include breakpoint-media-max("mobile") {
+    margin-left: 0;
+    order: 3;
+  }
+}
 
-  a {
-    text-decoration: none;
-    color: white;
+.second-div {
+  margin-left: auto;
+  margin-right: 188px;
+  @include breakpoint-media-max("lgtablet") {
+    margin-right: 0;
+  }
+  @include breakpoint-media-max("mobile") {
+    margin-left: 0;
+    margin-right: 0;
+    order: 2;
+  }
+}
 
-    &:hover {
-      text-decoration: underline;
+button {
+  margin: 5px;
+}
+
+.img-menu {
+  border: 1px solid white;
+  width: 40px;
+  height: 0;
+  transform: rotate(-90deg);
+  margin: auto;
+  @include breakpoint-media-max("desktop") {
+    &:not(:first-child) {
+      display: none;
+    }
+    &:nth-child(1) {
+      display: block;
+      left: 0;
+      margin-right: 32px;
     }
   }
+
+  @include breakpoint-media-max("smtablet") {
+    display: none;
+  }
+  @include breakpoint-media-max("mobile") {
+    width: 20px;
+    &:not(:first-child) {
+      display: block;
+    }
+    &:nth-child(1) {
+      display: none;
+    }
+  }
+}
+
+a {
+  margin: auto;
+  color: #fff;
+  text-decoration: none;
+  margin-right: 32px;
+  @include title(6);
 
   @include breakpoint-media-max("mobile") {
     @include title(7);
 
-    height: 20px;
-    margin-bottom: 40px;
-    width: 230px;
+    margin-left: 32px;
   }
 
-  @include breakpoint-media-min("smtablet") {
-    @include title(6);
-
-    height: 20px;
-    margin-bottom: 40px;
-    width: 230px;
-    margin-left: 150px;
-    flex-direction: column;
-  }
-
-  @include breakpoint-media-min("lgtablet") {
-    @include title(6);
-
-    min-width: 272px;
-    height: 22px;
-    margin-top: 53px;
-    margin-bottom: 0;
-    flex-direction: row;
-  }
-}
-
-// Donate button
-.inner:nth-child(3) {
-  @include breakpoint-media-max("mobile") {
-    margin-bottom: 32px;
-    align-items: center;
-    justify-content: center;
-    grid-row-start: 2;
-  }
-}
-
-// first Svf footer line 152 hidden on mobile view
-.img-menu:nth-child(1) {
-  @include breakpoint-media-max("mobile") {
-    display: none;
-  }
-}
-
-// first SVG footer line visible
-.img-menu:not(:first-child) {
-  @include breakpoint-media-min("smtablet") {
-    display: none;
+  &:hover {
+    text-decoration: underline;
   }
 }
