@@ -1,6 +1,11 @@
 @use "components/normalize";
 @use "components/Basics" as *;
 @use "components/Buttons/Buttons" as *;
+@use "components/Buttons/CloseButton";
+@use "components/Cards/Cards";
+@use "components/Carousel/ScrollCarousel";
+@use "components/Navigation/HeaderNav";
+@use "components/Navigation/InnerCopNav";
 
 body {
   font-family: Roboto, Arial, Helvetica, sans-serif;
