@@ -17,7 +17,7 @@ const Footer = ({ menu, logoDesktop, logoMobile, logoFooter }) => {
   return (
     <div className="footer-nav flex-container ">
       <Logo />
-      <div className="inner-two flex-container ">
+      <div className="inner-two">
         {menu.map((item, idx) => {
           return (
             <>
