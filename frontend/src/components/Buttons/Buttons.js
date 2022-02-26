@@ -4,7 +4,6 @@ import React from "react";
 
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
-import "./_Buttons.scss";
 
 // Default button size/colour/variant is small/primary/base
 function Button({

@@ -5,7 +5,6 @@ import React, { Fragment, useEffect, useRef, useState } from "react";
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
 import { Button } from "../Buttons/Buttons";
-import "./_Carousel.scss";
 
 function ClickCarousel({ hidden = false, selected = 0, ...props }) {
   const [items, setItems] = useState([]);
