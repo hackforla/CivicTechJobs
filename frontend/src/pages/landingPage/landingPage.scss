@@ -2,7 +2,7 @@
 @import "../../components/Basics/breakpoints";
 
 .image-parent {
-  z-index: -1;
+  z-index: 1;
   margin-top: -10%;
   @include media-max("smtablet") {
     margin-top: 0;
@@ -29,7 +29,6 @@
   position: relative;
   background-color: #ffefdb;
   height: 420px;
-  z-index: -2;
 }
 
 .down-arrow {
@@ -55,9 +54,17 @@
   margin-top: 80px;
 }
 
+// media query to change the default size would be easier this way
+
+// @include media-min("smtablet") {
+//   @include btn-size("lg");
+// }
+
+// code below isnt working working with Button component as it did with native button element
+
 .action-btn {
-  @include button-responsive("desktop", "lg");
-  @include button-responsive("laptop", "lg");
-  @include button-responsive("lgtablet", "lg");
   @include button-responsive("smtablet", "md");
+  @include button-responsive("lgtablet", "lg");
+  @include button-responsive("laptop", "lg");
+  @include button-responsive("desktop", "lg");
 }

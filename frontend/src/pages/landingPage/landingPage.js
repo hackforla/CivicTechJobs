@@ -1,6 +1,7 @@
 import React from "react";
 import { groupBackground } from "../../assets/images/images";
 import { IconDownArrow } from "../../assets/images/images";
+import { Button } from "../../components/Buttons/Buttons";
 
 import "./landingPage.scss";
 
@@ -28,7 +29,7 @@ function LandingPage() {
           opportunities from a central hub of listings to build digital
           products, programs, and services.{" "}
         </p>
-        <button className="action-btn btn btn-primary">Join us</button>
+        <Button addClass="action-btn">Join us</Button>
       </div>
       <LandingImage />
       <div className="mission-section flex-container">
