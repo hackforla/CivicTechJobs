@@ -1,6 +1,19 @@
+// Normalize all styles
 @use "components/normalize";
+
+// Import basic styles
 @use "components/Basics" as *;
+
+// Import component styles
 @use "components/Buttons" as *;
+@use "components/Cards/Cards";
+@use "components/Carousel/ScrollCarousel";
+@use "components/Navigation";
+
+// Import page styles
+@use "pages/Demo/Demo";
+
+// Create final styles
 
 body {
   font-family: Roboto, Arial, Helvetica, sans-serif;

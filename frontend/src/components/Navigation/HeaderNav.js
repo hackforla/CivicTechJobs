@@ -5,7 +5,6 @@ import React, { Fragment, useState } from "react";
 // Internal Imports
 import * as utility from "../Utility/utils";
 import { IconHamburgerMenu } from "../../assets/images/images";
-import "./_HeaderNav.scss";
 import { Button } from "../Buttons/Buttons";
 
 function HeaderNav({ logoDesktop, logoMobile, menu, ...props }) {

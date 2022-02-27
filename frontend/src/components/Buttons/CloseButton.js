@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
 import { iconX } from "../../assets/images/images";
-import "./_CloseButton.scss";
 
 function CloseButton(props) {
   return (

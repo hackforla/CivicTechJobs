@@ -11,7 +11,6 @@ import {
   InnerCopNav,
   HeaderNav,
 } from "components/components";
-import "./_Demo.scss";
 
 function Demo() {
   const data = [
