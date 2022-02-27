@@ -4,7 +4,6 @@ import React, { useEffect, useRef, useState } from "react";
 
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
-import "./_ScrollCarousel.scss";
 
 // Note, all the functions in this component mimics the expected behavior of scroll-snap-stop: always. Since this is not supported in FireFox, this needs to be recreated until support is reached.
 function ScrollCarousel({ hidden = false, ...props }) {

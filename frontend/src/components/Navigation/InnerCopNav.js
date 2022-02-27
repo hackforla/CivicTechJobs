@@ -12,7 +12,6 @@ import {
 } from "../../assets/images/images";
 import { InnerCopNavCard } from "../Cards/Cards";
 import * as utility from "../Utility/utils";
-import "./_InnerCopNav.scss";
 
 function InnerCopNav(props) {
   const [activeIndex, setActiveIndex] = useState(9);

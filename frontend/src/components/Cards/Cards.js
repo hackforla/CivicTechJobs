@@ -5,7 +5,6 @@ import React, { useState } from "react";
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
 import { CloseButton } from "../Buttons/CloseButton";
-import "./_Cards.scss";
 
 function CopCard({ hidden = true, size = "sm", ...props }) {
   const [isHidden, setIsHidden] = useState(hidden);
