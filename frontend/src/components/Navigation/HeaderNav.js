@@ -64,7 +64,7 @@ function HeaderNav({ logoDesktop, logoMobile, menu, ...props }) {
           </button>
         </div>
       </nav>
-      <div></div>
+      <div aria-hidden="true"></div>
     </Fragment>
   );
 }
