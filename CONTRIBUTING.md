@@ -10,6 +10,8 @@ This guide outlines the three ways you can contribute to us as a developer: crea
 
 Pro tip: Use the table of contents in the top-left corner to jump to specific sections of this guide.
 
+Is this your first time working on open source projects? Check out this video [series](https://app.egghead.io/playlists/how-to-contribute-to-an-open-source-project-on-github).
+
 ## Contributing to our project (for freelancers)
 
 ### Creating Issues
