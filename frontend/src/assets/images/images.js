@@ -22,19 +22,19 @@ import iconX from "./svgs/icon-x.svg?url";
 
 // CTJ Logos
 import LogoHorizontal from "./svgs/logo-horizontal.svg";
+import LogoHorizontalOnDark from "./svgs/logo-horizontal-on-dark.svg";
 import LogoMark from "./svgs/logo-logomark.svg";
 import LogoStacked from "./svgs/logo-stacked.svg";
+import LogoStackedOnDark from "./svgs/logo-stacked-on-dark.svg";
 import LogoType from "./svgs/logo-logotype.svg";
 import LogoVertical from "./svgs/logo-vertical.svg";
 import LogoWordmark from "./svgs/logo-wordmark.svg";
 
 import logoHorizontal from "./svgs/logo-horizontal.svg?url";
-//Added white horizon footer logo
-import logoHorizontalFooter from "./svgs/logo-horizontal-footer.svg?url";
-//Added white stacked footer logo
-import logoStackerFooter from "./svgs/logo-stacked-footer.svg?url";
+import logoHorizontalOnDark from "./svgs/logo-horizontal-on-dark.svg?url";
 import logoMark from "./svgs/logo-logomark.svg?url";
 import logoStacked from "./svgs/logo-stacked.svg?url";
+import logoStackedOnDark from "./svgs/logo-stacked-on-dark.svg?url";
 import logoType from "./svgs/logo-logotype.svg?url";
 import logoVertical from "./svgs/logo-vertical.svg?url";
 import logoWordmark from "./svgs/logo-wordmark.svg?url";
@@ -60,16 +60,18 @@ export {
   iconX,
   // CTJ Logos
   LogoHorizontal,
-  logoHorizontalFooter,
-  logoStackerFooter,
+  LogoHorizontalOnDark,
   LogoMark,
   LogoStacked,
+  LogoStackedOnDark,
   LogoType,
   LogoVertical,
   LogoWordmark,
   logoHorizontal,
+  logoHorizontalOnDark,
   logoMark,
   logoStacked,
+  logoStackedOnDark,
   logoType,
   logoVertical,
   logoWordmark,

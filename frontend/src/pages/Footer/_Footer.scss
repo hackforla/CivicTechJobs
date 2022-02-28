@@ -4,7 +4,6 @@
   background-color: $color-blue-darker;
   height: 128px;
   width: 100%;
-  bottom: 0;
   align-items: center;
   @include breakpoint-media-max("laptop") {
     height: 226px;
@@ -29,7 +28,7 @@
   }
 }
 
-.inner-one {
+.footer-icons-on-dark{
   margin-left: 176px;
   @include breakpoint-media-max("laptop") {
     margin-left: 0;
@@ -61,7 +60,7 @@
 }
 
 .img-menu {
-  border: 1px solid white;
+  border: 1px solid $color-white;;
   width: 40px;
   height: 0;
   transform: rotate(-90deg);
@@ -90,7 +89,7 @@
 
 .footer-a-tag {
   margin: auto;
-  color: #fff;
+  color: $color-white;
   text-decoration: none;
   margin-right: 32px;
   @include title(6);
