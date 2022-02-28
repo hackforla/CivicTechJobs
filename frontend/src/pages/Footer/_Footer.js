@@ -2,7 +2,7 @@ import React from "react";
 import "./_Footer.scss";
 import { Button } from "../../components/Buttons/Buttons";
 
-const Footer = ({ menu, logoDesktop, logoMobile }) => {
+const Footer = ({ menu, logoDesktop, logoMobile}) => {
   const Logo = () => {
     return (
       <div className="footer-icons-on-dark">
