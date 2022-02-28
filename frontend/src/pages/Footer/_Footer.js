@@ -17,19 +17,19 @@ const Footer = ({ menu, logoDesktop, logoMobile, logoFooter }) => {
   return (
     <div className="footer-nav flex-container ">
       <Logo />
-      <div className="inner-two">
+      <div className="footer-menu">
         {menu.map((item, idx) => {
           return (
-            <>
-              <div key={idx} className="img-menu" />
-              <a id="a-tag" key={item.id} href={item.link}>
+            <React.Fragment key={idx}>
+              <div className="img-menu" />
+              <a className="footer-a-tag" key={idx} href={item.link}>
                 {item.name}
               </a>
-            </>
+            </React.Fragment>
           );
         })}
       </div>
-      <div className="second-div flex-container  ">
+      <div className="footer-donate-button flex-container  ">
         <Button color="primary-dark" href="https://www.google.com" size="sm">
           Donate
         </Button>

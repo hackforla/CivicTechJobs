@@ -229,9 +229,9 @@ function App() {
         logoMobile={Images.logoStackerFooter}
         logoFooter={Images.IconLineFooter}
         menu={[
-          { name: "Credits", link: "/", id: 2323231212 },
-          { name: "Sitemap", link: "/", id: 543435656 },
-          { name: "Join Us", link: "/", id: 87875656 },
+          { name: "Credits", link: "/" },
+          { name: "Sitemap", link: "/" },
+          { name: "Join Us", link: "/" },
         ]}
       />
     </div>

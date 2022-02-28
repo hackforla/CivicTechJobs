@@ -6,8 +6,7 @@
   width: 100%;
   bottom: 0;
   align-items: center;
-  justify-self: center;
-  @include breakpoint-media-max("mobile") {
+  @include breakpoint-media-max("laptop") {
     height: 226px;
     flex-direction: column;
     justify-content: space-evenly;
@@ -33,7 +32,7 @@
 .inner-one {
   margin-left: 176px;
   @include breakpoint-media-max("laptop") {
-    margin: auto;
+    margin-left: 0;
   }
   @include breakpoint-media-max("mobile") {
     margin-left: 0;
@@ -42,29 +41,19 @@
   }
 }
 
-.inner-two {
+.footer-menu {
   display: flex;
   @include breakpoint-media-max("laptop") {
-    margin: auto;
-  }
-  @include breakpoint-media-max("mobile") {
-    margin-left: 0;
-    margin-right: 0;
+    margin: 0 auto;
+    width: 400px;
     order: 3;
-    display: flex;
   }
 }
 
-.second-div {
+.footer-donate-button {
   margin-left: auto;
   margin-right: 188px;
   @include breakpoint-media-max("laptop") {
-    margin: auto;
-  }
-  @include breakpoint-media-max("lgtablet") {
-    margin-right: 0;
-  }
-  @include breakpoint-media-max("mobile") {
     margin-left: 0;
     margin-right: 0;
     order: 2;
@@ -77,22 +66,16 @@
   height: 0;
   transform: rotate(-90deg);
   margin: auto;
-  @include breakpoint-media-max("desktop") {
-    &:not(:first-child) {
-      @include hidden;
-    }
 
-    &:nth-child(1) {
-      display: block;
-      left: 0;
-      margin-right: 32px;
-    }
-  }
-
-  @include breakpoint-media-max("smtablet") {
+  &:not(:first-child) {
     @include hidden;
   }
-  @include breakpoint-media-max("mobile") {
+
+  &:nth-child(1) {
+    display: block;
+  }
+
+  @include breakpoint-media-max("laptop") {
     width: 20px;
 
     &:not(:first-child) {
@@ -105,7 +88,7 @@
   }
 }
 
-#a-tag {
+.footer-a-tag {
   margin: auto;
   color: #fff;
   text-decoration: none;
