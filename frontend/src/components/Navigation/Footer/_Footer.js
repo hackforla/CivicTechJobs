@@ -20,7 +20,7 @@ const Footer = ({ menu, logoDesktop, logoMobile }) => {
         {menu.map((item, index) => {
           return (
             <React.Fragment key={index}>
-              <div className="img-menu"></div>
+              <div className="footer-menu-vertical-line"></div>
               <a className="footer-links" href={item.link}>
                 {item.name}
               </a>
