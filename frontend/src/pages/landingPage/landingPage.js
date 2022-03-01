@@ -3,8 +3,6 @@ import { groupBackground } from "../../assets/images/images";
 import { IconDownArrow } from "../../assets/images/images";
 import { Button } from "../../components/Buttons/Buttons";
 
-import "./landingPage.scss";
-
 function LandingPage() {
   const LandingImage = () => {
     return (
@@ -19,24 +17,26 @@ function LandingPage() {
   return (
     <div className="text-center pt-5">
       <div className="top-content">
-        <h1>
+        <h1 className="title-1 header-title">
           Together,
           <br />
           we can create greater civic change
         </h1>
-        <p className="mb-5">
+        <p className="mb-5 paragraph-1 head-paragraph">
           CivicTechJobs unites ambitious technology practitioners with volunteer
           opportunities from a central hub of listings to build digital
           products, programs, and services.{" "}
         </p>
-        <Button addClass="action-btn">Join us</Button>
+        <Button size="lg" addClass="action-btn">
+          Join us
+        </Button>
       </div>
       <LandingImage />
       <div className="mission-section flex-container">
         <div className="mission-content pr-4 pl-4 align-center text-center">
           <img className="down-arrow" src={IconDownArrow} />
-          <h1>Our Misson</h1>
-          <p>
+          <h1 className="title-2 mission-title">Our Misson</h1>
+          <p className="paragraph-2 mission-paragraph">
             We bring together civic-minded volunteers from diverse backgrounds
             such as YOU to help local communities and governments. Thanks to the
             power of our volunteers, we are able to positively impact the

@@ -1,5 +1,6 @@
 @import "../../components/Buttons/Buttons";
 @import "../../components/Basics/breakpoints";
+@import "../../components/Basics/typography";
 
 .image-parent {
   z-index: 1;
@@ -9,7 +10,7 @@
   }
 
   position: relative;
-  background-image: url("../../assets/images/svgs/group-background-pattern.svg");
+  background-image: url("./assets/images/svgs/group-background-pattern.svg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   width: 100%;
@@ -33,9 +34,10 @@
 
 .down-arrow {
   width: 24px;
+  display: none;
 
-  @include media-min("smtablet") {
-    display: none;
+  @include media-max("smtablet") {
+    display: inline-block;
   }
 
   margin-bottom: 30px;
@@ -54,17 +56,30 @@
   margin-top: 80px;
 }
 
-// media query to change the default size would be easier this way
-
-// @include media-min("smtablet") {
-//   @include btn-size("lg");
-// }
-
-// code below isnt working working with Button component as it did with native button element
-
 .action-btn {
   @include button-responsive("smtablet", "md");
-  @include button-responsive("lgtablet", "lg");
-  @include button-responsive("laptop", "lg");
-  @include button-responsive("desktop", "lg");
+}
+
+.header-title {
+  @include media-max("smtablet") {
+    @include title(4);
+  }
+}
+
+.head-paragraph {
+  @include media-max("smtablet") {
+    @include paragraph(3);
+  }
+}
+
+.mission-title {
+  @include media-max("smtablet") {
+    @include title(5);
+  }
+}
+
+.mission-paragraph {
+  @include media-max("smtablet") {
+    @include paragraph(3);
+  }
 }
