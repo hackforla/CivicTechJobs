@@ -1,11 +1,11 @@
-@use "../../components/Basics/" as *;
+@use "../../../components/Basics/" as *;
 
 .footer-nav {
   background-color: $color-blue-darker;
   height: 128px;
   width: 100%;
   align-items: center;
-  @include breakpoint-media-max("laptop") {
+  @include breakpoint-media-max("lgtablet") {
     height: 226px;
     flex-direction: column;
     justify-content: space-evenly;
@@ -28,9 +28,9 @@
   }
 }
 
-.footer-icons-on-dark{
+.footer-icons-on-dark {
   margin-left: 176px;
-  @include breakpoint-media-max("laptop") {
+  @include breakpoint-media-max("lgtablet") {
     margin-left: 0;
   }
   @include breakpoint-media-max("mobile") {
@@ -42,7 +42,7 @@
 
 .footer-menu {
   display: flex;
-  @include breakpoint-media-max("laptop") {
+  @include breakpoint-media-max("lgtablet") {
     margin: 0 auto;
     width: 400px;
     order: 3;
@@ -52,7 +52,7 @@
 .footer-donate-button {
   margin-left: auto;
   margin-right: 188px;
-  @include breakpoint-media-max("laptop") {
+  @include breakpoint-media-max("lgtablet") {
     margin-left: 0;
     margin-right: 0;
     order: 2;
@@ -60,7 +60,7 @@
 }
 
 .img-menu {
-  border: 1px solid $color-white;;
+  border: 1px solid $color-white;
   width: 40px;
   height: 0;
   transform: rotate(-90deg);
@@ -74,7 +74,7 @@
     display: block;
   }
 
-  @include breakpoint-media-max("laptop") {
+  @include breakpoint-media-max("lgtablet") {
     width: 20px;
 
     &:not(:first-child) {

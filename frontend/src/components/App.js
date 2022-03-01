@@ -6,7 +6,7 @@ import { CopCard, InnerCopCard } from "./Cards/Cards";
 import { ScrollCarousel } from "./Carousel/ScrollCarousel";
 import { InnerCopNav } from "./Navigation/InnerCopNav";
 import { HeaderNav } from "./Navigation/HeaderNav";
-import Footer from "../pages/Footer/_Footer";
+import Footer from "./Navigation/Footer/_Footer";
 
 function App() {
   const data = [
