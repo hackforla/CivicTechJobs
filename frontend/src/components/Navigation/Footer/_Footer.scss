@@ -47,6 +47,9 @@
     width: 400px;
     order: 3;
   }
+  @media (max-width: 388px) {
+    width: 250px;
+  }
 }
 
 .footer-donate-button {
@@ -96,8 +99,10 @@
 
   @include breakpoint-media-max("mobile") {
     @include title(7);
+  }
 
-    margin-left: 32px;
+  @media (max-width: 388px) {
+    font-size: x-small;
   }
 
   &:hover {
