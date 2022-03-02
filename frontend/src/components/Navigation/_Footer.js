@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../../Buttons/Buttons";
+import { Button } from "../Buttons/Buttons";
 
 const Footer = ({ menu, logoDesktop, logoMobile }) => {
   const Logo = () => {
@@ -16,7 +16,7 @@ const Footer = ({ menu, logoDesktop, logoMobile }) => {
   return (
     <div className="footer-nav flex-container">
       <Logo />
-      <div className="footer-menu">
+      <div className="footer-menu flex-container">
         {menu.map((item, index) => {
           return (
             <React.Fragment key={index}>

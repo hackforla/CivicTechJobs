@@ -1,4 +1,4 @@
-@use "../../../components/Basics/" as *;
+@use "../../components/Basics/" as *;
 
 .footer-nav {
   background-color: $color-blue-darker;
@@ -33,7 +33,6 @@
 }
 
 .footer-menu {
-  display: flex;
   @include breakpoint-media-max("lgtablet") {
     width: 220px;
     order: 3;
