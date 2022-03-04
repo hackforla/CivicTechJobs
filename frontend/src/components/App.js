@@ -6,6 +6,7 @@ import { CopCard, InnerCopCard } from "./Cards/Cards";
 import { ScrollCarousel } from "./Carousel/ScrollCarousel";
 import { InnerCopNav } from "./Navigation/InnerCopNav";
 import { HeaderNav } from "./Navigation/HeaderNav";
+import { FooterNav } from "./Navigation/FooterNav";
 
 function App() {
   const data = [
@@ -30,6 +31,15 @@ function App() {
         ]}
       />
       <h1>Hello, World!</h1>
+      <FooterNav
+        logoDesktop={Images.logoHorizontalOnDark}
+        logoMobile={Images.logoStackedOnDark}
+        menu={[
+          { name: "Credits", link: "/" },
+          { name: "Sitemap", link: "/" },
+          { name: "Join Us", link: "/" },
+        ]}
+      />
       <h2>Playground</h2>
       <div className="flex-container mx-5">
         <div className="col-3 flex-item">
