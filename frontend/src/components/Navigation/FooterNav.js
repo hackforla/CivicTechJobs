@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../Buttons/Buttons";
 
-const Footer = ({ menu, logoDesktop, logoMobile }) => {
+const FooterNav = ({ menu, logoDesktop, logoMobile }) => {
   const Logo = () => {
     return (
       <div className="footer-icons-on-dark">
@@ -37,4 +37,4 @@ const Footer = ({ menu, logoDesktop, logoMobile }) => {
   );
 };
 
-export default Footer;
+export { FooterNav };

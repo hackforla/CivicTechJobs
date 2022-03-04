@@ -6,7 +6,7 @@ import { CopCard, InnerCopCard } from "./Cards/Cards";
 import { ScrollCarousel } from "./Carousel/ScrollCarousel";
 import { InnerCopNav } from "./Navigation/InnerCopNav";
 import { HeaderNav } from "./Navigation/HeaderNav";
-import Footer from "./Navigation/_Footer";
+import { FooterNav } from "./Navigation/FooterNav";
 
 function App() {
   const data = [
@@ -31,7 +31,7 @@ function App() {
         ]}
       />
       <h1>Hello, World!</h1>
-      <Footer
+      <FooterNav
         logoDesktop={Images.logoHorizontalOnDark}
         logoMobile={Images.logoStackedOnDark}
         menu={[
