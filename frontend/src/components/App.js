@@ -31,6 +31,15 @@ function App() {
         ]}
       />
       <h1>Hello, World!</h1>
+      <Footer
+        logoDesktop={Images.logoHorizontalOnDark}
+        logoMobile={Images.logoStackedOnDark}
+        menu={[
+          { name: "Credits", link: "/" },
+          { name: "Sitemap", link: "/" },
+          { name: "Join Us", link: "/" },
+        ]}
+      />
       <h2>Playground</h2>
       <div className="flex-container mx-5">
         <div className="col-3 flex-item">
@@ -224,15 +233,6 @@ function App() {
       <div className="paragraph-3">Paragraph 3</div>
       <div className="paragraph-4">Paragraph 4</div>
       <div className="paragraph-5">Paragraph 5</div>
-      <Footer
-        logoDesktop={Images.logoHorizontalOnDark}
-        logoMobile={Images.logoStackedOnDark}
-        menu={[
-          { name: "Credits", link: "/" },
-          { name: "Sitemap", link: "/" },
-          { name: "Join Us", link: "/" },
-        ]}
-      />
     </div>
   );
 }
