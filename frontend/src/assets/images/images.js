@@ -12,7 +12,7 @@ import copIconProduct from "./svgs/cop-icon-product.svg?url";
 import copIconUiux from "./svgs/cop-icon-uiux.svg?url";
 
 // Icons
-import IconDownArrow from "./svgs/icon-down-arrow.svg?url";
+import IconDownArrow from "./svgs/icon-down-arrow.svg";
 import IconHamburgerMenu from "./svgs/icon-hamburger-menu.svg";
 import IconX from "./svgs/icon-x.svg";
 
@@ -36,8 +36,8 @@ import logoVertical from "./svgs/logo-vertical.svg?url";
 import logoWordmark from "./svgs/logo-wordmark.svg?url";
 
 // Group Background Image
-import groupBackground from "./svgs/group-background.svg?url";
-import groupBkgPattern from "./svgs/group-background-pattern.svg?url";
+import landingPageFg from "./svgs/landing-page-fg.svg?url";
+import landingPageBg from "./svgs/landing-page-bg.svg?url";
 
 export {
   // COP Icons
@@ -72,6 +72,6 @@ export {
   logoVertical,
   logoWordmark,
   // Group Background Image
-  groupBackground,
-  groupBkgPattern,
+  landingPageFg,
+  landingPageBg,
 };
