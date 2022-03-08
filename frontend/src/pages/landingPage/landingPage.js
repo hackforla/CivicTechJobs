@@ -1,5 +1,5 @@
 import React from "react";
-import { landingPageFg, IconDownArrow } from "../../assets/images/images";
+import { landingPageFg, iconDownArrow } from "../../assets/images/images";
 import { Button } from "../../components/Buttons/Buttons";
 
 function LandingPage() {
@@ -15,7 +15,7 @@ function LandingPage() {
 
   return (
     <div className="text-center pt-5">
-      <div className="landing-top-content">
+      <div className="landing-top-content px-4">
         <h1 className="title-1 landing-header-title">
           Together,
           <br />
@@ -33,7 +33,7 @@ function LandingPage() {
       <LandingImage />
       <div className="landing-mission-section flex-container">
         <div className="landing-mission-content px-4 align-center text-center">
-          <IconDownArrow addClass="down-arrow mb-4" />
+          <img className="down-arrow mb-3" src={iconDownArrow} />
           <h1 className="title-2 landing-mission-title">Our Misson</h1>
           <p className="paragraph-2 mission-paragraph">
             We bring together civic-minded volunteers from diverse backgrounds
