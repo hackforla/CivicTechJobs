@@ -1,5 +1,5 @@
-name: 'Component Issue Form'
-description: 'Issue form for Design to Dev hand-off issues concerning components'
+name: "Component Issue Form"
+description: "Issue form for Design to Dev hand-off issues concerning components"
 title: "[Component]: "
 labels: ["role: frontend"]
 
@@ -8,11 +8,11 @@ body:
     attributes:
       value: |
         ## Before we begin:
-        
+
         Please give an appropriate title to the issue. Make sure to include the name or names of the component/s in question in the title. For example:
-        
+
         > #### [Component]: Update dropdown and buttons with new colors
-        
+
         ---
   - type: textarea
     id: dependency-explanation
