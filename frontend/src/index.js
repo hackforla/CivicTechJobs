@@ -1,2 +1,2 @@
-import App from "./components/App";
+import App from "router/App";
 import "./index.scss";
