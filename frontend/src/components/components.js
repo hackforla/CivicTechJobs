@@ -4,6 +4,7 @@ import { CopCard, InnerCopCard, InnerCopNavCard } from "./Cards/Cards";
 import { ScrollCarousel } from "./Carousel/ScrollCarousel";
 import { InnerCopNav } from "./Navigation/InnerCopNav";
 import { HeaderNav } from "./Navigation/HeaderNav";
+import { FooterNav } from "./Navigation/FooterNav";
 
 export {
   Button,
@@ -14,4 +15,5 @@ export {
   ScrollCarousel,
   InnerCopNav,
   HeaderNav,
+  FooterNav,
 };

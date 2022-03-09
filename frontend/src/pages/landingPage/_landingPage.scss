@@ -29,6 +29,7 @@
   position: relative;
   background-color: $color-tan-light;
   height: 420px;
+  width: 100%;
 }
 
 .down-arrow {
@@ -46,9 +47,11 @@
 }
 
 .landing-top-content {
-  max-width: 705px;
-  margin: auto;
-  margin-top: 80px;
+  margin-top: 84px;
+
+  @include breakpoint-media-max("smtablet") {
+    margin-top: 48px;
+  }
 }
 
 .landing-action-btn {
@@ -56,13 +59,18 @@
 }
 
 .landing-header-title {
-  @include breakpoint-media-max("smtablet") {
+  max-width: 880px;
+
+  @include breakpoint-media-max("mobile") {
+    max-width: 300;
     @include title(4);
   }
 }
 
 .landing-head-paragraph {
-  @include breakpoint-media-max("smtablet") {
+  max-width: 705px;
+
+  @include breakpoint-media-max("mobile") {
     @include paragraph(3);
   }
 }
