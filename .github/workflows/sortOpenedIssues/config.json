@@ -6,5 +6,9 @@
     {
         "labels": "'Dependency'",
         "column": 10928270
+    },
+    {
+        "body": "'### Dependencies\n\n- [ ]'",
+        "column": 10928270
     }
 ]

@@ -10,6 +10,7 @@ import {
   ScrollCarousel,
   InnerCopNav,
   HeaderNav,
+  FooterNav,
 } from "components/components";
 
 function Demo() {
@@ -34,7 +35,17 @@ function Demo() {
           { name: "Projects", link: "/" },
         ]}
       />
+      <LandingPage />
       <h1>Hello, World!</h1>
+      <FooterNav
+        logoDesktop={Images.logoHorizontalOnDark}
+        logoMobile={Images.logoStackedOnDark}
+        menu={[
+          { name: "Credits", link: "/" },
+          { name: "Sitemap", link: "/" },
+          { name: "Join Us", link: "/" },
+        ]}
+      />
       <h2>Playground</h2>
       <div className="flex-container mx-5">
         <div className="col-3 flex-item">

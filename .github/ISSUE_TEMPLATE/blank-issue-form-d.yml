@@ -1,7 +1,16 @@
-name: "Blank Issue Form (w/o Dependency)"
-description: "Form version of HackforLA blank issue template without dependency"
+name: "Blank Issue Form (w/ Dependency)"
+description: "Form version of HackforLA blank issue template with dependency"
 
 body:
+  - type: textarea
+    id: dependency-explanation
+    attributes:
+      label: Dependency
+      description: If there is a dependency, please explain what it is.
+      placeholder: |
+        - [ ] Dependency 1
+    validations:
+      required: true
   - type: textarea
     id: overview
     attributes:

@@ -1,0 +1,80 @@
+@use "../../components/Basics/" as *;
+@use "../../components/Buttons/Buttons" as *;
+
+.landing-image-parent {
+  z-index: 1;
+  margin-top: -10%;
+  @include breakpoint-media-max("smtablet") {
+    margin-top: 0;
+  }
+
+  position: relative;
+  background-image: url("./assets/images/svgs/landing-page-bg.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 100%;
+}
+
+.landing-group-image {
+  width: 100%;
+}
+
+.svg-group-layer {
+  margin: 0 12%;
+}
+
+.landing-mission-section {
+  padding-top: 8%;
+  margin-top: -12%;
+  position: relative;
+  background-color: $color-tan-light;
+  height: 420px;
+}
+
+.down-arrow {
+  width: 24px;
+  display: none;
+
+  @include breakpoint-media-max("smtablet") {
+    display: inline-block;
+  }
+}
+
+.landing-mission-content {
+  margin: auto;
+  max-width: 800px;
+}
+
+.landing-top-content {
+  max-width: 705px;
+  margin: auto;
+  margin-top: 80px;
+}
+
+.landing-action-btn {
+  @include button-responsive("smtablet", "md");
+}
+
+.landing-header-title {
+  @include breakpoint-media-max("smtablet") {
+    @include title(4);
+  }
+}
+
+.landing-head-paragraph {
+  @include breakpoint-media-max("smtablet") {
+    @include paragraph(3);
+  }
+}
+
+.landing-mission-title {
+  @include breakpoint-media-max("smtablet") {
+    @include title(5);
+  }
+}
+
+.landing-mission-paragraph {
+  @include breakpoint-media-max("smtablet") {
+    @include paragraph(3);
+  }
+}

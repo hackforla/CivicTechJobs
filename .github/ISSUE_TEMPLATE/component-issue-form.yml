@@ -1,0 +1,51 @@
+name: "Component Issue Form"
+description: "Issue form for Design to Dev hand-off issues concerning components"
+title: "[Component]: "
+labels: ["role: frontend"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Before we begin:
+
+        Please give an appropriate title to the issue. Make sure to include the name or names of the component/s in question in the title. For example:
+
+        > #### [Component]: Update dropdown and buttons with new colors
+
+        ---
+  - type: textarea
+    id: dependency-explanation
+    attributes:
+      label: Dependency
+      description: If there is a dependency, please explain what it is.
+      placeholder: |
+        - [ ] Dependency 1
+  - type: textarea
+    id: overview
+    attributes:
+      label: Overview
+      description: Please replace [name] with the name or names of the components this issue concerns.
+      value: |
+        As a designer, we need to create or update our component library so that our designs are reusable and designers and developers are on the same page. For this issue, we will create or make updates to the [name] component/s.
+    validations:
+      required: true
+  - type: textarea
+    id: action-items
+    attributes:
+      label: Action Items
+      description: "Please skip this portion."
+      value: |
+        - [ ] Item 1
+        - [ ] Item 2
+    validations:
+      required: true
+  - type: textarea
+    id: resources-instructions
+    attributes:
+      label: "Resources/Instructions"
+      description: "Please provide links to the Figma page of the component/s, and add extra notes as necessary for developers to locate and understand the design. Feel free to provide other necessary information such as related issues, files to be worked on, external sites with solutions, documentation, etc."
+      value: |
+        [Resources](https://github.com/hackforla/CivicTechJobs/wiki/Resources)
+    validations:
+      required: true

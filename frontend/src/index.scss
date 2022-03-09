@@ -8,10 +8,13 @@
 @use "components/Buttons" as *;
 @use "components/Cards/Cards";
 @use "components/Carousel/ScrollCarousel";
-@use "components/Navigation";
+@use "components/Navigation/HeaderNav";
+@use "components/Navigation/InnerCopNav";
+@use "components/Navigation/FooterNav";
 
 // Import page styles
 @use "pages/Demo/Demo";
+@use "pages/landingPage/landingPage";
 
 // Create final styles
 
