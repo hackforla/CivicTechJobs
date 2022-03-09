@@ -29,7 +29,6 @@
   position: relative;
   background-color: $color-tan-light;
   height: 420px;
-  width: 100%;
 }
 
 .down-arrow {
@@ -61,18 +60,13 @@
 }
 
 .landing-header-title {
-  max-width: 880px;
-
-  @include breakpoint-media-max("mobile") {
-    max-width: 300;
+  @include breakpoint-media-max("smtablet") {
     @include title(4);
   }
 }
 
 .landing-head-paragraph {
-  max-width: 705px;
-
-  @include breakpoint-media-max("mobile") {
+  @include breakpoint-media-max("smtablet") {
     @include paragraph(3);
   }
 }

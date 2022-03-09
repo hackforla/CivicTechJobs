@@ -11,6 +11,7 @@ import {
   CopIconUiux,
 } from "../../assets/images/images";
 import { InnerCopNavCard } from "../Cards/Cards";
+import * as utility from "../Utility/utils";
 
 function InnerCopNav(props) {
   const [activeIndex, setActiveIndex] = useState(9);
@@ -49,5 +50,7 @@ function InnerCopNav(props) {
     </nav>
   );
 }
+
+InnerCopNav.propTypes = {};
 
 export { InnerCopNav };

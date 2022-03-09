@@ -5,7 +5,8 @@
 @use "components/Basics" as *;
 
 // Import component styles
-@use "components/Buttons" as *;
+@use "components/Buttons/Buttons" as *;
+@use "components/Buttons/CloseButton";
 @use "components/Cards/Cards";
 @use "components/Carousel/ScrollCarousel";
 @use "components/Navigation/HeaderNav";
@@ -13,7 +14,6 @@
 @use "components/Navigation/FooterNav";
 
 // Import page styles
-@use "pages/Demo/Demo";
 @use "pages/landingPage/landingPage";
 
 // Create final styles

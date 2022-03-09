@@ -79,9 +79,6 @@ module.exports = {
       favicon: "./frontend/src/assets/images/svgs/logo-logomark.svg", //adds favicon to website
     }),
   ],
-  resolve: {
-    modules: [path.resolve(__dirname, "frontend/src"), "node_modules"],
-  },
   watchOptions: {
     ignored: /node_modules/, // speeds up webpack watch
   },
