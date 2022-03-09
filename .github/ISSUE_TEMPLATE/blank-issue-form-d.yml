@@ -1,5 +1,6 @@
 name: "Blank Issue Form (w/ Dependency)"
 description: "Form version of HackforLA blank issue template with dependency"
+labels: ["Dependency"]
 
 body:
   - type: textarea
