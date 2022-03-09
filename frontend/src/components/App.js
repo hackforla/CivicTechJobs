@@ -6,6 +6,7 @@ import { CopCard, InnerCopCard } from "./Cards/Cards";
 import { ScrollCarousel } from "./Carousel/ScrollCarousel";
 import { InnerCopNav } from "./Navigation/InnerCopNav";
 import { HeaderNav } from "./Navigation/HeaderNav";
+import { LandingPage } from "../pages/landingPage/landingPage";
 import { FooterNav } from "./Navigation/FooterNav";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           { name: "Projects", link: "/" },
         ]}
       />
+      <LandingPage />
       <h1>Hello, World!</h1>
       <FooterNav
         logoDesktop={Images.logoHorizontalOnDark}

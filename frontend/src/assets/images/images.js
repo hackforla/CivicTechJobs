@@ -39,6 +39,10 @@ import logoType from "./svgs/logo-logotype.svg?url";
 import logoVertical from "./svgs/logo-vertical.svg?url";
 import logoWordmark from "./svgs/logo-wordmark.svg?url";
 
+// Group Background Image
+import landingPageFg from "./svgs/landing-page-fg.svg?url";
+import landingPageBg from "./svgs/landing-page-bg.svg?url";
+
 export {
   // COP Icons
   CopIconData,
@@ -75,4 +79,7 @@ export {
   logoType,
   logoVertical,
   logoWordmark,
+  // Group Background Image
+  landingPageFg,
+  landingPageBg,
 };
