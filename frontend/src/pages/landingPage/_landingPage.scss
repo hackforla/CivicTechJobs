@@ -27,7 +27,6 @@
   margin-top: -12%;
   background-color: $color-tan-light;
   height: 420px;
-  width: 100%;
 }
 
 .down-arrow {
@@ -45,6 +44,8 @@
 }
 
 .landing-top-content {
+  max-width: 705px;
+  margin: auto;
   margin-top: 84px;
 
   @include breakpoint-media-max("smtablet") {
@@ -57,17 +58,13 @@
 }
 
 .landing-header-title {
-  max-width: 880px;
-
-  @include breakpoint-media-max("mobile") {
+  @include breakpoint-media-max("smtablet") {
     @include title(4);
   }
 }
 
 .landing-head-paragraph {
-  max-width: 705px;
-
-  @include breakpoint-media-max("mobile") {
+  @include breakpoint-media-max("smtablet") {
     @include paragraph(3);
   }
 }
