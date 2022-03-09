@@ -6,8 +6,12 @@
   height: 64px;
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
   z-index: $z-header;
+
+  & + div {
+    height: 64px;
+  }
 }
 
 .header-nav-logo {
