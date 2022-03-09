@@ -14,14 +14,14 @@ function LandingPage() {
   };
 
   return (
-    <div className="text-center pt-5">
+    <div className="flex-container justify-center text-center">
       <div className="landing-top-content px-4">
-        <h1 className="title-1 landing-header-title">
+        <h1 className="title-1 landing-header-title m-0">
           Together,
           <br />
           we can create greater civic change
         </h1>
-        <p className="mb-5 paragraph-1 landing-head-paragraph">
+        <p className="mb-5 mt-4 paragraph-1 landing-head-paragraph">
           CivicTechJobs unites ambitious technology practitioners with volunteer
           opportunities from a central hub of listings to build digital
           products, programs, and services.{" "}

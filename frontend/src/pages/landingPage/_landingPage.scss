@@ -4,15 +4,14 @@
 .landing-image-parent {
   z-index: 1;
   margin-top: -10%;
-  @include breakpoint-media-max("smtablet") {
-    margin-top: 0;
-  }
-
-  position: relative;
   background-image: url("./assets/images/svgs/landing-page-bg.svg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   width: 100%;
+
+  @include breakpoint-media-max("smtablet") {
+    margin-top: 0;
+  }
 }
 
 .landing-group-image {
@@ -26,9 +25,9 @@
 .landing-mission-section {
   padding-top: 8%;
   margin-top: -12%;
-  position: relative;
   background-color: $color-tan-light;
   height: 420px;
+  width: 100%;
 }
 
 .down-arrow {
@@ -46,9 +45,11 @@
 }
 
 .landing-top-content {
-  max-width: 705px;
-  margin: auto;
-  margin-top: 80px;
+  margin-top: 84px;
+
+  @include breakpoint-media-max("smtablet") {
+    margin-top: 48px;
+  }
 }
 
 .landing-action-btn {
@@ -56,13 +57,17 @@
 }
 
 .landing-header-title {
-  @include breakpoint-media-max("smtablet") {
+  max-width: 880px;
+
+  @include breakpoint-media-max("mobile") {
     @include title(4);
   }
 }
 
 .landing-head-paragraph {
-  @include breakpoint-media-max("smtablet") {
+  max-width: 705px;
+
+  @include breakpoint-media-max("mobile") {
     @include paragraph(3);
   }
 }
