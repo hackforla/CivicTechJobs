@@ -14,9 +14,9 @@ function LandingPage() {
   };
 
   return (
-    <div className="text-center pt-5">
+    <div className="text-center">
       <div className="landing-top-content px-4">
-        <h1 className="title-1 landing-header-title">
+        <h1 className="title-1 landing-header-title m-0">
           Together,
           <br />
           we can create greater civic change
