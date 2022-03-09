@@ -1,5 +1,5 @@
-@use "../../components/Basics/" as *;
-@use "../../components/Buttons/Buttons" as *;
+@use "components/Basics" as *;
+@use "components/Buttons" as *;
 
 .landing-image-parent {
   z-index: 1;
