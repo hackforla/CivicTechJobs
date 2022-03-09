@@ -8,9 +8,7 @@
 @use "components/Buttons" as *;
 @use "components/Cards/Cards";
 @use "components/Carousel/ScrollCarousel";
-@use "components/Navigation/HeaderNav";
-@use "components/Navigation/InnerCopNav";
-@use "components/Navigation/FooterNav";
+@use "components/Navigation" as *;
 
 // Import page styles
 @use "pages/Demo/Demo";
