@@ -4,6 +4,7 @@
 .landing-image-parent {
   z-index: 1;
   margin-top: -10%;
+  position: relative;
   background-image: url("./assets/images/svgs/landing-page-bg.svg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -25,6 +26,7 @@
 .landing-mission-section {
   padding-top: 8%;
   margin-top: -12%;
+  position: relative;
   background-color: $color-tan-light;
   height: 420px;
 }
