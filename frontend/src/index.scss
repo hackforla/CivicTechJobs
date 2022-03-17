@@ -5,103 +5,11 @@
 @use "components/Basics" as *;
 
 // Import component styles
-@use "components/Buttons/Buttons" as *;
-@use "components/Buttons/CloseButton";
+@use "components/Buttons" as *;
 @use "components/Cards/Cards";
 @use "components/Carousel/ScrollCarousel";
-@use "components/Navigation/HeaderNav";
-@use "components/Navigation/InnerCopNav";
-@use "components/Navigation/FooterNav";
+@use "components/Navigation" as *;
 
 // Import page styles
+@use "pages/Demo/Demo";
 @use "pages/landingPage/landingPage";
-
-// Create final styles
-
-body {
-  font-family: Roboto, Arial, Helvetica, sans-serif;
-}
-
-.red {
-  font-weight: normal;
-  font-style: normal;
-  font-size: 20px;
-
-  @include breakpoint-media-min(mobile) {
-    color: $color-grey-dark;
-  }
-
-  @include breakpoint-media-min(smtablet) {
-    color: $color-grey;
-  }
-
-  @include breakpoint-media-min(lgtablet) {
-    color: $color-tan;
-  }
-
-  @include breakpoint-media-min(laptop) {
-    color: $color-blue;
-  }
-
-  @include breakpoint-media-min(desktop) {
-    color: $color-blue-dark;
-  }
-}
-
-.flex-item {
-  box-sizing: border-box;
-  border: 1px solid blue;
-}
-
-.spaces {
-  background-color: lightcyan;
-}
-
-.spaces2 {
-  background-color: lightgray;
-}
-
-.card-content-margins--custom {
-  @include spacing-size("mt", 3);
-
-  @include breakpoint-media-max("desktop") {
-    margin: {
-      right: 80px;
-      left: 80px;
-      bottom: 80px;
-    }
-  }
-  @include breakpoint-media-max("laptop") {
-    margin: {
-      right: 56px;
-      left: 56px;
-      bottom: 56px;
-    }
-  }
-}
-
-.inner-cop-layout--custom {
-  padding: {
-    top: 48px;
-    right: 48px;
-    left: 48px;
-  }
-
-  @include spacing-responsive("laptop", "p", 5);
-  @include spacing-responsive("lgtablet", "p", 4);
-}
-
-.large-cop-nav--custom {
-  @include col-size(2);
-  @include col-responsive("lgtablet", 3);
-}
-
-.inner-cop-card--custom {
-  @include col-size(10);
-  @include col-responsive("lgtablet", 9);
-}
-
-.btn-md-to-sm {
-  @include button-responsive("lgtablet", $size: "md");
-  @include button-responsive("mobile", $size: "sm");
-}

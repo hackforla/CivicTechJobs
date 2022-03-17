@@ -1,6 +1,6 @@
 // External Imports
 import PropTypes from "prop-types";
-import React, { useState, Fragment } from "react";
+import React, { Fragment, useState } from "react";
 
 // Internal Imports
 import * as utility from "../Utility/utils";
@@ -63,7 +63,6 @@ function HeaderNav({ logoDesktop, logoMobile, menu }) {
           </button>
         </div>
       </nav>
-
       <div aria-hidden="true"></div>
     </Fragment>
   );

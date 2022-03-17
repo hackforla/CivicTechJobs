@@ -1,15 +1,18 @@
+// External Imports
 import React, { Fragment, useState } from "react";
-import { render } from "react-dom";
-import * as Images from "../assets/images/images";
-import { Button } from "./Buttons/Buttons";
-import { CopCard, InnerCopCard } from "./Cards/Cards";
-import { ScrollCarousel } from "./Carousel/ScrollCarousel";
-import { InnerCopNav } from "./Navigation/InnerCopNav";
-import { HeaderNav } from "./Navigation/HeaderNav";
-import { LandingPage } from "../pages/landingPage/landingPage";
-import { FooterNav } from "./Navigation/FooterNav";
 
-function App() {
+// Internal Imports
+import * as Images from "assets/images/images";
+import {
+  Button,
+  CopCard,
+  InnerCopCard,
+  ScrollCarousel,
+  InnerCopNav,
+  HeaderNav,
+} from "components/components";
+
+function Demo() {
   const data = [
     { title: "Cop 0", text: lorem },
     { title: "Cop 1", text: lorem },
@@ -31,17 +34,7 @@ function App() {
           { name: "Projects", link: "/" },
         ]}
       />
-      <LandingPage />
       <h1>Hello, World!</h1>
-      <FooterNav
-        logoDesktop={Images.logoHorizontalOnDark}
-        logoMobile={Images.logoStackedOnDark}
-        menu={[
-          { name: "Credits", link: "/" },
-          { name: "Sitemap", link: "/" },
-          { name: "Join Us", link: "/" },
-        ]}
-      />
       <h2>Playground</h2>
       <div className="flex-container mx-5">
         <div className="col-3 flex-item">
@@ -253,6 +246,4 @@ function DivWrapper(props) {
   );
 }
 
-render(<App />, document.getElementById("app"));
-
-export default App;
+export { Demo };
