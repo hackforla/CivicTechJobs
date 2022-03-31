@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: "development",
+  mode: process.env.MODE,
   entry: {
     index: "./frontend/src/index.js", // place where the file to render is
   },
@@ -13,7 +13,7 @@ module.exports = {
     filename: "[name].[contenthash].js", // forces recaching of css by added hashes to filename
     path: path.resolve(__dirname, "frontend/static/frontend"), // directory where the bundle is placed
   },
-  devtool: "inline-source-map", // for debugging, do NOT use in production
+  devtool: process.env.DEVTOOL, // for debugging, do NOT use in production
   module: {
     rules: [
       {
