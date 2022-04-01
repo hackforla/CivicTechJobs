@@ -4,6 +4,7 @@ secret_key.txt
 dev.env
 stage.env
 docker-compose.stage.yml
+requirements.stage.txt
 __pycache__
 
 .vscode/
