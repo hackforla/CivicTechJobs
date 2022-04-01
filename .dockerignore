@@ -1,5 +1,7 @@
-node_modules
-docker
+./node_modules
+dev
+stage
 .dockerignore
 .git
 .gitignore
+**/__pycache__
