@@ -6,31 +6,33 @@ services:
     container_name: pgdb
     volumes:
       - postgres_data:/lib/postgresql/data
-    environment:
-      POSTGRES_NAME: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-
-  webpack:
-    build:
-      context: .
-      dockerfile: docker/webpack
-    command: npm run watch
-    volumes:
-      - .:/code
+    env_file:
+      - ./dev/dev.env
 
   django:
     build: 
-      context: .
-      dockerfile: docker/django
+      context: ./app
+      dockerfile: ../dev/django.dockerfile
     container_name: django
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/code
+      - ./app/:/code
     ports:
       - "8000:8000"
+    env_file:
+      - ./dev/dev.env
     depends_on:
       - pgdb
+
+  webpack:
+    build:
+      context: ./app
+      dockerfile: ../dev/webpack.dockerfile
+    command: npm run watch
+    env_file:
+      - ./dev/dev.env
+    volumes:
+      - ./app/:/code
 
 volumes:
   postgres_data:

@@ -1,12 +1,16 @@
 node_modules
+db.sqlite3
 secret_key.txt
+dev.env
+stage.env
+docker-compose.stage.yml
+requirements.stage.txt
+__pycache__
 
-config/__pycache__
-frontend/__pycache__
-frontend/migrations/__pycache__
-frontend/static/frontend/*
-!frontend/static/frontend/.gitkeep
-frontend/templates/frontend/*
-!frontend/templates/frontend/.gitkeep
-server/__pycache__
-server/migrations/__pycache__
+.vscode/
+app/frontend/static/frontend/*
+!app/frontend/static/frontend/.gitkeep
+app/frontend/templates/frontend/*
+!app/frontend/templates/frontend/.gitkeep
+data/
+stage/
