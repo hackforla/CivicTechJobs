@@ -4,4 +4,5 @@ stage
 .dockerignore
 .git
 .gitignore
-**/__pycache__
+**/__pycache__/
+mkdocs/
