@@ -22,10 +22,9 @@ jobs:
       - name: Install mkdocs
         uses: actions/setup-python@v3
       - run: pip install --upgrade pip && pip install mkdocs
-      - name: Publish docs
-
       - run: git config user.name 'github-actions[bot]' && git config user.email 'github-actions[bot]@users.noreply.github.com'
-      - run: mkdocs build
+      - name: Publish docs
+        run: mkdocs build
       - run: cd ..
       - run: cd docs
       - run: cat > .nojekyll
