@@ -3,7 +3,6 @@ site_name: CivicTechJobs Docs
 site_url: https://aveline-art.github.io/CivicTechJobs-Documentation/
 
 # Optionals
-docs_dir: src
 edit_uri: ""
 extra_css:
   - css/extra.css
@@ -30,7 +29,6 @@ nav:
   - CivicTechJobs Repo: https://github.com/hackforla/CivicTechJobs
 repo_url: https://github.com/hackforla/CivicTechJobs-Documentation
 repo_name: GitHub
-site_dir: ../docs
 theme:
   name: mkdocs
   nav_style: dark
