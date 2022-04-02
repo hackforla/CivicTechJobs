@@ -26,11 +26,4 @@ jobs:
           pip install --upgrade pip && pip install mkdocs
           git config user.name 'github-actions[bot]' && git config user.email 'github-actions[bot]@users.noreply.github.com'
           cd mkdocs
-          mkdocs build
-      - name: Commit docs
-        run: |
-          cd docs
-          cat > .nojekyll
-          git add -A
-          git commit -m "Deployed with mkdocs build via ${{ github.sha }}"
-          git push
+          mkdocs gh-deploy
