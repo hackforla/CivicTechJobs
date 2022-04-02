@@ -98,7 +98,7 @@ Do note that docker and dockerfiles can be fickle to work with, especially on ol
 
 Our development environment is entirely defined by our `docker-compose.yml`, and the files inside of `dev/`. More information about those files can be found above.
 
-Of note, however, is the dev.env.example file. This file is only a sample, but lists out all the environmental variables needed to run our website. While most of them are prefilled, some uses `<>` to indicate placeholders, which must be filled in by the developer.
+Of note, however, is the dev.env.example file. This file is only a sample, but lists out all the environmental variables needed to run our site. While most of them are prefilled, some uses `<>` to indicate placeholders, which must be filled in by the developer.
 
 ### Staging
 

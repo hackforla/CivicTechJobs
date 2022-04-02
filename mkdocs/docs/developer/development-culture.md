@@ -36,13 +36,13 @@ When choosing an issue to work on from the "Prioritized Backlog" column, it is g
 
 On occasion, when an issue is being worked on for an inordinate amount of time, the team might request an update on your progress. When giving your progress, it is courteous to give an ETA on the issue, and evaluate on your ability to resolve the issue in a reasonable timeframe. If an issue is taking far too long, it might be wise to abandon the issue and work on something that might bring more value to you and the team.
 
-Also, one final note: **Do not contact the team via e-mail or Slack to review your pull request unless it as been 72 hours since it was opened! The team will occasionally comb for pull requests and review them.** If you want to move on to another issue, consider reviewing another developer's pull request (if you are part of the team), contribute to other open source projects, or ask the team for additional tasks.
+Also, one final note: **Do not contact the team via email or Slack to review your pull request unless it as been 72 hours since it was opened! The team will occasionally comb for pull requests and review them.** If you want to move on to another issue, consider reviewing another developer's pull request (if you are part of the team), contribute to other open source projects, or ask the team for additional tasks.
 
 Most issues can be divided into two broad types: frontend issues, and backend issues.
 
 ### Frontend issues
 
-- Usually involves the appearance of the website
+- Usually involves the appearance of the site
 - Usually easier than backend issues
 - Requires little research
 - Is occasionally an audit
@@ -66,13 +66,13 @@ On rare circumstances, designs can change in the middle of work. This is somethi
 Code that should be reviewed is found in the [pull request tab](https://github.com/hackforla/CivicTechJobs/pulls). These are issues that require someone to look over for several criteria:
 
 - Applicability: Were the correct changes made? Where new lines added or removed that are extraneous to the issue?
-- Brokenness: Did the changes break the website? Is the changes responsive to view-port changes?
+- Brokenness: Did the changes break the site? Is the changes responsive to view-port changes?
 - Cleanliness: Is the new code programmatic or messy? Would the code be hard to maintain in the long run?
 
-When code meets all three criteria, it can then be merged and made a part of the website. Otherwise, the review should indicate changes that needs to be made.
+When code meets all three criteria, it can then be merged and made a part of the site. Otherwise, the review should indicate changes that needs to be made.
 
-As an advanced project, CivicTechJobs have certain expectations for our developers. One of these is that issues of size 1 or 2 is small enough that we "pre-review" them. This means that we are confident that the developer can resolve these issues without review. Therefore, these issues can be merged directly into our code-base upon resolution. That said, it is still fine to request the team to review your code if feedback is desired.
+As an advanced project, CivicTechJobs have certain expectations for our developers. One of these is that issues of size 1 or 2 is small enough that we "pre-review" them. This means that we are confident that the developer can resolve these issues without review. Therefore, these issues can be merged directly into our codebase upon resolution. That said, it is still fine to request the team to review your code if feedback is desired.
 
-**Important:** Although issues can be pre-reviewed, do not make a habit of merging without making a pull request. There will be times when you performed an accidental merge, which could be a pain to fix on the command line.
+**Important:** Although issues can be pre-reviewed, do not make a habit of merging without making a pull request. There will be times when you performed an accidental merge, which could be a pain to fix on the command-line.
 
 As one final note, code can be merged solely on one approved review but it is fine to request more reviewers or ask for the team to review it during a developer meeting.

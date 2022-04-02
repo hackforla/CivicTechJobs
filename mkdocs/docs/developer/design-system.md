@@ -1,6 +1,6 @@
 # Design System Helper
 
-This guide is the developer documentation for the CivicTechJobs Design System (CTJ-DS). Inside is not only an overview of our components, but also usage tips, and strategies to translate Figma designs into components for flexible, dynamic webpages.
+This guide is the developer documentation for the CivicTechJobs Design System (CTJ-DS). Inside is not only an overview of our components, but also usage tips, and strategies to translate Figma designs into components for flexible, dynamic web pages.
 
 ## Concepts
 
@@ -30,7 +30,7 @@ A scalable component:
 
 - takes up a certain **fraction** of the total screen size
 - shrinks and grows along with screen size
-- uses relative css sizing units, such as % or vm
+- uses relative CSS sizing units, such as % or vm
 
 <img src="../../assets/scalable.gif" width="100%" />
 
@@ -40,13 +40,13 @@ A responsive component:
 
 - takes up an **absolute** amount of the screen
 - remains static until reaching a certain breakpoint
-- uses static css sizing units, such as px
+- uses static CSS sizing units, such as px
 
 <img src="../../assets/responsive.gif" width="100%" />
 
 _<p style="text-align: center;">These buttons show responsive behavior. The buttons do not change until the screen reaches a certain breakpoint.</p>_
 
-Scalability and responsiveness are not mutually exclusive. A webpage can contain both scalable and responsive components. As a matter of fact, a single component can be both responsive and scalable.
+Scalability and responsiveness are not mutually exclusive. A web page can contain both scalable and responsive components. As a matter of fact, a single component can be both responsive and scalable.
 
 <img src="../../assets/scale-and-response.gif" width="100%" />
 
@@ -302,7 +302,7 @@ _<p style="text-align: center;">This works because it declares a mixin rather th
 
 To avoid these errors, it is encouraged to use the mixin rather than the class version of a specific style for inheritance whenever possible!
 
-For more information visit [this documentation](https://sass-lang.com/documentation/at-rules/extend#extend-in-media) and this [StackOverflow question](https://stackoverflow.com/a/14841491).
+For more information visit [this documentation](https://sass-lang.com/documentation/at-rules/extend#extend-in-media) and this [Stack Overflow question](https://stackoverflow.com/a/14841491).
 
 ## Resources
 
