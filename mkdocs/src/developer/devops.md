@@ -42,7 +42,7 @@ _<p style="text-align: center;">DevOps Architecture</p>_
 
 ## Summary
 
-**DevOps Tech Stack**: Docker, Gunicorn, Nginx, PostgreSQL
+**DevOps Tech Stack**: Docker, Gunicorn, Nginx, PostgreSQL, test
 
 Our devops files can be thought of as a set of files needed to create an exact replica of our environments for our developers. Although the overall structure appears deceptively basic, it only represents a fraction of our devops files. Several of our files, such as the ones that construct our staging environment, contains sensitive information, and as such as not placed in our public repository. For most frontend and backend work, there is never a need to access these files.
 
