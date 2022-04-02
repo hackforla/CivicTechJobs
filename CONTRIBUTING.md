@@ -20,7 +20,7 @@ We do not currently have a dedicated issue template for creating issues for cont
 
 ### Resolving Issues
 
-> **Note: Make sure to check out our [installation instructions](https://hackforla.github.io/CivicTechJobs-Documentation/developer/installation/) to set up your development environment before working on any issues!**
+> **Note: Make sure to check out our [installation instructions](https://hackforla.github.io/CivicTechJobs/developer/installation/) to set up your development environment before working on any issues!**
 
 1. Find a developer issue to work on from our [prioritized backlog](https://github.com/hackforla/CivicTechJobs/projects/1#column-10928271). (Hint: look for the `frontend` or `backend` label). The `size` label will signal the amount of work the issue might involve, with a higher number indicating greater work. For a first time contributor, we recommend taking issues with the `good first issue` label or a `size` of 1 or 2.
 2. [From your local repository, create a branch off of main.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
@@ -40,7 +40,7 @@ To create an issue as a member of our team, locate the appropriate template for 
 
 ### Resolving Issues
 
-> **Note: Make sure to check out our [installation instructions](https://hackforla.github.io/CivicTechJobs-Documentation/developer/installation/) to set up your development environment before working on any issues!**
+> **Note: Make sure to check out our [installation instructions](https://hackforla.github.io/CivicTechJobs/developer/installation/) to set up your development environment before working on any issues!**
 
 1. Find a developer issue to work on from our [prioritized backlog](https://github.com/hackforla/CivicTechJobs/projects/1#column-10928271). (Hint: look for the `frontend` or `backend` label). The `size` label will signal the amount of work the issue might involve, with a higher number indicating greater work. For a development team member, we encourage taking the topmost `frontend` or `backend` issue, as they are arranged by priority by role.
 2. Assign yourself to the issue. (Hint: see [step 4](https://docs.github.com/en/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users#assigning-an-individual-issue-or-pull-request).)
@@ -71,10 +71,10 @@ You must have created a new file, through Docker. Since this file "belongs" to t
 
 ## Additional Resources
 
-[Frontend Architecture](https://hackforla.github.io/CivicTechJobs-Documentation/developer/frontend/)<br>
-[Backend Architecture](https://hackforla.github.io/CivicTechJobs-Documentation/developer/backend/)<br>
-[GitHub Architecture](https://hackforla.github.io/CivicTechJobs-Documentation/developer/github/)<br>
-[Development Culture](https://hackforla.github.io/CivicTechJobs-Documentation/developer/development-culture/)<br>
-[Installation Instructions](https://hackforla.github.io/CivicTechJobs-Documentation/developer/installation/)<br>
-[Design System Helper](https://hackforla.github.io/CivicTechJobs-Documentation/developer/design-system/)<br>
-[DevOps Architecture](https://hackforla.github.io/CivicTechJobs-Documentation/developer/devops/)<br>
+[Frontend Architecture](https://hackforla.github.io/CivicTechJobs/developer/frontend/)<br>
+[Backend Architecture](https://hackforla.github.io/CivicTechJobs/developer/backend/)<br>
+[GitHub Architecture](https://hackforla.github.io/CivicTechJobs/developer/github/)<br>
+[Development Culture](https://hackforla.github.io/CivicTechJobs/developer/development-culture/)<br>
+[Installation Instructions](https://hackforla.github.io/CivicTechJobs/developer/installation/)<br>
+[Design System Helper](https://hackforla.github.io/CivicTechJobs/developer/design-system/)<br>
+[DevOps Architecture](https://hackforla.github.io/CivicTechJobs/developer/devops/)<br>
