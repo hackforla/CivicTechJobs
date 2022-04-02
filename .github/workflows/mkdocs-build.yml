@@ -1,23 +1,29 @@
-name: Documentation
+# Credit for code: https://github.com/mkdocs/mkdocs/discussions/2369#discussioncomment-625475
+name: Build MkDocs site
 
 on:
   push:
     branches:
       - main
     paths:
-      - "**.md"
-      - "mkdocs.yml"
+      - "mkdocs/**/**.md"
+      - "mkdocs/mkdocs.yml"
   workflow_dispatch:
 
 jobs:
   docs:
     runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]'
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repo
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@v2
-      - run: pip install --upgrade pip && pip install mkdocs mkdocs-gen-files
-      - run: git config user.name 'github-actions[bot]' && git config user.email 'github-actions[bot]@users.noreply.github.com'
+      - name: Install mkdocs
+        uses: actions/setup-python@v3
       - name: Publish docs
-        run: mkdocs gh-deploy
+        run: |
+          pip install --upgrade pip && pip install mkdocs
+          git config user.name 'github-actions[bot]' && git config user.email 'github-actions[bot]@users.noreply.github.com'
+          cd mkdocs
+          mkdocs gh-deploy
