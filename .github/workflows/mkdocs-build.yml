@@ -32,5 +32,5 @@ jobs:
           cd docs
           cat > .nojekyll
           git add -A
-          git commit -m "Deployed with mkdocs build"
+          git commit -m "Deployed with mkdocs build via ${{ github.sha }}"
           git push
