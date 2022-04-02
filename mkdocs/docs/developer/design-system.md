@@ -52,7 +52,7 @@ Scalability and responsiveness are not mutually exclusive. A web page can contai
 
 _<p style="text-align: center;">This card shows both scalable and responsive behavior. The width smoothly change with the screen size, but drastically changes at our max small tablet breakpoint.</p>_
 
-Only by combining both scalability and responsiveness in our design, can we create a high-quality website. When translating from Figma to code, most of the time, the work is in deciding what part of the Figma design should scale, and what part should be responsive. As a rule of thumb, when designing the transition from the desktop to mobile Figma, scale down empty space and margins, and responsively shrink buttons and text.
+Only by combining both scalability and responsiveness in our design, can we create a high-quality site. When translating from Figma to code, most of the time, the work is in deciding what part of the Figma design should scale, and what part should be responsive. As a rule of thumb, when designing the transition from the desktop to mobile Figma, scale down empty space and margins, and responsively shrink buttons and text.
 
 ### PropType as Documentation
 

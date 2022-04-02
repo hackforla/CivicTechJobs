@@ -16,7 +16,7 @@ To match the right volunteers with the right projects at hackforla.
 
 ### Hasn't it been done already?
 
-Yes, through CoP Github pages. However, the process is cumbersome and involves multiple steps to match the candidate with the right role.
+Yes, through CoP GitHub pages. However, the process is cumbersome and involves multiple steps to match the candidate with the right role.
 
 Read more about what lead up to us developing this project, at our [History](History) page.
 
