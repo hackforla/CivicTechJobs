@@ -1,0 +1,32 @@
+# Credit for code: https://github.com/mkdocs/mkdocs/discussions/2369#discussioncomment-625475
+name: Build MkDocs site
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "mkdocs/**/**.md"
+      - "mkdocs/mkdocs.yml"
+  workflow_dispatch:
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - run: cd mkdocs
+      - name: Install mkdocs
+        uses: actions/setup-python@v3
+      - run: pip install --upgrade pip && pip install mkdocs
+      - name: Publish docs
+
+      - run: git config user.name 'github-actions[bot]' && git config user.email 'github-actions[bot]@users.noreply.github.com'
+      - run: mkdocs build
+      - run: cd ..
+      - run: cd docs
+      - run: cat > .nojekyll
+      - run: git push
