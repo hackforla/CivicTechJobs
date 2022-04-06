@@ -88,3 +88,7 @@ body {
   @include button-responsive("lgtablet", $size: "md");
   @include button-responsive("mobile", $size: "sm");
 }
+
+.text-blue-dark {
+  color: $color-blue-dark;
+}
