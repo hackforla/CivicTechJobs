@@ -1,0 +1,44 @@
+// External Imports
+@use "sass:map";
+
+// Internal Imports
+@use "../Basics" as *;
+
+
+/****************************************
+*** Circle Card class for all buttons ***
+****************************************/
+
+.circle-card {
+    background-color: $color-grey-light;
+    border-radius: 50%;
+    box-shadow: 0px 2px 8px rgb(0 0 0 / 25%);
+}
+
+/******************************************
+*** Circle Card classes concerning size ***
+******************************************/
+
+$size-values: (
+  "sm": (
+    "radius": 144px,
+  ),
+  "lg": (
+    "radius": 256px,
+  ),
+);
+
+.circle-card-sm {
+    height: map.get($size-values, "sm", "radius");
+    width: map.get($size-values, "sm", "radius")
+}
+
+.circle-card-lg {
+    height: map.get($size-values, "lg", "radius");
+    width: map.get($size-values, "lg", "radius")
+}
+
+.circle-card-content {
+  display: flex;
+  height: 100%;
+}

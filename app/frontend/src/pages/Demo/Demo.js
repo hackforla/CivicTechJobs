@@ -6,6 +6,7 @@ import * as Images from "assets/images/images";
 import {
   Button,
   CopCard,
+  CircleCard,
   InnerCopCard,
   ScrollCarousel,
   InnerCopNav,
@@ -54,6 +55,20 @@ function Demo() {
         <div className="col-1 flex-item">13</div>
       </div>
       <h2>Cards</h2>
+      <div className="flex-container m-5">
+        <CircleCard size="sm" addClass="mx-1">
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <img src={Images.copIconData} height="36" className="pb-2"></img>
+            <div className="title-6 text-blue-dark">Data Science</div>
+          </div>
+        </CircleCard>
+        <CircleCard size="lg" addClass="mx-1">
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <img src={Images.copIconData} height="65" className="pb-3"></img>
+            <div className="title-4 text-blue-dark">Data Science</div>
+          </div>
+        </CircleCard>
+      </div>
       <div
         className="flex-container justify-center px-5"
         style={{
