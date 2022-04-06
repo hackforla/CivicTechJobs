@@ -1,6 +1,7 @@
 import { Button } from "./Buttons/Buttons";
 import { CloseButton } from "./Buttons/CloseButton";
-import { CopCard, InnerCopCard, InnerCopNavCard } from "./Cards/Cards";
+import { CopCard } from "./Cards/Cards";
+import { InnerCopCard, InnerCopNavCard } from "./Cards/InnerCopCards";
 import { ScrollCarousel } from "./Carousel/ScrollCarousel";
 import { InnerCopNav } from "./Navigation/InnerCopNav";
 import { HeaderNav } from "./Navigation/HeaderNav";
