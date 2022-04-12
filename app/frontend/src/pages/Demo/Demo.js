@@ -56,16 +56,10 @@ function Demo() {
       </div>
       <h2>Cards</h2>
       <div className="flex-container m-5">
-        <CircleCard size="sm" addClass="mx-1">
+        <CircleCard size="lg" addClass="mx-1 circle-card-lg-to-sm">
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <img src={Images.copIconData} height="36" className="pb-2"></img>
-            <div className="title-6 text-blue-dark">Data Science</div>
-          </div>
-        </CircleCard>
-        <CircleCard size="lg" addClass="mx-1">
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <img src={Images.copIconData} height="65" className="pb-3"></img>
-            <div className="title-4 text-blue-dark">Data Science</div>
+            <img src={Images.copIconData} className="pb-3 image-size"></img>
+            <div className="title-size-4-to-6 text-blue-dark">Data Science</div>
           </div>
         </CircleCard>
       </div>
