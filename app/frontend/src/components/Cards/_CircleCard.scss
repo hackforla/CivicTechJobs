@@ -40,14 +40,18 @@ $size-values: (
   }
 }
 
-/***********************************************
+/****************************************************
 *** Circle Card classes concerning inside content ***
-***********************************************/
+****************************************************/
 
 .circle-card-content {
   display: flex;
   height: 100%;
 }
+
+/****************************************************
+*** Circle Card classes concerning responsiveness ***
+****************************************************/
 
 @mixin circle-card-responsive($device, $size) {
   @include breakpoint-media-max($device) {
