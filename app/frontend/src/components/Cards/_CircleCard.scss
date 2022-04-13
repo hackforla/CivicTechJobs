@@ -1,0 +1,60 @@
+// External Imports
+@use "sass:map";
+
+// Internal Imports
+@use "../Basics" as *;
+
+$sizes: "lg", "sm";
+
+/****************************************
+*** Circle Card class for all buttons ***
+****************************************/
+
+.circle-card {
+  background-color: $color-grey-light;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 25%);
+}
+
+/******************************************
+*** Circle Card classes concerning size ***
+******************************************/
+
+$size-values: (
+  "sm": (
+    "radius": 144px,
+  ),
+  "lg": (
+    "radius": 256px,
+  ),
+);
+
+@mixin circle-card-size($size) {
+  height: map.get($size-values, $size, "radius");
+  width: map.get($size-values, $size, "radius");
+}
+
+@each $size in $sizes {
+  .circle-card-#{$size} {
+    @include circle-card-size($size);
+  }
+}
+
+/****************************************************
+*** Circle Card classes concerning inside content ***
+****************************************************/
+
+.circle-card-content {
+  display: flex;
+  height: 100%;
+}
+
+/****************************************************
+*** Circle Card classes concerning responsiveness ***
+****************************************************/
+
+@mixin circle-card-responsive($device, $size) {
+  @include breakpoint-media-max($device) {
+    @include circle-card-size($size);
+  }
+}

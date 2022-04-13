@@ -1,5 +1,6 @@
 @use "components/Basics" as *;
 @use "components/Buttons" as *;
+@use "components/Cards" as *;
 
 body {
   font-family: Roboto, Arial, Helvetica, sans-serif;
@@ -87,4 +88,28 @@ body {
 .btn-md-to-sm {
   @include button-responsive("lgtablet", $size: "md");
   @include button-responsive("mobile", $size: "sm");
+}
+
+.text-blue-dark {
+  color: $color-blue-dark;
+}
+
+.circle-card-lg-to-sm {
+  @include circle-card-responsive("smtablet", $size: "sm");
+}
+
+.image-size {
+  height: 65px;
+
+  @include breakpoint-media-max("smtablet") {
+    height: 36px;
+  }
+}
+
+.title-size-4-to-6 {
+  @include title(4);
+
+  @include breakpoint-media-max("smtablet") {
+    @include title(6);
+  }
 }
