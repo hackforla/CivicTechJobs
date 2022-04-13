@@ -1,0 +1,23 @@
+@use "../Basics" as *;
+
+/**************************
+*** Class for all cards ***
+**************************/
+
+.card {
+  border-radius: 16px;
+}
+
+.inner-cop-nav-card {
+  background-color: $color-white;
+  border: none;
+  box-sizing: border-box;
+  display: inline;
+  max-width: 188px;
+  min-height: 64px;
+
+  &.active {
+    background-color: $color-blue-dark;
+    color: $color-white;
+  }
+}

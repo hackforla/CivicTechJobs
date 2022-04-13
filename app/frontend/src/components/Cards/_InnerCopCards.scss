@@ -1,16 +1,9 @@
 @use "../Basics" as *;
 
-/**************************
-*** Class for all cards ***
-**************************/
-
 .card {
   border-radius: 16px;
 }
 
-/**********************************
-*** Classes for inner COP cards ***
-**********************************/
 .inner-cop-card {
   background-color: $color-white;
   box-shadow: 0 8px 8px rgb(0 0 0 / 25%);
@@ -23,22 +16,5 @@
     top: 48px;
     right: 3.3vw;
     left: 3.3vw;
-  }
-}
-
-/**************************************
-  *** Classes for inner COP nav cards ***
-  **************************************/
-.inner-cop-nav-card {
-  background-color: $color-white;
-  border: none;
-  box-sizing: border-box;
-  display: inline;
-  max-width: 188px;
-  min-height: 64px;
-
-  &.active {
-    background-color: $color-blue-dark;
-    color: $color-white;
   }
 }
