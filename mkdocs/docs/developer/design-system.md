@@ -20,7 +20,11 @@ Likewise, we must contend with the fact that Figma designs are static screens ti
 
 As a developer, we need to effectively communicate with designers at multiple stage of the Figma design process. This means providing recommendations or alternatives that are simpler and easier for the developer to implement and maintain.
 
-At CivicTechJobs, designers use two standard viewport widths when creating our UIs: 1440px for desktop and 375px for mobile. The appearance of the UI beyond these two sizes are determined by us, as developers, as we componentize the Figma designs. Do note though that the smallest, popular, mobile screen width is 320px, which is the miminum when designing the UI.
+At CivicTechJobs, designers use two standard viewport widths when creating our UIs: 1440px for desktop and 375px for mobile. The appearance of the UI beyond these two sizes are determined by us, as developers, as we componentize the Figma designs. Do note though that our screen size of interest changes depending on the stage of our project. Right now, our current size of interest is:
+
+```
+1025px and up (or, laptop and up)
+```
 
 ### Scalable and Responsive Components
 
