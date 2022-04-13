@@ -1,4 +1,8 @@
-import React from "react";
+// External imports
+import React, { Fragment } from "react";
+import PropTypes from "prop-types";
+
+// Internal imports
 import { Button } from "../Buttons/Buttons";
 
 const FooterNav = ({ menu, logoDesktop, logoMobile }) => {
@@ -19,12 +23,12 @@ const FooterNav = ({ menu, logoDesktop, logoMobile }) => {
       <div className="footer-menu flex-container">
         {menu.map((item, index) => {
           return (
-            <React.Fragment key={index}>
+            <Fragment key={index}>
               <div className="footer-menu-vertical-line"></div>
               <a className="footer-links" href={item.link}>
                 {item.name}
               </a>
-            </React.Fragment>
+            </Fragment>
           );
         })}
       </div>
@@ -35,6 +39,17 @@ const FooterNav = ({ menu, logoDesktop, logoMobile }) => {
       </div>
     </div>
   );
+};
+
+FooterNav.propTypes = {
+  logoDesktop: PropTypes.string.isRequired,
+  logoMobile: PropTypes.string.isRequired,
+  menu: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      link: PropTypes.string,
+    }).isRequired
+  ),
 };
 
 export { FooterNav };

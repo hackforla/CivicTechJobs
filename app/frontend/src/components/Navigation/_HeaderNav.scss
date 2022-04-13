@@ -52,6 +52,7 @@
 .header-nav-link {
   @include title(6);
 
+  color: $color-charcoal;
   text-decoration: none;
 
   &:hover {
