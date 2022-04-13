@@ -82,3 +82,15 @@
     @include paragraph(3);
   }
 }
+
+.landing-cop-circle-title {
+  color: $color-blue-dark;
+}
+
+.landing-cop-description {
+  max-width: 800px;
+}
+
+.landing-cop-circle-container {
+  overflow: auto;
+}
