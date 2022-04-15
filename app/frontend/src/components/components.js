@@ -3,6 +3,7 @@ import { CloseButton } from "./Buttons/CloseButton";
 import { CopCard, InnerCopCard, InnerCopNavCard } from "./Cards/Cards";
 import { CircleCard } from "./Cards/CircleCard";
 import { ScrollCarousel } from "./Carousel/ScrollCarousel";
+import { Modal } from "./Modal/Modal";
 import { InnerCopNav } from "./Navigation/InnerCopNav";
 import { HeaderNav } from "./Navigation/HeaderNav";
 import { FooterNav } from "./Navigation/FooterNav";
@@ -15,6 +16,7 @@ export {
   InnerCopCard,
   InnerCopNavCard,
   ScrollCarousel,
+  Modal,
   InnerCopNav,
   HeaderNav,
   FooterNav,

@@ -1,0 +1,13 @@
+// External Imports
+@use "sass:map";
+
+// Internal Imports
+@use "../Basics" as *;
+
+/*********************************
+*** Modal class for all modals ***
+**********************************/
+.modal {
+  color: black;
+  z-index: $z-modal;
+}
