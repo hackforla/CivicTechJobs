@@ -7,6 +7,7 @@ import {
   Button,
   CopCard,
   CircleCard,
+  Dialog,
   InnerCopCard,
   ScrollCarousel,
   InnerCopNav,
@@ -54,7 +55,7 @@ function Demo() {
         <div className="col-1 flex-item">12</div>
         <div className="col-1 flex-item">13</div>
       </div>
-      <h2>Cards</h2>
+      <h2>Circle Card</h2>
       <div className="flex-container m-5">
         <CircleCard size="lg" addClass="mx-1 circle-card-lg-to-sm">
           <div style={{ display: "flex", flexDirection: "column" }}>
@@ -62,6 +63,10 @@ function Demo() {
             <div className="title-size-4-to-6 text-blue-dark">Data Science</div>
           </div>
         </CircleCard>
+      </div>
+      <h2>Modal</h2>
+      <div className="flex-container m-5">
+        <Dialog />
       </div>
       <div
         className="flex-container justify-center px-5"

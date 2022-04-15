@@ -5,9 +5,9 @@
 @use "../Basics" as *;
 
 /*********************************
-*** Modal class for all modals ***
+*** Dialog class for all dialogs ***
 **********************************/
-.modal {
+.dialog {
   color: black;
-  z-index: $z-modal;
+  z-index: $z-dialog;
 }

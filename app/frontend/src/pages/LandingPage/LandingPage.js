@@ -11,9 +11,9 @@ import {
 import {
   Button,
   CircleCard,
+  Dialog,
   HeaderNav,
   FooterNav,
-  Modal,
 } from "components/components";
 
 import { copData } from "./copData";
