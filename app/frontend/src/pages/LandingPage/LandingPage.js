@@ -13,6 +13,7 @@ import {
   CircleCard,
   HeaderNav,
   FooterNav,
+  Modal,
 } from "components/components";
 
 import { copData } from "./copData";
@@ -90,21 +91,26 @@ function LandingPageIntro() {
 }
 
 function LandingPageCop() {
-  const copDataRegrouped = [];
-
   return (
     <div className="flex-container align-center justify-center my-5">
-      <div className="title-2 my-4">Communities of Practice (COP)</div>
+      <div className="title-2 col-12 text-center my-4">
+        Communities of Practice (COP)
+      </div>
       <div className="row paragraph-1 text-center mb-5 landing-cop-description">
         A Community of Practice (CoP) is a group of volunteers who share a
         common interest in a topic and meet regularly to fulfill both individual
         and group goals. We use CoPs to share effective practices and relevant
         domain knowledge to help our members grow.
       </div>
-      <div className="row my-5 landing-cop-circle-container">
+      <div className="row m-5 landing-cop-circle-container">
         {copData.map((cop, index) => {
           return (
-            <CircleCard key={index} size="lg" addClass="mx-1">
+            <CircleCard
+              key={index}
+              size="lg"
+              addClass="m-4"
+              onClick={() => alert("hello world")}
+            >
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <img src={cop.icon} height="65" className="pb-3"></img>
                 <div className="title-4 landing-cop-circle-title text-center">
