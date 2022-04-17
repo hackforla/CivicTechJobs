@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import { combineClasses } from "../Utility/utils";
 import { CloseButton } from "../Buttons/CloseButton";
 
-function CopCard({ hidden = true, size = "sm", ...props }) {
+function Cards({ hidden = true, size = "sm", ...props }) {
   const [isHidden, setIsHidden] = useState(hidden);
 
   return (
@@ -27,11 +27,11 @@ function CopCard({ hidden = true, size = "sm", ...props }) {
   );
 }
 
-CopCard.propTypes = {
+Cards.propTypes = {
   addClass: PropTypes.string,
   onClick: PropTypes.func,
   openState: PropTypes.bool,
   size: PropTypes.oneOf(["lg", "sm"]),
 };
 
-export { CopCard };
+export { Cards };

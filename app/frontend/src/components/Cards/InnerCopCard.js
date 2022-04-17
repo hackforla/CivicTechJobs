@@ -13,4 +13,8 @@ function InnerCopCard(props) {
   );
 }
 
+InnerCopCard.propTypes = {
+  addClass: PropTypes.string,
+};
+
 export { InnerCopCard };

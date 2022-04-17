@@ -5,7 +5,7 @@ import React, { Fragment, useState } from "react";
 import * as Images from "assets/images/images";
 import {
   Button,
-  CopCard,
+  Cards,
   CircleCard,
   InnerCopCard,
   ScrollCarousel,
@@ -69,7 +69,7 @@ function Demo() {
           backgroundColor: "rgb(0 0 0 / 0.4)",
         }}
       >
-        <CopCard hidden={false} size="lg" addClass="col-12">
+        <Cards hidden={false} size="lg" addClass="col-12">
           <div className="flex-container">
             <div className="col-3">
               <InnerCopNav></InnerCopNav>
@@ -85,7 +85,7 @@ function Demo() {
               </InnerCopCard>
             </div>
           </div>
-        </CopCard>
+        </Cards>
         <ScrollCarousel
           addClass="scroll-carousel-cop"
           hidden={hideMobileModal}
@@ -94,7 +94,7 @@ function Demo() {
         >
           {data.map((datum, index) => {
             return (
-              <CopCard
+              <Cards
                 hidden={false}
                 size="sm"
                 onClick={() => {
@@ -105,7 +105,7 @@ function Demo() {
               >
                 <div className="title-4">{datum.title}</div>
                 {datum.text}
-              </CopCard>
+              </Cards>
             );
           })}
         </ScrollCarousel>
