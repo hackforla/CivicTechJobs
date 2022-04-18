@@ -1,8 +1,16 @@
 @use "../Basics" as *;
 
+/**************************
+*** Class for all cards ***
+**************************/
+
 .card {
   border-radius: 16px;
 }
+
+/**********************************
+*** Classes for inner COP cards ***
+**********************************/
 
 .inner-cop-card {
   background-color: $color-white;

@@ -1,6 +1,6 @@
 import { Button } from "./Buttons/Buttons";
 import { CloseButton } from "./Buttons/CloseButton";
-import { Cards } from "./Cards/Cards";
+import { Card } from "./Cards/Card";
 import { InnerCopCard } from "./Cards/InnerCopCard";
 import { InnerCopNavCard } from "./Cards/InnerCopNavCard";
 import { CircleCard } from "./Cards/CircleCard";
@@ -12,7 +12,7 @@ import { FooterNav } from "./Navigation/FooterNav";
 export {
   Button,
   CloseButton,
-  Cards,
+  Card,
   CircleCard,
   InnerCopCard,
   InnerCopNavCard,
