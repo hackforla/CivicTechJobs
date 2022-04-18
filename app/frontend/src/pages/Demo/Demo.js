@@ -24,6 +24,7 @@ function Demo() {
   ];
 
   const [hideMobileModal, setHideMobileModal] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div>
@@ -66,7 +67,35 @@ function Demo() {
       </div>
       <h2>Modal</h2>
       <div className="flex-container m-5">
-        <Dialog />
+        <button
+          id="open_dialog"
+          onClick={() => {
+            console.log("clicked");
+            setIsModalOpen(true);
+          }}
+        >
+          Open Dialog
+        </button>
+        <Dialog open={isModalOpen}>
+          <CopCard hidden={false} size="lg">
+            <div className="flex-container">
+              <div className="col-3">
+                <InnerCopNav></InnerCopNav>
+              </div>
+              <div className="col-9 ml-2">
+                <InnerCopCard>
+                  <div className="title-3">COP Card</div>
+                  <span className="red">
+                    Shrink your viewport to see this transition into the mobile
+                    version. Also, click the "x" button to see the card
+                    disappear.{" "}
+                  </span>
+                  {lorem}
+                </InnerCopCard>
+              </div>
+            </div>
+          </CopCard>
+        </Dialog>
       </div>
       <div
         className="flex-container justify-center px-5"

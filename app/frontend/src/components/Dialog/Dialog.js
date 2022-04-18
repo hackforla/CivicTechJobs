@@ -1,42 +1,37 @@
 // External Imports
 import PropTypes from "prop-types";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
 
-function Dialog({ size = "sm", color = "primary", length = "", ...props }) {
-  const [open, setOpen] = useState(false);
+function Dialog({ open = false, ...props }) {
+  const [isOpen, setIsOpen] = useState(open);
 
-  function handleOpen() {
-    setOpen(true);
-  }
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "scroll";
+  }, [isOpen]);
 
-  function handleClose() {
-    setOpen(close);
-  }
+  useEffect(() => {
+    setIsOpen(open);
+  }, [open]);
 
   return (
     <Fragment>
-      <button id="open_dialog" onClick={handleOpen}>
-        Open Dialog
-      </button>
-
-      <dialog
-        open={open}
-        aria-labelledby="dialog_title"
-        aria-describedby="dialog_description"
+      <div
+        id="myModal"
+        className={combineClasses(
+          "dialog",
+          "modal",
+          "flex-container",
+          "justify-center",
+          "align-center",
+          !isOpen && "hidden",
+          props.addClass
+        )}
       >
-        <div>Hello World</div>
-        <div class="flex flex-space-between">
-          <button id="close_dialog" onClick={handleClose}>
-            Close
-          </button>
-          <button id="confirm_dialog" class="cta">
-            Confirm
-          </button>
-        </div>
-      </dialog>
+        <div className="modal-content">{props.children}</div>
+      </div>
     </Fragment>
   );
 }
@@ -44,19 +39,7 @@ function Dialog({ size = "sm", color = "primary", length = "", ...props }) {
 // Type declaration for props
 Dialog.propTypes = {
   addClass: PropTypes.string,
-  color: PropTypes.oneOf(["primary", "primary-dark"]),
-  disabled: PropTypes.bool,
-  href: PropTypes.string,
-  length: PropTypes.oneOf(["", "long"]),
-  onClick: PropTypes.func,
-  size: PropTypes.oneOf(["sm", "md", "lg", "icon"]),
-  target: PropTypes.oneOf([
-    "_blank",
-    "_self",
-    "_parent",
-    "_top",
-    PropTypes.string,
-  ]),
+  open: PropTypes.bool,
 };
 
 export { Dialog };

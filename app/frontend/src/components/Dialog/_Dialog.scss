@@ -7,7 +7,25 @@
 /*********************************
 *** Dialog class for all dialogs ***
 **********************************/
+
 .dialog {
-  color: black;
+  background-color: rgb(0 0 0 / 40%);
+  height: 100%;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
   z-index: $z-dialog;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  display: inline-block;
+  margin: {
+    bottom: 3px;
+    left: auto;
+    right: auto;
+  }
+  width: fit-content;
 }
