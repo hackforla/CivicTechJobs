@@ -18,14 +18,3 @@
   width: 100%;
   z-index: $z-dialog;
 }
-
-/* Modal Content/Box */
-.modal-content {
-  display: inline-block;
-  margin: {
-    bottom: 3px;
-    left: auto;
-    right: auto;
-  }
-  width: fit-content;
-}

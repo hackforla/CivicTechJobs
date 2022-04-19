@@ -1,5 +1,4 @@
 // External Imports
-import PropTypes from "prop-types";
 import React, { useState } from "react";
 
 // Internal Imports

@@ -56,28 +56,22 @@ function Demo() {
         <div className="col-1 flex-item">12</div>
         <div className="col-1 flex-item">13</div>
       </div>
-      <h2>Circle Card</h2>
+      <h2>Modal</h2>
       <div className="flex-container m-5">
-        <CircleCard size="lg" addClass="mx-1 circle-card-lg-to-sm">
+        <CircleCard
+          size="lg"
+          addClass="mx-1 circle-card-lg-to-sm"
+          onClick={() => {
+            setIsModalOpen(true);
+          }}
+        >
           <div style={{ display: "flex", flexDirection: "column" }}>
             <img src={Images.copIconData} className="pb-3 image-size"></img>
             <div className="title-size-4-to-6 text-blue-dark">Data Science</div>
           </div>
         </CircleCard>
-      </div>
-      <h2>Modal</h2>
-      <div className="flex-container m-5">
-        <button
-          id="open_dialog"
-          onClick={() => {
-            console.log("clicked");
-            setIsModalOpen(true);
-          }}
-        >
-          Open Dialog
-        </button>
         <Dialog open={isModalOpen}>
-          <CopCard hidden={false} size="lg">
+          <CopCard hidden={false} size="lg" onClick={() => setIsModalOpen(false)}>
             <div className="flex-container">
               <div className="col-3">
                 <InnerCopNav></InnerCopNav>

@@ -30,7 +30,7 @@ function Dialog({ open = false, ...props }) {
           props.addClass
         )}
       >
-        <div className="modal-content">{props.children}</div>
+        {props.children}
       </div>
     </Fragment>
   );
