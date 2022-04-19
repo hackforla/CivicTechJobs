@@ -15,3 +15,7 @@
 // Import page styles
 @use "pages/Demo/Demo";
 @use "pages/LandingPage/" as *;
+
+body {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+}
