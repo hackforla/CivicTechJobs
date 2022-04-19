@@ -15,6 +15,10 @@ $themes: "primary", "primary-dark";
   display: inline-flex;
   font-weight: bold;
   text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 /*************************************

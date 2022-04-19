@@ -63,7 +63,7 @@ function LandingPageCop() {
         <CopCard hidden={false} size="lg" onClick={() => setIsModalOpen(false)}>
           <div className="flex-container">
             <div className="col-3">
-              <nav className="landing-inner-cop-nav">
+              <nav className="flex-container landing-inner-cop-nav">
                 {copData.map((cop) => {
                   const isActive = cop.id == currentDatum.id;
                   return (
@@ -71,9 +71,9 @@ function LandingPageCop() {
                       key={cop.id}
                       isActive={isActive}
                       onClick={() => handleCopData(cop.id)}
-                      addClass="landing-inner-cop-nav-card justify-center align-center p-1"
+                      addClass="flex-container justify-center align-center p-1"
                     >
-                      <div className="flex-container justify-center pr-1">
+                      <div className="pr-1">
                         <cop.icon
                           fill={isActive ? "white" : "black"}
                           stroke={isActive ? "white" : "black"}
@@ -91,30 +91,28 @@ function LandingPageCop() {
               </nav>
             </div>
             <div className="col-9 ml-2">
-              <InnerCopCard>
-                <div className="landing-inner-cop-card-content flex-container">
-                  <div>
-                    <div className="title-3 flex-container pb-4 align-bottom">
-                      <div className="pr-2">
-                        {currentDatum.icon && (
-                          <currentDatum.icon
-                            fill="black"
-                            stroke="black"
-                            strokeWidth="0.2"
-                            height="50"
-                            width="50"
-                          />
-                        )}
-                      </div>
-                      {currentDatum.title} CoP
+              <InnerCopCard addClass="landing-inner-cop-card-content">
+                <div>
+                  <div className="title-3 flex-container pb-4 align-bottom">
+                    <div className="pr-2">
+                      {currentDatum.icon && (
+                        <currentDatum.icon
+                          fill="black"
+                          stroke="black"
+                          strokeWidth="0.2"
+                          height="50"
+                          width="50"
+                        />
+                      )}
                     </div>
-                    {currentDatum.description}
+                    {currentDatum.title} CoP
                   </div>
-                  <div>
-                    <Button color="primary" size="md" length="long">
-                      Join Us
-                    </Button>
-                  </div>
+                  {currentDatum.description}
+                </div>
+                <div>
+                  <Button color="primary" size="md" length="long">
+                    Join Us
+                  </Button>
                 </div>
               </InnerCopCard>
             </div>

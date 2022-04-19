@@ -112,4 +112,8 @@
     background-color: $color-blue-dark;
     color: $color-white;
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 }

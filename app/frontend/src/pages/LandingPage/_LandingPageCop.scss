@@ -18,22 +18,16 @@
 }
 
 .landing-inner-cop-nav {
-  display: flex;
   flex-direction: column;
   row-gap: 32px;
-}
-
-.landing-inner-cop-nav-card {
-  display: flex;
 }
 
 .landing-cop-nav-title {
   inline-size: min-content;
 }
 
-.landing-inner-cop-card-content {
-  box-sizing: border-box;
-  height: 100%;
+.landing-inner-cop-card-content > .inner-cop-card-content {
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
