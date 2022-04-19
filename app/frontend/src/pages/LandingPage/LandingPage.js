@@ -1,4 +1,5 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
+
 import {
   landingPageFg,
   iconDownArrow,
@@ -11,12 +12,15 @@ import {
 import {
   Button,
   CircleCard,
+  CopCard,
   Dialog,
   HeaderNav,
   FooterNav,
+  InnerCopCard,
 } from "components/components";
 
-import { copData } from "./copData";
+import { fetchAllCopData, fetchCopDataById } from "./copData";
+import { InnerCopNav } from "./InnerCopNav";
 
 function LandingPage() {
   return (
@@ -91,6 +95,19 @@ function LandingPageIntro() {
 }
 
 function LandingPageCop() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [copData, setCopData] = useState([]);
+  const [currentDatum, setCurrentDatum] = useState({});
+
+  useEffect(() => {
+    setCopData(fetchAllCopData());
+  }, []);
+
+  function handleCopData(id) {
+    const copDatum = fetchCopDataById(id);
+    setCurrentDatum(copDatum);
+  }
+
   return (
     <div className="flex-container align-center justify-center my-5">
       <div className="title-2 col-12 text-center my-4">
@@ -103,16 +120,21 @@ function LandingPageCop() {
         domain knowledge to help our members grow.
       </div>
       <div className="row m-5 landing-cop-circle-container">
-        {copData.map((cop, index) => {
+        {copData.map((cop) => {
           return (
             <CircleCard
-              key={index}
+              key={cop.id}
               size="lg"
               addClass="m-4"
-              onClick={() => alert("hello world")}
+              onClick={() => {
+                handleCopData(cop.id);
+                setIsModalOpen(true);
+              }}
             >
               <div style={{ display: "flex", flexDirection: "column" }}>
-                <img src={cop.icon} height="65" className="pb-3"></img>
+                <div className="pb-3 row justify-center">
+                  <cop.icon strokeWidth="0.2" height="65" />
+                </div>
                 <div className="title-4 landing-cop-circle-title text-center">
                   {cop.title}
                 </div>
@@ -121,6 +143,25 @@ function LandingPageCop() {
           );
         })}
       </div>
+      <Dialog open={isModalOpen}>
+        <CopCard hidden={false} size="lg" onClick={() => setIsModalOpen(false)}>
+          <div className="flex-container">
+            <div className="col-3">
+              <InnerCopNav
+                activeCop={currentDatum.id}
+                copData={copData}
+                onClick={(id) => handleCopData(id)}
+              ></InnerCopNav>
+            </div>
+            <div className="col-9 ml-2">
+              <InnerCopCard>
+                <div className="title-3">{currentDatum.title}</div>
+                {currentDatum.description}
+              </InnerCopCard>
+            </div>
+          </div>
+        </CopCard>
+      </Dialog>
     </div>
   );
 }

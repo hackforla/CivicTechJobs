@@ -10,9 +10,10 @@ import {
   Dialog,
   InnerCopCard,
   ScrollCarousel,
-  InnerCopNav,
   HeaderNav,
 } from "components/components";
+
+import { InnerCopNav } from "../LandingPage/InnerCopNav";
 
 function Demo() {
   const data = [
@@ -71,7 +72,11 @@ function Demo() {
           </div>
         </CircleCard>
         <Dialog open={isModalOpen}>
-          <CopCard hidden={false} size="lg" onClick={() => setIsModalOpen(false)}>
+          <CopCard
+            hidden={false}
+            size="lg"
+            onClick={() => setIsModalOpen(false)}
+          >
             <div className="flex-container">
               <div className="col-3">
                 <InnerCopNav></InnerCopNav>
