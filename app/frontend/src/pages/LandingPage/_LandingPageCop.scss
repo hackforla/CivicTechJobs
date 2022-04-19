@@ -1,0 +1,38 @@
+@use "components/Basics" as *;
+
+.landing-cop-circle-title {
+  color: $color-blue-dark;
+  .circle-card-button:hover & {
+    text-decoration: $color-blue-dark underline;
+  }
+}
+
+.landing-cop-description {
+  max-width: 800px;
+}
+
+.landing-cop-circle-container {
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.landing-inner-cop-nav {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+}
+
+.landing-inner-cop-nav-card {
+  display: flex;
+}
+
+.landing-cop-nav-title {
+  inline-size: min-content;
+}
+
+.landing-inner-cop-card-content {
+  box-sizing: border-box;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}

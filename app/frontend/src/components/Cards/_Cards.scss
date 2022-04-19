@@ -39,6 +39,7 @@
     top: 96px;
     right: 10.2vw;
     left: 6.1vw;
+    bottom: 80px;
   }
 }
 
@@ -82,15 +83,19 @@
 .inner-cop-card {
   background-color: $color-white;
   box-shadow: 0 8px 8px rgb(0 0 0 / 25%);
+  height: 100%;
   max-width: 625px;
   min-height: 448px;
 }
 
 .inner-cop-card-content {
+  box-sizing: border-box;
+  height: 100%;
   padding: {
     top: 48px;
     right: 3.3vw;
     left: 3.3vw;
+    bottom: 48px;
   }
 }
 
@@ -100,8 +105,6 @@
 .inner-cop-nav-card {
   background-color: $color-white;
   border: none;
-  box-sizing: border-box;
-  display: inline;
   max-width: 188px;
   min-height: 64px;
 

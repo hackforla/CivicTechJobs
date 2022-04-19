@@ -82,19 +82,3 @@
     @include paragraph(3);
   }
 }
-
-.landing-cop-circle-title {
-  color: $color-blue-dark;
-  .circle-card-button:hover & {
-    text-decoration: $color-blue-dark underline;
-  }
-}
-
-.landing-cop-description {
-  max-width: 800px;
-}
-
-.landing-cop-circle-container {
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}

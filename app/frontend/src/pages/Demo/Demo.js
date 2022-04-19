@@ -13,8 +13,6 @@ import {
   HeaderNav,
 } from "components/components";
 
-import { InnerCopNav } from "../LandingPage/InnerCopNav";
-
 function Demo() {
   const data = [
     { title: "Cop 0", text: lorem },
