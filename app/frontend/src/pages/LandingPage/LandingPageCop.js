@@ -71,34 +71,32 @@ function LandingPageCop() {
       >
         <CopCard hidden={false} size="lg" onClick={() => setIsModalOpen(false)}>
           <div className="flex-container">
-            <div className="col-3">
-              <nav className="flex-container landing-inner-cop-nav">
-                {copData.map((cop) => {
-                  const isActive = cop.id == currentDatum.id;
-                  return (
-                    <InnerCopNavCard
-                      key={cop.id}
-                      isActive={isActive}
-                      onClick={() => handleCopData(cop.id)}
-                      addClass="flex-container justify-center align-center p-1"
-                    >
-                      <div className="pr-1">
-                        <cop.icon
-                          fill={isActive ? "white" : "black"}
-                          stroke={isActive ? "white" : "black"}
-                          strokeWidth="0.2"
-                          height="24"
-                          width="24"
-                        />
-                      </div>
-                      <span className="title-6 landing-cop-nav-title">
-                        {cop.title}
-                      </span>
-                    </InnerCopNavCard>
-                  );
-                })}
-              </nav>
-            </div>
+            <nav className="flex-container col-3 landing-inner-cop-nav">
+              {copData.map((cop) => {
+                const isActive = cop.id == currentDatum.id;
+                return (
+                  <InnerCopNavCard
+                    key={cop.id}
+                    isActive={isActive}
+                    onClick={() => handleCopData(cop.id)}
+                    addClass="flex-container justify-center align-center p-1"
+                  >
+                    <div className="pr-1">
+                      <cop.icon
+                        fill={isActive ? "white" : "black"}
+                        stroke={isActive ? "white" : "black"}
+                        strokeWidth="0.2"
+                        height="24"
+                        width="24"
+                      />
+                    </div>
+                    <span className="title-6 landing-cop-nav-title">
+                      {cop.title}
+                    </span>
+                  </InnerCopNavCard>
+                );
+              })}
+            </nav>
             <div className="col-9 ml-2">
               <InnerCopCard addClass="landing-inner-cop-card-content">
                 <div>
@@ -119,7 +117,12 @@ function LandingPageCop() {
                   {currentDatum.description}
                 </div>
                 <div>
-                  <Button color="primary" size="md" length="long">
+                  <Button
+                    color="primary"
+                    size="md"
+                    length="long"
+                    href="https://www.google.com/"
+                  >
                     Join Us
                   </Button>
                 </div>
