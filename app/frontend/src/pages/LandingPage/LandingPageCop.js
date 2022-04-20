@@ -59,7 +59,16 @@ function LandingPageCop() {
           );
         })}
       </div>
-      <Dialog open={isModalOpen}>
+      <Dialog
+        open={isModalOpen}
+        onWindowClick={() => {
+          setIsModalOpen(false);
+        }}
+        onClose={() => {
+          setIsModalOpen(false);
+        }}
+        addClass="flex-container justify-center align-center"
+      >
         <CopCard hidden={false} size="lg" onClick={() => setIsModalOpen(false)}>
           <div className="flex-container">
             <div className="col-3">

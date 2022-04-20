@@ -1,6 +1,6 @@
 // External Imports
 import PropTypes from "prop-types";
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect, useRef } from "react";
 
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
@@ -8,27 +8,36 @@ import { combineClasses } from "../Utility/utils";
 function Dialog({ open = false, ...props }) {
   const [isOpen, setIsOpen] = useState(open);
 
+  const windowRef = useRef(null);
+
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "scroll";
+    if (!isOpen) {
+      props.onClose();
+    }
   }, [isOpen]);
 
   useEffect(() => {
     setIsOpen(open);
   }, [open]);
 
+  function handleClose(e) {
+    if (e.target === windowRef.current) {
+      setIsOpen(false);
+    }
+  }
+
   return (
     <Fragment>
       <div
-        id="myModal"
         className={combineClasses(
           "dialog",
           "modal",
-          "flex-container",
-          "justify-center",
-          "align-center",
           !isOpen && "hidden",
           props.addClass
         )}
+        ref={windowRef}
+        onClick={(e) => handleClose(e)}
       >
         {props.children}
       </div>
@@ -39,6 +48,7 @@ function Dialog({ open = false, ...props }) {
 // Type declaration for props
 Dialog.propTypes = {
   addClass: PropTypes.string,
+  onClose: PropTypes.func,
   open: PropTypes.bool,
 };
 
