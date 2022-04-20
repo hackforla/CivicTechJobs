@@ -24,6 +24,10 @@
 
 .landing-cop-nav-title {
   inline-size: min-content;
+
+  .inner-cop-nav-card:hover > & {
+    text-decoration: underline;
+  }
 }
 
 .landing-inner-cop-card-content > .inner-cop-card-content {

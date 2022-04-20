@@ -32,7 +32,6 @@ function Dialog({ open = false, ...props }) {
       <div
         className={combineClasses(
           "dialog",
-          "modal",
           !isOpen && "hidden",
           props.addClass
         )}
