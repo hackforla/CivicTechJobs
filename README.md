@@ -42,6 +42,10 @@ Civic Tech technology practitioners are a diverse and interdisciplinary group of
 - [Docker](https://www.docker.com/)
 - [GitHub Actions](https://github.com/features/actions)
 
+#### Documentation
+
+- [MkDocs](https://www.mkdocs.org/) | [Link](https://hackforla.github.io/CivicTechJobs/)
+
 ## How to contribute
 
 - Attend [Hack for LA onboarding](https://www.meetup.com/hackforla/events/)
