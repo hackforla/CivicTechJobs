@@ -44,7 +44,7 @@ Civic Tech technology practitioners are a diverse and interdisciplinary group of
 
 #### Documentation
 
-- [MkDocs](https://www.mkdocs.org/) | [Link](https://hackforla.github.io/CivicTechJobs/)
+- [MkDocs](https://www.mkdocs.org/) | [Docs Site](https://hackforla.github.io/CivicTechJobs/)
 
 ## How to contribute
 
