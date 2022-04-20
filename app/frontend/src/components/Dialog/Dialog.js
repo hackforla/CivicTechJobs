@@ -11,7 +11,7 @@ function Dialog({ open = false, ...props }) {
   const windowRef = useRef(null);
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "scroll";
+    document.body.style.overflow = isOpen ? "hidden" : "auto";
     if (!isOpen) {
       props.onClose();
     }
