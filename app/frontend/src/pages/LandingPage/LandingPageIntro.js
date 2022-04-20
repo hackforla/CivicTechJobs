@@ -1,5 +1,7 @@
+// External Imports
 import React from "react";
 
+// Internal Imports
 import { landingPageFg, iconDownArrow } from "assets/images/images";
 import { Button } from "components/components";
 

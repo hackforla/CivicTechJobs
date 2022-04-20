@@ -1,14 +1,14 @@
+// External Imports
 import React, { Fragment } from "react";
 
+// Internal Imports
 import {
   logoHorizontal,
   logoStacked,
   logoHorizontalOnDark,
   logoStackedOnDark,
 } from "assets/images/images";
-
 import { HeaderNav, FooterNav } from "components/components";
-
 import { LandingPageIntro } from "./LandingPageIntro";
 import { LandingPageCop } from "./LandingPageCop";
 
