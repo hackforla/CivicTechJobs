@@ -63,9 +63,6 @@ function LandingPageCop() {
       </div>
       <Dialog
         open={isDialogOpen}
-        onWindowClick={() => {
-          setIsDialogOpen(false);
-        }}
         onClose={() => {
           setIsDialogOpen(false);
         }}
