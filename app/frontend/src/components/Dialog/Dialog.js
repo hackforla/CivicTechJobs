@@ -7,23 +7,37 @@ import { combineClasses } from "../Utility/utils";
 
 function Dialog({ open = false, ...props }) {
   const [isOpen, setIsOpen] = useState(open);
+  const [isClosing, setIsClosing] = useState(false);
 
   const windowRef = useRef(null);
 
   useEffect(() => {
+    const scrollWidth = Math.abs(
+      window.innerWidth - document.documentElement.clientWidth
+    );
     document.body.style.overflow = isOpen ? "hidden" : "auto";
-    if (!isOpen) {
-      props.onClose();
-    }
+    isOpen
+      ? (document.body.style.paddingRight = `${scrollWidth}px`)
+      : document.body.style.removeProperty("padding-right");
+    if (!isOpen) props.onClose();
   }, [isOpen]);
 
   useEffect(() => {
-    setIsOpen(open);
+    open ? setIsOpen(open) : setIsClosing(true);
   }, [open]);
+
+  useEffect(() => {
+    if (isClosing) {
+      setTimeout(() => {
+        setIsOpen(false);
+        setIsClosing(false);
+      }, 400);
+    }
+  }, [isClosing]);
 
   function handleClose(e) {
     if (e.target === windowRef.current) {
-      setIsOpen(false);
+      setIsClosing(true);
     }
   }
 
@@ -33,6 +47,7 @@ function Dialog({ open = false, ...props }) {
         className={combineClasses(
           "dialog",
           !isOpen && "hidden",
+          isClosing && "dialog-close",
           props.addClass
         )}
         ref={windowRef}

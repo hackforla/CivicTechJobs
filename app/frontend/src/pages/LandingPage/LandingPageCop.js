@@ -13,7 +13,7 @@ import {
 import { fetchAllCopData, fetchCopDataById } from "./copData";
 
 function LandingPageCop() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [copData, setCopData] = useState([]);
   const [currentDatum, setCurrentDatum] = useState({});
 
@@ -46,7 +46,7 @@ function LandingPageCop() {
               addClass="m-4"
               onClick={() => {
                 handleCopData(cop.id);
-                setIsModalOpen(true);
+                setIsDialogOpen(true);
               }}
             >
               <div style={{ display: "flex", flexDirection: "column" }}>
@@ -62,16 +62,20 @@ function LandingPageCop() {
         })}
       </div>
       <Dialog
-        open={isModalOpen}
+        open={isDialogOpen}
         onWindowClick={() => {
-          setIsModalOpen(false);
+          setIsDialogOpen(false);
         }}
         onClose={() => {
-          setIsModalOpen(false);
+          setIsDialogOpen(false);
         }}
         addClass="flex-container justify-center align-center"
       >
-        <CopCard hidden={false} size="lg" onClick={() => setIsModalOpen(false)}>
+        <CopCard
+          hidden={false}
+          size="lg"
+          onClick={() => setIsDialogOpen(false)}
+        >
           <div className="flex-container">
             <nav className="flex-container col-3 landing-inner-cop-nav">
               {copData.map((cop) => {
