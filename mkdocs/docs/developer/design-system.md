@@ -85,7 +85,7 @@ Button.propTypes = {
 
 _<p style="text-align: center;">For this <Button\> component, PropTypes provide clues on the component's props. From these hints, a developer can guess that a small, long button would be declared as <Button size="sm" length="long"\> </p>_
 
-Because comprehensive documentation is difficult for a small team to maintain, we rely on PropTypes and cleanly written code to provide clues on how to use each component. We recommend new developers take time to play with the components in [`components/`](https://github.com/hackforla/CivicTechJobs/tree/main/frontend/src/components) to fully understand how to utilize them. You can use the [/demo](localhost:8000/demo) web endpoint and [Demo.js](https://github.com/hackforla/CivicTechJobs/blob/main/app/frontend/src/pages/Demo/Demo.js) to play around with our components.
+Because comprehensive documentation is difficult for a small team to maintain, we rely on PropTypes and cleanly written code to provide clues on how to use each component. We recommend new developers take time to play with the components in [`components/`](https://github.com/hackforla/CivicTechJobs/tree/main/frontend/src/components) to fully understand how to utilize them. You can use the [/demo](localhost:8000/demo) web endpoint and [Demo.js](https://github.com/hackforla/CivicTechJobs/blob/main/app/frontend/src/pages/Demo/Demo.js) when developing to play around with our components.
 
 ## Components
 
