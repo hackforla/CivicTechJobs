@@ -85,7 +85,7 @@ Button.propTypes = {
 
 _<p style="text-align: center;">For this <Button\> component, PropTypes provide clues on the component's props. From these hints, a developer can guess that a small, long button would be declared as <Button size="sm" length="long"\> </p>_
 
-Because comprehensive documentation is difficult for a small team to maintain, we rely on PropTypes and cleanly written code to provide clues on how to use each component. We recommend new developers take time to play with the components in [`components/`](https://github.com/hackforla/CivicTechJobs/tree/main/frontend/src/components) to fully understand how to utilize them.
+Because comprehensive documentation is difficult for a small team to maintain, we rely on PropTypes and cleanly written code to provide clues on how to use each component. We recommend new developers take time to play with the components in [`components/`](https://github.com/hackforla/CivicTechJobs/tree/main/frontend/src/components) to fully understand how to utilize them. You can use the [/demo](localhost:8000/demo) web endpoint and [Demo.js](https://github.com/hackforla/CivicTechJobs/blob/main/app/frontend/src/pages/Demo/Demo.js) when developing to play around with our components.
 
 ## Components
 
@@ -101,8 +101,6 @@ Because of these benefits, we use a component-first approach to developing web p
 As a note, the DS is put together based on industry trends and practices. If you have ever explored Bootstrap, MUI, or Atlassian Design System, you will see many similarities between their components and ours.
 
 ### Mixins and Classes
-
-> "Use classes in HTML but mixins in SCSS."
 
 Most of our styles have a class and mixin equivalent. The class, for the most part, is created from just declaring the mixin inside the class.
 
@@ -135,8 +133,6 @@ These are both provided to suit different use cases. For example, the class vers
 _<p style="text-align: center;">Please use the mixin version when you want your own custom style to inherit from an existing style!</p>_
 
 ### Layout and Columns
-
-> "Using layout and column utilities automatically adds scalability to your pages."
 
 As with most design systems, we use a standard 12-column system to subdivide our layouts. Each column, without spacing, is worth \*8.33% of its container's width\*\*. This means that columns are, by default, scalable.
 

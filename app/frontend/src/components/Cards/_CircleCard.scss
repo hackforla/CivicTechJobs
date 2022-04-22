@@ -16,6 +16,12 @@ $sizes: "lg", "sm";
   box-shadow: 0 2px 8px rgb(0 0 0 / 25%);
 }
 
+.circle-card-button {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 /******************************************
 *** Circle Card classes concerning size ***
 ******************************************/

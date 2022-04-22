@@ -3,7 +3,7 @@ import { CloseButton } from "./Buttons/CloseButton";
 import { CopCard, InnerCopCard, InnerCopNavCard } from "./Cards/Cards";
 import { CircleCard } from "./Cards/CircleCard";
 import { ScrollCarousel } from "./Carousel/ScrollCarousel";
-import { InnerCopNav } from "./Navigation/InnerCopNav";
+import { Dialog } from "./Dialog/Dialog";
 import { HeaderNav } from "./Navigation/HeaderNav";
 import { FooterNav } from "./Navigation/FooterNav";
 
@@ -15,7 +15,7 @@ export {
   InnerCopCard,
   InnerCopNavCard,
   ScrollCarousel,
-  InnerCopNav,
+  Dialog,
   HeaderNav,
   FooterNav,
 };

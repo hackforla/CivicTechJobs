@@ -11,6 +11,7 @@ function CircleCard({ size = "sm", ...props }) {
       className={combineClasses(
         "circle-card",
         `circle-card-${size}`,
+        props.onClick && "circle-card-button",
         props.addClass
       )}
       onClick={props.onClick}

@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Internal Imports
 import { Demo } from "pages/Demo/Demo";
-import { LandingPage } from "pages/landingPage/landingPage";
+import { LandingPage } from "pages/LandingPage/LandingPage";
 
 function App() {
   return (

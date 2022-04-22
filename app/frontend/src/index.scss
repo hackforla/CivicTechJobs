@@ -8,9 +8,14 @@
 @use "components/Buttons" as *;
 @use "components/Cards/Cards";
 @use "components/Cards/CircleCard";
+@use "components/Dialog/Dialog";
 @use "components/Carousel/ScrollCarousel";
 @use "components/Navigation" as *;
 
 // Import page styles
 @use "pages/Demo/Demo";
-@use "pages/landingPage/landingPage";
+@use "pages/LandingPage/" as *;
+
+body {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+}

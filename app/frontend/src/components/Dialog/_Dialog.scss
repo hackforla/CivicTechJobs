@@ -1,0 +1,56 @@
+// External Imports
+@use "sass:map";
+
+// Internal Imports
+@use "../Basics" as *;
+
+/***********************************
+*** Dialog class for all dialogs ***
+***********************************/
+
+.dialog {
+  background-color: rgb(0 0 0 / 40%);
+  height: 100%;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: $z-dialog;
+
+  & > * {
+    animation-duration: 0.4s;
+    animation-name: slidein-top;
+  }
+}
+
+.dialog-close {
+  & > * {
+    animation-duration: 0.45s; // needs to have a longer duration than handleClose timeout due dialog content occasionally looping back to original position while awaiting async timeout
+    animation-name: slideout-bottom;
+  }
+}
+
+@keyframes slidein-top {
+  from {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideout-bottom {
+  from {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+}

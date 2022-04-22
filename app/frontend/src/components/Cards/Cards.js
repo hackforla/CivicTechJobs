@@ -1,6 +1,6 @@
 // External Imports
 import PropTypes from "prop-types";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
@@ -8,6 +8,10 @@ import { CloseButton } from "../Buttons/CloseButton";
 
 function CopCard({ hidden = true, size = "sm", ...props }) {
   const [isHidden, setIsHidden] = useState(hidden);
+
+  useEffect(() => {
+    setIsHidden(hidden);
+  }, [isHidden]);
 
   return (
     <div
@@ -20,7 +24,7 @@ function CopCard({ hidden = true, size = "sm", ...props }) {
     >
       <CloseButton
         addClass={`cop-card-${size}-x`}
-        onClick={() => (props.onClick ? props.onClick() : setIsHidden(true))}
+        onClick={props.onClick}
       ></CloseButton>
       <div className={`cop-card-${size}-content`}>{props.children}</div>
     </div>
