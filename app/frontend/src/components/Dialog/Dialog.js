@@ -11,6 +11,8 @@ function Dialog({ open = false, ...props }) {
 
   const windowRef = useRef(null);
 
+  // Adjust padding on body when scrollbar is hidden so that page content does not jump
+  // Also runs props.onClose() callback
   useEffect(() => {
     const scrollWidth = Math.abs(
       window.innerWidth - document.documentElement.clientWidth
@@ -22,6 +24,7 @@ function Dialog({ open = false, ...props }) {
     if (!isOpen) props.onClose();
   }, [isOpen]);
 
+  // The next two useEffect and handleClose function ensures that rather than closing immediately, an animation is run when dialog is set to be closed
   useEffect(() => {
     open ? setIsOpen(open) : setIsClosing(true);
   }, [open]);
