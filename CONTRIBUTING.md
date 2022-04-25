@@ -6,7 +6,7 @@ Thank you for investing your time to our project. Anything you contribute will b
 
 Before starting, make sure you read our [code of conduct](https://github.com/hackforla/codeofconduct). Also, consider [joining our team as a volunteer](https://github.com/hackforla/CivicTechJobs/wiki/Joining-the-Team), especially if you enjoyed contributing to us. This gives you access to our developer meetings and slack channel so that you can influence the direction of the project on a much greater level.
 
-This guide outlines the three ways you can contribute to us as a developer: creating issues, resolving issues, or reviewing a pull requests. Moreover, this guide is split into freelancer and development team sections. Feel free to skip to the section that you feel is most relevant for you!
+This guide outlines the three ways you can contribute to us as a developer: creating issues, resolving issues, or reviewing a pull requests as either a team member or freelancer.
 
 Pro tip: Use the table of contents in the top-left corner to jump to specific sections of this guide.
 
