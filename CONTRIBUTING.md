@@ -18,7 +18,7 @@ Note: (team member only) and (freelancer only) are used to distinguish instructi
 
 ### Creating Issues
 
-Locate the appropriate template for your issue from the [new issue screen](https://github.com/hackforla/CivicTechJobs/issues/new/choose) (clicking on the previous link is the same as pressing New Issue from the [issues screen](https://github.com/hackforla/CivicTechJobs/issues)).  Typically, you will not go wrong with [Blank Issue](https://github.com/hackforla/CivicTechJobs/issues/new?assignees=&labels=&template=blank-issue.md&title=) or with the more structured [form version](https://github.com/hackforla/CivicTechJobs/issues/new?assignees=&labels=&template=blank-issue-form.yml). 
+Locate the appropriate template for your issue from the [new issue screen](https://github.com/hackforla/CivicTechJobs/issues/new/choose) or by clicking on the New Issue button from the [issues screen](https://github.com/hackforla/CivicTechJobs/issues)).  Typically, you will not go wrong with [Blank Issue](https://github.com/hackforla/CivicTechJobs/issues/new?assignees=&labels=&template=blank-issue.md&title=) or with the more structured [form version](https://github.com/hackforla/CivicTechJobs/issues/new?assignees=&labels=&template=blank-issue-form.yml). 
 
 (team member) If you need help, feel free to consult your development lead or other members of the team. 
 
