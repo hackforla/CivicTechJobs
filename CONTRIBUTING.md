@@ -14,38 +14,13 @@ Is this your first time working on open source projects? Check out this video [s
 
 ## Contributing to our project
 
-You can contribute to this project as a team member or as a freelancer.  The instructions will indicate if an instruction is specific to only a team 
-member or only a facilitators with (team member only) or (facilitator only) before the instruction.
-
-### Correctiong Documentation
-
-If you find an error in the documentation or you want to clarify the instructions, go ahead! You have two options:
-
-Option 1:
-1. Navigate to the page in GitHub and hit Edit.  This will automatically create a fork of the repository in your account.
-2. Make the changes and commit.  You will be prompted to create a pull request.
-3. If you are satisfied with your changes, go ahead and complete the pull request.
-4. If you want to make more changes, make the pull request once you have completed all your changes.  See step 3 in option 2 for creating a pull request.
-5. Check that all GitHub checks passed.  This is at the bottom of the pull request.
-6. Done! Now just wait for a team member to get back to you with feedback on your changes!  (team member) To take on another issue, please ask the development lead for an appropriate additional issue to take on.
-
-
-Option 2:
-1. [From your local repository, create a branch off of main.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
-2. Make changes to the project on that branch based on your issue.
-3. [Create a pull request from your fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork). After you had opened the pull request, there will be instructions on the [pull request template](https://github.com/hackforla/CivicTechJobs/blob/main/.github/pull_request_template.md?plain=1) for you to follow.
-3. Check that all GitHub checks passed.  This is at the bottom of the pull request.
-4. Done! Now just wait for a team member to get back to you with feedback on your changes!  (team member) To take on another issue, please ask the development lead for an appropriate additional issue to take on.
+You can contribute to this project as a team member or as a freelancer.  (team member only) and (freelancer only) are used to distinguish instructions specific to one or the other.
 
 ### Creating Issues
 
-To create an issue as a member of our team, locate the appropriate template for your issue from the [new issue screen](https://github.com/hackforla/CivicTechJobs/issues/new/choose). Typically, you will not go wrong with [Blank Issue](https://github.com/hackforla/CivicTechJobs/issues/new?assignees=&labels=&template=blank-issue.md&title=) or the [form version](https://github.com/hackforla/CivicTechJobs/issues/new?assignees=&labels=&template=blank-issue-form.yml). 
-
-(team member) Once you are finished, [add your newly opened issue to our Project Management project board](https://docs.github.com/en/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar).
+Locate the appropriate template for your issue from the [new issue screen](https://github.com/hackforla/CivicTechJobs/issues/new/choose). Typically, you will not go wrong with [Blank Issue](https://github.com/hackforla/CivicTechJobs/issues/new?assignees=&labels=&template=blank-issue.md&title=) or the [form version](https://github.com/hackforla/CivicTechJobs/issues/new?assignees=&labels=&template=blank-issue-form.yml). 
 
 (team member) If you need help, feel free to consult your development lead or other members of the team. 
-
-
 
 ### Resolving Issues
 
@@ -53,9 +28,9 @@ To create an issue as a member of our team, locate the appropriate template for 
 
 1. Find a developer issue to work on from our [prioritized backlog](https://github.com/hackforla/CivicTechJobs/projects/1#column-10928271). (Hint: look for the `frontend` or `backend` label). The `size` label will signal the amount of work the issue might involve, with a higher number indicating greater work. For a development team member, we encourage taking the topmost `frontend` or `backend` issue, as they are arranged by priority by role.
 2. Indicate you are working on the issue as follows:
-- (team member) Assign yourself to the issue. (Hint: see [step 4](https://docs.github.com/en/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users#assigning-an-individual-issue-or-pull-request).)
-- (freelancer) If you expect the issue will take more than a day to complete, add a comment to the bug indicating you are working on the bug 
-3. (team member) Move the issue from the prioritized backlog to the [in progress](https://github.com/hackforla/CivicTechJobs/projects/1#column-10928272) column. (Hint, see [step 5](https://docs.github.com/en/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar).)
+   - (team member) Assign yourself to the issue. (Hint: see [step 4 of this GitHub article](https://docs.github.com/en/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users#assigning-an-individual-issue-or-pull-request).)
+   - (freelancer) If you expect the issue will take more than a day to complete, add a comment to the bug indicating you are working on the bug 
+3. (team member) Move the issue from the prioritized backlog to the [in progress](https://github.com/hackforla/CivicTechJobs/projects/1#column-10928272) column. (Hint, see [step 5 of this GitHub article](https://docs.github.com/en/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar).)
 4. [From your local repository, create a branch off of main.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
 5. Make changes to the project on that branch based on your issue.
 6. [Create a pull request from your fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork). After you had opened the pull request, there will be instructions on the [pull request template](https://github.com/hackforla/CivicTechJobs/blob/main/.github/pull_request_template.md?plain=1) for you to follow.
