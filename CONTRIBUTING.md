@@ -34,7 +34,7 @@ Locate the appropriate template for your issue from the [new issue screen](https
 4. [From your local fork, create a branch off of main.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
 5. Make changes on that branch for your issue.
 6. [Create a pull request from your fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork). After you had opened the pull request, there will be instructions on the [pull request template](https://github.com/hackforla/CivicTechJobs/blob/main/.github/pull_request_template.md?plain=1) for you to follow.
-7. Check that all checks have passed.  This is at the bottom of the pull request.
+7. Check that all the automated checks have passed.  This is at the bottom of the pull request.
 8. Done! Now just wait for a team member to get back to you with feedback on your changes!  (team member) To take on another issue, please ask the development lead for an appropriate additional issue to take on.
 
 > Important note 1: **We do not want to be flooded with pull requests!** Please, do **NOT** take on another issue or open a second pull request until your current pull request and linked issue are resolved by a team member. 
