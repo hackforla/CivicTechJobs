@@ -22,16 +22,19 @@ member or only a facilitators with (team member only) or (facilitator only) befo
 If you find an error in the documentation or you want to clarify the instructions, go ahead! You have two options:
 
 Option 1:
-1. Navigate to the page in Github and hit Edit.  This will automatically create a fork of the repository in your account.
+1. Navigate to the page in GitHub and hit Edit.  This will automatically create a fork of the repository in your account.
 2. Make the changes and commit.  You will be prompted to create a pull request.
 3. If you are satisfied with your changes, go ahead and complete the pull request.
 4. If you want to make more changes, make the pull request once you have completed all your changes.  See step 3 in option 2 for creating a pull request.
+5. Check that all GitHub checks passed.  This is at the bottom of the pull request.
+6. Done! Now just wait for a team member to get back to you with feedback on your changes!  (team member) To take on another issue, please ask the development lead for an appropriate additional issue to take on.
 
 
 Option 2:
 1. [From your local repository, create a branch off of main.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
 2. Make changes to the project on that branch based on your issue.
 3. [Create a pull request from your fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork). After you had opened the pull request, there will be instructions on the [pull request template](https://github.com/hackforla/CivicTechJobs/blob/main/.github/pull_request_template.md?plain=1) for you to follow.
+3. Check that all GitHub checks passed.  This is at the bottom of the pull request.
 4. Done! Now just wait for a team member to get back to you with feedback on your changes!  (team member) To take on another issue, please ask the development lead for an appropriate additional issue to take on.
 
 ### Creating Issues
