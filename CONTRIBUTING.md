@@ -32,7 +32,7 @@ Locate the appropriate template for your issue from the [new issue screen](https
    - (freelancer) If you expect the issue will take more than a day to complete, add a comment to the bug indicating you are working on the bug 
 3. (team member) Move the issue from the prioritized backlog to the [in progress](https://github.com/hackforla/CivicTechJobs/projects/1#column-10928272) column. (Hint, see [step 5 of this GitHub article](https://docs.github.com/en/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar).)
 4. [From your local fork, create a branch off of main.](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
-5. Make changes to the project on that branch based on your issue.
+5. Make changes on that branch for your issue.
 6. [Create a pull request from your fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork). After you had opened the pull request, there will be instructions on the [pull request template](https://github.com/hackforla/CivicTechJobs/blob/main/.github/pull_request_template.md?plain=1) for you to follow.
 7. Check that all checks have passed.  This is at the bottom of the pull request.
 8. Done! Now just wait for a team member to get back to you with feedback on your changes!  (team member) To take on another issue, please ask the development lead for an appropriate additional issue to take on.
