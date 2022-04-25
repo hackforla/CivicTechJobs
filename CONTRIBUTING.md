@@ -14,7 +14,7 @@ Is this your first time working on open source projects? Check out this video [s
 
 ## Contributing to our project
 
-You can contribute to this project as a team member or as a freelancer.  (team member only) and (freelancer only) are used to distinguish instructions specific to one or the other.
+Note: (team member only) and (freelancer only) are used to distinguish instructions specific to one or the other.
 
 ### Creating Issues
 
