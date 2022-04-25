@@ -26,7 +26,7 @@ Locate the appropriate template for your issue from the [new issue screen](https
 
 > **Note: Make sure to check out our [installation instructions](https://hackforla.github.io/CivicTechJobs/developer/installation/) to set up your development environment before working on any issues!**
 
-1. Find a developer issue to work on from our [prioritized backlog](https://github.com/hackforla/CivicTechJobs/projects/1#column-10928271). (Hint: look for the `frontend` or `backend` label). The `size` label will signal the amount of work the issue might involve, with a higher number indicating greater work. For a development team member, we encourage taking the topmost `frontend` or `backend` issue, as they are arranged by priority by role.
+1. Find a developer issue to work on from our [prioritized backlog](https://github.com/hackforla/CivicTechJobs/projects/1#column-10928271). (Hint: look for the `frontend` or `backend` label). The `size` label will signal the amount of work the issue might involve, with a higher number indicating greater work. We encourage you to take the topmost `frontend` or `backend` issue, as they are arranged by priority by role.
 2. Indicate you are working on the issue as follows:
    - (team member) Assign yourself to the issue. (Hint: see [step 4 of this GitHub article](https://docs.github.com/en/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users#assigning-an-individual-issue-or-pull-request).)
    - (freelancer) If you expect the issue will take more than a day to complete, add a comment to the bug indicating you are working on the bug 
