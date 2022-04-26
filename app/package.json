@@ -6,7 +6,8 @@
   "scripts": {
     "watch": "webpack --mode development --watch",
     "build": "webpack --mode production --output-path ./frontend/static/frontend",
-    "test": "jest --config ./jest.config.js"
+    "test": "jest --config ./jest.config.js",
+    "test:w": "jest --config ./jest.config.js --watchAll"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@svgr/webpack": "^6.2.0",
+    "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.5",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.5.1",
