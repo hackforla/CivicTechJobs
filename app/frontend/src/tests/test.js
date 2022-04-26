@@ -70,6 +70,6 @@ describe("Button", () => {
     const user = userEvent.setup();
     render(<LandingPage />);
 
-    await user.click(screen.getByRole("button"));
+    await user.click(screen.getByRole("button")); // TODO debug this and figure out how to test the dialog
   });
 });
