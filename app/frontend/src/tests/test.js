@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { toBeInTheDocument } from "@testing-library/jest-dom";
+import userEvent from "@testing-library/user-event";
 
 import { Button } from "components/components";
 import { LandingPage } from "pages/LandingPage/LandingPage";
@@ -52,10 +53,8 @@ describe("Button", () => {
     expect(screen.queryByRole("button")).not.toBeInTheDocument();
   });
 
-  test("Landing Page", () => {
+  test("Landing Page links", () => {
     render(<LandingPage />);
-
-    screen.getByText("Hack for LA");
 
     expect(screen.getByText("Hack for LA")).toHaveAttribute("href");
     expect(screen.getByText("How to Join")).toHaveAttribute("href");
@@ -65,5 +64,12 @@ describe("Button", () => {
     expect(
       screen.getByText("Join Us", { selector: ".footer-links" })
     ).toHaveAttribute("href");
+  });
+
+  test("Landing Page dialog", async () => {
+    const user = userEvent.setup();
+    render(<LandingPage />);
+
+    await user.click(screen.getByRole("button"));
   });
 });
