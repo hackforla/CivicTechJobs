@@ -58,6 +58,7 @@ function Dialog({ open = false, ...props }) {
         )}
         ref={windowRef}
         onClick={(e) => handleClose(e)}
+        role="dialog"
       >
         {props.children}
       </div>

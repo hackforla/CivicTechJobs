@@ -1,7 +1,8 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { toBeInTheDocument } from "@testing-library/jest-dom";
+import { toBeInTheDocument, toHaveClass } from "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
+import "regenerator-runtime/runtime";
 
 import { Button } from "components/components";
 import { LandingPage } from "pages/LandingPage/LandingPage";
@@ -70,6 +71,15 @@ describe("Button", () => {
     const user = userEvent.setup();
     render(<LandingPage />);
 
-    await user.click(screen.getByRole("button")); // TODO debug this and figure out how to test the dialog
+    expect(screen.getByRole("dialog")).toHaveClass("hidden");
+
+    await user.click(
+      screen.getByText(/Engineering/, { selector: ".landing-cop-circle-title" })
+    );
+    expect(await screen.findByRole("dialog")).not.toHaveClass("hidden");
+
+    await user.click(screen.getByLabelText("close"));
+    expect(await screen.findByRole("dialog")).toHaveClass("hidden"); //TODO figure out how to get it to hide before querying
+    expect(await screen.findByRole("dialog")).not.toHaveClass("hidden");
   });
 });

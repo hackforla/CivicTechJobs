@@ -8,11 +8,15 @@ import { iconX } from "../../assets/images/images";
 
 function CloseButton(props) {
   return (
-    <img
-      src={iconX}
-      onClick={props.onClick}
+    <div
       className={combineClasses("btn-close", props.addClass)}
-    ></img>
+      onClick={props.onClick}
+      role="button"
+      type="button"
+      aria-label="close"
+    >
+      <img src={iconX}></img>
+    </div>
   );
 }
 
