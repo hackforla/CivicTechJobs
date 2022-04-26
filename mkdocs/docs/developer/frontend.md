@@ -163,6 +163,10 @@ Our `webpack.config.js` file is one of the most important files to understanding
 
 If you have explored documentation from webpack, you might learn that the _babel-loader_ in **module > rules** can accept the settings noted in `.babelrc`. The reason why we separate these settings into another file is because webpack is not, in theory, the only application that makes use of these settings. Although we have no other apps that makes use of `.babelrc` at the moment, this can change in the future. Therefore, this separation of files is a form of future proofing.
 
+## Frontend Testing
+
+Note: jest-environment-jsdom is not listed on jest's website, but is absolutely a required modules to make sure jsdom works. It provides the classes necessary for jest to interpret the jsdom environment.
+
 ## Additional Resources
 
 [Sass Documentation](https://sass-lang.com/documentation)<br>
