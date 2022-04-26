@@ -1,8 +1,9 @@
 import React from "react";
-import { getRoles, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { toBeInTheDocument } from "@testing-library/jest-dom";
 
 import { Button } from "components/components";
+import { LandingPage } from "pages/LandingPage/LandingPage";
 /*
 getByText
 getByRole
@@ -49,5 +50,20 @@ describe("Button", () => {
     render(<Button href="www.google.com" />);
     expect(screen.getByRole("link")).toBeInTheDocument();
     expect(screen.queryByRole("button")).not.toBeInTheDocument();
+  });
+
+  test("Landing Page", () => {
+    render(<LandingPage />);
+
+    screen.getByText("Hack for LA");
+
+    expect(screen.getByText("Hack for LA")).toHaveAttribute("href");
+    expect(screen.getByText("How to Join")).toHaveAttribute("href");
+    expect(screen.getByText("Projects")).toHaveAttribute("href");
+    expect(screen.getByText("Credits")).toHaveAttribute("href");
+    expect(screen.getByText("Sitemap")).toHaveAttribute("href");
+    expect(
+      screen.getByText("Join Us", { selector: ".footer-links" })
+    ).toHaveAttribute("href");
   });
 });
