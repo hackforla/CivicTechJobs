@@ -27,6 +27,8 @@ nav:
           - Installation Instructions: developer/installation.md
   - Resources: resources.md
   - CivicTechJobs Repo: https://github.com/hackforla/CivicTechJobs
+markdown_extensions:
+  - mkdocs-config
 repo_url: https://github.com/hackforla/CivicTechJobs/tree/main/mkdocs
 repo_name: GitHub
 theme:

@@ -44,8 +44,8 @@ _<p style="text-align: center;">GitHub structure</p>_
 
 ## Overview of Directories and Files
 
--   **LICENSE:**
--   **README.md:**
+- **LICENSE:**
+- **README.md:**
 
 ## GitHub Actions
 

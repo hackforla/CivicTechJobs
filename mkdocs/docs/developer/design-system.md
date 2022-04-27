@@ -10,9 +10,9 @@ To understand our Design System, these are some overarching concepts to keep in 
 
 UI designers specialize in turning project requirements into graphical interfaces that fits project requirements. Designers, however, are not coders. As a result, here are some development-related aspects of componentization that designers do not consider:
 
--   the way components change as screen size changes
--   the ease of replicating components in code
--   the proper way to configure svg assets for development
+- the way components change as screen size changes
+- the ease of replicating components in code
+- the proper way to configure svg assets for development
 
 Because of these factors, the way a prototype is built on Figma does not necessarily translate 1:1 to how the designs should be build as code. For example, Figma designs does not use SCSS mixins to simplify code or percentages as units of size.
 
@@ -32,9 +32,9 @@ When creating or using components, it is good to keep in mind the differences be
 
 A scalable component:
 
--   takes up a certain **fraction** of the total screen size
--   shrinks and grows along with screen size
--   uses relative CSS sizing units, such as % or vm
+- takes up a certain **fraction** of the total screen size
+- shrinks and grows along with screen size
+- uses relative CSS sizing units, such as % or vm
 
 <img src="../../assets/scalable.gif" width="100%" />
 
@@ -42,9 +42,9 @@ _<p style="text-align: center;">These columns show scalable behavior. The column
 
 A responsive component:
 
--   takes up an **absolute** amount of the screen
--   remains static until reaching a certain breakpoint
--   uses static CSS sizing units, such as px
+- takes up an **absolute** amount of the screen
+- remains static until reaching a certain breakpoint
+- uses static CSS sizing units, such as px
 
 <img src="../../assets/responsive.gif" width="100%" />
 
@@ -91,10 +91,10 @@ Because comprehensive documentation is difficult for a small team to maintain, w
 
 While we can use pure CSS as our styling sheet, using SCSS with React components allows us to standardize our components in a powerful way. Componentization allows:
 
--   quick customizations through React props
--   standardizations to our components for accessibility
--   reuse of the same component across multiple pages
--   updating designs by simply editing the base component
+- quick customizations through React props
+- standardizations to our components for accessibility
+- reuse of the same component across multiple pages
+- updating designs by simply editing the base component
 
 Because of these benefits, we use a component-first approach to developing web pages. Please componentize as much as possible and use them to build high-quality web pages!
 
@@ -233,21 +233,21 @@ SVG assets are read into our codebase as React components or data-urls.
 
 As React components:
 
--   specified with a starting uppercase
--   allows the use of React props to dynamically alter the component
--   requires editing stroke and fill values to inherit to allow passing in props
--   requires a wrapper element to add additional styling
--   are imported directly from the image file
--   difficult to work with by provide lots of customization
+- specified with a starting uppercase
+- allows the use of React props to dynamically alter the component
+- requires editing stroke and fill values to inherit to allow passing in props
+- requires a wrapper element to add additional styling
+- are imported directly from the image file
+- difficult to work with by provide lots of customization
 
 As Data-urls:
 
--   specified with a starting lowercase
--   are used as the src in `img` tags, to allow quick width/length adjustments
--   difficult to dynamically change
--   simple to declare and use
--   are imported with `?url` qualifiers
--   not customizable beyond width and height
+- specified with a starting lowercase
+- are used as the src in `img` tags, to allow quick width/length adjustments
+- difficult to dynamically change
+- simple to declare and use
+- are imported with `?url` qualifiers
+- not customizable beyond width and height
 
 ```Javascript
 // COP Icons
