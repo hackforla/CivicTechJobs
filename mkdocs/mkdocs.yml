@@ -9,6 +9,15 @@ extra_css:
 extra_javascript:
   - js/extra.js
 nav:
+  - Joining the Team:
+      - Intro: joining-the-team/intro.md
+      - Content Writer: joining-the-team/content-writer.md
+      - Data Scientist: joining-the-team/data-scientist.md
+      - Project Manager: joining-the-team/product-manager.md
+      - UI/UX Designer: joining-the-team/uiux-designer.md
+      - UI/UX Researcher: joining-the-team/uiux-researcher.md
+      - Web Developer: joining-the-team/web-developer.md
+      - Other Volunteer: joining-the-team/other-volunteer.md
   - Roles:
       #- Product Manager:
       #  - Placeholder: about.md
@@ -25,6 +34,14 @@ nav:
           - Frontend Architecture: developer/frontend.md
           - GitHub Architecture: developer/github.md
           - Installation Instructions: developer/installation.md
+  - Misc:
+      - ADA Guide: misc/ada-guide.md
+      - Glossary: misc/glossary.md
+      - History: misc/history.md
+      - Our Process: misc/our-process.md
+      - Research Wiki Template: misc/research-wiki-template.md
+      - Security Updates: misc/security-updates.md
+      - The Team: misc/the-team.md
   - Resources: resources.md
   - CivicTechJobs Repo: https://github.com/hackforla/CivicTechJobs
 repo_url: https://github.com/hackforla/CivicTechJobs/tree/main/mkdocs
