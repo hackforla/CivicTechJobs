@@ -42,6 +42,6 @@ Click the link that applies to you to find a sequence of immediate action steps:
 
 ### Accessibility standards
 
-Title III of the Americans with Disabilities Act (ADA) requires that all websites be accessible to people with disabilities. The World Wide Web (W3C) Consortium's Web Content Accessibility Guidelines (WCAG) 2.0 Level AA function as the current legal standard for website accessibility.
+Title III of the Americans with Disabilities Act (ADA) requires that all sites be accessible to people with disabilities. The World Wide Web (W3C) Consortium's Web Content Accessibility Guidelines (WCAG) 2.0 Level AA function as the current legal standard for site accessibility.
 
 Get acquainted with accessibility: https://www.ada.gov/pcatoolkit/chap5toolkit.htm
