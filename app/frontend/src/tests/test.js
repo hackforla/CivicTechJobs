@@ -1,40 +1,18 @@
+// External imports
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { toBeInTheDocument, toHaveClass } from "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
 import "regenerator-runtime/runtime";
+import { config } from "react-transition-group";
 
+// Internal imports
 import { Button } from "components/components";
 import { LandingPage } from "pages/LandingPage/LandingPage";
-/*
-getByText
-getByRole
-getByLabelText
-getByPlaceholderText
-getByAltText
-getByDisplayValue
-*/
-/*
-queryByText
-queryByRole
-queryByLabelText
-queryByPlaceholderText
-queryByAltText
-queryByDisplayValue
-*/
-/*
-findByText
-findByRole
-findByLabelText
-findByPlaceholderText
-findByAltText
-findByDisplayValue
-*/
-/*
-getAllBy
-queryAllBy
-findAllBy
-*/
+
+// Disables animation transition time so it will not hamper testing
+config.disabled = true;
+
 describe("Button", () => {
   test("Button component", () => {
     render(<Button>Log in</Button>);
@@ -79,7 +57,7 @@ describe("Button", () => {
     expect(await screen.findByRole("dialog")).not.toHaveClass("hidden");
 
     await user.click(screen.getByLabelText("close"));
-    expect(await screen.findByRole("dialog")).toHaveClass("hidden"); //TODO figure out how to get it to hide before querying
-    expect(await screen.findByRole("dialog")).not.toHaveClass("hidden");
+
+    expect(await screen.findByRole("dialog")).toHaveClass("hidden");
   });
 });
