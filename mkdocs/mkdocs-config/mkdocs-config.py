@@ -1,3 +1,6 @@
+# Source for the code
+# https://github.com/mkdocs/mkdocs/issues/545#issuecomment-366845721
+
 from markdown.extensions import Extension
 from markdown.blockprocessors import (
     ListIndentProcessor, OListProcessor, UListProcessor)
