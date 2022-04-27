@@ -6,4 +6,4 @@ COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 COPY . .
-RUN cd mkdocs-config && python setup.py develop
+RUN python mkdocs-config/setup.py develop
