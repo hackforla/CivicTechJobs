@@ -51,13 +51,13 @@ The backend architecture is consists the `docker/` directory, the Django `config
 
 ## Overview of Directories and Files
 
-- **config/:** houses the Django project files.
-  - **<Django Project Files\>:** More on the files in this directory can be found in [Django's documentation](https://docs.djangoproject.com/en/4.0/).
-- **<Django App\>:** currently we have two directories that are Django apps: `frontend/` and `server/`. Within these directories are the default `<Django App Files>` that are created with every app as well as `<RESTFramework Files>`.
-  - **<Django App Files\>:** These files make up a Django App. To know more about these apps, read the section about [Django App Files](#django-app-files).
-  - **<RESTFramework Files\>:** Currently consists of only `serializers.py`, these files are additional files that support Django via the [DjangoRestFramework library](https://www.django-rest-framework.org/).
-- **manage.py:** Part of Django, this is the entry point file for starting the Django server. This file handles a lot of critical settings, so be sure to read up on it in [Django's documentation](https://docs.djangoproject.com/en/4.0/ref/django-admin/).
-- **requirements.txt:** A Python file that contains all dependencies for a project. It is the Python equivalent to Javascript's `package.json`.
+-   **config/:** houses the Django project files.
+    -   **<Django Project Files\>:** More on the files in this directory can be found in [Django's documentation](https://docs.djangoproject.com/en/4.0/).
+-   **<Django App\>:** currently we have two directories that are Django apps: `frontend/` and `server/`. Within these directories are the default `<Django App Files>` that are created with every app as well as `<RESTFramework Files>`.
+    -   **<Django App Files\>:** These files make up a Django App. To know more about these apps, read the section about [Django App Files](#django-app-files).
+    -   **<RESTFramework Files\>:** Currently consists of only `serializers.py`, these files are additional files that support Django via the [DjangoRestFramework library](https://www.django-rest-framework.org/).
+-   **manage.py:** Part of Django, this is the entry point file for starting the Django server. This file handles a lot of critical settings, so be sure to read up on it in [Django's documentation](https://docs.djangoproject.com/en/4.0/ref/django-admin/).
+-   **requirements.txt:** A Python file that contains all dependencies for a project. It is the Python equivalent to Javascript's `package.json`.
 
 ## Django App Files
 

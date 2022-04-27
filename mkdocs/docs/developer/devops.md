@@ -50,9 +50,9 @@ Our devops files can be thought of as a set of files needed to create an exact r
 
 ## Overview of Directories and Files
 
-- **dev/:** contains two dockerfiles and an env file. `django.dockerfile` contains information for our Django server setup. `webpack.dockerfile` contains information to start our webpack watch plugin. `dev.env.example` is an example of the env file needed to configure our dev environment.
-- **.dockerignore:** This file tells Docker to ignore certain files when building the container. These are usually files that pertain to docker or git, which are not important when building the webserver.
-- **docker-compose.yml:** Contains instructions for docker when we run "docker compose". To know more about what each line does, please consult [Docker's documentation](https://docs.docker.com/compose/compose-file/).
+-   **dev/:** contains two dockerfiles and an env file. `django.dockerfile` contains information for our Django server setup. `webpack.dockerfile` contains information to start our webpack watch plugin. `dev.env.example` is an example of the env file needed to configure our dev environment.
+-   **.dockerignore:** This file tells Docker to ignore certain files when building the container. These are usually files that pertain to docker or git, which are not important when building the webserver.
+-   **docker-compose.yml:** Contains instructions for docker when we run "docker compose". To know more about what each line does, please consult [Docker's documentation](https://docs.docker.com/compose/compose-file/).
 
 ## Docker
 
@@ -124,10 +124,10 @@ docker compose run <container> <command>
 
 This is useful to run one time commands inside your container. Some good commands to run are:
 
-- python manage.py makemigrations
-- python manage.py migrate
-- pip install -r requirements.txt
-- npm install <dependency>
+-   python manage.py makemigrations
+-   python manage.py migrate
+-   pip install -r requirements.txt
+-   npm install <dependency>
 
 ```bash
 docker exec -it <container> sh
