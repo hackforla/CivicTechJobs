@@ -7,6 +7,7 @@ import "@testing-library/jest-dom";
 import { Button } from "components/components";
 
 describe("Components", () => {
+	console.log("hello");
 	test("Button component", () => {
 		render(<Button>Log in</Button>);
 		expect(screen.getByText("Log in")).toBeInTheDocument();
