@@ -13,34 +13,33 @@ import { LandingPage } from "pages/LandingPage/LandingPage";
 config.disabled = true;
 
 describe("Landing Page", () => {
-	console.log("hi");
-	test("Landing Page links", () => {
-		render(<LandingPage />);
+  test("Landing Page links", () => {
+    render(<LandingPage />);
 
-		expect(screen.getByText("Hack for LA")).toHaveAttribute("href");
-		expect(screen.getByText("How to Join")).toHaveAttribute("href");
-		expect(screen.getByText("Projects")).toHaveAttribute("href");
-		expect(screen.getByText("Credits")).toHaveAttribute("href");
-		expect(screen.getByText("Sitemap")).toHaveAttribute("href");
-		expect(
-			screen.getByText("Join Us", { selector: ".footer-links" })
-		).toHaveAttribute("href");
-	});
+    expect(screen.getByText("Hack for LA")).toHaveAttribute("href");
+    expect(screen.getByText("How to Join")).toHaveAttribute("href");
+    expect(screen.getByText("Projects")).toHaveAttribute("href");
+    expect(screen.getByText("Credits")).toHaveAttribute("href");
+    expect(screen.getByText("Sitemap")).toHaveAttribute("href");
+    expect(
+      screen.getByText("Join Us", { selector: ".footer-links" })
+    ).toHaveAttribute("href");
+  });
 
-	test("Landing Page dialog", async () => {
-		const user = userEvent.setup();
-		render(<LandingPage />);
+  test("Landing Page dialog", async () => {
+    const user = userEvent.setup();
+    render(<LandingPage />);
 
-		expect(screen.getByRole("dialog")).toHaveClass("hidden");
+    expect(screen.getByRole("dialog")).toHaveClass("hidden");
 
-		await user.click(
-			screen.getByText(/Engineering/, {
-				selector: ".landing-cop-circle-title",
-			})
-		);
-		expect(await screen.findByRole("dialog")).not.toHaveClass("hidden");
+    await user.click(
+      screen.getByText(/Engineering/, {
+        selector: ".landing-cop-circle-title",
+      })
+    );
+    expect(await screen.findByRole("dialog")).not.toHaveClass("hidden");
 
-		await user.click(screen.getByLabelText("close"));
-		expect(await screen.findByRole("dialog")).toHaveClass("hidden");
-	});
+    await user.click(screen.getByLabelText("close"));
+    expect(await screen.findByRole("dialog")).toHaveClass("hidden");
+  });
 });
