@@ -14,8 +14,8 @@
 
 ## Additional Reading
 
-1. Read about [WCAG 2.0 accessibility standards](https://github.com/hackforla/CivicTechJobs/wiki/ADA-Guide) and set up third-party tools for compliance testing.
+1. Read about [WCAG 2.0 accessibility standards](https://hackforla.github.io/CivicTechJobs/misc/ada-guide/) and set up third-party tools for compliance testing.
 
-1. Review notes on [security updates](https://github.com/hackforla/CivicTechJobs/wiki/Security-Updates).
+1. Review notes on [security updates](https://hackforla.github.io/CivicTechJobs/misc/security-updates/).
 
 1. [Site architecture document]() is coming soon.

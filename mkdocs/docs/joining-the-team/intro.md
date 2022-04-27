@@ -10,12 +10,12 @@ Welcome to the Civic Tech Jobs team! This guide will help get you up to speed on
 
 If you have not read the [Guide for New Volunteers](https://www.hackforla.org/getting-started), please do so.
 
-1. Read [Introduction to the Project](https://github.com/hackforla/CivicTechJobs//wiki) if you haven't already read it.
+1. Read [Introduction to the Project](https://hackforla.github.io/CivicTechJobs/) if you haven't already read it.
 1. Join the [Civic Tech Jobs](https://hackforla.slack.com/archives/C02509WHFQQ) Slack channel and introduce yourself.
 1. Slack our PM's [Syed Danish Imran ](https://hackforla.slack.com/team/U020Z27JB1S) & [Sharad Guarav](https://hackforla.slack.com/team/U01RETBMLKS) with your Gmail address.
 1. Accept your Google Drive invite to access the [shared folder](https://drive.google.com/drive/u/0/folders/0AMdnUkSXicNCUk9PVA).
 1. Add yourself to the [Team Roster](https://docs.google.com/spreadsheets/d/11gd0TxEjA-bfzQQILkMDm0A01ZGmN7K7GW10yvaIwQQ/edit) and inform PM after you have done so.
-1. Review the [Glossary](https://github.com/hackforla/CivicTechJobs//wiki/Glossary).
+1. Review the [Glossary](https://hackforla.github.io/CivicTechJobs/misc/glossary/).
 1. Attend our weekly meetings on Tuesdays at 5pm PST. You can find the link pinned in our slack channel.
 
 ---
