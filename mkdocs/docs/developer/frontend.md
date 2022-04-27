@@ -171,7 +171,7 @@ If you have explored documentation from webpack, you might learn that the _babel
 
 ## Frontend Testing
 
-Our tests exists inside the tests directory with subdirectories that follows `frontend/src`. There is also `__mock__/` which contains code that bypasses certain tricky imports, such as svg or css assets, which are not needed when testing. In order to understand how to write tests, be sure to take a look at the documentation for [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/), the parent [DOM Testing Library](https://testing-library.com/docs/dom-testing-library/intro), and the support libraries [jest-dom](https://github.com/testing-library/jest-dom) and [user-event](https://testing-library.com/docs/user-event/intro/).
+Our tests exists inside the tests directory with subdirectories that follows `frontend/src`. There is also `__mock__/` which contains code that bypasses certain tricky imports, such as svg or SCSS assets, which are not needed when testing. In order to understand how to write tests, be sure to take a look at the documentation for [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/), the parent [DOM Testing Library](https://testing-library.com/docs/dom-testing-library/intro), and the support libraries [jest-dom](https://github.com/testing-library/jest-dom) and [user-event](https://testing-library.com/docs/user-event/intro/).
 
 To run these tests, use the command `docker compose run webpack npm run test` (or with `test:w` for watch mode). The tests are run through jest, while the other libraries support react testing by providing functions to render DOM elements and simulate user behavior.
 
