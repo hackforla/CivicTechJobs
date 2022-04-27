@@ -13,7 +13,6 @@ import { LandingPage } from "pages/LandingPage/LandingPage";
 config.disabled = true;
 
 describe("Landing Page", () => {
-	console.log("hello");
 	test("Landing Page links", () => {
 		render(<LandingPage />);
 
