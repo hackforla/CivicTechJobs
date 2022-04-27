@@ -16,47 +16,47 @@ Civic Tech technology practitioners are a diverse and interdisciplinary group of
 
 ### Collaboration Technologies
 
--   [GitHub Project Board](https://github.com/hackforla/CivicTechJobs/projects/1)
--   [Slack](https://hackforla.slack.com/archives/C02509WHFQQ)
--   [Google Drive](https://drive.google.com/drive/u/0/folders/0AMdnUkSXicNCUk9PVA)
--   [Figma](https://www.figma.com/file/G5bOqhud6azbxyR9El9Ygp/Civic-Tech-Jobs?node-id=0%3A1)
+- [GitHub Project Board](https://github.com/hackforla/CivicTechJobs/projects/1)
+- [Slack](https://hackforla.slack.com/archives/C02509WHFQQ)
+- [Google Drive](https://drive.google.com/drive/u/0/folders/0AMdnUkSXicNCUk9PVA)
+- [Figma](https://www.figma.com/file/G5bOqhud6azbxyR9El9Ygp/Civic-Tech-Jobs?node-id=0%3A1)
 
 ### Project Tech Stack
 
 #### Frontend
 
--   [React](https://reactjs.org/)
--   [Webpack](https://webpack.js.org/)
--   [Babel](https://babeljs.io/)
--   [Jest](https://jestjs.io/)
--   [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- [React](https://reactjs.org/)
+- [Webpack](https://webpack.js.org/)
+- [Babel](https://babeljs.io/)
+- [Jest](https://jestjs.io/)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 
 #### Backend
 
--   [Django](https://www.djangoproject.com/)
--   [Django Rest Framework](https://www.django-rest-framework.org/)
+- [Django](https://www.djangoproject.com/)
+- [Django Rest Framework](https://www.django-rest-framework.org/)
 
 #### CD/CI Infrastructure
 
--   [Gunicorn](https://gunicorn.org/)
--   [Nginx](https://docs.nginx.com/)
--   [PostgreSQL](https://www.postgresql.org/)
--   [Docker](https://www.docker.com/)
--   [GitHub Actions](https://github.com/features/actions)
+- [Gunicorn](https://gunicorn.org/)
+- [Nginx](https://docs.nginx.com/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Docker](https://www.docker.com/)
+- [GitHub Actions](https://github.com/features/actions)
 
 #### Documentation
 
--   [MkDocs](https://www.mkdocs.org/) | [Docs Site](https://hackforla.github.io/CivicTechJobs/)
+- [MkDocs](https://www.mkdocs.org/) | [Docs Site](https://hackforla.github.io/CivicTechJobs/)
 
 ## How to contribute
 
--   Attend [Hack for LA onboarding](https://www.meetup.com/hackforla/events/)
--   Join the [Slack](https://hackforla.slack.com/archives/C02509WHFQQ) Channel and say hello! we have team meetings every tuesday at 5PM PST
+- Attend [Hack for LA onboarding](https://www.meetup.com/hackforla/events/)
+- Join the [Slack](https://hackforla.slack.com/archives/C02509WHFQQ) Channel and say hello! we have team meetings every tuesday at 5PM PST
 
 ### As a project manager, UI designer, or UX researcher:
 
--   Provide UX/UI design support.
--   Help us with usability testing.
+- Provide UX/UI design support.
+- Help us with usability testing.
 
 ### As a developer:
 
