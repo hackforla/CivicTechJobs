@@ -24,6 +24,10 @@ jobs:
       - name: Publish docs
         run: |
           pip install --upgrade pip && pip install mkdocs
+          python mkdocs/mkdocs-config/setup.py develop
           git config user.name 'github-actions[bot]' && git config user.email 'github-actions[bot]@users.noreply.github.com'
           cd mkdocs
+          cd mkdocs-config
+          python setup.py develop
+          cd ..
           mkdocs gh-deploy
