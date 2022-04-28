@@ -84,6 +84,7 @@ In this scenario, the full command would be:
 
 [Git Documentation](https://git-scm.com/doc)<br>
 [Docker Documentation](https://docs.docker.com/)<br>
-[Frontend Architecture](https://github.com/hackforla/CivicTechJobs/wiki/Frontend-Architecture)<br>
-[Backend Architecture](https://github.com/hackforla/CivicTechJobs/wiki/Backend-Architecture)<br>
-[GitHub Architecture](https://github.com/hackforla/CivicTechJobs/wiki/GitHub-Architecture)<br>
+[Frontend Architecture](https://hackforla.github.io/CivicTechJobs/developer/frontend/)<br>
+[Backend Architecture](https://hackforla.github.io/CivicTechJobs/developer/backend/)<br>
+[DevOps Architecture](https://hackforla.github.io/CivicTechJobs/developer/devops/)<br>
+[GitHub Architecture](https://hackforla.github.io/CivicTechJobs/developer/backend/)<br>

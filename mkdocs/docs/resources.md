@@ -12,8 +12,9 @@ More resources to be added as project progresses:
 ### For Developers
 
 1. [Contributing.md](https://github.com/hackforla/CivicTechJobs/blob/main/CONTRIBUTING.md)<br>
-2. [Frontend Architecture](https://github.com/hackforla/CivicTechJobs/wiki/Frontend-Architecture)<br>
-3. [Backend Architecture](https://github.com/hackforla/CivicTechJobs/wiki/Backend-Architecture)<br>
-4. [GitHub Architecture](https://github.com/hackforla/CivicTechJobs/wiki/GitHub-Architecture)<br>
-5. [Installation Instructions](https://github.com/hackforla/CivicTechJobs/wiki/Installation-Instructions)<br>
-6. [Development Culture](https://github.com/hackforla/CivicTechJobs/wiki/Development-Culture)<br>
+2. [Frontend Architecture](https://hackforla.github.io/CivicTechJobs/developer/frontend/)<br>
+3. [Backend Architecture](https://hackforla.github.io/CivicTechJobs/developer/backend/)<br>
+4. [DevOps Architecture](https://hackforla.github.io/CivicTechJobs/developer/devops/)<br>
+5. [GitHub Architecture](https://hackforla.github.io/CivicTechJobs/developer/github/)<br>
+6. [Installation Instructions](https://hackforla.github.io/CivicTechJobs/developer/installation/)<br>
+7. [Development Culture](https://hackforla.github.io/CivicTechJobs/developer/development-culture/)<br>

@@ -46,6 +46,6 @@ body:
       label: "Resources/Instructions"
       description: "Please provide links to the Figma page of the component/s, and add extra notes as necessary for developers to locate and understand the design. Feel free to provide other necessary information such as related issues, files to be worked on, external sites with solutions, documentation, etc."
       value: |
-        [Resources](https://github.com/hackforla/CivicTechJobs/wiki/Resources)
+        [Resources](https://hackforla.github.io/CivicTechJobs/resources/)
     validations:
       required: true
