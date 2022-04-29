@@ -15,7 +15,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED=1
 WORKDIR /code
 COPY --from=django-builder /wheels /wheels
-RUN pip install --no-cache --no-cache-dir /wheels/*
+RUN pip install --no-cache --no-cache-dir --no-deps /wheels/*
 COPY . .
 COPY --from=react-builder /code/frontend/static/frontend/ ./frontend/static/frontend/
 COPY --from=react-builder /code/frontend/templates/frontend/ ./frontend/templates/frontend/
