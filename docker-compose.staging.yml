@@ -14,7 +14,6 @@ services:
       context: ./app
       dockerfile: ../stage/Dockerfile
     container_name: django
-    command: gunicorn config.wsgi --bind 0.0.0.0:8000
     ports:
       - "8000:8000"
     env_file:
