@@ -13,4 +13,3 @@ app/frontend/static/frontend/*
 app/frontend/templates/frontend/*
 !app/frontend/templates/frontend/.gitkeep
 data/
-stage/

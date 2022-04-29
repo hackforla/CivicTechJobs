@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  pgdb:
+    image: postgres
+    container_name: pgdb
+    volumes:
+      - postgres_data:/lib/postgresql/data
+    env_file:
+      - ./stage/stage.env
+
+  django:
+    build: 
+      context: ./app
+      dockerfile: ../stage/Dockerfile
+    container_name: django
+    command: gunicorn config.wsgi --bind 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./stage/stage.env
+    depends_on:
+      - pgdb
+
+volumes:
+  postgres_data:
