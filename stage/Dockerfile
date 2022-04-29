@@ -15,7 +15,10 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED=1
 WORKDIR /code
 COPY --from=django-builder /wheels /wheels
+<<<<<<< HEAD
 # hadolint ignore=DL3013
+=======
+>>>>>>> 5d98aae (final linting change?)
 RUN pip install --no-cache --no-cache-dir --no-deps /wheels/*
 COPY . .
 COPY --from=react-builder /code/frontend/static/frontend/ ./frontend/static/frontend/
