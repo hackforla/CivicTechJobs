@@ -7,7 +7,6 @@ COPY . .
 RUN npm run build
 
 FROM python:3-alpine as django-builder
-RUN pip install --upgrade pip
 COPY requirements.txt ./
 RUN pip wheel --no-cache-dir --no-deps --wheel-dir /wheels -r requirements.txt
 
