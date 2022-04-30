@@ -15,7 +15,7 @@ function CloseButton(props) {
       type="button"
       aria-label="close"
     >
-      <img src={iconX}></img>
+      <img src={iconX} alt="close"></img>
     </div>
   );
 }
