@@ -28,6 +28,8 @@ Civic Tech technology practitioners are a diverse and interdisciplinary group of
 - [React](https://reactjs.org/)
 - [Webpack](https://webpack.js.org/)
 - [Babel](https://babeljs.io/)
+- [Jest](https://jestjs.io/)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 
 #### Backend
 
