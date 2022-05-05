@@ -52,8 +52,6 @@ jobs:
       - run: |
           npm install stylelint-config-prettier-scss
 
-      - run: echo ${{ (github.event_name == 'workflow_dispatch' && true) || false }}
-
       ################################
       # Run Linter against code base #
       ################################
@@ -61,7 +59,7 @@ jobs:
         uses: github/super-linter/slim@v4
         env:
           JAVASCRIPT_DEFAULT_STYLE: prettier
-          VALIDATE_ALL_CODEBASE: true
+          VALIDATE_ALL_CODEBASE: ${{ (github.event_name == 'workflow_dispatch' && true) || false }}
           VALIDATE_MARKDOWN: false
           VALIDATE_PYTHON: false
           VALIDATE_PYTHON_BLACK: false
