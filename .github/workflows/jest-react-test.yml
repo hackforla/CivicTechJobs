@@ -1,10 +1,10 @@
 name: Jest-React Test
 on:
   push:
-    branches-ignore: [master, main]
+    branches-ignore: [master, main, dev-branch-1]
     # Remove the line above to run when pushing to master
   pull_request:
-    branches: [master, main]
+    branches: [master, main, dev-branch-1]
 jobs:
   build:
     runs-on: ubuntu-latest
