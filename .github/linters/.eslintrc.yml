@@ -1,10 +1,9 @@
-{
-  "plugins": ["jsx-a11y"],
-  "extends": ["plugin:jsx-a11y/recommended"],
-  "settings": {
-    "jsx-a11y": {
-      "components": { "Button": "button", "CloseButton": "button" },
-      }
-    }
-  }
-}
+plugins:
+  - jsx-a11y
+extends:
+  - plugin:jsx-a11y/recommended
+settings:
+  jsx-a11y:
+    components:
+      Button: button
+      CloseButton: button
