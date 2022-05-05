@@ -52,7 +52,7 @@ jobs:
       - run: |
           npm install stylelint-config-prettier-scss
 
-      - run: echo ${{ github.event_name }}
+      - run: echo ${{ (github.event_name == 'workflow_dispatch' && 'true') || 'false' }}
 
       ################################
       # Run Linter against code base #
