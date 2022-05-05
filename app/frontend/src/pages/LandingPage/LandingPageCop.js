@@ -48,6 +48,7 @@ function LandingPageCop() {
                 handleCopData(cop.id);
                 setIsDialogOpen(true);
               }}
+              role="button"
             >
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <div className="pb-3 row justify-center">

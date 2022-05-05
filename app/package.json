@@ -5,7 +5,9 @@
   "main": "webpack.config.js",
   "scripts": {
     "watch": "webpack --mode development --watch",
-    "build": "webpack --mode production --output-path ./frontend/static/frontend"
+    "build": "webpack --mode production --output-path ./frontend/static/frontend",
+    "test": "jest --config ./jest.config.js --testPathPattern=tests/",
+    "test:w": "jest --config ./jest.config.js --watchAll --testPathPattern=tests/"
   },
   "repository": {
     "type": "git",
@@ -23,11 +25,18 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@svgr/webpack": "^6.2.0",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/user-event": "^14.1.1",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.5.1",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^28.0.0",
+    "jest-environment-jsdom": "^28.0.0",
+    "jsdom": "^19.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-transition-group": "^4.4.2",
     "sass": "^1.49.0",
     "sass-loader": "^12.4.0",
     "style-loader": "^3.3.1",
