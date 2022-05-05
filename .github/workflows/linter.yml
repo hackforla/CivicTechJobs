@@ -19,6 +19,7 @@ on:
     # Remove the line above to run when pushing to master
   pull_request:
     branches: [master, main, dev-branch-1]
+  workflow_dispatch:
 
 ###############
 # Set the Job #
@@ -51,6 +52,8 @@ jobs:
       - run: |
           npm install stylelint-config-prettier-scss
           npm install eslint-plugin-jsx-a11y
+
+      - run: echo ${{ github.event_name }}
 
       ################################
       # Run Linter against code base #
