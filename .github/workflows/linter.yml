@@ -51,7 +51,6 @@ jobs:
           node-version: "14"
       - run: |
           npm install stylelint-config-prettier-scss
-          npm install eslint-plugin-jsx-a11y
 
       - run: echo ${{ github.event_name }}
 
