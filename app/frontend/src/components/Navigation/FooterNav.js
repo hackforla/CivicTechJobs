@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 
 // Internal imports
-import { Button } from "../Buttons/Buttons";
+import { Button } from "../Buttons/Button";
 
 const FooterNav = ({ menu, logoDesktop, logoMobile }) => {
   const Logo = () => {

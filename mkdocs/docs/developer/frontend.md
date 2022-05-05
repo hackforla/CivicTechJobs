@@ -95,14 +95,14 @@ The files that should be manipulated by developers are housed within the `src/` 
 ```yml
 ├── components/
 │   ├── Basics/
-│       ├── Colors.s
-│       └── Titles.s
+│       ├── Colors.scss
+│       └── Titles.scss
 │   ├── Buttons/
-│       ├── Buttons.js
-│       └── Buttons.s
+│       ├── Button.js
+│       └── Button.scss
 │   ├── Cards/
 │       ├── Cards.js
-│       └── Cards.s
+│       └── Cards.scss
 │   └── <Components>/
 ```
 

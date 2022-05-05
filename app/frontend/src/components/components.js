@@ -1,4 +1,4 @@
-import { Button } from "./Buttons/Buttons";
+import { Button } from "./Buttons/Button";
 import { CloseButton } from "./Buttons/CloseButton";
 import { CopCard, InnerCopCard, InnerCopNavCard } from "./Cards/Cards";
 import { CircleCard } from "./Cards/CircleCard";
