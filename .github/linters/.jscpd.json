@@ -1,3 +1,6 @@
 {
-  "ignore": "**/*.md"
+  "threshold": 0,
+  "reporters": ["consoleFull"],
+  "ignore": ["**/__snapshots__/**", "**/*.md"],
+  "absolute": true
 }
