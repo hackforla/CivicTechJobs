@@ -44,18 +44,13 @@ jobs:
           fetch-depth: 0
 
       - run: cd app
-      - name: Download SCSS Prettier
+      - name: Download Linter Plugins
         uses: actions/setup-node@v3
         with:
           node-version: "14"
-      - run: npm install stylelint-config-prettier-scss
-
-      - run: cd app
-      - name: Download A11y Linter
-        uses: actions/setup-node@v3
-        with:
-          node-version: "14"
-      - run: npm install eslint-plugin-jsx-a11y
+      - run: |
+          npm install stylelint-config-prettier-scss
+          npm install eslint-plugin-jsx-a11y
 
       ################################
       # Run Linter against code base #
