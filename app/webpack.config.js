@@ -1,3 +1,4 @@
+const { DefinePlugin } = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -77,6 +78,9 @@ module.exports = {
       filename: "../../templates/frontend/index.html", //need to go back because will attempt to create file at output
       template: "/frontend/src/templates/index.html",
       favicon: "./frontend/src/assets/images/svgs/logo-logomark.svg", //adds favicon to website
+    }),
+    new DefinePlugin({
+      "process.env.MODE": JSON.stringify(process.env.MODE),
     }),
   ],
   resolve: {
