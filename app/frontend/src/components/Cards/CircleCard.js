@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import React from "react";
 
 // Internal Imports
-import { combineClasses, onEnterKey } from "../Utility/utils";
+import { combineClasses, onKey } from "../Utility/utils";
 
 function CircleCard({ size = "sm", ...props }) {
   return (
@@ -15,7 +15,7 @@ function CircleCard({ size = "sm", ...props }) {
         props.addClass
       )}
       onClick={props.onClick}
-      onKeyDown={onEnterKey(props.onClick)}
+      onKeyDown={onKey(props.onClick, "Enter")}
       role={props.role}
     >
       <div className={`circle-card-content align-center justify-center`}>

@@ -4,7 +4,7 @@ import React, { Fragment, useState, useEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 
 // Internal Imports
-import { combineClasses, onEnterKey } from "../Utility/utils";
+import { combineClasses, onKey } from "../Utility/utils";
 
 function Dialog({ open = false, ...props }) {
   const [isOpen, setIsOpen] = useState(open);
@@ -46,8 +46,8 @@ function Dialog({ open = false, ...props }) {
           props.addClass
         )}
         ref={windowRef}
-        onClick={(e) => handleClose(e)}
-        onEnterKey={(e) => onEnterKey(handleClose)(e)}
+        onClick={handleClose}
+        onKeyDown={onKey(handleClose, "Escape", "Esc")}
         role="dialog"
         aria-label={props.ariaLabel}
         tabIndex="-1"

@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 // Internal Imports
-import { combineClasses, onEnterKey } from "../Utility/utils";
+import { combineClasses, onKey } from "../Utility/utils";
 import { iconX } from "../../assets/images/images";
 
 function CloseButton(props) {
@@ -11,7 +11,7 @@ function CloseButton(props) {
     <div
       className={combineClasses("btn-close", props.addClass)}
       onClick={props.onClick}
-      onKeyDown={onEnterKey(props.onClick)}
+      onKeyDown={onKey(props.onClick, "Enter")}
       role="button"
       type="button"
       aria-label="close"
