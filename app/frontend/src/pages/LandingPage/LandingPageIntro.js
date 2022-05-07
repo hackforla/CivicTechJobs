@@ -36,7 +36,7 @@ function LandingPageIntro() {
       <LandingImage />
       <div className="landing-mission-section flex-container">
         <div className="landing-mission-content px-4 align-center text-center">
-          <img className="down-arrow mb-3" src={iconDownArrow} />
+          <img className="down-arrow mb-3" src={iconDownArrow} alt="" />
           <h1 className="title-2 landing-mission-title">Our Misson</h1>
           <p className="paragraph-2 mission-paragraph">
             We bring together civic-minded volunteers from diverse backgrounds
