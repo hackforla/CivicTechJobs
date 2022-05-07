@@ -7,4 +7,20 @@ function combineClasses(...args) {
   return args.filter((x) => typeof x === "string").join(" ");
 }
 
-export { combineClasses };
+/**
+ * A wrapper which causes the parameter fuction to run only when the enter key is pressed
+ * @param {function} fn a function to be wrapped
+ * @returns a wrapped function that
+ */
+function onEnterKey(fn) {
+  function wrapped(e) {
+    if (e.key == "Enter") {
+      e.preventDefault();
+      fn(e);
+    }
+  }
+
+  return wrapped;
+}
+
+export { combineClasses, onEnterKey };
