@@ -4,7 +4,7 @@ import React, { Fragment, useState, useEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 
 // Internal Imports
-import { combineClasses, onKey } from "../Utility/utils";
+import { combineClasses } from "../Utility/utils";
 
 function Dialog({ open = false, ...props }) {
   const [isOpen, setIsOpen] = useState(open);
@@ -12,7 +12,6 @@ function Dialog({ open = false, ...props }) {
   const windowRef = useRef(null);
 
   // Adjust padding on body when scrollbar is hidden so that page content does not jump
-  // Also runs props.onClose() callback
   useEffect(() => {
     if (isOpen) {
       const scrollWidth = Math.abs(
@@ -26,13 +25,12 @@ function Dialog({ open = false, ...props }) {
     }
   }, [isOpen]);
 
-  // The next two useEffect and handleClose function ensures that rather than closing immediately, an animation is run when dialog is set to be closed
   useEffect(() => {
     if (open) setIsOpen(open);
   }, [open]);
 
   function handleClose(e) {
-    if (e.target === windowRef.current) {
+    if (e.target === windowRef.current || ["Escape", "Esc"].includes(e.key)) {
       props.onClose();
     }
   }
@@ -47,7 +45,7 @@ function Dialog({ open = false, ...props }) {
         )}
         ref={windowRef}
         onClick={handleClose}
-        onKeyDown={onKey(handleClose, "Escape", "Esc")}
+        onKeyDown={handleClose}
         role="dialog"
         aria-label={props.ariaLabel}
         tabIndex="-1"
