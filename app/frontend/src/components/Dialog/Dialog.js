@@ -36,16 +36,19 @@ function Dialog({ open = false, ...props }) {
   }
 
   return (
-    <Fragment>
+    <div
+      className={combineClasses(
+        "dialog-backdrop",
+        !isOpen && "hidden",
+        props.addClass
+      )}
+      ref={windowRef}
+      onClick={handleClose}
+      onKeyDown={handleClose}
+      role="presentation"
+    >
       <div
-        className={combineClasses(
-          "dialog",
-          !isOpen && "hidden",
-          props.addClass
-        )}
-        ref={windowRef}
-        onClick={handleClose}
-        onKeyDown={handleClose}
+        className={combineClasses(props.addClass)}
         role="dialog"
         aria-label={props.ariaLabel}
         tabIndex="-1"
@@ -60,7 +63,7 @@ function Dialog({ open = false, ...props }) {
           {props.children}
         </CSSTransition>
       </div>
-    </Fragment>
+    </div>
   );
 }
 
