@@ -26,10 +26,13 @@ Civic Tech technology practitioners are a diverse and interdisciplinary group of
 #### Frontend
 
 - [React](https://reactjs.org/)
+  - [React Router](https://reactrouter.com/)
+  - [Jest](https://jestjs.io/)
+  - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+  - [@axe-core/react](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/react)
+- [Sass](https://sass-lang.com/documentation)
 - [Webpack](https://webpack.js.org/)
 - [Babel](https://babeljs.io/)
-- [Jest](https://jestjs.io/)
-- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 
 #### Backend
 

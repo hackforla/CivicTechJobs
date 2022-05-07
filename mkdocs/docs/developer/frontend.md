@@ -181,7 +181,7 @@ Note: `jest-environment-jsdom` is a library that is absolutely required to link 
 
 ### Accessibility Testing
 
-In addition to testing the functioning of our components, we also test the accessability of it via the library, `@axe-core/react`. This library prints out accessibility issues onto the browser console, providing accessibiltiy testing once the HTML has fully rendered. That said, the library is known to give both false positives and false negatives. As always reading the official documentation is best when it comes to resolving these errors.
+In addition to testing the functioning of our components, we also test the accessability of it via the library, [@axe-core/react](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/react). This library prints out accessibility issues onto the browser console, providing accessibiltiy testing once the HTML has fully rendered. That said, the library is known to give both false positives and false negatives. As always reading the official documentation is best when it comes to resolving these errors.
 
 ## Additional Resources
 
@@ -190,3 +190,6 @@ In addition to testing the functioning of our components, we also test the acces
 [Webpack Documentation](https://webpack.js.org/concepts/)<br>
 [@babel/preset-react Documentation](https://babeljs.io/docs/en/babel-preset-react)<br>
 [React Router Documentation](https://reactrouter.com/docs/en/v6)<br>
+[Jest Documentation](https://jestjs.io/docs/getting-started)<br>
+[React Testing Library Documentation](https://testing-library.com/docs/react-testing-library/intro/)<br>
+[@axe-core/react Documentation](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/react)<br>
