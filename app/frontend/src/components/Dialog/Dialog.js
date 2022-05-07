@@ -48,6 +48,7 @@ function Dialog({ open = false, ...props }) {
         ref={windowRef}
         onClick={(e) => handleClose(e)}
         role="dialog"
+        aria-label={props.ariaLabel}
       >
         <CSSTransition
           in={open}
@@ -66,6 +67,7 @@ function Dialog({ open = false, ...props }) {
 // Type declaration for props
 Dialog.propTypes = {
   addClass: PropTypes.string,
+  ariaLabel: PropTypes.string.isRequired,
   onClose: PropTypes.func,
   open: PropTypes.bool,
 };

@@ -10,7 +10,7 @@ function LandingPageIntro() {
     return (
       <div className="landing-image-parent">
         <div className="svg-group-layer">
-          <img className="landing-group-image " src={landingPageFg} />
+          <img className="landing-group-image " src={landingPageFg} alt="" />
         </div>
       </div>
     );

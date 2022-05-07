@@ -14,8 +14,16 @@ function HeaderNav({ logoDesktop, logoMobile, menu }) {
     return (
       <div className="flex-container align-center justify-left">
         <a href="/">
-          <img className="logo-desktop" src={logoDesktop} />
-          <img className="logo-mobile" src={logoMobile} />
+          <img
+            className="logo-desktop"
+            src={logoDesktop}
+            alt="Civic Tech Jobs - Home"
+          />
+          <img
+            className="logo-mobile"
+            src={logoMobile}
+            alt="Civic Tech Jobs - Home"
+          />
         </a>
       </div>
     );
@@ -23,16 +31,17 @@ function HeaderNav({ logoDesktop, logoMobile, menu }) {
 
   return (
     <Fragment>
-      <nav className="header-nav flex-container align-center py-1 px-3">
+      <header className="header-nav flex-container align-center py-1 px-3">
         <div className="row header-nav-logo">
           <Logo />
         </div>
         <div className="row header-nav-menu justify-right align-center">
-          <div
+          <nav
             className={utility.combineClasses(
               "hamburger-menu"
               //!open && "hidden"
             )}
+            aria-label="header-navigation"
           >
             {menu.map((item, index) => {
               return (
@@ -45,7 +54,7 @@ function HeaderNav({ logoDesktop, logoMobile, menu }) {
                 </a>
               );
             })}
-          </div>
+          </nav>
 
           <Button href="https://www.google.com/" color="primary" size="sm">
             Log In
@@ -62,7 +71,7 @@ function HeaderNav({ logoDesktop, logoMobile, menu }) {
             <IconHamburgerMenu />
           </button>
         </div>
-      </nav>
+      </header>
       <div aria-hidden="true"></div>
     </Fragment>
   );
