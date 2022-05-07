@@ -11,9 +11,11 @@ function CloseButton(props) {
     <div
       className={combineClasses("btn-close", props.addClass)}
       onClick={props.onClick}
+      onKeyDown={props.onClick}
       role="button"
       type="button"
       aria-label="close"
+      tabindex="0"
     >
       <img src={iconX} alt="close"></img>
     </div>

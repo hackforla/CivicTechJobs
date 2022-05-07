@@ -49,6 +49,7 @@ function Dialog({ open = false, ...props }) {
         onClick={(e) => handleClose(e)}
         role="dialog"
         aria-label={props.ariaLabel}
+        tabindex="-1"
       >
         <CSSTransition
           in={open}

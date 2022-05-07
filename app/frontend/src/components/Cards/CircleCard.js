@@ -15,6 +15,7 @@ function CircleCard({ size = "sm", ...props }) {
         props.addClass
       )}
       onClick={props.onClick}
+      onKeyDown={props.onClick}
       role={props.role}
     >
       <div className={`circle-card-content align-center justify-center`}>
