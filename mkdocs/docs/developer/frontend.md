@@ -193,3 +193,4 @@ In addition to testing the functioning of our components, we also test the acces
 [Jest Documentation](https://jestjs.io/docs/getting-started)<br>
 [React Testing Library Documentation](https://testing-library.com/docs/react-testing-library/intro/)<br>
 [@axe-core/react Documentation](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/react)<br>
+[WAI-ARIA Authoring Practices 1.1](https://www.w3.org/TR/wai-aria-practices-1.1/)<br>
