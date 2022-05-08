@@ -95,14 +95,14 @@ The files that should be manipulated by developers are housed within the `src/` 
 ```yml
 ├── components/
 │   ├── Basics/
-│       ├── Colors.s
-│       └── Titles.s
+│       ├── Colors.scss
+│       └── Titles.scss
 │   ├── Buttons/
-│       ├── Buttons.js
-│       └── Buttons.s
+│       ├── Button.js
+│       └── Button.scss
 │   ├── Cards/
 │       ├── Cards.js
-│       └── Cards.s
+│       └── Cards.scss
 │   └── <Components>/
 ```
 
@@ -169,13 +169,19 @@ Our `webpack.config.js` file is one of the most important files to understanding
 
 If you have explored documentation from webpack, you might learn that the _babel-loader_ in **module > rules** can accept the settings noted in `.babelrc`. The reason why we separate these settings into another file is because webpack is not, in theory, the only application that makes use of these settings. Although we have no other apps that makes use of `.babelrc` at the moment, this can change in the future. Therefore, this separation of files is a form of future proofing.
 
-## Frontend Testing
+## Testing
+
+### Component Testing
 
 Our tests exists inside the tests directory with subdirectories that follows `frontend/src`. There is also `__mock__/` which contains code that bypasses certain tricky imports, such as svg or SCSS assets, which are not needed when testing. In order to understand how to write tests, be sure to take a look at the documentation for [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/), the parent [DOM Testing Library](https://testing-library.com/docs/dom-testing-library/intro), and the support libraries [jest-dom](https://github.com/testing-library/jest-dom) and [user-event](https://testing-library.com/docs/user-event/intro/).
 
 To run these tests, use the command `docker compose run webpack npm run test` (or with `test:w` for watch mode). The tests are run through jest, while the other libraries support react testing by providing functions to render DOM elements and simulate user behavior.
 
 Note: `jest-environment-jsdom` is a library that is absolutely required to link jsdom to jest. It provides the classes necessary for jest to interpret the jsdom environment. This information is listed here as it is not listed in jest's or jsdom's docs.
+
+### Accessibility Testing
+
+In addition to testing the functioning of our components, we also test the accessability of it via the library, [@axe-core/react](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/react). This library prints out accessibility issues onto the browser console, providing accessibiltiy testing once the HTML has fully rendered. That said, the library is known to give both false positives and false negatives. As always reading the official documentation is best when it comes to resolving these errors.
 
 ## Additional Resources
 
@@ -184,3 +190,7 @@ Note: `jest-environment-jsdom` is a library that is absolutely required to link 
 [Webpack Documentation](https://webpack.js.org/concepts/)<br>
 [@babel/preset-react Documentation](https://babeljs.io/docs/en/babel-preset-react)<br>
 [React Router Documentation](https://reactrouter.com/docs/en/v6)<br>
+[Jest Documentation](https://jestjs.io/docs/getting-started)<br>
+[React Testing Library Documentation](https://testing-library.com/docs/react-testing-library/intro/)<br>
+[@axe-core/react Documentation](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/react)<br>
+[WAI-ARIA Authoring Practices 1.1](https://www.w3.org/TR/wai-aria-practices-1.1/)<br>

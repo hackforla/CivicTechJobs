@@ -19,6 +19,7 @@ on:
     # Remove the line above to run when pushing to master
   pull_request:
     branches: [master, main, dev-branch-1]
+  workflow_dispatch:
 
 ###############
 # Set the Job #
@@ -44,11 +45,12 @@ jobs:
           fetch-depth: 0
 
       - run: cd app
-      - name: Download Prettier
+      - name: Download Linter Plugins
         uses: actions/setup-node@v3
         with:
           node-version: "14"
-      - run: npm install stylelint-config-prettier-scss
+      - run: |
+          npm install stylelint-config-prettier-scss
 
       ################################
       # Run Linter against code base #
@@ -57,7 +59,7 @@ jobs:
         uses: github/super-linter/slim@v4
         env:
           JAVASCRIPT_DEFAULT_STYLE: prettier
-          VALIDATE_ALL_CODEBASE: false
+          VALIDATE_ALL_CODEBASE: ${{ (github.event_name == 'workflow_dispatch' && true) || false }}
           VALIDATE_MARKDOWN: false
           VALIDATE_PYTHON: false
           VALIDATE_PYTHON_BLACK: false

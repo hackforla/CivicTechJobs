@@ -12,7 +12,6 @@ function Dialog({ open = false, ...props }) {
   const windowRef = useRef(null);
 
   // Adjust padding on body when scrollbar is hidden so that page content does not jump
-  // Also runs props.onClose() callback
   useEffect(() => {
     if (isOpen) {
       const scrollWidth = Math.abs(
@@ -26,28 +25,33 @@ function Dialog({ open = false, ...props }) {
     }
   }, [isOpen]);
 
-  // The next two useEffect and handleClose function ensures that rather than closing immediately, an animation is run when dialog is set to be closed
   useEffect(() => {
     if (open) setIsOpen(open);
   }, [open]);
 
   function handleClose(e) {
-    if (e.target === windowRef.current) {
+    if (e.target === windowRef.current || ["Escape", "Esc"].includes(e.key)) {
       props.onClose();
     }
   }
 
   return (
-    <Fragment>
+    <div
+      className={combineClasses(
+        "dialog-backdrop",
+        !isOpen && "hidden",
+        props.addClass
+      )}
+      ref={windowRef}
+      onClick={handleClose}
+      onKeyDown={handleClose}
+      role="presentation"
+    >
       <div
-        className={combineClasses(
-          "dialog",
-          !isOpen && "hidden",
-          props.addClass
-        )}
-        ref={windowRef}
-        onClick={(e) => handleClose(e)}
+        className={combineClasses(props.addClass)}
         role="dialog"
+        aria-label={props.ariaLabel}
+        tabIndex="-1"
       >
         <CSSTransition
           in={open}
@@ -59,13 +63,14 @@ function Dialog({ open = false, ...props }) {
           {props.children}
         </CSSTransition>
       </div>
-    </Fragment>
+    </div>
   );
 }
 
 // Type declaration for props
 Dialog.propTypes = {
   addClass: PropTypes.string,
+  ariaLabel: PropTypes.string.isRequired,
   onClose: PropTypes.func,
   open: PropTypes.bool,
 };

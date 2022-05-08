@@ -24,8 +24,10 @@ function LandingPage() {
           { name: "Projects", link: "/" },
         ]}
       />
-      <LandingPageIntro />
-      <LandingPageCop />
+      <main>
+        <LandingPageIntro />
+        <LandingPageCop />
+      </main>
       <FooterNav
         logoDesktop={logoHorizontalOnDark}
         logoMobile={logoStackedOnDark}

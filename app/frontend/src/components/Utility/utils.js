@@ -7,4 +7,19 @@ function combineClasses(...args) {
   return args.filter((x) => typeof x === "string").join(" ");
 }
 
-export { combineClasses };
+/**
+ * A wrapper function that takes in a function and any number of strings denoting key values. When the key is passed as part of a browser event, the function is run if the key passed in matches the key value.
+ * @param {*} fn a function that is called after a key is pressed
+ * @param  {...any} keyValues strings denoting key values
+ * @returns a function that runs only when the event key passed in matches any of the keyValues
+ */
+function onKey(fn, ...keyValues) {
+  return (e) => {
+    if (keyValues.includes(e.key)) {
+      e.preventDefault();
+      fn(e);
+    }
+  };
+}
+
+export { combineClasses, onKey };

@@ -68,6 +68,7 @@ function LandingPageCop() {
           setIsDialogOpen(false);
         }}
         addClass="flex-container justify-center align-center"
+        ariaLabel="Communities of Practice (COP)"
       >
         <CopCard
           hidden={false}
