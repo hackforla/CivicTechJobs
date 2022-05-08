@@ -30,16 +30,16 @@ describe("Landing Page", () => {
     const user = userEvent.setup();
     render(<LandingPage />);
 
-    expect(screen.getByRole("dialog")).toHaveClass("hidden");
+    expect(screen.getByRole("presentation")).toHaveClass("hidden");
 
     await user.click(
       screen.getByText(/Engineering/, {
         selector: ".landing-cop-circle-title",
       })
     );
-    expect(await screen.findByRole("dialog")).not.toHaveClass("hidden");
+    expect(await screen.findByRole("presentation")).not.toHaveClass("hidden");
 
     await user.click(screen.getByLabelText("close"));
-    expect(await screen.findByRole("dialog")).toHaveClass("hidden");
+    expect(await screen.findByRole("presentation")).toHaveClass("hidden");
   });
 });
