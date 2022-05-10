@@ -1,6 +1,6 @@
 // External Imports
 import PropTypes from "prop-types";
-import React, { Fragment, useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 
 // Internal Imports
@@ -10,6 +10,7 @@ function Dialog({ open = false, ...props }) {
   const [isBackdropOpen, setIsBackdropOpen] = useState(false);
 
   const windowRef = useRef(null);
+  const nodeRef = useRef(null);
 
   // Adjust padding on body when scrollbar is hidden so that page content does not jump
   useEffect(() => {
@@ -42,25 +43,27 @@ function Dialog({ open = false, ...props }) {
       onClick={handleClose}
       role="presentation"
     >
-      <div
-        className={combineClasses(props.addClass)}
-        role="dialog"
-        aria-label={props.ariaLabel}
-        tabIndex="-1"
+      <CSSTransition
+        in={open}
+        classNames="dialog"
+        timeout={400}
+        unmountOnExit
+        onEnter={() => setIsBackdropOpen(true)}
+        onExited={() => {
+          setIsBackdropOpen(false);
+        }}
+        nodeRef={nodeRef}
       >
-        <CSSTransition
-          in={open}
-          classNames="dialog"
-          timeout={400}
-          unmountOnExit
-          onEnter={() => setIsBackdropOpen(true)}
-          onExited={() => {
-            setIsBackdropOpen(false);
-          }}
+        <div
+          className={combineClasses(props.addClass)}
+          role="dialog"
+          aria-label={props.ariaLabel}
+          tabIndex="-1"
+          ref={nodeRef}
         >
           {props.children}
-        </CSSTransition>
-      </div>
+        </div>
+      </CSSTransition>
     </div>
   );
 }
