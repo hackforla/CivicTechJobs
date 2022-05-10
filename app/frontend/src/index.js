@@ -12,4 +12,11 @@ if (process.env.MODE !== "production") {
 
 const container = document.getElementById("app");
 const root = createRoot(container);
-root.render(<App />);
+
+process.env.MODE === "production"
+  ? root.render(<App />)
+  : root.render(
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    );
