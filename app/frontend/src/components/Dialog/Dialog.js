@@ -26,6 +26,10 @@ function Dialog({ open = false, ...props }) {
     }
   }, [isBackdropOpen]);
 
+  useEffect(() => {
+    if (open) setIsBackdropOpen(true);
+  });
+
   function handleClose(e) {
     if (e.target === windowRef.current || ["Escape", "Esc"].includes(e.key)) {
       props.onClose();
