@@ -7,13 +7,13 @@ import { CSSTransition } from "react-transition-group";
 import { combineClasses } from "../Utility/utils";
 
 function Dialog({ open = false, ...props }) {
-  const [isOpen, setIsOpen] = useState(open);
+  const [isBackdropOpen, setIsBackdropOpen] = useState(false);
 
   const windowRef = useRef(null);
 
   // Adjust padding on body when scrollbar is hidden so that page content does not jump
   useEffect(() => {
-    if (isOpen) {
+    if (isBackdropOpen) {
       const scrollWidth = Math.abs(
         window.innerWidth - document.documentElement.clientWidth
       );
@@ -23,11 +23,7 @@ function Dialog({ open = false, ...props }) {
       document.body.style.removeProperty("padding-right");
       document.body.style.overflow = "auto";
     }
-  }, [isOpen]);
-
-  useEffect(() => {
-    if (open) setIsOpen(open);
-  }, [open]);
+  }, [isBackdropOpen]);
 
   function handleClose(e) {
     if (e.target === windowRef.current || ["Escape", "Esc"].includes(e.key)) {
@@ -39,12 +35,11 @@ function Dialog({ open = false, ...props }) {
     <div
       className={combineClasses(
         "dialog-backdrop",
-        !isOpen && "hidden",
+        !isBackdropOpen && "hidden",
         props.addClass
       )}
       ref={windowRef}
       onClick={handleClose}
-      onKeyDown={handleClose}
       role="presentation"
     >
       <div
@@ -58,7 +53,10 @@ function Dialog({ open = false, ...props }) {
           classNames="dialog"
           timeout={400}
           unmountOnExit
-          onExited={() => setIsOpen(false)}
+          onEnter={() => setIsBackdropOpen(true)}
+          onExited={() => {
+            setIsBackdropOpen(false);
+          }}
         >
           {props.children}
         </CSSTransition>
