@@ -14,19 +14,13 @@
 
 .landing-intro-container {
   background-image: url("assets/images/svgs/landing-page-fg.svg");
-  background-position: bottom;
+  background-position: 50% 75%;
   background-repeat: no-repeat;
   background-size: 90%;
-  flex-direction: column;
   height: 75vw;
-  min-height: 700px;
 
   @include breakpoint-media-max("laptop") {
-    background-size: 80%;
-  }
-
-  @include breakpoint-media-max("lgtablet") {
-    background-size: 70%;
+    background-position: 50% 95%;
   }
 }
 

@@ -12,6 +12,14 @@
 .flex-container {
   box-sizing: border-box;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.flex-column {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
 }
 

@@ -8,7 +8,7 @@ import { Button } from "components/components";
 function LandingPageIntro() {
   return (
     <div className="landing-container my-5">
-      <div className="landing-intro-container flex-container align-center text-center">
+      <div className="flex-column align-center text-center landing-intro-container">
         <h1 className="title-1 landing-intro-title mb-4">
           Together,
           <br />
@@ -28,9 +28,9 @@ function LandingPageIntro() {
           Join us
         </Button>
       </div>
-      <div className="flex-container align-center text-center landing-mission-container pb-5">
+      <div className="flex-column align-center text-center pb-5 landing-mission-container">
         <img className="down-arrow mb-3" src={iconDownArrow} alt="" />
-        <h1 className="title-2 landing-mission-title mb-4">Our Misson</h1>
+        <h1 className="title-2 landing-mission-title mb-4">Our Mission</h1>
         <p className="paragraph-2 landing-mission-paragraph">
           We bring together civic-minded volunteers from diverse backgrounds
           such as YOU to help local communities and governments. Thanks to the

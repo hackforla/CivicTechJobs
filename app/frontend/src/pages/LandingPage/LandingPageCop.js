@@ -76,7 +76,7 @@ function LandingPageCop() {
           onClick={() => setIsDialogOpen(false)}
         >
           <div className="flex-container">
-            <nav className="flex-container col-3 landing-inner-cop-nav">
+            <nav className="flex-column col-3 landing-inner-cop-nav">
               {copData.map((cop) => {
                 const isActive = cop.id == currentDatum.id;
                 return (
