@@ -41,5 +41,15 @@ describe("Landing Page", () => {
 
     await user.click(screen.getByLabelText("close"));
     expect(await screen.findByRole("presentation")).toHaveClass("hidden");
+
+    await user.click(
+      screen.getByText(/Data Science/, {
+        selector: ".landing-cop-circle-title",
+      })
+    );
+    expect(await screen.findByRole("presentation")).not.toHaveClass("hidden");
+
+    await user.click(screen.getByRole("presentation"));
+    expect(await screen.findByRole("presentation")).toHaveClass("hidden");
   });
 });
