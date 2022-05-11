@@ -8,7 +8,7 @@ import { Button } from "components/components";
 function LandingPageIntro() {
   return (
     <div className="landing-container my-5">
-      <div className="landing-intro-container flex-container align-center text-center py-5">
+      <div className="landing-intro-container flex-container align-center text-center">
         <h1 className="title-1 landing-intro-title mb-4">
           Together,
           <br />
@@ -28,7 +28,7 @@ function LandingPageIntro() {
           Join us
         </Button>
       </div>
-      <div className="flex-container align-center text-center landing-mission-container py-5">
+      <div className="flex-container align-center text-center landing-mission-container pb-5">
         <img className="down-arrow mb-3" src={iconDownArrow} alt="" />
         <h1 className="title-2 landing-mission-title mb-4">Our Misson</h1>
         <p className="paragraph-2 landing-mission-paragraph">

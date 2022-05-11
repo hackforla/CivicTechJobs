@@ -2,18 +2,32 @@
 @use "components/Buttons" as *;
 
 .landing-container {
-  background-image: url("assets/images/svgs/landing-page-fg.svg"),
-    url("assets/images/svgs/landing-page-bg.svg");
+  background-image: url("assets/images/svgs/landing-page-bg.svg");
   background-position: bottom;
   background-repeat: no-repeat;
+  background-size: 100%;
+
   @include breakpoint-media-max("smtablet") {
     margin-top: 48px;
   }
 }
 
 .landing-intro-container {
+  background-image: url("assets/images/svgs/landing-page-fg.svg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 90%;
   flex-direction: column;
-  margin-bottom: 704px;
+  height: 75vw;
+  min-height: 700px;
+
+  @include breakpoint-media-max("laptop") {
+    background-size: 80%;
+  }
+
+  @include breakpoint-media-max("lgtablet") {
+    background-size: 70%;
+  }
 }
 
 .landing-intro-title {
