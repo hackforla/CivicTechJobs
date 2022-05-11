@@ -20,6 +20,10 @@ import iconDownArrow from "./svgs/icon-down-arrow.svg?url";
 import iconHamburgerMenu from "./svgs/icon-hamburger-menu.svg?url";
 import iconX from "./svgs/icon-x.svg?url";
 
+// Group Background Image
+import landingPageFg from "./svgs/landing-page-fg.svg?url";
+import landingPageBg from "./svgs/landing-page-bg.svg?url";
+
 // CTJ Logos
 import LogoHorizontal from "./svgs/logo-horizontal.svg";
 import LogoHorizontalOnDark from "./svgs/logo-horizontal-on-dark.svg";
@@ -38,10 +42,6 @@ import logoStackedOnDark from "./svgs/logo-stacked-on-dark.svg?url";
 import logoType from "./svgs/logo-logotype.svg?url";
 import logoVertical from "./svgs/logo-vertical.svg?url";
 import logoWordmark from "./svgs/logo-wordmark.svg?url";
-
-// Group Background Image
-import landingPageFg from "./svgs/landing-page-fg.svg?url";
-import landingPageBg from "./svgs/landing-page-bg.svg?url";
 
 export {
   // COP Icons
