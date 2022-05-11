@@ -27,7 +27,7 @@ function LandingPageCop() {
   }
 
   return (
-    <div className="flex-container align-center justify-center my-5">
+    <div className="flex-container align-center justify-center py-5">
       <div className="title-2 col-12 text-center my-4">
         Communities of Practice (COP)
       </div>
@@ -76,7 +76,7 @@ function LandingPageCop() {
           onClick={() => setIsDialogOpen(false)}
         >
           <div className="flex-container">
-            <nav className="flex-container col-3 landing-inner-cop-nav">
+            <nav className="flex-column col-3 landing-inner-cop-nav">
               {copData.map((cop) => {
                 const isActive = cop.id == currentDatum.id;
                 return (
