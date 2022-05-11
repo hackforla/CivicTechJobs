@@ -1,3 +1,5 @@
+import React from "react";
+
 // COP Icons
 import CopIconData from "./svgs/cop-icon-datascience.svg";
 import CopIconEngineering from "./svgs/cop-icon-engineering.svg";
@@ -31,7 +33,7 @@ import LogoMark from "./svgs/logo-logomark.svg";
 import LogoStacked from "./svgs/logo-stacked.svg";
 import LogoStackedOnDark from "./svgs/logo-stacked-on-dark.svg";
 import LogoType from "./svgs/logo-logotype.svg";
-import LogoVertical from "./svgs/logo-vertical.svg";
+import LogoVerticalP from "./svgs/logo-vertical.svg";
 import LogoWordmark from "./svgs/logo-wordmark.svg";
 
 import logoHorizontal from "./svgs/logo-horizontal.svg?url";
@@ -42,6 +44,17 @@ import logoStackedOnDark from "./svgs/logo-stacked-on-dark.svg?url";
 import logoType from "./svgs/logo-logotype.svg?url";
 import logoVertical from "./svgs/logo-vertical.svg?url";
 import logoWordmark from "./svgs/logo-wordmark.svg?url";
+
+function svgWrapper(Svg, defaultProps) {
+  return (props) => {
+    return <Svg {...defaultProps} {...props}></Svg>;
+  };
+}
+
+const LogoVertical = svgWrapper(LogoVerticalP, {
+  title: "Civic Tech Jobs Logo",
+  titleId: "ctj-logo-vertical",
+});
 
 export {
   // COP Icons
