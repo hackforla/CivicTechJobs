@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'frontend',
 ]
 
-MIDDLEWARE = [
+COMMON_MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -53,6 +53,19 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+DEV_MIDDLEWARE = []
+
+STAGE_MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+]
+
+environ = os.environ.get("ENVIRON", 'dev')
+
+if environ == 'dev':
+    MIDDLEWARE = COMMON_MIDDLEWARE + DEV_MIDDLEWARE
+elif environ == 'stage':
+    MIDDLEWARE = COMMON_MIDDLEWARE + STAGE_MIDDLEWARE
 
 ROOT_URLCONF = 'config.urls'
 
