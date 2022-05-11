@@ -2,15 +2,21 @@
 @use "components/Buttons" as *;
 
 .landing-container {
-  margin-top: 84px;
-  flex-direction: column;
-
+  background-image: url("assets/images/svgs/landing-page-fg.svg"),
+    url("assets/images/svgs/landing-page-bg.svg");
+  background-position: bottom;
+  background-repeat: no-repeat;
   @include breakpoint-media-max("smtablet") {
     margin-top: 48px;
   }
 }
 
-.landing-header-title {
+.landing-intro-container {
+  flex-direction: column;
+  margin-bottom: 704px;
+}
+
+.landing-intro-title {
   max-width: 800px;
 
   @include breakpoint-media-max("smtablet") {
@@ -18,7 +24,7 @@
   }
 }
 
-.landing-head-paragraph {
+.landing-intro-paragraph {
   max-width: 705px;
 
   @include breakpoint-media-max("smtablet") {
@@ -26,7 +32,7 @@
   }
 }
 
-.landing-action-btn {
+.landing-intro-btn {
   @include button-responsive("smtablet", "md");
 }
 
@@ -37,6 +43,12 @@
   @include breakpoint-media-max("smtablet") {
     display: inline-block;
   }
+}
+
+.landing-mission-container {
+  background-color: $color-tan-light;
+  flex-direction: column;
+  width: 100%;
 }
 
 .landing-mission-title {

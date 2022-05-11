@@ -27,7 +27,7 @@ function LandingPageCop() {
   }
 
   return (
-    <div className="flex-container align-center justify-center my-5">
+    <div className="flex-container align-center justify-center py-5">
       <div className="title-2 col-12 text-center my-4">
         Communities of Practice (COP)
       </div>
