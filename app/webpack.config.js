@@ -48,7 +48,16 @@ module.exports = {
           },
           {
             issuer: /\.[jt]sx?$/,
-            use: ["@svgr/webpack"],
+            resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
+            use: [
+              {
+                loader: "@svgr/webpack",
+                options: {
+                  titleProp: true,
+                  svgoConfig: { removeTitle: false, removeDesc: false },
+                },
+              },
+            ],
           },
         ],
       },

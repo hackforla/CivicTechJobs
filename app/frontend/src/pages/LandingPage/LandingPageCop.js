@@ -52,7 +52,7 @@ function LandingPageCop() {
             >
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <div className="pb-3 row justify-center">
-                  <cop.icon strokeWidth="0.2" height="65" />
+                  <cop.icon strokeWidth="0.2" height="65" aria-hidden="true" />
                 </div>
                 <div className="title-4 landing-cop-circle-title text-center">
                   {cop.title}
@@ -93,6 +93,7 @@ function LandingPageCop() {
                         strokeWidth="0.2"
                         height="24"
                         width="24"
+                        aria-hidden="true"
                       />
                     </div>
                     <span className="title-6 landing-cop-nav-title">
@@ -114,6 +115,7 @@ function LandingPageCop() {
                           strokeWidth="0.2"
                           height="50"
                           width="50"
+                          aria-hidden="true"
                         />
                       )}
                     </div>
