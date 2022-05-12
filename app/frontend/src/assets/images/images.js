@@ -1,11 +1,11 @@
 import React from "react";
 
 // COP Icons
-import CopIconData from "./svgs/cop-icon-datascience.svg";
-import CopIconEngineering from "./svgs/cop-icon-engineering.svg";
-import CopIconOps from "./svgs/cop-icon-ops.svg";
-import CopIconProduct from "./svgs/cop-icon-product.svg";
-import CopIconUiux from "./svgs/cop-icon-uiux.svg";
+import CopIconDataP from "./svgs/cop-icon-datascience.svg";
+import CopIconEngineeringP from "./svgs/cop-icon-engineering.svg";
+import CopIconOpsP from "./svgs/cop-icon-ops.svg";
+import CopIconProductP from "./svgs/cop-icon-product.svg";
+import CopIconUiuxP from "./svgs/cop-icon-uiux.svg";
 
 import copIconData from "./svgs/cop-icon-datascience.svg?url";
 import copIconEngineering from "./svgs/cop-icon-engineering.svg?url";
@@ -27,14 +27,14 @@ import landingPageFg from "./svgs/landing-page-fg.svg?url";
 import landingPageBg from "./svgs/landing-page-bg.svg?url";
 
 // CTJ Logos
-import LogoHorizontal from "./svgs/logo-horizontal.svg";
-import LogoHorizontalOnDark from "./svgs/logo-horizontal-on-dark.svg";
-import LogoMark from "./svgs/logo-logomark.svg";
-import LogoStacked from "./svgs/logo-stacked.svg";
-import LogoStackedOnDark from "./svgs/logo-stacked-on-dark.svg";
-import LogoType from "./svgs/logo-logotype.svg";
+import LogoHorizontalP from "./svgs/logo-horizontal.svg";
+import LogoHorizontalOnDarkP from "./svgs/logo-horizontal-on-dark.svg";
+import LogoMarkP from "./svgs/logo-logomark.svg";
+import LogoStackedP from "./svgs/logo-stacked.svg";
+import LogoStackedOnDarkP from "./svgs/logo-stacked-on-dark.svg";
+import LogoTypeP from "./svgs/logo-logotype.svg";
 import LogoVerticalP from "./svgs/logo-vertical.svg";
-import LogoWordmark from "./svgs/logo-wordmark.svg";
+import LogoWordmarkP from "./svgs/logo-wordmark.svg";
 
 import logoHorizontal from "./svgs/logo-horizontal.svg?url";
 import logoHorizontalOnDark from "./svgs/logo-horizontal-on-dark.svg?url";
@@ -45,15 +45,85 @@ import logoType from "./svgs/logo-logotype.svg?url";
 import logoVertical from "./svgs/logo-vertical.svg?url";
 import logoWordmark from "./svgs/logo-wordmark.svg?url";
 
+/**
+ * A wrapper that pre-adds certain attributes to svgs that does not need to be customized
+ * @param {*} Svg an svg component as rendered by svgr
+ * @param {*} defaultProps an object containing the attributes to add
+ * @returns a wrapped component
+ */
 function svgWrapper(Svg, defaultProps) {
   return (props) => {
     return <Svg {...defaultProps} {...props}></Svg>;
   };
 }
 
+// COP Icons
+const CopIconData = svgWrapper(CopIconDataP, {
+  title: "Data Science Community of Practice Logo",
+  titleId: "data-cop-logo",
+});
+
+const CopIconEngineering = svgWrapper(CopIconEngineeringP, {
+  title: "Engineering Community of Practice Logo",
+  titleId: "eng-cop-logo",
+});
+
+const CopIconOps = svgWrapper(CopIconOpsP, {
+  title: "Ops Community of Practice Logo",
+  titleId: "ops-cop-logo",
+});
+
+const CopIconProduct = svgWrapper(CopIconProductP, {
+  title: "Product Management Community of Practice Logo",
+  titleId: "prod-cop-logo",
+});
+
+const CopIconUiux = svgWrapper(CopIconUiuxP, {
+  title: "UI/UX Community of Practice Logo",
+  titleId: "uiux-cop-logo",
+});
+
+// CTJ Logos
+const ctjLogoTitle = "Civic Tech Jobs Logo";
+
+const LogoHorizontal = svgWrapper(LogoHorizontalP, {
+  title: ctjLogoTitle,
+  titleId: "ctj-logo-horizontal",
+});
+
+const LogoHorizontalOnDark = svgWrapper(LogoHorizontalOnDarkP, {
+  title: ctjLogoTitle,
+  titleId: "ctj-logo-horizontal-dark",
+});
+
+const LogoMark = svgWrapper(LogoMarkP, {
+  title: ctjLogoTitle,
+  titleId: "ctj-logo-mark",
+});
+
+const LogoStacked = svgWrapper(LogoStackedP, {
+  title: ctjLogoTitle,
+  titleId: "ctj-logo-stacked",
+});
+
+const LogoStackedOnDark = svgWrapper(LogoStackedOnDarkP, {
+  title: ctjLogoTitle,
+  titleId: "ctj-logo-stacked-dark",
+});
+
+const LogoType = svgWrapper(LogoTypeP, {
+  title: ctjLogoTitle,
+  titleId: "ctj-logo-type",
+});
+
 const LogoVertical = svgWrapper(LogoVerticalP, {
-  title: "Civic Tech Jobs Logo",
+  title: ctjLogoTitle,
   titleId: "ctj-logo-vertical",
+});
+
+const LogoWordmark = svgWrapper(LogoWordmarkP, {
+  title: ctjLogoTitle,
+  titleId: "ctj-logo-workmark",
 });
 
 export {
