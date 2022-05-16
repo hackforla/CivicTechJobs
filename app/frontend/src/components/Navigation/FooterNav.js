@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 // Internal imports
 import { Button } from "../Buttons/Button";
 
-const FooterNav = ({ menu, logoDesktop, logoMobile }) => {
+function FooterNav({ menu, logoDesktop, logoMobile }) {
   const Logo = () => {
     return (
       <div className="footer-icons-on-dark">
@@ -50,7 +50,7 @@ const FooterNav = ({ menu, logoDesktop, logoMobile }) => {
       </div>
     </footer>
   );
-};
+}
 
 FooterNav.propTypes = {
   logoDesktop: PropTypes.string.isRequired,
