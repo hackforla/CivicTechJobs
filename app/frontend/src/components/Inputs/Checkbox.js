@@ -1,11 +1,18 @@
 // Eternal Imports
-import React, { useId } from "react";
+import React, { useEffect, useId, useState } from "react";
 import PropTypes from "prop-types";
 
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
+import { iconCheckboxY, iconCheckboxN } from "assets/images/images";
 
 function Checkbox({ defaultChecked = false, disabled = false, ...props }) {
+  const [isChecked, setIsChecked] = useState();
+
+  useEffect(() => {
+    setIsChecked(defaultChecked);
+  }, [defaultChecked]);
+
   const id = useId();
 
   return (
@@ -14,7 +21,6 @@ function Checkbox({ defaultChecked = false, disabled = false, ...props }) {
         className={combineClasses("checkbox", props.addClass)}
         id={id}
         type="checkbox"
-        checked={props.checked}
         defaultChecked={defaultChecked}
         disabled={disabled}
         onChange={props.onChange}
@@ -24,6 +30,7 @@ function Checkbox({ defaultChecked = false, disabled = false, ...props }) {
         {" "}
         {props.label}
       </label>
+      <img src={iconCheckboxN} />
     </div>
   );
 }
