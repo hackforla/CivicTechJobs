@@ -1,17 +1,17 @@
 import React from "react";
 
 // COP Icons
-import CopIconDataP from "./svgs/cop-icon-datascience.svg";
-import CopIconEngineeringP from "./svgs/cop-icon-engineering.svg";
-import CopIconOpsP from "./svgs/cop-icon-ops.svg";
-import CopIconProductP from "./svgs/cop-icon-product.svg";
-import CopIconUiuxP from "./svgs/cop-icon-uiux.svg";
+import CopIconDataP from "./svgs/communities-of-practice/cop-icon-datascience.svg";
+import CopIconEngineeringP from "./svgs/communities-of-practice/cop-icon-engineering.svg";
+import CopIconOpsP from "./svgs/communities-of-practice/cop-icon-ops.svg";
+import CopIconProductP from "./svgs/communities-of-practice/cop-icon-product.svg";
+import CopIconUiuxP from "./svgs/communities-of-practice/cop-icon-uiux.svg";
 
-import copIconData from "./svgs/cop-icon-datascience.svg?url";
-import copIconEngineering from "./svgs/cop-icon-engineering.svg?url";
-import copIconOps from "./svgs/cop-icon-ops.svg?url";
-import copIconProduct from "./svgs/cop-icon-product.svg?url";
-import copIconUiux from "./svgs/cop-icon-uiux.svg?url";
+import copIconData from "./svgs/communities-of-practice/cop-icon-datascience.svg?url";
+import copIconEngineering from "./svgs/communities-of-practice/cop-icon-engineering.svg?url";
+import copIconOps from "./svgs/communities-of-practice/cop-icon-ops.svg?url";
+import copIconProduct from "./svgs/communities-of-practice/cop-icon-product.svg?url";
+import copIconUiux from "./svgs/communities-of-practice/cop-icon-uiux.svg?url";
 
 // Icons
 import IconDownArrow from "./svgs/icon-down-arrow.svg";
@@ -27,23 +27,23 @@ import landingPageFg from "./svgs/landing-page-fg.svg?url";
 import landingPageBg from "./svgs/landing-page-bg.svg?url";
 
 // CTJ Logos
-import LogoHorizontalP from "./svgs/logo-horizontal.svg";
-import LogoHorizontalOnDarkP from "./svgs/logo-horizontal-on-dark.svg";
-import LogoMarkP from "./svgs/logo-logomark.svg";
-import LogoStackedP from "./svgs/logo-stacked.svg";
-import LogoStackedOnDarkP from "./svgs/logo-stacked-on-dark.svg";
-import LogoTypeP from "./svgs/logo-logotype.svg";
-import LogoVerticalP from "./svgs/logo-vertical.svg";
-import LogoWordmarkP from "./svgs/logo-wordmark.svg";
+import LogoHorizontalP from "./svgs/logos/logo-horizontal.svg";
+import LogoHorizontalOnDarkP from "./svgs/logos/logo-horizontal-on-dark.svg";
+import LogoMarkP from "./svgs/logos/logo-logomark.svg";
+import LogoStackedP from "./svgs/logos/logo-stacked.svg";
+import LogoStackedOnDarkP from "./svgs/logos/logo-stacked-on-dark.svg";
+import LogoTypeP from "./svgs/logos/logo-logotype.svg";
+import LogoVerticalP from "./svgs/logos/logo-vertical.svg";
+import LogoWordmarkP from "./svgs/logos/logo-wordmark.svg";
 
-import logoHorizontal from "./svgs/logo-horizontal.svg?url";
-import logoHorizontalOnDark from "./svgs/logo-horizontal-on-dark.svg?url";
-import logoMark from "./svgs/logo-logomark.svg?url";
-import logoStacked from "./svgs/logo-stacked.svg?url";
-import logoStackedOnDark from "./svgs/logo-stacked-on-dark.svg?url";
-import logoType from "./svgs/logo-logotype.svg?url";
-import logoVertical from "./svgs/logo-vertical.svg?url";
-import logoWordmark from "./svgs/logo-wordmark.svg?url";
+import logoHorizontal from "./svgs/logos/logo-horizontal.svg?url";
+import logoHorizontalOnDark from "./svgs/logos/logo-horizontal-on-dark.svg?url";
+import logoMark from "./svgs/logos/logo-logomark.svg?url";
+import logoStacked from "./svgs/logos/logo-stacked.svg?url";
+import logoStackedOnDark from "./svgs/logos/logo-stacked-on-dark.svg?url";
+import logoType from "./svgs/logos/logo-logotype.svg?url";
+import logoVertical from "./svgs/logos/logo-vertical.svg?url";
+import logoWordmark from "./svgs/logos/logo-wordmark.svg?url";
 
 /**
  * A wrapper that pre-adds certain attributes to svgs that does not need to be customized
