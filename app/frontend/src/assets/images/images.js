@@ -14,13 +14,17 @@ import copIconProduct from "./svgs/communities-of-practice/cop-icon-product.svg?
 import copIconUiux from "./svgs/communities-of-practice/cop-icon-uiux.svg?url";
 
 // Icons
-import IconDownArrow from "./svgs/icon-down-arrow.svg";
-import IconHamburgerMenu from "./svgs/icon-hamburger-menu.svg";
-import IconX from "./svgs/icon-x.svg";
+import IconDownArrow from "./svgs/icons/icon-down-arrow.svg";
+import IconHamburgerMenu from "./svgs/icons/icon-hamburger-menu.svg";
+import IconX from "./svgs/icons/icon-x.svg";
+import IconCheckboxY from "./svgs/icons/icon-checkbox-yes.svg";
+import IconCheckboxN from "./svgs/icons/icon-checkbox-no.svg";
 
-import iconDownArrow from "./svgs/icon-down-arrow.svg?url";
-import iconHamburgerMenu from "./svgs/icon-hamburger-menu.svg?url";
-import iconX from "./svgs/icon-x.svg?url";
+import iconDownArrow from "./svgs/icons/icon-down-arrow.svg?url";
+import iconHamburgerMenu from "./svgs/icons/icon-hamburger-menu.svg?url";
+import iconX from "./svgs/icons/icon-x.svg?url";
+import iconCheckboxY from "./svgs/icons/icon-checkbox-yes.svg?url";
+import iconCheckboxN from "./svgs/icons/icon-checkbox-no.svg?url";
 
 // Group Background Image
 import landingPageFg from "./svgs/landing-page-fg.svg?url";
@@ -142,9 +146,13 @@ export {
   IconDownArrow,
   IconHamburgerMenu,
   IconX,
+  IconCheckboxY,
+  IconCheckboxN,
   iconDownArrow,
   iconHamburgerMenu,
   iconX,
+  iconCheckboxY,
+  iconCheckboxN,
   // CTJ Logos
   LogoHorizontal,
   LogoHorizontalOnDark,
