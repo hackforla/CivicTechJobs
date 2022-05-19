@@ -6,9 +6,9 @@ Fixes #
 
 ### Changes
 
-- 
-- 
-- 
+-
+-
+-
 
 <!-- Please ignore everything below until #78 closes. -->
 
@@ -24,4 +24,3 @@ Fixes #
   <br>
 </details>
 -->
-    

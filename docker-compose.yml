@@ -10,7 +10,7 @@ services:
       - ./dev/dev.env
 
   django:
-    build: 
+    build:
       context: ./app
       dockerfile: ../dev/django.dockerfile
     container_name: django

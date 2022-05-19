@@ -12,7 +12,7 @@ The formatting of links can make them readable or unreadable by screen readers. 
 
 ### Action Items
 *If your site already has links* review the instructions and document the changes needed to bring your link(s) into WCAG compliance, by commenting on this issue.
-*If your site does not have links yet* review the instructions and design all new links using the WCAG standards. 
+*If your site does not have links yet* review the instructions and design all new links using the WCAG standards.
 
 ### Instructions
 Deque University
