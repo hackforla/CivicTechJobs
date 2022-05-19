@@ -9,7 +9,6 @@ function Demo() {
       <h1>
         Hello World! Feel free to use this page as a playground to test code!
       </h1>
-      <div className="checkbox">words</div>
       <Checkbox label={"Enabled selected"} defaultChecked />
       <Checkbox label={"Enabled unselected"} />
       <Checkbox label={"Disabled selected"} defaultChecked disabled />

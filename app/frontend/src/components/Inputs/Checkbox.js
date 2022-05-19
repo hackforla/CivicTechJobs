@@ -1,5 +1,5 @@
 // Eternal Imports
-import React, { useEffect, useId, useState } from "react";
+import React, { useEffect, useId, useRef, useState } from "react";
 import PropTypes from "prop-types";
 
 // Internal Imports
@@ -21,6 +21,7 @@ function Checkbox({
   const enabledYColor = "#3450A1";
   const enabledNColor = "#585858";
   const id = useId();
+  const checkboxRef = useRef();
   const [isChecked, setIsChecked] = useState();
 
   useEffect(() => {
@@ -28,22 +29,38 @@ function Checkbox({
   }, [defaultChecked]);
 
   function handleChange(e) {
+    console.log("changed now, did you clcik the svg");
     setIsChecked(e.target.checked);
     if (props.onChange) {
       props.onChange(e);
     }
   }
 
+  function handleClick(e) {
+    if (!disabled) {
+      setIsChecked(!isChecked);
+    }
+    if (props.onClick) {
+      props.onClick(e);
+    }
+  }
+
   return (
-    <div className="flex-container align-center">
+    <div
+      className={combineClasses(
+        "flex-container align-center checkbox",
+        props.addClass
+      )}
+      onClick={handleClick}
+    >
       <input
-        className={combineClasses("checkbox", props.addClass)}
+        className={combineClasses("", props.addClass)}
         id={id}
         type="checkbox"
         defaultChecked={defaultChecked}
         disabled={disabled}
         onChange={handleChange}
-        onClick={props.onClick}
+        ref={checkboxRef}
       ></input>
       {isChecked ? (
         <IconCheckboxY
