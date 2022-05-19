@@ -4,5 +4,8 @@
 *** Classes for Checkbox ***
 ***************************/
 .checkbox {
-  border-radius: 50% 50%;
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+  width: fit-content;
 }

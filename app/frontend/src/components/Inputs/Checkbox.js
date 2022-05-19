@@ -22,15 +22,13 @@ function Checkbox({
   const enabledNColor = "#585858";
   const id = useId();
   const checkboxRef = useRef();
-  const [isChecked, setIsChecked] = useState();
+  const [isChecked, setIsChecked] = useState(defaultChecked);
 
   useEffect(() => {
-    setIsChecked(defaultChecked);
-  }, [defaultChecked]);
+    checkboxRef.current.checked = isChecked;
+  }, [isChecked]);
 
   function handleChange(e) {
-    console.log("changed now, did you clcik the svg");
-    setIsChecked(e.target.checked);
     if (props.onChange) {
       props.onChange(e);
     }
@@ -47,14 +45,11 @@ function Checkbox({
 
   return (
     <div
-      className={combineClasses(
-        "flex-container align-center checkbox",
-        props.addClass
-      )}
+      className={combineClasses("checkbox", props.addClass)}
       onClick={handleClick}
     >
       <input
-        className={combineClasses("", props.addClass)}
+        className={combineClasses("hidden", props.addClass)}
         id={id}
         type="checkbox"
         defaultChecked={defaultChecked}
@@ -81,6 +76,9 @@ function Checkbox({
       <label
         className={combineClasses(props.labelHidden && "hidden")}
         htmlFor={id}
+        onClick={(e) => {
+          e.preventDefault();
+        }}
       >
         {" "}
         {props.label}
