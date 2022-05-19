@@ -1,6 +1,7 @@
 // Eternal Imports
 import React, { useEffect, useId, useRef, useState } from "react";
 import PropTypes from "prop-types";
+import { CSSTransition } from "react-transition-group";
 
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
@@ -26,13 +27,10 @@ function Checkbox({
 
   useEffect(() => {
     checkboxRef.current.checked = isChecked;
-  }, [isChecked]);
-
-  function handleChange(e) {
     if (props.onChange) {
       props.onChange(e);
     }
-  }
+  }, [isChecked]);
 
   function handleClick(e) {
     if (!disabled) {
@@ -54,25 +52,27 @@ function Checkbox({
         type="checkbox"
         defaultChecked={defaultChecked}
         disabled={disabled}
-        onChange={handleChange}
         ref={checkboxRef}
       ></input>
-      {isChecked ? (
-        <IconCheckboxY
-          height="24"
-          width="24"
-          fill={disabled ? disabledColor : enabledYColor}
-          stroke={disabled ? disabledColor : enabledYColor}
-          viewBox="0 0 24 24"
-        />
-      ) : (
-        <IconCheckboxN
-          height="24"
-          width="24"
-          stroke={disabled ? disabledColor : enabledNColor}
-          viewBox="0 0 24 24"
-        />
-      )}
+      <span className="checkbox-icon">
+        {isChecked ? (
+          <IconCheckboxY
+            height="24"
+            width="24"
+            fill={disabled ? disabledColor : enabledYColor}
+            stroke={disabled ? disabledColor : enabledYColor}
+            viewBox="0 0 24 24"
+          />
+        ) : (
+          <IconCheckboxN
+            height="24"
+            width="24"
+            fill="#fff"
+            stroke={disabled ? disabledColor : enabledNColor}
+            viewBox="0 0 24 24"
+          />
+        )}
+      </span>
       <label
         className={combineClasses(props.labelHidden && "hidden")}
         htmlFor={id}
