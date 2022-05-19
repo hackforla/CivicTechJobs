@@ -22,7 +22,7 @@
   width: 40px;
 }
 
-.checkbox-icon:hover {
+.checkbox-icon:not(.checkbox-icon-disabled):hover {
   background-color: color.change($color-blue-dark, $alpha: 0.16);
 }
 
