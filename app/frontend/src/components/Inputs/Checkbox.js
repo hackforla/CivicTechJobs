@@ -4,33 +4,70 @@ import PropTypes from "prop-types";
 
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
-import { iconCheckboxY, iconCheckboxN } from "assets/images/images";
+import { IconCheckboxY, IconCheckboxN } from "assets/images/images";
 
-function Checkbox({ defaultChecked = false, disabled = false, ...props }) {
+function Checkbox({
+  defaultChecked = false,
+  disabled = false,
+  labelHidden = false,
+  ...props
+}) {
+  /* Notes on when to use color
+  disabledColor: use this for stroke and fill for Y and stroke only for N
+  enabledYColor: use this for stroke and fill for Y
+  enabledNColor: use this for stroke only N
+  */
+  const disabledColor = "#C1C1C1";
+  const enabledYColor = "#3450A1";
+  const enabledNColor = "#585858";
+  const id = useId();
   const [isChecked, setIsChecked] = useState();
 
   useEffect(() => {
     setIsChecked(defaultChecked);
   }, [defaultChecked]);
 
-  const id = useId();
+  function handleChange(e) {
+    setIsChecked(e.target.checked);
+    if (props.onChange) {
+      props.onChange(e);
+    }
+  }
 
   return (
-    <div>
+    <div className="flex-container align-center">
       <input
         className={combineClasses("checkbox", props.addClass)}
         id={id}
         type="checkbox"
         defaultChecked={defaultChecked}
         disabled={disabled}
-        onChange={props.onChange}
+        onChange={handleChange}
         onClick={props.onClick}
       ></input>
-      <label className={combineClasses(!props.label && "hidden")} htmlFor={id}>
+      {isChecked ? (
+        <IconCheckboxY
+          height="24"
+          width="24"
+          fill={disabled ? disabledColor : enabledYColor}
+          stroke={disabled ? disabledColor : enabledYColor}
+          viewBox="0 0 24 24"
+        />
+      ) : (
+        <IconCheckboxN
+          height="24"
+          width="24"
+          stroke={disabled ? disabledColor : enabledNColor}
+          viewBox="0 0 24 24"
+        />
+      )}
+      <label
+        className={combineClasses(props.labelHidden && "hidden")}
+        htmlFor={id}
+      >
         {" "}
         {props.label}
       </label>
-      <img src={iconCheckboxN} />
     </div>
   );
 }
@@ -40,7 +77,8 @@ Checkbox.propTypes = {
   addClass: PropTypes.string,
   defaultChecked: PropTypes.bool,
   disabled: PropTypes.bool,
-  label: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  labelHidden: PropTypes.bool,
   onChange: PropTypes.func,
   onClick: PropTypes.func,
 };
