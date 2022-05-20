@@ -49,7 +49,7 @@ function Checkbox({
       className={combineClasses("checkbox", props.addClass)}
       onClick={handleClick}
       onKeyDown={onKey(handleClick, "Enter")}
-      role="checkbox"
+      //TODO set a role but not checkbox, since it is a bit of a misnomer, and this should not be tabable
     >
       <input
         className={combineClasses("checkbox-input", "hidden", props.addClass)}
