@@ -22,22 +22,20 @@
   width: 40px;
 }
 
-.checkbox-icon:not(.checkbox-icon-disabled):hover {
-  background-color: color.change($color-blue-dark, $alpha: 0.16);
+.checkbox-icon:not(.checkbox-disabled) {
+  &:hover,
+  &:focus {
+    background-color: color.change($color-blue-dark, $alpha: 0.16);
+  }
 }
 
-.checkbox-icon-enter {
-  background-color: pink;
-}
-
-.checkbox-icon-enter-active {
-  background-color: pink;
-}
-
+.checkbox-icon-enter,
 .checkbox-icon-exit {
-  background-color: pink;
+  background-color: color.change($color-blue-dark, $alpha: 0.32) !important;
 }
 
+.checkbox-icon-enter-active,
 .checkbox-icon-exit-active {
-  background-color: pink;
+  background-color: color.change($color-blue-dark, $alpha: 0.16) !important;
+  transition: background-color 300ms;
 }

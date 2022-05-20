@@ -21,8 +21,11 @@ function Checkbox({
   const disabledColor = "#C1C1C1";
   const enabledYColor = "#3450A1";
   const enabledNColor = "#585858";
-  const id = useId();
-  const checkboxRef = useRef();
+  const checkboxId = useId();
+  const iconId = useId();
+  const checkboxRef = useRef(null);
+  const nodeRef = useRef(null);
+
   const [isChecked, setIsChecked] = useState(defaultChecked);
 
   useEffect(() => {
@@ -47,43 +50,55 @@ function Checkbox({
       onClick={handleClick}
       onKeyDown={onKey(handleClick, "Enter")}
       role="checkbox"
-      tabIndex="0"
     >
       <input
-        className={combineClasses("hidden", props.addClass)}
-        id={id}
+        className={combineClasses("checkbox-input", "hidden", props.addClass)}
+        id={checkboxId}
         type="checkbox"
         defaultChecked={defaultChecked}
         disabled={disabled}
         ref={checkboxRef}
       ></input>
-      <span
-        className={combineClasses(
-          "checkbox-icon",
-          disabled && "checkbox-icon-disabled"
-        )}
+      <CSSTransition
+        in={isChecked}
+        classNames="checkbox-icon"
+        timeout={300}
+        nodeRef={nodeRef}
       >
-        {isChecked ? (
-          <IconCheckboxY
-            height="24"
-            width="24"
-            fill={disabled ? disabledColor : enabledYColor}
-            stroke={disabled ? disabledColor : enabledYColor}
-            viewBox="0 0 24 24"
-          />
-        ) : (
-          <IconCheckboxN
-            height="24"
-            width="24"
-            fill="#fff"
-            stroke={disabled ? disabledColor : enabledNColor}
-            viewBox="0 0 24 24"
-          />
-        )}
-      </span>
+        <span
+          className={combineClasses(
+            "checkbox-icon",
+            disabled && "checkbox-disabled"
+          )}
+          ref={nodeRef}
+          role="checkbox"
+          tabIndex="0"
+          aria-checked={isChecked ? "true" : "false"}
+          aria-labelledby={iconId}
+        >
+          {isChecked ? (
+            <IconCheckboxY
+              height="24"
+              width="24"
+              fill={disabled ? disabledColor : enabledYColor}
+              stroke={disabled ? disabledColor : enabledYColor}
+              viewBox="0 0 24 24"
+            />
+          ) : (
+            <IconCheckboxN
+              height="24"
+              width="24"
+              fill="#fff"
+              stroke={disabled ? disabledColor : enabledNColor}
+              viewBox="0 0 24 24"
+            />
+          )}
+        </span>
+      </CSSTransition>
       <label
         className={combineClasses(props.labelHidden && "hidden")}
-        htmlFor={id}
+        htmlFor={checkboxId}
+        id={iconId}
         onClick={(e) => {
           e.preventDefault();
         }}
