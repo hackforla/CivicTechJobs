@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { CSSTransition } from "react-transition-group";
 
 // Internal Imports
-import { combineClasses, onKey } from "../Utility/utils";
+import { combineClasses } from "../Utility/utils";
 import { IconCheckboxY, IconCheckboxN } from "assets/images/images";
 
 function Checkbox({
@@ -53,12 +53,8 @@ function Checkbox({
         disabled={disabled}
         ref={checkboxRef}
         onChange={handleChange}
-        onKeyDown={onKey(handleChange, "Enter")}
       ></input>
-      <label
-        className={combineClasses("checkbox-label", labelHidden && "sr-only")}
-        htmlFor={checkboxId}
-      >
+      <label className="checkbox-label" htmlFor={checkboxId}>
         <CSSTransition
           in={isChecked}
           classNames="checkbox-icon"
@@ -93,7 +89,9 @@ function Checkbox({
             )}
           </span>
         </CSSTransition>
-        {props.label}
+        <span className={combineClasses(labelHidden && "sr-only")}>
+          {props.label}
+        </span>
       </label>
     </div>
   );
