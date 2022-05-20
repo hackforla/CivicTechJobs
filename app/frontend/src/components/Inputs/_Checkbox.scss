@@ -8,22 +8,20 @@
 *** Classes for checkbox ***
 ***************************/
 .checkbox {
-  align-items: center;
-  display: flex;
   width: fit-content;
 }
 
 .checkbox-icon {
   align-items: center;
   border-radius: 50%;
-  display: flex;
+  display: inline-flex;
   height: 40px;
   justify-content: center;
   width: 40px;
 }
 
 .checkbox-icon:not(.checkbox-disabled) {
-  .checkbox-input:focus + &,
+  .checkbox-input:focus + .checkbox-label > &,
   &:hover,
   &:focus {
     background-color: color.change($color-blue-dark, $alpha: 0.16);
@@ -42,5 +40,7 @@
 }
 
 .checkbox-label {
+  align-items: center;
+  display: flex;
   user-select: none;
 }
