@@ -34,10 +34,9 @@ function Checkbox({
     }
   }, [isChecked]);
 
-  function handleClick(e) {
-    e.preventDefault();
+  function handleChange(e) {
     if (!disabled) {
-      setIsChecked(!isChecked);
+      setIsChecked(e.target.checked);
     }
     if (props.onClick) {
       props.onClick(e);
@@ -53,12 +52,12 @@ function Checkbox({
         defaultChecked={defaultChecked}
         disabled={disabled}
         ref={checkboxRef}
-        onKeyDown={onKey(handleClick, "Enter")}
+        onChange={handleChange}
+        onKeyDown={onKey(handleChange, "Enter")}
       ></input>
       <label
         className={combineClasses("checkbox-label", labelHidden && "sr-only")}
         htmlFor={checkboxId}
-        onClick={handleClick}
       >
         <CSSTransition
           in={isChecked}
