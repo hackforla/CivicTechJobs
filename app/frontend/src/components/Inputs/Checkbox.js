@@ -22,7 +22,6 @@ function Checkbox({
   const enabledYColor = "#3450A1";
   const enabledNColor = "#585858";
   const checkboxId = useId();
-  const iconId = useId();
   const checkboxRef = useRef(null);
   const nodeRef = useRef(null);
 
@@ -49,10 +48,9 @@ function Checkbox({
       className={combineClasses("checkbox", props.addClass)}
       onClick={handleClick}
       onKeyDown={onKey(handleClick, "Enter")}
-      //TODO set a role but not checkbox, since it is a bit of a misnomer, and this should not be tabable
     >
       <input
-        className={combineClasses("checkbox-input", "hidden", props.addClass)}
+        className={combineClasses("checkbox-input", "sr-only", props.addClass)}
         id={checkboxId}
         type="checkbox"
         defaultChecked={defaultChecked}
@@ -71,10 +69,6 @@ function Checkbox({
             disabled && "checkbox-disabled"
           )}
           ref={nodeRef}
-          role="checkbox"
-          tabIndex="0"
-          aria-checked={isChecked ? "true" : "false"}
-          aria-labelledby={iconId}
         >
           {isChecked ? (
             <IconCheckboxY
@@ -83,6 +77,7 @@ function Checkbox({
               fill={disabled ? disabledColor : enabledYColor}
               stroke={disabled ? disabledColor : enabledYColor}
               viewBox="0 0 24 24"
+              aria-hidden="true"
             />
           ) : (
             <IconCheckboxN
@@ -91,14 +86,14 @@ function Checkbox({
               fill="#fff"
               stroke={disabled ? disabledColor : enabledNColor}
               viewBox="0 0 24 24"
+              aria-hidden="true"
             />
           )}
         </span>
       </CSSTransition>
       <label
-        className={combineClasses(props.labelHidden && "hidden")}
+        className={combineClasses("checkbox-label", labelHidden && "sr-only")}
         htmlFor={checkboxId}
-        id={iconId}
         onClick={(e) => {
           e.preventDefault();
         }}

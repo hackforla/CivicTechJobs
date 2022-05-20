@@ -13,6 +13,7 @@ function Demo() {
       <Checkbox label={"Enabled unselected"} />
       <Checkbox label={"Disabled selected"} defaultChecked disabled />
       <Checkbox label={"Disabled unselected"} disabled />
+      <Checkbox label={"Enabled selected"} defaultChecked labelHidden={true} />
     </div>
   );
 }

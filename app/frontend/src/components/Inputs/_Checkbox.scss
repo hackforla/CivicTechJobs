@@ -23,6 +23,7 @@
 }
 
 .checkbox-icon:not(.checkbox-disabled) {
+  .checkbox-input:focus + &,
   &:hover,
   &:focus {
     background-color: color.change($color-blue-dark, $alpha: 0.16);
@@ -38,4 +39,8 @@
 .checkbox-icon-exit-active {
   background-color: color.change($color-blue-dark, $alpha: 0.16) !important;
   transition: background-color 300ms;
+}
+
+.checkbox-label {
+  user-select: none;
 }
