@@ -23,7 +23,7 @@
 .checkbox-icon:not(.checkbox-disabled) {
   &:hover,
   &:focus,
-  .checkbox-input:focus + .checkbox-label > & {
+  .checkbox-input:focus-visible + .checkbox-label > & {
     background-color: color.change($color-blue-dark, $alpha: 0.16);
   }
 }
