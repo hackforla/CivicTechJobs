@@ -86,7 +86,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: "../../templates/frontend/index.html", //need to go back because will attempt to create file at output
       template: "/frontend/src/templates/index.html",
-      favicon: "./frontend/src/assets/images/svgs/logo-logomark.svg", //adds favicon to website
+      favicon: "./frontend/src/assets/images/svgs/logos/logo-logomark.svg", //adds favicon to website
     }),
     new DefinePlugin({
       "process.env.MODE": JSON.stringify(process.env.MODE),

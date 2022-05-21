@@ -1,0 +1,46 @@
+// External Imports
+@use "sass:color";
+
+// Internal Imports
+@use "../Basics/" as *;
+
+/***************************
+*** Classes for checkbox ***
+***************************/
+.checkbox {
+  width: fit-content;
+}
+
+.checkbox-icon {
+  align-items: center;
+  border-radius: 50%;
+  display: inline-flex;
+  height: 40px;
+  justify-content: center;
+  width: 40px;
+}
+
+.checkbox-icon:not(.checkbox-disabled) {
+  &:hover,
+  &:focus,
+  .checkbox-input:focus-visible + .checkbox-label > & {
+    background-color: color.change($color-blue-dark, $alpha: 0.16);
+  }
+}
+
+.checkbox-icon-enter,
+.checkbox-icon-exit {
+  background-color: color.change($color-blue-dark, $alpha: 0.32) !important;
+}
+
+.checkbox-icon-enter-active,
+.checkbox-icon-exit-active {
+  background-color: color.change($color-blue-dark, $alpha: 0.16) !important;
+  transition: background-color 300ms;
+}
+
+.checkbox-label {
+  align-items: center;
+  display: flex;
+  user-select: none;
+}
