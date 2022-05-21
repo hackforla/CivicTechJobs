@@ -4,6 +4,7 @@ import { CopCard, InnerCopCard, InnerCopNavCard } from "./Cards/Cards";
 import { CircleCard } from "./Cards/CircleCard";
 import { ScrollCarousel } from "./Carousel/ScrollCarousel";
 import { Dialog } from "./Dialog/Dialog";
+import { Checkbox } from "./Inputs/Checkbox";
 import { HeaderNav } from "./Navigation/HeaderNav";
 import { FooterNav } from "./Navigation/FooterNav";
 
@@ -16,6 +17,7 @@ export {
   InnerCopNavCard,
   ScrollCarousel,
   Dialog,
+  Checkbox,
   HeaderNav,
   FooterNav,
 };
