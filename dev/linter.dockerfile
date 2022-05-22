@@ -1,26 +1,29 @@
 FROM alpine:3.15
 
-# install docker
-RUN apk add --update docker openrc
-RUN rc-update add docker boot
+# install dependencies
+RUN apk add --no-cache \
+  bash~=5.1 \
+  docker~=20.10 \
+  git~=2.34 \
+  gcc~=10.3 \
+  libgcc~=10.3 \
+  libstdc++~=10.3 \
+  openrc~=0.44 \
+  python3~=3.9 \
+  python3-dev~=3.9 \
+  musl-dev~=1.2 \
+  py3-pip~=20.3
 
-# install python
+
+# install python dependencies
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED=1
-RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
-RUN apk add --no-cache gcc musl-dev python3-dev
+RUN ln -sf python3 /usr/bin/python
 RUN python -m ensurepip
-RUN pip3 install --no-cache --upgrade pip setuptools
-
-# install git
-RUN apk update
-RUN apk add git
-
-# install bash
-RUN apk add --no-cache bash
-
-# install pre-commit
-RUN pip install pre-commit
+RUN pip3 install --no-cache --no-cache-dir --upgrade \
+  pip==22.1 \
+  pre-commit==2.19 \
+  setuptools==62.3
 
 WORKDIR /src
 ENTRYPOINT ["pre-commit"]
