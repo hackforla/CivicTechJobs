@@ -5,22 +5,31 @@ import { TextField } from "components/components";
 import { IconEyeClose, IconEyeOpen, IconSearch } from "assets/images/images";
 
 function Demo() {
+  function textFieldOnChange(e) {
+    console.log(e.target.value);
+  }
+
+  function checkboxOnChange(e) {
+    console.log(e.target.checked);
+  }
+
   return (
     <div className="flex-column m-5">
       <h1>
         Hello World! Feel free to use this page as a playground to test code!
       </h1>
       <div style={{ width: "440px" }}>
-        <Checkbox label={"Enabled selected"} defaultChecked />
-        <Checkbox label={"Enabled unselected"} />
-        <Checkbox label={"Disabled selected"} defaultChecked disabled />
-        <Checkbox label={"Disabled unselected"} disabled />
+        <Checkbox label="Enabled selected" defaultChecked />
+        <Checkbox label="Enabled unselected" />
+        <Checkbox label="Disabled selected" defaultChecked disabled />
+        <Checkbox label="Disabled unselected" disabled />
         <Checkbox
-          label={"Enabled selected"}
+          label="Enabled selected"
           defaultChecked
           labelHidden={true}
+          onChange={checkboxOnChange}
         />
-        <TextField label="Login" addClass="m-1" />
+        <TextField label="Login" onChange={textFieldOnChange} addClass="m-1" />
         <TextField label="Search" addClass="m-1" icon={IconSearch} />
         <TextField
           label="Password"

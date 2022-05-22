@@ -1,5 +1,5 @@
 // Eternal Imports
-import React, { useEffect, useId, useRef, useState } from "react";
+import React, { useId } from "react";
 import PropTypes from "prop-types";
 
 // Internal Imports
@@ -28,6 +28,9 @@ function TextField({ labelHidden = false, iconPosition = "left", ...props }) {
           className={`textfield-input textfield-input-${
             iconPosition == "left" ? "right" : "left"
           }`}
+          onChange={(e) => {
+            props.onChange(e);
+          }}
         />
         {iconPosition == "right" && props.icon && (
           <span className={`textfield-icon-${iconPosition}`}>
@@ -46,6 +49,7 @@ TextField.propTypes = {
   iconPosition: PropTypes.oneOf(["left", "right"]),
   label: PropTypes.string.isRequired,
   labelHidden: PropTypes.bool,
+  onChange: PropTypes.func,
 };
 
 export { TextField };
