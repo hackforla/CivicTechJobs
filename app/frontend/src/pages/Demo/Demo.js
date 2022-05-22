@@ -29,7 +29,12 @@ function Demo() {
           labelHidden={true}
           onChange={checkboxOnChange}
         />
-        <TextField label="Login" onChange={textFieldOnChange} addClass="m-1" />
+        <TextField
+          label="Login"
+          placeholder="username here"
+          onChange={textFieldOnChange}
+          addClass="m-1"
+        />
         <TextField label="Search" addClass="m-1" icon={IconSearch} />
         <TextField
           label="Password"

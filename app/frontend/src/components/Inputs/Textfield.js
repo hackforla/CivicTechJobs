@@ -31,6 +31,7 @@ function TextField({ labelHidden = false, iconPosition = "left", ...props }) {
           onChange={(e) => {
             props.onChange(e);
           }}
+          placeholder={props.placeholder}
         />
         {iconPosition == "right" && props.icon && (
           <span className={`textfield-icon-${iconPosition}`}>
@@ -50,6 +51,7 @@ TextField.propTypes = {
   label: PropTypes.string.isRequired,
   labelHidden: PropTypes.bool,
   onChange: PropTypes.func,
+  placeholder: PropTypes.string,
 };
 
 export { TextField };
