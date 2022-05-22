@@ -1,7 +1,7 @@
 // External Imports
 import React from "react";
-import { LogoVertical } from "assets/images/images";
 import { Checkbox } from "components/components";
+import { TextField } from "components/components";
 
 function Demo() {
   return (
@@ -14,6 +14,10 @@ function Demo() {
       <Checkbox label={"Disabled selected"} defaultChecked disabled />
       <Checkbox label={"Disabled unselected"} disabled />
       <Checkbox label={"Enabled selected"} defaultChecked labelHidden={true} />
+      <div style={{ width: "440px" }}>
+        <TextField label={"Login"} addClass="m-1" />
+        <TextField label={"Password"} addClass="m-1" />
+      </div>
     </div>
   );
 }

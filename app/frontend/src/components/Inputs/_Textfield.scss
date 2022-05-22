@@ -1,0 +1,23 @@
+// External Imports
+@use "sass:color";
+
+// Internal Imports
+@use "../Basics/" as *;
+
+/****************************
+*** Classes for textfield ***
+****************************/
+
+.textfield-input {
+  background-color: $color-white;
+  border: 1px solid $color-grey;
+  border-radius: 8px;
+  box-sizing: border-box;
+  height: 44px;
+  padding: {
+    bottom: 13px;
+    left: 16px;
+    right: 16px;
+    top: 13px;
+  }
+}
