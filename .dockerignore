@@ -6,5 +6,4 @@ stage
 .gitignore
 **/__pycache__/
 mkdocs/
-**/.venv/
 /.env
