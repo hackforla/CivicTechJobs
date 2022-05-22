@@ -54,20 +54,20 @@ function Checkbox({
         ref={checkboxRef}
         onChange={handleChange}
       ></input>
-      <label className="checkbox-label" htmlFor={checkboxId}>
+      <label
+        className={combineClasses(
+          "checkbox-label",
+          disabled && "checkbox-disabled"
+        )}
+        htmlFor={checkboxId}
+      >
         <CSSTransition
           in={isChecked}
           classNames="checkbox-icon"
           timeout={300}
           nodeRef={nodeRef}
         >
-          <span
-            className={combineClasses(
-              "checkbox-icon",
-              disabled && "checkbox-disabled"
-            )}
-            ref={nodeRef}
-          >
+          <span className="checkbox-icon" ref={nodeRef}>
             {isChecked ? (
               <IconCheckboxY
                 height="24"
