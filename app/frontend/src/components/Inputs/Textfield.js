@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
 
-function TextField({ labelHidden = false, ...props }) {
+function TextField({ labelHidden = false, iconPosition = "left", ...props }) {
   const textFieldId = useId();
 
   return (
@@ -16,7 +16,25 @@ function TextField({ labelHidden = false, ...props }) {
       >
         {props.label}
       </label>
-      <input id={textFieldId} type="text" className="textfield-input" />
+      <div className="flex-container align-center">
+        {iconPosition == "left" && props.icon && (
+          <span className={`textfield-icon-${iconPosition}`}>
+            <props.icon />
+          </span>
+        )}
+        <input
+          id={textFieldId}
+          type="text"
+          className={`textfield-input textfield-input-${
+            iconPosition == "left" ? "right" : "left"
+          }`}
+        />
+        {iconPosition == "right" && props.icon && (
+          <span className={`textfield-icon-${iconPosition}`}>
+            <props.icon />
+          </span>
+        )}
+      </div>
     </div>
   );
 }
@@ -24,6 +42,8 @@ function TextField({ labelHidden = false, ...props }) {
 // Type declaration for props
 TextField.propTypes = {
   addClass: PropTypes.string,
+  icon: PropTypes.elementType,
+  iconPosition: PropTypes.oneOf(["left", "right"]),
   label: PropTypes.string.isRequired,
   labelHidden: PropTypes.bool,
 };

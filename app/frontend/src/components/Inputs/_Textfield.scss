@@ -8,7 +8,7 @@
 *** Classes for textfield ***
 ****************************/
 
-.textfield-input {
+@mixin textfield-input {
   background-color: $color-white;
   border: 1px solid $color-grey;
   border-radius: 8px;
@@ -20,4 +20,38 @@
     right: 16px;
     top: 13px;
   }
+}
+
+@mixin empty-right-border {
+  border-radius: 8px 0 0 8px;
+  border-right: none;
+}
+
+@mixin empty-left-border {
+  border-left: none;
+  border-radius: 0px 8px 8px 0px;
+}
+
+.textfield-input {
+  @include textfield-input();
+  flex: 1;
+  z-index: $z-focus;
+}
+
+.textfield-input-left {
+  @include empty-right-border();
+}
+
+.textfield-icon-left {
+  @include textfield-input();
+  @include empty-right-border();
+
+  & + .textfield-input-right {
+    @include empty-left-border();
+  }
+}
+
+.textfield-icon-right {
+  @include textfield-input();
+  @include empty-left-border();
 }
