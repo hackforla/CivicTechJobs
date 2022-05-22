@@ -44,6 +44,16 @@ The macOS version of git involves downloading extra programs, such as Homebrew. 
 </ul>
 </details><br>
 
+### Linting
+Executing `docker compose build` following the instructions above also creates a docker image called `linter` that can be used to run various linters/formatters against the source code. The [pre-commit](https://pre-commit.com/) is used to manage the linters/formatters, and the configurations for it can be found at: `CivicTechJobs/.pre-commit-config.yaml`
+
+To run the linters/formatters:
+1. Copy the existing `CivicTechJobs/.env.example` and create a new file called `CivicTechJobs/.env`
+2. Fill out all the lines following the instructions in the example doc and save the `.env` file
+3. Run the linter/formatters using the following command:
+* `docker compose run linter` --> runs the linters/formatters against the files staged for commit via `git add <file>`
+* `docker compose run linter run --all-files` --> runs the linters/formatters across all non-excluded files in this repository
+
 ## Frequently Asked Questions
 
 This section might answer some of the burning questions you have. If you cannot find it here, be sure to contact our team members or the development lead through our [Slack](https://hackforla.slack.com/archives/C02509WHFQQ) or [email](mailto:Civictechjobs@hackforla.org).

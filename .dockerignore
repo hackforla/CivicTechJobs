@@ -7,3 +7,4 @@ stage
 **/__pycache__/
 mkdocs/
 **/.venv/
+/.env

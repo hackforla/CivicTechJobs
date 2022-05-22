@@ -15,4 +15,4 @@ data/
 **/super-linter.log
 app/staticfiles
 
-**/.venv/
+/.env
