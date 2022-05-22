@@ -18,12 +18,12 @@ RUN apk add --no-cache \
 # install python dependencies
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED=1
-RUN ln -sf python3 /usr/bin/python
-RUN python -m ensurepip
-RUN pip3 install --no-cache --no-cache-dir --upgrade \
-  pip==22.1 \
-  pre-commit==2.19 \
-  setuptools==62.3
+RUN ln -sf python3 /usr/bin/python &&\
+  python -m ensurepip &&\
+  pip3 install --no-cache --no-cache-dir --upgrade \
+    pip==22.1 \
+    pre-commit==2.19 \
+    setuptools==62.3
 
 WORKDIR /src
 ENTRYPOINT ["pre-commit"]
