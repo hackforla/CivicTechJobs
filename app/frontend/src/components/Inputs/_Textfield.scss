@@ -33,26 +33,26 @@
 }
 
 .textfield-input {
-  @include textfield-input();
+  @include textfield-input;
 
   flex: 1;
   z-index: $z-focus;
 }
 
 .textfield-input-left {
-  @include empty-right-border();
+  @include empty-right-border;
 }
 
 .textfield-icon-left {
-  @include textfield-input();
-  @include empty-right-border();
+  @include textfield-input;
+  @include empty-right-border;
 
   & + .textfield-input-right {
-    @include empty-left-border();
+    @include empty-left-border;
   }
 }
 
 .textfield-icon-right {
-  @include textfield-input();
-  @include empty-left-border();
+  @include textfield-input;
+  @include empty-left-border;
 }
