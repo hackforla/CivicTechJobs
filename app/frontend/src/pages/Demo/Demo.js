@@ -1,8 +1,8 @@
 // External Imports
-import React from "react";
+import React, { useState } from "react";
 import { Checkbox } from "components/components";
 import { TextField } from "components/components";
-import { IconEyeOpen, IconSearch } from "assets/images/images";
+import { IconEyeClose, IconEyeOpen, IconSearch } from "assets/images/images";
 
 function Demo() {
   return (
@@ -25,11 +25,31 @@ function Demo() {
         <TextField
           label="Password"
           addClass="m-1"
-          icon={IconEyeOpen}
+          icon={PasswordButton}
           iconPosition="right"
         />
       </div>
     </div>
+  );
+}
+
+function PasswordButton() {
+  const [isOpen, setIsOpen] = useState(true);
+
+  function handleClick() {
+    setIsOpen(!isOpen);
+  }
+
+  return (
+    <button
+      onClick={handleClick}
+      style={{
+        border: "none",
+        backgroundColor: "#fff",
+      }}
+    >
+      {isOpen ? <IconEyeOpen /> : <IconEyeClose />}
+    </button>
   );
 }
 
