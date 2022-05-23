@@ -30,18 +30,35 @@ function Demo() {
           onChange={checkboxOnChange}
         />
         <TextField
+          type="email"
           label="Login"
-          placeholder="username here"
+          placeholder="email here"
           onChange={textFieldOnChange}
           addClass="m-1"
         />
-        <TextField label="Search" addClass="m-1" icon={IconSearch} />
         <TextField
+          type="password"
           label="Password"
           addClass="m-1"
           icon={PasswordButton}
           iconPosition="right"
         />
+        <TextField type="date" label="What is today's date?" addClass="m-1" />
+        <TextField type="number" label="How old are you?" addClass="m-1" />
+        <TextField
+          type="search"
+          label="Search"
+          addClass="m-1"
+          icon={IconSearch}
+        />
+        <TextField type="tel" label="What is your number?" addClass="m-1" />
+        <TextField
+          type="time"
+          label="What is the current time?"
+          addClass="m-1"
+          addInputClass="textfield-fit"
+        />
+        <TextField type="url" label="Personal website" addClass="m-1" />
       </div>
     </div>
   );

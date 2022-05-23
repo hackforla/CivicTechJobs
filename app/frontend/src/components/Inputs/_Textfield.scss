@@ -56,3 +56,7 @@
   @include textfield-input;
   @include empty-left-border;
 }
+
+.textfield-fit {
+  flex: 0 1 auto;
+}

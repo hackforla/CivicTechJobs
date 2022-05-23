@@ -5,7 +5,12 @@ import PropTypes from "prop-types";
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
 
-function TextField({ labelHidden = false, iconPosition = "left", ...props }) {
+function TextField({
+  iconPosition = "left",
+  labelHidden = false,
+  type = "text",
+  ...props
+}) {
   const textFieldId = useId();
 
   return (
@@ -24,12 +29,14 @@ function TextField({ labelHidden = false, iconPosition = "left", ...props }) {
         )}
         <input
           id={textFieldId}
-          type="text"
-          className={`textfield-input textfield-input-${
-            iconPosition == "left" ? "right" : "left"
-          }`}
+          type={type}
+          className={combineClasses(
+            "textfield-input",
+            `textfield-input-${iconPosition == "left" ? "right" : "left"}`,
+            props.addInputClass
+          )}
           onChange={(e) => {
-            props.onChange(e);
+            if (props.onChange) props.onChange(e);
           }}
           placeholder={props.placeholder}
         />
@@ -46,12 +53,27 @@ function TextField({ labelHidden = false, iconPosition = "left", ...props }) {
 // Type declaration for props
 TextField.propTypes = {
   addClass: PropTypes.string,
+  addInputClass: PropTypes.string,
   icon: PropTypes.elementType,
   iconPosition: PropTypes.oneOf(["left", "right"]),
   label: PropTypes.string.isRequired,
   labelHidden: PropTypes.bool,
   onChange: PropTypes.func,
   placeholder: PropTypes.string,
+  type: PropTypes.oneOf([
+    "text",
+    "date",
+    "datetime-local",
+    "email",
+    "month",
+    "number",
+    "password",
+    "search",
+    "tel",
+    "time",
+    "url",
+    "week",
+  ]),
 };
 
 export { TextField };
