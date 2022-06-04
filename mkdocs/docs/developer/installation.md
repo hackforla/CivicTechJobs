@@ -56,8 +56,6 @@ To run the linters/formatters:
 
 *Note*: The linter does not yet incorporate with [hadolint](https://github.com/hadolint/hadolint), a Dockerfile linter. To run hadolint locally, easiest way is via: `docker run --rm --interactive docker.io/hadolint/hadolint < Dockerfile`
 
-*Note*: The linter does not yet incorporate with [hadolint](https://github.com/hadolint/hadolint), a Dockerfile linter. To run hadolint locally, easiest way is via: `docker run --rm --interactive docker.io/hadolint/hadolint < Dockerfile`
-
 ## Frequently Asked Questions
 
 This section might answer some of the burning questions you have. If you cannot find it here, be sure to contact our team members or the development lead through our [Slack](https://hackforla.slack.com/archives/C02509WHFQQ) or [email](mailto:Civictechjobs@hackforla.org).
