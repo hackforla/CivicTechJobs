@@ -8,7 +8,7 @@
 *** Classes for checkbox ***
 ***************************/
 .checkbox {
-  width: fit-content;
+  display: block;
 }
 
 .checkbox-icon {
@@ -20,10 +20,10 @@
   width: 40px;
 }
 
-.checkbox-icon:not(.checkbox-disabled) {
+:not(.checkbox-disabled) > .checkbox-icon {
   &:hover,
   &:focus,
-  .checkbox-input:focus-visible + .checkbox-label > & {
+  .checkbox-input:focus-visible + & {
     background-color: color.change($color-blue-dark, $alpha: 0.16);
   }
 }
@@ -43,4 +43,9 @@
   align-items: center;
   display: flex;
   user-select: none;
+  width: fit-content;
+
+  &:not(.checkbox-disabled):hover {
+    cursor: pointer;
+  }
 }
