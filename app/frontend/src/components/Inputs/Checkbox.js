@@ -29,12 +29,18 @@ function Checkbox({
 
   useEffect(() => {
     checkboxRef.current.checked = isChecked;
-    if (props.onChange) {
-      props.onChange(e);
-    }
   }, [isChecked]);
 
   function handleChange(e) {
+    if (!disabled) {
+      setIsChecked(e.target.checked);
+    }
+    if (props.onChange) {
+      props.onChange(e);
+    }
+  }
+
+  function handleClick(e) {
     if (!disabled) {
       setIsChecked(e.target.checked);
     }
@@ -52,22 +58,23 @@ function Checkbox({
         defaultChecked={defaultChecked}
         disabled={disabled}
         ref={checkboxRef}
+        onClick={handleClick}
         onChange={handleChange}
       ></input>
-      <label className="checkbox-label" htmlFor={checkboxId}>
+      <label
+        className={combineClasses(
+          "checkbox-label",
+          disabled && "checkbox-disabled"
+        )}
+        htmlFor={checkboxId}
+      >
         <CSSTransition
           in={isChecked}
           classNames="checkbox-icon"
           timeout={300}
           nodeRef={nodeRef}
         >
-          <span
-            className={combineClasses(
-              "checkbox-icon",
-              disabled && "checkbox-disabled"
-            )}
-            ref={nodeRef}
-          >
+          <span className="checkbox-icon" ref={nodeRef}>
             {isChecked ? (
               <IconCheckboxY
                 height="24"
