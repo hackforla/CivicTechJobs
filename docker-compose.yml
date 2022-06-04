@@ -10,7 +10,7 @@ services:
       - ./dev/dev.env
 
   django:
-    build: 
+    build:
       context: ./app
       dockerfile: ../dev/django.dockerfile
     container_name: django
@@ -33,6 +33,18 @@ services:
       - ./dev/dev.env
     volumes:
       - ./app/:/code
+
+  linter:
+    build:
+      context: .
+      dockerfile: ./dev/linter.dockerfile
+    container_name: linter
+    environment:
+      - PRE_COMMIT_HOME=${HOME}/.cache/pre-commit
+    user: ${UID}:${GID}
+    volumes:
+     - .:/src:rw
+     - ${HOME}/.cache:${HOME}/.cache:rw
 
 volumes:
   postgres_data:
