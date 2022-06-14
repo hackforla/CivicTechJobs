@@ -1,7 +1,6 @@
 // External Imports
 import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
-import "./_Cards.scss";
 
 // Internal Imports
 import { combineClasses } from "../Utility/utils";

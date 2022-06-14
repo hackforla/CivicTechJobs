@@ -1,5 +1,4 @@
 import { combineClasses } from "../Utility/utils";
-import "./_InnerCopCard.scss";
 
 function InnerCopCard(props) {
   return (
