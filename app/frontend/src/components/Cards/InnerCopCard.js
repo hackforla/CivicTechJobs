@@ -12,4 +12,4 @@ InnerCopCard.propTypes = {
   addClass: PropTypes.string,
 };
 
-export default InnerCopCard;
+export { InnerCopCard };

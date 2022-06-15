@@ -25,4 +25,4 @@ InnerCopNavCard.propTypes = {
   onClick: PropTypes.func,
 };
 
-export default InnerCopNavCard;
+export { InnerCopNavCard };

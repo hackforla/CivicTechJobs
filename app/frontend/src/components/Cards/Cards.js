@@ -38,4 +38,4 @@ CopCard.propTypes = {
   size: PropTypes.oneOf(["lg", "sm"]),
 };
 
-export default CopCard;
+export { CopCard };
