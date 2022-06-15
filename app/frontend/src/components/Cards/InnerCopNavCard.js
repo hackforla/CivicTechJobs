@@ -1,4 +1,5 @@
 import { combineClasses } from "../Utility/utils";
+import PropTypes from "prop-types";
 
 function InnerCopNavCard({ isActive = false, ...props }) {
   const Tag = "href" in props ? "a" : "button"; // conditionally rendered tagss

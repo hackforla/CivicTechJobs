@@ -1,4 +1,5 @@
 import { combineClasses } from "../Utility/utils";
+import PropTypes from "prop-types";
 
 function InnerCopCard(props) {
   return (
