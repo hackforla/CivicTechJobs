@@ -18,10 +18,10 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(t|j)sx?$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: "ts-loader",
         },
       },
       {
@@ -94,6 +94,7 @@ module.exports = {
   ],
   resolve: {
     modules: [path.resolve(__dirname, "frontend/src"), "node_modules"],
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
   },
   watchOptions: {
     ignored: /node_modules/, // speeds up webpack watch
