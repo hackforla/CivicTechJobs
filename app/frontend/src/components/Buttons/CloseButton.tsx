@@ -6,7 +6,12 @@ import PropTypes from "prop-types";
 import { combineClasses, onKey } from "../Utility/utils";
 import { iconX } from "../../assets/images/images";
 
-function CloseButton(props) {
+interface CloseButtonProps {
+  addClass: string;
+  onClick: (e?: React.MouseEvent) => void;
+}
+
+function CloseButton(props: CloseButtonProps) {
   return (
     <div
       className={combineClasses("btn-close", props.addClass)}
@@ -15,17 +20,11 @@ function CloseButton(props) {
       role="button"
       type="button"
       aria-label="close"
-      tabIndex="0"
+      tabIndex={0}
     >
       <img src={iconX} alt="close"></img>
     </div>
   );
 }
-
-// Type declaration for props
-CloseButton.propTypes = {
-  addClass: PropTypes.string,
-  onClick: PropTypes.func,
-};
 
 export { CloseButton };
