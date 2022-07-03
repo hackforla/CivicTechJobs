@@ -1,5 +1,4 @@
 // External Imports
-import PropTypes from "prop-types";
 import React, { useState, useEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 
@@ -9,7 +8,7 @@ import { combineClasses, onKey } from "../Utility/utils";
 interface DialogProps extends React.PropsWithChildren {
   addClass: string;
   ariaLabel: string;
-  onClose: (e?: any) => any; //TODO have a better way todo a callback
+  onClose: () => void; //TODO have a better way todo a callback
   open: boolean;
 }
 
@@ -39,10 +38,6 @@ function Dialog({ open = false, ...props }: DialogProps) {
 
   function handleClose(e: React.MouseEvent | React.KeyboardEvent) {
     if (e.target === windowRef.current) {
-      props.onClose();
-    }
-
-    if ("key" in e && ["Escape", "Esc"].includes(e.key)) {
       props.onClose();
     }
   }
