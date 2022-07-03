@@ -5,9 +5,9 @@ import React from "react";
 import { combineClasses, onKey } from "../Utility/utils";
 import { iconX } from "../../assets/images/images";
 
-interface CloseButtonProps {
+interface CloseButtonProps extends React.PropsWithChildren {
   addClass: string;
-  onClick: (e?: React.MouseEvent) => void;
+  onClick: React.MouseEventHandler<HTMLDivElement>;
 }
 
 function CloseButton(props: CloseButtonProps) {

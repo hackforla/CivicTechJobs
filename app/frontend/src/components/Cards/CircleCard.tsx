@@ -1,11 +1,17 @@
 // External Imports
-import PropTypes from "prop-types";
 import React from "react";
 
 // Internal Imports
 import { combineClasses, onKey } from "../Utility/utils";
 
-function CircleCard({ size = "sm", ...props }) {
+interface CircleCardProps extends React.PropsWithChildren {
+  addClass: string;
+  onClick: React.MouseEventHandler<HTMLDivElement>;
+  role: string;
+  size: "lg" | "sm";
+}
+
+function CircleCard({ size = "sm", ...props }: CircleCardProps) {
   return (
     <div
       className={combineClasses(
@@ -24,12 +30,5 @@ function CircleCard({ size = "sm", ...props }) {
     </div>
   );
 }
-
-CircleCard.propTypes = {
-  addClass: PropTypes.string,
-  onClick: PropTypes.func,
-  role: PropTypes.string,
-  size: PropTypes.oneOf(["lg", "sm"]),
-};
 
 export { CircleCard };

@@ -10,7 +10,7 @@ interface ButtonProps extends React.PropsWithChildren {
   disabled: boolean;
   href: string;
   length: "" | "long";
-  onClick: () => void;
+  onClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   size: "sm" | "md" | "lg" | "icon";
   target: "_blank" | "_self" | "_parent" | "_top";
 }

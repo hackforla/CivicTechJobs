@@ -15,7 +15,7 @@ function combineClasses(...args: any[]) {
  * @param  {...string[]} keyValues strings denoting key values
  * @returns a function that runs only when the event key passed in matches any of the keyValues
  */
-function onKey(fn: () => void, ...keyValues: string[]) {
+function onKey(fn: Function, ...keyValues: string[]) {
   return (e: React.KeyboardEvent) => {
     if (keyValues.includes(e.key)) {
       e.preventDefault();
