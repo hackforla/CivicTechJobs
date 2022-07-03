@@ -1,3 +1,5 @@
+import React from "react";
+
 /**
  * Takes an array of different and combine them into one string to be placed in an element's class attribute.
  * @param  {...any} args an array of anything
@@ -14,7 +16,7 @@ function combineClasses(...args: any[]) {
  * @returns a function that runs only when the event key passed in matches any of the keyValues
  */
 function onKey(fn: () => void, ...keyValues: string[]) {
-  return (e: KeyboardEvent) => {
+  return (e: React.KeyboardEvent) => {
     if (keyValues.includes(e.key)) {
       e.preventDefault();
       fn();

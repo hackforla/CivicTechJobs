@@ -1,6 +1,5 @@
 // Eternal Imports
 import React from "react";
-import PropTypes from "prop-types";
 
 // Internal Imports
 import { combineClasses, onKey } from "../Utility/utils";
@@ -16,9 +15,8 @@ function CloseButton(props: CloseButtonProps) {
     <div
       className={combineClasses("btn-close", props.addClass)}
       onClick={props.onClick}
-      onKeyDown={onKey(props.onClick, "Enter")}
+      onKeyDown={(e) => onKey(props.onClick, "Enter")(e)}
       role="button"
-      type="button"
       aria-label="close"
       tabIndex={0}
     >
