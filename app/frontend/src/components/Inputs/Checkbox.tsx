@@ -7,12 +7,23 @@ import { CSSTransition } from "react-transition-group";
 import { combineClasses } from "../Utility/utils";
 import { IconCheckboxY, IconCheckboxN } from "assets/images/images";
 
+// Type declaration for props
+interface CheckboxProps {
+  addClass: string;
+  defaultChecked: boolean;
+  disabled: boolean;
+  label: string;
+  labelHidden: boolean;
+  onChange: Function;
+  onClick: Function;
+}
+
 function Checkbox({
   defaultChecked = false,
   disabled = false,
   labelHidden = false,
   ...props
-}) {
+}: CheckboxProps) {
   /* Notes on when to use color
   disabledColor: use this for stroke and fill for Y and stroke only for N
   enabledYColor: use this for stroke and fill for Y
@@ -31,7 +42,7 @@ function Checkbox({
     checkboxRef.current.checked = isChecked;
   }, [isChecked]);
 
-  function handleChange(e) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     if (!disabled) {
       setIsChecked(e.target.checked);
     }
@@ -40,7 +51,7 @@ function Checkbox({
     }
   }
 
-  function handleClick(e) {
+  function handleClick(e: React.MouseEvent<HTMLInputElement>) {
     if (!disabled) {
       setIsChecked(e.target.checked);
     }
@@ -103,16 +114,5 @@ function Checkbox({
     </div>
   );
 }
-
-// Type declaration for props
-Checkbox.propTypes = {
-  addClass: PropTypes.string,
-  defaultChecked: PropTypes.bool,
-  disabled: PropTypes.bool,
-  label: PropTypes.string.isRequired,
-  labelHidden: PropTypes.bool,
-  onChange: PropTypes.func,
-  onClick: PropTypes.func,
-};
 
 export { Checkbox };
