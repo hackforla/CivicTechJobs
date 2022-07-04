@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from "react";
 
 // COP Icons
@@ -55,13 +56,11 @@ import logoType from "./svgs/logos/logo-logotype.svg?url";
 import logoVertical from "./svgs/logos/logo-vertical.svg?url";
 import logoWordmark from "./svgs/logos/logo-wordmark.svg?url";
 
-/**
- * A wrapper that pre-adds certain attributes to svgs that does not need to be customized
- * @param {*} Svg an svg component as rendered by svgr
- * @param {*} defaultProps an object containing the attributes to add
- * @returns a wrapped component
- */
-function svgWrapper(Svg, defaultProps) {
+interface defaultProps {
+  [attribute: string]: string;
+}
+
+function svgWrapper(Svg: React.ReactElement, defaultProps: defaultProps) {
   return (props) => {
     return <Svg {...defaultProps} {...props}></Svg>;
   };

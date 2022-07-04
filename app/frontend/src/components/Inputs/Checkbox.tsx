@@ -1,6 +1,5 @@
 // Eternal Imports
 import React, { useEffect, useId, useRef, useState } from "react";
-import PropTypes from "prop-types";
 import { CSSTransition } from "react-transition-group";
 
 // Internal Imports
@@ -15,7 +14,6 @@ interface CheckboxProps {
   label: string;
   labelHidden: boolean;
   onChange: Function;
-  onClick: Function;
 }
 
 function Checkbox({
@@ -51,15 +49,6 @@ function Checkbox({
     }
   }
 
-  function handleClick(e: React.MouseEvent<HTMLInputElement>) {
-    if (!disabled) {
-      setIsChecked(e.target.checked);
-    }
-    if (props.onClick) {
-      props.onClick(e);
-    }
-  }
-
   return (
     <div className={combineClasses("checkbox", props.addClass)}>
       <input
@@ -69,7 +58,6 @@ function Checkbox({
         defaultChecked={defaultChecked}
         disabled={disabled}
         ref={checkboxRef}
-        onClick={handleClick}
         onChange={handleChange}
       ></input>
       <label
