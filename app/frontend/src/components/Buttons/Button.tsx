@@ -5,14 +5,14 @@ import React from "react";
 import { combineClasses } from "../Utility/utils";
 
 interface ButtonProps extends React.PropsWithChildren {
-  addClass: string;
-  color: "primary" | "primary-dark";
-  disabled: boolean;
-  href: string;
-  length: "" | "long";
-  onClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
-  size: "sm" | "md" | "lg" | "icon";
-  target: "_blank" | "_self" | "_parent" | "_top";
+  addClass?: string;
+  color?: "primary" | "primary-dark";
+  disabled?: boolean;
+  href?: string;
+  length?: "" | "long";
+  onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+  size?: "sm" | "md" | "lg" | "icon";
+  target?: "_blank" | "_self" | "_parent" | "_top";
 }
 
 // Default button size/colour/variant is small/primary/base

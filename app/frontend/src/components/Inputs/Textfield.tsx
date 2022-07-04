@@ -7,7 +7,7 @@ import { combineClasses } from "../Utility/utils";
 interface TextFieldProps {
   addClass: string;
   addInputClass: string;
-  icon: React.ReactElement;
+  icon: React.ElementType;
   iconPosition: "left" | "right";
   label: string;
   labelHidden: boolean;

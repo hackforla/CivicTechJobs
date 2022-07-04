@@ -1,11 +1,21 @@
 // External imports
 import React, { Fragment } from "react";
-import PropTypes from "prop-types";
 
 // Internal imports
 import { Button } from "../Buttons/Button";
 
-function FooterNav({ menu, logoDesktop, logoMobile }) {
+interface FooterNavProps {
+  logoDesktop: string;
+  logoMobile: string;
+  menu: menuObject[];
+}
+
+interface menuObject {
+  name: string;
+  link: string;
+}
+
+function FooterNav({ menu, logoDesktop, logoMobile }: FooterNavProps) {
   const Logo = () => {
     return (
       <div className="footer-icons-on-dark">
@@ -51,16 +61,5 @@ function FooterNav({ menu, logoDesktop, logoMobile }) {
     </footer>
   );
 }
-
-FooterNav.propTypes = {
-  logoDesktop: PropTypes.string.isRequired,
-  logoMobile: PropTypes.string.isRequired,
-  menu: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string,
-      link: PropTypes.string,
-    }).isRequired
-  ),
-};
 
 export { FooterNav };

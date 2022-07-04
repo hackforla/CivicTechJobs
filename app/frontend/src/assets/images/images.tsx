@@ -60,7 +60,10 @@ interface defaultProps {
   [attribute: string]: string;
 }
 
-function svgWrapper(Svg: React.ReactElement, defaultProps: defaultProps) {
+function svgWrapper(
+  Svg: React.ElementType,
+  defaultProps: defaultProps
+): React.ElementType {
   return (props) => {
     return <Svg {...defaultProps} {...props}></Svg>;
   };
