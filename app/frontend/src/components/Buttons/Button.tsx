@@ -4,16 +4,27 @@ import React from "react";
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
 
-interface ButtonProps extends React.PropsWithChildren {
+interface ButtonSharedProps extends React.PropsWithChildren {
   addClass?: string;
   color?: "primary" | "primary-dark";
   disabled?: boolean;
-  href?: string;
   length?: "" | "long";
-  onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   size?: "sm" | "md" | "lg" | "icon";
+}
+
+interface ButtonAnchorProps extends ButtonSharedProps {
+  href: string;
+  onClick?: never;
   target?: "_blank" | "_self" | "_parent" | "_top";
 }
+
+interface ButtonButtonProps extends ButtonSharedProps {
+  href?: never;
+  onClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+  target?: never;
+}
+
+type ButtonProps = ButtonAnchorProps | ButtonButtonProps;
 
 // Default button size/colour/variant is small/primary/base
 function Button({
