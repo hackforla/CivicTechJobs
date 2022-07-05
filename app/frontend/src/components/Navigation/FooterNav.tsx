@@ -11,7 +11,7 @@ interface FooterNavProps {
 }
 
 interface menuObject {
-  name: string;
+  name?: string;
   link: string;
 }
 
