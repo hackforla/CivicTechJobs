@@ -1,15 +1,15 @@
 // External Imports
 import React, { useState } from "react";
-import { Checkbox } from "components/components";
+import { Checkbox, CircleCard } from "components/components";
 import { TextField } from "components/components";
 import { IconEyeClose, IconEyeOpen, IconSearch } from "assets/images/images";
 
 function Demo() {
-  function textFieldOnChange(e) {
+  function textFieldOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     console.log(e.target.value);
   }
 
-  function checkboxOnChange(e) {
+  function checkboxOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     console.log(e.target.checked);
   }
 

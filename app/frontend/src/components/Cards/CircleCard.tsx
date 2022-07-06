@@ -5,10 +5,10 @@ import React from "react";
 import { combineClasses, onKey } from "../Utility/utils";
 
 interface CircleCardProps extends React.PropsWithChildren {
-  addClass: string;
-  onClick: React.MouseEventHandler<HTMLDivElement>;
-  role: string;
-  size: "lg" | "sm";
+  addClass?: string;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
+  role?: string;
+  size?: "lg" | "sm";
 }
 
 function CircleCard({ size = "sm", ...props }: CircleCardProps) {

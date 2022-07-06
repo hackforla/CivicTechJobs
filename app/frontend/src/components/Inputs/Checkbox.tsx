@@ -8,12 +8,12 @@ import { IconCheckboxY, IconCheckboxN } from "assets/images/images";
 
 // Type declaration for props
 interface CheckboxProps {
-  addClass: string;
-  defaultChecked: boolean;
-  disabled: boolean;
+  addClass?: string;
+  defaultChecked?: boolean;
+  disabled?: boolean;
   label: string;
-  labelHidden: boolean;
-  onChange: Function;
+  labelHidden?: boolean;
+  onChange?: Function;
 }
 
 function Checkbox({

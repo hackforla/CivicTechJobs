@@ -6,7 +6,7 @@ import { CSSTransition } from "react-transition-group";
 import { combineClasses, onKey } from "../Utility/utils";
 
 interface DialogProps extends React.PropsWithChildren {
-  addClass: string;
+  addClass?: string;
   ariaLabel: string;
   onClose: () => void; //TODO have a better way todo a callback
   open: boolean;

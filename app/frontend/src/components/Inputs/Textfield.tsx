@@ -5,15 +5,15 @@ import React, { useId } from "react";
 import { combineClasses } from "../Utility/utils";
 
 interface TextFieldProps {
-  addClass: string;
-  addInputClass: string;
-  icon: React.ElementType;
-  iconPosition: "left" | "right";
+  addClass?: string;
+  addInputClass?: string;
+  icon?: React.ElementType;
+  iconPosition?: "left" | "right";
   label: string;
-  labelHidden: boolean;
-  onChange: Function;
-  placeholder: string;
-  type:
+  labelHidden?: boolean;
+  onChange?: Function;
+  placeholder?: string;
+  type?:
     | "text"
     | "date"
     | "datetime-local"

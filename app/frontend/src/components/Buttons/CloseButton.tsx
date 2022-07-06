@@ -6,7 +6,7 @@ import { combineClasses, onKey } from "../Utility/utils";
 import { iconX } from "../../assets/images/images";
 
 interface CloseButtonProps extends React.PropsWithChildren {
-  addClass: string;
+  addClass?: string;
   onClick: React.MouseEventHandler<HTMLDivElement>;
 }
 
