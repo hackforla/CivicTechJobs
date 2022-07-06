@@ -46,7 +46,7 @@ function Button({
         props.addClass
       )}
       href={props.href}
-      target={props.href ? props.target : null}
+      target={props.href ? props.target : undefined}
       onClick={props.onClick}
     >
       {props.children}
