@@ -6,7 +6,7 @@ import { combineClasses, onKey } from "../Utility/utils";
 
 interface CircleCardProps extends React.PropsWithChildren {
   addClass?: string;
-  onClick?: React.MouseEventHandler<HTMLDivElement>;
+  onClick?: () => void;
   role?: string;
   size?: "lg" | "sm";
 }
@@ -21,7 +21,7 @@ function CircleCard({ size = "sm", ...props }: CircleCardProps) {
         props.addClass
       )}
       onClick={props.onClick}
-      onKeyDown={onKey(props.onClick, "Enter")}
+      onKeyDown={props.onClick && onKey(props.onClick, "Enter")}
       role={props.role}
     >
       <div className={`circle-card-content align-center justify-center`}>

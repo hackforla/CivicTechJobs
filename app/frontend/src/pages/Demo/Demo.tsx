@@ -1,6 +1,6 @@
 // External Imports
 import React, { useState } from "react";
-import { Checkbox, CircleCard } from "components/components";
+import { Checkbox } from "components/components";
 import { TextField } from "components/components";
 import { IconEyeClose, IconEyeOpen, IconSearch } from "assets/images/images";
 

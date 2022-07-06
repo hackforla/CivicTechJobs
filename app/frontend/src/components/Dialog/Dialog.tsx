@@ -8,7 +8,7 @@ import { combineClasses, onKey } from "../Utility/utils";
 interface DialogProps extends React.PropsWithChildren {
   addClass?: string;
   ariaLabel: string;
-  onClose: () => void; //TODO have a better way todo a callback
+  onClose: () => void; // TODO have a better way todo a callback
   open: boolean;
 }
 

@@ -1,5 +1,5 @@
 // Eternal Imports
-import React, { useEffect, useId, useRef, useState } from "react";
+import React, { useId, useLayoutEffect, useRef, useState } from "react";
 import { CSSTransition } from "react-transition-group";
 
 // Internal Imports
@@ -31,13 +31,15 @@ function Checkbox({
   const enabledYColor = "#3450A1";
   const enabledNColor = "#585858";
   const checkboxId = useId();
-  const checkboxRef = useRef(null);
+  const checkboxRef = useRef<HTMLInputElement>(null);
   const nodeRef = useRef(null);
 
   const [isChecked, setIsChecked] = useState(defaultChecked);
 
-  useEffect(() => {
-    checkboxRef.current.checked = isChecked;
+  useLayoutEffect(() => {
+    if (checkboxRef.current) {
+      checkboxRef.current.checked = isChecked;
+    }
   }, [isChecked]);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {

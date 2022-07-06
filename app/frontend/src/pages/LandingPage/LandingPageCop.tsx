@@ -10,20 +10,22 @@ import {
   InnerCopCard,
   InnerCopNavCard,
 } from "components/components";
-import { fetchAllCopData, fetchCopDataById } from "./copData";
+import { copDatum, fetchAllCopData, fetchCopDataById } from "./copData";
 
 function LandingPageCop() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [copData, setCopData] = useState([]);
-  const [currentDatum, setCurrentDatum] = useState({});
+  const [copData, setCopData] = useState<copDatum[]>([] as copDatum[]);
+  const [currentDatum, setCurrentDatum] = useState<copDatum>({} as copDatum);
 
   useEffect(() => {
     setCopData(fetchAllCopData());
   }, []);
 
-  function handleCopData(id) {
+  function handleCopData(id: number) {
     const copDatum = fetchCopDataById(id);
-    setCurrentDatum(copDatum);
+    if (copDatum) {
+      setCurrentDatum(copDatum);
+    }
   }
 
   return (

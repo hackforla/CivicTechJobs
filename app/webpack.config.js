@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: process.env.MODE,
   entry: {
-    index: "./frontend/src/index.js", // place where the file to render is
+    index: "./frontend/src/index.tsx", // place where the file to render is
   },
   output: {
     clean: {
