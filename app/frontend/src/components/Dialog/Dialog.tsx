@@ -70,7 +70,6 @@ function Dialog({ open = false, ...props }: DialogProps) {
           aria-label={props.ariaLabel}
           tabIndex={-1}
           ref={nodeRef}
-          onKeyDown={onKey(props.onClose, "Esc", "Escape")}
         >
           {props.children}
         </div>
