@@ -12,8 +12,6 @@ import { HeaderNav, FooterNav } from "components/components";
 import { LandingPageIntro } from "./LandingPageIntro";
 import { LandingPageCop } from "./LandingPageCop";
 
-const abc = "abc";
-
 function LandingPage() {
   return (
     <Fragment>
