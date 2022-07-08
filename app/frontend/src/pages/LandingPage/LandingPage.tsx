@@ -12,8 +12,9 @@ import { HeaderNav, FooterNav } from "components/components";
 import { LandingPageIntro } from "./LandingPageIntro";
 import { LandingPageCop } from "./LandingPageCop";
 
-function night(e) {
-  return e;
+var x;
+if ((x = 0)) {
+  var b = 1;
 }
 
 function LandingPage() {
