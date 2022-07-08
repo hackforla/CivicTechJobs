@@ -1,12 +1,18 @@
 // External Imports
-import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
 
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
 import { CloseButton } from "../Buttons/CloseButton";
 
-function CopCard({ hidden = true, size = "sm", ...props }) {
+interface CopCardProps extends React.PropsWithChildren {
+  addClass?: string;
+  onClick: () => void;
+  hidden?: boolean;
+  size?: "lg" | "sm";
+}
+
+function CopCard({ hidden = true, size = "sm", ...props }: CopCardProps) {
   const [isHidden, setIsHidden] = useState(hidden);
 
   useEffect(() => {
@@ -31,14 +37,11 @@ function CopCard({ hidden = true, size = "sm", ...props }) {
   );
 }
 
-CopCard.propTypes = {
-  addClass: PropTypes.string,
-  onClick: PropTypes.func,
-  openState: PropTypes.bool,
-  size: PropTypes.oneOf(["lg", "sm"]),
-};
+interface InnerCopCardProps extends React.PropsWithChildren {
+  addClass?: string;
+}
 
-function InnerCopCard(props) {
+function InnerCopCard(props: InnerCopCardProps) {
   return (
     <div className={combineClasses("card", "inner-cop-card", props.addClass)}>
       <div className="inner-cop-card-content">{props.children}</div>
@@ -46,11 +49,26 @@ function InnerCopCard(props) {
   );
 }
 
-InnerCopCard.propTypes = {
-  addClass: PropTypes.string,
-};
+interface InnerCopNavCardSharedProps extends React.PropsWithChildren {
+  addClass?: string;
+  isActive?: boolean;
+}
 
-function InnerCopNavCard({ isActive = false, ...props }) {
+interface InnerCopNavCardAnchorProps extends InnerCopNavCardSharedProps {
+  href: string;
+  onClick?: never;
+}
+
+interface InnerCopNavCardButtonProps extends InnerCopNavCardSharedProps {
+  href?: never;
+  onClick: () => void;
+}
+
+type InnerCopNavCardProps =
+  | InnerCopNavCardAnchorProps
+  | InnerCopNavCardButtonProps;
+
+function InnerCopNavCard({ isActive = false, ...props }: InnerCopNavCardProps) {
   const Tag = "href" in props ? "a" : "button"; // conditionally rendered tagss
 
   return (
@@ -67,12 +85,5 @@ function InnerCopNavCard({ isActive = false, ...props }) {
     </Tag>
   );
 }
-
-InnerCopNavCard.propTypes = {
-  addClass: PropTypes.string,
-  href: PropTypes.string,
-  isActive: PropTypes.bool,
-  onClick: PropTypes.func,
-};
 
 export { CopCard, InnerCopCard, InnerCopNavCard };
