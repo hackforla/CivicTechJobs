@@ -12,7 +12,9 @@ import { HeaderNav, FooterNav } from "components/components";
 import { LandingPageIntro } from "./LandingPageIntro";
 import { LandingPageCop } from "./LandingPageCop";
 
-const abc = "abc";
+function night(e) {
+  return e;
+}
 
 function LandingPage() {
   return (
