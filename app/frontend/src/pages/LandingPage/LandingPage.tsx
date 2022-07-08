@@ -12,10 +12,8 @@ import { HeaderNav, FooterNav } from "components/components";
 import { LandingPageIntro } from "./LandingPageIntro";
 import { LandingPageCop } from "./LandingPageCop";
 
-var x;
-if ((x = 0)) {
-  var b = 1;
-}
+var pattern1 = /\x00/;
+var pattern2 = /\x0C/;
 
 function LandingPage() {
   return (
