@@ -28,7 +28,7 @@ parserOptions:
   ecmaVersion: 2018
   sourceType: module
   project: "../../app/tsconfig.json"
-  tsconfigRootDir: "__dirname"
+  tsconfigRootDir: __dirname
 
 ###########
 # Plugins #
