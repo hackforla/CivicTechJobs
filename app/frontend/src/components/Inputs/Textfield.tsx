@@ -11,7 +11,7 @@ interface TextFieldProps {
   iconPosition?: "left" | "right";
   label: string;
   labelHidden?: boolean;
-  onChange?: Function;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
   placeholder?: string;
   type?:
     | "text"

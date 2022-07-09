@@ -3,12 +3,12 @@ import React, { useState, useEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 
 // Internal Imports
-import { combineClasses, onKey } from "../Utility/utils";
+import { combineClasses } from "../Utility/utils";
 
 interface DialogProps extends React.PropsWithChildren {
   addClass?: string;
   ariaLabel: string;
-  onClose: () => void; // TODO have a better way todo a callback
+  onClose: Function;
   open: boolean;
 }
 
@@ -36,7 +36,7 @@ function Dialog({ open = false, ...props }: DialogProps) {
     if (open) setIsBackdropOpen(true);
   });
 
-  function handleClose(e: React.MouseEvent | React.KeyboardEvent) {
+  function handleClose(e: React.MouseEvent) {
     if (e.target === windowRef.current) {
       props.onClose();
     }

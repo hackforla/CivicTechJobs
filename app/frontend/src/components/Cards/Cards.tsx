@@ -7,7 +7,7 @@ import { CloseButton } from "../Buttons/CloseButton";
 
 interface CopCardProps extends React.PropsWithChildren {
   addClass?: string;
-  onClick: () => void;
+  onClick: (e?: React.SyntheticEvent) => void;
   hidden?: boolean;
   size?: "lg" | "sm";
 }

@@ -6,7 +6,7 @@ import { combineClasses, onKey } from "../Utility/utils";
 
 interface CircleCardProps extends React.PropsWithChildren {
   addClass?: string;
-  onClick?: () => void;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
   role?: string;
   size?: "lg" | "sm";
 }

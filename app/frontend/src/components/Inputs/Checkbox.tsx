@@ -13,7 +13,7 @@ interface CheckboxProps {
   disabled?: boolean;
   label: string;
   labelHidden?: boolean;
-  onChange?: Function;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => any;
 }
 
 function Checkbox({

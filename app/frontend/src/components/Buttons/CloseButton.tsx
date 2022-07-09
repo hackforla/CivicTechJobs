@@ -7,7 +7,7 @@ import { iconX } from "../../assets/images/images";
 
 interface CloseButtonProps extends React.PropsWithChildren {
   addClass?: string;
-  onClick: () => void;
+  onClick: (e?: React.SyntheticEvent) => void;
 }
 
 function CloseButton(props: CloseButtonProps) {
