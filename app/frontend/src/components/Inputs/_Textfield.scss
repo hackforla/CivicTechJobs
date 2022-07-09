@@ -14,12 +14,7 @@
   border-radius: 8px;
   box-sizing: border-box;
   height: 44px;
-  padding: {
-    bottom: 13px;
-    left: 16px;
-    right: 16px;
-    top: 13px;
-  }
+  padding: 13px 16px 13px;
 }
 
 @mixin empty-right-border {
