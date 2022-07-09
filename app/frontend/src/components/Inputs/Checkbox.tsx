@@ -1,18 +1,27 @@
 // Eternal Imports
-import React, { useEffect, useId, useRef, useState } from "react";
-import PropTypes from "prop-types";
+import React, { useId, useLayoutEffect, useRef, useState } from "react";
 import { CSSTransition } from "react-transition-group";
 
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
 import { IconCheckboxY, IconCheckboxN } from "assets/images/images";
 
+// Type declaration for props
+interface CheckboxProps {
+  addClass?: string;
+  defaultChecked?: boolean;
+  disabled?: boolean;
+  label: string;
+  labelHidden?: boolean;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => any;
+}
+
 function Checkbox({
   defaultChecked = false,
   disabled = false,
   labelHidden = false,
   ...props
-}) {
+}: CheckboxProps) {
   /* Notes on when to use color
   disabledColor: use this for stroke and fill for Y and stroke only for N
   enabledYColor: use this for stroke and fill for Y
@@ -22,30 +31,23 @@ function Checkbox({
   const enabledYColor = "#3450A1";
   const enabledNColor = "#585858";
   const checkboxId = useId();
-  const checkboxRef = useRef(null);
+  const checkboxRef = useRef<HTMLInputElement>(null);
   const nodeRef = useRef(null);
 
   const [isChecked, setIsChecked] = useState(defaultChecked);
 
-  useEffect(() => {
-    checkboxRef.current.checked = isChecked;
+  useLayoutEffect(() => {
+    if (checkboxRef.current) {
+      checkboxRef.current.checked = isChecked;
+    }
   }, [isChecked]);
 
-  function handleChange(e) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     if (!disabled) {
       setIsChecked(e.target.checked);
     }
     if (props.onChange) {
       props.onChange(e);
-    }
-  }
-
-  function handleClick(e) {
-    if (!disabled) {
-      setIsChecked(e.target.checked);
-    }
-    if (props.onClick) {
-      props.onClick(e);
     }
   }
 
@@ -58,7 +60,6 @@ function Checkbox({
         defaultChecked={defaultChecked}
         disabled={disabled}
         ref={checkboxRef}
-        onClick={handleClick}
         onChange={handleChange}
       ></input>
       <label
@@ -103,16 +104,5 @@ function Checkbox({
     </div>
   );
 }
-
-// Type declaration for props
-Checkbox.propTypes = {
-  addClass: PropTypes.string,
-  defaultChecked: PropTypes.bool,
-  disabled: PropTypes.bool,
-  label: PropTypes.string.isRequired,
-  labelHidden: PropTypes.bool,
-  onChange: PropTypes.func,
-  onClick: PropTypes.func,
-};
 
 export { Checkbox };

@@ -1,8 +1,9 @@
 // Or async function
 module.exports = async () => {
   return {
+    preset: "ts-jest/presets/js-with-ts",
     verbose: true,
-    moduleFileExtensions: ["js", "jsx"],
+    moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
     moduleDirectories: ["node_modules", "frontend/src"],
     moduleNameMapper: {
       "\\.(css|less)$": "<rootDir>/tests/__mocks__/styleMock.js",

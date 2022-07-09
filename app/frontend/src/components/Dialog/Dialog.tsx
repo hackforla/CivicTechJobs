@@ -1,12 +1,18 @@
 // External Imports
-import PropTypes from "prop-types";
 import React, { useState, useEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
 
-function Dialog({ open = false, ...props }) {
+interface DialogProps extends React.PropsWithChildren {
+  addClass?: string;
+  ariaLabel: string;
+  onClose: Function;
+  open: boolean;
+}
+
+function Dialog({ open = false, ...props }: DialogProps) {
   const [isBackdropOpen, setIsBackdropOpen] = useState(false);
 
   const windowRef = useRef(null);
@@ -30,8 +36,8 @@ function Dialog({ open = false, ...props }) {
     if (open) setIsBackdropOpen(true);
   });
 
-  function handleClose(e) {
-    if (e.target === windowRef.current || ["Escape", "Esc"].includes(e.key)) {
+  function handleClose(e: React.MouseEvent) {
+    if (e.target === windowRef.current) {
       props.onClose();
     }
   }
@@ -62,7 +68,7 @@ function Dialog({ open = false, ...props }) {
           className={combineClasses(props.addClass)}
           role="dialog"
           aria-label={props.ariaLabel}
-          tabIndex="-1"
+          tabIndex={-1}
           ref={nodeRef}
         >
           {props.children}
@@ -71,13 +77,5 @@ function Dialog({ open = false, ...props }) {
     </div>
   );
 }
-
-// Type declaration for props
-Dialog.propTypes = {
-  addClass: PropTypes.string,
-  ariaLabel: PropTypes.string.isRequired,
-  onClose: PropTypes.func,
-  open: PropTypes.bool,
-};
 
 export { Dialog };
