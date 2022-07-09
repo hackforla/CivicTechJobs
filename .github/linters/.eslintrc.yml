@@ -30,6 +30,9 @@ parserOptions:
   project: "../app/tsconfig.json"
   tsconfigRootDir: __dirname
 
+ignorePatterns:
+  - "**/*.config.js"
+
 ###########
 # Plugins #
 ###########
