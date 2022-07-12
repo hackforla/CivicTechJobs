@@ -4,7 +4,7 @@ import React from "react";
 
 function InnerCopNavCard({ isActive = false, ...props }) {
   const Tag = "href" in props ? "a" : "button";
-  // conditionally rendered tagss
+  //  conditionally rendered tagss
 
   return (
     <Tag
