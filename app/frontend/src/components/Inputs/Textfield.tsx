@@ -1,16 +1,39 @@
 // Eternal Imports
 import React, { useId } from "react";
-import PropTypes from "prop-types";
 
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
+
+interface TextFieldProps {
+  addClass?: string;
+  addInputClass?: string;
+  icon?: React.ElementType;
+  iconPosition?: "left" | "right";
+  label: string;
+  labelHidden?: boolean;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  placeholder?: string;
+  type?:
+    | "text"
+    | "date"
+    | "datetime-local"
+    | "email"
+    | "month"
+    | "number"
+    | "password"
+    | "search"
+    | "tel"
+    | "time"
+    | "url"
+    | "week";
+}
 
 function TextField({
   iconPosition = "left",
   labelHidden = false,
   type = "text",
   ...props
-}) {
+}: TextFieldProps) {
   const textFieldId = useId();
 
   return (
@@ -49,31 +72,5 @@ function TextField({
     </div>
   );
 }
-
-// Type declaration for props
-TextField.propTypes = {
-  addClass: PropTypes.string,
-  addInputClass: PropTypes.string,
-  icon: PropTypes.elementType,
-  iconPosition: PropTypes.oneOf(["left", "right"]),
-  label: PropTypes.string.isRequired,
-  labelHidden: PropTypes.bool,
-  onChange: PropTypes.func,
-  placeholder: PropTypes.string,
-  type: PropTypes.oneOf([
-    "text",
-    "date",
-    "datetime-local",
-    "email",
-    "month",
-    "number",
-    "password",
-    "search",
-    "tel",
-    "time",
-    "url",
-    "week",
-  ]),
-};
 
 export { TextField };

@@ -1,12 +1,18 @@
 // External Imports
-import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
 
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
 import { CloseButton } from "../Buttons/CloseButton";
 
-function CopCard({ hidden = true, size = "sm", ...props }) {
+interface CopCardProps extends React.PropsWithChildren {
+  addClass?: string;
+  onClick: (e?: React.SyntheticEvent) => void;
+  hidden?: boolean;
+  size?: "lg" | "sm";
+}
+
+function CopCard({ hidden = true, size = "sm", ...props }: CopCardProps) {
   const [isHidden, setIsHidden] = useState(hidden);
 
   useEffect(() => {
@@ -31,11 +37,8 @@ function CopCard({ hidden = true, size = "sm", ...props }) {
   );
 }
 
-CopCard.propTypes = {
-  addClass: PropTypes.string,
-  onClick: PropTypes.func,
-  openState: PropTypes.bool,
-  size: PropTypes.oneOf(["lg", "sm"]),
-};
+interface InnerCopCardProps extends React.PropsWithChildren {
+  addClass?: string;
+}
 
 export { CopCard };

@@ -6,7 +6,14 @@ import {
   CopIconUiux,
 } from "assets/images/images";
 
-const copData = [
+interface copDatum {
+  id: number;
+  title: string;
+  icon: React.ElementType;
+  description: string;
+}
+
+const copData: copDatum[] = [
   {
     id: 0, // will be replaced by useID when upgrade to React18+; see #200
     title: "UI/UX",
@@ -44,7 +51,7 @@ const copData = [
   },
 ];
 
-function fetchCopDataById(id) {
+function fetchCopDataById(id: number) {
   for (const item of copData) {
     if (item.id == id) {
       return item;
@@ -56,4 +63,4 @@ function fetchAllCopData() {
   return copData;
 }
 
-export { fetchCopDataById, fetchAllCopData };
+export { copDatum, fetchCopDataById, fetchAllCopData };

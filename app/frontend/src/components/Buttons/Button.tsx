@@ -1,9 +1,30 @@
 // External Imports
-import PropTypes from "prop-types";
 import React from "react";
 
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
+
+interface ButtonSharedProps extends React.PropsWithChildren {
+  addClass?: string;
+  color?: "primary" | "primary-dark";
+  disabled?: boolean;
+  length?: "" | "long";
+  size?: "sm" | "md" | "lg" | "icon";
+}
+
+interface ButtonAnchorProps extends ButtonSharedProps {
+  href: string;
+  onClick?: never;
+  target?: "_blank" | "_self" | "_parent" | "_top";
+}
+
+interface ButtonButtonProps extends ButtonSharedProps {
+  href?: never;
+  onClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+  target?: never;
+}
+
+type ButtonProps = ButtonAnchorProps | ButtonButtonProps;
 
 // Default button size/colour/variant is small/primary/base
 function Button({
@@ -11,7 +32,7 @@ function Button({
   color = "primary",
   length = "", // empty string is falsy
   ...props
-}) {
+}: ButtonProps) {
   const Tag = "href" in props ? "a" : "button"; // conditionally rendered tags
 
   return (
@@ -25,30 +46,12 @@ function Button({
         props.addClass
       )}
       href={props.href}
-      target={props.href ? props.target : null}
+      target={props.href ? props.target : undefined}
       onClick={props.onClick}
     >
       {props.children}
     </Tag>
   );
 }
-
-// Type declaration for props
-Button.propTypes = {
-  addClass: PropTypes.string,
-  color: PropTypes.oneOf(["primary", "primary-dark"]),
-  disabled: PropTypes.bool,
-  href: PropTypes.string,
-  length: PropTypes.oneOf(["", "long"]),
-  onClick: PropTypes.func,
-  size: PropTypes.oneOf(["sm", "md", "lg", "icon"]),
-  target: PropTypes.oneOf([
-    "_blank",
-    "_self",
-    "_parent",
-    "_top",
-    PropTypes.string,
-  ]),
-};
 
 export { Button };

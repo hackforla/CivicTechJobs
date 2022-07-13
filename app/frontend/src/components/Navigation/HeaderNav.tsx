@@ -1,5 +1,4 @@
 // External Imports
-import PropTypes from "prop-types";
 import React, { Fragment, useState } from "react";
 
 // Internal Imports
@@ -7,7 +6,18 @@ import * as utility from "../Utility/utils";
 import { IconHamburgerMenu } from "assets/images/images";
 import { Button } from "../Buttons/Button";
 
-function HeaderNav({ logoDesktop, logoMobile, menu }) {
+interface HeaderNavProps {
+  logoDesktop: string;
+  logoMobile: string;
+  menu: menuObject[];
+}
+
+interface menuObject {
+  name?: string;
+  link: string;
+}
+
+function HeaderNav({ logoDesktop, logoMobile, menu }: HeaderNavProps) {
   const [open, setOpen] = useState(false);
 
   const Logo = () => {
@@ -76,16 +86,5 @@ function HeaderNav({ logoDesktop, logoMobile, menu }) {
     </Fragment>
   );
 }
-
-HeaderNav.propTypes = {
-  logoDesktop: PropTypes.string.isRequired,
-  logoMobile: PropTypes.string.isRequired,
-  menu: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string,
-      link: PropTypes.string,
-    }).isRequired
-  ),
-};
 
 export { HeaderNav };
