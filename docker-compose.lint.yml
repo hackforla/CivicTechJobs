@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+
+  linter:
+    build:
+      context: .
+      dockerfile: ./dev/linter.dockerfile
+    container_name: linter
+    environment:
+      - PRE_COMMIT_HOME=${HOME}/.cache/pre-commit
+    user: ${UID}:${GID}
+    volumes:
+     - .:/src:rw
+     - ${HOME}/.cache:${HOME}/.cache:rw
