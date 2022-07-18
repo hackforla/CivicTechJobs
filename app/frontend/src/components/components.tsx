@@ -8,6 +8,7 @@ import { Checkbox } from "./Inputs/Checkbox";
 import { TextField } from "./Inputs/Textfield";
 import { HeaderNav } from "./Navigation/HeaderNav";
 import { FooterNav } from "./Navigation/FooterNav";
+import { ProgressBar } from "./Navigation/ProgressBar";
 
 export {
   // Buttons
@@ -28,4 +29,5 @@ export {
   // Navigation
   HeaderNav,
   FooterNav,
+  ProgressBar,
 };
