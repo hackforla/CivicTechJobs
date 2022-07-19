@@ -1,0 +1,14 @@
+// Internal Imports
+@use "../Basics/" as *;
+
+.dropdown {
+  background-color: $color-white;
+  border: 1px solid $color-grey;
+  border-radius: 8px;
+  height: 44px;
+  padding: 13px 16px;
+}
+
+.dropdown-item {
+  color: black;
+}

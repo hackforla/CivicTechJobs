@@ -1,8 +1,9 @@
 // External Imports
 import React, { useState } from "react";
-import { Checkbox } from "components/components";
+import { Checkbox, Dropdown } from "components/components";
 import { TextField } from "components/components";
 import { IconEyeClose, IconEyeOpen, IconSearch } from "assets/images/images";
+import { DropdownItem } from "components/Inputs/Dropdown";
 
 function Demo() {
   function textFieldOnChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -19,6 +20,13 @@ function Demo() {
         Hello World! Feel free to use this page as a playground to test code!
       </h1>
       <div style={{ width: "440px" }}>
+        <Dropdown label="dropdown" labelHidden={true}>
+          <DropdownItem value="Barbarian">Barbarian</DropdownItem>
+          <DropdownItem value="Bard">Bard</DropdownItem>
+          <DropdownItem value="Monk">Monk</DropdownItem>
+          <DropdownItem value="Rogue">Rogue</DropdownItem>
+          <DropdownItem value="Shaman">Shaman</DropdownItem>
+        </Dropdown>
         <Checkbox label="Enabled selected" defaultChecked />
         <Checkbox label="Enabled unselected" />
         <Checkbox label="Disabled selected" defaultChecked disabled />
