@@ -1,28 +1,52 @@
 // External Imports
 import { combineClasses } from "components/Utility/utils";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useId } from "react";
 
 interface ProgressBarProps {
-  activeBar?: number; // Can only be 1, 2, 3, or 4
   addClass?: string;
-  bars?: 1 | 2 | 3 | 4;
+  label: string;
+  labelHidden?: boolean;
+  max?: 1 | 2 | 3 | 4;
+  value?: number; // Can only be 1, 2, 3, or 4
 }
 
-function ProgressBar({ activeBar = 1, bars = 2, ...props }: ProgressBarProps) {
+function ProgressBar({
+  labelHidden = true,
+  max = 2,
+  value = 1,
+  ...props
+}: ProgressBarProps) {
+  const ariaLabelledBy = useId();
+
   return (
-    <div className={combineClasses("flex-container", props.addClass)}>
-      {range(1, bars).map((num, index) => {
-        return (
-          <div
-            key={index}
-            className={combineClasses(
-              `progress-bar-${bars}`,
-              num <= activeBar && "active"
-            )}
-          ></div>
-        );
-      })}
-    </div>
+    <Fragment>
+      <label
+        id={ariaLabelledBy}
+        className={combineClasses(labelHidden && "sr-only")}
+      >
+        {props.label}
+      </label>
+      <div
+        className={combineClasses("flex-container", props.addClass)}
+        role="progressbar"
+        aria-labelledby={ariaLabelledBy}
+        aria-valuemin={1}
+        aria-valuemax={max}
+        aria-valuenow={value}
+      >
+        {range(1, max).map((num, index) => {
+          return (
+            <div
+              key={index}
+              className={combineClasses(
+                `progress-bar-${max}`,
+                num <= value && "active"
+              )}
+            ></div>
+          );
+        })}
+      </div>
+    </Fragment>
   );
 }
 

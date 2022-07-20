@@ -23,9 +23,9 @@ function Demo() {
     <Fragment>
       <div className="m-5">
         <div>
-          <ProgressBar addClass="my-2" bars={1} />
-          <ProgressBar addClass="my-2" />
-          <ProgressBar addClass="my-2" activeBar={2} bars={3} />
+          <ProgressBar addClass="my-2" value={1} label="page #" />
+          <ProgressBar addClass="my-2" label="page #" />
+          <ProgressBar addClass="my-2" value={2} max={3} label="page #" />
         </div>
         <hr></hr>
         <div className="my-2">
@@ -36,7 +36,12 @@ function Demo() {
           <button onClick={() => setActivePage(2)}>Page 2</button>
           <button onClick={() => setActivePage(3)}>Page 3</button>
           <button onClick={() => setActivePage(4)}>Page 4</button>
-          <ProgressBar addClass="my-2" activeBar={activePage} bars={4} />
+          <ProgressBar
+            addClass="my-2"
+            value={activePage}
+            max={4}
+            label="page #"
+          />
         </div>
       </div>
       <div className="flex-column m-5">
