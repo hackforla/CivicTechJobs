@@ -1,14 +1,15 @@
 // Internal Imports
 @use "../Basics/" as *;
+@use "./ProtoInput" as *;
 
 .dropdown {
-  background-color: $color-white;
-  border: 1px solid $color-grey;
-  border-radius: 8px;
-  height: 44px;
-  padding: 13px 16px;
+  @include input;
+  @include empty-right-border;
+  appearance: none;
+  flex: 1;
+  z-index: $z-focus;
 }
 
 .dropdown-item {
-  color: black;
+  color: green;
 }

@@ -3,35 +3,33 @@ import React, { useId } from "react";
 
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
+import { ProtoInput, ProtoInputProps } from "./ProtoInput";
+import { IconEyeOpen } from "assets/images/images";
 
 // Type declaration for props
-interface DropdownProps extends React.PropsWithChildren {
-  addClass?: string;
-  disabled?: boolean;
-  label: string;
-  labelHidden?: boolean;
+interface DropdownProps
+  extends React.PropsWithChildren,
+    Omit<ProtoInputProps, "innerComponent" | "icon" | "iconPosition" | "id"> {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => any;
 }
 
-function Dropdown({
-  disabled = false,
-  labelHidden = false,
-  ...props
-}: DropdownProps) {
+function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
   const dropdownId = useId();
 
+  function Select({ id }: { id: string }) {
+    return <select className="dropdown">{props.children}</select>;
+  }
+
   return (
-    <div className={combineClasses(props.addClass)}>
-      <label
-        className={combineClasses(labelHidden && "sr-only")}
-        htmlFor={dropdownId}
-      >
-        {props.label}
-      </label>
-      <select className="dropdown" id={dropdownId}>
-        {props.children}
-      </select>
-    </div>
+    <ProtoInput
+      addClass={props.addClass}
+      icon={IconEyeOpen}
+      iconPosition={"right"}
+      id={dropdownId}
+      innerComponent={Select}
+      label={props.label}
+      labelHidden={labelHidden}
+    />
   );
 }
 
