@@ -3,14 +3,11 @@ import React, { useId } from "react";
 
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
+import { ProtoInput, ProtoInputProps } from "./ProtoInput";
 
-interface TextFieldProps {
-  addClass?: string;
+interface TextFieldProps
+  extends Omit<ProtoInputProps, "innerComponent" | "id"> {
   addInputClass?: string;
-  icon?: React.ElementType;
-  iconPosition?: "left" | "right";
-  label: string;
-  labelHidden?: boolean;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   placeholder?: string;
   type?:
@@ -36,40 +33,35 @@ function TextField({
 }: TextFieldProps) {
   const textFieldId = useId();
 
+  function Input() {
+    return (
+      <input
+        id={textFieldId}
+        type={type}
+        className={combineClasses(
+          props.icon
+            ? `textfield-${iconPosition == "left" ? "right" : "left"}`
+            : "textfield",
+          props.addInputClass
+        )}
+        onChange={(e) => {
+          if (props.onChange) props.onChange(e);
+        }}
+        placeholder={props.placeholder}
+      />
+    );
+  }
+
   return (
-    <div className={combineClasses("flex-column", props.addClass)}>
-      <label
-        className={combineClasses("title-6", "mb-1", labelHidden && "sr-only")}
-        htmlFor={textFieldId}
-      >
-        {props.label}
-      </label>
-      <div className="flex-container align-center">
-        {iconPosition == "left" && props.icon && (
-          <span className={`textfield-icon-${iconPosition}`}>
-            <props.icon />
-          </span>
-        )}
-        <input
-          id={textFieldId}
-          type={type}
-          className={combineClasses(
-            "textfield-input",
-            `textfield-input-${iconPosition == "left" ? "right" : "left"}`,
-            props.addInputClass
-          )}
-          onChange={(e) => {
-            if (props.onChange) props.onChange(e);
-          }}
-          placeholder={props.placeholder}
-        />
-        {iconPosition == "right" && props.icon && (
-          <span className={`textfield-icon-${iconPosition}`}>
-            <props.icon />
-          </span>
-        )}
-      </div>
-    </div>
+    <ProtoInput
+      addClass={props.addClass}
+      icon={props.icon}
+      id={textFieldId}
+      innerComponent={Input}
+      iconPosition={iconPosition}
+      label={props.label}
+      labelHidden={labelHidden}
+    />
   );
 }
 
