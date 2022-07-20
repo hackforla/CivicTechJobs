@@ -1,10 +1,9 @@
 // Eternal Imports
-import React, { useId } from "react";
+import React, { useId, useState } from "react";
 
 // Internal Imports
-import { combineClasses } from "../Utility/utils";
 import { ProtoInput, ProtoInputProps } from "./ProtoInput";
-import { IconEyeOpen } from "assets/images/images";
+import { IconDropdownDown, IconDropdownUp } from "assets/images/images";
 
 // Type declaration for props
 interface DropdownProps
@@ -14,6 +13,7 @@ interface DropdownProps
 }
 
 function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
+  const [open, setOpen] = useState(false);
   const dropdownId = useId();
 
   function Select({ id }: { id: string }) {
@@ -23,7 +23,7 @@ function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
   return (
     <ProtoInput
       addClass={props.addClass}
-      icon={IconEyeOpen}
+      icon={open ? IconDropdownUp : IconDropdownDown}
       iconPosition={"right"}
       id={dropdownId}
       innerComponent={Select}
