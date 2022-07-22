@@ -1,9 +1,10 @@
 // Eternal Imports
-import React, { useId, useState } from "react";
+import React, { Fragment, useId, useState } from "react";
 
 // Internal Imports
 import { ProtoInput, ProtoInputProps } from "./ProtoInput";
 import { IconDropdownDown, IconDropdownUp } from "assets/images/images";
+import { combineClasses } from "components/Utility/utils";
 
 // Type declaration for props
 interface DropdownProps
@@ -17,19 +18,22 @@ function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
   const dropdownId = useId();
 
   function Select({ id }: { id: string }) {
-    return <select className="dropdown">{props.children}</select>;
+    return <select className="dropdown"></select>;
   }
 
   return (
-    <ProtoInput
-      addClass={props.addClass}
-      icon={open ? IconDropdownUp : IconDropdownDown}
-      iconPosition={"right"}
-      id={dropdownId}
-      innerComponent={Select}
-      label={props.label}
-      labelHidden={labelHidden}
-    />
+    <Fragment>
+      <ProtoInput
+        addClass={combineClasses(props.addClass)}
+        icon={open ? IconDropdownUp : IconDropdownDown}
+        iconPosition={"right"}
+        id={dropdownId}
+        innerComponent={Select}
+        label={props.label}
+        labelHidden={labelHidden}
+      />
+      <div className="dropdown-box">{props.children}</div>
+    </Fragment>
   );
 }
 
@@ -38,11 +42,7 @@ interface DropdownItemProps extends React.PropsWithChildren {
 }
 
 function DropdownItem({ ...props }: DropdownItemProps) {
-  return (
-    <option className="dropdown-item" value={props.value}>
-      {props.children}
-    </option>
-  );
+  return <div className="dropdown-item">{props.children}</div>;
 }
 
 export { Dropdown, DropdownItem };

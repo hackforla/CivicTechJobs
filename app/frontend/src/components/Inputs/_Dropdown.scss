@@ -10,6 +10,23 @@
   z-index: $z-focus;
 }
 
+.dropdown-box {
+  border: 1px solid $color-grey;
+  border-radius: 8px;
+  box-sizing: border-box;
+  // TODO find a way to not set the height but use a height equal to 5 children
+  height: 222px;
+  overflow-y: scroll;
+  padding: 0 16px;
+}
+
 .dropdown-item {
-  color: green;
+  background-color: $color-white;
+  box-sizing: border-box;
+  height: 44px;
+  padding: 13px 0;
+
+  &:not(:first-child) {
+    border-top: 1px solid $color-grey;
+  }
 }
