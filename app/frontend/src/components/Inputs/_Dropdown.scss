@@ -23,7 +23,7 @@
 .dropdown-item {
   background-color: $color-white;
   box-sizing: border-box;
-  height: 44px;
+  min-height: 44px;
   padding: 13px 0;
 
   &:not(:first-child) {

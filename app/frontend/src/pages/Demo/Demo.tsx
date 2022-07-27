@@ -1,3 +1,4 @@
+// @ts-nocheck
 // External Imports
 import React, { Fragment, useState } from "react";
 import {
@@ -49,7 +50,7 @@ function Demo() {
         <h1>
           Hello World! Feel free to use this page as a playground to test code!
         </h1>
-        <div style={{ width: "440px" }}>
+        <div style={{ height: "400px", width: "440px" }}>
           <Dropdown label="dropdown" labelHidden={true}>
             {timezones.map((zone, index) => {
               return (
@@ -59,6 +60,8 @@ function Demo() {
               );
             })}
           </Dropdown>
+        </div>
+        <div style={{ width: "440px" }}>
           <Checkbox label="Enabled selected" defaultChecked />
           <Checkbox label="Enabled unselected" />
           <Checkbox label="Disabled selected" defaultChecked disabled />

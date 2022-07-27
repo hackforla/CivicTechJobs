@@ -4,12 +4,11 @@ import React, { useId } from "react";
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
 
-interface ProtoInputProps {
+interface ProtoInputProps extends React.PropsWithChildren {
   addClass?: string;
   icon?: React.ElementType;
   iconPosition?: "left" | "right";
   id: string;
-  innerComponent: any;
   label: string;
   labelHidden?: boolean;
 }
@@ -33,7 +32,7 @@ function ProtoInput({
             <props.icon />
           </span>
         )}
-        <props.innerComponent />
+        {props.children}
         {iconPosition == "right" && props.icon && (
           <span className={`input-icon-${iconPosition}`}>
             <props.icon />

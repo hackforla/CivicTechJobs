@@ -57,11 +57,25 @@ function TextField({
       addClass={props.addClass}
       icon={props.icon}
       id={textFieldId}
-      innerComponent={Input}
       iconPosition={iconPosition}
       label={props.label}
       labelHidden={labelHidden}
-    />
+    >
+      <input
+        id={textFieldId}
+        type={type}
+        className={combineClasses(
+          props.icon
+            ? `textfield-${iconPosition == "left" ? "right" : "left"}`
+            : "textfield",
+          props.addInputClass
+        )}
+        onChange={(e) => {
+          if (props.onChange) props.onChange(e);
+        }}
+        placeholder={props.placeholder}
+      />
+    </ProtoInput>
   );
 }
 
