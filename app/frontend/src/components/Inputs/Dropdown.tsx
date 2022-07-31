@@ -1,12 +1,12 @@
-// @ts-nocheck
 // Eternal Imports
-import React, { Fragment, useId, useState } from "react";
+import React, { Fragment, useEffect, useId, useState } from "react";
 import { usePopper } from "react-popper";
 
 // Internal Imports
 import { ProtoInput, ProtoInputProps } from "./ProtoInput";
 import { IconDropdownDown, IconDropdownUp } from "assets/images/images";
 import { combineClasses } from "components/Utility/utils";
+import { VirtualElement } from "@popperjs/core";
 
 // Type declaration for props
 interface DropdownProps
@@ -17,21 +17,51 @@ interface DropdownProps
 
 function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
   const [open, setOpen] = useState(false);
-  const [referenceElement, setReferenceElement] = useState(null);
-  const [popperElement, setPopperElement] = useState(null);
-  const { styles, attributes } = usePopper(referenceElement, popperElement, {
-    modifiers: [
-      {
-        name: "offset",
-        options: {
-          offset: [0, 0],
+  const [referenceElement, setReferenceElement] =
+    useState<HTMLSelectElement | null>(null);
+  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
+    null
+  );
+  const { styles, attributes, state } = usePopper(
+    referenceElement,
+    popperElement,
+    {
+      placement: "bottom-start",
+      modifiers: [
+        {
+          name: "offset",
+          options: {
+            offset: [0, 0],
+          },
         },
-      },
-    ],
-  });
+      ],
+    }
+  );
   const dropdownId = useId();
 
-  function handleClick(e) {
+  useEffect(() => {
+    let dropdownElements: Element[] = [];
+    if (state?.elements.popper) dropdownElements.push(state.elements.popper);
+    if (state?.elements.reference instanceof Element)
+      dropdownElements.push(state.elements.reference);
+
+    function handleClick(e: MouseEvent) {
+      for (const element of dropdownElements) {
+        if (e.target instanceof Element && !element.contains(e.target)) {
+          document.body.style.backgroundColor = "yellow";
+        }
+      }
+    }
+
+    document.body.addEventListener("click", handleClick);
+
+    return () => {
+      document.body.removeEventListener("click", handleClick);
+      document.body.style.backgroundColor = "white";
+    };
+  }, [state]);
+
+  function handleClick() {
     setOpen(!open);
   }
 
@@ -52,38 +82,18 @@ function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
           onMouseDown={(e) => e.preventDefault()}
           ref={setReferenceElement}
         ></select>
+        <div
+          className={combineClasses("dropdown-box", open || "hidden")}
+          ref={setPopperElement}
+          style={styles.popper}
+          {...attributes.popper}
+        >
+          {props.children}
+        </div>
       </ProtoInput>
-      <div
-        className={combineClasses("dropdown-box", open || "hidden")}
-        ref={setPopperElement}
-        style={styles.popper}
-        {...attributes.popper}
-      >
-        {props.children}
-      </div>
-      <div>text</div>
     </Fragment>
   );
 }
-
-/*
-<div 
-  class="dropdown-box" 
-  style="position: absolute; inset: 0px auto auto 0px; transform: translate3d(236px, 395px, 0px);"
-  data-popper-reference-hidden="false"
-  data-popper-escaped="false"
-  data-popper-placement="bottom">
-</div>
-
-<div 
-  class="dropdown-box" 
-  style="position: absolute; inset: 0px auto auto 0px; transform: translate3d(0px, 395px, 0px);"
-  data-popper-reference-hidden="false"
-  data-popper-escaped="false"
-  data-popper-placement="bottom">
-</div>
-
-*/
 
 interface DropdownItemProps extends React.PropsWithChildren {
   value: string | number;
