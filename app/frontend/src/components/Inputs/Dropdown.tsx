@@ -6,19 +6,18 @@ import { usePopper } from "react-popper";
 import { ProtoInput, ProtoInputProps } from "./ProtoInput";
 import { IconDropdownDown, IconDropdownUp } from "assets/images/images";
 import { combineClasses } from "components/Utility/utils";
-import { VirtualElement } from "@popperjs/core";
 
 // Type declaration for props
 interface DropdownProps
   extends React.PropsWithChildren,
     Omit<ProtoInputProps, "innerComponent" | "icon" | "iconPosition" | "id"> {
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => any;
+  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => any;
 }
 
 function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
   const [open, setOpen] = useState(false);
   const [referenceElement, setReferenceElement] =
-    useState<HTMLSelectElement | null>(null);
+    useState<HTMLDivElement | null>(null);
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null
   );
@@ -40,15 +39,21 @@ function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
   const dropdownId = useId();
 
   useEffect(() => {
-    let dropdownElements: Element[] = [];
-    if (state?.elements.popper) dropdownElements.push(state.elements.popper);
-    if (state?.elements.reference instanceof Element)
-      dropdownElements.push(state.elements.reference);
+    const popperElement = state?.elements.popper;
+    const dropdownElement = state?.elements.reference;
 
+    // Close popup if click is outside of dropdown
     function handleClick(e: MouseEvent) {
-      for (const element of dropdownElements) {
-        if (e.target instanceof Element && !element.contains(e.target)) {
-          document.body.style.backgroundColor = "yellow";
+      if (e.target instanceof HTMLElement) {
+        if (popperElement?.contains(e.target)) {
+          return;
+        } else if (
+          dropdownElement instanceof HTMLElement &&
+          dropdownElement?.contains(e.target)
+        ) {
+          return;
+        } else {
+          setOpen(false);
         }
       }
     }
@@ -57,7 +62,6 @@ function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
 
     return () => {
       document.body.removeEventListener("click", handleClick);
-      document.body.style.backgroundColor = "white";
     };
   }, [state]);
 
@@ -67,30 +71,30 @@ function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
 
   return (
     <Fragment>
-      <ProtoInput
-        addClass={combineClasses(props.addClass)}
-        icon={open ? IconDropdownUp : IconDropdownDown}
-        iconPosition={"right"}
-        id={dropdownId}
-        label={props.label}
-        labelHidden={labelHidden}
-      >
-        <select
+      <div ref={setReferenceElement} onClick={handleClick}>
+        <ProtoInput
+          addClass={combineClasses(props.addClass)}
+          icon={open ? IconDropdownUp : IconDropdownDown}
+          iconPosition={"right"}
           id={dropdownId}
-          className="dropdown"
-          onClick={handleClick}
-          onMouseDown={(e) => e.preventDefault()}
-          ref={setReferenceElement}
-        ></select>
-        <div
-          className={combineClasses("dropdown-box", open || "hidden")}
-          ref={setPopperElement}
-          style={styles.popper}
-          {...attributes.popper}
+          label={props.label}
+          labelHidden={labelHidden}
         >
-          {props.children}
-        </div>
-      </ProtoInput>
+          <select
+            id={dropdownId}
+            className="dropdown"
+            onMouseDown={(e) => e.preventDefault()}
+          ></select>
+        </ProtoInput>
+      </div>
+      <div
+        className={combineClasses("dropdown-box", open || "hidden")}
+        ref={setPopperElement}
+        style={styles.popper}
+        {...attributes.popper}
+      >
+        {props.children}
+      </div>
     </Fragment>
   );
 }
@@ -100,7 +104,11 @@ interface DropdownItemProps extends React.PropsWithChildren {
 }
 
 function DropdownItem({ ...props }: DropdownItemProps) {
-  return <div className="dropdown-item">{props.children}</div>;
+  return (
+    <option className="dropdown-row">
+      <div className="dropdown-item">{props.children}</div>
+    </option>
+  );
 }
 
 export { Dropdown, DropdownItem };
