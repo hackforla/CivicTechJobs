@@ -15,6 +15,7 @@ import { timezones } from "./timezone_data";
 
 function Demo() {
   const [activePage, setActivePage] = useState(1);
+  const [currentTimeZone, setCurrentTimeZone] = useState(0);
 
   function textFieldOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     console.log(e.target.value);
@@ -49,12 +50,21 @@ function Demo() {
             label="page #"
           />
         </div>
-        <div style={{ width: "440px" }}>
+        <div style={{ width: "720px" }}>
           <h2>Dropdowns</h2>
-          <Dropdown label="dropdown" labelHidden={true}>
+          <Dropdown
+            ariaLabel="timezone-dropdown"
+            label="dropdown"
+            labelHidden={true}
+            value={timezones[currentTimeZone].text}
+          >
             {timezones.map((zone, index) => {
               return (
-                <DropdownItem key={index} value={index}>
+                <DropdownItem
+                  key={index}
+                  value={index}
+                  onClick={(val) => setCurrentTimeZone(val)}
+                >
                   {zone.text}
                 </DropdownItem>
               );

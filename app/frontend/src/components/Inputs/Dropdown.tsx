@@ -11,14 +11,16 @@ import { combineClasses } from "components/Utility/utils";
 interface DropdownProps
   extends React.PropsWithChildren,
     Omit<ProtoInputProps, "innerComponent" | "icon" | "iconPosition" | "id"> {
+  ariaLabel: string;
   onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => any;
+  value: string | number;
 }
 
 function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
   const [open, setOpen] = useState(false);
   const [referenceElement, setReferenceElement] =
     useState<HTMLDivElement | null>(null);
-  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
+  const [popperElement, setPopperElement] = useState<HTMLUListElement | null>(
     null
   );
   const { styles, attributes, state } = usePopper(
@@ -37,6 +39,7 @@ function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
     }
   );
   const dropdownId = useId();
+  const dropdownBoxId = useId();
 
   useEffect(() => {
     const popperElement = state?.elements.popper;
@@ -46,12 +49,12 @@ function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
     function handleClick(e: MouseEvent) {
       if (e.target instanceof HTMLElement) {
         if (popperElement?.contains(e.target)) {
-          return;
+          setOpen(false);
         } else if (
           dropdownElement instanceof HTMLElement &&
           dropdownElement?.contains(e.target)
         ) {
-          return;
+          setOpen(!open);
         } else {
           setOpen(false);
         }
@@ -65,13 +68,9 @@ function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
     };
   }, [state]);
 
-  function handleClick() {
-    setOpen(!open);
-  }
-
   return (
     <Fragment>
-      <div ref={setReferenceElement} onClick={handleClick}>
+      <div ref={setReferenceElement}>
         <ProtoInput
           addClass={combineClasses(props.addClass)}
           icon={open ? IconDropdownUp : IconDropdownDown}
@@ -80,34 +79,47 @@ function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
           label={props.label}
           labelHidden={labelHidden}
         >
-          <select
+          <div
+            aria-expanded={open}
+            aria-label={props.ariaLabel}
+            aria-owns={dropdownBoxId}
             id={dropdownId}
             className="dropdown"
             onMouseDown={(e) => e.preventDefault()}
-          ></select>
+            role="combobox"
+          >
+            {props.value}
+          </div>
         </ProtoInput>
       </div>
-      <div
+      <ul
         className={combineClasses("dropdown-box", open || "hidden")}
+        id={dropdownBoxId}
         ref={setPopperElement}
+        role="listbox"
         style={styles.popper}
         {...attributes.popper}
       >
         {props.children}
-      </div>
+      </ul>
     </Fragment>
   );
 }
 
 interface DropdownItemProps extends React.PropsWithChildren {
+  onClick: (value: string | number) => any;
   value: string | number;
 }
 
 function DropdownItem({ ...props }: DropdownItemProps) {
   return (
-    <option className="dropdown-row">
+    <li
+      className="dropdown-row"
+      onClick={() => props.onClick(props.value)}
+      role="option"
+    >
       <div className="dropdown-item">{props.children}</div>
-    </option>
+    </li>
   );
 }
 

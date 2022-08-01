@@ -15,9 +15,11 @@
   background-color: $color-white;
   border: 1px solid $color-grey;
   border-radius: 8px;
-  box-sizing: border-box;
-  height: 280px;
+  height: 336px;
+  list-style-type: none;
+  margin: 0;
   overflow-y: scroll;
+  padding: 0;
 }
 
 .dropdown-row {
