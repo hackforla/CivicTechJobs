@@ -33,25 +33,6 @@ function TextField({
 }: TextFieldProps) {
   const textFieldId = useId();
 
-  function Input() {
-    return (
-      <input
-        id={textFieldId}
-        type={type}
-        className={combineClasses(
-          props.icon
-            ? `textfield-${iconPosition == "left" ? "right" : "left"}`
-            : "textfield",
-          props.addInputClass
-        )}
-        onChange={(e) => {
-          if (props.onChange) props.onChange(e);
-        }}
-        placeholder={props.placeholder}
-      />
-    );
-  }
-
   return (
     <ProtoInput
       addClass={props.addClass}
