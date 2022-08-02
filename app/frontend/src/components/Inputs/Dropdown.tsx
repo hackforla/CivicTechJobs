@@ -87,6 +87,7 @@ function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
             id={dropdownId}
             className="dropdown"
             onClick={() => setOpen(!open)}
+            onKeyDown={(e) => onKey(() => setOpen(!open), "Enter")(e)}
             onMouseDown={(e) => e.preventDefault()}
             role="combobox"
             tabIndex={0}
