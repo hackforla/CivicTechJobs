@@ -18,6 +18,8 @@ import copIconUiux from "./svgs/communities-of-practice/cop-icon-uiux.svg?url";
 import IconCheckboxY from "./svgs/icons/icon-checkbox-yes.svg";
 import IconCheckboxN from "./svgs/icons/icon-checkbox-no.svg";
 import IconDownArrow from "./svgs/icons/icon-down-arrow.svg";
+import IconDropdownDown from "./svgs/icons/icon-dropdown-down.svg";
+import IconDropdownUp from "./svgs/icons/icon-dropdown-up.svg";
 import IconEyeClose from "./svgs/icons/icon-eye-close.svg";
 import IconEyeOpen from "./svgs/icons/icon-eye-open.svg";
 import IconHamburgerMenu from "./svgs/icons/icon-hamburger-menu.svg";
@@ -27,6 +29,8 @@ import IconX from "./svgs/icons/icon-x.svg";
 import iconCheckboxY from "./svgs/icons/icon-checkbox-yes.svg?url";
 import iconCheckboxN from "./svgs/icons/icon-checkbox-no.svg?url";
 import iconDownArrow from "./svgs/icons/icon-down-arrow.svg?url";
+import iconDropdownDown from "./svgs/icons/icon-dropdown-down.svg?url";
+import iconDropdownUp from "./svgs/icons/icon-dropdown-up.svg?url";
 import iconEyeClose from "./svgs/icons/icon-eye-close.svg?url";
 import iconEyeOpen from "./svgs/icons/icon-eye-open.svg?url";
 import iconHamburgerMenu from "./svgs/icons/icon-hamburger-menu.svg?url";
@@ -154,6 +158,8 @@ export {
   IconCheckboxY,
   IconCheckboxN,
   IconDownArrow,
+  IconDropdownDown,
+  IconDropdownUp,
   IconEyeClose,
   IconEyeOpen,
   IconHamburgerMenu,
@@ -161,9 +167,11 @@ export {
   IconX,
   iconCheckboxY,
   iconCheckboxN,
+  iconDownArrow,
+  iconDropdownDown,
+  iconDropdownUp,
   iconEyeClose,
   iconEyeOpen,
-  iconDownArrow,
   iconHamburgerMenu,
   iconSearch,
   iconX,

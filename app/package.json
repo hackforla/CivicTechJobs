@@ -46,8 +46,10 @@
     "webpack-cli": "^4.9.1"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.5",
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
+    "react-popper": "^2.3.0",
     "react-router-dom": "^6.2.1"
   }
 }

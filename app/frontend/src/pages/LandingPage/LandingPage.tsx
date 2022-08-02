@@ -19,7 +19,7 @@ function LandingPage() {
         logoDesktop={logoHorizontal}
         logoMobile={logoStacked}
         menu={[
-          { name: "Hack for LA", link: "/" },
+          { name: "Hack for LA", link: "/demo" },
           { name: "How to Join", link: "/" },
           { name: "Projects", link: "/" },
         ]}

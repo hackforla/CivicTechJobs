@@ -1,15 +1,21 @@
+// @ts-nocheck
 // External Imports
 import React, { Fragment, useState } from "react";
+
+// Internal Imports
 import {
   Checkbox,
+  Dropdown,
   TextField,
   ProgressBar,
-  Button,
 } from "components/components";
 import { IconEyeClose, IconEyeOpen, IconSearch } from "assets/images/images";
+import { DropdownOption } from "components/Inputs/Dropdown";
+import { timezones } from "./timezone_data";
 
 function Demo() {
   const [activePage, setActivePage] = useState(1);
+  const [currentTimeZone, setCurrentTimeZone] = useState(0);
 
   function textFieldOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     console.log(e.target.value);
@@ -21,17 +27,18 @@ function Demo() {
 
   return (
     <Fragment>
-      <div className="m-5">
+      <div className="m-5"></div>
+      <div className="flex-column m-5">
+        <h1>
+          Hello World! Feel free to use this page as a playground to test code!
+        </h1>
+        <h2>Progress Bar</h2>
         <div>
           <ProgressBar addClass="my-2" value={1} label="page #" />
           <ProgressBar addClass="my-2" label="page #" />
           <ProgressBar addClass="my-2" value={2} max={3} label="page #" />
         </div>
-        <hr></hr>
         <div className="my-2">
-          Test out the progress bar
-          <br></br>
-          <br></br>
           <button onClick={() => setActivePage(1)}>Page 1</button>
           <button onClick={() => setActivePage(2)}>Page 2</button>
           <button onClick={() => setActivePage(3)}>Page 3</button>
@@ -43,12 +50,30 @@ function Demo() {
             label="page #"
           />
         </div>
-      </div>
-      <div className="flex-column m-5">
-        <h1>
-          Hello World! Feel free to use this page as a playground to test code!
-        </h1>
-        <div style={{ width: "440px" }}>
+        <div style={{ width: "720px" }}>
+          <h2>Dropdowns</h2>
+          <Dropdown
+            ariaLabel="timezone-dropdown"
+            label="dropdown"
+            labelHidden={true}
+            value={timezones[currentTimeZone].text}
+          >
+            {timezones.map((zone, index) => {
+              return (
+                <DropdownOption
+                  key={index}
+                  value={index}
+                  selected={
+                    timezones[index].value == timezones[currentTimeZone].value
+                  }
+                  onClick={(val) => setCurrentTimeZone(val)}
+                >
+                  {zone.text}
+                </DropdownOption>
+              );
+            })}
+          </Dropdown>
+          <h2>Checkboxes</h2>
           <Checkbox label="Enabled selected" defaultChecked />
           <Checkbox label="Enabled unselected" />
           <Checkbox label="Disabled selected" defaultChecked disabled />
@@ -59,6 +84,7 @@ function Demo() {
             labelHidden={true}
             onChange={checkboxOnChange}
           />
+          <h2>Textfields</h2>
           <TextField
             type="email"
             label="Login"
