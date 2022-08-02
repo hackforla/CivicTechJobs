@@ -10,7 +10,7 @@ import {
   ProgressBar,
 } from "components/components";
 import { IconEyeClose, IconEyeOpen, IconSearch } from "assets/images/images";
-import { DropdownItem } from "components/Inputs/Dropdown";
+import { DropdownOption } from "components/Inputs/Dropdown";
 import { timezones } from "./timezone_data";
 
 function Demo() {
@@ -60,7 +60,7 @@ function Demo() {
           >
             {timezones.map((zone, index) => {
               return (
-                <DropdownItem
+                <DropdownOption
                   key={index}
                   value={index}
                   selected={
@@ -69,7 +69,7 @@ function Demo() {
                   onClick={(val) => setCurrentTimeZone(val)}
                 >
                   {zone.text}
-                </DropdownItem>
+                </DropdownOption>
               );
             })}
           </Dropdown>

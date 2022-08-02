@@ -7,7 +7,7 @@ import { CircleCard } from "./Cards/CircleCard";
 import { ScrollCarousel } from "./Carousel/ScrollCarousel";
 import { Dialog } from "./Dialog/Dialog";
 import { Checkbox } from "./Inputs/Checkbox";
-import { Dropdown, DropdownItem } from "./Inputs/Dropdown";
+import { Dropdown, DropdownOption } from "./Inputs/Dropdown";
 import { TextField } from "./Inputs/Textfield";
 import { HeaderNav } from "./Navigation/HeaderNav";
 import { FooterNav } from "./Navigation/FooterNav";
@@ -29,7 +29,7 @@ export {
   // Inputs
   Checkbox,
   Dropdown,
-  DropdownItem,
+  DropdownOption,
   TextField,
   // Navigation
   HeaderNav,

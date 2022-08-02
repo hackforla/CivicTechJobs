@@ -110,13 +110,13 @@ function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
   );
 }
 
-interface DropdownItemProps extends React.PropsWithChildren {
+interface DropdownOptionProps extends React.PropsWithChildren {
   onClick: (value: string | number) => any;
   selected: boolean;
   value: string | number;
 }
 
-function DropdownItem({ ...props }: DropdownItemProps) {
+function DropdownOption({ ...props }: DropdownOptionProps) {
   return (
     <li
       aria-selected={props.selected}
@@ -130,4 +130,4 @@ function DropdownItem({ ...props }: DropdownItemProps) {
   );
 }
 
-export { Dropdown, DropdownItem };
+export { Dropdown, DropdownOption };
