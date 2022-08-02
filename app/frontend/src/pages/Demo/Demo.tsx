@@ -63,6 +63,9 @@ function Demo() {
                 <DropdownItem
                   key={index}
                   value={index}
+                  selected={
+                    timezones[index].value == timezones[currentTimeZone].value
+                  }
                   onClick={(val) => setCurrentTimeZone(val)}
                 >
                   {zone.text}

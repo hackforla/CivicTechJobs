@@ -5,7 +5,7 @@ import { usePopper } from "react-popper";
 // Internal Imports
 import { ProtoInput, ProtoInputProps } from "./ProtoInput";
 import { IconDropdownDown, IconDropdownUp } from "assets/images/images";
-import { combineClasses } from "components/Utility/utils";
+import { combineClasses, onKey } from "components/Utility/utils";
 
 // Type declaration for props
 interface DropdownProps
@@ -54,7 +54,7 @@ function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
           dropdownElement instanceof HTMLElement &&
           dropdownElement?.contains(e.target)
         ) {
-          setOpen(!open);
+          return;
         } else {
           setOpen(false);
         }
@@ -80,13 +80,16 @@ function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
           labelHidden={labelHidden}
         >
           <div
+            aria-controls={dropdownBoxId}
             aria-expanded={open}
             aria-label={props.ariaLabel}
             aria-owns={dropdownBoxId}
             id={dropdownId}
             className="dropdown"
+            onClick={() => setOpen(!open)}
             onMouseDown={(e) => e.preventDefault()}
             role="combobox"
+            tabIndex={0}
           >
             {props.value}
           </div>
@@ -108,14 +111,17 @@ function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
 
 interface DropdownItemProps extends React.PropsWithChildren {
   onClick: (value: string | number) => any;
+  selected: boolean;
   value: string | number;
 }
 
 function DropdownItem({ ...props }: DropdownItemProps) {
   return (
     <li
+      aria-selected={props.selected}
       className="dropdown-row"
       onClick={() => props.onClick(props.value)}
+      onKeyDown={(e) => onKey(props.onClick, "Enter")(e)}
       role="option"
     >
       <div className="dropdown-item">{props.children}</div>
