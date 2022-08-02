@@ -22,6 +22,11 @@
   padding: 0;
 }
 
+.dropdown-item {
+  box-sizing: border-box;
+  padding: 13px 0;
+}
+
 .dropdown-row {
   background-color: $color-white;
   min-height: 44px;
@@ -34,9 +39,4 @@
   &:hover {
     background-color: rgba($color-blue-dark, 0.15);
   }
-}
-
-.dropdown-item {
-  box-sizing: border-box;
-  padding: 13px 0;
 }
