@@ -6,6 +6,7 @@ import { InnerCopNavCard } from "./Cards/InnerCopNavCard";
 import { CircleCard } from "./Cards/CircleCard";
 import { ScrollCarousel } from "./Carousel/ScrollCarousel";
 import { Dialog } from "./Dialog/Dialog";
+import { Calendar } from "./Inputs/Calendar";
 import { Checkbox } from "./Inputs/Checkbox";
 import { Dropdown, DropdownOption } from "./Inputs/Dropdown";
 import { TextField } from "./Inputs/Textfield";
@@ -27,6 +28,7 @@ export {
   // Dialog
   Dialog,
   // Inputs
+  Calendar,
   Checkbox,
   Dropdown,
   DropdownOption,
