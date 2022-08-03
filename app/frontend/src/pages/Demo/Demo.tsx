@@ -1,6 +1,6 @@
 // @ts-nocheck
 // External Imports
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 // Internal Imports
 import {
@@ -16,6 +16,16 @@ import { timezones } from "./timezone_data";
 function Demo() {
   const [activePage, setActivePage] = useState(1);
   const [currentTimeZone, setCurrentTimeZone] = useState(0);
+
+  useEffect(() => {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    for (const [index, zone] of timezones.entries()) {
+      if (zone.utc.includes(tz)) {
+        setCurrentTimeZone(index);
+        break;
+      }
+    }
+  }, []);
 
   function textFieldOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     console.log(e.target.value);
