@@ -1,0 +1,41 @@
+// Internal Imports
+@use "../Basics/" as *;
+
+.calendar {
+  border-collapse: collapse;
+  max-width: 992px;
+}
+
+.calendar-header {
+  height: 36px;
+}
+
+.calendar-row {
+  color: green;
+
+  &.dashed {
+    border-top: 2px dashed $color-grey;
+
+    &:last-child {
+      border-bottom: 2px solid $color-grey;
+    }
+  }
+
+  &.solid {
+    border-top: 2px solid $color-grey;
+
+    &:last-child {
+      border-bottom: 2px dashed $color-grey;
+    }
+  }
+}
+
+.calendar-cell {
+  border-left: 2px solid $color-grey-dark;
+  height: 36px;
+  width: 142px;
+
+  &:last-child {
+    border-right: 2px solid $color-grey-dark;
+  }
+}

@@ -8,10 +8,12 @@ import {
   Dropdown,
   TextField,
   ProgressBar,
+  Calendar,
 } from "components/components";
 import { IconEyeClose, IconEyeOpen, IconSearch } from "assets/images/images";
 import { DropdownOption } from "components/Inputs/Dropdown";
 import { timezones } from "./timezone_data";
+import { daysOfWeek, hoursOfDay } from "./calendar_data";
 
 function Demo() {
   const [activePage, setActivePage] = useState(1);
@@ -42,6 +44,8 @@ function Demo() {
         <h1>
           Hello World! Feel free to use this page as a playground to test code!
         </h1>
+        <h2>Calendar</h2>
+        <Calendar columnNames={daysOfWeek} />
         <h2>Progress Bar</h2>
         <div>
           <ProgressBar addClass="my-2" value={1} label="page #" />

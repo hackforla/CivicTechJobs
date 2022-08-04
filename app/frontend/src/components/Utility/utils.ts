@@ -24,4 +24,12 @@ function onKey(fn: React.EventHandler<any>, ...keyValues: string[]) {
   };
 }
 
-export { combineClasses, onKey };
+// Credit to mdn documentation for the function https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#sequence_generator_range
+function range(start: number, stop: number, step: number = 1) {
+  return Array.from(
+    { length: (stop - start) / step + 1 },
+    (_, i) => start + i * step
+  );
+}
+
+export { combineClasses, onKey, range };
