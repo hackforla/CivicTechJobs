@@ -35,6 +35,16 @@
   height: 36px;
   width: 142px;
 
+  &.selected {
+    background-color: $color-green;
+    border-top-color: $color-green;
+    border-bottom-color: $color-green;
+  }
+
+  &:hover {
+    background-color: rgba($color-green, 0.5);
+  }
+
   &:last-child {
     border-right: 2px solid $color-grey-dark;
   }

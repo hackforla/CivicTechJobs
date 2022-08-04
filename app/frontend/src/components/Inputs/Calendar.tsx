@@ -1,5 +1,5 @@
 // Eternal Imports
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 
 // Internal Imports
 import { combineClasses, range } from "../Utility/utils";
@@ -11,13 +11,18 @@ interface CalendarProps extends React.PropsWithChildren {
   row?: number;
 }
 
+interface CalendarHeadRowProps extends React.PropsWithChildren {
+  columnNames: string[];
+}
+
 interface CalendarRowProps {
   size: number;
   rowNum: number;
 }
 
-interface CalendarHeadRowProps extends React.PropsWithChildren {
-  columnNames: string[];
+interface CalendarCellProps {
+  key: number;
+  selected?: boolean;
 }
 
 function Calendar({ row = 48, column = 7, ...props }: CalendarProps) {
@@ -56,9 +61,25 @@ function CalendarRow(props: CalendarRowProps) {
       )}
     >
       {range(1, props.size).map((num) => {
-        return <td key={num} className="calendar-cell"></td>;
+        return <CalendarCell key={num} />;
       })}
     </tr>
+  );
+}
+
+function CalendarCell({ selected = false, ...props }: CalendarCellProps) {
+  const [isSelected, setIsSelected] = useState(selected);
+
+  function handleClick() {
+    setIsSelected(!isSelected);
+  }
+
+  return (
+    <td
+      key={props.key}
+      className={combineClasses("calendar-cell", isSelected && "selected")}
+      onClick={handleClick}
+    ></td>
   );
 }
 
