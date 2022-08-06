@@ -22,18 +22,29 @@ interface CalendarRowProps {
 
 interface CalendarCellProps {
   key: number;
+  rowNum: number;
   selected?: boolean;
 }
 
 function Calendar({ row = 48, column = 7, ...props }: CalendarProps) {
   return (
     <table className="calendar">
-      {props.columnNames && (
-        <CalendarHeaderRow key={row} columnNames={props.columnNames} />
-      )}
-      {range(1, row).map((row, index) => {
-        return <CalendarRow key={row} size={column} rowNum={index} />;
-      })}
+      <thead>
+        {props.columnNames && (
+          <CalendarHeaderRow key={row} columnNames={props.columnNames} />
+        )}
+      </thead>
+      <tr aria-hidden={true}>
+        <td></td>
+        {range(1, column).map((col, index) => {
+          return <td className="calendar-ticks-top"></td>;
+        })}
+      </tr>
+      <tbody>
+        {range(1, row).map((row, index) => {
+          return <CalendarRow key={row} size={column} rowNum={index} />;
+        })}
+      </tbody>
     </table>
   );
 }
@@ -41,6 +52,7 @@ function Calendar({ row = 48, column = 7, ...props }: CalendarProps) {
 function CalendarHeaderRow(props: CalendarHeadRowProps) {
   return (
     <tr>
+      <th aria-hidden={true}></th>
       {props.columnNames.map((name, index) => {
         return (
           <th key={index} scope="col" className="calendar-header">
@@ -60,8 +72,9 @@ function CalendarRow(props: CalendarRowProps) {
         props.rowNum % 2 == 0 ? "solid" : "dashed"
       )}
     >
+      <td className="calendar-ticks-left" aria-hidden={true}></td>
       {range(1, props.size).map((num) => {
-        return <CalendarCell key={num} />;
+        return <CalendarCell key={num} rowNum={props.rowNum} />;
       })}
     </tr>
   );

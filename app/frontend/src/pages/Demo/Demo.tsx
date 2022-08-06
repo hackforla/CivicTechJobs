@@ -40,7 +40,7 @@ function Demo() {
   return (
     <Fragment>
       <div className="m-5"></div>
-      <div className="flex-column m-5">
+      <div className="m-5">
         <h1>
           Hello World! Feel free to use this page as a playground to test code!
         </h1>

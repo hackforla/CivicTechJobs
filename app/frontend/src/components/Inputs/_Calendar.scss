@@ -1,51 +1,72 @@
 // Internal Imports
 @use "../Basics/" as *;
 
+$cell-height: 36px;
+$cell-width: 142px;
+$cell-offtick-top: 36px;
+$call-offtick-left: 24px;
+
 .calendar {
   border-collapse: collapse;
-  max-width: 992px;
 }
 
+// For the row with text at the top of the calendar (thead)
 .calendar-header {
-  height: 36px;
+  height: $cell-height;
 }
 
+// For the rows with the body
 .calendar-row {
   color: green;
+  height: $cell-height;
 
   &.dashed {
     border-top: 2px dashed $color-grey;
-
-    &:last-child {
-      border-bottom: 2px solid $color-grey;
-    }
   }
 
   &.solid {
     border-top: 2px solid $color-grey;
+  }
 
-    &:last-child {
-      border-bottom: 2px dashed $color-grey;
-    }
+  &.dashed:last-child {
+    border-bottom: 2px solid $color-grey;
+  }
+
+  &.solid:last-child {
+    border-bottom: 2px dashed $color-grey;
   }
 }
 
-.calendar-cell {
+// For individual cells
+@mixin calendar-cell {
   border-left: 2px solid $color-grey-dark;
-  height: 36px;
-  width: 142px;
-
-  &.selected {
-    background-color: $color-green;
-    border-top-color: $color-green;
-    border-bottom-color: $color-green;
-  }
-
-  &:hover {
-    background-color: rgba($color-green, 0.5);
-  }
+  width: $cell-width;
 
   &:last-child {
     border-right: 2px solid $color-grey-dark;
   }
+}
+
+.calendar-cell {
+  @include calendar-cell;
+
+  &.selected {
+    background-color: $color-green;
+    border-top-color: $color-green;
+  }
+
+  &:hover:not(.selected) {
+    background-color: rgba($color-green, 0.5);
+  }
+}
+
+// For off ticks
+.calendar-ticks-top {
+  @include calendar-cell;
+
+  height: $cell-offtick-top;
+}
+
+.calendar-ticks-left {
+  width: $call-offtick-left;
 }
