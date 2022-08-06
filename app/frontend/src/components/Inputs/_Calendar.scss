@@ -20,14 +20,6 @@ $call-offtick-left: 24px;
   color: green;
   height: $cell-height;
 
-  &.dashed {
-    border-top: 2px dashed $color-grey;
-  }
-
-  &.solid {
-    border-top: 2px solid $color-grey;
-  }
-
   &.dashed:last-child {
     border-bottom: 2px solid $color-grey;
   }
@@ -50,6 +42,14 @@ $call-offtick-left: 24px;
 .calendar-cell {
   @include calendar-cell;
 
+  &.dashed {
+    border-top: 2px dashed $color-grey;
+  }
+
+  &.solid {
+    border-top: 2px solid $color-grey;
+  }
+
   &.selected {
     background-color: $color-green;
     border-top-color: $color-green;
@@ -69,4 +69,12 @@ $call-offtick-left: 24px;
 
 .calendar-ticks-left {
   width: $call-offtick-left;
+
+  &.dashed {
+    border-top: 2px dashed $color-grey;
+  }
+
+  &.solid {
+    border-top: 2px solid $color-grey;
+  }
 }
