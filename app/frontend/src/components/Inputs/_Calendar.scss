@@ -4,20 +4,33 @@
 $cell-height: 36px;
 $cell-width: 142px;
 $cell-offtick-top: 36px;
-$call-offtick-left: 24px;
+$cell-offtick-left: 24px;
 
 .calendar {
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
-// For the row with text at the top of the calendar (thead)
+// For the row with text for each column (thead)
 .calendar-header {
   height: $cell-height;
+  max-width: $cell-width;
+  width: $cell-width;
+}
+
+// For the column with text for each row
+.calendar-header-side {
+  box-sizing: border-box;
+  padding-top: $cell-height + $cell-offtick-top - 4px;
+}
+
+.calendar-header-side-cell {
+  height: 2 * $cell-height;
+  padding-right: 8px;
 }
 
 // For the rows with the body
 .calendar-row {
-  color: green;
   height: $cell-height;
 
   &.dashed:last-child {
@@ -32,6 +45,7 @@ $call-offtick-left: 24px;
 // For individual cells
 @mixin calendar-cell {
   border-left: 2px solid $color-grey-dark;
+  max-width: $cell-width;
   width: $cell-width;
 
   &:last-child {
@@ -68,7 +82,8 @@ $call-offtick-left: 24px;
 }
 
 .calendar-ticks-left {
-  width: $call-offtick-left;
+  max-width: $cell-offtick-left;
+  width: $cell-offtick-left;
 
   &.dashed {
     border-top: 2px dashed $color-grey;

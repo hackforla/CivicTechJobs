@@ -8,14 +8,16 @@ const daysOfWeek = [
   "Lørdag",
 ];
 
-function* hoursOfDay() {
+function hoursOfDay() {
+  const arr = [];
   for (const meridiem of ["AM", "PM"]) {
-    yield `12:00 ${meridiem}`;
+    arr.push(`12:00 ${meridiem}`);
     for (let i = 1; i <= 11; i++) {
-      yield `${i}:00 ${meridiem}`;
+      arr.push(`${i}:00 ${meridiem}`);
     }
   }
-  yield "12:00 AM";
+  arr.push("12:00 AM");
+  return arr;
 }
 
 export { daysOfWeek, hoursOfDay };

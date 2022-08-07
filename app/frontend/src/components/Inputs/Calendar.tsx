@@ -9,6 +9,7 @@ interface CalendarProps extends React.PropsWithChildren {
   column?: number;
   columnNames?: string[];
   row?: number;
+  rowNames?: string[];
 }
 
 interface CalendarHeadRowProps extends React.PropsWithChildren {
@@ -18,6 +19,7 @@ interface CalendarHeadRowProps extends React.PropsWithChildren {
 interface CalendarRowProps {
   size: number;
   rowNum: number;
+  rowName?: string;
 }
 
 interface CalendarCellProps {
@@ -28,24 +30,37 @@ interface CalendarCellProps {
 
 function Calendar({ row = 48, column = 7, ...props }: CalendarProps) {
   return (
-    <table className="calendar">
-      <thead>
-        {props.columnNames && (
-          <CalendarHeaderRow key={row} columnNames={props.columnNames} />
-        )}
-      </thead>
-      <tr aria-hidden={true}>
-        <td></td>
-        {range(1, column).map((col, index) => {
-          return <td className="calendar-ticks-top"></td>;
+    <div className="flex-container">
+      <div className="calendar-header-side">
+        {props.rowNames?.map((name, index) => {
+          return (
+            <div key={index} className="calendar-header-side-cell">
+              {name}
+            </div>
+          );
         })}
-      </tr>
-      <tbody>
-        {range(1, row).map((row, index) => {
-          return <CalendarRow key={row} size={column} rowNum={index} />;
-        })}
-      </tbody>
-    </table>
+      </div>
+      <div style={{ flex: "2 1 0" }}>
+        <table className="calendar">
+          <thead>
+            {props.columnNames && (
+              <CalendarHeaderRow key={row} columnNames={props.columnNames} />
+            )}
+          </thead>
+          <tr aria-hidden={true}>
+            <td></td>
+            {range(1, column).map((col, index) => {
+              return <td className="calendar-ticks-top"></td>;
+            })}
+          </tr>
+          <tbody>
+            {range(1, row).map((row, index) => {
+              return <CalendarRow key={row} size={column} rowNum={index} />;
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 }
 

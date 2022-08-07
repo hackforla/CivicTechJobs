@@ -45,7 +45,7 @@ function Demo() {
           Hello World! Feel free to use this page as a playground to test code!
         </h1>
         <h2>Calendar</h2>
-        <Calendar columnNames={daysOfWeek} />
+        <Calendar columnNames={daysOfWeek} rowNames={hoursOfDay()} />
         <h2>Progress Bar</h2>
         <div>
           <ProgressBar addClass="my-2" value={1} label="page #" />
