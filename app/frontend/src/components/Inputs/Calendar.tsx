@@ -1,5 +1,5 @@
 // Eternal Imports
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 // Internal Imports
 import { combineClasses, range } from "../Utility/utils";
@@ -8,6 +8,7 @@ import { combineClasses, range } from "../Utility/utils";
 interface CalendarProps extends React.PropsWithChildren {
   column?: number;
   columnNames?: string[];
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
   row?: number;
   rowNames?: string[];
 }
@@ -16,25 +17,28 @@ interface CalendarHeadRowProps extends React.PropsWithChildren {
   columnNames: string[];
 }
 
-interface CalendarRowProps {
-  size: number;
+interface CalendarRowProps extends React.PropsWithChildren {
   rowNum: number;
   rowName?: string;
 }
 
 interface CalendarCellProps {
-  key: number;
   rowNum: number;
+  onChange: (selected: boolean) => any;
   selected?: boolean;
 }
 
 function Calendar({ row = 48, column = 7, ...props }: CalendarProps) {
+  function handleChange(row: number, column: number, selected: boolean) {
+    return;
+  }
+
   return (
     <div className="flex-container">
       <div className="calendar-header-side">
         {props.rowNames?.map((name, index) => {
           return (
-            <div key={index} className="calendar-header-side-cell">
+            <div key={index} className="calendar-header-side-cell paragraph-2">
               {name}
             </div>
           );
@@ -47,15 +51,29 @@ function Calendar({ row = 48, column = 7, ...props }: CalendarProps) {
               <CalendarHeaderRow key={row} columnNames={props.columnNames} />
             )}
           </thead>
-          <tr aria-hidden={true}>
-            <td></td>
-            {range(1, column).map((col, index) => {
-              return <td className="calendar-ticks-top"></td>;
-            })}
-          </tr>
           <tbody>
+            <tr aria-hidden={true}>
+              <td></td>
+              {range(1, column).map((col, index) => {
+                return <td key={index} className="calendar-ticks-top"></td>;
+              })}
+            </tr>
             {range(1, row).map((row, index) => {
-              return <CalendarRow key={row} size={column} rowNum={index} />;
+              return (
+                <CalendarRow key={index} rowNum={row}>
+                  {range(1, column).map((column, index) => {
+                    return (
+                      <CalendarCell
+                        key={index}
+                        rowNum={row}
+                        onChange={(selected: boolean) =>
+                          handleChange(row, column, selected)
+                        }
+                      />
+                    );
+                  })}
+                </CalendarRow>
+              );
             })}
           </tbody>
         </table>
@@ -84,19 +102,17 @@ function CalendarRow(props: CalendarRowProps) {
     <tr
       className={combineClasses(
         "calendar-row",
-        props.rowNum % 2 == 0 ? "solid" : "dashed"
+        props.rowNum % 2 == 0 ? "dashed" : "solid"
       )}
     >
       <td
         className={combineClasses(
           "calendar-ticks-left",
-          props.rowNum % 2 == 0 ? "solid" : "dashed"
+          props.rowNum % 2 == 0 ? "dashed" : "solid"
         )}
         aria-hidden={true}
       ></td>
-      {range(1, props.size).map((num) => {
-        return <CalendarCell key={num} rowNum={props.rowNum} />;
-      })}
+      {props.children}
     </tr>
   );
 }
@@ -104,16 +120,19 @@ function CalendarRow(props: CalendarRowProps) {
 function CalendarCell({ selected = false, ...props }: CalendarCellProps) {
   const [isSelected, setIsSelected] = useState(selected);
 
+  useEffect(() => {
+    props.onChange(isSelected);
+  }, [isSelected]);
+
   function handleClick() {
     setIsSelected(!isSelected);
   }
 
   return (
     <td
-      key={props.key}
       className={combineClasses(
         "calendar-cell",
-        props.rowNum % 2 == 0 ? "solid" : "dashed",
+        props.rowNum % 2 == 0 ? "dashed" : "solid",
         isSelected && "selected"
       )}
       onClick={handleClick}

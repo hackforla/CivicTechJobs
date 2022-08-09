@@ -21,7 +21,7 @@ $cell-offtick-left: 24px;
 // For the column with text for each row
 .calendar-header-side {
   box-sizing: border-box;
-  padding-top: $cell-height + $cell-offtick-top - 4px;
+  padding-top: $cell-height + $cell-offtick-top - 6px;
 }
 
 .calendar-header-side-cell {
