@@ -11,25 +11,47 @@ $cell-offtick-left: 24px;
   table-layout: fixed;
 }
 
-// For the row with text for each column (thead)
-.calendar-header {
+/***********************************
+*** Calendar classes for headers ***
+***********************************/
+
+@mixin calendar-header-row {
+  background-color: $color-white;
+  // borders are not sticky, so box-shadow recreates the border
+  box-shadow: 0 0 0 1px $color-white;
   height: $cell-height;
+  position: sticky;
+  top: 0;
+}
+
+.calendar-header-row-cell {
+  @include calendar-header-row;
   max-width: $cell-width;
-  width: $cell-width;
 }
 
-// For the column with text for each row
-.calendar-header-side {
+.calendar-header-row-ticks {
+  @include calendar-header-row;
+  max-width: $cell-offtick-left;
+}
+
+.calendar-header-column {
   box-sizing: border-box;
-  padding-top: $cell-height + $cell-offtick-top - 6px;
+  padding-top: $cell-offtick-top - 6px;
 }
 
-.calendar-header-side-cell {
+.calendar-header-column-cell {
   height: 2 * $cell-height;
   padding-right: 8px;
 }
 
-// For the rows with the body
+.calendar-header-row-column-cell {
+  @include calendar-header-row;
+}
+
+/********************************
+*** Calendar classes for rows ***
+********************************/
+
 .calendar-row {
   height: $cell-height;
 
@@ -42,7 +64,10 @@ $cell-offtick-left: 24px;
   }
 }
 
-// For individual cells
+/*******************************
+*** Calendar class for cells ***
+*******************************/
+
 @mixin calendar-cell {
   border-left: 2px solid $color-grey-dark;
   max-width: $cell-width;
@@ -74,7 +99,10 @@ $cell-offtick-left: 24px;
   }
 }
 
-// For off ticks
+/***********************************
+*** Calendar class for off-ticks ***
+***********************************/
+
 .calendar-ticks-top {
   @include calendar-cell;
 

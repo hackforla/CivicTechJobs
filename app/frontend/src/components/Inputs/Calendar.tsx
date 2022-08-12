@@ -13,13 +13,16 @@ interface CalendarProps extends React.PropsWithChildren {
   rowNames?: string[];
 }
 
+interface CalendarHeaderColumnProps {
+  rowNames: string[];
+}
+
 interface CalendarHeadRowProps extends React.PropsWithChildren {
   columnNames: string[];
 }
 
 interface CalendarRowProps extends React.PropsWithChildren {
   rowNum: number;
-  rowName?: string;
 }
 
 interface CalendarCellProps {
@@ -35,15 +38,7 @@ function Calendar({ row = 48, column = 7, ...props }: CalendarProps) {
 
   return (
     <div className="flex-container">
-      <div className="calendar-header-side">
-        {props.rowNames?.map((name, index) => {
-          return (
-            <div key={index} className="calendar-header-side-cell paragraph-2">
-              {name}
-            </div>
-          );
-        })}
-      </div>
+      {props.rowNames && <CalendarHeaderColumn rowNames={props.rowNames} />}
       <div style={{ flex: "2 1 0" }}>
         <table className="calendar">
           <thead>
@@ -82,13 +77,28 @@ function Calendar({ row = 48, column = 7, ...props }: CalendarProps) {
   );
 }
 
+function CalendarHeaderColumn(props: CalendarHeaderColumnProps) {
+  return (
+    <div className="calendar-header-column">
+      <div className="calendar-header-row-column-cell"></div>
+      {props.rowNames?.map((name, index) => {
+        return (
+          <div key={index} className="calendar-header-column-cell paragraph-2">
+            {name}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 function CalendarHeaderRow(props: CalendarHeadRowProps) {
   return (
     <tr>
-      <th aria-hidden={true}></th>
+      <th aria-hidden={true} className="calendar-header-row-ticks"></th>
       {props.columnNames.map((name, index) => {
         return (
-          <th key={index} scope="col" className="calendar-header">
+          <th key={index} scope="col" className="calendar-header-row-cell">
             {name}
           </th>
         );
