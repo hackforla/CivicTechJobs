@@ -6,6 +6,7 @@ $cell-width: 142px;
 $cell-offtick-top: 36px;
 $cell-offtick-left: 24px;
 
+// table
 .calendar {
   border-collapse: collapse;
   table-layout: fixed;
@@ -24,26 +25,31 @@ $cell-offtick-left: 24px;
   top: 0;
 }
 
+// th
 .calendar-header-row-cell {
   @include calendar-header-row;
   max-width: $cell-width;
 }
 
+// th
 .calendar-header-row-ticks {
   @include calendar-header-row;
   max-width: $cell-offtick-left;
 }
 
+// div
 .calendar-header-column {
   box-sizing: border-box;
   padding-top: $cell-offtick-top - 6px;
 }
 
+// div
 .calendar-header-column-cell {
   height: 2 * $cell-height;
   padding-right: 8px;
 }
 
+// div
 .calendar-header-row-column-cell {
   @include calendar-header-row;
 }
@@ -52,6 +58,7 @@ $cell-offtick-left: 24px;
 *** Calendar classes for rows ***
 ********************************/
 
+// tr
 .calendar-row {
   height: $cell-height;
 
@@ -78,6 +85,7 @@ $cell-offtick-left: 24px;
   }
 }
 
+// td
 .calendar-cell {
   @include calendar-cell;
 
@@ -103,12 +111,14 @@ $cell-offtick-left: 24px;
 *** Calendar class for off-ticks ***
 ***********************************/
 
+// td
 .calendar-ticks-top {
   @include calendar-cell;
 
   height: $cell-offtick-top;
 }
 
+// td
 .calendar-ticks-left {
   max-width: $cell-offtick-left;
   width: $cell-offtick-left;

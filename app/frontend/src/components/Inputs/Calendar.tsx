@@ -1,5 +1,5 @@
 // Eternal Imports
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // Internal Imports
 import { combineClasses, range } from "../Utility/utils";
@@ -38,21 +38,25 @@ function Calendar({ row = 48, column = 7, ...props }: CalendarProps) {
 
   return (
     <div className="flex-container">
+      {/* Side column with headers. Needs to be separate due to labels being on the border, and alternating */}
       {props.rowNames && <CalendarHeaderColumn rowNames={props.rowNames} />}
       <div style={{ flex: "2 1 0" }}>
         <table className="calendar">
           <thead>
+            {/* Top row with the headers */}
             {props.columnNames && (
               <CalendarHeaderRow key={row} columnNames={props.columnNames} />
             )}
           </thead>
           <tbody>
+            {/* Top row with the ticks */}
             <tr aria-hidden={true}>
               <td></td>
               {range(1, column).map((col, index) => {
                 return <td key={index} className="calendar-ticks-top"></td>;
               })}
             </tr>
+            {/* Some number of typical rows */}
             {range(1, row).map((row, index) => {
               return (
                 <CalendarRow key={index} rowNum={row}>
