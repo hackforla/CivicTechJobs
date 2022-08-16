@@ -6,6 +6,7 @@ stage.env
 __pycache__
 
 .vscode/
+.venv/
 app/frontend/static/frontend/*
 !app/frontend/static/frontend/.gitkeep
 app/frontend/templates/frontend/*

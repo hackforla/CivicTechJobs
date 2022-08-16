@@ -54,6 +54,7 @@ module.exports = {
                 loader: "@svgr/webpack",
                 options: {
                   titleProp: true,
+                  descProp: true,
                   svgoConfig: { removeTitle: false, removeDesc: false },
                 },
               },
