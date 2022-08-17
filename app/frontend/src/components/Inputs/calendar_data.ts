@@ -1,11 +1,11 @@
 const daysOfWeek = [
-  "Søndag",
-  "Mandag",
-  "Tirsdag",
-  "Onsdag",
-  "Torsdag",
-  "Fredag",
-  "Lørdag",
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
 ];
 
 function hoursOfDay() {

@@ -3,14 +3,12 @@ import React, { useEffect, useState } from "react";
 
 // Internal Imports
 import { combineClasses, range } from "../Utility/utils";
+import { daysOfWeek, hoursOfDay } from "./calendar_data";
 
 // Type declaration for props
 interface CalendarProps extends React.PropsWithChildren {
-  column?: number;
-  columnNames?: string[];
   onChange: React.ChangeEventHandler<HTMLInputElement>;
-  row?: number;
-  rowNames?: string[];
+  value?: string;
 }
 
 interface CalendarHeaderColumnProps {
@@ -31,7 +29,9 @@ interface CalendarCellProps {
   selected?: boolean;
 }
 
-function Calendar({ row = 48, column = 7, ...props }: CalendarProps) {
+function Calendar({ value = "0".repeat(168), ...props }: CalendarProps) {
+  const [data, setData] = useState(value);
+
   function handleChange(row: number, column: number, selected: boolean) {
     return;
   }
@@ -39,28 +39,26 @@ function Calendar({ row = 48, column = 7, ...props }: CalendarProps) {
   return (
     <div className="flex-container">
       {/* Side column with headers. Needs to be separate due to labels being on the border, and alternating */}
-      {props.rowNames && <CalendarHeaderColumn rowNames={props.rowNames} />}
+      <CalendarHeaderColumn rowNames={hoursOfDay()} />
       <div style={{ flex: "2 1 0" }}>
         <table className="calendar">
           <thead>
             {/* Top row with the headers */}
-            {props.columnNames && (
-              <CalendarHeaderRow key={row} columnNames={props.columnNames} />
-            )}
+            <CalendarHeaderRow columnNames={daysOfWeek} />
           </thead>
           <tbody>
             {/* Top row with the ticks */}
             <tr aria-hidden={true}>
               <td></td>
-              {range(1, column).map((col, index) => {
+              {range(1, 7).map((_, index) => {
                 return <td key={index} className="calendar-ticks-top"></td>;
               })}
             </tr>
             {/* Some number of typical rows */}
-            {range(1, row).map((row, index) => {
+            {range(1, 48).map((row, index) => {
               return (
                 <CalendarRow key={index} rowNum={row}>
-                  {range(1, column).map((column, index) => {
+                  {range(1, 7).map((column, index) => {
                     return (
                       <CalendarCell
                         key={index}

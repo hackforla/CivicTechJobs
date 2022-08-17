@@ -18,6 +18,7 @@ $cell-offtick-left: 24px;
 
 @mixin calendar-header-row {
   background-color: $color-white;
+
   // borders are not sticky, so box-shadow recreates the border
   box-shadow: 0 0 0 1px $color-white;
   height: $cell-height;
@@ -28,12 +29,14 @@ $cell-offtick-left: 24px;
 // th
 .calendar-header-row-cell {
   @include calendar-header-row;
+
   max-width: $cell-width;
 }
 
 // th
 .calendar-header-row-ticks {
   @include calendar-header-row;
+
   max-width: $cell-offtick-left;
 }
 
