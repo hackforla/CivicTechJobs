@@ -1,0 +1,139 @@
+// Internal Imports
+@use "../Basics/" as *;
+
+$cell-height: 36px;
+$cell-width: 142px;
+$cell-offtick-top: 36px;
+$cell-offtick-left: 24px;
+
+// table
+.calendar {
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+/***********************************
+*** Calendar classes for headers ***
+***********************************/
+
+@mixin calendar-header-row {
+  background-color: $color-white;
+
+  // borders are not sticky, so box-shadow recreates the border
+  box-shadow: 0 0 0 1px $color-white;
+  height: $cell-height;
+  position: sticky;
+  top: 0;
+}
+
+// th
+.calendar-header-row-cell {
+  @include calendar-header-row;
+
+  max-width: $cell-width;
+}
+
+// th
+.calendar-header-row-ticks {
+  @include calendar-header-row;
+
+  max-width: $cell-offtick-left;
+}
+
+// div
+.calendar-header-column {
+  box-sizing: border-box;
+  padding-top: $cell-offtick-top - 6px;
+}
+
+// div
+.calendar-header-column-cell {
+  height: 2 * $cell-height;
+  padding-right: 8px;
+}
+
+// div
+.calendar-header-row-column-cell {
+  @include calendar-header-row;
+}
+
+/********************************
+*** Calendar classes for rows ***
+********************************/
+
+// tr
+.calendar-row {
+  height: $cell-height;
+
+  &.dashed:last-child {
+    border-bottom: 2px solid $color-grey;
+  }
+
+  &.solid:last-child {
+    border-bottom: 2px dashed $color-grey;
+  }
+}
+
+/*******************************
+*** Calendar class for cells ***
+*******************************/
+
+@mixin calendar-cell {
+  border-left: 2px solid $color-grey-dark;
+  width: $cell-width;
+
+  &:last-child {
+    border-right: 2px solid $color-grey-dark;
+  }
+}
+
+// td
+.calendar-cell {
+  @include calendar-cell;
+
+  &.dashed {
+    border-top: 2px dashed $color-grey;
+  }
+
+  &.solid {
+    border-top: 2px solid $color-grey;
+  }
+
+  &.selected {
+    background-color: $color-green;
+    border-top-color: $color-green;
+  }
+
+  &:hover:not(.selected) {
+    background-color: rgba($color-green, 0.5);
+  }
+}
+
+.calendar-cell-box {
+  height: $cell-height;
+}
+
+/***********************************
+*** Calendar class for off-ticks ***
+***********************************/
+
+// td
+.calendar-ticks-top {
+  @include calendar-cell;
+
+  height: $cell-offtick-top;
+}
+
+// td
+.calendar-ticks-left {
+  max-width: $cell-offtick-left;
+  width: $cell-offtick-left;
+
+  &.dashed {
+    border-top: 2px dashed $color-grey;
+  }
+
+  &.solid {
+    border-top: 2px solid $color-grey;
+  }
+}
