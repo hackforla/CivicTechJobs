@@ -47,7 +47,7 @@ settings:
   jsx-a11y:
     components:
       Button: button
-      CloseButton: button
+      IconButton: button
 
 #########
 # Rules #
