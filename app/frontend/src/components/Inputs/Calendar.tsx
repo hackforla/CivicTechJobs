@@ -152,6 +152,7 @@ function CalendarCell({ selected = false, ...props }: CalendarCellProps) {
 
   return (
     <td
+      role="checkbox"
       tabIndex={0}
       className={combineClasses(
         "calendar-cell",
