@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 
 // Internal Imports
-import { combineClasses, range } from "../Utility/utils";
+import { combineClasses, onKey, range } from "../Utility/utils";
 import { daysOfWeek, hoursOfDay } from "./calendar_data";
 
 // Type declaration for props
@@ -152,12 +152,14 @@ function CalendarCell({ selected = false, ...props }: CalendarCellProps) {
 
   return (
     <td
+      tabIndex={0}
       className={combineClasses(
         "calendar-cell",
         props.rowNum % 2 == 0 ? "dashed" : "solid",
         isSelected && "selected"
       )}
       onClick={handleClick}
+      onKeyDown={(e) => onKey(handleClick, "Enter")(e)}
     ></td>
   );
 }
