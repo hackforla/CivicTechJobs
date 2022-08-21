@@ -9,13 +9,8 @@ interface IconButtonProps extends React.PropsWithChildren {
   addClass?: string;
   label: string;
   onClick: (e?: React.SyntheticEvent) => void;
-  variant: "X" | "ArrowLeft";
+  iconUrl: string;
 }
-
-const variants = {
-  X: iconX,
-  ArrowLeft: iconArrowLeft,
-};
 
 function IconButton(props: IconButtonProps) {
   return (
@@ -27,7 +22,7 @@ function IconButton(props: IconButtonProps) {
       aria-label={props.label}
       tabIndex={0}
     >
-      <img src={variants[props.variant]} alt="close"></img>
+      <img src={props.iconUrl} alt="close"></img>
     </div>
   );
 }

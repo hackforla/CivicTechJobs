@@ -12,7 +12,12 @@ import {
   Calendar,
   IconButton,
 } from "components/components";
-import { IconEyeClose, IconEyeOpen, IconSearch } from "assets/images/images";
+import {
+  IconEyeClose,
+  IconEyeOpen,
+  IconSearch,
+  iconArrowLeft,
+} from "assets/images/images";
 import { DropdownOption } from "components/Inputs/Dropdown";
 import { timezones } from "./timezone_data";
 
@@ -145,8 +150,8 @@ function Demo() {
         <h2>Back Button</h2>
         <div className="row justify-left">
           <IconButton
+            iconUrl={iconArrowLeft}
             onClick={() => navigate("/")}
-            variant="ArrowLeft"
           ></IconButton>
         </div>
       </div>
