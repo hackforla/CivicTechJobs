@@ -24,8 +24,9 @@ interface CalendarRowProps extends React.PropsWithChildren {
 }
 
 interface CalendarCellProps {
-  rowNum: number;
+  columnNum: number;
   onChange: (selected: boolean) => any;
+  rowNum: number;
   selected?: boolean;
 }
 
@@ -73,6 +74,7 @@ function Calendar({ value = "0".repeat(24 * 2 * 7), ...props }: CalendarProps) {
                       <CalendarCell
                         key={index}
                         rowNum={row}
+                        columnNum={column}
                         onChange={(selected: boolean) =>
                           handleChange(row, column, selected)
                         }
@@ -152,17 +154,23 @@ function CalendarCell({ selected = false, ...props }: CalendarCellProps) {
 
   return (
     <td
-      role="checkbox"
-      aria-checked={isSelected}
-      tabIndex={0}
+      tabIndex={-1}
       className={combineClasses(
         "calendar-cell",
         props.rowNum % 2 == 0 ? "dashed" : "solid",
         isSelected && "selected"
       )}
-      onClick={handleClick}
-      onKeyDown={(e) => onKey(handleClick, "Enter")(e)}
-    ></td>
+    >
+      <div
+        tabIndex={0}
+        role="checkbox"
+        aria-checked={isSelected}
+        aria-label={`I am available on ${props.rowNum}, ${props.columnNum}`}
+        className="calendar-cell-box"
+        onClick={handleClick}
+        onKeyDown={(e) => onKey(handleClick, "Enter")(e)}
+      ></div>
+    </td>
   );
 }
 
