@@ -153,6 +153,7 @@ function CalendarCell({ selected = false, ...props }: CalendarCellProps) {
   return (
     <td
       role="checkbox"
+      aria-checked={isSelected}
       tabIndex={0}
       className={combineClasses(
         "calendar-cell",
