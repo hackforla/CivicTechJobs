@@ -15,9 +15,10 @@ import copIconProduct from "./svgs/communities-of-practice/cop-icon-product.svg?
 import copIconUiux from "./svgs/communities-of-practice/cop-icon-uiux.svg?url";
 
 // Icons
+import IconArrowDown from "./svgs/icons/icon-arrow-down.svg";
+import IconArrowLeft from "./svgs/icons/icon-arrow-left.svg";
 import IconCheckboxY from "./svgs/icons/icon-checkbox-yes.svg";
 import IconCheckboxN from "./svgs/icons/icon-checkbox-no.svg";
-import IconDownArrow from "./svgs/icons/icon-down-arrow.svg";
 import IconDropdownDown from "./svgs/icons/icon-dropdown-down.svg";
 import IconDropdownUp from "./svgs/icons/icon-dropdown-up.svg";
 import IconEyeClose from "./svgs/icons/icon-eye-close.svg";
@@ -26,9 +27,10 @@ import IconHamburgerMenu from "./svgs/icons/icon-hamburger-menu.svg";
 import IconSearch from "./svgs/icons/icon-search.svg";
 import IconX from "./svgs/icons/icon-x.svg";
 
+import iconArrowDown from "./svgs/icons/icon-arrow-down.svg?url";
+import iconArrowLeft from "./svgs/icons/icon-arrow-left.svg?url";
 import iconCheckboxY from "./svgs/icons/icon-checkbox-yes.svg?url";
 import iconCheckboxN from "./svgs/icons/icon-checkbox-no.svg?url";
-import iconDownArrow from "./svgs/icons/icon-down-arrow.svg?url";
 import iconDropdownDown from "./svgs/icons/icon-dropdown-down.svg?url";
 import iconDropdownUp from "./svgs/icons/icon-dropdown-up.svg?url";
 import iconEyeClose from "./svgs/icons/icon-eye-close.svg?url";
@@ -154,9 +156,10 @@ export {
   copIconProduct,
   copIconUiux,
   // Icons
+  IconArrowDown,
+  IconArrowLeft,
   IconCheckboxY,
   IconCheckboxN,
-  IconDownArrow,
   IconDropdownDown,
   IconDropdownUp,
   IconEyeClose,
@@ -164,9 +167,10 @@ export {
   IconHamburgerMenu,
   IconSearch,
   IconX,
+  iconArrowDown,
+  iconArrowLeft,
   iconCheckboxY,
   iconCheckboxN,
-  iconDownArrow,
   iconDropdownDown,
   iconDropdownUp,
   iconEyeClose,

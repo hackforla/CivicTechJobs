@@ -1,6 +1,7 @@
 // @ts-nocheck
 // External Imports
 import React, { Fragment, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Internal Imports
 import {
@@ -9,6 +10,7 @@ import {
   TextField,
   ProgressBar,
   Calendar,
+  IconButton,
 } from "components/components";
 import { IconEyeClose, IconEyeOpen, IconSearch } from "assets/images/images";
 import { DropdownOption } from "components/Inputs/Dropdown";
@@ -18,6 +20,7 @@ function Demo() {
   const [activePage, setActivePage] = useState(1);
   const [currentTimeZone, setCurrentTimeZone] = useState(0);
   const [calendarData, setCalendarData] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -138,6 +141,13 @@ function Demo() {
             addInputClass="textfield-fit"
           />
           <TextField type="url" label="Personal website" addClass="m-1" />
+        </div>
+        <h2>Back Button</h2>
+        <div className="row justify-left">
+          <IconButton
+            onClick={() => navigate("/")}
+            variant="ArrowLeft"
+          ></IconButton>
         </div>
       </div>
     </Fragment>

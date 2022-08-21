@@ -1,5 +1,5 @@
 import { Button } from "./Buttons/Button";
-import { CloseButton } from "./Buttons/CloseButton";
+import { IconButton } from "./Buttons/IconButton";
 import { CopCard } from "./Cards/CopCard";
 import { InnerCopCard } from "./Cards/InnerCopCard";
 import { InnerCopNavCard } from "./Cards/InnerCopNavCard";
@@ -17,7 +17,7 @@ import { ProgressBar } from "./Navigation/ProgressBar";
 export {
   // Buttons
   Button,
-  CloseButton,
+  IconButton,
   // Cards
   CopCard,
   CircleCard,
