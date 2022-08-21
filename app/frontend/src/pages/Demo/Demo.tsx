@@ -149,7 +149,6 @@ function Demo() {
             variant="ArrowLeft"
           ></IconButton>
         </div>
-        test
       </div>
     </Fragment>
   );
