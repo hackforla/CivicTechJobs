@@ -18,6 +18,7 @@ import { daysOfWeek, hoursOfDay } from "./calendar_data";
 function Demo() {
   const [activePage, setActivePage] = useState(1);
   const [currentTimeZone, setCurrentTimeZone] = useState(0);
+  const [calendarData, setCalendarData] = useState(null);
 
   useEffect(() => {
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -37,8 +38,9 @@ function Demo() {
     console.log(e.target.checked);
   }
 
-  function calendarOnChange(e: any) {
-    console.log(e);
+  function calendarOnChange(data: string) {
+    console.log(data);
+    setCalendarData(data);
   }
 
   return (
@@ -49,7 +51,11 @@ function Demo() {
           Hello World! Feel free to use this page as a playground to test code!
         </h1>
         <h2>Calendar</h2>
-        <Calendar />
+        {calendarData ? (
+          <Calendar value={calendarData} onChange={calendarOnChange} />
+        ) : (
+          <Calendar onChange={calendarOnChange} />
+        )}
         <h2>Progress Bar</h2>
         <div>
           <ProgressBar addClass="my-2" value={1} label="page #" />

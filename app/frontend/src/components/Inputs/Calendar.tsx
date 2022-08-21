@@ -7,7 +7,7 @@ import { daysOfWeek, hoursOfDay } from "./calendar_data";
 
 // Type declaration for props
 interface CalendarProps extends React.PropsWithChildren {
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  onChange: (data: string) => any;
   value?: string;
 }
 
@@ -29,12 +29,21 @@ interface CalendarCellProps {
   selected?: boolean;
 }
 
-function Calendar({ value = "0".repeat(168), ...props }: CalendarProps) {
+function Calendar({ value = "0".repeat(24 * 2 * 7), ...props }: CalendarProps) {
   const [data, setData] = useState(value);
 
+  useEffect(() => {
+    props.onChange(data);
+  }, [data]);
+
   function handleChange(row: number, column: number, selected: boolean) {
-    // props.onChange()
-    return;
+    const rowIndex = row - 1;
+    const columnIndex = column - 1;
+    const nestedArr = dissect(data);
+    if (nestedArr) {
+      nestedArr[rowIndex][columnIndex] = selected ? "1" : "0";
+      setData(connect(nestedArr));
+    }
   }
 
   return (
@@ -151,6 +160,25 @@ function CalendarCell({ selected = false, ...props }: CalendarCellProps) {
       onClick={handleClick}
     ></td>
   );
+}
+
+function dissect(str: string, partition: number = 7) {
+  const arr = str.match(new RegExp(`.{1,${partition}}`, "g"));
+  const nestedArr = [];
+  if (arr) {
+    for (const substring of arr) {
+      nestedArr.push(substring.split(""));
+    }
+    return nestedArr;
+  }
+}
+
+function connect(nested_arr: string[][]) {
+  const arr = [];
+  for (const subArr of nested_arr) {
+    arr.push(subArr.join(""));
+  }
+  return arr.join("");
 }
 
 export { Calendar };
