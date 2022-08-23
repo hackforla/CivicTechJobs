@@ -20,20 +20,24 @@ import {
   logoStacked,
   logoStackedOnDark,
 } from "assets/images/images";
+import { QualifierPageCalendar } from "./QualifierPageCalendar";
 
-function CalendarPage() {
+function QualifierPage() {
   return (
     <Fragment>
       <HeaderNav
         logoDesktop={logoHorizontal}
         logoMobile={logoStacked}
         menu={[
-          { name: "Hack for LA", link: "/demo" },
-          { name: "How to Join", link: "/" },
-          { name: "Projects", link: "/" },
+          { name: "Hack for LA", link: "/" },
+          { name: "How to Join", link: "/qualifier" },
+          { name: "Projects", link: "/demo" },
         ]}
       />
-      <main>Calendar Page</main>
+      <main className="mx-10">
+        <ProgressBar label="Page 1" addClass="" />
+        <QualifierPageCalendar />
+      </main>
       <FooterNav
         logoDesktop={logoHorizontalOnDark}
         logoMobile={logoStackedOnDark}
@@ -47,4 +51,4 @@ function CalendarPage() {
   );
 }
 
-export { CalendarPage };
+export { QualifierPage };
