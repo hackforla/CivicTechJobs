@@ -1,0 +1,15 @@
+@use "components/Basics/" as *;
+
+.calendar-page-green-square {
+  background-color: $color-green;
+  border-radius: 2px;
+  display: inline-block;
+  height: 24px;
+  line-height: 30px;
+  width: 24px;
+}
+
+.calendar-page-dropdown {
+  align-self: flex-end;
+  width: 254px;
+}

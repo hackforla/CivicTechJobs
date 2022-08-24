@@ -30,7 +30,10 @@ function ProgressBar({
         {props.label}
       </label>
       <div
-        className={combineClasses("flex-container", props.addClass)}
+        className={combineClasses(
+          "flex-container progress-bar",
+          props.addClass
+        )}
         role="progressbar"
         aria-labelledby={ariaLabelledBy}
         aria-valuemin={1}

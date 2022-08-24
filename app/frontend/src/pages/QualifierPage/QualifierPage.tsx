@@ -34,8 +34,8 @@ function QualifierPage() {
           { name: "Projects", link: "/demo" },
         ]}
       />
-      <main className="mx-10">
-        <ProgressBar label="Page 1" addClass="" />
+      <main>
+        <ProgressBar label="Page 1" addClass="px-5" />
         <QualifierPageCalendar />
       </main>
       <FooterNav
