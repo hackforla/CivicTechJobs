@@ -15,6 +15,12 @@ function QualifierPageCalendar() {
     <div className="flex-column align-center">
       <Title />
       <TimeZoneDropDown />
+      <Calendar
+        addClass="mt-5"
+        onChange={(e) => {
+          console.log(e);
+        }}
+      />
     </div>
   );
 }
@@ -25,7 +31,8 @@ function Title() {
       <h2 className="title-2 mt-6">What is your weekly availability?</h2>
       <p className="paragraph-1 row justify-center mt-3">
         Drag to select.&nbsp;&nbsp;
-        <div className="calendar-page-green-square"></div>&nbsp;=&nbsp;available
+        <span className="calendar-page-green-square"></span>
+        &nbsp;=&nbsp;available
       </p>
     </Fragment>
   );
