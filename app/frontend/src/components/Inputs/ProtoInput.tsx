@@ -20,10 +20,7 @@ function ProtoInput({
   ...props
 }: ProtoInputProps) {
   return (
-    <div
-      className={combineClasses("flex-column", props.addClass)}
-      ref={props.innerRef}
-    >
+    <div className={combineClasses(props.addClass)} ref={props.innerRef}>
       <label
         className={combineClasses("title-6", "mb-1", labelHidden && "sr-only")}
         htmlFor={props.id}

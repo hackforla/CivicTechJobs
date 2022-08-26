@@ -12,15 +12,29 @@ import { timezones } from "./timezone_data";
 
 function QualifierPageCalendar() {
   return (
-    <div className="flex-column align-center">
-      <Title />
-      <TimeZoneDropDown />
-      <Calendar
-        addClass="mt-5"
-        onChange={(e) => {
-          console.log(e);
+    <div className="flex-container justify-center">
+      <div className="flex-column qcalendar-content align-center px-5">
+        <Title />
+        <TimeZoneDropDown />
+        <Calendar
+          addClass="mt-5"
+          onChange={(e) => {
+            console.log(e);
+          }}
+        />
+      </div>
+      <div
+        style={{
+          width: "100%",
+          position: "sticky",
+          bottom: 0,
+          zIndex: 1000,
+          height: "100px",
+          backgroundColor: "lightblue",
         }}
-      />
+      >
+        Arrow Buttom and Button
+      </div>
     </div>
   );
 }
@@ -28,10 +42,10 @@ function QualifierPageCalendar() {
 function Title() {
   return (
     <Fragment>
-      <h2 className="title-2 mt-6">What is your weekly availability?</h2>
+      <h1 className="title-2 mt-6">What is your weekly availability?</h1>
       <p className="paragraph-1 row justify-center mt-3">
         Drag to select.&nbsp;&nbsp;
-        <span className="calendar-page-green-square"></span>
+        <span className="qcalendar-green-square"></span>
         &nbsp;=&nbsp;available
       </p>
     </Fragment>
@@ -51,30 +65,32 @@ function TimeZoneDropDown() {
     }
   }, []);
   return (
-    <Dropdown
-      addClass="calendar-page-dropdown"
-      ariaLabel="timezone-dropdown"
-      label="Your timezone:"
-      labelHidden={false}
-      value={timezones[currentTimeZone].text}
-    >
-      {timezones.map((zone, index) => {
-        return (
-          <DropdownOption
-            key={index}
-            value={index}
-            selected={
-              timezones[index].value == timezones[currentTimeZone].value
-            }
-            onClick={(val) => {
-              if (typeof val === "number") setCurrentTimeZone(val);
-            }}
-          >
-            {zone.text}
-          </DropdownOption>
-        );
-      })}
-    </Dropdown>
+    <div className="qcalendar-dropdown flex-container justify-right">
+      <Dropdown
+        addClass="col-3 ovflow-hidden"
+        ariaLabel="timezone-dropdown"
+        label="Your timezone:"
+        labelHidden={false}
+        value={timezones[currentTimeZone].text}
+      >
+        {timezones.map((zone, index) => {
+          return (
+            <DropdownOption
+              key={index}
+              value={index}
+              selected={
+                timezones[index].value == timezones[currentTimeZone].value
+              }
+              onClick={(val) => {
+                if (typeof val === "number") setCurrentTimeZone(val);
+              }}
+            >
+              {zone.text}
+            </DropdownOption>
+          );
+        })}
+      </Dropdown>
+    </div>
   );
 }
 

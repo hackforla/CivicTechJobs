@@ -1,1 +1,7 @@
 @use "components/Basics" as *;
+
+.box {
+  border: 1px solid red;
+  height: 50px;
+  overflow: hidden;
+}

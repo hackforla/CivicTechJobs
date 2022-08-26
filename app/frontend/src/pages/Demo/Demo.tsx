@@ -52,6 +52,12 @@ function Demo() {
 
   return (
     <Fragment>
+      <div className="flex-container">
+        <div className="col-3 box"></div>
+        <div className="col-3 box"></div>
+        <div className="col-3 box"></div>
+        <div className="col-3 box"></div>
+      </div>
       <div className="m-5"></div>
       <div className="m-5">
         <h1>

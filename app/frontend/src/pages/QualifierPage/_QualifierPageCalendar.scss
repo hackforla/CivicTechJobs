@@ -1,6 +1,11 @@
 @use "components/Basics/" as *;
 
-.calendar-page-green-square {
+.qcalendar-content {
+  flex-wrap: nowrap;
+  width: fit-content;
+}
+
+.qcalendar-green-square {
   background-color: $color-green;
   border-radius: 2px;
   display: inline-block;
@@ -9,7 +14,6 @@
   width: 24px;
 }
 
-.calendar-page-dropdown {
-  align-self: flex-end;
-  width: 254px;
+.qcalendar-dropdown {
+  width: 100%;
 }
