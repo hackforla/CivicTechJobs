@@ -19,7 +19,7 @@ import {
   iconArrowLeft,
 } from "assets/images/images";
 import { DropdownOption } from "components/Inputs/Dropdown";
-import { timezones } from "./timezone_data";
+import { timezones } from "../QualifierPage/timezone_data";
 
 function Demo() {
   const [activePage, setActivePage] = useState(1);
