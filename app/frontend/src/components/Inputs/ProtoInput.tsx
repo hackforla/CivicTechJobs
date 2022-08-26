@@ -11,6 +11,7 @@ interface ProtoInputProps extends React.PropsWithChildren {
   id: string;
   label: string;
   labelHidden?: boolean;
+  innerRef?: any;
 }
 
 function ProtoInput({
@@ -19,7 +20,10 @@ function ProtoInput({
   ...props
 }: ProtoInputProps) {
   return (
-    <div className={combineClasses("flex-column", props.addClass)}>
+    <div
+      className={combineClasses("flex-column", props.addClass)}
+      ref={props.innerRef}
+    >
       <label
         className={combineClasses("title-6", "mb-1", labelHidden && "sr-only")}
         htmlFor={props.id}
