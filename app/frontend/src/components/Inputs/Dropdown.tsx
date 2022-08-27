@@ -70,34 +70,33 @@ function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
 
   return (
     <Fragment>
-      <div ref={setReferenceElement}>
-        <ProtoInput
-          addClass={combineClasses(props.addClass)}
-          icon={open ? IconDropdownUp : IconDropdownDown}
-          iconPosition={"right"}
+      <ProtoInput
+        addClass={props.addClass}
+        icon={open ? IconDropdownUp : IconDropdownDown}
+        iconPosition={"right"}
+        id={dropdownId}
+        label={props.label}
+        labelHidden={labelHidden}
+        passRef={setReferenceElement}
+      >
+        <div
+          aria-controls={dropdownBoxId}
+          aria-expanded={open}
+          aria-label={props.ariaLabel}
+          aria-owns={dropdownBoxId}
           id={dropdownId}
-          label={props.label}
-          labelHidden={labelHidden}
+          className="dropdown"
+          onClick={() => setOpen(!open)}
+          onKeyDown={(e) => onKey(() => setOpen(!open), "Enter")(e)}
+          onMouseDown={(e) => e.preventDefault()}
+          role="combobox"
+          tabIndex={0}
         >
-          <div
-            aria-controls={dropdownBoxId}
-            aria-expanded={open}
-            aria-label={props.ariaLabel}
-            aria-owns={dropdownBoxId}
-            id={dropdownId}
-            className="dropdown"
-            onClick={() => setOpen(!open)}
-            onKeyDown={(e) => onKey(() => setOpen(!open), "Enter")(e)}
-            onMouseDown={(e) => e.preventDefault()}
-            role="combobox"
-            tabIndex={0}
-          >
-            {props.value}
-          </div>
-        </ProtoInput>
-      </div>
+          {props.value}
+        </div>
+      </ProtoInput>
       <ul
-        className={combineClasses("dropdown-box", open || "hidden")}
+        className={combineClasses("dropdown-box p-0 m-0", open || "hidden")}
         id={dropdownBoxId}
         ref={setPopperElement}
         role="listbox"
@@ -120,12 +119,12 @@ function DropdownOption({ ...props }: DropdownOptionProps) {
   return (
     <li
       aria-selected={props.selected}
-      className="dropdown-row"
+      className="dropdown-row px-2"
       onClick={() => props.onClick(props.value)}
       onKeyDown={(e) => onKey(props.onClick, "Enter")(e)}
       role="option"
     >
-      <div className="dropdown-item">{props.children}</div>
+      <div>{props.children}</div>
     </li>
   );
 }

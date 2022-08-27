@@ -2,14 +2,15 @@
 @use "../Basics/" as *;
 
 $cell-height: 36px;
-$cell-width: 142px;
 $cell-offtick-top: 36px;
 $cell-offtick-left: 24px;
+$cell-border: 2px;
 
 // table
 .calendar {
   border-collapse: collapse;
   table-layout: fixed;
+  width: 100%; // remove
 }
 
 /***********************************
@@ -26,35 +27,31 @@ $cell-offtick-left: 24px;
   top: 0;
 }
 
-// th
-.calendar-header-row-cell {
-  @include calendar-header-row;
+// tr > th
+.calendar-header-row {
+  & > th:first-child {
+    @include calendar-header-row;
 
-  max-width: $cell-width;
-}
+    width: $cell-offtick-left;
+  }
 
-// th
-.calendar-header-row-ticks {
-  @include calendar-header-row;
-
-  max-width: $cell-offtick-left;
+  & > th:not(:first-child) {
+    @include calendar-header-row;
+  }
 }
 
 // div
 .calendar-header-column {
   box-sizing: border-box;
   padding-top: $cell-offtick-top - 6px;
-}
 
-// div
-.calendar-header-column-cell {
-  height: 2 * $cell-height;
-  padding-right: 8px;
-}
+  & > div:first-child {
+    @include calendar-header-row;
+  }
 
-// div
-.calendar-header-row-column-cell {
-  @include calendar-header-row;
+  & > div:not(:first-child):not(:last-child) {
+    height: 2 * ($cell-height + 2 * $cell-border);
+  }
 }
 
 /********************************
@@ -66,11 +63,11 @@ $cell-offtick-left: 24px;
   height: $cell-height;
 
   &.dashed:last-child {
-    border-bottom: 2px solid $color-grey;
+    border-bottom: $cell-border solid $color-grey;
   }
 
   &.solid:last-child {
-    border-bottom: 2px dashed $color-grey;
+    border-bottom: $cell-border dashed $color-grey;
   }
 }
 
@@ -79,11 +76,11 @@ $cell-offtick-left: 24px;
 *******************************/
 
 @mixin calendar-cell {
-  border-left: 2px solid $color-grey-dark;
-  width: $cell-width;
+  border-left: $cell-border solid $color-grey-dark;
+  height: $cell-height;
 
   &:last-child {
-    border-right: 2px solid $color-grey-dark;
+    border-right: $cell-border solid $color-grey-dark;
   }
 }
 
@@ -92,11 +89,11 @@ $cell-offtick-left: 24px;
   @include calendar-cell;
 
   &.dashed {
-    border-top: 2px dashed $color-grey;
+    border-top: $cell-border dashed $color-grey;
   }
 
   &.solid {
-    border-top: 2px solid $color-grey;
+    border-top: $cell-border solid $color-grey;
   }
 
   &.selected {
@@ -107,10 +104,10 @@ $cell-offtick-left: 24px;
   &:hover:not(.selected) {
     background-color: rgba($color-green, 0.5);
   }
-}
 
-.calendar-cell-box {
-  height: $cell-height;
+  & > * {
+    height: $cell-height;
+  }
 }
 
 /***********************************
@@ -126,14 +123,13 @@ $cell-offtick-left: 24px;
 
 // td
 .calendar-ticks-left {
-  max-width: $cell-offtick-left;
   width: $cell-offtick-left;
 
   &.dashed {
-    border-top: 2px dashed $color-grey;
+    border-top: $cell-border dashed $color-grey;
   }
 
   &.solid {
-    border-top: 2px solid $color-grey;
+    border-top: $cell-border solid $color-grey;
   }
 }
