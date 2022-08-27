@@ -96,7 +96,7 @@ function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
         </div>
       </ProtoInput>
       <ul
-        className={combineClasses("dropdown-box p-0", open || "hidden")}
+        className={combineClasses("dropdown-box p-0 m-0", open || "hidden")}
         id={dropdownBoxId}
         ref={setPopperElement}
         role="listbox"
