@@ -1,19 +1,8 @@
 // External Imports
 import React, { Fragment, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 // Internal Imports
-import {
-  Checkbox,
-  Dropdown,
-  DropdownOption,
-  TextField,
-  ProgressBar,
-  Calendar,
-  IconButton,
-  HeaderNav,
-  FooterNav,
-} from "components/components";
+import { ProgressBar, HeaderNav, FooterNav } from "components/components";
 import {
   logoHorizontal,
   logoHorizontalOnDark,
@@ -23,6 +12,8 @@ import {
 import { QualifierPageCalendar } from "./QualifierPageCalendar";
 
 function QualifierPage() {
+  const [page, setPage] = useState(2);
+
   return (
     <Fragment>
       <HeaderNav
@@ -36,7 +27,7 @@ function QualifierPage() {
       />
       <main>
         <ProgressBar label="Page 1" addClass="px-5" />
-        <QualifierPageCalendar />
+        <QualifierPageCalendar setPage={setPage} />
       </main>
       <FooterNav
         logoDesktop={logoHorizontalOnDark}

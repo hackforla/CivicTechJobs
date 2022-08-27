@@ -7,10 +7,16 @@ import {
   DropdownOption,
   Calendar,
   IconButton,
+  Button,
 } from "components/components";
 import { timezones } from "./timezone_data";
+import { iconArrowLeft } from "assets/images/images";
 
-function QualifierPageCalendar() {
+interface QualifierPageCalendarProps {
+  setPage: (num: number) => void;
+}
+
+function QualifierPageCalendar({ setPage }: QualifierPageCalendarProps) {
   return (
     <div className="flex-container justify-center">
       <div className="flex-column qcalendar-content align-center px-5">
@@ -22,18 +28,7 @@ function QualifierPageCalendar() {
             console.log(e);
           }}
         />
-      </div>
-      <div
-        style={{
-          width: "100%",
-          position: "sticky",
-          bottom: 0,
-          zIndex: 1000,
-          height: "100px",
-          backgroundColor: "lightblue",
-        }}
-      >
-        Arrow Buttom and Button
+        <CalendarNav />
       </div>
     </div>
   );
@@ -90,6 +85,26 @@ function TimeZoneDropDown() {
           );
         })}
       </Dropdown>
+    </div>
+  );
+}
+
+function CalendarNav() {
+  return (
+    <div className="flex-container align-center qcalendar-nav px-3">
+      <IconButton
+        label="previous page"
+        iconUrl={iconArrowLeft}
+        onClick={() => console.log("going back to previous page")}
+      />
+      <Button
+        size="lg"
+        length="long"
+        color="primary"
+        onClick={() => console.log("viewing available roles")}
+      >
+        View available roles
+      </Button>
     </div>
   );
 }
