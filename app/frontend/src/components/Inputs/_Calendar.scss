@@ -51,7 +51,6 @@ $cell-border: 2px;
 
   & > div:not(:first-child):not(:last-child) {
     height: 2 * ($cell-height + 2 * $cell-border);
-    padding-right: 8px;
   }
 }
 

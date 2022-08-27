@@ -97,7 +97,7 @@ function Calendar({ value = "0".repeat(24 * 2 * 7), ...props }: CalendarProps) {
 
 function CalendarHeaderColumn(props: CalendarHeaderColumnProps) {
   return (
-    <div className="calendar-header-column">
+    <div className="calendar-header-column pr-1">
       <div aria-hidden="true"></div>
       {props.rowNames?.map((name, index) => {
         return (
