@@ -49,7 +49,10 @@ function Calendar({ value = "0".repeat(24 * 2 * 7), ...props }: CalendarProps) {
   }
 
   return (
-    <div className={combineClasses("flex-container", props.addClass)}>
+    <div
+      className={combineClasses("flex-container", props.addClass)}
+      style={{ maxWidth: "1088px" }}
+    >
       {/* Side column with headers. Needs to be separate due to labels being on the border, and alternating */}
       <CalendarHeaderColumn rowNames={hoursOfDay()} />
       <div style={{ flex: "2 1 0" }}>
@@ -95,10 +98,10 @@ function Calendar({ value = "0".repeat(24 * 2 * 7), ...props }: CalendarProps) {
 function CalendarHeaderColumn(props: CalendarHeaderColumnProps) {
   return (
     <div className="calendar-header-column">
-      <div className="calendar-header-row-column-cell"></div>
+      <div aria-hidden="true"></div>
       {props.rowNames?.map((name, index) => {
         return (
-          <div key={index} className="calendar-header-column-cell paragraph-2">
+          <div key={index} className="paragraph-2">
             {name}
           </div>
         );
@@ -109,11 +112,11 @@ function CalendarHeaderColumn(props: CalendarHeaderColumnProps) {
 
 function CalendarHeaderRow(props: CalendarHeadRowProps) {
   return (
-    <tr>
-      <th aria-hidden={true} className="calendar-header-row-ticks"></th>
+    <tr className="calendar-header-row">
+      <th aria-hidden="true"></th>
       {props.columnNames.map((name, index) => {
         return (
-          <th key={index} scope="col" className="calendar-header-row-cell">
+          <th key={index} scope="col">
             {name}
           </th>
         );
@@ -167,7 +170,6 @@ function CalendarCell({ selected = false, ...props }: CalendarCellProps) {
         role="checkbox"
         aria-checked={isSelected}
         aria-label={`I am available on ${props.rowNum}, ${props.columnNum}`}
-        className="calendar-cell-box"
         onClick={handleClick}
         onKeyDown={(e) => onKey(handleClick, "Enter")(e)}
       ></div>
