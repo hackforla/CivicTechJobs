@@ -15,14 +15,14 @@ interface IconButtonProps extends React.PropsWithChildren {
 function IconButton(props: IconButtonProps) {
   return (
     <div
-      className={combineClasses("btn-icon", props.addClass)}
+      className={combineClasses("icon-btn", props.addClass)}
       onClick={props.onClick}
       onKeyDown={(e) => onKey(props.onClick, "Enter")(e)}
       role="button"
       aria-label={props.label}
       tabIndex={0}
     >
-      <img src={props.iconUrl} alt="close"></img>
+      <img src={props.iconUrl} alt=""></img>
     </div>
   );
 }
