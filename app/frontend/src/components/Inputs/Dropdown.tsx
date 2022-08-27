@@ -96,7 +96,7 @@ function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
         </div>
       </ProtoInput>
       <ul
-        className={combineClasses("dropdown-box", open || "hidden")}
+        className={combineClasses("dropdown-box p-0", open || "hidden")}
         id={dropdownBoxId}
         ref={setPopperElement}
         role="listbox"
@@ -119,12 +119,12 @@ function DropdownOption({ ...props }: DropdownOptionProps) {
   return (
     <li
       aria-selected={props.selected}
-      className="dropdown-row"
+      className="dropdown-row px-2"
       onClick={() => props.onClick(props.value)}
       onKeyDown={(e) => onKey(props.onClick, "Enter")(e)}
       role="option"
     >
-      <div className="dropdown-item">{props.children}</div>
+      <div>{props.children}</div>
     </li>
   );
 }
