@@ -52,7 +52,7 @@ function LandingPageCop() {
               }}
               role="button"
             >
-              <div style={{ display: "flex", flexDirection: "column" }}>
+              <div className="flex-column">
                 <div className="pb-3 row justify-center">
                   <cop.icon strokeWidth="0.2" height="65" aria-hidden="true" />
                 </div>
