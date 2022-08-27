@@ -19,6 +19,7 @@ import IconArrowDown from "./svgs/icons/icon-arrow-down.svg";
 import IconArrowLeft from "./svgs/icons/icon-arrow-left.svg";
 import IconCheckboxY from "./svgs/icons/icon-checkbox-yes.svg";
 import IconCheckboxN from "./svgs/icons/icon-checkbox-no.svg";
+import IconCheckMark from "./svgs/icons/icon-checkmark.svg";
 import IconDropdownDown from "./svgs/icons/icon-dropdown-down.svg";
 import IconDropdownUp from "./svgs/icons/icon-dropdown-up.svg";
 import IconEyeClose from "./svgs/icons/icon-eye-close.svg";
@@ -31,6 +32,7 @@ import iconArrowDown from "./svgs/icons/icon-arrow-down.svg?url";
 import iconArrowLeft from "./svgs/icons/icon-arrow-left.svg?url";
 import iconCheckboxY from "./svgs/icons/icon-checkbox-yes.svg?url";
 import iconCheckboxN from "./svgs/icons/icon-checkbox-no.svg?url";
+import iconCheckMark from "./svgs/icons/icon-checkmark.svg?url";
 import iconDropdownDown from "./svgs/icons/icon-dropdown-down.svg?url";
 import iconDropdownUp from "./svgs/icons/icon-dropdown-up.svg?url";
 import iconEyeClose from "./svgs/icons/icon-eye-close.svg?url";
@@ -160,6 +162,7 @@ export {
   IconArrowLeft,
   IconCheckboxY,
   IconCheckboxN,
+  IconCheckMark,
   IconDropdownDown,
   IconDropdownUp,
   IconEyeClose,
@@ -171,6 +174,7 @@ export {
   iconArrowLeft,
   iconCheckboxY,
   iconCheckboxN,
+  iconCheckMark,
   iconDropdownDown,
   iconDropdownUp,
   iconEyeClose,

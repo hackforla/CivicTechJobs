@@ -1,33 +1,42 @@
 // Eternal Imports
-import { IconX, iconX } from "assets/images/images";
-import React from "react";
+import { iconCheckMark, IconX, iconX } from "assets/images/images";
+import React, { useEffect, useState } from "react";
 
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
 
 interface ChipProps {
-  active: boolean;
-  children: React.ReactNode;
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  addClass?: string;
+  onChange: (active: boolean, value: string) => any;
+  value: string;
 }
 
-function Chip({ active, children, onClick }: ChipProps) {
+function Chip({ addClass, onChange, value }: ChipProps) {
+  const [active, isActive] = useState(false);
+
+  useEffect(() => {
+    onChange(active, value);
+  }, [active]);
+
+  function handleClick() {
+    isActive(!active);
+  }
+
   return (
     <button
-      onClick={onClick}
-      className={combineClasses("chip", active && "active")}
+      onClick={handleClick}
+      className={combineClasses(
+        "chip",
+        "px-2",
+        "paragraph-3",
+        active && "active",
+        addClass
+      )}
     >
       {active && (
-        <IconX
-          width="12"
-          height="8"
-          fill="#fff"
-          stroke="#fff"
-          viewBox="0 0 12 8"
-          aria-hidden="true"
-        />
+        <img src={iconCheckMark} className="pr-1" aria-hidden="true" />
       )}
-      {children}
+      {value}
     </button>
   );
 }
