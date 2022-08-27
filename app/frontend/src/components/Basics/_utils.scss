@@ -22,3 +22,7 @@
 .hidden {
   @include hidden;
 }
+
+.ovflow-hidden {
+  overflow: hidden;
+}
