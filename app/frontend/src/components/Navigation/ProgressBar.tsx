@@ -31,7 +31,8 @@ function ProgressBar({
       </label>
       <div
         className={combineClasses(
-          "flex-container progress-bar",
+          "flex-container",
+          "progress-bar",
           props.addClass
         )}
         role="progressbar"
