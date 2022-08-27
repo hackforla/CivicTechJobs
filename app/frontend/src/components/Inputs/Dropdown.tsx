@@ -77,7 +77,7 @@ function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
         id={dropdownId}
         label={props.label}
         labelHidden={labelHidden}
-        innerRef={setReferenceElement}
+        passRef={setReferenceElement}
       >
         <div
           aria-controls={dropdownBoxId}
