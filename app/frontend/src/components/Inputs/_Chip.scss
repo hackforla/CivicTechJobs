@@ -2,5 +2,13 @@
 @use "../Basics/" as *;
 
 .chip {
-  padding: 3px;
+  border: 1px solid $color-charcoal;
+  border-radius: 24px;
+  color: $color-charcoal;
+  height: 40px;
+
+  &.active {
+    background-color: $color-blue-dark;
+    color: $color-white;
+  }
 }
