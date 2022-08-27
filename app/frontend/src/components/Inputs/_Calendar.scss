@@ -45,11 +45,11 @@ $cell-border: 2px;
   box-sizing: border-box;
   padding-top: $cell-offtick-top - 6px;
 
-  & > *:first-child {
+  & > div:first-child {
     @include calendar-header-row;
   }
 
-  & > *:not(:first-child):not(:last-child) {
+  & > div:not(:first-child):not(:last-child) {
     height: 2 * ($cell-height + 2 * $cell-border);
     padding-right: 8px;
   }
