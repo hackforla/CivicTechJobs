@@ -22,7 +22,7 @@ function HeaderNav({ logoDesktop, logoMobile, menu }: HeaderNavProps) {
 
   const Logo = () => {
     return (
-      <div className="flex-container align-center justify-left">
+      <div className="flex-center-y justify-left">
         <a href="/">
           <img
             className="logo-desktop"
@@ -41,7 +41,7 @@ function HeaderNav({ logoDesktop, logoMobile, menu }: HeaderNavProps) {
 
   return (
     <Fragment>
-      <header className="header-nav flex-container align-center py-1 px-3">
+      <header className="header-nav flex-center-y py-1 px-3">
         <div className="row header-nav-logo">
           <Logo />
         </div>

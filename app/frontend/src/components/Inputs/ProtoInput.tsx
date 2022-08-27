@@ -27,7 +27,7 @@ function ProtoInput({
       >
         {props.label}
       </label>
-      <div className="flex-container align-center">
+      <div className="flex-center-y">
         {iconPosition == "left" && props.icon && (
           <span className={`input-icon-${iconPosition}`}>
             <props.icon />

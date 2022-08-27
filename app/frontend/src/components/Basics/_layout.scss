@@ -21,6 +21,20 @@
   flex-flow: column wrap;
 }
 
+.flex-center-x {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.flex-center-y {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+}
+
 /******************
 *** Row classes ***
 ******************/
@@ -57,14 +71,6 @@ $columns: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
   .col-#{$col} {
     @include col-size($col);
   }
-}
-
-/********************************************
-*** Classes concerning container overflow ***
-********************************************/
-
-.ovflow-hidden {
-  overflow: hidden;
 }
 
 /***********************************************

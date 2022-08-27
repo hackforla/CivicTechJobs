@@ -18,7 +18,7 @@ interface QualifierPageCalendarProps {
 
 function QualifierPageCalendar({ setPage }: QualifierPageCalendarProps) {
   return (
-    <div className="flex-container justify-center">
+    <div className="flex-center-x">
       <div className="flex-column qcalendar-content align-center px-5">
         <Title />
         <TimeZoneDropDown />
@@ -91,7 +91,7 @@ function TimeZoneDropDown() {
 
 function CalendarNav() {
   return (
-    <div className="flex-container align-center qcalendar-nav px-3">
+    <div className="flex-center-y qcalendar-nav px-3">
       <IconButton
         label="previous page"
         iconUrl={iconArrowLeft}
