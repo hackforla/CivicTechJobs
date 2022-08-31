@@ -86,7 +86,7 @@ module.exports = {
     // automatically adds the hashed js file paths to template
     new HtmlWebpackPlugin({
       filename: "../../templates/frontend/index.html", //need to go back because will attempt to create file at output
-      template: "/frontend/src/templates/index.html",
+      template: "./frontend/src/templates/index.html",
       favicon: "./frontend/src/assets/images/svgs/logos/logo-logomark.svg", //adds favicon to website
     }),
     new DefinePlugin({
