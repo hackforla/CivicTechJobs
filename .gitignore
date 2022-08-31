@@ -4,7 +4,7 @@ secret_key.txt
 dev.env
 stage.env
 __pycache__
-
+venv
 .vscode/
 app/frontend/static/frontend/*
 !app/frontend/static/frontend/.gitkeep
