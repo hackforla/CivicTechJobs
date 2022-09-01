@@ -11,6 +11,7 @@ interface ProtoInputProps extends React.PropsWithChildren {
   id: string;
   label: string;
   labelHidden?: boolean;
+  passRef?: any;
 }
 
 function ProtoInput({
@@ -19,14 +20,14 @@ function ProtoInput({
   ...props
 }: ProtoInputProps) {
   return (
-    <div className={combineClasses("flex-column", props.addClass)}>
+    <div className={combineClasses(props.addClass)} ref={props.passRef}>
       <label
         className={combineClasses("title-6", "mb-1", labelHidden && "sr-only")}
         htmlFor={props.id}
       >
         {props.label}
       </label>
-      <div className="flex-container align-center">
+      <div className="flex-center-y">
         {iconPosition == "left" && props.icon && (
           <span className={`input-icon-${iconPosition}`}>
             <props.icon />

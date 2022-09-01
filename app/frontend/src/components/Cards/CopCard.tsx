@@ -3,7 +3,8 @@ import React, { useState, useEffect } from "react";
 
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
-import { CloseButton } from "../Buttons/CloseButton";
+import { IconButton } from "../Buttons/IconButton";
+import { iconX } from "assets/images/images";
 
 interface CopCardProps extends React.PropsWithChildren {
   addClass?: string;
@@ -28,10 +29,12 @@ function CopCard({ hidden = true, size = "sm", ...props }: CopCardProps) {
         isHidden ? "hidden" : undefined
       )}
     >
-      <CloseButton
+      <IconButton
         addClass={`cop-card-${size}-x`}
+        iconUrl={iconX}
+        label="close"
         onClick={props.onClick}
-      ></CloseButton>
+      ></IconButton>
       <div className={`cop-card-${size}-content`}>{props.children}</div>
     </div>
   );

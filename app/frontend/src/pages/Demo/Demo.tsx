@@ -1,6 +1,7 @@
 // @ts-nocheck
 // External Imports
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Internal Imports
 import {
@@ -8,14 +9,33 @@ import {
   Dropdown,
   TextField,
   ProgressBar,
+  Calendar,
+  IconButton,
 } from "components/components";
-import { IconEyeClose, IconEyeOpen, IconSearch } from "assets/images/images";
+import {
+  IconEyeClose,
+  IconEyeOpen,
+  IconSearch,
+  iconArrowLeft,
+} from "assets/images/images";
 import { DropdownOption } from "components/Inputs/Dropdown";
-import { timezones } from "./timezone_data";
+import { timezones } from "../QualifierPage/timezone_data";
 
 function Demo() {
   const [activePage, setActivePage] = useState(1);
   const [currentTimeZone, setCurrentTimeZone] = useState(0);
+  const [calendarData, setCalendarData] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    for (const [index, zone] of timezones.entries()) {
+      if (zone.utc.includes(tz)) {
+        setCurrentTimeZone(index);
+        break;
+      }
+    }
+  }, []);
 
   function textFieldOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     console.log(e.target.value);
@@ -25,13 +45,30 @@ function Demo() {
     console.log(e.target.checked);
   }
 
+  function calendarOnChange(data: string) {
+    console.log(data);
+    setCalendarData(data);
+  }
+
   return (
     <Fragment>
+      <div className="flex-container">
+        <div className="col-3 box"></div>
+        <div className="col-3 box"></div>
+        <div className="col-3 box"></div>
+        <div className="col-3 box"></div>
+      </div>
       <div className="m-5"></div>
-      <div className="flex-column m-5">
+      <div className="m-5">
         <h1>
           Hello World! Feel free to use this page as a playground to test code!
         </h1>
+        <h2>Calendar</h2>
+        {calendarData ? (
+          <Calendar value={calendarData} onChange={calendarOnChange} />
+        ) : (
+          <Calendar onChange={calendarOnChange} />
+        )}
         <h2>Progress Bar</h2>
         <div>
           <ProgressBar addClass="my-2" value={1} label="page #" />
@@ -115,6 +152,13 @@ function Demo() {
             addInputClass="textfield-fit"
           />
           <TextField type="url" label="Personal website" addClass="m-1" />
+        </div>
+        <h2>Back Button</h2>
+        <div className="row justify-left">
+          <IconButton
+            iconUrl={iconArrowLeft}
+            onClick={() => navigate("/")}
+          ></IconButton>
         </div>
       </div>
     </Fragment>

@@ -8,6 +8,7 @@
 
   appearance: none;
   flex: 1;
+  white-space: nowrap;
   z-index: $z-focus;
 }
 
@@ -17,22 +18,19 @@
   border-radius: 8px;
   height: 336px;
   list-style-type: none;
-  margin: 0;
   overflow-y: scroll;
-  padding: 0;
-}
-
-.dropdown-item {
-  box-sizing: border-box;
-  padding: 13px 0;
+  z-index: $z-popup;
 }
 
 .dropdown-row {
   background-color: $color-white;
   min-height: 44px;
-  padding: 0 16px;
 
-  &:not(:first-child) > .dropdown-item {
+  & > div {
+    padding: 13px 0;
+  }
+
+  &:not(:first-child) > div {
     border-top: 1px solid $color-grey;
   }
 

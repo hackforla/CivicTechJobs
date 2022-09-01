@@ -6,7 +6,7 @@ import App from "router/App";
 import "./index.scss";
 
 if (process.env.MODE !== "production") {
-  const reactAxe = require("@axe-core/react").default;
+  const reactAxe = require("@axe-core/react");
   reactAxe(React, ReactDOM, 1000);
 }
 

@@ -1,7 +1,10 @@
 // External Imports
-import { combineClasses } from "components/Utility/utils";
 import React, { Fragment, useId } from "react";
 
+// Internal Imports
+import { combineClasses, range } from "components/Utility/utils";
+
+// Type declaration for props
 interface ProgressBarProps {
   addClass?: string;
   label: string;
@@ -27,7 +30,11 @@ function ProgressBar({
         {props.label}
       </label>
       <div
-        className={combineClasses("flex-container", props.addClass)}
+        className={combineClasses(
+          "flex-container",
+          "progress-bar",
+          props.addClass
+        )}
         role="progressbar"
         aria-labelledby={ariaLabelledBy}
         aria-valuemin={1}
@@ -47,14 +54,6 @@ function ProgressBar({
         })}
       </div>
     </Fragment>
-  );
-}
-
-// Credit to mdn documentation for the function https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#sequence_generator_range
-function range(start: number, stop: number, step: number = 1) {
-  return Array.from(
-    { length: (stop - start) / step + 1 },
-    (_, i) => start + i * step
   );
 }
 

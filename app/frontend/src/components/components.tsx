@@ -1,11 +1,12 @@
 import { Button } from "./Buttons/Button";
-import { CloseButton } from "./Buttons/CloseButton";
+import { IconButton } from "./Buttons/IconButton";
 import { CopCard } from "./Cards/CopCard";
 import { InnerCopCard } from "./Cards/InnerCopCard";
 import { InnerCopNavCard } from "./Cards/InnerCopNavCard";
 import { CircleCard } from "./Cards/CircleCard";
 import { ScrollCarousel } from "./Carousel/ScrollCarousel";
 import { Dialog } from "./Dialog/Dialog";
+import { Calendar } from "./Inputs/Calendar";
 import { Checkbox } from "./Inputs/Checkbox";
 import { Dropdown, DropdownOption } from "./Inputs/Dropdown";
 import { TextField } from "./Inputs/Textfield";
@@ -16,7 +17,7 @@ import { ProgressBar } from "./Navigation/ProgressBar";
 export {
   // Buttons
   Button,
-  CloseButton,
+  IconButton,
   // Cards
   CopCard,
   CircleCard,
@@ -27,6 +28,7 @@ export {
   // Dialog
   Dialog,
   // Inputs
+  Calendar,
   Checkbox,
   Dropdown,
   DropdownOption,

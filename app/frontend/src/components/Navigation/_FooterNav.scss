@@ -4,6 +4,7 @@
   background-color: $color-blue-darker;
   height: 128px;
   align-items: center;
+
   @include breakpoint-media-max("lgtablet") {
     height: 226px;
     flex-direction: column;
@@ -26,6 +27,7 @@
 
 .footer-icons-on-dark {
   margin-left: 176px;
+
   @include breakpoint-media-max("lgtablet") {
     margin-left: 0;
     margin-bottom: -17px;
@@ -42,6 +44,7 @@
 .footer-donate-button {
   margin-left: auto;
   margin-right: 188px;
+
   @include breakpoint-media-max("lgtablet") {
     margin-left: 0;
     margin-right: 0;
@@ -54,23 +57,23 @@
   transform: rotate(-90deg);
   margin: auto;
 
-  &:not(:first-child) {
-    visibility: hidden;
+  &:first-child {
+    display: block;
   }
 
-  &:nth-child(1) {
-    display: block;
+  &:not(:first-child) {
+    visibility: hidden;
   }
 
   @include breakpoint-media-max("lgtablet") {
     width: 20px;
 
-    &:not(:first-child) {
-      visibility: visible;
+    &:first-child {
+      @include hidden;
     }
 
-    &:nth-child(1) {
-      @include hidden;
+    &:not(:first-child) {
+      visibility: visible;
     }
   }
 }

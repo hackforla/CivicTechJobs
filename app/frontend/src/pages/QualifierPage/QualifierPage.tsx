@@ -1,18 +1,19 @@
 // External Imports
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 // Internal Imports
+import { ProgressBar, HeaderNav, FooterNav } from "components/components";
 import {
   logoHorizontal,
-  logoStacked,
   logoHorizontalOnDark,
+  logoStacked,
   logoStackedOnDark,
 } from "assets/images/images";
-import { HeaderNav, FooterNav } from "components/components";
-import { LandingPageIntro } from "./LandingPageIntro";
-import { LandingPageCop } from "./LandingPageCop";
+import { QualifierPageCalendar } from "./QualifierPageCalendar";
 
-function LandingPage() {
+function QualifierPage() {
+  const [page, setPage] = useState(2);
+
   return (
     <Fragment>
       <HeaderNav
@@ -25,8 +26,8 @@ function LandingPage() {
         ]}
       />
       <main>
-        <LandingPageIntro />
-        <LandingPageCop />
+        <ProgressBar label="Page 1" addClass="px-5" />
+        <QualifierPageCalendar setPage={setPage} />
       </main>
       <FooterNav
         logoDesktop={logoHorizontalOnDark}
@@ -41,4 +42,4 @@ function LandingPage() {
   );
 }
 
-export { LandingPage };
+export { QualifierPage };

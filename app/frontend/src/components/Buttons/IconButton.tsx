@@ -3,26 +3,28 @@ import React from "react";
 
 // Internal Imports
 import { combineClasses, onKey } from "../Utility/utils";
-import { iconX } from "../../assets/images/images";
+import { iconX, iconArrowLeft } from "../../assets/images/images";
 
-interface CloseButtonProps extends React.PropsWithChildren {
+interface IconButtonProps extends React.PropsWithChildren {
   addClass?: string;
+  label: string;
   onClick: (e?: React.SyntheticEvent) => void;
+  iconUrl: string;
 }
 
-function CloseButton(props: CloseButtonProps) {
+function IconButton(props: IconButtonProps) {
   return (
     <div
-      className={combineClasses("btn-close", props.addClass)}
+      className={combineClasses("icon-btn", props.addClass)}
       onClick={props.onClick}
       onKeyDown={(e) => onKey(props.onClick, "Enter")(e)}
       role="button"
-      aria-label="close"
+      aria-label={props.label}
       tabIndex={0}
     >
-      <img src={iconX} alt="close"></img>
+      <img src={props.iconUrl} alt=""></img>
     </div>
   );
 }
 
-export { CloseButton };
+export { IconButton };

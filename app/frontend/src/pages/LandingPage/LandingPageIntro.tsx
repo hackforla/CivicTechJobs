@@ -2,7 +2,7 @@
 import React from "react";
 
 // Internal Imports
-import { iconDownArrow } from "assets/images/images";
+import { iconArrowDown } from "assets/images/images";
 import { Button } from "components/components";
 
 function LandingPageIntro() {
@@ -29,7 +29,7 @@ function LandingPageIntro() {
         </Button>
       </div>
       <div className="flex-column align-center text-center pb-5 landing-mission-container">
-        <img className="down-arrow mb-3" src={iconDownArrow} alt="" />
+        <img className="arrow-down mb-3" src={iconArrowDown} alt="" />
         <h1 className="title-2 landing-mission-title mb-4">Our Mission</h1>
         <p className="paragraph-2 landing-mission-paragraph">
           We bring together civic-minded volunteers from diverse backgrounds

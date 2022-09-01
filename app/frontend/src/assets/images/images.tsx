@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React from "react";
+import React, { useId } from "react";
 
 // COP Icons
 import CopIconDataP from "./svgs/communities-of-practice/cop-icon-datascience.svg";
@@ -15,9 +15,10 @@ import copIconProduct from "./svgs/communities-of-practice/cop-icon-product.svg?
 import copIconUiux from "./svgs/communities-of-practice/cop-icon-uiux.svg?url";
 
 // Icons
+import IconArrowDown from "./svgs/icons/icon-arrow-down.svg";
+import IconArrowLeft from "./svgs/icons/icon-arrow-left.svg";
 import IconCheckboxY from "./svgs/icons/icon-checkbox-yes.svg";
 import IconCheckboxN from "./svgs/icons/icon-checkbox-no.svg";
-import IconDownArrow from "./svgs/icons/icon-down-arrow.svg";
 import IconDropdownDown from "./svgs/icons/icon-dropdown-down.svg";
 import IconDropdownUp from "./svgs/icons/icon-dropdown-up.svg";
 import IconEyeClose from "./svgs/icons/icon-eye-close.svg";
@@ -26,9 +27,10 @@ import IconHamburgerMenu from "./svgs/icons/icon-hamburger-menu.svg";
 import IconSearch from "./svgs/icons/icon-search.svg";
 import IconX from "./svgs/icons/icon-x.svg";
 
+import iconArrowDown from "./svgs/icons/icon-arrow-down.svg?url";
+import iconArrowLeft from "./svgs/icons/icon-arrow-left.svg?url";
 import iconCheckboxY from "./svgs/icons/icon-checkbox-yes.svg?url";
 import iconCheckboxN from "./svgs/icons/icon-checkbox-no.svg?url";
-import iconDownArrow from "./svgs/icons/icon-down-arrow.svg?url";
 import iconDropdownDown from "./svgs/icons/icon-dropdown-down.svg?url";
 import iconDropdownUp from "./svgs/icons/icon-dropdown-up.svg?url";
 import iconEyeClose from "./svgs/icons/icon-eye-close.svg?url";
@@ -69,6 +71,17 @@ function svgWrapper(
   defaultProps: defaultProps
 ): React.ElementType {
   return (props) => {
+    const titleId = useId();
+    const descId = useId();
+
+    if ("title" in defaultProps) {
+      defaultProps["titleId"] = titleId;
+    }
+
+    if ("desc" in defaultProps) {
+      defaultProps["descId"] = descId;
+    }
+
     return <Svg {...defaultProps} {...props}></Svg>;
   };
 }
@@ -76,27 +89,23 @@ function svgWrapper(
 // COP Icons
 const CopIconData = svgWrapper(CopIconDataP, {
   title: "Data Science Community of Practice Logo",
-  titleId: "data-cop-logo",
+  desc: "placeholder",
 });
 
 const CopIconEngineering = svgWrapper(CopIconEngineeringP, {
   title: "Engineering Community of Practice Logo",
-  titleId: "eng-cop-logo",
 });
 
 const CopIconOps = svgWrapper(CopIconOpsP, {
   title: "Ops Community of Practice Logo",
-  titleId: "ops-cop-logo",
 });
 
 const CopIconProduct = svgWrapper(CopIconProductP, {
   title: "Product Management Community of Practice Logo",
-  titleId: "prod-cop-logo",
 });
 
 const CopIconUiux = svgWrapper(CopIconUiuxP, {
   title: "UI/UX Community of Practice Logo",
-  titleId: "uiux-cop-logo",
 });
 
 // CTJ Logos
@@ -104,42 +113,34 @@ const ctjLogoTitle = "Civic Tech Jobs Logo";
 
 const LogoHorizontal = svgWrapper(LogoHorizontalP, {
   title: ctjLogoTitle,
-  titleId: "ctj-logo-horizontal",
 });
 
 const LogoHorizontalOnDark = svgWrapper(LogoHorizontalOnDarkP, {
   title: ctjLogoTitle,
-  titleId: "ctj-logo-horizontal-dark",
 });
 
 const LogoMark = svgWrapper(LogoMarkP, {
   title: ctjLogoTitle,
-  titleId: "ctj-logo-mark",
 });
 
 const LogoStacked = svgWrapper(LogoStackedP, {
   title: ctjLogoTitle,
-  titleId: "ctj-logo-stacked",
 });
 
 const LogoStackedOnDark = svgWrapper(LogoStackedOnDarkP, {
   title: ctjLogoTitle,
-  titleId: "ctj-logo-stacked-dark",
 });
 
 const LogoType = svgWrapper(LogoTypeP, {
   title: ctjLogoTitle,
-  titleId: "ctj-logo-type",
 });
 
 const LogoVertical = svgWrapper(LogoVerticalP, {
   title: ctjLogoTitle,
-  titleId: "ctj-logo-vertical",
 });
 
 const LogoWordmark = svgWrapper(LogoWordmarkP, {
   title: ctjLogoTitle,
-  titleId: "ctj-logo-workmark",
 });
 
 export {
@@ -155,9 +156,10 @@ export {
   copIconProduct,
   copIconUiux,
   // Icons
+  IconArrowDown,
+  IconArrowLeft,
   IconCheckboxY,
   IconCheckboxN,
-  IconDownArrow,
   IconDropdownDown,
   IconDropdownUp,
   IconEyeClose,
@@ -165,9 +167,10 @@ export {
   IconHamburgerMenu,
   IconSearch,
   IconX,
+  iconArrowDown,
+  iconArrowLeft,
   iconCheckboxY,
   iconCheckboxN,
-  iconDownArrow,
   iconDropdownDown,
   iconDropdownUp,
   iconEyeClose,
