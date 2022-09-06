@@ -9,7 +9,7 @@ function LandingPageIntro() {
   return (
     <div className="landing-container my-5">
       <div className="flex-column align-center text-center landing-intro-container">
-        <h1 className="title-1 landing-intro-title mb-4">
+        <h1 className="landing-intro-title mb-4">
           Together,
           <br />
           we can create greater civic change
@@ -30,7 +30,7 @@ function LandingPageIntro() {
       </div>
       <div className="flex-column align-center text-center pb-5 landing-mission-container">
         <img className="arrow-down mb-3" src={iconArrowDown} alt="" />
-        <h1 className="title-2 landing-mission-title mb-4">Our Mission</h1>
+        <h2 className="landing-mission-title mb-4">Our Mission</h2>
         <p className="paragraph-2 landing-mission-paragraph">
           We bring together civic-minded volunteers from diverse backgrounds
           such as YOU to help local communities and governments. Thanks to the
