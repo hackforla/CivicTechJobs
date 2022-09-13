@@ -45,6 +45,34 @@ h6 {
   @include title(6);
 }
 
+.title-1 {
+  @include title(1);
+}
+
+.title-2 {
+  @include title(2);
+}
+
+.title-3 {
+  @include title(3);
+}
+
+.title-4 {
+  @include title(4);
+}
+
+.title-5 {
+  @include title(5);
+}
+
+.title-6 {
+  @include title(6);
+}
+
+.title-7 {
+  @include title(7);
+}
+
 @mixin paragraph($size) {
   font-family: Roboto, Tahoma, Verdana, sans-serif;
   font-weight: normal;
