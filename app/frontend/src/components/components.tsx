@@ -8,6 +8,7 @@ import { ScrollCarousel } from "./Carousel/ScrollCarousel";
 import { Dialog } from "./Dialog/Dialog";
 import { Calendar } from "./Inputs/Calendar";
 import { Checkbox } from "./Inputs/Checkbox";
+import { Chip } from "./Inputs/Chip";
 import { Dropdown, DropdownOption } from "./Inputs/Dropdown";
 import { TextField } from "./Inputs/Textfield";
 import { HeaderNav } from "./Navigation/HeaderNav";
@@ -30,6 +31,7 @@ export {
   // Inputs
   Calendar,
   Checkbox,
+  Chip,
   Dropdown,
   DropdownOption,
   TextField,

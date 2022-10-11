@@ -1,0 +1,15 @@
+// Internal Imports
+@use "../Basics/" as *;
+
+.chip {
+  background-color: $color-white;
+  border: 1px solid $color-charcoal;
+  border-radius: 24px;
+  color: $color-charcoal;
+  height: 40px;
+
+  &.active {
+    background-color: $color-blue-dark;
+    color: $color-white;
+  }
+}
