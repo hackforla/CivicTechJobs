@@ -20,7 +20,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED=1
 RUN ln -sf python3 /usr/bin/python &&\
   python -m ensurepip &&\
-  pip3 install --no-cache --no-cache-dir --upgrade \
+  pip3 install --no-cache --no-cache-dir --ignore-installed --upgrade \
     pip==22.1 \
     pre-commit==2.19 \
     setuptools==62.3
