@@ -1,5 +1,5 @@
 // Eternal Imports
-import { iconCheckMark, IconX, iconX } from "assets/images/images";
+import { iconCheckMark, iconPlus } from "assets/images/images";
 import React, { useEffect, useState } from "react";
 
 // Internal Imports
@@ -33,8 +33,10 @@ function Chip({ addClass, onChange, value }: ChipProps) {
         addClass
       )}
     >
-      {active && (
+      {active ? (
         <img src={iconCheckMark} className="pr-1" aria-hidden="true" />
+      ) : (
+        <img src={iconPlus} className="pr-1" aria-hidden="true" />
       )}
       {value}
     </button>
