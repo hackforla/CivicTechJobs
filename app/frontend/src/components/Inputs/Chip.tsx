@@ -34,9 +34,19 @@ function Chip({ addClass, onChange, value }: ChipProps) {
       )}
     >
       {active ? (
-        <img src={iconCheckMark} className="pr-1" aria-hidden="true" />
+        <img
+          src={iconCheckMark}
+          alt="Checkmark"
+          className="pr-1"
+          aria-hidden="true"
+        />
       ) : (
-        <img src={iconPlus} className="pr-1" aria-hidden="true" />
+        <img
+          src={iconPlus}
+          alt="Plus sign"
+          className="pr-1"
+          aria-hidden="true"
+        />
       )}
       {value}
     </button>
