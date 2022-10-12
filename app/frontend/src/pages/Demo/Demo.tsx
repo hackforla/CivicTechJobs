@@ -5,7 +5,6 @@ import React, { Fragment, useEffect, useState } from "react";
 // Internal Imports
 import { Checkbox, Chip, TextField } from "components/components";
 import { IconEyeClose, IconEyeOpen, IconSearch } from "assets/images/images";
-import { timezones } from "../QualifierPage/timezone_data";
 
 function Demo() {
   function textFieldOnChange(e: React.ChangeEvent<HTMLInputElement>) {

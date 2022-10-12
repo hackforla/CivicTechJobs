@@ -10,7 +10,11 @@ import {
   InnerCopCard,
   InnerCopNavCard,
 } from "components/components";
-import { copDatum, fetchAllCopData, fetchCopDataById } from "./copData";
+import {
+  copDatum,
+  fetchAllCopData,
+  fetchCopDataById,
+} from "../api_data/copData";
 
 function LandingPageCop() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);

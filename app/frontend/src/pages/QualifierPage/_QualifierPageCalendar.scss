@@ -19,16 +19,5 @@
 }
 
 .qcalendar-nav {
-  background-color: $color-white;
-  box-sizing: content-box;
-  bottom: 0;
   justify-content: space-between;
-  position: sticky;
-  height: 100px;
-  opacity: 0.8;
-  width: 100%;
-
-  &:hover {
-    opacity: 1;
-  }
 }

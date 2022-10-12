@@ -10,9 +10,20 @@ import {
   logoStackedOnDark,
 } from "assets/images/images";
 import { QualifierPageCalendar } from "./QualifierPageCalendar";
+import { QualifierPageRoles } from "./QualifierPageRoles";
 
 function QualifierPage() {
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(1);
+
+  function Content() {
+    if (page == 1) {
+      return <QualifierPageRoles setPage={setPage} />;
+    } else if (page == 2) {
+      return <QualifierPageCalendar setPage={setPage} />;
+    } else {
+      return <div>404 page</div>;
+    }
+  }
 
   return (
     <Fragment>
@@ -26,8 +37,8 @@ function QualifierPage() {
         ]}
       />
       <main>
-        <ProgressBar label="Page 1" addClass="px-5" />
-        <QualifierPageCalendar setPage={setPage} />
+        <ProgressBar label="Page 1" value={page} addClass="px-5" />
+        <Content />
       </main>
       <FooterNav
         logoDesktop={logoHorizontalOnDark}
