@@ -1,5 +1,5 @@
 // External Imports
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 // Internal Imports
 import {
@@ -19,32 +19,30 @@ interface QualifierPageCalendarProps {
 
 function QualifierPageCalendar({ setPage }: QualifierPageCalendarProps) {
   return (
-    <div className="flex-center-x">
-      <div className="flex-column qcalendar-content align-center px-5">
-        <QualifierTitle title="What is your weekly availability?">
-          Drag to select.&nbsp;&nbsp;
-          <span className="qcalendar-green-square"></span>
-          &nbsp;=&nbsp;available
-        </QualifierTitle>
-        <TimeZoneDropDown />
-        <Calendar
-          addClass="mt-5"
-          onChange={(e) => {
-            console.log(e);
-          }}
+    <Fragment>
+      <QualifierTitle title="What is your weekly availability?">
+        Drag to select.&nbsp;&nbsp;
+        <span className="qcalendar-green-square"></span>
+        &nbsp;=&nbsp;available
+      </QualifierTitle>
+      <TimeZoneDropDown />
+      <Calendar
+        addClass="mt-5"
+        onChange={(e) => {
+          console.log(e);
+        }}
+      />
+      <QualifierNav addClass="justify-between">
+        <IconButton
+          label="previous page"
+          iconUrl={iconArrowLeft}
+          onClick={() => setPage(1)}
         />
-        <QualifierNav addClass="qcalendar-nav">
-          <IconButton
-            label="previous page"
-            iconUrl={iconArrowLeft}
-            onClick={() => setPage(1)}
-          />
-          <Button size="lg" length="long" color="primary" href="./demo">
-            View available roles
-          </Button>
-        </QualifierNav>
-      </div>
-    </div>
+        <Button size="lg" length="long" color="primary" href="./demo">
+          View available roles
+        </Button>
+      </QualifierNav>
+    </Fragment>
   );
 }
 

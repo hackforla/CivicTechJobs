@@ -1,5 +1,5 @@
 // External Imports
-import React, { Fragment, useCallback, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 // Internal Imports
 import { Button, Chip } from "components/components";
@@ -18,33 +18,31 @@ function QualifierPageRoles({ setPage }: QualifierPageRolesProps) {
   }, []);
 
   return (
-    <div className="flex-center-x">
-      <div className="flex-column qcalendar-content align-center px-5">
-        <QualifierTitle title="What type of role are you looking for?">
-          Select as many roles as you'd like to find opportunities in.
-        </QualifierTitle>
-        <div style={{ maxWidth: "1088px" }}>
-          {data.map((datum, index) => {
-            return (
-              <Fragment>
-                <CopRoles key={index} copDatum={datum} />
-                {index < data.length - 1 && <hr className="qroles-border"></hr>}
-              </Fragment>
-            );
-          })}
-        </div>
-        <QualifierNav addClass="justify-right">
-          <Button
-            size="lg"
-            length="long"
-            color="primary"
-            onClick={() => setPage(2)}
-          >
-            Next
-          </Button>
-        </QualifierNav>
+    <Fragment>
+      <QualifierTitle title="What type of role are you looking for?">
+        Select as many roles as you'd like to find opportunities in.
+      </QualifierTitle>
+      <div style={{ maxWidth: "1088px" }}>
+        {data.map((datum, index) => {
+          return (
+            <Fragment>
+              <CopRoles key={index} copDatum={datum} />
+              {index < data.length - 1 && <hr className="qroles-border"></hr>}
+            </Fragment>
+          );
+        })}
       </div>
-    </div>
+      <QualifierNav addClass="justify-right">
+        <Button
+          size="lg"
+          length="long"
+          color="primary"
+          onClick={() => setPage(2)}
+        >
+          Next
+        </Button>
+      </QualifierNav>
+    </Fragment>
   );
 }
 
@@ -55,7 +53,7 @@ interface CopRolesProps {
 function CopRoles({ copDatum }: CopRolesProps) {
   return (
     <div className="flex-container py-3">
-      <div className="row fill align-center pb-3 justify-space">
+      <div className="row fill align-center pb-3 justify-between">
         <div>
           <copDatum.icon
             fill="black"

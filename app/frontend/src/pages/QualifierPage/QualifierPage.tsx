@@ -1,5 +1,5 @@
 // External Imports
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useState } from "react";
 
 // Internal Imports
 import { ProgressBar, HeaderNav, FooterNav } from "components/components";
@@ -38,7 +38,12 @@ function QualifierPage() {
       />
       <main>
         <ProgressBar label="Page 1" value={page} addClass="px-5" />
-        <Content />
+
+        <div className="flex-center-x">
+          <div className="flex-column qualifier-content align-center px-5">
+            <Content />
+          </div>
+        </div>
       </main>
       <FooterNav
         logoDesktop={logoHorizontalOnDark}
