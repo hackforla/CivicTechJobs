@@ -3,7 +3,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: "development" || process.env.MODE,
+  mode: process.env.MODE,
   entry: {
     index: "./frontend/src/index.tsx" // place where the file to render is
   },
