@@ -1,0 +1,40 @@
+// Internal Imports
+@use "../Basics/" as *;
+@use "./ProtoInput" as *;
+
+.dropdown {
+  @include input;
+  @include empty-right-border;
+
+  appearance: none;
+  flex: 1;
+  white-space: nowrap;
+  z-index: $z-focus;
+}
+
+.dropdown-box {
+  background-color: $color-white;
+  border: 1px solid $color-grey;
+  border-radius: 8px;
+  height: 336px;
+  list-style-type: none;
+  overflow-y: scroll;
+  z-index: $z-popup;
+}
+
+.dropdown-row {
+  background-color: $color-white;
+  min-height: 44px;
+
+  & > div {
+    padding: 13px 0;
+  }
+
+  &:not(:first-child) > div {
+    border-top: 1px solid $color-grey;
+  }
+
+  &:hover {
+    background-color: rgba($color-blue-dark, 0.15);
+  }
+}

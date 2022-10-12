@@ -51,6 +51,10 @@ jobs:
           node-version: "14"
       - run: |
           npm install stylelint-config-prettier-scss
+<<<<<<< HEAD
+=======
+
+>>>>>>> 934f4d08ecf2e7072beb97a0a23c738dfea48ad4
       ################################
       # Run Linter against code base #
       ################################
@@ -68,5 +72,9 @@ jobs:
           VALIDATE_PYTHON_MYPY: false
           VALIDATE_PYTHON_PYLINT: false
           VALIDATE_TYPESCRIPT_STANDARD: false
+<<<<<<< HEAD
           DEFAULT_BRANCH: main
+=======
+          DEFAULT_BRANCH: ${{ (github.event_name == 'pull_request' && github.base_ref) || 'main' }}
+>>>>>>> 934f4d08ecf2e7072beb97a0a23c738dfea48ad4
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

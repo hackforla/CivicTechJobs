@@ -13,8 +13,15 @@ More resources to be added as project progresses:
 
 1. [Contributing.md](https://github.com/hackforla/CivicTechJobs/blob/main/CONTRIBUTING.md)<br>
 2. [Frontend Architecture](https://hackforla.github.io/CivicTechJobs/developer/frontend/)<br>
+   - [Frontend Resources](https://hackforla.github.io/CivicTechJobs/developer/frontend/#additional-resources)
 3. [Backend Architecture](https://hackforla.github.io/CivicTechJobs/developer/backend/)<br>
+   - [Backend Resources](http://hackforla.github.io/CivicTechJobs/developer/backend/#additional-resources)
 4. [DevOps Architecture](https://hackforla.github.io/CivicTechJobs/developer/devops/)<br>
+   - [DevOps Resources](http://hackforla.github.io/CivicTechJobs/developer/devops/#additional-resources)
 5. [GitHub Architecture](https://hackforla.github.io/CivicTechJobs/developer/github/)<br>
-6. [Installation Instructions](https://hackforla.github.io/CivicTechJobs/developer/installation/)<br>
-7. [Development Culture](https://hackforla.github.io/CivicTechJobs/developer/development-culture/)<br>
+   - [GitHub Resources](http://hackforla.github.io/CivicTechJobs/developer/github/#additional-resources)
+6. [Design System Helper](https://hackforla.github.io/CivicTechJobs/developer/design-system/)<br>
+   - [Design System Resources](https://hackforla.github.io/CivicTechJobs/developer/design-system/#resources)
+7. [Installation Instructions](https://hackforla.github.io/CivicTechJobs/developer/installation/)<br>
+   - [Installation Resources](http://hackforla.github.io/CivicTechJobs/developer/installation/#additional-resources)
+8. [Development Culture](https://hackforla.github.io/CivicTechJobs/developer/development-culture/)<br>

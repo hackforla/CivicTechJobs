@@ -1,6 +1,7 @@
 from django.urls import path
-# from .views import UserListView
 
-# urlpatterns = [
-#     path('user', UserListView.as_view()),
-# ]
+from server import views
+
+urlpatterns = [
+    path("v1/opportunities/", views.OpportunityList.as_view()),
+]

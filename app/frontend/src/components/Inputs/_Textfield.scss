@@ -1,0 +1,28 @@
+// Internal Imports
+@use "../Basics/" as *;
+@use "./ProtoInput" as *;
+
+/****************************
+*** Classes for textfield ***
+****************************/
+
+@mixin textfield {
+  @include input;
+
+  flex: 1;
+  z-index: $z-focus;
+}
+
+.textfield {
+  @include textfield;
+}
+
+.textfield-left {
+  @include textfield;
+  @include empty-right-border;
+}
+
+.textfield-right {
+  @include textfield;
+  @include empty-left-border;
+}

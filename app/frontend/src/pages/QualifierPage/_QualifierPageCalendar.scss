@@ -1,0 +1,34 @@
+@use "components/Basics/" as *;
+
+.qcalendar-content {
+  flex-wrap: nowrap;
+  width: fit-content;
+}
+
+.qcalendar-green-square {
+  background-color: $color-green;
+  border-radius: 2px;
+  display: inline-block;
+  height: 24px;
+  line-height: 30px;
+  width: 24px;
+}
+
+.qcalendar-dropdown {
+  width: 100%;
+}
+
+.qcalendar-nav {
+  background-color: $color-white;
+  box-sizing: content-box;
+  bottom: 0;
+  justify-content: space-between;
+  position: sticky;
+  height: 100px;
+  opacity: 0.8;
+  width: 100%;
+
+  &:hover {
+    opacity: 1;
+  }
+}

@@ -1,5 +1,5 @@
 @mixin title($size) {
-  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-family: Roboto, Tahoma, Verdana, sans-serif;
   font-weight: bold;
 
   @if $size == 1 {
@@ -24,6 +24,30 @@
     font-size: 0.875rem;
     line-height: 1.125rem;
   }
+}
+
+h1 {
+  @include title(1);
+}
+
+h2 {
+  @include title(2);
+}
+
+h3 {
+  @include title(3);
+}
+
+h4 {
+  @include title(4);
+}
+
+h5 {
+  @include title(5);
+}
+
+h6 {
+  @include title(6);
 }
 
 .title-1 {
@@ -55,7 +79,7 @@
 }
 
 @mixin paragraph($size) {
-  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-family: Roboto, Tahoma, Verdana, sans-serif;
   font-weight: normal;
 
   @if $size == 1 {

@@ -1,0 +1,26 @@
+@use "../Basics/" as *;
+
+$bars: 1, 2, 3, 4;
+$bars-height: 12px;
+
+.progress-bar {
+  height: $bars-height;
+  width: 100%;
+}
+
+@mixin progress-bar($num) {
+  background-color: $color-grey;
+  border-radius: 8px;
+  height: $bars-height;
+  width: calc(100% / #{$num});
+
+  &.active {
+    background-color: $color-blue-dark;
+  }
+}
+
+@each $bar in $bars {
+  .progress-bar-#{$bar} {
+    @include progress-bar($bar);
+  }
+}

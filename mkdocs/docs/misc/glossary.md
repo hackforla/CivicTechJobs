@@ -10,7 +10,7 @@ When we have a shiny glossary it will come here.
 <td><b>Official Link</b></td>
 <td><b>Description</b></td></tr>
 <tr valign= "top"><td></td>
-<td> 
+<td>
 </td>
 <td>
 </td>

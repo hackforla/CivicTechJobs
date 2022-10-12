@@ -1,0 +1,86 @@
+# Template is found at https://github.com/github/super-linter/tree/main/TEMPLATES
+#############################
+#############################
+## JavaScript Linter rules ##
+#############################
+#############################
+
+############
+# Env Vars #
+############
+env:
+  browser: true
+  es6: true
+  jest: true
+
+###############
+# Global Vars #
+###############
+globals:
+  Atomics: readonly
+  SharedArrayBuffer: readonly
+
+###############
+# Parser vars #
+###############
+parser: "@typescript-eslint/parser"
+parserOptions:
+  ecmaVersion: 2018
+  sourceType: module
+  project: "../app/tsconfig.json"
+  tsconfigRootDir: __dirname
+
+ignorePatterns:
+  - "**/*.config.js"
+
+###########
+# Plugins #
+###########
+plugins:
+  - "@typescript-eslint"
+  - "jsx-a11y"
+
+extends:
+  - plugin:jsx-a11y/recommended
+
+settings:
+  jsx-a11y:
+    components:
+      Button: button
+      IconButton: button
+
+#########
+# Rules #
+#########
+rules: {}
+
+##############################
+# Overrides for JSON parsing #
+##############################
+overrides:
+  # JSON files
+  - files:
+      - "*.json"
+    extends:
+      - plugin:jsonc/recommended-with-json
+    parser: jsonc-eslint-parser
+    parserOptions:
+      jsonSyntax: JSON
+
+  # JSONC files
+  - files:
+      - "*.jsonc"
+    extends:
+      - plugin:jsonc/recommended-with-jsonc
+    parser: jsonc-eslint-parser
+    parserOptions:
+      jsonSyntax: JSONC
+
+  # JSON5 files
+  - files:
+      - "*.json5"
+    extends:
+      - plugin:jsonc/recommended-with-json5
+    parser: jsonc-eslint-parser
+    parserOptions:
+      jsonSyntax: JSON5
