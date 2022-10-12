@@ -229,7 +229,7 @@ _<p style="text-align: center;">DON'T: declare `*-responsive` mixins without a d
 
 ### SVGs as Components and as Data-URLs
 
-SVG assets are read into our codebase as React components or data-urls.
+SVG assets are read into our codebase as React components (or inline SVG) or data-urls.
 
 As React components:
 
@@ -264,7 +264,7 @@ import copIconProduct from "./svgs/cop-icon-product.svg?url";
 import copIconUiux from "./svgs/cop-icon-uiux.svg?url";
 ```
 
-_<p style="text-align: center;">The top icons are imported from the image file as SVG components. The bottom icons are the same file imported as data-urls. Notice how the latter import file adds "?url".</p>_
+_<p style="text-align: center;">The top icons are imported from the image file as SVG components (or inline SVG). The bottom icons are the same file imported as data-urls. Notice how the latter import file adds "?url".</p>_
 
 When using our SVG assets make sure to use the best import for the job. In some cases, however, neither of these imports are optimal to use. For example the SVG itself might be incorrectly formatted.
 

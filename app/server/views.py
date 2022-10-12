@@ -1,13 +1,9 @@
-# https://www.django-rest-framework.org/api-guide/generic-views/
-# https://www.django-rest-framework.org/api-guide/generic-views/#listapiview
+from rest_framework import generics
 
-from django.shortcuts import render
-# from rest_framework import generics
+from server.models import Opportunity
+from server.serializers import OpportunitySerializer
 
-# from .serializers import UserSerializer
-# from .models import User
 
-# # Create your views here.
-# class UserListView(generics.ListAPIView):
-#     model = User
-#     serializer_class = UserSerializer
+class OpportunityList(generics.ListCreateAPIView):
+    queryset = Opportunity.objects.all()
+    serializer_class = OpportunitySerializer

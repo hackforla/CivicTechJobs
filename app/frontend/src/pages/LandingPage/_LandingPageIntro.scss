@@ -1,74 +1,62 @@
 @use "components/Basics" as *;
 @use "components/Buttons" as *;
 
-.landing-image-parent {
-  z-index: 1;
-  margin-top: -10%;
-  position: relative;
-  background-image: url("./assets/images/svgs/landing-page-bg.svg");
+.landing-container {
+  background-image: url("assets/images/svgs/landing-page-bg.svg");
+  background-position: bottom;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
-  width: 100%;
-
-  @include breakpoint-media-max("smtablet") {
-    margin-top: 0;
-  }
-}
-
-.landing-group-image {
-  width: 100%;
-}
-
-.svg-group-layer {
-  margin: 0 12%;
-}
-
-.landing-mission-section {
-  padding-top: 8%;
-  margin-top: -12%;
-  position: relative;
-  background-color: $color-tan-light;
-  height: 420px;
-}
-
-.down-arrow {
-  width: 24px;
-  display: none;
-
-  @include breakpoint-media-max("smtablet") {
-    display: inline-block;
-  }
-}
-
-.landing-mission-content {
-  margin: auto;
-  max-width: 800px;
-}
-
-.landing-top-content {
-  max-width: 705px;
-  margin: auto;
-  margin-top: 84px;
+  background-size: 100%;
 
   @include breakpoint-media-max("smtablet") {
     margin-top: 48px;
   }
 }
 
-.landing-action-btn {
-  @include button-responsive("smtablet", "md");
+.landing-intro-container {
+  background-image: url("assets/images/svgs/landing-page-fg.svg");
+  background-position: 50% 75%;
+  background-repeat: no-repeat;
+  background-size: 90%;
+  height: 75vw;
+
+  @include breakpoint-media-max("laptop") {
+    background-position: 50% 95%;
+  }
 }
 
-.landing-header-title {
+.landing-intro-title {
+  max-width: 800px;
+
   @include breakpoint-media-max("smtablet") {
     @include title(4);
   }
 }
 
-.landing-head-paragraph {
+.landing-intro-paragraph {
+  max-width: 705px;
+
   @include breakpoint-media-max("smtablet") {
     @include paragraph(3);
   }
+}
+
+.landing-intro-btn {
+  @include button-responsive("smtablet", "md");
+}
+
+.arrow-down {
+  width: 24px;
+  @include hidden;
+
+  @include breakpoint-media-max("smtablet") {
+    display: inline-block;
+  }
+}
+
+.landing-mission-container {
+  background-color: $color-tan-light;
+  flex-direction: column;
+  width: 100%;
 }
 
 .landing-mission-title {
@@ -78,6 +66,8 @@
 }
 
 .landing-mission-paragraph {
+  max-width: 800px;
+
   @include breakpoint-media-max("smtablet") {
     @include paragraph(3);
   }

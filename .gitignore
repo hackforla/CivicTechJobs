@@ -4,8 +4,9 @@ secret_key.txt
 dev.env
 stage.env
 __pycache__
-
+venv
 .vscode/
+.venv/
 app/frontend/static/frontend/*
 !app/frontend/static/frontend/.gitkeep
 app/frontend/templates/frontend/*
@@ -14,3 +15,6 @@ data/
 
 **/super-linter.log
 app/staticfiles
+
+dev/linter.env
+.DS_store
