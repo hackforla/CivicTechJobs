@@ -8,7 +8,7 @@ import {
   CopCard,
   Dialog,
   InnerCopCard,
-  InnerCopNavCard,
+  InnerCopNavCard
 } from "components/components";
 import { copDatum, fetchAllCopData, fetchCopDataById } from "./copData";
 
@@ -142,4 +142,4 @@ function LandingPageCop() {
   );
 }
 
-export { LandingPageCop };
+export default LandingPageCop;

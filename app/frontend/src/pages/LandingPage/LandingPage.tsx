@@ -1,16 +1,16 @@
 // External Imports
-import React, { Fragment } from "react";
+import React, { Fragment, Suspense } from "react";
 
 // Internal Imports
 import {
   logoHorizontal,
   logoStacked,
   logoHorizontalOnDark,
-  logoStackedOnDark,
+  logoStackedOnDark
 } from "assets/images/images";
 import { HeaderNav, FooterNav } from "components/components";
-import { LandingPageIntro } from "./LandingPageIntro";
-import { LandingPageCop } from "./LandingPageCop";
+const LandingPageIntro = React.lazy(() => import("./LandingPageIntro"));
+import LandingPageCop from "./LandingPageCop";
 
 function LandingPage() {
   return (
@@ -21,11 +21,13 @@ function LandingPage() {
         menu={[
           { name: "Hack for LA", link: "/" },
           { name: "How to Join", link: "/qualifier" },
-          { name: "Projects", link: "/demo" },
+          { name: "Projects", link: "/demo" }
         ]}
       />
       <main>
-        <LandingPageIntro />
+        <Suspense fallback={<div>Loading...</div>}>
+          <LandingPageIntro />
+        </Suspense>
         <LandingPageCop />
       </main>
       <FooterNav
@@ -34,7 +36,7 @@ function LandingPage() {
         menu={[
           { name: "Credits", link: "/" },
           { name: "Sitemap", link: "/" },
-          { name: "Join Us", link: "/" },
+          { name: "Join Us", link: "/" }
         ]}
       />
     </Fragment>

@@ -42,4 +42,4 @@ function LandingPageIntro() {
   );
 }
 
-export { LandingPageIntro };
+export default LandingPageIntro;
