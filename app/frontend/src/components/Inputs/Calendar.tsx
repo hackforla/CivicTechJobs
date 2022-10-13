@@ -135,13 +135,13 @@ function CalendarRow(props: CalendarRowProps) {
     <tr
       className={combineClasses(
         "calendar-row",
-        props.rowNum % 2 == 0 ? "dashed" : "solid",
+        props.rowNum % 2 == 0 ? "dashed" : "solid"
       )}
     >
       <td
         className={combineClasses(
           "calendar-ticks-left",
-          props.rowNum % 2 == 0 ? "dashed" : "solid",
+          props.rowNum % 2 == 0 ? "dashed" : "solid"
         )}
         aria-hidden={true}
       ></td>
@@ -177,7 +177,7 @@ function CalendarCell({ selected = false, ...props }: CalendarCellProps) {
       className={combineClasses(
         "calendar-cell",
         props.rowNum % 2 == 0 ? "dashed" : "solid",
-        isSelected && "selected",
+        isSelected && "selected"
       )}
     >
       <div
