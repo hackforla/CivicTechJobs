@@ -141,7 +141,7 @@ const LogoStacked = svgWrapper(LogoStackedP, {
 
 const LogoStackedOnDark = svgWrapper(LogoStackedOnDarkP, {
   title: ctjLogoTitle,
-  desc: "a small black rectangle",
+  desc: "civic tech jobs logo and icon column wise - white text on a transparent background",
 });
 
 const LogoType = svgWrapper(LogoTypeP, {
