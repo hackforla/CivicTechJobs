@@ -7,10 +7,10 @@ import {
   logoHorizontal,
   logoHorizontalOnDark,
   logoStacked,
-  logoStackedOnDark
+  logoStackedOnDark,
 } from "assets/images/images";
 const QualifierPageCalendar = React.lazy(
-  () => import("./QualifierPageCalendar")
+  () => import("./QualifierPageCalendar"),
 );
 
 function QualifierPage(): JSX.Element {
@@ -24,7 +24,7 @@ function QualifierPage(): JSX.Element {
         menu={[
           { name: "Hack for LA", link: "/" },
           { name: "How to Join", link: "/qualifier" },
-          { name: "Projects", link: "/demo" }
+          { name: "Projects", link: "/demo" },
         ]}
       />
       <main>
@@ -39,7 +39,7 @@ function QualifierPage(): JSX.Element {
         menu={[
           { name: "Credits", link: "/" },
           { name: "Sitemap", link: "/" },
-          { name: "Join Us", link: "/" }
+          { name: "Join Us", link: "/" },
         ]}
       />
     </Fragment>

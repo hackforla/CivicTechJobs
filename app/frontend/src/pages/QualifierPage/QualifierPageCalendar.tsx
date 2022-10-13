@@ -7,7 +7,7 @@ import {
   DropdownOption,
   Calendar,
   IconButton,
-  Button
+  Button,
 } from "components/components";
 import { timezones } from "./timezone_data";
 import { iconArrowLeft } from "assets/images/images";
