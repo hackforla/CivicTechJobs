@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 // Internal Imports
 import { combineClasses, onKey, range } from "../Utility/utils";
 import { daysOfWeek, hoursOfDay } from "./calendar_data";
-// import useSelection from "./useSelection";
 
 // Type declaration for props
 interface CalendarProps extends React.PropsWithChildren {
