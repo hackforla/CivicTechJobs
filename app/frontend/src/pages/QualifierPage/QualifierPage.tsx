@@ -13,7 +13,7 @@ const QualifierPageCalendar = React.lazy(
   () => import("./QualifierPageCalendar")
 );
 
-function QualifierPage() {
+function QualifierPage(): JSX.Element {
   const [page, setPage] = useState(2);
 
   return (
