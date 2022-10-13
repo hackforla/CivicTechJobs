@@ -1,5 +1,5 @@
 // External Imports
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, Suspense, useEffect, useState } from "react";
 
 // Internal Imports
 import { ProgressBar, HeaderNav, FooterNav } from "components/components";
@@ -7,9 +7,11 @@ import {
   logoHorizontal,
   logoHorizontalOnDark,
   logoStacked,
-  logoStackedOnDark,
+  logoStackedOnDark
 } from "assets/images/images";
-import { QualifierPageCalendar } from "./QualifierPageCalendar";
+const QualifierPageCalendar = React.lazy(
+  () => import("./QualifierPageCalendar")
+);
 
 function QualifierPage() {
   const [page, setPage] = useState(2);
@@ -22,12 +24,14 @@ function QualifierPage() {
         menu={[
           { name: "Hack for LA", link: "/" },
           { name: "How to Join", link: "/qualifier" },
-          { name: "Projects", link: "/demo" },
+          { name: "Projects", link: "/demo" }
         ]}
       />
       <main>
         <ProgressBar label="Page 1" addClass="px-5" />
-        <QualifierPageCalendar setPage={setPage} />
+        <Suspense fallback={<div>...Loading</div>}>
+          <QualifierPageCalendar setPage={setPage} />
+        </Suspense>
       </main>
       <FooterNav
         logoDesktop={logoHorizontalOnDark}
@@ -35,7 +39,7 @@ function QualifierPage() {
         menu={[
           { name: "Credits", link: "/" },
           { name: "Sitemap", link: "/" },
-          { name: "Join Us", link: "/" },
+          { name: "Join Us", link: "/" }
         ]}
       />
     </Fragment>
