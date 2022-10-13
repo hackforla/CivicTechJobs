@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 // Internal Imports
 import { combineClasses, onKey, range } from "../Utility/utils";
 import { daysOfWeek, hoursOfDay } from "./calendar_data";
+// import useSelection from "./useSelection";
 
 // Type declaration for props
 interface CalendarProps extends React.PropsWithChildren {
@@ -29,10 +30,13 @@ interface CalendarCellProps {
   onChange: (selected: boolean) => any;
   rowNum: number;
   selected?: boolean;
+  setDragging: (data: boolean) => any;
+  dragging: boolean;
 }
 
 function Calendar({ value = "0".repeat(24 * 2 * 7), ...props }: CalendarProps) {
   const [data, setData] = useState(value);
+  const [dragging, setDragging] = useState(false);
 
   useEffect(() => {
     props.onChange(data);
@@ -82,6 +86,8 @@ function Calendar({ value = "0".repeat(24 * 2 * 7), ...props }: CalendarProps) {
                         onChange={(selected: boolean) =>
                           handleChange(row, column, selected)
                         }
+                        setDragging={setDragging}
+                        dragging={dragging}
                       />
                     );
                   })}
@@ -130,13 +136,13 @@ function CalendarRow(props: CalendarRowProps) {
     <tr
       className={combineClasses(
         "calendar-row",
-        props.rowNum % 2 == 0 ? "dashed" : "solid"
+        props.rowNum % 2 == 0 ? "dashed" : "solid",
       )}
     >
       <td
         className={combineClasses(
           "calendar-ticks-left",
-          props.rowNum % 2 == 0 ? "dashed" : "solid"
+          props.rowNum % 2 == 0 ? "dashed" : "solid",
         )}
         aria-hidden={true}
       ></td>
@@ -152,8 +158,18 @@ function CalendarCell({ selected = false, ...props }: CalendarCellProps) {
     props.onChange(isSelected);
   }, [isSelected]);
 
-  function handleClick() {
-    setIsSelected(!isSelected);
+  function mouseUp() {
+    props.setDragging(false);
+    setIsSelected(true);
+  }
+
+  function mouseDown() {
+    props.setDragging(true);
+    setIsSelected(true);
+  }
+
+  function mouseEnter() {
+    if (props.dragging) setIsSelected(true);
   }
 
   return (
@@ -162,7 +178,7 @@ function CalendarCell({ selected = false, ...props }: CalendarCellProps) {
       className={combineClasses(
         "calendar-cell",
         props.rowNum % 2 == 0 ? "dashed" : "solid",
-        isSelected && "selected"
+        isSelected && "selected",
       )}
     >
       <div
@@ -170,8 +186,9 @@ function CalendarCell({ selected = false, ...props }: CalendarCellProps) {
         role="checkbox"
         aria-checked={isSelected}
         aria-label={`I am available on ${props.rowNum}, ${props.columnNum}`}
-        onClick={handleClick}
-        onKeyDown={(e) => onKey(handleClick, "Enter")(e)}
+        onMouseUp={mouseUp}
+        onMouseEnter={mouseEnter}
+        onMouseDown={mouseDown}
       ></div>
     </td>
   );
