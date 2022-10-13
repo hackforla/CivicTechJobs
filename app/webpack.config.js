@@ -69,8 +69,8 @@ module.exports = {
     ]
   },
   optimization: {
-    // all of the following is for chunking to split js into multiple files and prevent reusing code
     usedExports: true,
+    // all of the following is for chunking to split js into multiple files and prevent reusing code
     moduleIds: "deterministic",
     runtimeChunk: "single",
     splitChunks: {
