@@ -28,8 +28,8 @@ function QualifierPage() {
         ]}
       />
       <main>
-        <ProgressBar label="Page 1" addClass="px-5" />
         <Suspense fallback={<div>...Loading</div>}>
+          <ProgressBar label="Page 1" addClass="px-5" />
           <QualifierPageCalendar setPage={setPage} />
         </Suspense>
       </main>
