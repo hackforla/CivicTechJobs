@@ -69,6 +69,7 @@ module.exports = {
     ]
   },
   optimization: {
+    // tree shaking
     usedExports: true,
     // all of the following is for chunking to split js into multiple files and prevent reusing code
     moduleIds: "deterministic",
