@@ -31,6 +31,7 @@ services:
     build:
       context: ./app
       dockerfile: ../dev/webpack.dockerfile
+    container_name: webpack
     command: npm run watch
     env_file:
       - ./dev/dev.env
@@ -46,8 +47,8 @@ services:
       - PRE_COMMIT_HOME=${HOME}/.cache/pre-commit
     user: ${UID}:${GID}
     volumes:
-     - .:/src:rw
-     - ${HOME}/.cache:${HOME}/.cache:rw
+      - .:/src:rw
+      - ${HOME}/.cache:${HOME}/.cache:rw
 
 volumes:
   postgres_data:

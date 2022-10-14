@@ -36,9 +36,8 @@ function QualifierPage() {
           { name: "Projects", link: "/demo" },
         ]}
       />
-      <main>
+      <main className="mx-6">
         <ProgressBar label="Page 1" value={page} addClass="px-5" />
-
         <div className="flex-center-x">
           <div className="flex-column qualifier-content align-center px-5">
             <Content />

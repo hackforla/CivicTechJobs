@@ -22,12 +22,14 @@ function QualifierPageRoles({ setPage }: QualifierPageRolesProps) {
       <QualifierTitle title="What type of role are you looking for?">
         Select as many roles as you'd like to find opportunities in.
       </QualifierTitle>
-      <div style={{ maxWidth: "1088px" }}>
+      <div className="flex-center-x">
         {data.map((datum, index) => {
           return (
-            <Fragment>
-              <CopRoles key={index} copDatum={datum} />
-              {index < data.length - 1 && <hr className="qroles-border"></hr>}
+            <Fragment key={index}>
+              <CopRoles copDatum={datum} />
+              {index < data.length - 1 && (
+                <hr className="row col-8 qroles-border"></hr>
+              )}
             </Fragment>
           );
         })}
@@ -51,35 +53,49 @@ interface CopRolesProps {
 }
 
 function CopRoles({ copDatum }: CopRolesProps) {
+  const [isAllSelected, setIsAllSelected] = useState(false);
+
   return (
-    <div className="flex-container py-3">
-      <div className="row fill align-center pb-3 justify-between">
-        <div>
+    <div className="row fill flex-center-x my-1">
+      <div className="col-7">
+        <div className="row align-center my-2">
           <copDatum.icon
             fill="black"
             strokeWidth="0.2"
             height="21"
             aria-hidden="true"
           />
-          <span className="title-4 pl-1">{copDatum.title}</span>
+          <span className="title-4 ml-1">{copDatum.title}</span>
         </div>
-        <div>select all</div>
+        <div>
+          {copDatum.roles.map((role, index) => {
+            return (
+              <Chip
+                key={index}
+                addClass="mr-2 mb-2"
+                isActive={isAllSelected ? true : false}
+                value={role}
+                onChange={(active, value) => {
+                  console.log(
+                    `${value} was ${active ? "selected" : "deselected"}`
+                  );
+                }}
+              />
+            );
+          })}
+        </div>
       </div>
-      <div>
-        {copDatum.roles.map((role, index) => {
-          return (
-            <Chip
-              addClass="mr-3 mb-2"
-              key={index}
-              value={role}
-              onChange={(active, value) => {
-                console.log(
-                  `${value} was ${active ? "selected" : "deselected"}`
-                );
-              }}
-            />
-          );
-        })}
+      <div className="col-1 text-right">
+        <span
+          role="button"
+          aria-pressed="false"
+          onClick={() => {
+            console.log("dajkdhakdja");
+            setIsAllSelected(true);
+          }}
+        >
+          Select all
+        </span>
       </div>
     </div>
   );
