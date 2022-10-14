@@ -161,7 +161,8 @@ function CalendarCell({ selected = false, ...props }: CalendarCellProps) {
     props.setIsMouseDown(false);
   }
 
-  function mouseDown() {
+  function mouseDown(e: any) {
+    e.preventDefault();
     setIsSelected(!isSelected);
     props.setIsMouseDown(true);
     return false;
@@ -182,15 +183,15 @@ function CalendarCell({ selected = false, ...props }: CalendarCellProps) {
         props.rowNum % 2 == 0 ? "dashed" : "solid",
         isSelected && "selected"
       )}
-      onMouseUp={mouseUp}
-      onMouseMove={mouseMove}
-      onMouseDown={mouseDown}
     >
       <div
         tabIndex={0}
         role="checkbox"
         aria-checked={isSelected}
         aria-label={`I am available on ${props.rowNum}, ${props.columnNum}`}
+        onMouseUp={mouseUp}
+        onMouseMove={mouseMove}
+        onMouseDown={mouseDown}
       ></div>
     </td>
   );
