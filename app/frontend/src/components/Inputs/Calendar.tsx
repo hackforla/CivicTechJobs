@@ -161,8 +161,7 @@ function CalendarCell({ selected = false, ...props }: CalendarCellProps) {
     props.setIsMouseDown(false);
   }
 
-  function mouseDown(e: any) {
-    e.preventDefault();
+  function mouseDown() {
     setIsSelected(!isSelected);
     props.setIsMouseDown(true);
     return false;
