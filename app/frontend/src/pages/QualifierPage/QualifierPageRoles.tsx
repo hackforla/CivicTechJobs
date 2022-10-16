@@ -5,6 +5,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { Button, Chip } from "components/components";
 import { QualifierNav, QualifierTitle } from "./QualifierComponents";
 import { fetchAllCopData, copDatum } from "pages/api_data/copData";
+import { onKey } from "components/Utility/utils";
 
 interface QualifierPageRolesProps {
   setPage: (num: number) => void;
@@ -58,6 +59,12 @@ function CopRoles({ copDatum }: CopRolesProps) {
     Array(copDatum.roles.length).fill(false)
   );
 
+  function handleSelectAll() {
+    const copy = isRoleChecked.map((_) => !isAllSelected);
+    setIsRoleChecked(copy);
+    setIsAllSelected(!isAllSelected);
+  }
+
   return (
     <div className="row fill flex-center-x my-1">
       <div className="col-7">
@@ -91,13 +98,11 @@ function CopRoles({ copDatum }: CopRolesProps) {
       <div className="col-1 text-right">
         <span
           className="links"
+          tabIndex={0}
           role="button"
           aria-pressed={isAllSelected}
-          onClick={() => {
-            const copy = isRoleChecked.map((_) => !isAllSelected);
-            setIsRoleChecked(copy);
-            setIsAllSelected(!isAllSelected);
-          }}
+          onClick={handleSelectAll}
+          onKeyDown={(e) => onKey(handleSelectAll, "Enter")(e)}
         >
           {isAllSelected ? "Deselect All" : "Select all"}
         </span>
