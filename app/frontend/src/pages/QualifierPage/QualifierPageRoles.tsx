@@ -54,6 +54,9 @@ interface CopRolesProps {
 
 function CopRoles({ copDatum }: CopRolesProps) {
   const [isAllSelected, setIsAllSelected] = useState(false);
+  const [isRoleChecked, setIsRoleChecked] = useState<boolean[]>(
+    Array(copDatum.roles.length).fill(false)
+  );
 
   return (
     <div className="row fill flex-center-x my-1">
@@ -73,12 +76,12 @@ function CopRoles({ copDatum }: CopRolesProps) {
               <Chip
                 key={index}
                 addClass="mr-2 mb-2"
-                isActive={isAllSelected ? true : false}
+                isActive={isRoleChecked[index]}
                 value={role}
                 onChange={(active, value) => {
-                  console.log(
-                    `${value} was ${active ? "selected" : "deselected"}`
-                  );
+                  const copy = [...isRoleChecked];
+                  copy[index] = active;
+                  setIsRoleChecked(copy);
                 }}
               />
             );
@@ -87,14 +90,16 @@ function CopRoles({ copDatum }: CopRolesProps) {
       </div>
       <div className="col-1 text-right">
         <span
+          className="links"
           role="button"
-          aria-pressed="false"
+          aria-pressed={isAllSelected}
           onClick={() => {
-            console.log("dajkdhakdja");
-            setIsAllSelected(true);
+            const copy = isRoleChecked.map((_) => !isAllSelected);
+            setIsRoleChecked(copy);
+            setIsAllSelected(!isAllSelected);
           }}
         >
-          Select all
+          {isAllSelected ? "Deselect All" : "Select all"}
         </span>
       </div>
     </div>

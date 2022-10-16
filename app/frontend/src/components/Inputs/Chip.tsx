@@ -13,14 +13,18 @@ interface ChipProps {
 }
 
 function Chip({ addClass, isActive = false, onChange, value }: ChipProps) {
-  const [on, isOn] = useState(isActive);
+  const [on, setOn] = useState(isActive);
 
   useEffect(() => {
     onChange(on, value);
   }, [on]);
 
+  useEffect(() => {
+    setOn(isActive);
+  }, [isActive]);
+
   function handleClick() {
-    isOn(!on);
+    setOn(!on);
   }
 
   return (
