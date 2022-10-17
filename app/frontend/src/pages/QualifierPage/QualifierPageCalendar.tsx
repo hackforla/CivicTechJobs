@@ -109,4 +109,4 @@ function CalendarNav() {
   );
 }
 
-export { QualifierPageCalendar };
+export default QualifierPageCalendar;
