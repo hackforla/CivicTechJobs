@@ -88,4 +88,4 @@ function TimeZoneDropDown() {
   );
 }
 
-export { QualifierPageCalendar };
+export default QualifierPageCalendar;

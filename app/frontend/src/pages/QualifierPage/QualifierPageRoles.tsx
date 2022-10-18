@@ -111,4 +111,4 @@ function CopRoles({ copDatum }: CopRolesProps) {
   );
 }
 
-export { QualifierPageRoles };
+export default QualifierPageRoles;

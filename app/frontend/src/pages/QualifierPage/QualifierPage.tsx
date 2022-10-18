@@ -1,5 +1,5 @@
 // External Imports
-import React, { Fragment, useState } from "react";
+import React, { Fragment, Suspense, useState } from "react";
 
 // Internal Imports
 import { ProgressBar, HeaderNav, FooterNav } from "components/components";
@@ -9,8 +9,12 @@ import {
   logoStacked,
   logoStackedOnDark,
 } from "assets/images/images";
-import { QualifierPageCalendar } from "./QualifierPageCalendar";
-import { QualifierPageRoles } from "./QualifierPageRoles";
+
+// Lazy Imports
+const QualifierPageRoles = React.lazy(() => import("./QualifierPageRoles"));
+const QualifierPageCalendar = React.lazy(
+  () => import("./QualifierPageCalendar")
+);
 
 function QualifierPage() {
   const [page, setPage] = useState(1);
@@ -27,32 +31,34 @@ function QualifierPage() {
 
   return (
     <Fragment>
-      <HeaderNav
-        logoDesktop={logoHorizontal}
-        logoMobile={logoStacked}
-        menu={[
-          { name: "Hack for LA", link: "/" },
-          { name: "How to Join", link: "/qualifier" },
-          { name: "Projects", link: "/demo" },
-        ]}
-      />
-      <main className="mx-6">
-        <ProgressBar label="Page 1" value={page} addClass="px-5" />
-        <div className="flex-center-x">
-          <div className="flex-column qualifier-content align-center px-5">
-            <Content />
+      <Suspense fallback={<div>...Loading</div>}>
+        <HeaderNav
+          logoDesktop={logoHorizontal}
+          logoMobile={logoStacked}
+          menu={[
+            { name: "Hack for LA", link: "/" },
+            { name: "How to Join", link: "/qualifier" },
+            { name: "Projects", link: "/demo" },
+          ]}
+        />
+        <main className="mx-6">
+          <ProgressBar label="Page 1" value={page} addClass="px-5" />
+          <div className="flex-center-x">
+            <div className="flex-column qualifier-content align-center px-5">
+              <Content />
+            </div>
           </div>
-        </div>
-      </main>
-      <FooterNav
-        logoDesktop={logoHorizontalOnDark}
-        logoMobile={logoStackedOnDark}
-        menu={[
-          { name: "Credits", link: "/" },
-          { name: "Sitemap", link: "/" },
-          { name: "Join Us", link: "/" },
-        ]}
-      />
+        </main>
+        <FooterNav
+          logoDesktop={logoHorizontalOnDark}
+          logoMobile={logoStackedOnDark}
+          menu={[
+            { name: "Credits", link: "/" },
+            { name: "Sitemap", link: "/" },
+            { name: "Join Us", link: "/" },
+          ]}
+        />
+      </Suspense>
     </Fragment>
   );
 }
