@@ -1,4 +1,4 @@
-name: Promote to prod
+name: Promote to Amazon ECS prod environment
 
 on: 
   workflow_dispatch:

@@ -1,8 +1,8 @@
-name: Deploy to Amazon ECS
+name: Deploy to Amazon ECS stage environment
 
 on:
   push:
-    branches: [ "dev-branch-1", "main" ]
+    branches: [ "dev-branch-1", "main", "add-github-actions-cicd-pipeline" ]
 
 env:
   AWS_REGION: us-west-2
