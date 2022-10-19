@@ -1,9 +1,10 @@
-name: Deploy to Amazon ECS
+name: Promote to prod
 
-on:
-  push:
-    branches: [ "dev-branch-1", "main" ]
-
+on: 
+  workflow_dispatch:
+  release:
+    types: [published]
+    
 env:
   AWS_REGION: us-west-2
   ECR_REPOSITORY: civictechjobs-fullstack-stage
@@ -27,9 +28,9 @@ permissions:
 
 jobs:
   deploy:
-    name: Build, push image to ECR and deploy to ECS
+    name: Promote existing build to prod ECS
     runs-on: ubuntu-latest
-    environment: stage
+    environment: prod
 
     steps:
     - name: Checkout
@@ -46,20 +47,6 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
 
-    - name: Build, tag, and push image to Amazon ECR
-      id: build-image
-      env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        IMAGE_TAG: ${{ github.sha }}
-      run: |
-        # Build a docker container and
-        # push it to ECR so that it can
-        # be deployed to ECS.
-        cd app
-        docker build -f ../stage/Dockerfile -t "$ECR_REGISTRY"/"$ECR_REPOSITORY":"$IMAGE_TAG" .
-        docker push "$ECR_REGISTRY"/"$ECR_REPOSITORY":"$IMAGE_TAG"
-        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
-
     - name: Fill in templated fields of ECS task definition
       id: task-def-update
       run: |
@@ -75,7 +62,7 @@ jobs:
       with:
         task-definition: ${{ env.ECS_TASK_DEFINITION }}
         container-name: ${{ env.CONTAINER_NAME }}
-        image: ${{ steps.build-image.outputs.image }}
+        image: ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:${{ github.sha }}
         environment-variables: |
           DATABASE=postgres
           DB_ENGINE=django.db.backends.postgresql
