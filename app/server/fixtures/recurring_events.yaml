@@ -1,0 +1,585 @@
+- fields:
+    description: Team Meeting
+    end_time: '2020-05-12T02:00:00.000Z'
+    hours: 5
+    name: Lucky Parking Team Meeting
+    project: 5ec32abda973810017c0de0d
+    start_time: '2020-05-12T01:00:00.000Z'
+  model: server.recurringevent
+  pk: 5eb7240f509367be7272cf69
+- fields:
+    description: PM Meeting
+    end_time: '2020-05-12T23:00:00.000Z'
+    hours: 2.25
+    name: Expunge Assist
+    project: 5edeab95ce228b001778facc
+    start_time: '2020-05-12T22:00:00.000Z'
+  model: server.recurringevent
+  pk: 5eb72878509367be7272cf6d
+- fields:
+    description: Team Meeting
+    end_time: '2020-05-12T03:00:00.000Z'
+    hours: 1
+    name: VRMS Team Meeting
+    project: 5edeac78ce228b001778facd
+    start_time: '2020-05-12T02:00:00.000Z'
+  model: server.recurringevent
+  pk: 5eb7296e509367be7272cf6f
+- fields:
+    description: All Team Meeting
+    end_time: '2020-05-13T02:00:00.000Z'
+    hours: 0.5
+    name: Home Unite Us Team Meeting
+    project: 5edea961ce228b001778faca
+    start_time: '2020-05-13T01:30:00.000Z'
+  model: server.recurringevent
+  pk: 5eb72b05509367be7272cf71
+- fields:
+    description: All Team Members
+    end_time: '2020-05-14T02:00:00.000Z'
+    hours: 1
+    name: Engage Team Meeting
+    project: 5edea472ce228b001778fac8
+    start_time: '2020-05-14T01:00:00.000Z'
+  model: server.recurringevent
+  pk: 5eb730df509367be7272cf74
+- fields:
+    description: Weekly Meeting
+    end_time: '2020-05-27T03:45:00.000Z'
+    hours: 0.75
+    name: Operations Group Weekly Meeting
+    project: 5edeae6cce228b001778face
+    start_time: '2020-05-27T03:00:00.000Z'
+  model: server.recurringevent
+  pk: 5eb73139509367be7272cf75
+- fields:
+    description: Weekly Team Check In
+    end_time: '2020-05-14T03:00:00.000Z'
+    hours: 1.5
+    name: LA TDM Calculator Team Meeting
+    project: 5edeb2face228b001778fad2
+    start_time: '2020-05-14T02:00:00.000Z'
+  model: server.recurringevent
+  pk: 5eb732a9509367be7272cf77
+- fields:
+    description: Product Meeting
+    end_time: '2020-05-15T01:00:00.000Z'
+    hours: 1
+    name: 311 Data Management Meeting
+    project: 5eb9e2de3409ffef8194ffde
+    start_time: '2020-05-15T00:00:00.000Z'
+  model: server.recurringevent
+  pk: 5eb73328509367be7272cf78
+- fields:
+    description: Team Meeting
+    end_time: '2020-05-15T02:00:00.000Z'
+    hours: 1
+    name: Civic Tech Index Team Meeting
+    project: 5ec326c7a973810017c0de0c
+    start_time: '2020-05-15T01:00:00.000Z'
+  model: server.recurringevent
+  pk: 5eb7339e509367be7272cf79
+- fields:
+    description: Team Meeting
+    end_time: '2020-05-15T02:00:00.000Z'
+    hours: 1
+    name: Food Oasis
+    project: 5edea7d2ce228b001778fac9
+    start_time: '2020-05-15T01:00:00.000Z'
+  model: server.recurringevent
+  pk: 5eb733e4509367be7272cf7a
+- fields:
+    description: Management Meeting
+    end_time: '2020-05-16T18:00:00.000Z'
+    hours: 2
+    name: LA TDM Calculator Team Meeting
+    project: 5edeb2face228b001778fad2
+    start_time: '2020-05-16T17:00:00.000Z'
+  model: server.recurringevent
+  pk: 5eb73494509367be7272cf7b
+- fields:
+    description: All Team Meeting
+    end_time: '2020-05-17T19:00:00.000Z'
+    hours: 2
+    name: Hackforla.org Website Team Meeting
+    project: 5edeb146ce228b001778fad0
+    start_time: '2020-05-17T17:00:00.000Z'
+  model: server.recurringevent
+  pk: 5eb736bf509367be7272cf7e
+- fields:
+    description: Team Meeting
+    end_time: '2020-05-18T03:00:00.000Z'
+    hours: 2
+    name: Civic Tech Index Team Meeting
+    project: 5ec326c7a973810017c0de0c
+    start_time: '2020-05-18T01:00:00.000Z'
+  model: server.recurringevent
+  pk: 5eb737f5509367be7272cf81
+- fields:
+    description: Development Team
+    end_time: '2020-05-13T03:00:00.000Z'
+    hours: 1
+    name: Hackforla.org Website Team Meeting
+    project: 5edeb146ce228b001778fad0
+    start_time: '2020-05-13T02:00:00.000Z'
+  model: server.recurringevent
+  pk: 5ebb040346383ef9be2dc2d1
+- fields:
+    description: ''
+    end_time: '2020-06-19T04:00:00.000Z'
+    hours: 2
+    name: Data Science Team Meeting
+    project: 5eec356c411acc0017486997
+    start_time: '2020-06-19T03:00:00.000Z'
+  model: server.recurringevent
+  pk: 5eec3623411acc0017486999
+- fields:
+    description: Team Meeting
+    end_time: '2020-08-21T02:30:00.000Z'
+    hours: 1
+    name: 311 Data Team Meeting
+    project: 5eb9e2de3409ffef8194ffde
+    start_time: '2020-08-21T01:30:00.000Z'
+  model: server.recurringevent
+  pk: 5f3dda85e2779b0017bc88cc
+- fields:
+    description: ''
+    end_time: '2020-08-20T01:00:00.000Z'
+    hours: 1
+    name: 100 Automations
+    project: 5f4b48031127403d8c56aa06
+    start_time: '2020-08-19T00:00:00.000Z'
+  model: server.recurringevent
+  pk: 5f4602a1f62faf0017d07f6d
+- fields:
+    description: ''
+    end_time: '2020-08-22T23:00:00.000Z'
+    hours: 2
+    name: 100 Automations
+    project: 5f4b48031127403d8c56aa06
+    start_time: '2020-08-22T21:00:00.000Z'
+  model: server.recurringevent
+  pk: 5f4602fef62faf0017d07f6e
+- fields:
+    description: ''
+    end_time: '2020-09-02T01:00:00.000Z'
+    hours: 1
+    name: BallotNav
+    project: 5f5092eafb93d9001742d1b4
+    start_time: '2020-09-02T00:00:00.000Z'
+  model: server.recurringevent
+  pk: 5f5098e1fb93d9001742d1bd
+- fields:
+    description: All Hands Meeting, Every 2nd Tuesday
+    end_time: '2020-05-13T01:00:00.000Z'
+    hours: 1
+    name: Expunge Assist
+    project: 5edeab95ce228b001778facc
+    start_time: '2020-05-13T00:00:00.000Z'
+  model: server.recurringevent
+  pk: 5ff3d01210cf72445ce37e23
+- fields:
+    description: Development Team Meeting
+    end_time: '2020-05-15T02:00:00.000Z'
+    hours: 2.25
+    name: Expunge Assist
+    project: 5edeab95ce228b001778facc
+    start_time: '2020-05-15T01:00:00.000Z'
+  model: server.recurringevent
+  pk: 5ff3d0b210cf72445ce37e24
+- fields:
+    description: PM Meeting
+    end_time: '2020-05-12T20:00:00.000Z'
+    hours: 1.5
+    name: Hackforla.org Website Team Meeting
+    project: 5edeb146ce228b001778fad0
+    start_time: '2020-05-12T19:00:00.000Z'
+  model: server.recurringevent
+  pk: 5ff3d1db10cf72445ce37e25
+- fields:
+    description: Team Meeting
+    end_time: '2020-05-14T03:00:00.000Z'
+    hours: 1
+    name: Youth Justice Nav Meeting
+    project: 5ffff1495b6c145310d50913
+    start_time: '2020-05-14T02:00:00.000Z'
+  model: server.recurringevent
+  pk: 5ffff2525b6c145310d50914
+- fields:
+    description: Team Meeting
+    end_time: '2020-05-16T23:00:00.000Z'
+    hours: 1
+    name: Youth Justice Nav Meeting
+    project: 5ffff1495b6c145310d50913
+    start_time: '2020-05-16T22:00:00.000Z'
+  model: server.recurringevent
+  pk: 602ccd77e4e43c2d24060a18
+- fields:
+    description: Weekly meeting
+    end_time: '2021-03-01T03:00:00.000Z'
+    hours: 1
+    name: UI/UX Community of Practice
+    project: 603db1fbd7b86d36b4f28a62
+    start_time: '2021-03-01T02:00:00.000Z'
+  model: server.recurringevent
+  pk: 603db433d7b86d36b4f28a63
+- fields:
+    description: Product Managers Meeting
+    end_time: '2020-05-17T20:30:00.000Z'
+    hours: 2
+    name: Civic Tech Index Product Managers Meeting
+    project: 5ec326c7a973810017c0de0c
+    start_time: '2020-05-17T19:30:00.000Z'
+  model: server.recurringevent
+  pk: 603e79c0b6e1b403ab81abe6
+- fields:
+    description: Weekly meeting
+    end_time: '2021-03-01T03:00:00.000Z'
+    hours: 1
+    name: Product Management
+    project: 603e8471b6e1b403ab81abe7
+    start_time: '2021-03-01T02:00:00.000Z'
+  model: server.recurringevent
+  pk: 603e8960b6e1b403ab81abe8
+- fields:
+    description: Weekly meeting
+    end_time: '2021-03-01T19:00:00.000Z'
+    hours: 1
+    name: Product Management
+    project: 603e8471b6e1b403ab81abe7
+    start_time: '2021-03-01T18:00:00.000Z'
+  model: server.recurringevent
+  pk: 603e8b67b6e1b403ab81abe9
+- fields:
+    description: Weekly meeting
+    end_time: '2021-03-04T04:00:00.000Z'
+    hours: 1
+    name: Marketing
+    project: 603eb958b6e1b403ab81abea
+    start_time: '2021-03-04T03:00:00.000Z'
+  model: server.recurringevent
+  pk: 603eba6cb6e1b403ab81abeb
+- fields:
+    description: Team Meeting
+    end_time: '2021-03-01T21:00:00.000Z'
+    hours: 1
+    name: Open Community Survey
+    project: 603ebf2ab6e1b403ab81abec
+    start_time: '2021-03-01T20:00:00.000Z'
+  model: server.recurringevent
+  pk: 603ec173b6e1b403ab81abed
+- fields:
+    description: Weekly meeting
+    end_time: '2021-03-04T03:00:00.000Z'
+    hours: 1
+    name: Engineering
+    project: 605772bb46b7cd034719d114
+    start_time: '2021-03-04T02:00:00.000Z'
+  model: server.recurringevent
+  pk: 605773e246b7cd034719d115
+- fields:
+    description: Alternating Mon/Tue. Click for schedule
+    end_time: '2021-03-04T03:30:00.000Z'
+    hours: 1
+    name: Onboarding
+    project: 605d593b6fb945197a19038c
+    start_time: '2021-03-04T02:00:00.000Z'
+  model: server.recurringevent
+  pk: 605d5aba6fb945197a19038d
+- fields:
+    description: Alternating Mon/Tue. Click for schedule
+    end_time: '2021-03-04T03:30:00.000Z'
+    hours: 1
+    name: Onboarding
+    project: 605d593b6fb945197a19038c
+    start_time: '2021-03-04T02:00:00.000Z'
+  model: server.recurringevent
+  pk: 605d5bf66fb945197a19038e
+- fields:
+    description: Data Science Workshop Meeting
+    end_time: '2020-05-13T01:00:00.000Z'
+    hours: 1
+    name: Access the Data
+    project: 60638e5f6fb945197a190390
+    start_time: '2020-05-13T00:00:00.000Z'
+  model: server.recurringevent
+  pk: 60638f106fb945197a190391
+- fields:
+    description: Core Team
+    end_time: '2020-10-03T20:00:54.000Z'
+    hours: 2
+    name: Brigade Organizers Playbook
+    project: 6086fe5792e3bf053b2954c4
+    start_time: '2020-10-03T18:00:54.000Z'
+  model: server.recurringevent
+  pk: 6086ff6492e3bf053b2954c5
+- fields:
+    description: Core Team
+    end_time: '2020-10-06T18:00:54.000Z'
+    hours: 2
+    name: Brigade Organizers Playbook
+    project: 6086fe5792e3bf053b2954c4
+    start_time: '2020-10-06T17:00:54.000Z'
+  model: server.recurringevent
+  pk: 6086ffa092e3bf053b2954c6
+- fields:
+    description: Product Manager Meeting
+    end_time: '2020-05-14T01:00:00.000Z'
+    hours: 1
+    name: Engage Team Meeting
+    project: 5edea472ce228b001778fac8
+    start_time: '2020-05-14T00:00:00.000Z'
+  model: server.recurringevent
+  pk: 608f056894f95c45fcb98617
+- fields:
+    description: All Team Members
+    end_time: '2020-05-14T00:00:00.000Z'
+    hours: 1
+    name: Engage Team Meeting
+    project: 5edea472ce228b001778fac8
+    start_time: '2020-05-14T23:00:00.000Z'
+  model: server.recurringevent
+  pk: 608f05c894f95c45fcb98618
+- fields:
+    description: Team Meeting
+    end_time: '2021-08-11T03:00:00.000Z'
+    hours: 1
+    name: GreenEarthOS
+    project: 610db8d3a76e0dd02bbc98dc
+    start_time: '2021-08-11T02:00:00.000Z'
+  model: server.recurringevent
+  pk: 610db9cba76e0dd02bbc98df
+- fields:
+    description: UI-UX Meeting
+    end_time: '2020-05-12T01:00:00.000Z'
+    hours: 1.5
+    name: Hackforla.org Website
+    project: 5edeb146ce228b001778fad0
+    start_time: '2020-05-12T00:00:00.000Z'
+  model: server.recurringevent
+  pk: 6126b99e9b885ef7d95779e2
+- fields:
+    description: Development Office Hours
+    end_time: '2022-07-26T03:30:00.821Z'
+    hours: 1.5
+    name: Hackforla.org Website
+    project: 5edeb146ce228b001778fad0
+    start_time: '2022-07-26T02:00:00.821Z'
+  model: server.recurringevent
+  pk: 6126b9ff9b885ef7d95779e3
+- fields:
+    description: PM Meeting
+    end_time: '2020-05-13T22:00:00.000Z'
+    hours: 1
+    name: Access the Data
+    project: 60638e5f6fb945197a190390
+    start_time: '2020-05-13T21:00:00.000Z'
+  model: server.recurringevent
+  pk: 6152303f67279ee9a61afc89
+- fields:
+    description: Team Meeting
+    end_time: '2020-05-13T01:00:00.000Z'
+    hours: 1
+    name: Access the Data
+    project: 60638e5f6fb945197a190390
+    start_time: '2020-05-13T00:00:00.000Z'
+  model: server.recurringevent
+  pk: 615230cd67279ee9a61afc8b
+- fields:
+    description: UX/UI Website Meeting
+    end_time: '2020-05-13T00:00:00.000Z'
+    hours: 1
+    name: Access the Data
+    project: 60638e5f6fb945197a190390
+    start_time: '2020-05-13T23:00:00.000Z'
+  model: server.recurringevent
+  pk: 6152310e67279ee9a61afc8c
+- fields:
+    description: Weekly Meeting
+    end_time: '2020-05-13T01:30:00.000Z'
+    hours: 1
+    name: Design Systems
+    project: 615235f967279ee9a61afc93
+    start_time: '2020-05-13T00:30:00.000Z'
+  model: server.recurringevent
+  pk: 6152368867279ee9a61afc96
+- fields:
+    description: UX/UI meeting
+    end_time: '2020-05-13T02:00:00.000Z'
+    hours: 1
+    name: Design Systems
+    project: 615235f967279ee9a61afc93
+    start_time: '2020-05-13T01:00:00.000Z'
+  model: server.recurringevent
+  pk: 615237d567279ee9a61afc97
+- fields:
+    description: UX Research meeting
+    end_time: '2020-05-13T19:00:00.000Z'
+    hours: 1
+    name: Design Systems
+    project: 615235f967279ee9a61afc93
+    start_time: '2020-05-13T18:00:00.000Z'
+  model: server.recurringevent
+  pk: 6152381f67279ee9a61afc98
+- fields:
+    description: Developers Meeting
+    end_time: '2020-05-12T02:30:00.000Z'
+    hours: 1
+    name: VRMS Team Meeting
+    project: 5edeac78ce228b001778facd
+    start_time: '2020-05-12T01:30:00.000Z'
+  model: server.recurringevent
+  pk: 6192ff1b88e43f11e436db1d
+- fields:
+    description: UX Research
+    end_time: '2020-05-12T22:00:00.000Z'
+    hours: 1.5
+    name: Hackforla.org Website Team Meeting
+    project: 5edeb146ce228b001778fad0
+    start_time: '2020-05-12T21:00:00.000Z'
+  model: server.recurringevent
+  pk: 61aa816e41ed09237918f4c2
+- fields:
+    description: Product Team
+    end_time: '2020-05-12T00:30:00.000Z'
+    hours: 0.5
+    name: Home Unite Us Team Meeting
+    project: 5edea961ce228b001778faca
+    start_time: '2020-05-12T00:00:00.000Z'
+  model: server.recurringevent
+  pk: 61b7fc8d71f7e8fa9f644ff8
+- fields:
+    description: Product Owner Meeting
+    end_time: '2021-12-13T01:00:00.000Z'
+    hours: 0.5
+    name: Home Unite Us Team Meeting
+    project: 5edea961ce228b001778faca
+    start_time: '2021-12-13T00:30:00.000Z'
+  model: server.recurringevent
+  pk: 61b7fd5471f7e8fa9f644ffa
+- fields:
+    description: Design Team Meeting
+    end_time: '2020-05-13T03:00:00.000Z'
+    hours: 1
+    name: Home Unite Us Team Meeting
+    project: 5edea961ce228b001778faca
+    start_time: '2020-05-13T02:00:00.000Z'
+  model: server.recurringevent
+  pk: 62018d45271b5ce334ee9616
+- fields:
+    description: Team Meeting
+    end_time: '2022-02-15T02:00:00.000Z'
+    hours: 1
+    name: Civic Tech Jobs Team Meeting
+    project: 620997442720480f934e4362
+    start_time: '2022-02-15T01:00:00.000Z'
+  model: server.recurringevent
+  pk: 620998d72720480f934e4365
+- fields:
+    description: UX/UI Meeting
+    end_time: '2022-02-15T03:00:00.000Z'
+    hours: 1
+    name: Civic Tech Jobs Team Meeting
+    project: 620997442720480f934e4362
+    start_time: '2022-02-15T02:00:00.000Z'
+  model: server.recurringevent
+  pk: 6209995f2720480f934e4366
+- fields:
+    description: Developer Meeting
+    end_time: '2022-02-15T03:00:00.000Z'
+    hours: 1
+    name: Civic Tech Jobs Team Meeting
+    project: 620997442720480f934e4362
+    start_time: '2022-02-15T02:00:00.000Z'
+  model: server.recurringevent
+  pk: 620999902720480f934e4367
+- fields:
+    description: Management Meeting
+    end_time: '2022-02-15T21:00:00.000Z'
+    hours: 1
+    name: Civic Tech Jobs Team Meeting
+    project: 620997442720480f934e4362
+    start_time: '2022-02-15T20:00:00.000Z'
+  model: server.recurringevent
+  pk: 620999f92720480f934e4368
+- fields:
+    description: Development Team
+    end_time: '2020-05-15T02:30:00.000Z'
+    hours: 1
+    name: Food Oasis
+    project: 5edea7d2ce228b001778fac9
+    start_time: '2020-05-15T01:30:00.000Z'
+  model: server.recurringevent
+  pk: 620bd0be68255664fc376985
+- fields:
+    description: Dev-Design-PM Collab Meeting
+    end_time: '2020-05-12T01:00:00.000Z'
+    hours: 2.25
+    name: Expunge Assist
+    project: 5edeab95ce228b001778facc
+    start_time: '2020-05-12T00:00:00.000Z'
+  model: server.recurringevent
+  pk: 626b51d2b702912aa29f6c4b
+- fields:
+    description: PM-Org Meeting
+    end_time: '2020-05-15T00:00:00.000Z'
+    hours: 2.25
+    name: Expunge Assist
+    project: 5edeab95ce228b001778facc
+    start_time: '2020-05-15T23:00:00.000Z'
+  model: server.recurringevent
+  pk: 626b525bb702912aa29f6c4c
+- fields:
+    description: Research Team Meeting
+    end_time: '2020-05-16T19:00:00.000Z'
+    hours: 2.25
+    name: Expunge Assist
+    project: 5edeab95ce228b001778facc
+    start_time: '2020-05-16T18:00:00.000Z'
+  model: server.recurringevent
+  pk: 626b533bb702912aa29f6c4d
+- fields:
+    description: PM/Org Meeting
+    end_time: '2020-05-16T19:00:00.000Z'
+    hours: 5
+    name: Lucky Parking Team Meeting
+    project: 5ec32abda973810017c0de0d
+    start_time: '2020-05-16T18:00:00.000Z'
+  model: server.recurringevent
+  pk: 626b5498b702912aa29f6c4e
+- fields:
+    description: Engineering Team Meeting
+    end_time: '2020-05-13T03:00:00.000Z'
+    hours: 1
+    name: Home Unite Us Team Meeting
+    project: 5edea961ce228b001778faca
+    start_time: '2020-05-13T02:00:00.000Z'
+  model: server.recurringevent
+  pk: 628319d160ad37a3de7d3df7
+- fields:
+    description: Design Meeting
+    end_time: '2022-06-30T01:30:00.536Z'
+    hours: 1
+    name: VRMS Design Meeting
+    project: 5edeac78ce228b001778facd
+    start_time: '2022-06-30T00:30:00.536Z'
+  model: server.recurringevent
+  pk: 62bd0bafff44530020a52d1c
+- fields:
+    description: UX Design
+    end_time: '2022-07-13T22:30:00.200Z'
+    hours: 1
+    name: Hackforla.org Website Team Meeting
+    project: 5edeb146ce228b001778fad0
+    start_time: '2022-07-13T21:30:00.200Z'
+  model: server.recurringevent
+  pk: 62c79601ff44530020a52d72
+- fields:
+    description: the meeting to test things
+    end_time: '2022-10-03T18:00:00.272Z'
+    hours: 1
+    name: testy test Team Meeting
+    project: 633b9c593c815e001f4f74e1
+    start_time: '2022-10-03T17:00:00.272Z'
+  model: server.recurringevent
+  pk: 633ba0dc3c815e001f4f74e2

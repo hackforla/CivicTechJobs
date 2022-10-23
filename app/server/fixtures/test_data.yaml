@@ -1,221 +1,215 @@
-# Skill
-- model: server.Skill
-  pk: 92df2b94-ed1e-44cc-a664-4f80149c39f0
+# ExperienceLevel
+- model: server.experiencelevel
+  pk: 470740b2-dc53-4cf1-960b-68a88a8be8ef
   fields:
-    name: Python
-- model: server.Skill
-  pk: c56a5f44-fcbf-45e9-a14e-e2d672fc7080
+    name: Beginner
+- model: server.experiencelevel
+  pk: dccc60af-3e28-427b-b138-7b190300d1ea
   fields:
-    name: Django
-- model: server.Skill
-  pk: f4be9666-4736-4fba-bf0a-7ef1d76eaca5
+    name: Advanced
+- model: server.experiencelevel
+  pk: de8678e6-67f8-493e-a85c-4d1eb479163d
   fields:
-    name: Javascript
+    name: Intermediate
 
 # Role
-- model: server.Role
-  pk: 36a18961-101e-4808-8f7d-24f143fcbb27
+- model: server.role
+  pk: 48c10131-64fc-46f2-b25e-af04b483bc67
   fields:
-    name: All
-- model: server.Role
-  pk: eb4ca87e-a8d0-4118-b4c2-22b8eb5d86c2
+    name: Project Manager
+- model: server.role
+  pk: 53d7334b-f416-40a8-b5c1-8a1747bad04d
   fields:
     name: Backend Developer
-- model: server.Role
-  pk: 6e8711bf-6e24-4e6c-b2c2-e542e8616324
-  fields:
-    name: Frontend Developer
-- model: server.Role
-  pk: 8ab6bd23-3e55-436a-b678-2f9649487cd5
+- model: server.role
+  pk: 92cd2cd2-91bf-4258-8613-6239c6a830c5
   fields:
     name: UI/UX Designer
+- model: server.role
+  pk: 9a750b45-e456-4bee-9527-5a78bed621c5
+  fields:
+    name: Team Lead
+- model: server.role
+  pk: aceb2bda-23ae-4fa0-a137-360fcf692e3d
+  fields:
+    name: Frontend Developer
+
+# Skill
+- model: server.skill
+  pk: 2ee3e9cc-d381-44d2-a3b4-30473aea96e1
+  fields:
+    name: Javascript
+- model: server.skill
+  pk: 53d1b026-7cef-4517-8b51-877819ad18a9
+  fields:
+    name: Django Rest Framework
+- model: server.skill
+  pk: 6c2c9152-2069-4156-aec7-0df4eb1f2fdd
+  fields:
+    name: Django
+- model: server.skill
+  pk: 7f1c5bdc-6871-4834-b2ba-6e3907f3aeab
+  fields:
+    name: Python
+- model: server.skill
+  pk: 8c352f53-adcc-4913-94b7-181123a3e876
+  fields:
+    name: Figma
+- model: server.skill
+  pk: 8e6922d2-6e63-4921-8259-7c0421b8f131
+  fields:
+    name: React
 
 # Project
-- model: server.Project
-  pk: e080d5be-52d8-4dd4-aff5-8ac5f5d21c84
+- model: server.project
+  pk: 620997442720480f934e4362
   fields:
-    name: CivicTechJobs
-    description: CivicTechJobs helps technology practitioners interested in having civic impact to find job opportunities from a central hub of listings
-- model: server.Project
-  pk: e1598001-c891-4a85-970a-12b968ea57fe
+    description: The CivicTechJobs.org MVP website will be a platform to help prospective
+      volunteers find projects that will be useful for their career development.
+    github_url: https://github.com/hackforla/CivicTechJobs
+    google_drive_url: ''
+    name: Civic Tech Jobs
+    project_status: Active
+    slack_url: https://hackforla.slack.com/messages/C02509WHFQQ
+    video_conference_link: https://us02web.zoom.us/j/81515187819?pwd=UzF1YjFwcnhNaTBtV3hyMHgyKzhpdz09
+- model: server.project
+  pk: 5edeac78ce228b001778facd
   fields:
+    description: VRMS is a tool used for the engagement, support, and retention of
+      a network of volunteers.
+    github_url: https://github.com/hackforla/VRMS
+    google_drive_url: https://drive.google.com/drive/folders/1uxCkpcPtDjrhftBO-axU2g8hjXsxiLiS
     name: VRMS
-    description: VRMS is a tool used for the engagement, support, and retention of a network of volunteers
-- model: server.Project
-  pk: 300278d0-65aa-40e8-be01-2a61f1ff18d8
-  fields:
-    name: Hackforla.org
-    description: The hackforla.org website is our organization's way of communicating with new volunteers, stakeholders, and donors
+    project_status: Active
+    slack_url: https://hackforla.slack.com/archives/CRGH5HM0Q
+    video_conference_link: https://us02web.zoom.us/j/4451450308?pwd=U0JobzZqN0xGSXBUUkRsNlB5YzJiQT09
 
 # Recurring Event
-- model: server.RecurringEvent
-  pk: 03aa9408-75c7-45f4-8e57-0b870bf428ec
+- model: server.recurringevent
+  pk: 620998d72720480f934e4365
   fields:
-    name: CivicTechJobs Weekly All Hands
-    day_of_week: Wednesday
-    start_time: "17:00:00"
-    duration_in_minutes: 60
-    project: e080d5be-52d8-4dd4-aff5-8ac5f5d21c84
-- model: server.RecurringEvent
-  pk: 2d641abe-438f-4005-9233-998d5d1b3f6f
+    description: Team Meeting
+    end_time: '2022-02-15T02:00:00.000Z'
+    hours: 1
+    name: Civic Tech Jobs Team Meeting
+    project: 620997442720480f934e4362
+    start_time: '2022-02-15T01:00:00.000Z'
+- model: server.recurringevent
+  pk: 6209995f2720480f934e4366
   fields:
-    name: CivicTechJobs Developer Meeting
-    day_of_week: Wednesday
-    start_time: "18:00:00"
-    duration_in_minutes: 30
-    project: e080d5be-52d8-4dd4-aff5-8ac5f5d21c84
-- model: server.RecurringEvent
-  pk: 0ae12430-27ca-4864-be69-ae105f404558
+    description: UX/UI Meeting
+    end_time: '2022-02-15T03:00:00.000Z'
+    hours: 1
+    name: Civic Tech Jobs Team Meeting
+    project: 620997442720480f934e4362
+    start_time: '2022-02-15T02:00:00.000Z'
+- model: server.recurringevent
+  pk: 620999902720480f934e4367
   fields:
-    name: CivicTechJobs UI/UX Meeting
-    day_of_week: Wednesday
-    start_time: "18:00:00"
-    duration_in_minutes: 45
-    project: e080d5be-52d8-4dd4-aff5-8ac5f5d21c84
-- model: server.RecurringEvent
-  pk: 3e967708-bfe7-4c43-b46b-758420f3c8cf
+    description: Developer Meeting
+    end_time: '2022-02-15T03:00:00.000Z'
+    hours: 1
+    name: Civic Tech Jobs Team Meeting
+    project: 620997442720480f934e4362
+    start_time: '2022-02-15T02:00:00.000Z'
+- model: server.recurringevent
+  pk: 620999f92720480f934e4368
   fields:
-    name: VRMS Weekly Meeting
-    day_of_week: Monday
-    start_time: "16:00:00"
-    duration_in_minutes: 60
-    project: e1598001-c891-4a85-970a-12b968ea57fe
-- model: server.RecurringEvent
-  pk: edee3c55-d1dd-45db-999e-99252d4994e0
+    description: Management Meeting
+    end_time: '2022-02-15T21:00:00.000Z'
+    hours: 1
+    name: Civic Tech Jobs Team Meeting
+    project: 620997442720480f934e4362
+    start_time: '2022-02-15T20:00:00.000Z'
+- model: server.recurringevent
+  pk: 5eb7296e509367be7272cf6f
   fields:
-    name: Hackforla.org Weekly Meeting
-    day_of_week: Tuesday
-    start_time: "17:00:00"
-    duration_in_minutes: 45
-    project: 300278d0-65aa-40e8-be01-2a61f1ff18d8
-- model: server.RecurringEvent
-  pk: 94b0d02f-5170-4950-890f-6d6e30fa17b2
+    description: Team Meeting
+    end_time: '2020-05-12T03:00:00.000Z'
+    hours: 1
+    name: VRMS Team Meeting
+    project: 5edeac78ce228b001778facd
+    start_time: '2020-05-12T02:00:00.000Z'
+- model: server.recurringevent
+  pk: 6192ff1b88e43f11e436db1d
   fields:
-    name: Hackforla.org Deverloper Sync
-    day_of_week: Tuesday
-    start_time: "17:00:00"
-    duration_in_minutes: 15
-    project: 300278d0-65aa-40e8-be01-2a61f1ff18d8
-
-# Role for Recurring Event
-- model: server.RoleXRecurringEvent
+    description: Developers Meeting
+    end_time: '2020-05-12T02:30:00.000Z'
+    hours: 1
+    name: VRMS Team Meeting
+    project: 5edeac78ce228b001778facd
+    start_time: '2020-05-12T01:30:00.000Z'
+- model: server.recurringevent
+  pk: 62bd0bafff44530020a52d1c
   fields:
-    role: 36a18961-101e-4808-8f7d-24f143fcbb27
-    recurring_event: 03aa9408-75c7-45f4-8e57-0b870bf428ec
-- model: server.RoleXRecurringEvent
-  fields:
-    role: eb4ca87e-a8d0-4118-b4c2-22b8eb5d86c2
-    recurring_event: 2d641abe-438f-4005-9233-998d5d1b3f6f
-- model: server.RoleXRecurringEvent
-  fields:
-    role: 6e8711bf-6e24-4e6c-b2c2-e542e8616324
-    recurring_event: 2d641abe-438f-4005-9233-998d5d1b3f6f
-- model: server.RoleXRecurringEvent
-  fields:
-    role: 8ab6bd23-3e55-436a-b678-2f9649487cd5
-    recurring_event: 0ae12430-27ca-4864-be69-ae105f404558
-- model: server.RoleXRecurringEvent
-  fields:
-    role: 36a18961-101e-4808-8f7d-24f143fcbb27
-    recurring_event: 3e967708-bfe7-4c43-b46b-758420f3c8cf
-- model: server.RoleXRecurringEvent
-  fields:
-    role: 36a18961-101e-4808-8f7d-24f143fcbb27
-    recurring_event: edee3c55-d1dd-45db-999e-99252d4994e0
-- model: server.RoleXRecurringEvent
-  fields:
-    role: eb4ca87e-a8d0-4118-b4c2-22b8eb5d86c2
-    recurring_event: 94b0d02f-5170-4950-890f-6d6e30fa17b2
-- model: server.RoleXRecurringEvent
-  fields:
-    role: 6e8711bf-6e24-4e6c-b2c2-e542e8616324
-    recurring_event: 94b0d02f-5170-4950-890f-6d6e30fa17b2
+    description: Design Meeting
+    end_time: '2022-06-30T01:30:00.536Z'
+    hours: 1
+    name: VRMS Design Meeting
+    project: 5edeac78ce228b001778facd
+    start_time: '2022-06-30T00:30:00.536Z'
 
 # Opportunity
-- model: server.Opportunity
-  pk: 1ad0916e-89f2-40d7-8d5a-1713a812a32b
+- model: server.opportunity
+  pk: 0e5ee547-754e-490b-8f6c-6194858f0e8f
   fields:
-    project: e080d5be-52d8-4dd4-aff5-8ac5f5d21c84
-    role: eb4ca87e-a8d0-4118-b4c2-22b8eb5d86c2
-    experience_level: Trained
-    title: Backend developer needed for super fun oppp!
-    description: come build some backends with us in django
-    poster: 123@hackforla.org
+    title: Frontend developer needed for super fun app
+    description: Looking for React devs to accelerate development
+    poster: admin@hackforla.org
+    hours_per_week: 8
+    num_positions_available: 5
+    posted_date: 2022-10-23
+    experience_level: de8678e6-67f8-493e-a85c-4d1eb479163d
+    project: 620997442720480f934e4362
+    role: aceb2bda-23ae-4fa0-a137-360fcf692e3d
+    skills:
+    - 2ee3e9cc-d381-44d2-a3b4-30473aea96e1
+    - 8e6922d2-6e63-4921-8259-7c0421b8f131
+    - 8c352f53-adcc-4913-94b7-181123a3e876
+- model: server.opportunity
+  pk: 9ebb50fb-9e44-4c76-b158-1edbe7e54130
+  fields:
+    title: Backend devs needed
+    description: We need more developers to enhance our data that we deliver
+    poster: admin2@hackforla.org
+    hours_per_week: 8
+    num_positions_available: 9
+    posted_date: 2022-10-23
+    experience_level: 470740b2-dc53-4cf1-960b-68a88a8be8ef
+    project: 620997442720480f934e4362
+    role: 53d7334b-f416-40a8-b5c1-8a1747bad04d
+    skills:
+    - 7f1c5bdc-6871-4834-b2ba-6e3907f3aeab
+    - 53d1b026-7cef-4517-8b51-877819ad18a9
+    - 6c2c9152-2069-4156-aec7-0df4eb1f2fdd
+- model: server.opportunity
+  pk: d50df164-2f3e-45d9-b90a-7b4484360410
+  fields:
+    title: Backend developer needed for super fun app
+    description: We need a seasoned Django dev to take this app to the next level!
+    poster: admin@hackforla.org
     hours_per_week: 8
     num_positions_available: 2
-    posted_date: 2022-05-12
-- model: server.Opportunity
-  pk: f5369dca-9f5c-44dd-9c13-bcc181226c07
+    posted_date: 2022-10-23
+    experience_level: dccc60af-3e28-427b-b138-7b190300d1ea
+    project: 620997442720480f934e4362
+    role: 53d7334b-f416-40a8-b5c1-8a1747bad04d
+    skills:
+    - 7f1c5bdc-6871-4834-b2ba-6e3907f3aeab
+    - 53d1b026-7cef-4517-8b51-877819ad18a9
+    - 6c2c9152-2069-4156-aec7-0df4eb1f2fdd
+    - 8c352f53-adcc-4913-94b7-181123a3e876
+- model: server.opportunity
+  pk: d7afff27-7c99-4f67-b3db-94211b51fef8
   fields:
-    project: e080d5be-52d8-4dd4-aff5-8ac5f5d21c84
-    role: 6e8711bf-6e24-4e6c-b2c2-e542e8616324
-    experience_level: Experienced
-    title: Frontend developer needed to jazz up our website
-    description: come make our website look nice!!
-    poster: abc@hackforla.org
+    title: UI/UX practitioners needed
+    description: We need to revamp our UI/UX. Notify us if you would like to assist
+    poster: admin2@hackforla.org
     hours_per_week: 16
     num_positions_available: 3
-    posted_date: 2022-05-12
-- model: server.Opportunity
-  pk: 95d4c490-ee43-4fcc-a7c6-79e45ea918ec
-  fields:
-    project: e080d5be-52d8-4dd4-aff5-8ac5f5d21c84
-    role: 8ab6bd23-3e55-436a-b678-2f9649487cd5
-    experience_level: Learning
-    title: Looking for UI/UX Designers
-    description: Help us create great user experiences!!
-    poster: xyz@hackforla.org
-    hours_per_week: 8
-    num_positions_available: 1
-    posted_date: 2022-05-12
-- model: server.Opportunity
-  pk: 10923df3-7afc-4201-aa04-ea17b9db25ef
-  fields:
-    project: 300278d0-65aa-40e8-be01-2a61f1ff18d8
-    role: 8ab6bd23-3e55-436a-b678-2f9649487cd5
-    experience_level: Learning
-    title: UI/UX Designers for Hackforla.org Website
-    description: If you're interested in making our site even more beautiful, reach out!!
-    poster: xyz432@hackforla.org
-    hours_per_week: 10
-    num_positions_available: 3
-    posted_date: 2022-06-12
-- model: server.Opportunity
-  pk: cf009c34-611a-4d43-ae41-a789403946de
-  fields:
-    project: e1598001-c891-4a85-970a-12b968ea57fe
-    role: eb4ca87e-a8d0-4118-b4c2-22b8eb5d86c2
-    experience_level: Trained
-    title: Python and Django developers needed
-    description: Help us add more functionality to our backends
-    poster: xyz123@hackforla.org
-    hours_per_week: 10
-    num_positions_available: 3
-    posted_date: 2022-06-12
-
-# Skill for Opportunity
-- model: server.OpportunityXSkill
-  fields:
-    opportunity: 1ad0916e-89f2-40d7-8d5a-1713a812a32b
-    skill: 92df2b94-ed1e-44cc-a664-4f80149c39f0
-    is_required: true
-- model: server.OpportunityXSkill
-  fields:
-    opportunity: 1ad0916e-89f2-40d7-8d5a-1713a812a32b
-    skill: c56a5f44-fcbf-45e9-a14e-e2d672fc7080
-    is_required: false
-- model: server.OpportunityXSkill
-  fields:
-    opportunity: f5369dca-9f5c-44dd-9c13-bcc181226c07
-    skill: f4be9666-4736-4fba-bf0a-7ef1d76eaca5
-    is_required: true
-- model: server.OpportunityXSkill
-  fields:
-    opportunity: cf009c34-611a-4d43-ae41-a789403946de
-    skill: 92df2b94-ed1e-44cc-a664-4f80149c39f0
-    is_required: true
-- model: server.OpportunityXSkill
-  fields:
-    opportunity: cf009c34-611a-4d43-ae41-a789403946de
-    skill: c56a5f44-fcbf-45e9-a14e-e2d672fc7080
-    is_required: true
+    posted_date: 2022-10-23
+    experience_level: 470740b2-dc53-4cf1-960b-68a88a8be8ef
+    project: 5edeac78ce228b001778facd
+    role: 92cd2cd2-91bf-4258-8613-6239c6a830c5
+    skills:
+    -  8c352f53-adcc-4913-94b7-181123a3e876
