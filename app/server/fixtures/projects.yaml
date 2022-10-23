@@ -1,0 +1,340 @@
+- fields:
+    description: A platform looking for nearby street parking with least possibility
+      of getting citation.
+    github_url: https://github.com/hackforla/lucky-parking
+    google_drive_url: https://drive.google.com/drive/folders/1qq6w-eCvjxgfiQCCxPN9_0ah1DLTgl27
+    name: Lucky Parking
+    project_status: Active
+    slack_url: https://hackforla.slack.com/archives/CPFDMSV6V
+    video_conference_link: https://us02web.zoom.us/j/84817446708?pwd=QW5RVER2SkVTWnZkN25ZY2d2RzNTdz09
+  model: server.project
+  pk: 5ec32abda973810017c0de0d
+- fields:
+    description: Expunge Assist helps people in California with non-violent criminal
+      records accomplish record clearance, expungement or reduction as a result of
+      Prop 47 & Prop 64. The main features include building trust, educating the public
+      about the program and informing those who are eligible for this program.
+    github_url: https://github.com/hackforla/expunge-assist
+    google_drive_url: https://drive.google.com/drive/folders/1hBhOeNyjjEaHcWAKSu9eW--FF9HnKNqe
+    name: Expunge Assist
+    project_status: Active
+    slack_url: https://hackforla.slack.com/archives/CN8NXTPK5
+    video_conference_link: https://meet.google.com/xwk-mqos-ecf
+  model: server.project
+  pk: 5edeab95ce228b001778facc
+- fields:
+    description: VRMS is a tool used for the engagement, support, and retention of
+      a network of volunteers.
+    github_url: https://github.com/hackforla/VRMS
+    google_drive_url: https://drive.google.com/drive/folders/1uxCkpcPtDjrhftBO-axU2g8hjXsxiLiS
+    name: VRMS
+    project_status: Active
+    slack_url: https://hackforla.slack.com/archives/CRGH5HM0Q
+    video_conference_link: https://us02web.zoom.us/j/4451450308?pwd=U0JobzZqN0xGSXBUUkRsNlB5YzJiQT09
+  model: server.project
+  pk: 5edeac78ce228b001778facd
+- fields:
+    description: We're working with community non-profits who have a Host Home initiative
+      to develop a workflow management tool to make the process scaleable (across
+      all providers), reduce institutional bias, and effectively capture data. <br
+      /><br />Host Home programs are centered around housing young people, 18 - 25
+      years old. Their approach focuses on low-cost, community-driven intervention
+      by matching a willing host with a guest or group of guests, providing a stable
+      housing environment for youths who are experiencing homelessness and seeking
+      stable housing.
+    github_url: https://github.com/hackforla/homeuniteus
+    google_drive_url: https://drive.google.com/drive/folders/1ahxiD9rIsBtx0yAPlPcPaGw8zGrfHHm9
+    name: Home Unite Us
+    project_status: Active
+    slack_url: https://hackforla.slack.com/archives/CRWUG7X0C
+    video_conference_link: https://us02web.zoom.us/j/4451450308?pwd=U0JobzZqN0xGSXBUUkRsNlB5YzJiQT09
+  model: server.project
+  pk: 5edea961ce228b001778faca
+- fields:
+    description: Engage is a civic participation platform. Currently in beta, Engage
+      makes it easier for residents of Santa Monica, CA to offer their feedback on
+      policy issues that City Council is considering. Engage aims to increase access
+      for community stakeholders who are unable to attend public meetings or may otherwise
+      feel unheard by their local government.
+    github_url: https://github.com/hackla-engage
+    google_drive_url: https://drive.google.com/drive/folders/1rSrFjlzgJqJOIC4DMrANLj4tC0_ZJ3so
+    name: Engage
+    project_status: Active
+    slack_url: https://hackforla.slack.com/archives/C6JBH478W
+    video_conference_link: ''
+  model: server.project
+  pk: 5edea472ce228b001778fac8
+- fields:
+    description: Operations is a broad area that includes information technology work
+      on devops, infrastructure as code, hosting, pipelines, services, security, practices,
+      and more. We welcome help with marketing, such as with developing, researching,
+      training, etc.
+    github_url: https://github.com/nonprofitnetworks/it
+    google_drive_url: ''
+    name: Operations Group
+    project_status: Active
+    slack_url: https://hackforla.slack.com/archives/CV7QGL66B
+    video_conference_link: https://us02web.zoom.us/j/410239238?pwd=WXFZbXBNUFVyUkZ1NkRJcEZxMVJOUT09
+  model: server.project
+  pk: 5edeae6cce228b001778face
+- fields:
+    description: "We\u2019re building a TDM web calculator for LADOT. It scores proposed\
+      \ real estate developments in real-time and aims to discourage exceeding parking\
+      \ requirements to reduce the occurrence of single-occupancy trips to new developments."
+    github_url: https://github.com/hackforla/tdm-calculator
+    google_drive_url: https://drive.google.com/drive/folders/1XI0ZP21DoNM8uTKVJkRBiMhtP652X8KM
+    name: LA TDM Calculator
+    project_status: Active
+    slack_url: https://hackforla.slack.com/archives/CKY65G266
+    video_conference_link: https://us02web.zoom.us/j/4451450308?pwd=U0JobzZqN0xGSXBUUkRsNlB5YzJiQT09
+  model: server.project
+  pk: 5edeb2face228b001778fad2
+- fields:
+    description: The 311 Data project seeks to empower local Neighborhood Councils
+      to improve the ideation and analysis of their initiatives using the wealth of
+      publicly available 311 data.
+    github_url: https://github.com/hackforla/311-data
+    google_drive_url: https://drive.google.com/drive/u/0/folders/10_KYe3pbZqiq6reeLA8zDDeIlz-4PxWM
+    name: 311 Data
+    project_status: Active
+    slack_url: https://hackforla.slack.com/archives/CJY4R382X
+    video_conference_link: https://us04web.zoom.us/j/8358875318
+  model: server.project
+  pk: 5eb9e2de3409ffef8194ffde
+- fields:
+    description: Our goal of the project is to create a comprehensive, searchable
+      index of all civic tech open source software projects around the world. We have
+      created the framework. Now our next step is to create a website and other marketing
+      tools that will demonstrate the power of the index and will provide instructions
+      for how to tag and share your github repository in 2 min or less.
+    github_url: https://github.com/civictechindex/website
+    google_drive_url: https://drive.google.com/drive/folders/1nmY42mlxepC_msSfLJEcy2SvyTlUEb-E
+    name: Civic Tech Index
+    project_status: Active
+    slack_url: https://hackforla.slack.com/archives/CTYAKM0CW
+    video_conference_link: https://zoom.us/j/4451450308?pwd=U0JobzZqN0xGSXBUUkRsNlB5YzJiQT09
+  model: server.project
+  pk: 5ec326c7a973810017c0de0c
+- fields:
+    description: The website is focused on individuals seeking food in Los Angeles
+      who need an up-to-date resource about food pantries and meals. Our mission is
+      to update the existing website, foodoasis.la with a simplified UI and verified
+      data.  Future development goals include creating functionality for referral
+      services that will allow the end user to annotate and update listings through
+      a peer verification system.
+    github_url: https://github.com/foodoasisla
+    google_drive_url: https://drive.google.com/drive/folders/1nVn3v_kD9GJ2IO6A84DZkox9h1eqMeRO
+    name: Food Oasis
+    project_status: Rebooting
+    slack_url: https://hackforla.slack.com/archives/C6JBH478W
+    video_conference_link: https://us02web.zoom.us/j/85496859954
+  model: server.project
+  pk: 5edea7d2ce228b001778fac9
+- fields:
+    description: The hackforla.org website is our organization's way of communicating
+      with new volunteers, stakeholders, and donors. This project is a good place
+      to start for new volunteers looking to polish their git protocol skills (branches,
+      separation of concerns, etc.). We are currently in a redesign phase, using CI/CD
+      in the run up to demoing the new version at Code for America's Summit 2020 in
+      Washington, D.C.
+    github_url: https://github.com/hackforla/website
+    google_drive_url: https://drive.google.com/drive/folders/1p76K0FgfiAWeIIEyoyJ_Iik8FVj8cBjT
+    name: Hackforla.org Website
+    project_status: Active
+    slack_url: https://hackforla.slack.com/archives/C4UM52W93
+    video_conference_link: https://zoom.us/j/4451450308?pwd=U0JobzZqN0xGSXBUUkRsNlB5YzJiQT09
+  model: server.project
+  pk: 5edeb146ce228b001778fad0
+- fields:
+    description: ''
+    github_url: https://github.com/hackforla/website
+    google_drive_url: ''
+    name: Data Science Team
+    project_status: Active
+    slack_url: ''
+    video_conference_link: ''
+  model: server.project
+  pk: 5eec356c411acc0017486997
+- fields:
+    description: unknown
+    github_url: https://github.com/nivenprasad
+    google_drive_url: https://unknown.com
+    name: 100 Automations
+    project_status: unknown
+    slack_url: https://app.slack.com/team/U015R4RTDJA
+    video_conference_link: https://unknown.com
+  model: server.project
+  pk: 5f4b48031127403d8c56aa06
+- fields:
+    description: BallotNav is a project of Hack for LA. Hack for LA is a brigade of
+      a Code for America that exists to connect citizens with civic rights and responsibilities.
+      BallotNav helps those who are concerned about using USPS for their mail-in ballots
+      find their local drop-off points and their available days/times. The app's main
+      features include locating the drop-off points closest to the user, and displaying
+      what dates and times they are available; pulling in this information as it becomes
+      available from county election supervisors; and connecting with users' social
+      accounts to encourage dissemination of the tool and information.
+    github_url: https://github.com/hackforla/ballotnav
+    google_drive_url: https://unknown.com
+    name: BallotNav
+    project_status: Active
+    slack_url: https://hackforla.slack.com/?redir=%2Farchives%2FC0191KE1XB7
+    video_conference_link: https://unknown.com
+  model: server.project
+  pk: 5f5092eafb93d9001742d1b4
+- fields:
+    description: We are creating a know your rights tool for youth and their families
+      when interacting with the Juvenile Justice System. This interactive tool creates
+      a resource for youth and their families to access information that is relevant
+      to several different parts of the process from knowing your rights when you
+      come into contact with law enforcement, to an explanation of the different types
+      of hearings that take place, to knowing who various people in the courtroom
+      are.
+    github_url: https://github.com/hackforla/YouthJusticeNav/
+    google_drive_url: https://unknown.com
+    name: Youth Justice Nav
+    project_status: Active
+    slack_url: ''
+    video_conference_link: https://unknown.com
+  model: server.project
+  pk: 5ffff1495b6c145310d50913
+- fields:
+    description: UI/UX Community of Practice
+    github_url: https://github.com/hackforla/UI-UX
+    google_drive_url: ''
+    name: 'Community of Practice: UI/UX'
+    project_status: Active
+    slack_url: https://app.slack.com/client/T04502KQX/C017ESHSMNG
+    video_conference_link: https://us02web.zoom.us/j/89670251875?pwd=NTYySW5yL3YrYTRxcHRpK1V6YWdaQT09
+  model: server.project
+  pk: 603db1fbd7b86d36b4f28a62
+- fields:
+    description: A place for leads to communicate with each other and with the leadership
+      team.
+    github_url: https://github.com/hackforla/product-management
+    google_drive_url: ''
+    name: 'Community of Practice: Product Management'
+    project_status: Active
+    slack_url: https://hackforla.slack.com/archives/C010LNXH2JY
+    video_conference_link: https://us02web.zoom.us/j/81435536017?pwd=eHNtNm5SVnpickxqUHRlbFJtS2tJUT09
+  model: server.project
+  pk: 603e8471b6e1b403ab81abe7
+- fields:
+    description: Getting the marketing game on fleek.
+    github_url: https://github.com/hackforla/marketing
+    google_drive_url: ''
+    name: 'Community of Practice: Marketing'
+    project_status: Active
+    slack_url: https://hackforla.slack.com/archives/C050L8Z5K
+    video_conference_link: ''
+  model: server.project
+  pk: 603eb958b6e1b403ab81abea
+- fields:
+    description: The Open Community Survey project creates transparent reports supported
+      by a direct collection of personal perspectives from LA residents to help The
+      LA Department of Neighborhood Empowerment (empowerla.org) and the Los Angeles
+      Neighborhood Councils (NCs) to understand how constituents are interacting with,
+      and what they need from, their websites.
+    github_url: https://github.com/hackforla/community-survey-nc-websites
+    google_drive_url: ''
+    name: Open Community Survey
+    project_status: Active
+    slack_url: https://hackforla.slack.com/archives/C01H0HUDMCK
+    video_conference_link: ''
+  model: server.project
+  pk: 603ebf2ab6e1b403ab81abec
+- fields:
+    description: Community of Practice for Software Engineers
+    github_url: https://github.com/hackforla/engineering
+    google_drive_url: ''
+    name: 'Community of Practice: Software Engineering'
+    project_status: Active
+    slack_url: https://hackforla.slack.com/archives/C01CU709SER
+    video_conference_link: ''
+  model: server.project
+  pk: 605772bb46b7cd034719d114
+- fields:
+    description: New participant onboarding
+    github_url: ''
+    google_drive_url: ''
+    name: Onboarding
+    project_status: Active
+    slack_url: https://hackforla.slack.com/archives/C04S7PNCU
+    video_conference_link: https://us02web.zoom.us/meeting/register/tZUtdeGvrTMoHtKkRwm7R8Kl8r9TXL73-UY9?_x_zm_rtaid=TNHnsFXoTF2IZlf-TUfrPw.1616083598988.a1e0d0f77cffa24ca0d6e75e25e23695&_x_zm_rhtaid=832
+  model: server.project
+  pk: 605d593b6fb945197a19038c
+- fields:
+    description: Access the Data is an initiative aimed at identifying and addressing
+      the areas where data literacy education within our communities is needed most.
+    github_url: https://github.com/hackforla/access-the-data
+    google_drive_url: ''
+    name: Access the Data
+    project_status: Active
+    slack_url: https://hackforla.slack.com/archives/C01L2ANCG6M
+    video_conference_link: https://us04web.zoom.us/j/78503697142?pwd=Zjc4eGI2MEQvVURPU1A1cDlPVG0zQT09
+  model: server.project
+  pk: 60638e5f6fb945197a190390
+- fields:
+    description: This project aims to improve existing structures and create new ones
+      that make it easier to share replicable processes and practices so that organizers
+      and members can iterate on each others work, improving outcomes for the whole
+      network.
+    github_url: https://github.com/codeforamerica/brigade-playbook
+    google_drive_url: ''
+    name: Brigade Organizers Playbook
+    project_status: Active
+    slack_url: https://cfa.slack.com/archives/G0196272BBN
+    video_conference_link: ''
+  model: server.project
+  pk: 6086fe5792e3bf053b2954c4
+- fields:
+    description: The GreenEarthOS project seeks to create and publish a map of the
+      current climate project support landscape including gaps. Once the landscape
+      has been created the project will work to create visible guidance for open source
+      projects and project ideators on how to navigate the landscape and connect with
+      players at every appropriate stage (recruiting, mentoring, partnerships, packaging
+      and funding); thereby reducing barriers to currently under represented communities.
+    github_url: https://github.com/hackforla/GreenEarthOS
+    google_drive_url: https://drive.google.com/drive/u/0/folders/1N2GN3SHSXBpO_Q6dgfOp7EzbDVUz-6HO
+    name: GreenEarthOS
+    project_status: Active
+    slack_url: https://hackforla.slack.com/archives/C01C2P7D413
+    video_conference_link: https://us02web.zoom.us/j/87137723460?pwd=RFIyalV2L0F2UWVWLzNlRlNaekNkQT09
+  model: server.project
+  pk: 610db8d3a76e0dd02bbc98dc
+- fields:
+    description: The Design System initiative seeks to empower volunteers with the
+      tools, documentation and templates for creating and maintaining a design system
+      for their HfLA projects. As Hack for LA continues to scale it has become more
+      essential to create consistent documentation and standards for deliverables.
+    github_url: https://github.com/hackforla/design-systems
+    google_drive_url: https://drive.google.com/drive/u/0/folders/0ACLGQ8FFW2MCUk9PVA
+    name: Design Systems
+    project_status: Active
+    slack_url: https://hackforla.slack.com/archives/CH2U1CB9Q
+    video_conference_link: https://us02web.zoom.us/j/88447401964?pwd=cUkyNFNKVGZRckxzRkdrT1luVVJ3dz09
+  model: server.project
+  pk: 615235f967279ee9a61afc93
+- fields:
+    description: The CivicTechJobs.org MVP website will be a platform to help prospective
+      volunteers find projects that will be useful for their career development.
+    github_url: https://github.com/hackforla/CivicTechJobs
+    google_drive_url: ''
+    name: Civic Tech Jobs
+    project_status: Active
+    slack_url: https://hackforla.slack.com/messages/C02509WHFQQ
+    video_conference_link: https://us02web.zoom.us/j/81515187819?pwd=UzF1YjFwcnhNaTBtV3hyMHgyKzhpdz09
+  model: server.project
+  pk: 620997442720480f934e4362
+- fields:
+    description: some description here
+    github_url: url of the primary repo.. needs to validate.. https://github.com/nameOfOrg/primaryRepoName
+    google_drive_url: url of their shared drive - need validation
+    name: testy test
+    project_status: Active
+    slack_url: 'needs validation: https://hackforla.slack.com/archives/{SomeNumber}
+      <- we need to double check by right clicking the slack and copying the url'
+    video_conference_link: maybe remove this for the projects.. it is only on the
+      events
+  model: server.project
+  pk: 633b9c593c815e001f4f74e1
