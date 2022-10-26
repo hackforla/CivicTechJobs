@@ -143,28 +143,25 @@ function CalendarRow(props: CalendarRowProps) {
   );
 }
 
-function CalendarCell(props: CalendarCellProps) {
-  const [orig, next, data, handleSelect] = useSelect({ ...props.cell }, props.data);
+function CalendarCell({cell, setSelected, setIsMouseDown, isMouseDown, data, setData, selected}: CalendarCellProps) {
+  const [orig, next, nextdata, handleSelect] = useSelect({ ...cell }, data);
   
   useEffect(() => {
-    props.setData(data)
+    setData(nextdata)
   }, [next])
 
-  function mouseUp() {
-    props.setIsMouseDown(false);
-  }
   function mouseDown(e: any) {
     e.preventDefault();
-    props.setSelected(!orig);
-    handleSelect(props.selected);
-    props.setIsMouseDown(true);
+    setSelected(!orig);
+    handleSelect(selected);
+    setIsMouseDown(true);
     return;
   }
 
   function mouseMove() {
-    if (props.isMouseDown && !props.selected) {
+    if (isMouseDown && !selected) {
       handleSelect(false);
-    } else if (props.isMouseDown && props.selected) {
+    } else if (isMouseDown && selected) {
       handleSelect(true);
     }
   }
@@ -174,7 +171,7 @@ function CalendarCell(props: CalendarCellProps) {
       tabIndex={-1}
       className={combineClasses(
         "calendar-cell",
-        props.cell.row % 2 == 0 ? "dashed" : "solid",
+        cell.row % 2 == 0 ? "dashed" : "solid",
         next && "selected"
       )}
     >
@@ -182,8 +179,8 @@ function CalendarCell(props: CalendarCellProps) {
         tabIndex={0}
         role="checkbox"
         aria-checked={next}
-        aria-label={`I am available on ${props.cell.row}, ${props.cell.col}`}
-        onMouseUp={mouseUp}
+        aria-label={`I am available on ${cell.row}, ${cell.col}`}
+        onMouseUp={() => setIsMouseDown(false)}
         onMouseMove={mouseMove}
         onMouseDown={mouseDown}
       ></div>

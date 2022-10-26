@@ -34,7 +34,7 @@ export function setSelect(bool: boolean) {
 // sets the state to selected or deselected 
 export function useSelect(cell: any, data_: string) {
     const { row, col } = cell;
-    const [data, setData] = useState(data_);
+    const [nextdata, setData] = useState(data_);
     const orig = CellStatus();
     const [next, setNext] = useState(orig);
     const handleSelect = (selected: boolean) => {
@@ -61,7 +61,7 @@ export function useSelect(cell: any, data_: string) {
         return false;
         }
     }
-    return [orig, next, data, handleSelect] as const;
+    return [orig, next, nextdata, handleSelect] as const;
 }
 
 
