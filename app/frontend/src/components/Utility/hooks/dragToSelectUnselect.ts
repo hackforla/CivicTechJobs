@@ -28,28 +28,28 @@ export function useDragState() {
 // sets the state to selected or deselected 
 export function useDragToSelectUnselect(cell: any, data_: string, toSelect: boolean) {
     const [nextdata, setData] = useState(data_);
-    const { row, col } = cell;
+    let { row, col } = cell;
     const orig = CellStatus()
     const [next, setNext] = useState(orig);
     const handleSelect = (isMouseDown: boolean) => {
         if (isMouseDown) {
-            const rowIndex = row - 1;
-            const columnIndex = col - 1;
+            row--;
+            col--;
             const nestedArr = dissect(data_);
             if (nestedArr) {
-              nestedArr[rowIndex][columnIndex] = toSelect ? "1" : "0";
+              nestedArr[row][col] = toSelect ? "1" : "0";
               setData(connect(nestedArr));
-              setNext(nestedArr[rowIndex][columnIndex] === "1");
+              setNext(nestedArr[row][col] === "1");
             }
         }
         return;
     };
     function CellStatus() {
-        const rowIndex = row - 1;
-        const columnIndex = col - 1;
+        row--;
+        col--;
         const nestedArr = dissect(nextdata);
         if (nestedArr) {
-        if (nestedArr[rowIndex][columnIndex] === "1") {
+        if (nestedArr[row][col] === "1") {
             return true;
         } else {
             return false;
