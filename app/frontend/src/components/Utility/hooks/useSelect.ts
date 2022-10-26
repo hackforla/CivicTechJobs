@@ -50,7 +50,7 @@ export function useSelect(cell: any, data_: string) {
     function CellStatus() {
         const rowIndex = row - 1;
         const columnIndex = col - 1;
-        const nestedArr = dissect(data);
+        const nestedArr = dissect(nextdata);
         if (nestedArr) {
         if (nestedArr[rowIndex][columnIndex] === "1") {
             return true;
