@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 // Internal Imports
 import { combineClasses, onKey, range } from "../Utility/utils";
 import { daysOfWeek, hoursOfDay } from "./calendar_data";
-import { useDragToSelectUnselect, useDragState } from "../Utility/hooks/useSelect";
+import { useDragToSelectUnselect, useDragState } from "../Utility/hooks/dragToSelectUnselect";
 
 // Type declaration for props
 interface CalendarProps extends React.PropsWithChildren {
