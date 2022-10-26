@@ -142,7 +142,7 @@ function CalendarRow(props: CalendarRowProps) {
 }
 
 function CalendarCell({cell, setToSelect, setIsMouseDown, isMouseDown, data, setData, toSelect}: CalendarCellProps) {
-  const [orig, next, nextdata, handleSelect] = useDragToSelectUnselect({ ...cell }, data, toSelect);
+  const [next, nextdata, handleSelect] = useDragToSelectUnselect({ ...cell }, data, toSelect);
   
   useEffect(() => {
     setData(nextdata)

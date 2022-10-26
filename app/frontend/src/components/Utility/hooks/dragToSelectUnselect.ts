@@ -29,8 +29,7 @@ export function useDragState() {
 export function useDragToSelectUnselect(cell: any, data_: string, toSelect: boolean) {
     const [nextdata, setData] = useState(data_);
     let { row, col } = cell;
-    const orig = CellStatus()
-    const [next, setNext] = useState(orig);
+    const [next, setNext] = useState(CellStatus());
     const handleSelect = (isMouseDown: boolean) => {
         if (isMouseDown) {
             row--;
@@ -58,5 +57,5 @@ export function useDragToSelectUnselect(cell: any, data_: string, toSelect: bool
         return false;
         }
     }
-    return [orig, next, nextdata, handleSelect] as const;
+    return [next, nextdata, handleSelect] as const;
 }
