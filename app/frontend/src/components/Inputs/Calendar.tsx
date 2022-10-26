@@ -9,7 +9,7 @@ import { daysOfWeek, hoursOfDay } from "./calendar_data";
 interface CalendarProps extends React.PropsWithChildren {
   addClass?: string;
   onChange: (data: string) => any;
-  value?: string;
+  value?: any;
 }
 
 interface CalendarHeaderColumnProps {
@@ -31,14 +31,19 @@ interface CalendarCellProps {
   selected?: boolean;
   setIsMouseDown: (data: boolean) => any;
   isMouseDown: boolean;
+  getCellInfo: (rowNum: number, columnNum: number) => boolean;
+  select?: boolean;
+  setSelect: (data: boolean) => any;
 }
 
 function Calendar({ value = "0".repeat(24 * 2 * 7), ...props }: CalendarProps) {
   const [data, setData] = useState(value);
   const [isMouseDown, setIsMouseDown] = useState(false);
-
+  const [select, setSelect] = useState(false);
   useEffect(() => {
     props.onChange(data);
+    // window.localStorage.setItem('jobs-data', data);
+    console.log(data, "vallluuuuueeeeee");
   }, [data]);
 
   function handleChange(row: number, column: number, selected: boolean) {
@@ -48,6 +53,22 @@ function Calendar({ value = "0".repeat(24 * 2 * 7), ...props }: CalendarProps) {
     if (nestedArr) {
       nestedArr[rowIndex][columnIndex] = selected ? "1" : "0";
       setData(connect(nestedArr));
+    }
+  }
+
+  function getCellInfo(row: number, column: number) {
+    const rowIndex = row - 1;
+    const columnIndex = column - 1;
+    const nestedArr = dissect(data);
+    if (nestedArr) {
+      if (nestedArr[rowIndex][columnIndex] === "1") {
+        return true;
+      } else {
+        return false;
+      }
+     
+    } else {
+      return false;
     }
   }
 
@@ -87,6 +108,9 @@ function Calendar({ value = "0".repeat(24 * 2 * 7), ...props }: CalendarProps) {
                         }
                         isMouseDown={isMouseDown}
                         setIsMouseDown={setIsMouseDown}
+                        getCellInfo={getCellInfo}
+                        select={select}
+                        setSelect={setSelect}
                       />
                     );
                   })}
@@ -163,16 +187,22 @@ function CalendarCell({ selected = false, ...props }: CalendarCellProps) {
 
   function mouseDown(e: any) {
     e.preventDefault();
+    if (props.getCellInfo(props.rowNum, props.columnNum) === false) {
+      props.setSelect(true);
+    } else {
+      props.setSelect(false);
+    }
     setIsSelected(!isSelected);
     props.setIsMouseDown(true);
     return false;
   }
 
   function mouseMove() {
-    if (props.isMouseDown) {
-      setIsSelected(true);
+    if (props.isMouseDown && !props.select) {
+      setIsSelected(false)
+    } else if (props.isMouseDown && props.select) {
+      setIsSelected(true)
     }
-    return false;
   }
 
   return (
