@@ -142,7 +142,7 @@ function CalendarRow(props: CalendarRowProps) {
 }
 
 function CalendarCell({cell, setSelected, setIsMouseDown, isMouseDown, data, setData, selected}: CalendarCellProps) {
-  const [orig, next, nextdata, handleSelect] = useDragToSelectUnselect({ ...cell }, data);
+  const [orig, next, nextdata, handleSelect] = useDragToSelectUnselect({ ...cell }, data, selected);
   
   useEffect(() => {
     setData(nextdata)
@@ -151,17 +151,8 @@ function CalendarCell({cell, setSelected, setIsMouseDown, isMouseDown, data, set
   function mouseDown(e: any) {
     e.preventDefault();
     setSelected(!orig);
-    handleSelect(selected);
     setIsMouseDown(true);
     return;
-  }
-
-  function mouseMove() {
-    if (isMouseDown && !selected) {
-      handleSelect(false);
-    } else if (isMouseDown && selected) {
-      handleSelect(true);
-    }
   }
 
   return (
@@ -179,7 +170,7 @@ function CalendarCell({cell, setSelected, setIsMouseDown, isMouseDown, data, set
         aria-checked={next}
         aria-label={`I am available on ${cell.row}, ${cell.col}`}
         onMouseUp={() => setIsMouseDown(false)}
-        onMouseMove={mouseMove}
+        onMouseMove={() => handleSelect(isMouseDown)}
         onMouseDown={mouseDown}
       ></div>
     </td>

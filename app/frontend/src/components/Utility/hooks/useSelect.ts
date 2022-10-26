@@ -27,20 +27,23 @@ export function useDragState (state = false) {
 }
 
 // sets the state to selected or deselected 
-export function useDragToSelectUnselect(cell: any, data_: string) {
+export function useDragToSelectUnselect(cell: any, data_: string, selected: boolean) {
     const { row, col } = cell;
     const [nextdata, setData] = useState(data_);
     const orig = CellStatus();
     const [next, setNext] = useState(orig);
-    const handleSelect = (selected: boolean) => {
-        const rowIndex = row - 1;
-        const columnIndex = col - 1;
-        const nestedArr = dissect(data_);
-        if (nestedArr) {
-            nestedArr[rowIndex][columnIndex] = selected ? "1" : "0";
-            setData(connect(nestedArr));
-            setNext(nestedArr[rowIndex][columnIndex] === "1");
+    const handleSelect = (isMouseDown: boolean) => {
+        if (isMouseDown) {
+            const rowIndex = row - 1;
+            const columnIndex = col - 1;
+            const nestedArr = dissect(data_);
+            if (nestedArr) {
+                nestedArr[rowIndex][columnIndex] = selected ? "1" : "0";
+                setData(connect(nestedArr));
+                setNext(nestedArr[rowIndex][columnIndex] === "1");
+            }
         }
+        return;
     };
     function CellStatus() {
         const rowIndex = row - 1;
