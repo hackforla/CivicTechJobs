@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 // Internal Imports
 import { combineClasses, onKey, range } from "../Utility/utils";
 import { daysOfWeek, hoursOfDay } from "./calendar_data";
+import { useSelect, useMouse, setSelect } from "../Utility/hooks/useSelect";
 
 // Type declaration for props
 interface CalendarProps extends React.PropsWithChildren {
@@ -25,53 +26,24 @@ interface CalendarRowProps extends React.PropsWithChildren {
 }
 
 interface CalendarCellProps {
-  columnNum: number;
-  onChange: (selected: boolean) => any;
-  rowNum: number;
-  selected?: boolean;
-  setIsMouseDown: (data: boolean) => any;
+  key: number;
+  data: string;
+  cell: any;
+  setData: (str: string) => void;
   isMouseDown: boolean;
-  getCellInfo: (rowNum: number, columnNum: number) => boolean;
-  select?: boolean;
-  setSelect: (data: boolean) => any;
+  setIsMouseDown: (bool: boolean) => void;
+  selected: boolean;
+  setSelected: (bool: boolean) => void;
 }
 
+// todo: see if props.onChange is declared in another file 
 function Calendar({ value = "0".repeat(24 * 2 * 7), ...props }: CalendarProps) {
   const [data, setData] = useState(value);
-  const [isMouseDown, setIsMouseDown] = useState(false);
-  const [select, setSelect] = useState(false);
+  const [isMouseDown, setIsMouseDown] = useMouse(false);
+  const [selected, setSelected] = setSelect(false)
   useEffect(() => {
     props.onChange(data);
-    // window.localStorage.setItem('jobs-data', data);
-    console.log(data, "vallluuuuueeeeee");
-  }, [data]);
-
-  function handleChange(row: number, column: number, selected: boolean) {
-    const rowIndex = row - 1;
-    const columnIndex = column - 1;
-    const nestedArr = dissect(data);
-    if (nestedArr) {
-      nestedArr[rowIndex][columnIndex] = selected ? "1" : "0";
-      setData(connect(nestedArr));
-    }
-  }
-
-  function getCellInfo(row: number, column: number) {
-    const rowIndex = row - 1;
-    const columnIndex = column - 1;
-    const nestedArr = dissect(data);
-    if (nestedArr) {
-      if (nestedArr[rowIndex][columnIndex] === "1") {
-        return true;
-      } else {
-        return false;
-      }
-     
-    } else {
-      return false;
-    }
-  }
-
+  }, [data])
   return (
     <div
       className={combineClasses("flex-container", props.addClass)}
@@ -101,16 +73,13 @@ function Calendar({ value = "0".repeat(24 * 2 * 7), ...props }: CalendarProps) {
                     return (
                       <CalendarCell
                         key={index}
-                        rowNum={row}
-                        columnNum={column}
-                        onChange={(selected: boolean) =>
-                          handleChange(row, column, selected)
-                        }
+                        cell={{row: row, col: column}}
+                        data={data}
+                        setData={setData}
                         isMouseDown={isMouseDown}
                         setIsMouseDown={setIsMouseDown}
-                        getCellInfo={getCellInfo}
-                        select={select}
-                        setSelect={setSelect}
+                        selected={selected}
+                        setSelected={setSelected}
                       />
                     );
                   })}
@@ -174,76 +143,52 @@ function CalendarRow(props: CalendarRowProps) {
   );
 }
 
-function CalendarCell({ selected = false, ...props }: CalendarCellProps) {
-  const [isSelected, setIsSelected] = useState(selected);
-
+function CalendarCell(props: CalendarCellProps) {
+  const [orig, next, data, handleSelect] = useSelect({...props.cell}, props.data);
   useEffect(() => {
-    props.onChange(isSelected);
-  }, [isSelected]);
+    props.setData(data)
+  }, [next])
 
   function mouseUp() {
     props.setIsMouseDown(false);
   }
-
   function mouseDown(e: any) {
     e.preventDefault();
-    if (props.getCellInfo(props.rowNum, props.columnNum) === false) {
-      props.setSelect(true);
-    } else {
-      props.setSelect(false);
-    }
-    setIsSelected(!isSelected);
+    props.setSelected(!orig);
+    handleSelect(props.selected);
     props.setIsMouseDown(true);
-    return false;
+    props.setData(data)
+    return;
   }
 
   function mouseMove() {
-    if (props.isMouseDown && !props.select) {
-      setIsSelected(false)
-    } else if (props.isMouseDown && props.select) {
-      setIsSelected(true)
+    if (props.isMouseDown && !props.selected) {
+      handleSelect(false);
+    } else if (props.isMouseDown && props.selected) {
+      handleSelect(true);
     }
+    props.setData(data)
   }
-
   return (
     <td
       tabIndex={-1}
       className={combineClasses(
         "calendar-cell",
-        props.rowNum % 2 == 0 ? "dashed" : "solid",
-        isSelected && "selected"
+        props.cell.row % 2 == 0 ? "dashed" : "solid",
+        next && "selected"
       )}
     >
       <div
         tabIndex={0}
         role="checkbox"
-        aria-checked={isSelected}
-        aria-label={`I am available on ${props.rowNum}, ${props.columnNum}`}
+        aria-checked={next}
+        aria-label={`I am available on ${props.cell.row}, ${props.cell.col}`}
         onMouseUp={mouseUp}
         onMouseMove={mouseMove}
         onMouseDown={mouseDown}
       ></div>
     </td>
   );
-}
-
-function dissect(str: string, partition: number = 7) {
-  const arr = str.match(new RegExp(`.{1,${partition}}`, "g"));
-  const nestedArr = [];
-  if (arr) {
-    for (const substring of arr) {
-      nestedArr.push(substring.split(""));
-    }
-    return nestedArr;
-  }
-}
-
-function connect(nested_arr: string[][]) {
-  const arr = [];
-  for (const subArr of nested_arr) {
-    arr.push(subArr.join(""));
-  }
-  return arr.join("");
 }
 
 export { Calendar };
