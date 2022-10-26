@@ -150,7 +150,7 @@ function CalendarCell({cell, setSelected, setIsMouseDown, isMouseDown, data, set
 
   function mouseDown(e: any) {
     e.preventDefault();
-    setSelected(!orig);
+    setSelected(!next);
     setIsMouseDown(true);
     return;
   }
