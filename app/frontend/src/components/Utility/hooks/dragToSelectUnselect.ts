@@ -19,8 +19,8 @@ function connect(nested_arr: string[][]) {
   return arr.join("");
 }
 
-export function useSelect() {
-    const [isMouseDown, setIsMouseDown] = useState(false);
+export function useDragState() {
+  const [isMouseDown, setIsMouseDown] = useState(false);
   const [toSelect, setToSelect] = useState(false);
   return [isMouseDown, setIsMouseDown, toSelect, setToSelect] as const;
 }
