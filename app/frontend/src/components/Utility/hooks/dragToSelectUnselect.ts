@@ -30,7 +30,7 @@ export function useDragToSelectUnselect(cell: any, data_: string, toSelect: bool
     const [nextdata, setData] = useState(data_);
     const { row, col } = cell;
     const orig = CellStatus()
-    const [currState, setCurrState] = useState(orig);
+    const [next, setNext] = useState(orig);
     const handleSelect = (isMouseDown: boolean) => {
         if (isMouseDown) {
             const rowIndex = row - 1;
@@ -39,7 +39,7 @@ export function useDragToSelectUnselect(cell: any, data_: string, toSelect: bool
             if (nestedArr) {
               nestedArr[rowIndex][columnIndex] = toSelect ? "1" : "0";
               setData(connect(nestedArr));
-              setCurrState(nestedArr[rowIndex][columnIndex] === "1");
+              setNext(nestedArr[rowIndex][columnIndex] === "1");
             }
         }
         return;
@@ -58,5 +58,5 @@ export function useDragToSelectUnselect(cell: any, data_: string, toSelect: bool
         return false;
         }
     }
-    return [orig, currState, currState, nextdata, handleSelect] as const;
+    return [orig, next, nextdata, handleSelect] as const;
 }
