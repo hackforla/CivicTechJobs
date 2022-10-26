@@ -37,7 +37,7 @@ export function useSelect(cell: any, data_: string) {
     const [data, setData] = useState(data_);
     const orig = CellStatus();
     const [next, setNext] = useState(orig);
-    const handleSelect = useCallback((selected: boolean) => {
+    const handleSelect = (selected: boolean) => {
         const rowIndex = row - 1;
         const columnIndex = col - 1;
         const nestedArr = dissect(data_);
@@ -46,7 +46,7 @@ export function useSelect(cell: any, data_: string) {
             setData(connect(nestedArr));
             setNext(nestedArr[rowIndex][columnIndex] === "1");
         }
-    }, [orig]);
+    };
     function CellStatus() {
         const rowIndex = row - 1;
         const columnIndex = col - 1;
