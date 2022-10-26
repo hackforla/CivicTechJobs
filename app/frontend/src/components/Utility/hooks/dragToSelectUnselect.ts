@@ -29,7 +29,8 @@ export function useSelect() {
 export function useDragToSelectUnselect(cell: any, data_: string, toSelect: boolean) {
     const [nextdata, setData] = useState(data_);
     const { row, col } = cell;
-    const [currState, setCurrState] = useState(CellStatus());
+    const orig = CellStatus()
+    const [currState, setCurrState] = useState(orig);
     const handleSelect = (isMouseDown: boolean) => {
         if (isMouseDown) {
             const rowIndex = row - 1;
