@@ -19,16 +19,11 @@ function connect(nested_arr: string[][]) {
   return arr.join("");
 }
 
-// sets the relavant state of the mouse 
-export function useMouse (state = false) {
+// sets the relavant state of the mouse and calendar 
+export function useDragState (state = false) {
     const [isMouseDown, setIsMouseDown] = useState(state);
-    return [isMouseDown, setIsMouseDown] as const;
-}
-
-// sets the relevant state of calendar selection
-export function setSelect(bool: boolean) {
-    const [selected, setSelected] = useState(bool);
-    return [selected, setSelected] as const;
+    const [selected, setSelected] = useState(state);
+    return [isMouseDown, setIsMouseDown, selected, setSelected] as const;
 }
 
 // sets the state to selected or deselected 

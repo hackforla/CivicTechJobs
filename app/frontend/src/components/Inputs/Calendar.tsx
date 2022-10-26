@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 // Internal Imports
 import { combineClasses, onKey, range } from "../Utility/utils";
 import { daysOfWeek, hoursOfDay } from "./calendar_data";
-import { useDragToSelectUnselect, useMouse, setSelect } from "../Utility/hooks/useSelect";
+import { useDragToSelectUnselect, useDragState } from "../Utility/hooks/useSelect";
 
 // Type declaration for props
 interface CalendarProps extends React.PropsWithChildren {
@@ -36,11 +36,9 @@ interface CalendarCellProps {
   setSelected: (bool: boolean) => void;
 }
 
-// todo: see if props.onChange is declared in another file 
 function Calendar({ value = "0".repeat(24 * 2 * 7), ...props }: CalendarProps) {
   const [data, setData] = useState(value);
-  const [isMouseDown, setIsMouseDown] = useMouse(false);
-  const [selected, setSelected] = setSelect(false)
+  const [isMouseDown, setIsMouseDown, selected, setSelected] = useDragState(false);
   useEffect(() => {
     props.onChange(data);
   }, [data])
