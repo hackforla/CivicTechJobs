@@ -144,7 +144,8 @@ function CalendarRow(props: CalendarRowProps) {
 }
 
 function CalendarCell(props: CalendarCellProps) {
-  const [orig, next, data, handleSelect] = useSelect({...props.cell}, props.data);
+  const [orig, next, data, handleSelect] = useSelect({ ...props.cell }, props.data);
+  
   useEffect(() => {
     props.setData(data)
   }, [next])
@@ -157,7 +158,6 @@ function CalendarCell(props: CalendarCellProps) {
     props.setSelected(!orig);
     handleSelect(props.selected);
     props.setIsMouseDown(true);
-    props.setData(data)
     return;
   }
 
@@ -167,8 +167,8 @@ function CalendarCell(props: CalendarCellProps) {
     } else if (props.isMouseDown && props.selected) {
       handleSelect(true);
     }
-    props.setData(data)
   }
+
   return (
     <td
       tabIndex={-1}
