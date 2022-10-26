@@ -38,7 +38,7 @@ interface CalendarCellProps {
 
 function Calendar({ value = "0".repeat(24 * 2 * 7), ...props }: CalendarProps) {
   const [data, setData] = useState(value);
-  const [isMouseDown, setIsMouseDown, selected, setSelected] = useDragState(false);
+  const [isMouseDown, setIsMouseDown, selected, setSelected] = useDragState();
   useEffect(() => {
     props.onChange(data);
   }, [data])
