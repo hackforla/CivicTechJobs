@@ -27,35 +27,35 @@ export function useDragState() {
 
 // sets the state to selected or deselected 
 export function useDragToSelectUnselect(cell: any, data_: string, toSelect: boolean) {
-    const [nextdata, setData] = useState(data_);
-    let { row, col } = cell;
-    const [next, setNext] = useState(CellStatus());
-    const handleSelect = (isMouseDown: boolean) => {
-        if (isMouseDown) {
-            row--;
-            col--;
-            const nestedArr = dissect(data_);
-            if (nestedArr) {
-              nestedArr[row][col] = toSelect ? "1" : "0";
-              setData(connect(nestedArr));
-              setNext(nestedArr[row][col] === "1");
-            }
-        }
-        return;
-    };
-    function CellStatus() {
-        row--;
-        col--;
-        const nestedArr = dissect(nextdata);
-        if (nestedArr) {
-        if (nestedArr[row][col] === "1") {
-            return true;
-        } else {
-            return false;
-        }
-        } else {
-        return false;
-        }
-    }
-    return [next, nextdata, handleSelect] as const;
+  const [nextdata, setData] = useState(data_);
+  let { row, col } = cell;
+  const [next, setNext] = useState(CellStatus());
+  const handleSelect = (isMouseDown: boolean) => {
+      if (isMouseDown) {
+          row--;
+          col--;
+          const nestedArr = dissect(data_);
+          if (nestedArr) {
+            nestedArr[row][col] = toSelect ? "1" : "0";
+            setData(connect(nestedArr));
+            setNext(nestedArr[row][col] === "1");
+          }
+      }
+      return;
+  };
+  function CellStatus() {
+      row--;
+      col--;
+      const nestedArr = dissect(nextdata);
+      if (nestedArr) {
+      if (nestedArr[row][col] === "1") {
+          return true;
+      } else {
+          return false;
+      }
+      } else {
+      return false;
+      }
+  }
+  return [next, nextdata, handleSelect] as const;
 }
