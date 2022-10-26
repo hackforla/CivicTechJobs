@@ -32,13 +32,13 @@ interface CalendarCellProps {
   setData: (str: string) => void;
   isMouseDown: boolean;
   setIsMouseDown: (bool: boolean) => void;
-  selected: boolean;
-  setSelected: (bool: boolean) => void;
+  toSelect: boolean;
+  setToSelect: (bool: boolean) => void;
 }
 
 function Calendar({ value = "0".repeat(24 * 2 * 7), ...props }: CalendarProps) {
   const [data, setData] = useState(value);
-  const [isMouseDown, setIsMouseDown, selected, setSelected] = useDragState();
+  const [isMouseDown, setIsMouseDown, toSelect, setToSelect] = useDragState();
   useEffect(() => {
     props.onChange(data);
   }, [data])
@@ -76,8 +76,8 @@ function Calendar({ value = "0".repeat(24 * 2 * 7), ...props }: CalendarProps) {
                         setData={setData}
                         isMouseDown={isMouseDown}
                         setIsMouseDown={setIsMouseDown}
-                        selected={selected}
-                        setSelected={setSelected}
+                        toSelect={toSelect}
+                        setToSelect={setToSelect}
                       />
                     );
                   })}
@@ -141,8 +141,8 @@ function CalendarRow(props: CalendarRowProps) {
   );
 }
 
-function CalendarCell({cell, setSelected, setIsMouseDown, isMouseDown, data, setData, selected}: CalendarCellProps) {
-  const [orig, next, nextdata, handleSelect] = useDragToSelectUnselect({ ...cell }, data, selected);
+function CalendarCell({cell, setToSelect, setIsMouseDown, isMouseDown, data, setData, toSelect}: CalendarCellProps) {
+  const [orig, next, nextdata, handleSelect] = useDragToSelectUnselect({ ...cell }, data, toSelect);
   
   useEffect(() => {
     setData(nextdata)
@@ -150,7 +150,7 @@ function CalendarCell({cell, setSelected, setIsMouseDown, isMouseDown, data, set
 
   function mouseDown(e: any) {
     e.preventDefault();
-    setSelected(!next);
+    setToSelect(!next);
     setIsMouseDown(true);
     return;
   }
