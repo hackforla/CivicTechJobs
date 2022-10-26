@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 // Internal Imports
 import { combineClasses, onKey, range } from "../Utility/utils";
 import { daysOfWeek, hoursOfDay } from "./calendar_data";
-import { useSelect, useMouse, setSelect } from "../Utility/hooks/useSelect";
+import { useDragToSelectUnselect, useMouse, setSelect } from "../Utility/hooks/useSelect";
 
 // Type declaration for props
 interface CalendarProps extends React.PropsWithChildren {
@@ -144,7 +144,7 @@ function CalendarRow(props: CalendarRowProps) {
 }
 
 function CalendarCell({cell, setSelected, setIsMouseDown, isMouseDown, data, setData, selected}: CalendarCellProps) {
-  const [orig, next, nextdata, handleSelect] = useSelect({ ...cell }, data);
+  const [orig, next, nextdata, handleSelect] = useDragToSelectUnselect({ ...cell }, data);
   
   useEffect(() => {
     setData(nextdata)

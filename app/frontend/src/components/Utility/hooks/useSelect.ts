@@ -32,7 +32,7 @@ export function setSelect(bool: boolean) {
 }
 
 // sets the state to selected or deselected 
-export function useSelect(cell: any, data_: string) {
+export function useDragToSelectUnselect(cell: any, data_: string) {
     const { row, col } = cell;
     const [nextdata, setData] = useState(data_);
     const orig = CellStatus();
@@ -63,7 +63,3 @@ export function useSelect(cell: any, data_: string) {
     }
     return [orig, next, nextdata, handleSelect] as const;
 }
-
-
-
-
