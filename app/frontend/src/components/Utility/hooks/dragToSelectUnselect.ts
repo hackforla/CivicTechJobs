@@ -8,7 +8,7 @@ function dissect(str: string, partition: number = 7) {
       nestedArr.push(substring.split(""));
     }
   }
-    return nestedArr;
+  return nestedArr;
 }
 
 function connect(nested_arr: string[][]) {
@@ -25,8 +25,12 @@ export function useDragState() {
   return [isMouseDown, setIsMouseDown, toSelect, setToSelect] as const;
 }
 
-// sets the state to selected or deselected 
-export function useDragToSelectUnselect(cell: any, data_: string, toSelect: boolean) {
+// sets the state to selected or deselected
+export function useDragToSelectUnselect(
+  cell: any,
+  data_: string,
+  toSelect: boolean,
+) {
   const [nextdata, setData] = useState(data_);
   let { row, col } = cell;
   const [next, setNext] = useState(CellStatus());
