@@ -49,9 +49,9 @@ export function useDragToSelectUnselect(cell: any, data_: string, toSelect: bool
     const nestedArr = dissect(nextdata);
     if (nestedArr) {
       if (nestedArr[row][col] === "1") {
-          return true;
+        return true;
       } else {
-          return false;
+        return false;
       }
     } else {
       return false;
