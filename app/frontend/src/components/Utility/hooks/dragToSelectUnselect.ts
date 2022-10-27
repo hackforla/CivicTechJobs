@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useState } from "react";
 
 function dissect(str: string, partition: number = 7) {
   const arr = str.match(new RegExp(`.{1,${partition}}`, "g"));
@@ -31,31 +31,31 @@ export function useDragToSelectUnselect(cell: any, data_: string, toSelect: bool
   let { row, col } = cell;
   const [next, setNext] = useState(CellStatus());
   const handleSelect = (isMouseDown: boolean) => {
-      if (isMouseDown) {
-          row--;
-          col--;
-          const nestedArr = dissect(data_);
-          if (nestedArr) {
-            nestedArr[row][col] = toSelect ? "1" : "0";
-            setData(connect(nestedArr));
-            setNext(nestedArr[row][col] === "1");
-          }
-      }
-      return;
-  };
-  function CellStatus() {
+    if (isMouseDown) {
       row--;
       col--;
-      const nestedArr = dissect(nextdata);
+      const nestedArr = dissect(data_);
       if (nestedArr) {
+        nestedArr[row][col] = toSelect ? "1" : "0";
+        setData(connect(nestedArr));
+        setNext(nestedArr[row][col] === "1");
+      }
+    }
+    return;
+  };
+  function CellStatus() {
+    row--;
+    col--;
+    const nestedArr = dissect(nextdata);
+    if (nestedArr) {
       if (nestedArr[row][col] === "1") {
           return true;
       } else {
           return false;
       }
-      } else {
+    } else {
       return false;
-      }
+    }
   }
   return [next, nextdata, handleSelect] as const;
 }
