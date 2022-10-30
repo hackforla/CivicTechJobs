@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 function dissect(str: string, partition: number = 7) {
   const arr = str.match(new RegExp(`.{1,${partition}}`, "g"));
