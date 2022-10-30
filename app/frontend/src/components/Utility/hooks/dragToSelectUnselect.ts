@@ -47,6 +47,7 @@ export function useDragToSelectUnselect(
     }
     return;
   };
+
   function CellStatus() {
     row--;
     col--;
