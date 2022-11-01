@@ -19,18 +19,14 @@ function connect(nested_arr: string[][]) {
   return arr.join("");
 }
 
-export function useDragState() {
+function useDragState() {
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [toSelect, setToSelect] = useState(false);
   return [isMouseDown, setIsMouseDown, toSelect, setToSelect] as const;
 }
 
 // sets the state to selected or deselected
-export function useDragToSelectUnselect(
-  cell: any,
-  data_: string,
-  toSelect: boolean,
-) {
+function useDragToSelectUnselect(cell: any, data_: string, toSelect: boolean) {
   const [nextdata, setData] = useState(data_);
   let { row, col } = cell;
   const [next, setNext] = useState(CellStatus());
@@ -64,3 +60,5 @@ export function useDragToSelectUnselect(
   }
   return [next, nextdata, handleSelect] as const;
 }
+
+export { useDragState, useDragToSelectUnselect };
