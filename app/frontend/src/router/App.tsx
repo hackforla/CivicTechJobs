@@ -21,7 +21,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<LandingPage />} />
       <Route path="qualifier/" element={<QualifierPage />}>
         <Route
-          path=":page"
+          path=":page/"
           element={<QualifierContent />}
           loader={qualifierLoader}
         />
