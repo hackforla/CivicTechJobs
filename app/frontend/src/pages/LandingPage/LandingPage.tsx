@@ -20,7 +20,7 @@ function LandingPage() {
         logoMobile={logoStacked}
         menu={[
           { name: "Hack for LA", link: "/" },
-          { name: "How to Join", link: "/qualifier" },
+          { name: "How to Join", link: "/qualifier/1" },
           { name: "Projects", link: "/demo" },
         ]}
       />

@@ -1,5 +1,6 @@
 // External Imports
 import React, { Fragment, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Internal Imports
 import {
@@ -13,11 +14,9 @@ import { QualifierNav, QualifierTitle } from "./QualifierComponents";
 import { timezones } from "../api_data/timezone_data";
 import { iconArrowLeft } from "assets/images/images";
 
-interface QualifierPageCalendarProps {
-  setPage: (num: number) => void;
-}
+function QualifierPageCalendar() {
+  const navigate = useNavigate();
 
-function QualifierPageCalendar({ setPage }: QualifierPageCalendarProps) {
   return (
     <Fragment>
       <QualifierTitle title="What is your weekly availability?">
@@ -36,9 +35,9 @@ function QualifierPageCalendar({ setPage }: QualifierPageCalendarProps) {
         <IconButton
           label="previous page"
           iconUrl={iconArrowLeft}
-          onClick={() => setPage(1)}
+          onClick={() => navigate("../1")}
         />
-        <Button size="lg" length="long" color="primary" href="./demo">
+        <Button size="lg" length="long" color="primary" href="/demo">
           View available roles
         </Button>
       </QualifierNav>

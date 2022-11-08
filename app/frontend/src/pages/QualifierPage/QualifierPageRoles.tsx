@@ -1,5 +1,6 @@
 // External Imports
 import React, { Fragment, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Internal Imports
 import { Button, Chip } from "components/components";
@@ -7,12 +8,9 @@ import { QualifierNav, QualifierTitle } from "./QualifierComponents";
 import { fetchAllCopData, copDatum } from "pages/api_data/copData";
 import { onKey } from "components/Utility/utils";
 
-interface QualifierPageRolesProps {
-  setPage: (num: number) => void;
-}
-
-function QualifierPageRoles({ setPage }: QualifierPageRolesProps) {
+function QualifierPageRoles() {
   const [data, setData] = useState<copDatum[]>([] as copDatum[]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setData(fetchAllCopData());
@@ -40,7 +38,7 @@ function QualifierPageRoles({ setPage }: QualifierPageRolesProps) {
           size="lg"
           length="long"
           color="primary"
-          onClick={() => setPage(2)}
+          onClick={() => navigate("../2")}
         >
           Next
         </Button>

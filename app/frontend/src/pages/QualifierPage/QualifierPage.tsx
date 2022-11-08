@@ -1,5 +1,6 @@
 // External Imports
 import React, { Fragment, Suspense, useState } from "react";
+import { Outlet, useLoaderData } from "react-router-dom";
 
 // Internal Imports
 import { ProgressBar, HeaderNav, FooterNav } from "components/components";
@@ -16,19 +17,41 @@ const QualifierPageCalendar = React.lazy(
   () => import("./QualifierPageCalendar")
 );
 
-function QualifierPage() {
-  const [page, setPage] = useState(1);
+function loader({ params }: any) {
+  return params.page;
+}
 
-  function Content() {
-    if (page == 1) {
-      return <QualifierPageRoles setPage={setPage} />;
-    } else if (page == 2) {
-      return <QualifierPageCalendar setPage={setPage} />;
-    } else {
-      return <div>404 page</div>;
-    }
+function Content({ page }: { page: string }) {
+  switch (page) {
+    case "1":
+      return <QualifierPageRoles />;
+    case "2":
+      return <QualifierPageCalendar />;
+    default:
+      return <div>404 page...</div>;
   }
+}
 
+function QualifierContent() {
+  const page = useLoaderData() as string;
+
+  return (
+    <Fragment>
+      <ProgressBar
+        label={`Page ${page}`}
+        value={parseInt(page)}
+        addClass="px-5"
+      />
+      <div className="flex-center-x">
+        <div className="flex-column qualifier-content align-center px-5">
+          <Content page={page} />
+        </div>
+      </div>{" "}
+    </Fragment>
+  );
+}
+
+function QualifierPage() {
   return (
     <Fragment>
       <Suspense fallback={<div>...Loading</div>}>
@@ -42,12 +65,7 @@ function QualifierPage() {
           ]}
         />
         <main className="mx-6">
-          <ProgressBar label="Page 1" value={page} addClass="px-5" />
-          <div className="flex-center-x">
-            <div className="flex-column qualifier-content align-center px-5">
-              <Content />
-            </div>
-          </div>
+          <Outlet />
         </main>
         <FooterNav
           logoDesktop={logoHorizontalOnDark}
@@ -63,4 +81,4 @@ function QualifierPage() {
   );
 }
 
-export { QualifierPage };
+export { QualifierPage, QualifierContent, loader };
