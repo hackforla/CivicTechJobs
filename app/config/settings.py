@@ -31,6 +31,7 @@ DEBUG = os.environ.get("DEBUG", "True") != "False"
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost").split(" ")
 if "ECS_ALLOWED_HOST" in os.environ:
     ALLOWED_HOSTS.append(os.environ.get("ECS_ALLOWED_HOST"))
+print(f'ALLOWED_HOSTS: %s' % ','.join(ALLOWED_HOSTS))
 # Application definition
 
 INSTALLED_APPS = [
