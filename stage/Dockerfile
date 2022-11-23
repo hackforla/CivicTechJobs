@@ -20,4 +20,6 @@ RUN pip install --no-cache --no-cache-dir --no-deps /wheels/*
 COPY . .
 COPY --from=react-builder /code/frontend/static/frontend/ ./frontend/static/frontend/
 COPY --from=react-builder /code/frontend/templates/frontend/ ./frontend/templates/frontend/
+RUN apk --no-cache add curl
+RUN apk --no-cache add jq
 ENTRYPOINT ["./entrypoint.sh"]

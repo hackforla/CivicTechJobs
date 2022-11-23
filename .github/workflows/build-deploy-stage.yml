@@ -2,7 +2,7 @@ name: Deploy to Amazon ECS stage environment
 
 on:
   push:
-    branches: [ "dev-branch-1", "main", "add-github-actions-cicd-pipeline" ]
+    branches: [ "dev-branch-1", "main" ]
 
 env:
   AWS_REGION: us-west-2
@@ -14,13 +14,14 @@ env:
   ECS_TASK_ROLE_ARN: incubator-prod-ecs-task-role
   ECS_EXECUTION_ROLE_ARN: incubator-prod-ecs-task-role
 
-  DB_HOST: 34.132.106.11
-  DB_NAME: my-test-db
+  DB_HOST: incubator-prod-database.cewewwrvdqjn.us-west-2.rds.amazonaws.com
+  DB_NAME: civictechjobs_stage
+  DB_USER: civictechjobs_stage
   DB_PORT: 5432
 
   CONTAINER_NAME: civictechjobs-fullstack-stage
 
-  ENVIRON: stage
+  ENVIRON: staging
 
 permissions:
   contents: read
@@ -77,13 +78,14 @@ jobs:
         container-name: ${{ env.CONTAINER_NAME }}
         image: ${{ steps.build-image.outputs.image }}
         environment-variables: |
-          DATABASE=postgres
-          DB_ENGINE=django.db.backends.postgresql
-          DB_HOST=${{ env.DB_HOST }}
-          DB_NAME=${{ env.DB_NAME }}
-          DB_PORT=${{ env.DB_PORT }}
-          DB_PASSWORD=${{ secrets.DB_PASSWORD }}
+          SQL_ENGINE=django.db.backends.postgresql
+          SQL_DATABASE=${{ env.DB_NAME }}
+          SQL_USER=${{ env.DB_USER }}
+          SQL_PASSWORD=${{ secrets.DB_PASSWORD }}
+          SQL_HOST=${{ env.DB_HOST }}
+          SQL_PORT=${{ env.DB_PORT }}
           ENVIRON=${{ env.ENVIRON }}
+          TARGET=ECS
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
