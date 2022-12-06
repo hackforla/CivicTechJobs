@@ -29,7 +29,7 @@ permissions:
   contents: read
 
 jobs:
-  
+
   deploy:
     name: Build, push image to ECR and deploy to ECS
     runs-on: ubuntu-latest
