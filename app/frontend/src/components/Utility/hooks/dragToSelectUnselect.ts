@@ -32,24 +32,24 @@ function useDragToSelectUnselect(cell: any, data_: string, toSelect: boolean) {
   const [next, setNext] = useState(CellStatus());
   const handleSelect = (isMouseDown: boolean) => {
     if (isMouseDown) {
-      row--;
-      col--;
+      let newrow = row - 1;
+      let newcol = col - 1;
       const nestedArr = dissect(data_);
       if (nestedArr) {
-        nestedArr[row][col] = toSelect ? "1" : "0";
+        nestedArr[newrow][newcol] = toSelect ? "1" : "0";
         setData(connect(nestedArr));
-        setNext(nestedArr[row][col] === "1");
+        setNext(nestedArr[newrow][newcol] === "1");
       }
     }
     return;
   };
 
   function CellStatus() {
-    row--;
-    col--;
+    let newrow = row - 1;
+    let newcol = col - 1;
     const nestedArr = dissect(nextdata);
     if (nestedArr) {
-      if (nestedArr[row][col] === "1") {
+      if (nestedArr[newrow][newcol] === "1") {
         return true;
       } else {
         return false;

@@ -4,7 +4,10 @@ import React, { useEffect, useState } from "react";
 // Internal Imports
 import { combineClasses, onKey, range } from "../Utility/utils";
 import { daysOfWeek, hoursOfDay } from "./calendar_data";
-import { useDragToSelectUnselect, useDragState } from "../Utility/hooks/dragToSelectUnselect";
+import {
+  useDragToSelectUnselect,
+  useDragState,
+} from "../Utility/hooks/dragToSelectUnselect";
 
 // Type declaration for props
 interface CalendarProps extends React.PropsWithChildren {
@@ -41,7 +44,7 @@ function Calendar({ value = "0".repeat(24 * 2 * 7), ...props }: CalendarProps) {
   const [isMouseDown, setIsMouseDown, toSelect, setToSelect] = useDragState();
   useEffect(() => {
     props.onChange(data);
-  }, [data])
+  }, [data]);
   return (
     <div
       className={combineClasses("flex-container", props.addClass)}
@@ -71,7 +74,7 @@ function Calendar({ value = "0".repeat(24 * 2 * 7), ...props }: CalendarProps) {
                     return (
                       <CalendarCell
                         key={index}
-                        cell={{row: row, col: column}}
+                        cell={{ row: row, col: column }}
                         data={data}
                         setData={setData}
                         isMouseDown={isMouseDown}
@@ -126,13 +129,13 @@ function CalendarRow(props: CalendarRowProps) {
     <tr
       className={combineClasses(
         "calendar-row",
-        props.rowNum % 2 == 0 ? "dashed" : "solid"
+        props.rowNum % 2 == 0 ? "dashed" : "solid",
       )}
     >
       <td
         className={combineClasses(
           "calendar-ticks-left",
-          props.rowNum % 2 == 0 ? "dashed" : "solid"
+          props.rowNum % 2 == 0 ? "dashed" : "solid",
         )}
         aria-hidden={true}
       ></td>
@@ -141,15 +144,33 @@ function CalendarRow(props: CalendarRowProps) {
   );
 }
 
-function CalendarCell({cell, setToSelect, setIsMouseDown, isMouseDown, data, setData, toSelect}: CalendarCellProps) {
-  const [next, nextdata, handleSelect] = useDragToSelectUnselect({ ...cell }, data, toSelect);
-  
+function CalendarCell({
+  cell,
+  setToSelect,
+  setIsMouseDown,
+  isMouseDown,
+  data,
+  setData,
+  toSelect,
+}: CalendarCellProps) {
+  const [next, nextdata, handleSelect] = useDragToSelectUnselect(
+    { ...cell },
+    data,
+    toSelect,
+  );
+
   useEffect(() => {
-    setData(nextdata)
-  }, [next])
+    setData(nextdata);
+  }, [next]);
 
   function mouseDown(e: any) {
     e.preventDefault();
+    /* if (currentCell is filled) {
+      set is mouse down to true
+      set to select !next
+    } else {
+
+    } */
     setToSelect(!next);
     setIsMouseDown(true);
     return;
@@ -161,7 +182,7 @@ function CalendarCell({cell, setToSelect, setIsMouseDown, isMouseDown, data, set
       className={combineClasses(
         "calendar-cell",
         cell.row % 2 == 0 ? "dashed" : "solid",
-        next && "selected"
+        next && "selected",
       )}
     >
       <div
