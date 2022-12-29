@@ -49,6 +49,7 @@ function Calendar({ value = "0".repeat(24 * 2 * 7), ...props }: CalendarProps) {
     <div
       className={combineClasses("flex-container", props.addClass)}
       style={{ maxWidth: "1088px" }}
+      onMouseLeave={() => setIsMouseDown(false)}
     >
       {/* Side column with headers. Needs to be separate due to labels being on the border, and alternating */}
       <CalendarHeaderColumn rowNames={hoursOfDay()} />
