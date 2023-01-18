@@ -1,0 +1,21 @@
+.bar {
+  transform: translateY(-100%);
+  -webkit-transform: translatey(-100%);
+}
+
+.slide-in {
+  animation: slide-in 10s forwards;
+  -webkit-animation: slide-in 0.5s forwards;
+}
+
+@keyframes slide-in {
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@-webkit-keyframes slide-in {
+  100% {
+    -webkit-transform: translateY(0%);
+  }
+}
