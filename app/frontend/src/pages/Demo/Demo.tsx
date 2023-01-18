@@ -6,7 +6,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { Checkbox, Chip, TextField } from "components/components";
 import { IconEyeClose, IconEyeOpen, IconSearch } from "assets/images/images";
 import { timezones } from "../QualifierPage/timezone_data";
-
+import { NotificationBar } from "../../components/NotificationBar/NotificationBar";
 function Demo() {
   function textFieldOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     console.log(e.target.value);
@@ -18,6 +18,7 @@ function Demo() {
 
   return (
     <Fragment>
+      <NotificationBar content="heyyy" />
       <div className="m-5"></div>
       <div className="m-5">
         <h1>
@@ -33,7 +34,7 @@ function Demo() {
                   addClass={"mr-3"}
                   onChange={(active, value) => {
                     console.log(
-                      `${value} was ${active ? "selected" : "deselected"}`
+                      `${value} was ${active ? "selected" : "deselected"}`,
                     );
                   }}
                   value={role}
