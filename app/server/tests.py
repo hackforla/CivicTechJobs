@@ -1,6 +1,9 @@
 from django.test import TestCase
 from rest_framework.test import RequestsClient
 
+HOST = "http://localhost:8000"
+BASE_URI = "/api"
+
 
 class OpportunityTestCase(TestCase):
     fixtures = [
@@ -61,3 +64,12 @@ class OpportunityTestCase(TestCase):
             f"{self.host}{self.base_uri}", data=data, format="json"
         )
         self.assertEqual(response.status_code, 400)
+
+
+class HealthcheckTestCase(TestCase):
+    uri = "/healthcheck"
+
+    def test_healthcheck(self):
+        response = self.client.get(f"{HOST}{BASE_URI}{self.uri}", format="json")
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json()["message"], "healthcheck")
