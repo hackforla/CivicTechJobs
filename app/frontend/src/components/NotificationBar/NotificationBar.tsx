@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import { iconX } from "../../assets/images/images";
 import { combineClasses } from "../Utility/utils";
 import "./_transition.scss";
+import "./_closeButton.scss";
 import "../Basics/_alignment.scss";
 // Type declaration for props
 interface NotificationBarProps {
@@ -18,12 +19,7 @@ function NotificationBar({ content }: NotificationBarProps) {
       {showBar ? (
         <div className={combineClasses("bar", "slide-in")}>
           <div onClick={() => setShowBar(false)}>
-            <img
-              src={iconX}
-              style={{ float: "right", cursor: "pointer" }}
-              height={"10px"}
-              width={"10px"}
-            />
+            <img src={iconX} height={"10px"} width={"10px"} className="close" />
           </div>
           <p className={combineClasses("text-center")}>{content}</p>
         </div>

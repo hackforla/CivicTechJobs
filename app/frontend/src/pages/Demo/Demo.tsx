@@ -5,7 +5,8 @@ import React, { Fragment, useEffect, useState } from "react";
 // Internal Imports
 import { Checkbox, Chip, TextField } from "components/components";
 import { IconEyeClose, IconEyeOpen, IconSearch } from "assets/images/images";
-import { timezones } from "../QualifierPage/timezone_data";
+import { logoHorizontal, logoStacked } from "assets/images/images";
+import { HeaderNav, FooterNav } from "components/components";
 import { NotificationBar } from "../../components/NotificationBar/NotificationBar";
 function Demo() {
   function textFieldOnChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -18,6 +19,15 @@ function Demo() {
 
   return (
     <Fragment>
+      <HeaderNav
+        logoDesktop={logoHorizontal}
+        logoMobile={logoStacked}
+        menu={[
+          { name: "Hack for LA", link: "/" },
+          { name: "How to Join", link: "/qualifier" },
+          { name: "Projects", link: "/demo" },
+        ]}
+      />
       <NotificationBar content="heyyy" />
       <div className="m-5"></div>
       <div className="m-5">
