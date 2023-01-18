@@ -11,28 +11,23 @@ interface NotificationBarProps {
 }
 
 function NotificationBar({ content }: NotificationBarProps) {
-  const [showBar, setShowBar] = useState("inherit");
+  const [showBar, setShowBar] = useState(true);
   return (
-    <div
-      className={combineClasses("bar", "slide-in")}
-      style={{
-        backgroundColor: "peachpuff",
-        padding: "1em",
-        display: showBar,
-        position: "sticky",
-        zIndex: 2,
-      }}
-    >
-      <div onClick={() => setShowBar("none")}>
-        <img
-          src={iconX}
-          style={{ float: "right", cursor: "pointer" }}
-          height={"10px"}
-          width={"10px"}
-        />
-      </div>
-      {content}
-    </div>
+    <>
+      {showBar ? (
+        <div className={combineClasses("bar", "slide-in")}>
+          <div onClick={() => setShowBar(false)}>
+            <img
+              src={iconX}
+              style={{ float: "right", cursor: "pointer" }}
+              height={"10px"}
+              width={"10px"}
+            />
+          </div>
+          {content}
+        </div>
+      ) : null}
+    </>
   );
 }
 
