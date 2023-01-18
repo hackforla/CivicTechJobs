@@ -18,8 +18,14 @@ function NotificationBar({ content }: NotificationBarProps) {
     <>
       {showBar ? (
         <div className={combineClasses("bar", "slide-in")}>
-          <div onClick={() => setShowBar(false)}>
-            <img src={iconX} height={"10px"} width={"10px"} className="close" />
+          <div onClick={() => setShowBar(false)} onKeyDown={() => null}>
+            <img
+              src={iconX}
+              height={"10px"}
+              width={"10px"}
+              className="close"
+              alt="close"
+            />
           </div>
           <p className={combineClasses("text-center")}>{content}</p>
         </div>
