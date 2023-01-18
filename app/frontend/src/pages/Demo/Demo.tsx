@@ -28,7 +28,14 @@ function Demo() {
           { name: "Projects", link: "/demo" },
         ]}
       />
-      <NotificationBar content="heyyy" />
+      <NotificationBar
+        content={
+          <p>
+            This is a limited view. Please <a href="#">attend onboarding </a>
+            with Hack for LA or log in to see full opportunities.
+          </p>
+        }
+      />
       <div className="m-5"></div>
       <div className="m-5">
         <h1>
