@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import { iconX } from "../../assets/images/images";
 import { combineClasses } from "../Utility/utils";
 import "./_transition.scss";
+import "../Basics/_alignment.scss";
 // Type declaration for props
 interface NotificationBarProps {
   content: string;
@@ -24,7 +25,7 @@ function NotificationBar({ content }: NotificationBarProps) {
               width={"10px"}
             />
           </div>
-          {content}
+          <p className={combineClasses("text-center")}>{content}</p>
         </div>
       ) : null}
     </>
