@@ -7,7 +7,10 @@ import { Checkbox, Chip, TextField } from "components/components";
 import { IconEyeClose, IconEyeOpen, IconSearch } from "assets/images/images";
 import { logoHorizontal, logoStacked } from "assets/images/images";
 import { HeaderNav, FooterNav } from "components/components";
-import { NotificationBar } from "../../components/NotificationBar/NotificationBar";
+import {
+  NotificationBar_Auto,
+  NotificationBar_Close,
+} from "../../components/NotificationBar";
 function Demo() {
   function textFieldOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     console.log(e.target.value);
@@ -28,7 +31,24 @@ function Demo() {
           { name: "Projects", link: "/demo" },
         ]}
       />
-      <NotificationBar
+      <NotificationBar_Auto
+        Animation={
+          <CSSTransition
+            in={showBar}
+            timeout={400}
+            classNames="list-transition"
+            unmountOnExit
+            appear
+          />
+        }
+        content={
+          <p>
+            This is a limited view. Please <a href="#">attend onboarding </a>
+            with Hack for LA or log in to see full opportunities.
+          </p>
+        }
+      />
+      <NotificationBar_Close
         content={
           <p>
             This is a limited view. Please <a href="#">attend onboarding </a>

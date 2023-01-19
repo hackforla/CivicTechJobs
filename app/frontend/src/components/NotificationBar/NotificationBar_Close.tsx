@@ -12,7 +12,7 @@ interface NotificationBarProps {
   content: string;
 }
 
-function NotificationBar({ content }: NotificationBarProps) {
+function NotificationBar_Close({ content }: NotificationBarProps) {
   const [showBar, setShowBar] = useState(true);
   return (
     <>
@@ -32,4 +32,4 @@ function NotificationBar({ content }: NotificationBarProps) {
   );
 }
 
-export { NotificationBar };
+export { NotificationBar_Close };
