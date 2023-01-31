@@ -102,7 +102,7 @@ $cell-border: 2px;
   }
 
   &:hover:not(.selected) {
-    background-color: rgba($color-green, 0.5);
+    background-color: rgba($color-green, 50%);
   }
 
   & > * {
