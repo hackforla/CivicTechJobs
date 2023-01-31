@@ -26,7 +26,6 @@ function InnerCopNavCard({ isActive = false, ...props }: InnerCopNavCardProps) {
   return (
     <Tag
       className={combineClasses(
-        "card",
         "inner-cop-nav-card",
         isActive ? "active" : undefined,
         props.addClass

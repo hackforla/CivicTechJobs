@@ -1,6 +1,7 @@
 import { combineClasses } from "../Utility/utils";
 
 import React from "react";
+import { Card } from "./StandardCard";
 
 interface InnerCopCardProps extends React.PropsWithChildren {
   addClass?: string;
@@ -8,9 +9,9 @@ interface InnerCopCardProps extends React.PropsWithChildren {
 
 function InnerCopCard(props: InnerCopCardProps) {
   return (
-    <div className={combineClasses("card", "inner-cop-card", props.addClass)}>
+    <Card addClass={combineClasses("inner-cop-card", props.addClass)}>
       <div className="inner-cop-card-content">{props.children}</div>
-    </div>
+    </Card>
   );
 }
 

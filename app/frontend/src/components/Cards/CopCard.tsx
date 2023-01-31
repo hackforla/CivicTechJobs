@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
 import { IconButton } from "../Buttons/IconButton";
+import { Card } from "./StandardCard";
 import { iconX } from "assets/images/images";
 
 interface CopCardProps extends React.PropsWithChildren {
@@ -21,9 +22,8 @@ function CopCard({ hidden = true, size = "sm", ...props }: CopCardProps) {
   }, [isHidden]);
 
   return (
-    <div
-      className={combineClasses(
-        "card",
+    <Card
+      addClass={combineClasses(
         `cop-card-${size}`,
         props.addClass,
         isHidden ? "hidden" : undefined
@@ -36,12 +36,8 @@ function CopCard({ hidden = true, size = "sm", ...props }: CopCardProps) {
         onClick={props.onClick}
       ></IconButton>
       <div className={`cop-card-${size}-content`}>{props.children}</div>
-    </div>
+    </Card>
   );
-}
-
-interface InnerCopCardProps extends React.PropsWithChildren {
-  addClass?: string;
 }
 
 export { CopCard };
