@@ -49,7 +49,7 @@ $cell-border: 2px;
     @include calendar-header-row;
   }
 
-  & > div:not(:first-child):not(:last-child) {
+  & > div:not(:first-child, :last-child) {
     height: 2 * ($cell-height + 2 * $cell-border);
   }
 }
