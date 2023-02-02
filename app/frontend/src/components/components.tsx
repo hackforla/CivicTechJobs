@@ -1,6 +1,6 @@
 import { Button } from "./Buttons/Button";
 import { IconButton } from "./Buttons/IconButton";
-import { Card } from "./Cards/ProtoCard";
+import { Card } from "./Cards/StandardCard";
 import { CircleCard } from "./Cards/CircleCard";
 import { ScrollCarousel } from "./Carousel/ScrollCarousel";
 import { Dialog } from "./Dialog/Dialog";
