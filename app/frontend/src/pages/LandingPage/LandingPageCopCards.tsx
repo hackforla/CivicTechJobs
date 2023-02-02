@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 // Internal Imports
 import { combineClasses } from "components/Utility/utils";
 import { IconButton } from "components/Buttons/IconButton";
-import { Card } from "components/Cards/StandardCard";
+import { Card } from "components/Cards/ProtoCard";
 import { iconX } from "assets/images/images";
 
 interface CopCardProps extends React.PropsWithChildren {
