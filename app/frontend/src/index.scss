@@ -6,10 +6,7 @@
 
 // Import component styles
 @use "components/Buttons" as *;
-@use "components/Cards/CopCard";
-@use "components/Cards/InnerCopCard";
-@use "components/Cards/InnerCopNavCard";
-@use "components/Cards/CircleCard";
+@use "components/Cards" as *;
 @use "components/Carousel/ScrollCarousel";
 @use "components/Dialog/Dialog";
 @use "components/Inputs" as *;

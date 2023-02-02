@@ -2,19 +2,9 @@
 import React, { useState, useEffect } from "react";
 
 // Internal Imports
-import {
-  Button,
-  CircleCard,
-  CopCard,
-  Dialog,
-  InnerCopCard,
-  InnerCopNavCard,
-} from "components/components";
-import {
-  copDatum,
-  fetchAllCopData,
-  fetchCopDataById,
-} from "../api_data/copData";
+import { Button, CircleCard, Dialog } from "components/components";
+import { CopCard, InnerCopCard, InnerCopNavCard } from "./LandingPageCopCards";
+import { copDatum, fetchAllCopData, fetchCopDataById } from "./copData";
 
 function LandingPageCop() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);

@@ -1,0 +1,100 @@
+name: Deploy to Amazon ECS stage environment
+
+on:
+  push:
+    branches: [ "dev-branch-1", "main" ]
+
+env:
+  AWS_REGION: us-west-2
+  ECR_REPOSITORY: civictechjobs-fullstack-stage
+  ECS_SERVICE: civictechjobs-fullstack-stage
+  ECS_CLUSTER: incubator-prod
+  ECS_TASK_DEFINITION: ./aws/task-definition.json
+  ECS_FAMILY: civictechjobs-fullstack-stage
+  ECS_TASK_ROLE_ARN: incubator-prod-ecs-task-role
+  ECS_EXECUTION_ROLE_ARN: incubator-prod-ecs-task-role
+
+  DB_HOST: incubator-prod-database.cewewwrvdqjn.us-west-2.rds.amazonaws.com
+  DB_NAME: civictechjobs_stage
+  DB_USER: civictechjobs_stage
+  DB_PORT: 5432
+
+  CONTAINER_NAME: civictechjobs-fullstack-stage
+
+  ENVIRON: stage
+
+  DJANGO_ALLOWED_HOSTS: "ctj.kwpark.net .stage.civictechjobs.org localhost"
+
+permissions:
+  contents: read
+
+jobs:
+
+  deploy:
+    name: Build, push image to ECR and deploy to ECS
+    runs-on: ubuntu-latest
+    environment: staging
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ env.AWS_REGION }}
+
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: Build, tag, and push image to Amazon ECR
+      id: build-image
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        IMAGE_TAG: ${{ github.sha }}
+      run: |
+        # Build a docker container and
+        # push it to ECR so that it can
+        # be deployed to ECS.
+        cd app
+        docker build -f ../stage/Dockerfile -t "$ECR_REGISTRY"/"$ECR_REPOSITORY":"$IMAGE_TAG" .
+        docker push "$ECR_REGISTRY"/"$ECR_REPOSITORY":"$IMAGE_TAG"
+        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+
+    - name: Fill in templated fields of ECS task definition
+      id: task-def-update
+      run: |
+        sed -i "s/<FAMILY>/${{ env.ECS_FAMILY }}/g" ${{ env.ECS_TASK_DEFINITION }}
+        sed -i "s/<TASK_ROLE_ARN>/${{ env.ECS_TASK_ROLE_ARN }}/g" ${{ env.ECS_TASK_DEFINITION }}
+        sed -i "s/<EXECUTION_ROLE_ARN>/${{ env.ECS_EXECUTION_ROLE_ARN }}/g" ${{ env.ECS_TASK_DEFINITION }}
+        sed -i "s/<ECS_SERVICE>/${{ env.ECS_SERVICE }}/g" ${{ env.ECS_TASK_DEFINITION }}
+        sed -i "s/<CONTAINER_NAME>/${{ env.CONTAINER_NAME }}/g" ${{ env.ECS_TASK_DEFINITION }}
+
+    - name: Further update ECS task definition
+      id: task-def
+      uses: aws-actions/amazon-ecs-render-task-definition@v1
+      with:
+        task-definition: ${{ env.ECS_TASK_DEFINITION }}
+        container-name: ${{ env.CONTAINER_NAME }}
+        image: ${{ steps.build-image.outputs.image }}
+        environment-variables: |
+          SQL_ENGINE=django.db.backends.postgresql
+          SQL_DATABASE=${{ env.DB_NAME }}
+          SQL_USER=${{ env.DB_USER }}
+          SQL_PASSWORD=${{ secrets.DB_PASSWORD }}
+          SQL_HOST=${{ env.DB_HOST }}
+          SQL_PORT=${{ env.DB_PORT }}
+          ENVIRON=${{ env.ENVIRON }}
+          DJANGO_ALLOWED_HOSTS=${{ env.DJANGO_ALLOWED_HOSTS }}
+          TARGET=ECS
+
+    - name: Deploy Amazon ECS task definition
+      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+      with:
+        task-definition: ${{ steps.task-def.outputs.task-definition }}
+        service: ${{ env.ECS_SERVICE }}
+        cluster: ${{ env.ECS_CLUSTER }}
+        wait-for-service-stability: true

@@ -1,8 +1,6 @@
 import { Button } from "./Buttons/Button";
 import { IconButton } from "./Buttons/IconButton";
-import { CopCard } from "./Cards/CopCard";
-import { InnerCopCard } from "./Cards/InnerCopCard";
-import { InnerCopNavCard } from "./Cards/InnerCopNavCard";
+import { Card } from "./Cards/StandardCard";
 import { CircleCard } from "./Cards/CircleCard";
 import { ScrollCarousel } from "./Carousel/ScrollCarousel";
 import { Dialog } from "./Dialog/Dialog";
@@ -20,10 +18,8 @@ export {
   Button,
   IconButton,
   // Cards
-  CopCard,
+  Card,
   CircleCard,
-  InnerCopCard,
-  InnerCopNavCard,
   // Carousel
   ScrollCarousel,
   // Dialog
