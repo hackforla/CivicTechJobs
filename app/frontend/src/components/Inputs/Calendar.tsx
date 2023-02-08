@@ -28,10 +28,15 @@ interface CalendarRowProps extends React.PropsWithChildren {
   rowNum: number;
 }
 
+type cell = {
+  row: number;
+  col: number;
+};
+
 interface CalendarCellProps {
   key: number;
   data: string;
-  cell: object;
+  cell: cell;
   setData: (str: string) => void;
   isMouseDown: boolean;
   setIsMouseDown: (bool: boolean) => void;
