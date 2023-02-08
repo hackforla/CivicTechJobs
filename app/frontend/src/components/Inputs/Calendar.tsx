@@ -31,7 +31,7 @@ interface CalendarRowProps extends React.PropsWithChildren {
 interface CalendarCellProps {
   key: number;
   data: string;
-  cell: any;
+  cell: object;
   setData: (str: string) => void;
   isMouseDown: boolean;
   setIsMouseDown: (bool: boolean) => void;
@@ -155,23 +155,16 @@ function CalendarCell({
   toSelect,
 }: CalendarCellProps) {
   const [next, nextdata, handleSelect] = useDragToSelectUnselect(
-    { ...cell },
+    cell,
     data,
     toSelect,
   );
-
   useEffect(() => {
     setData(nextdata);
   }, [next]);
 
   function mouseDown(e: any) {
     e.preventDefault();
-    /* if (currentCell is filled) {
-      set is mouse down to true
-      set to select !next
-    } else {
-
-    } */
     setToSelect(!next);
     setIsMouseDown(true);
     return;
@@ -191,6 +184,7 @@ function CalendarCell({
         role="checkbox"
         aria-checked={next}
         aria-label={`I am available on ${cell.row}, ${cell.col}`}
+        onClick={() => handleSelect(!isMouseDown)}
         onMouseUp={() => setIsMouseDown(false)}
         onMouseMove={() => handleSelect(isMouseDown)}
         onMouseDown={mouseDown}
