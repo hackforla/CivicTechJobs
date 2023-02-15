@@ -9,7 +9,7 @@ import {
   IconButton,
   Button,
 } from "components/components";
-import { timezones } from "./timezone_data";
+import { timezones } from "./timezoneData";
 import { iconArrowLeft } from "assets/images/images";
 
 interface QualifierTitleProps {
