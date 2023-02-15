@@ -35,6 +35,7 @@ function Demo() {
                       `${value} was ${active ? "selected" : "deselected"}`
                     );
                   }}
+                  variant="multi"
                   value={role}
                 />
               );

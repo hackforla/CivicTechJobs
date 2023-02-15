@@ -9,9 +9,10 @@ interface ChipProps {
   addClass?: string;
   onChange: (active: boolean, value: string) => any;
   value: string;
+  variant?: "single" | "multi";
 }
 
-function Chip({ addClass, onChange, value }: ChipProps) {
+function Chip({ addClass, onChange, value, variant = "single" }: ChipProps) {
   const [active, isActive] = useState(false);
 
   useEffect(() => {
@@ -20,6 +21,28 @@ function Chip({ addClass, onChange, value }: ChipProps) {
 
   function handleClick() {
     isActive(!active);
+  }
+
+  function MultiSelectIcon() {
+    if (active) {
+      return (
+        <img
+          src={iconCheckMark}
+          alt="Checkmark"
+          className="pr-1"
+          aria-hidden="true"
+        />
+      );
+    } else {
+      return (
+        <img
+          src={iconPlus}
+          alt="Plus sign"
+          className="pr-1"
+          aria-hidden="true"
+        />
+      );
+    }
   }
 
   return (
@@ -33,21 +56,7 @@ function Chip({ addClass, onChange, value }: ChipProps) {
         addClass
       )}
     >
-      {active ? (
-        <img
-          src={iconCheckMark}
-          alt="Checkmark"
-          className="pr-1"
-          aria-hidden="true"
-        />
-      ) : (
-        <img
-          src={iconPlus}
-          alt="Plus sign"
-          className="pr-1"
-          aria-hidden="true"
-        />
-      )}
+      {variant == "multi" && <MultiSelectIcon />}
       {value}
     </button>
   );
