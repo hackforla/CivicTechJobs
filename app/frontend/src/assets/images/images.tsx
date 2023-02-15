@@ -72,7 +72,7 @@ interface defaultProps {
 
 function svgWrapper(
   Svg: React.ElementType,
-  defaultProps: defaultProps,
+  defaultProps: defaultProps
 ): React.ElementType {
   return (props) => {
     const titleId = useId();

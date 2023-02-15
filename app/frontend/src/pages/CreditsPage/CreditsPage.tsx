@@ -15,6 +15,7 @@ import {
   Chip,
   Card,
 } from "components/components";
+import { illustrations, iconnography } from "./creditsData";
 import { combineClasses } from "components/Utility/utils";
 
 function CreditsPage() {
@@ -44,14 +45,44 @@ function CreditsPage() {
         <h2 className="mt-5 mb-3">Illustrations & Iconography</h2>
         <div className="row">
           <Chip
+            addClass="mr-5"
             value="Illustrations"
             onChange={() => console.log("ill")}
-          ></Chip>
-          <Chip value="Iconography" onChange={() => console.log("icon")}></Chip>
+          />
+          <Chip value="Iconography" onChange={() => console.log("icon")} />
         </div>
-        <CreditsRow addClass="my-5" data={["flute", "drums", "snare"]} />
-        <CreditsRow addClass="my-5" data={["hello", "hola", "konichiwa"]} />
-        <CreditsRow addClass="my-5" data={["celery", "carrot", "onion"]} />
+        <div className="credits-cards">
+          {iconnography.map((data) => {
+            return (
+              <CreditsCard>
+                <div className="row">
+                  <div className="col-6">
+                    <span className="title-6">Name:</span>
+                  </div>
+                  <div className="col-6">
+                    <span>{data.name}</span>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-6">
+                    <span className="title-6">Used In:</span>
+                  </div>
+                  <div className="col-6">
+                    <span>{"Credits Page"}</span>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-6">
+                    <span className="title-6">Provider:</span>
+                  </div>
+                  <div className="col-6">
+                    <span>{data.provider}</span>
+                  </div>
+                </div>
+              </CreditsCard>
+            );
+          })}
+        </div>
         <div className="row justify-center py-5">
           <div className="row col-6">
             <img src={logoHorizontal} width="72" />
@@ -78,23 +109,8 @@ function CreditsPage() {
   );
 }
 
-interface CreditsRowProps {
-  addClass: string;
-  data: [string, string, string];
-}
-
-function CreditsRow({ addClass, data, ...props }: CreditsRowProps) {
-  return (
-    <div className={combineClasses("credits-cards", addClass)}>
-      {data.map((datum) => {
-        return <CreditsCard>{datum}</CreditsCard>;
-      })}
-    </div>
-  );
-}
-
 function CreditsCard({ ...props }) {
-  return <Card addClass="credits-card col-3 p-5">{props.children}</Card>;
+  return <Card addClass="credits-card p-5 my-5">{props.children}</Card>;
 }
 
 export { CreditsPage };

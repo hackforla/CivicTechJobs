@@ -1,8 +1,11 @@
 .credits-cards {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  column-gap: 32px;
 }
 
 .credits-card {
   height: 416px;
+  width: 280px;
 }

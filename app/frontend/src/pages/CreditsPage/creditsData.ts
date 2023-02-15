@@ -1,9 +1,153 @@
-const credits = [
+import { landingPageFg } from "assets/images/images";
+
+const illustrations = [
   {
-    name: "Team Page",
-    used: "How to Join",
+    name: "High Five",
     provider: "Storyset",
+    url: "www.google.com",
+    src: landingPageFg,
+  },
+  {
+    name: "Creative Team",
+    provider: "Storyset",
+    url: "www.google.com",
+    src: landingPageFg,
   },
 ];
 
-export { credits };
+const iconnography = [
+  {
+    name: "High Five",
+    provider: "Storyset",
+    url: "www.google.com",
+    src: landingPageFg,
+  },
+  {
+    name: "Creative Team",
+    provider: "Storyset",
+    url: "www.google.com",
+    src: landingPageFg,
+  },
+  {
+    name: "High Five",
+    provider: "Storyset",
+    url: "www.google.com",
+    src: landingPageFg,
+  },
+  {
+    name: "Creative Team",
+    provider: "Storyset",
+    url: "www.google.com",
+    src: landingPageFg,
+  },
+  {
+    name: "High Five",
+    provider: "Storyset",
+    url: "www.google.com",
+    src: landingPageFg,
+  },
+  {
+    name: "Creative Team",
+    provider: "Storyset",
+    url: "www.google.com",
+    src: landingPageFg,
+  },
+  {
+    name: "High Five",
+    provider: "Storyset",
+    url: "www.google.com",
+    src: landingPageFg,
+  },
+  {
+    name: "Creative Team",
+    provider: "Storyset",
+    url: "www.google.com",
+    src: landingPageFg,
+  },
+  {
+    name: "High Five",
+    provider: "Storyset",
+    url: "www.google.com",
+    src: landingPageFg,
+  },
+  {
+    name: "Creative Team",
+    provider: "Storyset",
+    url: "www.google.com",
+    src: landingPageFg,
+  },
+  {
+    name: "High Five",
+    provider: "Storyset",
+    url: "www.google.com",
+    src: landingPageFg,
+  },
+  {
+    name: "Creative Team",
+    provider: "Storyset",
+    url: "www.google.com",
+    src: landingPageFg,
+  },
+  {
+    name: "High Five",
+    provider: "Storyset",
+    url: "www.google.com",
+    src: landingPageFg,
+  },
+  {
+    name: "Creative Team",
+    provider: "Storyset",
+    url: "www.google.com",
+    src: landingPageFg,
+  },
+  {
+    name: "High Five",
+    provider: "Storyset",
+    url: "www.google.com",
+    src: landingPageFg,
+  },
+  {
+    name: "Creative Team",
+    provider: "Storyset",
+    url: "www.google.com",
+    src: landingPageFg,
+  },
+  {
+    name: "High Five",
+    provider: "Storyset",
+    url: "www.google.com",
+    src: landingPageFg,
+  },
+  {
+    name: "Creative Team",
+    provider: "Storyset",
+    url: "www.google.com",
+    src: landingPageFg,
+  },
+  {
+    name: "High Five",
+    provider: "Storyset",
+    url: "www.google.com",
+    src: landingPageFg,
+  },
+  {
+    name: "Creative Team",
+    provider: "Storyset",
+    url: "www.google.com",
+    src: landingPageFg,
+  },
+  {
+    name: "High Five",
+    provider: "Storyset",
+    url: "www.google.com",
+    src: landingPageFg,
+  },
+  {
+    name: "Creative Team",
+    provider: "Storyset",
+    url: "www.google.com",
+    src: landingPageFg,
+  },
+];
+
+export { illustrations, iconnography };
