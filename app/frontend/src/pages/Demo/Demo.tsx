@@ -32,15 +32,6 @@ function Demo() {
         ]}
       />
       <NotificationBar_Auto
-        Animation={
-          <CSSTransition
-            in={showBar}
-            timeout={400}
-            classNames="list-transition"
-            unmountOnExit
-            appear
-          />
-        }
         content={
           <p>
             This is a limited view. Please <a href="#">attend onboarding </a>
