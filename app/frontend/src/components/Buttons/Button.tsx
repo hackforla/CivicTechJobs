@@ -47,6 +47,7 @@ function Button({
       )}
       href={props.href}
       target={props.href ? props.target : undefined}
+      rel={props.href ? "noopener noreferrer" : undefined}
       onClick={props.onClick}
     >
       {props.children}

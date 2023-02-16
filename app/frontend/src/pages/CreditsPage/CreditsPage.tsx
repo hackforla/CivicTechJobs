@@ -8,17 +8,18 @@ import {
   logoHorizontalOnDark,
   logoStackedOnDark,
 } from "assets/images/images";
-import {
-  ProgressBar,
-  HeaderNav,
-  FooterNav,
-  Chip,
-  Card,
-} from "components/components";
-import { illustrations, iconnography } from "./creditsData";
+import { HeaderNav, FooterNav, Chip, Card } from "components/components";
+import { illustrations, iconography } from "./creditsData";
 import { combineClasses } from "components/Utility/utils";
 
 function CreditsPage() {
+  const [currentCreditsType, setcurrentCreditsType] = useState("Illustrations");
+
+  const creditsTypes: { [key: string]: any } = {
+    Illustrations: illustrations,
+    Iconography: iconography,
+  };
+
   return (
     <Fragment>
       <HeaderNav
@@ -44,43 +45,22 @@ function CreditsPage() {
         </div>
         <h2 className="mt-5 mb-3">Illustrations & Iconography</h2>
         <div className="row">
-          <Chip
-            addClass="mr-5"
-            value="Illustrations"
-            onChange={() => console.log("ill")}
-          />
-          <Chip value="Iconography" onChange={() => console.log("icon")} />
+          {["Illustrations", "Iconography"].map((creditsType) => {
+            return (
+              <Chip
+                addClass="mr-5"
+                checked={creditsType == currentCreditsType}
+                value={creditsType}
+                onChange={(active) => {
+                  if (active) setcurrentCreditsType(creditsType);
+                }}
+              />
+            );
+          })}
         </div>
         <div className="credits-cards">
-          {iconnography.map((data) => {
-            return (
-              <CreditsCard>
-                <div className="row">
-                  <div className="col-6">
-                    <span className="title-6">Name:</span>
-                  </div>
-                  <div className="col-6">
-                    <span>{data.name}</span>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-6">
-                    <span className="title-6">Used In:</span>
-                  </div>
-                  <div className="col-6">
-                    <span>{"Credits Page"}</span>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-6">
-                    <span className="title-6">Provider:</span>
-                  </div>
-                  <div className="col-6">
-                    <span>{data.provider}</span>
-                  </div>
-                </div>
-              </CreditsCard>
-            );
+          {(creditsTypes[currentCreditsType] || illustrations).map((data) => {
+            return <CreditsCard data={data} />;
           })}
         </div>
         <div className="row justify-center py-5">
@@ -109,8 +89,49 @@ function CreditsPage() {
   );
 }
 
-function CreditsCard({ ...props }) {
-  return <Card addClass="credits-card p-5 my-5">{props.children}</Card>;
+interface CreditsCardProps {
+  data: any;
+}
+
+function CreditsCard({ data, ...props }: CreditsCardProps) {
+  interface TextProps {
+    categoryKey: string;
+    categoryValue: string;
+  }
+
+  function Text({ categoryKey, categoryValue, ...props }: TextProps) {
+    return (
+      <div className="row">
+        <div className="col-6">
+          <span className="title-6">{categoryKey}:</span>
+        </div>
+        <div className="col-6">
+          <span>{categoryValue}</span>
+        </div>
+      </div>
+    );
+  }
+
+  function Image({ ...props }) {
+    return <div className="credits-card-circle mb-3"></div>;
+  }
+
+  return (
+    <Card addClass="credits-card p-5 my-5">
+      <Image />
+      <Text categoryKey="Name" categoryValue={data.name} />
+      <Text categoryKey="Used In" categoryValue="Credits Page" />
+      <Text categoryKey="Provider" categoryValue={data.provider} />
+      <a
+        href={data.url}
+        className="credits-card-links mt-4 mb-5"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Learn more
+      </a>
+    </Card>
+  );
 }
 
 export { CreditsPage };
