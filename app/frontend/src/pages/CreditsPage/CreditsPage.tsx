@@ -121,7 +121,7 @@ function CreditsCard({ data, ...props }: CreditsCardProps) {
   function Image({ creditSrc, ...props }: { creditSrc: any }) {
     return (
       <div className="credits-card-circle flex-container align-center mb-3">
-        <img src={creditSrc} width="100%" />
+        <img src={creditSrc} width="100%" alt="" />
       </div>
     );
   }
