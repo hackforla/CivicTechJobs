@@ -44,6 +44,7 @@ import iconSearch from "./svgs/icons/icon-search.svg?url";
 import iconX from "./svgs/icons/icon-x.svg?url";
 
 // Group Background Image
+import creditsPageFg from "./svgs/credits-page-fg.svg?url";
 import landingPageFg from "./svgs/landing-page-fg.svg?url";
 import landingPageBg from "./svgs/landing-page-bg.svg?url";
 
@@ -65,6 +66,11 @@ import logoStackedOnDark from "./svgs/logos/logo-stacked-on-dark.svg?url";
 import logoType from "./svgs/logos/logo-logotype.svg?url";
 import logoVertical from "./svgs/logos/logo-vertical.svg?url";
 import logoWordmark from "./svgs/logos/logo-wordmark.svg?url";
+
+// Other Logos
+import LogoHflaP from "./svgs/logos/logo-hfla.svg";
+
+import logoHfla from "./svgs/logos/logo-hfla.svg?url";
 
 interface defaultProps {
   [attribute: string]: string;
@@ -159,6 +165,12 @@ const LogoWordmark = svgWrapper(LogoWordmarkP, {
   desc: "platform name and logo with a word play",
 });
 
+/// Other Logos
+const LogoHfla = svgWrapper(LogoHflaP, {
+  title: "HackForLA Logo",
+  desc: "logo representing hackforla",
+});
+
 export {
   // COP Icons
   CopIconData,
@@ -215,7 +227,11 @@ export {
   logoType,
   logoVertical,
   logoWordmark,
+  // Other Logos
+  LogoHfla,
+  logoHfla,
   // Group Background Image
+  creditsPageFg,
   landingPageFg,
   landingPageBg,
 };

@@ -7,9 +7,11 @@ import {
   logoStacked,
   logoHorizontalOnDark,
   logoStackedOnDark,
+  logoHfla,
+  creditsPageFg,
 } from "assets/images/images";
 import { HeaderNav, FooterNav, Chip, Card } from "components/components";
-import { illustrations, iconography } from "./creditsData";
+import { illustrations, iconography, creditsData } from "./creditsData";
 import { combineClasses } from "components/Utility/utils";
 
 function CreditsPage() {
@@ -32,15 +34,17 @@ function CreditsPage() {
         ]}
       />
       <main className="flex-column px-5">
-        <h1 className="mb-3">Credits</h1>
-        <div className="row">
-          <p className="paragraph-1 col-6 mt-0">
-            Thank you to all of the artists and sponsors who help make our
-            projects successful. Check out all of the illustrations and
-            iconography we have used on our site.
-          </p>
-          <div className="col-6 ovflow-hidden">
-            <img src={logoHorizontal} width="100%" />
+        <div className="row align-center">
+          <div className="col-5">
+            <h1 className="mb-3 mt-0">Credits</h1>
+            <p className="paragraph-1 mt-0">
+              Thank you to all of the artists and sponsors who help make our
+              projects successful. Check out all of the illustrations and
+              iconography we have used on our site.
+            </p>
+          </div>
+          <div className="col-7 ml-4">
+            <img src={creditsPageFg} className="py-5" width="100%" />
           </div>
         </div>
         <h2 className="mt-5 mb-3">Illustrations & Iconography</h2>
@@ -59,13 +63,15 @@ function CreditsPage() {
           })}
         </div>
         <div className="credits-cards">
-          {(creditsTypes[currentCreditsType] || illustrations).map((data) => {
-            return <CreditsCard data={data} />;
-          })}
+          {(creditsTypes[currentCreditsType] || illustrations).map(
+            (data: creditsData) => {
+              return <CreditsCard data={data} />;
+            }
+          )}
         </div>
         <div className="row justify-center py-5">
           <div className="row col-6">
-            <img src={logoHorizontal} width="72" />
+            <img src={logoHfla} width="72" />
             <div className="pl-3">
               <h3>Join Us!</h3>
               <p className="paragraph-2">
@@ -90,7 +96,7 @@ function CreditsPage() {
 }
 
 interface CreditsCardProps {
-  data: any;
+  data: creditsData;
 }
 
 function CreditsCard({ data, ...props }: CreditsCardProps) {
@@ -112,13 +118,17 @@ function CreditsCard({ data, ...props }: CreditsCardProps) {
     );
   }
 
-  function Image({ ...props }) {
-    return <div className="credits-card-circle mb-3"></div>;
+  function Image({ creditSrc, ...props }: { creditSrc: any }) {
+    return (
+      <div className="credits-card-circle flex-container align-center mb-3">
+        <img src={creditSrc} width="100%" />
+      </div>
+    );
   }
 
   return (
     <Card addClass="credits-card p-5 my-5">
-      <Image />
+      <Image creditSrc={data.src} />
       <Text categoryKey="Name" categoryValue={data.name} />
       <Text categoryKey="Used In" categoryValue="Credits Page" />
       <Text categoryKey="Provider" categoryValue={data.provider} />

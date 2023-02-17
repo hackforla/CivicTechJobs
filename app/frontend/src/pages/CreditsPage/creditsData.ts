@@ -1,5 +1,12 @@
 import { landingPageFg } from "assets/images/images";
 
+interface creditsData {
+  name: string;
+  provider: string;
+  url: string;
+  src: any;
+}
+
 const illustrations = [
   {
     name: "High Five",
@@ -150,4 +157,4 @@ const iconography = [
   },
 ];
 
-export { illustrations, iconography };
+export { illustrations, iconography, creditsData };
