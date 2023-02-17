@@ -4,6 +4,7 @@ import React, { Fragment, useState } from "react";
 // Internal Imports
 import { Chip, Card } from "components/components";
 import { credits, creditsDatum } from "./creditsData";
+import { combineClasses } from "components/Utility/utils";
 
 function CreditsCards() {
   const [currentType, setCurrentType] = useState<null | string>(
@@ -27,7 +28,12 @@ function CreditsCards() {
           );
         })}
       </div>
-      <div className="credits-cards">
+      <div
+        className={combineClasses(
+          "credits-cards",
+          `credits-cards-${currentType?.toLowerCase()}`
+        )}
+      >
         {(currentType ? credits[currentType] : []).map(
           (data: creditsDatum, index) => {
             return <CreditsCard key={index} data={data} />;
@@ -59,10 +65,10 @@ function CreditsCard({ data }: CreditsCardProps) {
   function Text({ categoryKey, categoryValue }: TextProps) {
     return (
       <div className="row">
-        <div className="col-6">
+        <div className="col-5">
           <span className="title-6">{categoryKey}:</span>
         </div>
-        <div className="col-6">
+        <div className="col-7">
           <span>{categoryValue}</span>
         </div>
       </div>
@@ -72,12 +78,13 @@ function CreditsCard({ data }: CreditsCardProps) {
   return (
     <Card addClass="credits-card p-5 my-5">
       <Image creditSrc={data.src} />
-      <Text categoryKey="Name" categoryValue={data.name} />
-      <Text categoryKey="Used In" categoryValue="Credits Page" />
-      <Text categoryKey="Provider" categoryValue={data.provider} />
+      <div className="my-4">
+        <Text categoryKey="Name" categoryValue={data.name} />
+        <Text categoryKey="Provider" categoryValue={data.provider} />
+      </div>
       <a
         href={data.url}
-        className="credits-card-links mt-4 mb-5"
+        className="credits-card-links mb-5"
         target="_blank"
         rel="noopener noreferrer"
       >

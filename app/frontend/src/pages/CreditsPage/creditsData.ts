@@ -157,6 +157,7 @@ const iconography = [
   },
 ];
 
+// Note: Key is assumed to be the exact casing to be shown in the Chip components and lowercase when used in scss.
 interface creditsData {
   [key: string]: creditsDatum[];
 }

@@ -15,10 +15,17 @@
 }
 
 .credits-card-circle {
-  background-color: $color-grey-light;
   border-radius: 50%;
   height: 200px;
   width: 200px;
+
+  .credits-cards-illustrations & {
+    background-color: $color-grey-light;
+  }
+
+  .credits-cards-iconography & {
+    background-color: $color-tan-light;
+  }
 }
 
 .credits-card-links {
