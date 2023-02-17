@@ -1,5 +1,5 @@
 // External Imports
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 
 // Internal Imports
 import {
@@ -10,17 +10,10 @@ import {
   logoHfla,
   creditsPageFg,
 } from "assets/images/images";
-import { HeaderNav, FooterNav, Chip, Card } from "components/components";
-import { illustrations, iconography, creditsDatum } from "./creditsData";
+import { HeaderNav, FooterNav } from "components/components";
+import { CreditsCards } from "./CreditsPageCreditsCards";
 
 function CreditsPage() {
-  const [currentCreditsType, setcurrentCreditsType] = useState("Illustrations");
-
-  const creditsTypes: { [key: string]: creditsDatum[] } = {
-    Illustrations: illustrations,
-    Iconography: iconography,
-  };
-
   return (
     <Fragment>
       <HeaderNav
@@ -47,28 +40,7 @@ function CreditsPage() {
           </div>
         </div>
         <h2 className="mt-5 mb-3">Illustrations & Iconography</h2>
-        <div className="row">
-          {Object.keys(creditsTypes).map((creditsType: string, index) => {
-            return (
-              <Chip
-                key={index}
-                addClass="mr-5"
-                checked={creditsType == currentCreditsType}
-                value={creditsType}
-                onChange={(active) => {
-                  if (active) setcurrentCreditsType(creditsType);
-                }}
-              />
-            );
-          })}
-        </div>
-        <div className="credits-cards">
-          {(creditsTypes[currentCreditsType] || illustrations).map(
-            (data: creditsDatum, index) => {
-              return <CreditsCard key={index} data={data} />;
-            }
-          )}
-        </div>
+        <CreditsCards />
         <div className="row justify-center py-5">
           <div className="row col-6">
             <img src={logoHfla} width="72" alt="HackForLA logo" />
@@ -92,55 +64,6 @@ function CreditsPage() {
         ]}
       />
     </Fragment>
-  );
-}
-
-interface CreditsCardProps {
-  data: creditsDatum;
-}
-
-function CreditsCard({ data, ...props }: CreditsCardProps) {
-  interface TextProps {
-    categoryKey: string;
-    categoryValue: string;
-  }
-
-  function Text({ categoryKey, categoryValue, ...props }: TextProps) {
-    return (
-      <div className="row">
-        <div className="col-6">
-          <span className="title-6">{categoryKey}:</span>
-        </div>
-        <div className="col-6">
-          <span>{categoryValue}</span>
-        </div>
-      </div>
-    );
-  }
-
-  function Image({ creditSrc, ...props }: { creditSrc: any }) {
-    return (
-      <div className="credits-card-circle flex-container align-center mb-3">
-        <img src={creditSrc} width="100%" alt="" />
-      </div>
-    );
-  }
-
-  return (
-    <Card addClass="credits-card p-5 my-5">
-      <Image creditSrc={data.src} />
-      <Text categoryKey="Name" categoryValue={data.name} />
-      <Text categoryKey="Used In" categoryValue="Credits Page" />
-      <Text categoryKey="Provider" categoryValue={data.provider} />
-      <a
-        href={data.url}
-        className="credits-card-links mt-4 mb-5"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn more
-      </a>
-    </Card>
   );
 }
 

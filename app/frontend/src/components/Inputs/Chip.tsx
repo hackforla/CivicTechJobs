@@ -8,7 +8,7 @@ import { combineClasses } from "../Utility/utils";
 interface ChipProps {
   addClass?: string;
   checked?: boolean;
-  onChange: (active: boolean, value: string) => any;
+  onClick?: (active: boolean, value: string) => any;
   value: string;
   variant?: "single" | "multi";
 }
@@ -16,17 +16,18 @@ interface ChipProps {
 function Chip({
   addClass,
   checked = false,
-  onChange,
+  onClick,
   value,
   variant = "single",
 }: ChipProps) {
   const [active, isActive] = useState(checked);
 
   useEffect(() => {
-    onChange(active, value);
-  }, [active]);
+    isActive(checked);
+  }, [checked]);
 
   function handleClick() {
+    if (onClick) onClick(!active, value);
     isActive(!active);
   }
 

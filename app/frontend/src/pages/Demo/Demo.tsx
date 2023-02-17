@@ -30,7 +30,7 @@ function Demo() {
                 <Chip
                   key={index}
                   addClass={"mr-3"}
-                  onChange={(active, value) => {
+                  onClick={(active, value) => {
                     console.log(
                       `${value} was ${active ? "selected" : "deselected"}`
                     );

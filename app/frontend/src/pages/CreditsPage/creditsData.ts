@@ -157,4 +157,13 @@ const iconography = [
   },
 ];
 
-export { illustrations, iconography, creditsDatum };
+interface creditsData {
+  [key: string]: creditsDatum[];
+}
+
+const credits: creditsData = {
+  Illustrations: illustrations,
+  Iconography: iconography,
+};
+
+export { credits, creditsDatum };
