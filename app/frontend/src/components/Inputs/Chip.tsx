@@ -63,6 +63,8 @@ function Chip({
         active && "active",
         addClass
       )}
+      role="checkbox"
+      aria-checked={active}
     >
       {variant == "multi" && <MultiSelectIcon />}
       {value}

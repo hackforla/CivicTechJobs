@@ -27,7 +27,7 @@ function CreditsPage() {
       />
       <main className="flex-column px-5">
         <div className="row align-center">
-          <div className="col-5">
+          <div className="col-6">
             <h1 className="mb-3 mt-0">Credits</h1>
             <p className="paragraph-1 mt-0">
               Thank you to all of the artists and sponsors who help make our
@@ -35,7 +35,7 @@ function CreditsPage() {
               iconography we have used on our site.
             </p>
           </div>
-          <div className="col-7 ml-4">
+          <div className="col-6 ml-4">
             <img src={creditsPageFg} className="py-5" width="100%" alt="" />
           </div>
         </div>
@@ -47,8 +47,9 @@ function CreditsPage() {
             <div className="pl-3">
               <h3>Join Us!</h3>
               <p className="paragraph-2">
-                Civic Tech Jobs is one of the many projects at Hack for LA, Code
-                for America's Los Angeles chapter.
+                Civic Tech Jobs is one of the many projects at{" "}
+                <a href="https://www.hackforla.org/">Hack for LA</a>, Code for
+                America's Los Angeles chapter.
               </p>
             </div>
           </div>
