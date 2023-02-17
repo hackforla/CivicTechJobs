@@ -102,7 +102,7 @@ function CopRoles({ copDatum }: CopRolesProps) {
           onClick={handleSelectAll}
           onKeyDown={(e) => onKey(handleSelectAll, "Enter")(e)}
         >
-          {isAllSelected ? "Deselect All" : "Select all"}
+          {isAllSelected ? "Deselect all" : "Select all"}
         </span>
       </div>
     </div>
