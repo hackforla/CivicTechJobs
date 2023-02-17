@@ -1,6 +1,6 @@
 import { landingPageFg } from "assets/images/images";
 
-interface creditsData {
+interface creditsDatum {
   name: string;
   provider: string;
   url: string;
@@ -157,4 +157,4 @@ const iconography = [
   },
 ];
 
-export { illustrations, iconography, creditsData };
+export { illustrations, iconography, creditsDatum };

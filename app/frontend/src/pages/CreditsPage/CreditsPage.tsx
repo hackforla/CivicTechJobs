@@ -11,13 +11,12 @@ import {
   creditsPageFg,
 } from "assets/images/images";
 import { HeaderNav, FooterNav, Chip, Card } from "components/components";
-import { illustrations, iconography, creditsData } from "./creditsData";
-import { combineClasses } from "components/Utility/utils";
+import { illustrations, iconography, creditsDatum } from "./creditsData";
 
 function CreditsPage() {
   const [currentCreditsType, setcurrentCreditsType] = useState("Illustrations");
 
-  const creditsTypes: { [key: string]: any } = {
+  const creditsTypes: { [key: string]: creditsDatum[] } = {
     Illustrations: illustrations,
     Iconography: iconography,
   };
@@ -44,14 +43,15 @@ function CreditsPage() {
             </p>
           </div>
           <div className="col-7 ml-4">
-            <img src={creditsPageFg} className="py-5" width="100%" />
+            <img src={creditsPageFg} className="py-5" width="100%" alt="" />
           </div>
         </div>
         <h2 className="mt-5 mb-3">Illustrations & Iconography</h2>
         <div className="row">
-          {["Illustrations", "Iconography"].map((creditsType) => {
+          {Object.keys(creditsTypes).map((creditsType: string, index) => {
             return (
               <Chip
+                key={index}
                 addClass="mr-5"
                 checked={creditsType == currentCreditsType}
                 value={creditsType}
@@ -64,14 +64,14 @@ function CreditsPage() {
         </div>
         <div className="credits-cards">
           {(creditsTypes[currentCreditsType] || illustrations).map(
-            (data: creditsData) => {
-              return <CreditsCard data={data} />;
+            (data: creditsDatum, index) => {
+              return <CreditsCard key={index} data={data} />;
             }
           )}
         </div>
         <div className="row justify-center py-5">
           <div className="row col-6">
-            <img src={logoHfla} width="72" />
+            <img src={logoHfla} width="72" alt="HackForLA logo" />
             <div className="pl-3">
               <h3>Join Us!</h3>
               <p className="paragraph-2">
@@ -96,7 +96,7 @@ function CreditsPage() {
 }
 
 interface CreditsCardProps {
-  data: creditsData;
+  data: creditsDatum;
 }
 
 function CreditsCard({ data, ...props }: CreditsCardProps) {
