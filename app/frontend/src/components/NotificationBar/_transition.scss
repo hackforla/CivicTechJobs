@@ -1,0 +1,17 @@
+.bar {
+  background-color: peachpuff;
+  padding-bottom: 5px;
+  position: "sticky";
+  z-index: 2;
+  transform: translateY(-100%);
+}
+
+.slide-in {
+  animation: slide-in 1s forwards;
+}
+
+@keyframes slide-in {
+  100% {
+    transform: translateY(0%);
+  }
+}
