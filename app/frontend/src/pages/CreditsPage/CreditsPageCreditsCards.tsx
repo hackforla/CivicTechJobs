@@ -6,7 +6,9 @@ import { Chip, Card } from "components/components";
 import { credits, creditsDatum } from "./creditsData";
 
 function CreditsCards() {
-  const [currentType, setCurrentType] = useState<null | string>(null);
+  const [currentType, setCurrentType] = useState<null | string>(
+    "Illustrations"
+  );
 
   return (
     <Fragment>
