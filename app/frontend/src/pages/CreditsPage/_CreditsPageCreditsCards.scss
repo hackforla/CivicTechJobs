@@ -44,6 +44,7 @@
   }
 
   & .credits-card-image {
+    // Turns the image completely black. It's not really reusable if we ever get icons that are not black, but this works for now.
     filter: brightness(0);
     height: 48px;
     width: 48px;

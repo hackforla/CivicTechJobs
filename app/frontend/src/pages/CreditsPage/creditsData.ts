@@ -20,13 +20,13 @@ const illustrations = [
   {
     name: "High Five",
     provider: "Storyset",
-    url: "https://www.google.com",
+    url: "https://storyset.com/",
     src: landingPageFg,
   },
   {
     name: "Creative Team",
     provider: "Storyset",
-    url: "https://www.google.com",
+    url: "https://storyset.com/",
     src: landingPageFg,
   },
 ];
@@ -35,43 +35,43 @@ const iconography = [
   {
     name: "Menu Line",
     provider: "Majesticons",
-    url: "https://www.google.com",
+    url: "https://www.majesticons.com/",
     src: iconHamburgerMenu,
   },
   {
     name: "Cross line",
     provider: "Majesticons",
-    url: "https://www.google.com",
+    url: "https://www.majesticons.com/",
     src: iconX,
   },
   {
     name: "Arrow down line",
     provider: "Majesticons",
-    url: "https://www.google.com",
+    url: "https://www.majesticons.com/",
     src: iconArrowDown,
   },
   {
     name: "Arrow left line",
     provider: "Majesticons",
-    url: "https://www.google.com",
+    url: "https://www.majesticons.com/",
     src: iconArrowLeft,
   },
   {
     name: "Search line",
     provider: "Majesticons",
-    url: "https://www.google.com",
+    url: "https://www.majesticons.com/",
     src: iconSearch,
   },
   {
     name: "Check line",
     provider: "Majesticons",
-    url: "https://www.google.com",
+    url: "https://www.majesticons.com/",
     src: iconCheckMark,
   },
   {
     name: "Plus line",
     provider: "Majesticons",
-    url: "https://www.google.com",
+    url: "https://www.majesticons.com/",
     src: iconPlus,
   },
 ];
