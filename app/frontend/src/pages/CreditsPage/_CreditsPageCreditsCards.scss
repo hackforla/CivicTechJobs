@@ -18,14 +18,6 @@
   border-radius: 50%;
   height: 200px;
   width: 200px;
-
-  .credits-cards-illustrations & {
-    background-color: $color-grey-light;
-  }
-
-  .credits-cards-iconography & {
-    background-color: $color-tan-light;
-  }
 }
 
 .credits-card-links {
@@ -33,4 +25,27 @@
   color: $color-blue-dark;
   display: inline-block;
   position: absolute;
+}
+
+.credits-cards-illustrations {
+  & .credits-card-circle {
+    background-color: $color-grey-light;
+  }
+
+  & .credits-card-image {
+    height: 200px;
+    width: 200px;
+  }
+}
+
+.credits-cards-iconography {
+  & .credits-card-circle {
+    background-color: $color-tan-light;
+  }
+
+  & .credits-card-image {
+    filter: brightness(0);
+    height: 48px;
+    width: 48px;
+  }
 }

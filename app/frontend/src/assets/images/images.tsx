@@ -69,7 +69,6 @@ import logoWordmark from "./svgs/logos/logo-wordmark.svg?url";
 
 // Other Logos
 import LogoHflaP from "./svgs/logos/logo-hfla.svg";
-
 import logoHfla from "./svgs/logos/logo-hfla.svg?url";
 
 interface defaultProps {

@@ -1,4 +1,13 @@
-import { landingPageFg } from "assets/images/images";
+import {
+  iconArrowDown,
+  iconArrowLeft,
+  iconCheckMark,
+  iconHamburgerMenu,
+  iconPlus,
+  iconSearch,
+  iconX,
+  landingPageFg,
+} from "assets/images/images";
 
 interface creditsDatum {
   name: string;
@@ -24,136 +33,46 @@ const illustrations = [
 
 const iconography = [
   {
-    name: "High Five",
-    provider: "Storyset",
+    name: "Menu Line",
+    provider: "Majesticons",
     url: "https://www.google.com",
-    src: landingPageFg,
+    src: iconHamburgerMenu,
   },
   {
-    name: "Creative Team",
-    provider: "Storyset",
+    name: "Cross line",
+    provider: "Majesticons",
     url: "https://www.google.com",
-    src: landingPageFg,
+    src: iconX,
   },
   {
-    name: "High Five",
-    provider: "Storyset",
+    name: "Arrow down line",
+    provider: "Majesticons",
     url: "https://www.google.com",
-    src: landingPageFg,
+    src: iconArrowDown,
   },
   {
-    name: "Creative Team",
-    provider: "Storyset",
+    name: "Arrow left line",
+    provider: "Majesticons",
     url: "https://www.google.com",
-    src: landingPageFg,
+    src: iconArrowLeft,
   },
   {
-    name: "High Five",
-    provider: "Storyset",
+    name: "Search line",
+    provider: "Majesticons",
     url: "https://www.google.com",
-    src: landingPageFg,
+    src: iconSearch,
   },
   {
-    name: "Creative Team",
-    provider: "Storyset",
+    name: "Check line",
+    provider: "Majesticons",
     url: "https://www.google.com",
-    src: landingPageFg,
+    src: iconCheckMark,
   },
   {
-    name: "High Five",
-    provider: "Storyset",
+    name: "Plus line",
+    provider: "Majesticons",
     url: "https://www.google.com",
-    src: landingPageFg,
-  },
-  {
-    name: "Creative Team",
-    provider: "Storyset",
-    url: "https://www.google.com",
-    src: landingPageFg,
-  },
-  {
-    name: "High Five",
-    provider: "Storyset",
-    url: "https://www.google.com",
-    src: landingPageFg,
-  },
-  {
-    name: "Creative Team",
-    provider: "Storyset",
-    url: "https://www.google.com",
-    src: landingPageFg,
-  },
-  {
-    name: "High Five",
-    provider: "Storyset",
-    url: "https://www.google.com",
-    src: landingPageFg,
-  },
-  {
-    name: "Creative Team",
-    provider: "Storyset",
-    url: "https://www.google.com",
-    src: landingPageFg,
-  },
-  {
-    name: "High Five",
-    provider: "Storyset",
-    url: "https://www.google.com",
-    src: landingPageFg,
-  },
-  {
-    name: "Creative Team",
-    provider: "Storyset",
-    url: "https://www.google.com",
-    src: landingPageFg,
-  },
-  {
-    name: "High Five",
-    provider: "Storyset",
-    url: "https://www.google.com",
-    src: landingPageFg,
-  },
-  {
-    name: "Creative Team",
-    provider: "Storyset",
-    url: "https://www.google.com",
-    src: landingPageFg,
-  },
-  {
-    name: "High Five",
-    provider: "Storyset",
-    url: "https://www.google.com",
-    src: landingPageFg,
-  },
-  {
-    name: "Creative Team",
-    provider: "Storyset",
-    url: "https://www.google.com",
-    src: landingPageFg,
-  },
-  {
-    name: "High Five",
-    provider: "Storyset",
-    url: "https://www.google.com",
-    src: landingPageFg,
-  },
-  {
-    name: "Creative Team",
-    provider: "Storyset",
-    url: "https://www.google.com",
-    src: landingPageFg,
-  },
-  {
-    name: "High Five",
-    provider: "Storyset",
-    url: "https://www.google.com",
-    src: landingPageFg,
-  },
-  {
-    name: "Creative Team",
-    provider: "Storyset",
-    url: "https://www.google.com",
-    src: landingPageFg,
+    src: iconPlus,
   },
 ];
 

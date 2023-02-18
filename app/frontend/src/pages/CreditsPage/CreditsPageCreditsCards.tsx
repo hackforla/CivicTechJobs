@@ -51,8 +51,8 @@ interface CreditsCardProps {
 function CreditsCard({ data }: CreditsCardProps) {
   function Image({ creditSrc }: { creditSrc: any }) {
     return (
-      <div className="credits-card-circle flex-container align-center mb-3">
-        <img src={creditSrc} width="100%" alt="" />
+      <div className="credits-card-circle flex-container align-center justify-center mb-3">
+        <img src={creditSrc} className="credits-card-image" alt="" />
       </div>
     );
   }
