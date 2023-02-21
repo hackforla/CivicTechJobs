@@ -6,7 +6,7 @@ import { combineClasses, onKey, range } from "../Utility/utils";
 import { daysOfWeek, hoursOfDay } from "./calendar_data";
 import {
   useDragToSelectUnselect,
-  useDragState,
+  useDragState
 } from "../Utility/hooks/dragToSelectUnselect";
 
 // Type declaration for props
@@ -135,13 +135,13 @@ function CalendarRow(props: CalendarRowProps) {
     <tr
       className={combineClasses(
         "calendar-row",
-        props.rowNum % 2 == 0 ? "dashed" : "solid",
+        props.rowNum % 2 == 0 ? "dashed" : "solid"
       )}
     >
       <td
         className={combineClasses(
           "calendar-ticks-left",
-          props.rowNum % 2 == 0 ? "dashed" : "solid",
+          props.rowNum % 2 == 0 ? "dashed" : "solid"
         )}
         aria-hidden={true}
       ></td>
@@ -157,12 +157,12 @@ function CalendarCell({
   isMouseDown,
   data,
   setData,
-  toSelect,
+  toSelect
 }: CalendarCellProps) {
   const [next, nextdata, handleSelect] = useDragToSelectUnselect(
     cell,
     data,
-    toSelect,
+    toSelect
   );
   useEffect(() => {
     setData(nextdata);
@@ -179,12 +179,12 @@ function CalendarCell({
       className={combineClasses(
         "calendar-cell",
         cell.row % 2 == 0 ? "dashed" : "solid",
-        next && "selected",
+        next && "selected"
       )}
     >
       <div
         tabIndex={0}
-        role="button"
+        role="checkbox"
         aria-checked={next}
         aria-label={`I am available on ${cell.row}, ${cell.col}`}
         onClick={() => handleSelect(!isMouseDown)}
