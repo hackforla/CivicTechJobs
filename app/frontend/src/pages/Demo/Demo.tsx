@@ -7,10 +7,7 @@ import { Checkbox, Chip, TextField } from "components/components";
 import { IconEyeClose, IconEyeOpen, IconSearch } from "assets/images/images";
 import { logoHorizontal, logoStacked } from "assets/images/images";
 import { HeaderNav, FooterNav } from "components/components";
-import {
-  NotificationBar_Auto,
-  NotificationBar_Close,
-} from "../../components/NotificationBar";
+import { NotificationBar_Close } from "components/NotificationBar";
 function Demo() {
   function textFieldOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     console.log(e.target.value);
@@ -31,22 +28,14 @@ function Demo() {
           { name: "Projects", link: "/demo" },
         ]}
       />
-      <NotificationBar_Auto
-        content={
-          <p>
-            This is a limited view. Please <a href="#">attend onboarding </a>
-            with Hack for LA or log in to see full opportunities.
-          </p>
-        }
-      />
-      <NotificationBar_Close
-        content={
-          <p>
-            This is a limited view. Please <a href="#">attend onboarding </a>
-            with Hack for LA or log in to see full opportunities.
-          </p>
-        }
-      />
+      <NotificationBar_Close>
+        This is a limited view. Please <a href="#">attend onboarding </a>
+        with Hack for LA or log in to see full opportunities.
+      </NotificationBar_Close>
+      <NotificationBar_Close autoHidden={true}>
+        This is a limited view. Please <a href="#">attend onboarding </a>
+        with Hack for LA or log in to see full opportunities.
+      </NotificationBar_Close>
       <div className="m-5"></div>
       <div className="m-5">
         <h1>
@@ -62,7 +51,7 @@ function Demo() {
                   addClass={"mr-3"}
                   onChange={(active, value) => {
                     console.log(
-                      `${value} was ${active ? "selected" : "deselected"}`,
+                      `${value} was ${active ? "selected" : "deselected"}`
                     );
                   }}
                   value={role}

@@ -1,19 +1,11 @@
 // Internal Imports
-@use "../Basics" as *;
-
-/**************************
-*** Class for all cards ***
-**************************/
-.card {
-  border-radius: 16px;
-}
+@use "components/Basics" as *;
 
 /**********************************
 *** Classes for large COP cards ***
 **********************************/
 .cop-card-lg {
   background-color: $color-grey-light;
-  box-shadow: 0 8px 8px rgb(0 0 0 / 25%);
   margin: 8px; // used to go over the box shadow
   max-width: 1088px;
   min-height: 624px;
@@ -29,18 +21,14 @@
 
 .cop-card-lg-x {
   float: right;
-  margin: {
-    right: 3.8vw;
-    top: 47px;
-  }
 }
 
 .cop-card-lg-content {
   padding: {
-    top: 96px;
-    right: 10.2vw;
-    left: 6.1vw;
-    bottom: 80px;
+    top: 56px;
+    right: 7.6vw;
+    left: 3.4vw;
+    bottom: 40px;
   }
 }
 
@@ -49,7 +37,6 @@
 **********************************/
 .cop-card-sm {
   background-color: $color-grey-light;
-  box-shadow: 0 8px 8px rgb(0 0 0 / 25%);
   margin: 8px;
   max-width: 312px;
   min-height: 600px;
@@ -65,10 +52,6 @@
 
 .cop-card-sm-x {
   float: right;
-  margin: {
-    top: 23px;
-    right: 6vw;
-  }
 }
 
 .cop-card-sm-content {
@@ -76,5 +59,48 @@
     top: 74px;
     right: 6.4vw;
     left: 6.4vw;
+  }
+}
+
+/**********************************
+*** Classes for Inner COP cards ***
+**********************************/
+
+.inner-cop-card {
+  background-color: $color-white;
+  height: 100%;
+  max-width: 625px;
+  min-height: 448px;
+}
+
+.inner-cop-card-content {
+  box-sizing: border-box;
+  height: 100%;
+  padding: {
+    top: 8px;
+    right: 0.6vw;
+    left: 0.6vw;
+    bottom: 8px;
+  }
+}
+
+/**************************************
+*** Classes for Inner COP Nav cards ***
+**************************************/
+
+.inner-cop-nav-card {
+  background-color: $color-white;
+  border: none;
+  border-radius: 16px;
+  max-width: 188px;
+  min-height: 64px;
+
+  &.active {
+    background-color: $color-blue-dark;
+    color: $color-white;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 }
