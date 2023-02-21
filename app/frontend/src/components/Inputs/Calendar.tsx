@@ -169,10 +169,8 @@ function CalendarCell({
   }, [next]);
 
   function mouseDown(e: any) {
-    e.preventDefault();
     setToSelect(!next);
     setIsMouseDown(true);
-    return;
   }
 
   return (
@@ -186,13 +184,14 @@ function CalendarCell({
     >
       <div
         tabIndex={0}
-        role="checkbox"
+        role="button"
         aria-checked={next}
         aria-label={`I am available on ${cell.row}, ${cell.col}`}
         onClick={() => handleSelect(!isMouseDown)}
         onMouseUp={() => setIsMouseDown(false)}
         onMouseMove={() => handleSelect(isMouseDown)}
         onMouseDown={mouseDown}
+        onKeyDown={(e) => onKey(mouseDown, "Enter")(e)}
       ></div>
     </td>
   );

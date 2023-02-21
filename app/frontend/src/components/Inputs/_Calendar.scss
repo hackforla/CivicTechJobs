@@ -99,6 +99,7 @@ $cell-border: 2px;
   &.selected {
     background-color: $color-green;
     border-top-color: $color-green;
+    user-select: none;
   }
 
   &:hover:not(.selected) {
