@@ -28,7 +28,7 @@ function onKey(fn: React.EventHandler<any>, ...keyValues: string[]) {
 function range(start: number, stop: number, step: number = 1) {
   return Array.from(
     { length: (stop - start) / step + 1 },
-    (_, i) => start + i * step,
+    (_, i) => start + i * step
   );
 }
 
