@@ -6,7 +6,7 @@ import { combineClasses, onKey, range } from "../Utility/utils";
 import { daysOfWeek, hoursOfDay } from "./calendar_data";
 import {
   useDragToSelectUnselect,
-  useDragState
+  useDragState,
 } from "../Utility/hooks/dragToSelectUnselect";
 
 // Type declaration for props
@@ -51,11 +51,7 @@ function Calendar({ value = "0".repeat(24 * 2 * 7), ...props }: CalendarProps) {
     props.onChange(data);
   }, [data]);
   return (
-    <div
-      className={combineClasses("flex-container", props.addClass)}
-      style={{ maxWidth: "1088px" }}
-      onMouseLeave={() => setIsMouseDown(false)}
-    >
+    <div className={combineClasses("flex-container fill", props.addClass)}>
       {/* Side column with headers. Needs to be separate due to labels being on the border, and alternating */}
       <CalendarHeaderColumn rowNames={hoursOfDay()} />
       <div style={{ flex: "2 1 0" }}>
@@ -157,7 +153,7 @@ function CalendarCell({
   isMouseDown,
   data,
   setData,
-  toSelect
+  toSelect,
 }: CalendarCellProps) {
   const [next, nextdata, handleSelect] = useDragToSelectUnselect(
     cell,

@@ -1,3 +1,5 @@
+@use "./colors" as *;
+
 @mixin title($size) {
   font-family: Roboto, Tahoma, Verdana, sans-serif;
   font-weight: bold;
@@ -118,4 +120,13 @@ h6 {
 
 .paragraph-5 {
   @include paragraph(5);
+}
+
+.links {
+  color: $blue-dark;
+
+  &:hover {
+    color: $blue-dark-focused;
+    cursor: pointer;
+  }
 }

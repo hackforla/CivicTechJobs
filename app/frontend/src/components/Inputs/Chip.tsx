@@ -7,19 +7,24 @@ import { combineClasses } from "../Utility/utils";
 
 interface ChipProps {
   addClass?: string;
+  isActive?: boolean;
   onChange: (active: boolean, value: string) => any;
   value: string;
 }
 
-function Chip({ addClass, onChange, value }: ChipProps) {
-  const [active, isActive] = useState(false);
+function Chip({ addClass, isActive = false, onChange, value }: ChipProps) {
+  const [on, setOn] = useState(isActive);
 
   useEffect(() => {
-    onChange(active, value);
-  }, [active]);
+    onChange(on, value);
+  }, [on]);
+
+  useEffect(() => {
+    setOn(isActive);
+  }, [isActive]);
 
   function handleClick() {
-    isActive(!active);
+    setOn(!on);
   }
 
   return (
@@ -29,11 +34,11 @@ function Chip({ addClass, onChange, value }: ChipProps) {
         "chip",
         "px-2",
         "paragraph-3",
-        active && "active",
+        on && "active",
         addClass
       )}
     >
-      {active ? (
+      {on ? (
         <img
           src={iconCheckMark}
           alt="Checkmark"
