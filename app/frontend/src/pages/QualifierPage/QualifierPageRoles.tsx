@@ -87,6 +87,7 @@ function CopRoles({ copDatum }: CopRolesProps) {
                   const copy = [...isRoleChecked];
                   copy[index] = active;
                   setIsRoleChecked(copy);
+                  console.log(isRoleChecked);
                 }}
               />
             );

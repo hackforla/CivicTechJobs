@@ -4,12 +4,16 @@ import React, { useEffect, useState } from "react";
 // Internal Imports
 import { combineClasses, onKey, range } from "../Utility/utils";
 import { daysOfWeek, hoursOfDay } from "./calendar_data";
+import {
+  useDragToSelectUnselect,
+  useDragState,
+} from "../Utility/hooks/dragToSelectUnselect";
 
 // Type declaration for props
 interface CalendarProps extends React.PropsWithChildren {
   addClass?: string;
   onChange: (data: string) => any;
-  value?: string;
+  value?: any;
 }
 
 interface CalendarHeaderColumnProps {
@@ -24,30 +28,28 @@ interface CalendarRowProps extends React.PropsWithChildren {
   rowNum: number;
 }
 
+type cell = {
+  row: number;
+  col: number;
+};
+
 interface CalendarCellProps {
-  columnNum: number;
-  onChange: (selected: boolean) => any;
-  rowNum: number;
-  selected?: boolean;
+  key: number;
+  data: string;
+  cell: cell;
+  setData: (str: string) => void;
+  isMouseDown: boolean;
+  setIsMouseDown: (bool: boolean) => void;
+  toSelect: boolean;
+  setToSelect: (bool: boolean) => void;
 }
 
 function Calendar({ value = "0".repeat(24 * 2 * 7), ...props }: CalendarProps) {
   const [data, setData] = useState(value);
-
+  const [isMouseDown, setIsMouseDown, toSelect, setToSelect] = useDragState();
   useEffect(() => {
     props.onChange(data);
   }, [data]);
-
-  function handleChange(row: number, column: number, selected: boolean) {
-    const rowIndex = row - 1;
-    const columnIndex = column - 1;
-    const nestedArr = dissect(data);
-    if (nestedArr) {
-      nestedArr[rowIndex][columnIndex] = selected ? "1" : "0";
-      setData(connect(nestedArr));
-    }
-  }
-
   return (
     <div className={combineClasses("flex-container fill", props.addClass)}>
       {/* Side column with headers. Needs to be separate due to labels being on the border, and alternating */}
@@ -74,11 +76,13 @@ function Calendar({ value = "0".repeat(24 * 2 * 7), ...props }: CalendarProps) {
                     return (
                       <CalendarCell
                         key={index}
-                        rowNum={row}
-                        columnNum={column}
-                        onChange={(selected: boolean) =>
-                          handleChange(row, column, selected)
-                        }
+                        cell={{ row: row, col: column }}
+                        data={data}
+                        setData={setData}
+                        isMouseDown={isMouseDown}
+                        setIsMouseDown={setIsMouseDown}
+                        toSelect={toSelect}
+                        setToSelect={setToSelect}
                       />
                     );
                   })}
@@ -142,15 +146,32 @@ function CalendarRow(props: CalendarRowProps) {
   );
 }
 
-function CalendarCell({ selected = false, ...props }: CalendarCellProps) {
-  const [isSelected, setIsSelected] = useState(selected);
-
+function CalendarCell({
+  cell,
+  setToSelect,
+  setIsMouseDown,
+  isMouseDown,
+  data,
+  setData,
+  toSelect,
+}: CalendarCellProps) {
+  const [next, nextdata, handleSelect] = useDragToSelectUnselect(
+    cell,
+    data,
+    toSelect
+  );
   useEffect(() => {
-    props.onChange(isSelected);
-  }, [isSelected]);
+    setData(nextdata);
+  }, [next]);
 
-  function handleClick() {
-    setIsSelected(!isSelected);
+  function mouseDown(e: any) {
+    setToSelect(!next);
+    setIsMouseDown(true);
+  }
+
+  function mouseMove(e: any) {
+    e.preventDefault();
+    handleSelect(isMouseDown);
   }
 
   return (
@@ -158,39 +179,23 @@ function CalendarCell({ selected = false, ...props }: CalendarCellProps) {
       tabIndex={-1}
       className={combineClasses(
         "calendar-cell",
-        props.rowNum % 2 == 0 ? "dashed" : "solid",
-        isSelected && "selected"
+        cell.row % 2 == 0 ? "dashed" : "solid",
+        next && "selected"
       )}
     >
       <div
         tabIndex={0}
         role="checkbox"
-        aria-checked={isSelected}
-        aria-label={`I am available on ${props.rowNum}, ${props.columnNum}`}
-        onClick={handleClick}
-        onKeyDown={(e) => onKey(handleClick, "Enter")(e)}
+        aria-checked={next}
+        aria-label={`I am available on ${cell.row}, ${cell.col}`}
+        onClick={() => handleSelect(!isMouseDown)}
+        onMouseUp={() => setIsMouseDown(false)}
+        onMouseMove={mouseMove}
+        onMouseDown={mouseDown}
+        onKeyDown={(e) => onKey(mouseDown, "Enter")(e)}
       ></div>
     </td>
   );
-}
-
-function dissect(str: string, partition: number = 7) {
-  const arr = str.match(new RegExp(`.{1,${partition}}`, "g"));
-  const nestedArr = [];
-  if (arr) {
-    for (const substring of arr) {
-      nestedArr.push(substring.split(""));
-    }
-    return nestedArr;
-  }
-}
-
-function connect(nested_arr: string[][]) {
-  const arr = [];
-  for (const subArr of nested_arr) {
-    arr.push(subArr.join(""));
-  }
-  return arr.join("");
 }
 
 export { Calendar };
