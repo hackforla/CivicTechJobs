@@ -173,6 +173,11 @@ function CalendarCell({
     setIsMouseDown(true);
   }
 
+  function mouseMove(e: any) {
+    e.preventDefault();
+    handleSelect(isMouseDown);
+  }
+
   return (
     <td
       tabIndex={-1}
@@ -189,7 +194,7 @@ function CalendarCell({
         aria-label={`I am available on ${cell.row}, ${cell.col}`}
         onClick={() => handleSelect(!isMouseDown)}
         onMouseUp={() => setIsMouseDown(false)}
-        onMouseMove={() => handleSelect(isMouseDown)}
+        onMouseMove={mouseMove}
         onMouseDown={mouseDown}
         onKeyDown={(e) => onKey(mouseDown, "Enter")(e)}
       ></div>
