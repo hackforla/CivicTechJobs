@@ -10,15 +10,18 @@ services:
       - ./dev/dev.env
 
   django:
-    build: 
+    build:
       context: ./app
       dockerfile: ../dev/django.dockerfile
     container_name: django
-    command: python manage.py runserver 0.0.0.0:8000
+    command: >
+      sh -c "python manage.py makemigrations &&
+      python manage.py migrate &&
+      python manage.py runserver 0.0.0.0:8000"
     volumes:
       - ./app/:/code
     ports:
-      - "8000:8000"
+      - "0.0.0.0:8000:8000"
     env_file:
       - ./dev/dev.env
     depends_on:
@@ -28,11 +31,24 @@ services:
     build:
       context: ./app
       dockerfile: ../dev/webpack.dockerfile
+    container_name: webpack
     command: npm run watch
     env_file:
       - ./dev/dev.env
     volumes:
       - ./app/:/code
+
+  linter:
+    build:
+      context: .
+      dockerfile: ./dev/linter.dockerfile
+    container_name: linter
+    environment:
+      - PRE_COMMIT_HOME=${HOME}/.cache/pre-commit
+    user: ${UID}:${GID}
+    volumes:
+      - .:/src:rw
+      - ${HOME}/.cache:${HOME}/.cache:rw
 
 volumes:
   postgres_data:

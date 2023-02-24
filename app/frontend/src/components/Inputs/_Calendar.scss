@@ -1,0 +1,136 @@
+// Internal Imports
+@use "../Basics/" as *;
+
+$cell-height: 36px;
+$cell-offtick-top: 36px;
+$cell-offtick-left: 24px;
+$cell-border: 2px;
+
+// table
+.calendar {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%; // remove
+}
+
+/***********************************
+*** Calendar classes for headers ***
+***********************************/
+
+@mixin calendar-header-row {
+  background-color: $color-white;
+
+  // borders are not sticky, so box-shadow recreates the border
+  box-shadow: 0 0 0 1px $color-white;
+  height: $cell-height;
+  position: sticky;
+  top: 0;
+}
+
+// tr > th
+.calendar-header-row {
+  & > th:first-child {
+    @include calendar-header-row;
+
+    width: $cell-offtick-left;
+  }
+
+  & > th:not(:first-child) {
+    @include calendar-header-row;
+  }
+}
+
+// div
+.calendar-header-column {
+  box-sizing: border-box;
+  padding-top: $cell-offtick-top - 6px;
+
+  & > div:first-child {
+    @include calendar-header-row;
+  }
+
+  & > div:not(:first-child, :last-child) {
+    height: 2 * ($cell-height + 2 * $cell-border);
+  }
+}
+
+/********************************
+*** Calendar classes for rows ***
+********************************/
+
+// tr
+.calendar-row {
+  height: $cell-height;
+
+  &.dashed:last-child {
+    border-bottom: $cell-border solid $color-grey;
+  }
+
+  &.solid:last-child {
+    border-bottom: $cell-border dashed $color-grey;
+  }
+}
+
+/*******************************
+*** Calendar class for cells ***
+*******************************/
+
+@mixin calendar-cell {
+  border-left: $cell-border solid $color-grey-dark;
+  height: $cell-height;
+
+  &:last-child {
+    border-right: $cell-border solid $color-grey-dark;
+  }
+}
+
+// td
+.calendar-cell {
+  @include calendar-cell;
+
+  &.dashed {
+    border-top: $cell-border dashed $color-grey;
+  }
+
+  &.solid {
+    border-top: $cell-border solid $color-grey;
+  }
+
+  &.selected {
+    background-color: $color-green;
+    border-top-color: $color-green;
+    user-select: none;
+  }
+
+  &:hover:not(.selected) {
+    background-color: rgba($color-green, 50%);
+  }
+
+  & > * {
+    height: $cell-height;
+  }
+}
+
+/***********************************
+*** Calendar class for off-ticks ***
+***********************************/
+
+// td
+.calendar-ticks-top {
+  @include calendar-cell;
+
+  height: $cell-offtick-top;
+}
+
+// td
+.calendar-ticks-left {
+  width: $cell-offtick-left;
+
+  &.dashed {
+    border-top: $cell-border dashed $color-grey;
+  }
+
+  &.solid {
+    border-top: $cell-border solid $color-grey;
+  }
+}

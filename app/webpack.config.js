@@ -1,10 +1,11 @@
+const { DefinePlugin } = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: process.env.MODE,
   entry: {
-    index: "./frontend/src/index.js", // place where the file to render is
+    index: "./frontend/src/index.tsx", // place where the file to render is
   },
   output: {
     clean: {
@@ -17,10 +18,10 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(t|j)sx?$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: "ts-loader",
         },
       },
       {
@@ -47,7 +48,17 @@ module.exports = {
           },
           {
             issuer: /\.[jt]sx?$/,
-            use: ["@svgr/webpack"],
+            resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
+            use: [
+              {
+                loader: "@svgr/webpack",
+                options: {
+                  titleProp: true,
+                  descProp: true,
+                  svgoConfig: { removeTitle: false, removeDesc: false },
+                },
+              },
+            ],
           },
         ],
       },
@@ -58,6 +69,8 @@ module.exports = {
     ],
   },
   optimization: {
+    // tree shaking
+    usedExports: true,
     // all of the following is for chunking to split js into multiple files and prevent reusing code
     moduleIds: "deterministic",
     runtimeChunk: "single",
@@ -75,12 +88,16 @@ module.exports = {
     // automatically adds the hashed js file paths to template
     new HtmlWebpackPlugin({
       filename: "../../templates/frontend/index.html", //need to go back because will attempt to create file at output
-      template: "/frontend/src/templates/index.html",
-      favicon: "./frontend/src/assets/images/svgs/logo-logomark.svg", //adds favicon to website
+      template: "./frontend/src/templates/index.html",
+      favicon: "./frontend/src/assets/images/svgs/logos/logo-logomark.svg", //adds favicon to website
+    }),
+    new DefinePlugin({
+      "process.env.MODE": JSON.stringify(process.env.MODE),
     }),
   ],
   resolve: {
     modules: [path.resolve(__dirname, "frontend/src"), "node_modules"],
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
   },
   watchOptions: {
     ignored: /node_modules/, // speeds up webpack watch

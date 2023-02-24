@@ -1,0 +1,26 @@
+@use "components/Basics/" as *;
+
+// Main Page
+.qualifier-content {
+  flex-wrap: nowrap;
+  width: fit-content;
+}
+
+// Roles
+.qroles-border {
+  color: $color-grey;
+}
+
+// Calendar
+.qcalendar-green-square {
+  background-color: $color-green;
+  border-radius: 2px;
+  display: inline-block;
+  height: 24px;
+  line-height: 30px;
+  width: 24px;
+}
+
+.qcalendar-dropdown {
+  width: 100%;
+}

@@ -57,12 +57,4 @@ You must have created a new file, through Docker. Since this file "belongs" to t
 <br>
 </details>
 
-## Additional Resources
-
-[Frontend Architecture](https://hackforla.github.io/CivicTechJobs/developer/frontend/)<br>
-[Backend Architecture](https://hackforla.github.io/CivicTechJobs/developer/backend/)<br>
-[GitHub Architecture](https://hackforla.github.io/CivicTechJobs/developer/github/)<br>
-[Development Culture](https://hackforla.github.io/CivicTechJobs/developer/development-culture/)<br>
-[Installation Instructions](https://hackforla.github.io/CivicTechJobs/developer/installation/)<br>
-[Design System Helper](https://hackforla.github.io/CivicTechJobs/developer/design-system/)<br>
-[DevOps Architecture](https://hackforla.github.io/CivicTechJobs/developer/devops/)<br>
+## [Additional Resources](https://hackforla.github.io/CivicTechJobs/resources/#for-developers)

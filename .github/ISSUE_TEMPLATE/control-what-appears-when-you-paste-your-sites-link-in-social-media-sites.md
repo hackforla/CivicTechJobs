@@ -15,8 +15,8 @@ Identify what to put in the following fields:
 og:url
 g:type
 og:title
-og:description     
-og:image   
+og:description
+og:image
 og:type (optional)
 og:local (option)
 using the standards set forth in the instructions.

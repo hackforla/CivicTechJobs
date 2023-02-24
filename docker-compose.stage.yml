@@ -10,7 +10,7 @@ services:
       - ./stage/stage.env
 
   django:
-    build: 
+    build:
       context: ./app
       dockerfile: ../stage/Dockerfile
     container_name: django
