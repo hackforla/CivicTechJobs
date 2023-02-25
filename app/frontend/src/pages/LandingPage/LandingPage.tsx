@@ -20,7 +20,7 @@ function LandingPage() {
         logoMobile={logoStacked}
         menu={[
           { name: "Hack for LA", link: "/" },
-          { name: "How to Join", link: "/qualifier" },
+          { name: "How to Join", link: "/qualifier/1" },
           { name: "Projects", link: "/demo" },
         ]}
       />
@@ -32,7 +32,7 @@ function LandingPage() {
         logoDesktop={logoHorizontalOnDark}
         logoMobile={logoStackedOnDark}
         menu={[
-          { name: "Credits", link: "/" },
+          { name: "Credits", link: "/credits" },
           { name: "Sitemap", link: "/" },
           { name: "Join Us", link: "/" },
         ]}

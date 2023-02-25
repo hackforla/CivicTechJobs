@@ -59,7 +59,7 @@ function CreditsPage() {
         logoDesktop={logoHorizontalOnDark}
         logoMobile={logoStackedOnDark}
         menu={[
-          { name: "Credits", link: "/" },
+          { name: "Credits", link: "/credits" },
           { name: "Sitemap", link: "/" },
           { name: "Join Us", link: "/" },
         ]}

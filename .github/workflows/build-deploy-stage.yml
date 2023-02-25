@@ -2,7 +2,7 @@ name: Deploy to Amazon ECS stage environment
 
 on:
   push:
-    branches: [ "dev-branch-1", "main" ]
+    branches: [ "main" ]
 
 env:
   AWS_REGION: us-west-2
