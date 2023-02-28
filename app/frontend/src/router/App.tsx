@@ -12,7 +12,7 @@ import { LandingPage } from "pages/LandingPage/LandingPage";
 import {
   QualifierPage,
   QualifierContent,
-  loader as qualifierLoader
+  loader as qualifierLoader,
 } from "pages/QualifierPage/QualifierPage";
 
 const router = createBrowserRouter(
