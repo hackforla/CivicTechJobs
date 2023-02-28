@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 import {
   createRoutesFromElements,
   createBrowserRouter,
-  Route
+  Route,
 } from "react-router-dom";
 
 // Internal Imports
