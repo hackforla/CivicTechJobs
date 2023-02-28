@@ -9,7 +9,7 @@ interface NotificationBarProps extends React.PropsWithChildren {
   autoHidden: boolean; // 1. Added new prop to indicate the bar disappearing on its own
 }
 
-function NotificationBar_Close({
+function NotificationBar({
   autoHidden = false,
   ...props
 }: NotificationBarProps) {
@@ -42,4 +42,4 @@ function NotificationBar_Close({
   );
 }
 
-export { NotificationBar_Close };
+export { NotificationBar };

@@ -1,13 +1,13 @@
 // @ts-nocheck
 // External Imports
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useState } from "react";
 
 // Internal Imports
 import { Checkbox, Chip, TextField } from "components/components";
 import { IconEyeClose, IconEyeOpen, IconSearch } from "assets/images/images";
 import { logoHorizontal, logoStacked } from "assets/images/images";
-import { HeaderNav, FooterNav } from "components/components";
-import { NotificationBar_Close } from "components/NotificationBar";
+import { HeaderNav } from "components/components";
+import { NotificationBar } from "components/NotificationBar";
 function Demo() {
   function textFieldOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     console.log(e.target.value);
@@ -25,17 +25,17 @@ function Demo() {
         menu={[
           { name: "Hack for LA", link: "/" },
           { name: "How to Join", link: "/qualifier" },
-          { name: "Projects", link: "/demo" },
+          { name: "Projects", link: "/demo" }
         ]}
       />
-      <NotificationBar_Close>
+      <NotificationBar>
         This is a limited view. Please <a href="#">attend onboarding </a>
         with Hack for LA or log in to see full opportunities.
-      </NotificationBar_Close>
-      <NotificationBar_Close autoHidden={true}>
+      </NotificationBar>
+      <NotificationBar autoHidden={true}>
         This is a limited view. Please <a href="#">attend onboarding </a>
         with Hack for LA or log in to see full opportunities.
-      </NotificationBar_Close>
+      </NotificationBar>
       <div className="m-5"></div>
       <div className="m-5">
         <h1>
@@ -119,7 +119,7 @@ function PasswordButton() {
       onClick={handleClick}
       style={{
         border: "none",
-        backgroundColor: "#fff",
+        backgroundColor: "#fff"
       }}
     >
       {isOpen ? <IconEyeOpen /> : <IconEyeClose />}
