@@ -16,7 +16,7 @@ function Demo() {
   function checkboxOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     console.log(e.target.checked);
   }
-
+  console.log("changes")
   return (
     <Fragment>
       <HeaderNav
