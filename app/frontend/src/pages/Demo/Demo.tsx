@@ -29,11 +29,31 @@ function Demo() {
         ]}
       />
       <NotificationBar>
-        This is a limited view. Please <a href="#">attend onboarding </a>
+        This is a limited view. Please{" "}
+        <button
+          style={{
+            border: "none",
+            backgroundColor: "transparent",
+            textDecoration: "underline",
+            color: "blue"
+          }}
+        >
+          attend onboarding{" "}
+        </button>
         with Hack for LA or log in to see full opportunities.
       </NotificationBar>
       <NotificationBar autoHidden={true}>
-        This is a limited view. Please <a href="#">attend onboarding </a>
+        This is a limited view. Please{" "}
+        <button
+          style={{
+            border: "none",
+            backgroundColor: "transparent",
+            textDecoration: "underline",
+            color: "blue"
+          }}
+        >
+          attend onboarding{" "}
+        </button>
         with Hack for LA or log in to see full opportunities.
       </NotificationBar>
       <div className="m-5"></div>
