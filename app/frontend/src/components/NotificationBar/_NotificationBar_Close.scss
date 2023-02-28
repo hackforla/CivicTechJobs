@@ -1,0 +1,49 @@
+// External Imports
+@use "sass:map";
+
+// Internal Imports
+@use "../Basics" as *;
+
+/*****************************
+*** Notification Bar class ***
+*****************************/
+
+.notification-bar {
+  background-color: $color-tan;
+}
+
+.notification-bar-close {
+  cursor: pointer;
+  padding: 2px;
+  border: none;
+  background: none;
+}
+
+// 3. Added bar classes
+
+.notification-bar-fade-appear {
+  opacity: 0;
+}
+
+.notification-bar-fade-appear-active {
+  opacity: 1;
+  transition-duration: 300ms;
+}
+
+.notification-bar-fade-enter {
+  opacity: 0;
+}
+
+.notification-bar-fade-enter-active {
+  opacity: 1;
+  transition-duration: 300ms;
+}
+
+.notification-bar-fade-exit {
+  opacity: 1;
+}
+
+.notification-bar-fade-exit-active {
+  opacity: 0;
+  transition-duration: 300ms;
+}
