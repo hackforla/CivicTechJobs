@@ -7,9 +7,9 @@
 /*****************************
 *** Notification Bar class ***
 *****************************/
+$themes: "primary", "success", "warning", "danger";
 
 .notification-bar {
-  background-color: $color-tan;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,4 +53,39 @@
 .text {
   padding-bottom: 11px;
   text-align: center;
+}
+
+/*********************************************
+*** Notification Bar classes concerning color themes ***
+*********************************************/
+$theme-values: (
+  "primary": (
+    "background-color": #8abbff,
+    "color": black
+  ),
+  "success": (
+    "background-color": #72ca9b,
+    "color": black
+  ),
+  "warning": (
+    "background-color": $color-tan,
+    "color": black
+  ),
+  "danger": (
+    "background-color": #fa999c,
+    "color": black
+  )
+);
+
+@mixin notification-bar-theme($theme) {
+  $theme-map: map.get($theme-values, $theme);
+
+  background-color: map.get($theme-map, "background-color");
+  color: map.get($theme-map, "color");
+}
+
+@each $theme in $themes {
+  .notification-bar-#{$theme} {
+    @include notification-bar-theme($theme);
+  }
 }

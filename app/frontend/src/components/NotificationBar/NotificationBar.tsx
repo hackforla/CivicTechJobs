@@ -1,4 +1,5 @@
 // Eternal Imports
+import { combineClasses } from "components/Utility/utils";
 import React, { useState, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 
@@ -7,10 +8,12 @@ import { iconX } from "../../assets/images/images";
 // Type declaration for props
 interface NotificationBarProps extends React.PropsWithChildren {
   autoHidden: boolean; // 1. Added new prop to indicate the bar disappearing on its own
+  color: String;
 }
 
 function NotificationBar({
   autoHidden = false,
+  color = "warning",
   ...props
 }: NotificationBarProps) {
   const [showBar, setShowBar] = useState(true);
@@ -29,7 +32,13 @@ function NotificationBar({
         if (autoHidden) setShowBar(false);
       }}
     >
-      <div ref={nodeRef} className="notification-bar">
+      <div
+        ref={nodeRef}
+        className={combineClasses(
+          "notification-bar",
+          `notification-bar-${color}`
+        )}
+      >
         <button
           onClick={() => setShowBar(false)}
           className="notification-bar-close"
