@@ -9,11 +9,13 @@ import { iconX } from "../../assets/images/images";
 interface NotificationBarProps extends React.PropsWithChildren {
   autoHidden: boolean; // 1. Added new prop to indicate the bar disappearing on its own
   color: String;
+  text: String;
 }
 
 function NotificationBar({
   autoHidden = false,
   color = "warning",
+  text = "Content of the notification appears here",
   ...props
 }: NotificationBarProps) {
   const [showBar, setShowBar] = useState(true);
@@ -45,7 +47,7 @@ function NotificationBar({
         >
           <img src={iconX} height={"10px"} width={"10px"} alt="close" />
         </button>
-        <p className="text">{props.children}</p>
+        <div className="text">{text}</div>
       </div>
     </CSSTransition>
   );

@@ -28,34 +28,43 @@ function Demo() {
           { name: "Projects", link: "/demo" }
         ]}
       />
-      <NotificationBar>
-        This is a limited view. Please{" "}
-        <button
-          style={{
-            border: "none",
-            backgroundColor: "transparent",
-            textDecoration: "underline",
-            color: "blue"
-          }}
-        >
-          attend onboarding{" "}
-        </button>
-        with Hack for LA or log in to see full opportunities.
-      </NotificationBar>
-      <NotificationBar autoHidden={true}>
-        This is a limited view. Please{" "}
-        <button
-          style={{
-            border: "none",
-            backgroundColor: "transparent",
-            textDecoration: "underline",
-            color: "blue"
-          }}
-        >
-          attend onboarding{" "}
-        </button>
-        with Hack for LA or log in to see full opportunities.
-      </NotificationBar>
+      <NotificationBar
+        text={
+          <p>
+            This is a limited view. Please
+            <button
+              style={{
+                border: "none",
+                backgroundColor: "transparent",
+                textDecoration: "underline",
+                color: "blue"
+              }}
+            >
+              attend onboarding
+            </button>
+            with Hack for LA or log in to see full opportunities.
+          </p>
+        }
+      ></NotificationBar>
+      <NotificationBar
+        autoHidden={true}
+        text={
+          <p>
+            This is a limited view. Please
+            <button
+              style={{
+                border: "none",
+                backgroundColor: "transparent",
+                textDecoration: "underline",
+                color: "blue"
+              }}
+            >
+              attend onboarding
+            </button>
+            with Hack for LA or log in to see full opportunities.
+          </p>
+        }
+      ></NotificationBar>
       <div className="m-5"></div>
       <div className="m-5">
         <h1>
