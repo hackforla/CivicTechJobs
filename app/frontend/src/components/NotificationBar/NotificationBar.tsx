@@ -36,7 +36,7 @@ function NotificationBar({
         >
           <img src={iconX} height={"10px"} width={"10px"} alt="close" />
         </button>
-        <p className="text-center">{props.children}</p>
+        <p className="text">{props.children}</p>
       </div>
     </CSSTransition>
   );

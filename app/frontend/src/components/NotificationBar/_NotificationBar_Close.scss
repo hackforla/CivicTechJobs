@@ -10,16 +10,18 @@
 
 .notification-bar {
   background-color: $color-tan;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .notification-bar-close {
   cursor: pointer;
-  padding: 2px;
   border: none;
   background: none;
+  margin-right: auto;
 }
-
-// 3. Added bar classes
 
 .notification-bar-fade-appear {
   opacity: 0;
@@ -46,4 +48,9 @@
 .notification-bar-fade-exit-active {
   opacity: 0;
   transition-duration: 300ms;
+}
+
+.text {
+  padding-bottom: 11px;
+  text-align: center;
 }
