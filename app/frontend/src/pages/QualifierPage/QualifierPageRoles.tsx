@@ -80,10 +80,11 @@ function CopRoles({ copDatum }: CopRolesProps) {
             return (
               <Chip
                 key={index}
+                variant="multi"
                 addClass="mr-2 mb-2"
-                isActive={isRoleChecked[index]}
+                checked={isRoleChecked[index]}
                 value={role}
-                onChange={(active, value) => {
+                onClick={(active, value) => {
                   const copy = [...isRoleChecked];
                   copy[index] = active;
                   setIsRoleChecked(copy);

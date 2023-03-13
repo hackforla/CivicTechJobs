@@ -11,7 +11,7 @@ import {
   Button,
 } from "components/components";
 import { QualifierNav, QualifierTitle } from "./QualifierComponents";
-import { timezones } from "../api_data/timezone_data";
+import { timezones } from "../api_data/timezoneData";
 import { iconArrowLeft } from "assets/images/images";
 
 function QualifierPageCalendar() {

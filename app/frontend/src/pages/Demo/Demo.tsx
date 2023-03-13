@@ -23,12 +23,30 @@ function Demo() {
           Hello World! Feel free to use this page as a playground to test code!
         </h1>
         <div style={{ width: "720px" }}>
-          <h2>Chips</h2>
+          <h2>Single Chips</h2>
           <div>
             {["Designer", "Engineer", "Researcher", "PM"].map((role, index) => {
               return (
                 <Chip
                   key={index}
+                  addClass={"mr-3"}
+                  onChange={(active, value) => {
+                    console.log(
+                      `${value} was ${active ? "selected" : "deselected"}`
+                    );
+                  }}
+                  value={role}
+                />
+              );
+            })}
+          </div>
+          <h2>Multi Chips</h2>
+          <div>
+            {["Designer", "Engineer", "Researcher", "PM"].map((role, index) => {
+              return (
+                <Chip
+                  key={index}
+                  variant="multi"
                   addClass={"mr-3"}
                   onChange={(active, value) => {
                     console.log(
