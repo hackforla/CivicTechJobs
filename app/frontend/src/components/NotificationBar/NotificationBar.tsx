@@ -37,7 +37,7 @@ function NotificationBar({
       <div
         ref={nodeRef}
         className={combineClasses(
-          "notification-bar",
+          "flex-container",
           `notification-bar-${color}`
         )}
       >
@@ -47,7 +47,7 @@ function NotificationBar({
         >
           <img src={iconX} height={"10px"} width={"10px"} alt="close" />
         </button>
-        <div className="text">{text}</div>
+        <div className="notification-bar-text text-center">{text}</div>
       </div>
     </CSSTransition>
   );

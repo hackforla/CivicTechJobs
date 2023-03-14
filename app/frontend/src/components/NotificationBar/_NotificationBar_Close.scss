@@ -9,24 +9,20 @@
 *****************************/
 $themes: "primary", "success", "warning", "danger";
 
-p {
-  padding: 0;
-  margin: 0;
+.notification-bar {
+  height: 55px;
 }
 
-.notification-bar {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1em;
+.notification-bar-text {
+  flex: 1;
 }
 
 .notification-bar-close {
-  cursor: pointer;
-  border: none;
+  height: 5px;
+  width: 5px;
   background: none;
-  margin-right: auto;
+  border: none;
+  cursor: pointer;
 }
 
 .notification-bar-fade-appear {
@@ -54,11 +50,6 @@ p {
 .notification-bar-fade-exit-active {
   opacity: 0;
   transition-duration: 300ms;
-}
-
-.text {
-  text-align: center;
-  margin-bottom: 8px;
 }
 
 /*********************************************
