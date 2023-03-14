@@ -2,9 +2,10 @@
 import { combineClasses } from "components/Utility/utils";
 import React, { useState, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
-
+import { IconButton } from "components/components";
 // Internal Imports
 import { iconX } from "../../assets/images/images";
+import { auto } from "@popperjs/core";
 // Type declaration for props
 interface NotificationBarProps extends React.PropsWithChildren {
   autoHidden: boolean; // 1. Added new prop to indicate the bar disappearing on its own
@@ -41,12 +42,12 @@ function NotificationBar({
           `notification-bar-${color}`
         )}
       >
-        <button
+        <IconButton
+          addClass={`notification-bar-close appear-${autoHidden}`}
+          iconUrl={iconX}
+          label="close"
           onClick={() => setShowBar(false)}
-          className="notification-bar-close"
-        >
-          <img src={iconX} height={"10px"} width={"10px"} alt="close" />
-        </button>
+        />
         <div className="notification-bar-text text-center">{text}</div>
       </div>
     </CSSTransition>

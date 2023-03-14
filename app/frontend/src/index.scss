@@ -11,7 +11,7 @@
 @use "components/Dialog/Dialog";
 @use "components/Inputs" as *;
 @use "components/Navigation" as *;
-@use "components/NotificationBar/NotificationBar_Close";
+@use "components/NotificationBar" as *;
 
 // Import page styles
 @use "pages/Demo/Demo";
