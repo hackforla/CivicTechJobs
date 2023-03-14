@@ -28,7 +28,7 @@ function NotificationBar({
       in={showBar}
       nodeRef={nodeRef}
       classNames="notification-bar-fade"
-      timeout={300}
+      timeout={10000}
       appear
       unmountOnExit
       onEntered={() => {
