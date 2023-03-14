@@ -31,25 +31,15 @@ function Demo() {
       <NotificationBar>
         <p>
           This is a limited view. Please
-          <button
-            style={{
-              border: "none",
-              backgroundColor: "transparent",
-              textDecoration: "underline",
-              color: "blue"
-            }}
-          >
-            attend onboarding
-          </button>
           <a
             style={{
-              border: "none",
-              backgroundColor: "transparent",
               textDecoration: "underline",
               color: "blue"
             }}
+            href="https://www.hackforla.org/"
           >
-            attend onboarding
+            {" "}
+            attend onboarding{" "}
           </a>
           with Hack for LA or log in to see full opportunities.
         </p>
@@ -57,16 +47,16 @@ function Demo() {
       <NotificationBar autoHidden={true}>
         <p>
           This is a limited view. Please
-          <button
+          <a
             style={{
-              border: "none",
-              backgroundColor: "transparent",
               textDecoration: "underline",
               color: "blue"
             }}
+            href="https://www.hackforla.org/"
           >
-            attend onboarding
-          </button>
+            {" "}
+            attend onboarding{" "}
+          </a>
           with Hack for LA or log in to see full opportunities.
         </p>
       </NotificationBar>
