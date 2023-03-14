@@ -87,7 +87,6 @@ $visibility-values: (
 
 @mixin notification-bar-theme($theme) {
   $theme-map: map.get($theme-values, $theme);
-
   background-color: map.get($theme-map, "background-color");
   color: map.get($theme-map, "color");
 }
