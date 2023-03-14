@@ -48,7 +48,9 @@ function NotificationBar({
           label="close"
           onClick={() => setShowBar(false)}
         />
-        <div className="notification-bar-text text-center">{text}</div>
+        <div className="notification-bar-text text-center">
+          {props.children}
+        </div>
       </div>
     </CSSTransition>
   );
