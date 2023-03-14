@@ -43,7 +43,10 @@ function NotificationBar({
         )}
       >
         <IconButton
-          addClass={`notification-bar-close appear-${autoHidden}`}
+          addClass={combineClasses(
+            "notification-bar-close",
+            autoHidden ? "hide" : "show"
+          )} // `notification-bar-close appear-${autoHidden}`
           iconUrl={iconX}
           label="close"
           onClick={() => setShowBar(false)}

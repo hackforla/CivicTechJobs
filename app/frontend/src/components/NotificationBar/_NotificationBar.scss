@@ -8,7 +8,6 @@
 *** Notification Bar class ***
 *****************************/
 $themes: "primary", "success", "warning", "danger";
-$appear: "true", "false";
 
 .notification-bar {
   height: 55px;
@@ -16,6 +15,14 @@ $appear: "true", "false";
 
 .notification-bar-text {
   flex: 1;
+}
+
+.show {
+  visibility: visible;
+}
+
+.hide {
+  visibility: hidden;
 }
 
 .notification-bar-close img {
@@ -75,14 +82,6 @@ $theme-values: (
     "color": black
   )
 );
-$visibility-values: (
-  "true": (
-    "visibility": hidden
-  ),
-  "false": (
-    "visibility": visible
-  )
-);
 
 @mixin notification-bar-theme($theme) {
   $theme-map: map.get($theme-values, $theme);
@@ -94,17 +93,5 @@ $visibility-values: (
 @each $theme in $themes {
   .notification-bar-#{$theme} {
     @include notification-bar-theme($theme);
-  }
-}
-
-@mixin visibility-theme($value) {
-  $theme-map: map.get($visibility-values, $value);
-
-  visibility: map.get($theme-map, "visibility");
-}
-
-@each $value in $appear {
-  .appear-#{$value} {
-    @include visibility-theme($value);
   }
 }
