@@ -8,7 +8,7 @@ import { combineClasses } from "../Utility/utils";
 interface ChipProps {
   addClass?: string;
   checked?: boolean;
-  onClick?: (active: boolean, value: string) => any;
+  onClick?: (active: boolean, value: string) => unknown;
   value: string;
   variant?: "single" | "multi";
 }

@@ -5,6 +5,7 @@ import React, { Fragment, useEffect, useState } from "react";
 // Internal Imports
 import { Checkbox, Chip, TextField } from "components/components";
 import { IconEyeClose, IconEyeOpen, IconSearch } from "assets/images/images";
+import { combineClasses } from "components/Utility/utils";
 
 function Demo() {
   function textFieldOnChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -24,12 +25,12 @@ function Demo() {
         </h1>
         <div style={{ width: "720px" }}>
           <h2>Single Chips</h2>
-          <div>
+          <div style={{ width: "500px" }}>
             {["Designer", "Engineer", "Researcher", "PM"].map((role, index) => {
               return (
                 <Chip
                   key={index}
-                  addClass={"mr-3"}
+                  addClass={combineClasses("mr-3", index >= 2 && "fill")}
                   onChange={(active, value) => {
                     console.log(
                       `${value} was ${active ? "selected" : "deselected"}`
