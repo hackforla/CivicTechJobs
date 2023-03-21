@@ -1,0 +1,40 @@
+.scroll-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#scroll {
+    overflow: auto;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#scroll-chip {
+    padding: 8px 20px;
+    border: 1px solid black;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    gap: 16px;
+}
+
+.scroll-chevron-button {
+    background: none;
+    border: none;
+}
+
+.scroll-chevron-carrot {
+    width: 14.01px;
+    height: 8px;
+}
+
+.scroll-chevron-carrot {
+    width: 8.33px;
+    height: 16.67px;
+}

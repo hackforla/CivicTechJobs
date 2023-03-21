@@ -28,6 +28,9 @@ import IconHamburgerMenu from "./svgs/icons/icon-hamburger-menu.svg";
 import IconPlus from "./svgs/icons/icon-plus.svg";
 import IconSearch from "./svgs/icons/icon-search.svg";
 import IconX from "./svgs/icons/icon-x.svg";
+import CarrotDown from "./svgs/icons/carrot-down.png";
+import CarrotLeft from "./svgs/icons/carrot-left.png";
+import CarrotRight from "./svgs/icons/carrot-right.png";
 
 import iconArrowDown from "./svgs/icons/icon-arrow-down.svg?url";
 import iconArrowLeft from "./svgs/icons/icon-arrow-left.svg?url";
@@ -198,6 +201,9 @@ export {
   iconPlus,
   iconSearch,
   iconX,
+  CarrotDown,
+  CarrotLeft,
+  CarrotRight,
   // CTJ Logos
   LogoHorizontal,
   LogoHorizontalOnDark,

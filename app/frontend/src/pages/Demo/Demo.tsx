@@ -5,6 +5,7 @@ import React, { Fragment, useEffect, useState } from "react";
 // Internal Imports
 import { Checkbox, Chip, TextField } from "components/components";
 import { IconEyeClose, IconEyeOpen, IconSearch } from "assets/images/images";
+import Scroll from "components/Scroll/Scroll";
 
 function Demo() {
   function textFieldOnChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -23,6 +24,8 @@ function Demo() {
           Hello World! Feel free to use this page as a playground to test code!
         </h1>
         <div style={{ width: "720px" }}>
+          <h2>Chevron Scroll</h2>
+          <Scroll />
           <h2>Chips</h2>
           <div>
             {["Designer", "Engineer", "Researcher", "PM"].map((role, index) => {
