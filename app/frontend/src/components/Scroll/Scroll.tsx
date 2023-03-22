@@ -5,35 +5,74 @@ import { combineClasses } from "../Utility/utils";
 import { CarrotLeft, CarrotRight } from "assets/images/images";
 import Chip from "./Chip";
 
-interface ScrollProps extends React.PropsWithChildren {}
 
 /*
     when you click on the left button, the options should move to the left. When you click on the right button, the options should move to the right. 
 */
-function Scroll({ }: ScrollProps) { 
+function Scroll() { 
+    const scrollElement = useRef(null);
+
+    const scrollLeft = (offset: number) => {
+      scrollElement.current.scrollLeft += offset;
+    };
+    
     return (
       <div className="scroll-bar">
-        <div>
-          <button className="scroll-chevron-button scroll-chevron-carrot-2">
-            <img src={CarrotLeft} className="scroll-chevron-carrot" />
-          </button>
+        <button
+          className="scroll-chevron-button"
+          onClick={() => scrollLeft(-20)}
+        >
+          <img src={CarrotLeft} className="scroll-chevron-carrot-2" />
+        </button>
+        <div className="ScrollMenu" ref={scrollElement}>
+          <Chip>
+            <p>Roles</p>
+          </Chip>
+          <Chip>
+            <p>Availability</p>
+          </Chip>
+          <Chip>
+            <p>Experience Level</p>
+          </Chip>
+          <Chip>
+            <p>Program Areas</p>
+          </Chip>
+          <Chip>
+            <p>Languages/Technologies</p>
+          </Chip>
         </div>
-        <div id="scroll">
-          <Chip>{"Hello"}</Chip>
-          <Chip>{"Hello"}</Chip>
-          <Chip>{"Hello"}</Chip>
-          <Chip>{"Hello"}</Chip>
-          <Chip>{"Hello"}</Chip>
-          <Chip>{"Hello"}</Chip>
-          <Chip>{"Hello"}</Chip>
-        </div>
-        <div>
-          <button className="scroll-chevron-button scroll-chevron-carrot">
-            <img src={CarrotRight} className="scroll-chevron-carrot" />
-          </button>
-        </div>
+        <button
+          className="scroll-chevron-button"
+          onClick={() => scrollLeft(+20)}
+        >
+          <img src={CarrotRight} className="scroll-chevron-carrot-2" />
+        </button>
       </div>
     );
 }
 
 export default Scroll;
+
+{/* <div id="scroll-bar">
+        <button
+          className="scroll-chevron-button scroll-chevron-carrot-2"
+          onClick={() => scroll(-20)}
+        >
+          <img src={CarrotLeft} className="scroll-chevron-carrot" />
+        </button>
+        <div id="scroll" ref={reff}>
+          <Chip>{"Hello"}</Chip>
+          <Chip>{"Hello"}</Chip>
+          <Chip>{"Hello"}</Chip>
+          <Chip>{"Hello"}</Chip>
+          <Chip>{"Hello"}</Chip>
+          <Chip>{"Hello"}</Chip>
+          <Chip>{"Hello"}</Chip>
+        </div>
+        <button
+          className="scroll-chevron-button scroll-chevron-carrot-2"
+          onClick={() => scroll(+20)}
+        >
+          <img src={CarrotRight} className="scroll-chevron-carrot" />
+        </button>
+      </div> */}
