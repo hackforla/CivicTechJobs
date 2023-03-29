@@ -16,18 +16,24 @@ function Scroll() {
   const scrollLeft = (offset: number) => {
     var maxScrollLeft =
       scrollElement.current.scrollWidth - scrollElement.current.clientWidth;
-    if (scrollElement.current.scrollLeft >= maxScrollLeft) {
+    scrollElement.current.scrollLeft += offset;
+    if (Math.ceil(scrollElement.current.scrollLeft) >= maxScrollLeft) {
       setShowRight(false);
       setShowLeft(true);
     }
-    if (scrollElement.current.scrollLeft <= 0) {
+    if (scrollElement.current.scrollLeft <= 0 && offset === -20) {
       setShowRight(true);
       setShowLeft(false);
     }
-
-    scrollElement.current.scrollLeft += offset;
-    console.log("here:", maxScrollLeft);
+    if (
+      scrollElement.current.scrollLeft > 0 &&
+      Math.ceil(scrollElement.current.scrollLeft) < maxScrollLeft
+    ) {
+      setShowRight(true);
+      setShowLeft(true);
+    }
   };
+
   return (
     <div className="scroll-bar">
       {showLeft ? (
