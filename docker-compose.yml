@@ -39,6 +39,7 @@ services:
       - ./app/:/code
 
   linter:
+    profiles: ["lint"]
     build:
       context: .
       dockerfile: ./dev/linter.dockerfile
