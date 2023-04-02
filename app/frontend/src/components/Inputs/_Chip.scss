@@ -1,15 +1,27 @@
 // Internal Imports
 @use "../Basics/" as *;
 
-.chip {
+@mixin chip-base {
   background-color: $color-white;
-  border: 1px solid $color-charcoal;
   border-radius: 24px;
-  color: $color-charcoal;
   height: 40px;
 
   &.active {
     background-color: $color-blue-dark;
     color: $color-white;
   }
+}
+
+.multi-chip {
+  @include chip-base;
+
+  border: 1px solid $color-blue-dark;
+  color: $color-charcoal;
+}
+
+.single-chip {
+  @include chip-base;
+
+  border: 1px solid $color-grey;
+  color: $color-grey-dark;
 }
