@@ -15,7 +15,7 @@ class Opportunity(models.Model):
     min_duration = models.IntegerField(null=True)  # days
     positions_available = models.PositiveSmallIntegerField
     description = models.TextField()
-    posted_date = models.DateField(auto_now_add=True, null=True)
+    posted_date = models.DateField(auto_now_add=True)
     role_id = models.IntegerField(unique=True, null=True)  # psudo-foreign_id
     experience_id = models.IntegerField(
         unique=True, null=True, verbose_name="Experience Level ID"
