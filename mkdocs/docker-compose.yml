@@ -5,8 +5,8 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: mkdocs
-    command: mkdocs serve -a "0.0.0.0:8000"
+    command: mkdocs serve -a "0.0.0.0:3000"
     ports:
-      - "8000:8000"
+      - "3000:3000"
     volumes:
       - .:/code
