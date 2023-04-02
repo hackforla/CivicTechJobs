@@ -1,11 +1,11 @@
-from rest_framework import generics
+from rest_framework import generics, permissions, renderers, viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from server.models import Opportunity
 from server.serializers import OpportunitySerializer
 
 
-class OpportunityList(generics.ListCreateAPIView):
+class OpportunitiesViewSet(viewsets.ModelViewSet):
     queryset = Opportunity.objects.all()
     serializer_class = OpportunitySerializer
 
