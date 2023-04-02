@@ -1,6 +1,7 @@
 import uuid
 
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 
 class Skill(models.Model):
@@ -26,28 +27,50 @@ class Role(models.Model):
 
 
 class Opportunity(models.Model):
-    class ExperienceLevel(models.TextChoices):
-        LEANING = "Learning"
-        TRAINED = "Trained"
-        EXPERIENCED = "Experienced"
-        SUPERVISORY = "Supervisory"
+    id = models.UUIDField(
+        primary_key=True, default=uuid.uuid4, editable=False, unique=True
+    )
+    project_id = models.IntegerField(unique=True)  # psudo-foreign_id
+    max_commitment = models.IntegerField()  # hours/wk
+    min_commitment = models.IntegerField()  # hours/wk
+    max_duration = models.IntegerField()  # days
+    min_duration = models.IntegerField()  # days
+    positions_available = models.PositiveSmallIntegerField
+    description = models.TextField()
+    posted_date = models.DateField(auto_now_add=True)
+    role_id = models.IntegerField(unique=True)  # psudo-foreign_id
+    experience_level_id = models.IntegerField(unique=True)  # psudo-foreign_id
+    is_remote = models.BooleanField()
+    is_active = models.BooleanField()
+
+    class Meta:
+        db_table = "opportunity"
+
+
+class OpportunityXMeetings(models.Model):
+    class MeetingType(models.IntegerChoices):
+        NOT_ATTEND = 0, _("Not Attend")
+        COULD_ATTEND = 1, _("Could Attend")
+        SHOULD_ATTEND = 2, _("Should Attend")
 
     id = models.UUIDField(
         primary_key=True, default=uuid.uuid4, editable=False, unique=True
     )
-    experience_level = models.CharField(choices=ExperienceLevel.choices, max_length=11)
-    title = models.CharField(max_length=100)
-    description = models.TextField()
-    poster = models.EmailField(max_length=100)
-    hours_per_week = models.PositiveSmallIntegerField()
-    num_positions_available = models.PositiveSmallIntegerField()
-    posted_date = models.DateField(auto_now_add=True)
-    project = models.ForeignKey("Project", on_delete=models.CASCADE)
-    role = models.ForeignKey("Role", on_delete=models.CASCADE)
-    skills = models.ManyToManyField(Skill, through="OpportunityXSkill", blank=True)
+    opportunity_id = models.ForeignKey("Opportunity", on_delete=models.CASCADE)
+    meeting_id = models.IntegerField(unique=True)  # psudo-foreign_id
+    meeting_type = models.PositiveSmallIntegerField(choices=MeetingType.choices)
 
-    class Meta:
-        db_table = "opportunity"
+
+class OpportunityXTech(models.Model):
+    class TechType(models.IntegerChoices):
+        PREFERRED = 0, _("Preferred")
+        REQUIRED = 1, _("Required")
+
+    id = models.UUIDField(
+        primary_key=True, default=uuid.uuid4, editable=False, unique=True
+    )
+    opportunity_id = models.ForeignKey("Opportunity", on_delete=models.CASCADE)
+    tech_type = models.PositiveSmallIntegerField(choices=TechType.choices)
 
 
 class Project(models.Model):
