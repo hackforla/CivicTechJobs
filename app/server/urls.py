@@ -6,6 +6,7 @@ from server import views
 
 router = DefaultRouter()
 router.register(r"opportunities", views.OpportunitiesViewSet, basename="opportunities")
+router.register(r"users", views.UserViewSet, basename="user")
 
 urlpatterns = [
     path("api/", include(router.urls)),

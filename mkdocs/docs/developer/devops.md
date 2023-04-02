@@ -126,6 +126,7 @@ This is useful to run one time commands inside your container. Some good command
 
 - python manage.py makemigrations
 - python manage.py migrate
+- python manage.py createsuperruser
 - pip install -r requirements.txt
 - npm install <dependency>
 

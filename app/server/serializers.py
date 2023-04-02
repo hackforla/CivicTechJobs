@@ -1,5 +1,12 @@
+from django.contrib.auth.models import User
 from rest_framework import serializers
 from server.models import Opportunity, OpportunityXMeetings, OpportunityXTech
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ["id", "username"]
 
 
 class OpportunitySerializer(serializers.ModelSerializer):
