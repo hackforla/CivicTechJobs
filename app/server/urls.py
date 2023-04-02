@@ -9,10 +9,11 @@ router.register(r"opportunities", views.OpportunitiesViewSet, basename="opportun
 router.register(r"users", views.UserViewSet, basename="user")
 
 urlpatterns = [
-    path("api/", include(router.urls)),
+    path("", include(router.urls)),
+    path("", include("rest_framework.urls")),
     path("healthcheck", views.Healthcheck.as_view()),
     path(
-        "api/schema",
+        "schema",
         get_schema_view(
             title="Your Project", description="API for all things …", version="1.0.0"
         ),
