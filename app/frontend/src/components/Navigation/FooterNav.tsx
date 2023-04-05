@@ -19,7 +19,7 @@ function FooterNav({ menu, logoDesktop, logoMobile }: FooterNavProps) {
   const Logo = () => {
     return (
       <div className="footer-icons-on-dark">
-        <a href="/">
+        <a className='logo-anchor' href="/">
           <img
             className="logo-desktop-footer"
             src={logoDesktop}

@@ -12,6 +12,10 @@
   }
 }
 
+.logo-anchor {
+  display: block;
+}
+
 .logo-desktop-footer {
   @include breakpoint-media-max("mobile") {
     @include hidden;
