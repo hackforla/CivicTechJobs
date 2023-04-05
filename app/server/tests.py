@@ -67,7 +67,7 @@ class OpportunityTestCase(TestCase):
 
 
 class HealthcheckTestCase(TestCase):
-    uri = "/healthcheck"
+    uri = "api/healthcheck"
 
     def test_healthcheck(self):
         response = self.client.get(f"{HOST}{BASE_URI}{self.uri}", format="json")
