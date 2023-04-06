@@ -6,20 +6,21 @@ import { combineClasses } from "../Utility/utils";
 
 interface ChipProps extends React.PropsWithChildren {}
 
-function Chip({children}: ChipProps) { 
-    return (
-      <div id="scroll-chip">
-        <div>{children}</div>
-        <div>
-          <button className="scroll-chevron-button">
-            <img
-                src={CarrotDown}
-                className="scroll-chevron-carrot"
-            />
-          </button>
-        </div>
+function Chip({ children }: ChipProps) {
+  return (
+    <div id="scroll-chip">
+      <div>{children}</div>
+      <div>
+        <button className="scroll-chevron-button">
+          <img
+            src={CarrotDown}
+            className="scroll-chevron-carrot"
+            alt="carrot-down"
+          />
+        </button>
       </div>
-    );
+    </div>
+  );
 }
 
 export default Chip;

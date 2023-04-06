@@ -41,7 +41,11 @@ function Scroll() {
           className="scroll-chevron-button"
           onClick={() => scrollLeft(-20)}
         >
-          <img src={CarrotLeft} className="scroll-chevron-carrot-2" />
+          <img
+            src={CarrotLeft}
+            className="scroll-chevron-carrot-2"
+            alt="carrot-left"
+          />
         </button>
       ) : null}
 
@@ -67,7 +71,11 @@ function Scroll() {
           className="scroll-chevron-button"
           onClick={() => scrollLeft(+20)}
         >
-          <img src={CarrotRight} className="scroll-chevron-carrot-2" />
+          <img
+            src={CarrotRight}
+            className="scroll-chevron-carrot-2"
+            alt="carrot-right"
+          />
         </button>
       ) : null}
     </div>
