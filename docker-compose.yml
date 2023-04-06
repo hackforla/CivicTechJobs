@@ -48,6 +48,8 @@ services:
     environment:
       - PRE_COMMIT_HOME=${HOME}/.cache/pre-commit
     user: ${UID}:${GID}
+    env_file:
+      - ./dev/linter.env
     volumes:
       - .:/src:rw
       - ${HOME}/.cache:${HOME}/.cache:rw
