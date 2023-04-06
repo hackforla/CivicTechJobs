@@ -18,20 +18,18 @@ interface menuObject {
 function FooterNav({ menu, logoDesktop, logoMobile }: FooterNavProps) {
   const Logo = () => {
     return (
-      <div className="footer-icons-on-dark">
-        <a href="/">
-          <img
-            className="logo-desktop-footer"
-            src={logoDesktop}
-            alt="Civic Tech Jobs - Home"
-          />
-          <img
-            className="logo-mobile-footer"
-            src={logoMobile}
-            alt="Civic Tech Jobs - Home"
-          />
-        </a>
-      </div>
+      <a className="footer-icons-on-dark" href="/">
+        <img
+          className="logo-desktop-footer"
+          src={logoDesktop}
+          alt="Civic Tech Jobs - Home"
+        />
+        <img
+          className="logo-mobile-footer"
+          src={logoMobile}
+          alt="Civic Tech Jobs - Home"
+        />
+      </a>
     );
   };
 

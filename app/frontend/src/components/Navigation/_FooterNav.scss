@@ -26,6 +26,7 @@
 }
 
 .footer-icons-on-dark {
+  display: block;
   margin-left: 176px;
 
   @include breakpoint-media-max("lgtablet") {
