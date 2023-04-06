@@ -6,6 +6,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { Checkbox, Chip, TextField } from "components/components";
 import { IconEyeClose, IconEyeOpen, IconSearch } from "assets/images/images";
 import Scroll from "components/Scroll/Scroll";
+import ScrollChip from "components/Scroll/Chip";
 import { combineClasses } from "components/Utility/utils";
 
 function Demo() {
@@ -26,7 +27,23 @@ function Demo() {
         </h1>
         <div style={{ width: "720px" }}>
           <h2>Chevron Scroll</h2>
-          <Scroll />
+          <Scroll>
+            <ScrollChip>
+              <p>Roles</p>
+            </ScrollChip>
+            <ScrollChip>
+              <p>Availability</p>
+            </ScrollChip>
+            <ScrollChip>
+              <p>Experience Level</p>
+            </ScrollChip>
+            <ScrollChip>
+              <p>Program Areas</p>
+            </ScrollChip>
+            <ScrollChip>
+              <p>Languages/Technologies</p>
+            </ScrollChip>
+          </Scroll>
           <h2>Chips</h2>
           <h2>Single Chips</h2>
           <div style={{ width: "500px" }}>

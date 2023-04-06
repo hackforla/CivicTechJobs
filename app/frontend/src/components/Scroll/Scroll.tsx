@@ -5,10 +5,14 @@ import { combineClasses } from "../Utility/utils";
 import { CarrotLeft, CarrotRight } from "assets/images/images";
 import Chip from "./Chip";
 
+interface scrollProps extends React.PropsWithChildren {
+  children: any;
+}
+
 /*
     when you click on the left button, the options should move to the left. When you click on the right button, the options should move to the right. 
 */
-function Scroll() {
+function Scroll({ children }: scrollProps) {
   const scrollElement = useRef(null);
   const [showRight, setShowRight] = useState(true);
   const [showLeft, setShowLeft] = useState(true);
@@ -50,21 +54,7 @@ function Scroll() {
       ) : null}
 
       <div className="ScrollMenu" ref={scrollElement}>
-        <Chip>
-          <p>Roles</p>
-        </Chip>
-        <Chip>
-          <p>Availability</p>
-        </Chip>
-        <Chip>
-          <p>Experience Level</p>
-        </Chip>
-        <Chip>
-          <p>Program Areas</p>
-        </Chip>
-        <Chip>
-          <p>Languages/Technologies</p>
-        </Chip>
+        {children}
       </div>
       {showRight ? (
         <button
