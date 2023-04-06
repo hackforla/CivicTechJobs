@@ -6,6 +6,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { Checkbox, Chip, TextField } from "components/components";
 import { IconEyeClose, IconEyeOpen, IconSearch } from "assets/images/images";
 import Scroll from "components/Scroll/Scroll";
+import { combineClasses } from "components/Utility/utils";
 
 function Demo() {
   function textFieldOnChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -27,11 +28,30 @@ function Demo() {
           <h2>Chevron Scroll</h2>
           <Scroll />
           <h2>Chips</h2>
+          <h2>Single Chips</h2>
+          <div style={{ width: "500px" }}>
+            {["Designer", "Engineer", "Researcher", "PM"].map((role, index) => {
+              return (
+                <Chip
+                  key={index}
+                  addClass={combineClasses("mr-3", index >= 2 && "fill")}
+                  onChange={(active, value) => {
+                    console.log(
+                      `${value} was ${active ? "selected" : "deselected"}`
+                    );
+                  }}
+                  value={role}
+                />
+              );
+            })}
+          </div>
+          <h2>Multi Chips</h2>
           <div>
             {["Designer", "Engineer", "Researcher", "PM"].map((role, index) => {
               return (
                 <Chip
                   key={index}
+                  variant="multi"
                   addClass={"mr-3"}
                   onChange={(active, value) => {
                     console.log(
@@ -103,7 +123,7 @@ function PasswordButton() {
       onClick={handleClick}
       style={{
         border: "none",
-        backgroundColor: "#fff",
+        backgroundColor: "#fff"
       }}
     >
       {isOpen ? <IconEyeOpen /> : <IconEyeClose />}

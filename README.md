@@ -38,12 +38,14 @@ Civic Tech technology practitioners are a diverse and interdisciplinary group of
 
 - [Django](https://www.djangoproject.com/)
 - [Django Rest Framework](https://www.django-rest-framework.org/)
+- [Swagger](https://swagger.io/docs/)
+- [PostgreSQL](https://www.postgresql.org/)
 
 #### CD/CI Infrastructure
 
-- [Gunicorn](https://gunicorn.org/)
-- [Nginx](https://docs.nginx.com/)
-- [PostgreSQL](https://www.postgresql.org/)
+- [Whitenoise](https://whitenoise.readthedocs.io/en/latest/)
+- [AWS](https://docs.aws.amazon.com/)
+- [hackforla/incubator](https://github.com/hackforla/incubator)
 - [Docker](https://www.docker.com/)
 - [GitHub Actions](https://github.com/features/actions)
 
