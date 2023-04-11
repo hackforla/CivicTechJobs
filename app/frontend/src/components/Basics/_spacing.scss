@@ -28,7 +28,7 @@ $gap-abbrs: (
   "gap-x": column-gap,
   "gap-y": row-gap,
 );
-$spacing-abbrs: map.merge($margin-abbrs, $padding-abbrs, $gap-abbrs); 
+$spacing-abbrs: map.merge(map.merge($margin-abbrs, $padding-abbrs), $gap-abbrs); 
 $spacing-sizes: 0, 1, 2, 3, 4, 5, 6; 
 
 /***********************************************
