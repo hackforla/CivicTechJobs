@@ -26,7 +26,9 @@ SECRET_KEY = os.environ.get(
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", "True") != "False"
+# Must set to false for testing prod 404 implimentation
+DEBUG = True
+
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost").split(" ")
 if "ECS_ALLOWED_HOST" in os.environ:

@@ -14,6 +14,7 @@ import {
   QualifierContent,
   loader as qualifierLoader,
 } from "pages/QualifierPage/QualifierPage";
+import NotFound from "pages/NotFound/NotFound";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
         />
       </Route>
       <Route path="/demo" element={<Demo />} />
+      <Route path="*" element={<NotFound />} />
     </Fragment>
   )
 );

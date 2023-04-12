@@ -5,3 +5,5 @@ from . import views
 url_paths = ["", "demo", "qualifier/<int:page_number>"]
 
 urlpatterns = [path(url_path, views.index) for url_path in url_paths]
+
+handler404 = "frontend.views.custom_404"
