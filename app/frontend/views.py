@@ -8,4 +8,4 @@ def index(request, **args):
 
 
 def custom_404(request, exception):
-    return render(request, "frontend/404.html", status=404)
+    return render(request, "frontend/index.html")

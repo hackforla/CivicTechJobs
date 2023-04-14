@@ -8,13 +8,13 @@ import {
 
 // Internal Imports
 import { Demo } from "pages/Demo/Demo";
+import { NotFound } from "pages/NotFound/NotFound";
 import { LandingPage } from "pages/LandingPage/LandingPage";
 import {
   QualifierPage,
   QualifierContent,
   loader as qualifierLoader,
 } from "pages/QualifierPage/QualifierPage";
-import NotFound from "pages/NotFound/NotFound";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

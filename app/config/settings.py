@@ -26,13 +26,16 @@ SECRET_KEY = os.environ.get(
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# Must set to false for testing prod 404 implimentation
-DEBUG = True
+# DEBUG = os.environ.get("DEBUG", "True") != "False"
+# ***TEMP FOR TESTING 404 PAGE***
+DEBUG = False
 
 
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost").split(" ")
-if "ECS_ALLOWED_HOST" in os.environ:
-    ALLOWED_HOSTS.append(os.environ.get("ECS_ALLOWED_HOST"))
+# ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost").split(" ")
+# if "ECS_ALLOWED_HOST" in os.environ:
+#     ALLOWED_HOSTS.append(os.environ.get("ECS_ALLOWED_HOST"))
+# ***TEMP FOR TESTING 404 PAGE***
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 

@@ -5,3 +5,5 @@ urlpatterns = [
     path("", include("frontend.urls")),
     path("api/", include("server.urls")),
 ]
+
+handler404 = "frontend.views.custom_404"
