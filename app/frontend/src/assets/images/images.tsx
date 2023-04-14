@@ -47,7 +47,7 @@ import iconX from "./svgs/icons/icon-x.svg?url";
 import landingPageFg from "./svgs/landing-page-fg.svg?url";
 import landingPageBg from "./svgs/landing-page-bg.svg?url";
 
-//404 Page
+// 404 Page
 import notFoundPageImg from "./svgs/not-found-page.svg?url";
 
 // CTJ Logos
@@ -221,6 +221,6 @@ export {
   // Group Background Image
   landingPageFg,
   landingPageBg,
-  //404 Page
+  // 404 Page
   notFoundPageImg,
 };

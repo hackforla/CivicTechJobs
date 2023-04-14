@@ -30,7 +30,6 @@ SECRET_KEY = os.environ.get(
 # ***TEMP FOR TESTING 404 PAGE***
 DEBUG = False
 
-
 # ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost").split(" ")
 # if "ECS_ALLOWED_HOST" in os.environ:
 #     ALLOWED_HOSTS.append(os.environ.get("ECS_ALLOWED_HOST"))
