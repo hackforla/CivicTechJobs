@@ -46,6 +46,4 @@ function NotFoundPage() {
   );
 }
 
-
-
 export { NotFoundPage };
