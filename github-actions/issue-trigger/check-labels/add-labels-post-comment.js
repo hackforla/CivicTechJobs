@@ -54,11 +54,8 @@ function getMissingLabels(currentLabels) {
 }
 
 async function generateComment(creator, labels) {
-  let data = fs.readFile('./github-actions/issue-trigger/check-labels/comment-template.md', (err, data) => {
-    if (err) throw err;
-    return data
-  });
-  let text = await data.toString('utf-8');
+  let filePathToTemplate = './github-actions/issue-trigger/check-labels/comment-template.md';
+  let text = await data.toString('utf-8');fs.readFileSync(filePathToTemplate).toString('utf-8');
   let comment = text.replace('${issueCreator}', creator).replace('${labels}', labels.join(', '));
   console.log(`comment: ${comment}`);
   return comment
