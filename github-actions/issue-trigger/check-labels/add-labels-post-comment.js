@@ -21,7 +21,7 @@ async function main({ g, c }) {
   console.log(`owner: ${context.repo.owner}`)
 
 
-  await github.rest.issues.addLabels({
+  await github.issues.addLabels({
     owner: context.repo.owner,
     repo: context.repo.repo,
     issue_number: context.issue.number,
@@ -31,7 +31,7 @@ async function main({ g, c }) {
   const creator = await context.payload.sender.login;
   console.log(`creator: ${creator}`);
 
-  await octokit.rest.issues.createComment({
+  await github.issues.createComment({
     owner: context.repo.owner,
     repo: context.repo.repo,
     issue_number: context.issue.number,
