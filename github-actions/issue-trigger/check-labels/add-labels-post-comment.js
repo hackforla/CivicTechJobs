@@ -1,4 +1,4 @@
-var fs = require("fs");
+import { readFileSync } from "fs";
 
 // Constant variables
 const REQUIRED_LABELS = ['role', 'feature', 'size'];
@@ -46,7 +46,7 @@ function getMissingLabels(currentLabels) {
       console.log(`Issue has no ${required_label} label.`)
       missingLabelsArr.push(`${required_label}: missing`);
     }
-    else if (!currentLabels.filter(label => label.startsWith(required_label)).length) {   
+    else if (!currentLabels.filter(label => (label.startsWith(required_label) || label.startsWith(required_label, 2))).length) {
       missingLabelsArr.push(`${required_label}: missing`);
     }
   }
@@ -55,7 +55,7 @@ function getMissingLabels(currentLabels) {
 
 function generateComment(creator, labels) {
   let filePathToTemplate = './github-actions/issue-trigger/check-labels/comment-template.md';
-  let text = fs.readFileSync(filePathToTemplate).toString('utf-8');
+  let text = readFileSync(filePathToTemplate).toString('utf-8');
   let labelsStr = labels.join(', ');
   console.log(labelsStr);
   let comment = text.replace('${issueCreator}', creator).replace('${labels}', labels.join(', '));
@@ -64,4 +64,4 @@ function generateComment(creator, labels) {
 }
 
 
-module.exports = main
+export default main
