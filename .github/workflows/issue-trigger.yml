@@ -13,7 +13,7 @@ jobs:
         uses: actions/github-script@v6 # This action makes it easy to quickly write a script in your workflow that uses the GitHub API and the workflow run context. https://github.com/actions/github-script
         with:
           script: |
-            const script = require('./github-actions/issue-trigger/add-labels-post-comment.js')
+            const script = require('./github-actions/issue-trigger/add-labels/add-labels-post-comment.js')
             script({g: github, c: context})
       
 
