@@ -35,7 +35,7 @@ async function main({ g, c }) {
     owner: context.repo.owner,
     repo: context.repo.repo,
     issue_number: context.issue.number,
-    body: generateComment(context, creator, missingLabels),
+    body: generateComment(creator, missingLabels)
   });
 }
 
@@ -56,6 +56,8 @@ function getMissingLabels(currentLabels) {
 function generateComment(creator, labels) {
   let filePathToTemplate = './github-actions/issue-trigger/check-labels/comment-template.md';
   let text = fs.readFileSync(filePathToTemplate).toString('utf-8');
+  let labelsStr = labels.join(', ');
+  console.log(labelsStr);
   let comment = text.replace('${issueCreator}', creator).replace('${labels}', labels.join(', '));
   console.log(`comment: ${comment}`);
   return comment
