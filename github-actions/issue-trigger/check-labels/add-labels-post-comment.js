@@ -61,5 +61,3 @@ function generateComment(creator, labels) {
   return comment
 }
 
-
-export default main
