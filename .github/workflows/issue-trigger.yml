@@ -1,7 +1,7 @@
 name: Issue Trigger
 on:
   issues:
-    types: [opened]
+    types: [opened, reopened]
 
 jobs:
   Add-Missing-Labels-To-Issues:

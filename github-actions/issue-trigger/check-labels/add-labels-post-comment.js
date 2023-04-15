@@ -1,41 +1,40 @@
 const fs = require("fs");
 
-// Constant variables
+// Global Variables
 const REQUIRED_LABELS = ['role', 'feature', 'size'];
 
 
 /*
- * Check the labels of an issue, and add/remove labels as necessary
- * @param {Object} g - github object  
- * @param {Object} c - context object 
- * @returns - returns an object with the action's result, which is passed on to the next action
- */
+- The main function checks the current labels of the newly created issue. If any required labels are missing, adds '<label>: missing' to the issue, and post a comment @<issue creator> requesting them to add these labels.
+- @param {Object} g - github object  
+- @param {Object} c - context object 
+*/
 async function main({ g, c }) {
   const github = g;
   const context = c;
 
-  const issueLabels = await context.payload.issue.labels.map(labelObj => labelObj.name);
+  const issueLabels = context.payload.issue.labels.map(labelObj => labelObj.name); // array of current issue labels
   console.log(issueLabels)
-  const missingLabels = getMissingLabels(issueLabels);
+  const missingLabels = getMissingLabels(issueLabels); // array of missing labels, e.g. ['role: missing', 'size: missing']
   console.log(missingLabels)
-  console.log(`owner: ${context.repo.owner}`)
 
-
-  const addLabelsAction = await github.rest.issues.addLabels({
+  // add labels to issue https://octokit.github.io/rest.js/v19#issues-add-labels
+  await github.rest.issues.addLabels({
     owner: context.repo.owner,
     repo: context.repo.repo,
     issue_number: context.issue.number,
     labels: missingLabels
   });
 
-  const creator = await context.payload.sender.login;
+  const creator = context.payload.sender.login; // issue creator
   console.log(`creator: ${creator}`);
 
-  const postCommentAction = await github.rest.issues.createComment({
+  // post comment to issue https://octokit.github.io/rest.js/v19#issues-create-comment
+  await github.rest.issues.createComment({
     owner: context.repo.owner,
     repo: context.repo.repo,
     issue_number: context.issue.number,
-    body: generateComment(creator, missingLabels)
+    body: generateComment(creator, missingLabels) // comment string read from comment template
   });
 }
 
@@ -43,9 +42,10 @@ function getMissingLabels(currentLabels) {
   let missingLabelsArr = [];
   for (const required_label of REQUIRED_LABELS) {
     if (!currentLabels.length) {
-      console.log(`Issue has no ${required_label} label.`)
+      console.log(`Issue has no ${required_label} label.`);
       missingLabelsArr.push(`${required_label}: missing`);
     }
+    // if currentLabels is not an empty array, filter to see if any label starts with the required label name, and also check from the 2nd index for the possible 'p-feature' label
     else if (!currentLabels.filter(label => (label.startsWith(required_label) || label.startsWith(required_label, 2))).length) {
       missingLabelsArr.push(`${required_label}: missing`);
     }
@@ -53,12 +53,12 @@ function getMissingLabels(currentLabels) {
   return missingLabelsArr
 }
 
-function generateComment(creator, labels) {
-  let filePathToTemplate = './github-actions/issue-trigger/check-labels/comment-template.md';
-  let text = fs.readFileSync(filePathToTemplate).toString('utf-8');
-  let labelsStr = labels.join(', ');
+function generateComment(issueCreator, labels) {
+  let templateFilePath = './github-actions/issue-trigger/check-labels/comment-template.md';
+  let text = fs.readFileSync(templateFilePath).toString('utf-8');
+  let labelsStr = labels.join(', '); // join the array into a string
   console.log(labelsStr);
-  let comment = text.replace('${issueCreator}', creator).replace('${labels}', labels.join(', '));
+  let comment = text.replace('${issueCreator}', issueCreator).replace('${labels}', labels.join(', ')); // replace placeholder strings with new values
   console.log(`comment: ${comment}`);
   return comment
 }
