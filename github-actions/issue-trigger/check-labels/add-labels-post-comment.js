@@ -56,4 +56,4 @@ async function generateComment(creator, labels) {
 }
 
 
-export default main
+module.exports = main
