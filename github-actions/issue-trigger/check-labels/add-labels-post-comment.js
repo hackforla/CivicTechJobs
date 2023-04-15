@@ -54,7 +54,7 @@ function getMissingLabels(currentLabels) {
 }
 
 async function generateComment(creator, labels) {
-  let data = fs.readFile('add-labels-comment-template.md', (err, data) => {
+  let data = fs.readFile('./github-actions/trigger-issue/add-missing-labels-to-issues/add-labels-template.md', (err, data) => {
     if (err) throw err;
     return data
   });
