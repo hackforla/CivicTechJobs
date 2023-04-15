@@ -1,3 +1,5 @@
+var fs = require("fs");
+
 // Constant variables
 const REQUIRED_LABELS = ['role', 'feature', 'size'];
 
@@ -61,3 +63,4 @@ function generateComment(creator, labels) {
   return comment
 }
 
+module.exports = main
