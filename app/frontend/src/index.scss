@@ -14,9 +14,10 @@
 
 // Import page styles
 @use "pages/Demo/Demo";
+@use "pages/NotFoundPage/NotFoundPage";
 @use "pages/LandingPage/" as *;
 @use "pages/QualifierPage/" as *;
-@use "pages/NotFoundPage/NotFoundPage" as *;
+
 
 body {
   font-family: Roboto, Tahoma, Verdana, sans-serif;

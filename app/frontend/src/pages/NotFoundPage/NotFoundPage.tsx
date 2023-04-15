@@ -22,7 +22,7 @@ function NotFoundPage() {
       />
       <main>
         <div className="not-found-container flex-container justify-between align-center gap-3">
-          <div style={{width: "348px"}}>
+          <div className="not-found-box">
             <h1 className="not-found-title mt-0 mb-3">Page not found</h1>
             <p className="not-found-paragraph mb-3">
               We can’t seem to find the page you’re looking for.
@@ -31,7 +31,6 @@ function NotFoundPage() {
             <Button
               length="long"
               size="lg"
-              addClass="landing-intro-btn"
               onClick={() => navigate(-1)}
             >
               Go Back

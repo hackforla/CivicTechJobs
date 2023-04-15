@@ -9,6 +9,10 @@
   } 
 }
 
+.not-found-box {
+  width: '348px';
+}
+
 .not-found-title {
   @include breakpoint-media-max("smtablet") {
     @include title(4);
