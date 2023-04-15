@@ -29,6 +29,7 @@ async function main({ g, c }) {
   });
 
   const creator = await context.payload.sender.login;
+  console.log(`creator: ${creator}`);
 
   await octokit.rest.issues.createComment({
     owner: context.repo.owner,
@@ -59,6 +60,7 @@ async function generateComment(creator, labels) {
   });
   let text = await data.toString('utf-8');
   let comment = text.replace('${issueCreator}', creator).replace('${labels}', labels.join(', '));
+  console.log(`comment: ${comment}`);
   return comment
 }
 
