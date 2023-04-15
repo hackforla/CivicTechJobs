@@ -17,6 +17,8 @@ async function main({ g, c }) {
   const currentLabels = await context.payload.issue.labels.map(labelObj => labelObj.name);
   console.log(currentLabels)
   const missingLabels = getMissingLabels(context);
+  console.log(missingLabels)
+  console.log(`owner: ${context.repo.owner}`)
 
 
   await github.rest.issues.addLabels({
