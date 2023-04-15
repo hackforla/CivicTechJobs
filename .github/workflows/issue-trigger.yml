@@ -4,6 +4,19 @@ on:
     types: [opened]
 
 jobs:
+  Add-Missing-Labels-To-Issues:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking out repo
+        uses: actions/checkout@v3 # This action checks-out your repository under $GITHUB_WORKSPACE, so your workflow can access it. https://github.com/marketplace/actions/checkout
+      - name: Add Missing Labels and Post Comment 
+        uses: actions/github-script@v6 # This action makes it easy to quickly write a script in your workflow that uses the GitHub API and the workflow run context. https://github.com/actions/github-script
+        with:
+          script: |
+            const script = require('./github-actions/issue-trigger/add-labels-post-comment.js')
+            script({g: github, c: context})
+      
+
   Sort-Opened-Issue-Into-Columns:
     runs-on: ubuntu-latest
     steps:
