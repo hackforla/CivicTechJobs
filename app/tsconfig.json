@@ -11,5 +11,5 @@
     "baseUrl": "./frontend/src",
     "strict": true
   },
-  "include": ["./frontend/src", "./tests"]
+  "include": ["./frontend/src", "./tests", "../github-actions"]
 }
