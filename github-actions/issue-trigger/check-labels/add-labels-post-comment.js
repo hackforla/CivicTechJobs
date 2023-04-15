@@ -1,4 +1,4 @@
-var fs = require("fs");
+// var fs = require("fs");
 
 // Constant variables
 const REQUIRED_LABELS = ['role', 'feature', 'size'];
@@ -14,9 +14,9 @@ async function main({ g, c }) {
   const github = g;
   const context = c;
 
-  const currentLabels = await context.payload.issue.labels.map(labelObj => labelObj.name);
-  console.log(currentLabels)
-  const missingLabels = getMissingLabels(context);
+  const issueLabels = await context.payload.issue.labels.map(labelObj => labelObj.name);
+  console.log(issueLabels)
+  const missingLabels = getMissingLabels(issueLabels);
   console.log(missingLabels)
   console.log(`owner: ${context.repo.owner}`)
 
@@ -55,7 +55,7 @@ function getMissingLabels(currentLabels) {
 
 function generateComment(creator, labels) {
   let filePathToTemplate = './github-actions/issue-trigger/check-labels/comment-template.md';
-  let text = readFileSync(filePathToTemplate).toString('utf-8');
+  let text = fs.readFileSync(filePathToTemplate).toString('utf-8');
   let labelsStr = labels.join(', ');
   console.log(labelsStr);
   let comment = text.replace('${issueCreator}', creator).replace('${labels}', labels.join(', '));
