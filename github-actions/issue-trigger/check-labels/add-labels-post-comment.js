@@ -21,7 +21,7 @@ async function main({ g, c }) {
   console.log(`owner: ${context.repo.owner}`)
 
 
-  const addLabelsAction = await github.issues.addLabels({
+  const addLabelsAction = await github.rest.issues.addLabels({
     owner: context.repo.owner,
     repo: context.repo.repo,
     issue_number: context.issue.number,
@@ -31,7 +31,7 @@ async function main({ g, c }) {
   const creator = await context.payload.sender.login;
   console.log(`creator: ${creator}`);
 
-  const postCommentAction = await github.issues.createComment({
+  const postCommentAction = await github.rest.issues.createComment({
     owner: context.repo.owner,
     repo: context.repo.repo,
     issue_number: context.issue.number,
