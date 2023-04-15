@@ -15,6 +15,7 @@ async function main({ g, c }) {
   const context = c;
 
   const currentLabels = await context.payload.issue.labels.map(labelObj => labelObj.name);
+  console.log(currentLabels)
   const missingLabels = getMissingLabels(context);
 
 
@@ -38,6 +39,9 @@ async function main({ g, c }) {
 function getMissingLabels(currentLabels) {
   let missingLabelsArr = [];
   for (const required_label of REQUIRED_LABELS) {
+    if (!currentLabels.length) {
+      missingLabelsArr.append(`${required_label}: missing`);
+    }
     if (!currentLabels.filter(label => label.startsWith(required_label)).length) {   
       missingLabelsArr.append(`${required_label}: missing`);
     }
