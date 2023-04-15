@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+var fs = require("fs");
 
 // Constant variables
 const REQUIRED_LABELS = ['role', 'feature', 'size'];
