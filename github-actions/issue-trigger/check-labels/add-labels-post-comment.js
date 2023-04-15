@@ -40,9 +40,10 @@ function getMissingLabels(currentLabels) {
   let missingLabelsArr = [];
   for (const required_label of REQUIRED_LABELS) {
     if (!currentLabels.length) {
+      console.log('Issue has no label currently.')
       missingLabelsArr.push(`${required_label}: missing`);
     }
-    if (!currentLabels.filter(label => label.startsWith(required_label)).length) {   
+    else if (!currentLabels.filter(label => label.startsWith(required_label)).length) {   
       missingLabelsArr.push(`${required_label}: missing`);
     }
   }
