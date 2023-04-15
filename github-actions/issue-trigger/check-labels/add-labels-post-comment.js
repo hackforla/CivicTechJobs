@@ -21,7 +21,7 @@ async function main({ g, c }) {
   console.log(`owner: ${context.repo.owner}`)
 
 
-  await github.issues.addLabels({
+  const addLabelsAction = await github.issues.addLabels({
     owner: context.repo.owner,
     repo: context.repo.repo,
     issue_number: context.issue.number,
@@ -31,7 +31,7 @@ async function main({ g, c }) {
   const creator = await context.payload.sender.login;
   console.log(`creator: ${creator}`);
 
-  await github.issues.createComment({
+  const postCommentAction = await github.issues.createComment({
     owner: context.repo.owner,
     repo: context.repo.repo,
     issue_number: context.issue.number,
@@ -43,7 +43,7 @@ function getMissingLabels(currentLabels) {
   let missingLabelsArr = [];
   for (const required_label of REQUIRED_LABELS) {
     if (!currentLabels.length) {
-      console.log('Issue has no label currently.')
+      console.log(`Issue has no ${required_label} label.`)
       missingLabelsArr.push(`${required_label}: missing`);
     }
     else if (!currentLabels.filter(label => label.startsWith(required_label)).length) {   
