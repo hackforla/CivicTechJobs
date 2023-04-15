@@ -1,5 +1,3 @@
-import { readFileSync } from "fs";
-
 // Constant variables
 const REQUIRED_LABELS = ['role', 'feature', 'size'];
 
