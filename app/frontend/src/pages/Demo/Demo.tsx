@@ -1,6 +1,6 @@
 // @ts-nocheck
 // External Imports
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useState } from "react";
 
 // Internal Imports
 import { Checkbox, Chip, TextField } from "components/components";
@@ -15,9 +15,50 @@ function Demo() {
   function checkboxOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     console.log(e.target.checked);
   }
-
+  console.log("changes");
   return (
     <Fragment>
+      <HeaderNav
+        logoDesktop={logoHorizontal}
+        logoMobile={logoStacked}
+        menu={[
+          { name: "Hack for LA", link: "/" },
+          { name: "How to Join", link: "/qualifier" },
+          { name: "Projects", link: "/demo" },
+        ]}
+      />
+      <NotificationBar>
+        <p>
+          This is a limited view. Please
+          <a
+            style={{
+              textDecoration: "underline",
+              color: "blue",
+            }}
+            href="https://www.hackforla.org/"
+          >
+            {" "}
+            attend onboarding{" "}
+          </a>
+          with Hack for LA or log in to see full opportunities.
+        </p>
+      </NotificationBar>
+      <NotificationBar autoHidden={true}>
+        <p>
+          This is a limited view. Please
+          <a
+            style={{
+              textDecoration: "underline",
+              color: "blue",
+            }}
+            href="https://www.hackforla.org/"
+          >
+            {" "}
+            attend onboarding{" "}
+          </a>
+          with Hack for LA or log in to see full opportunities.
+        </p>
+      </NotificationBar>
       <div className="m-5"></div>
       <div className="m-5">
         <h1>
