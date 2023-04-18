@@ -15,7 +15,9 @@ $themes: "primary", "success", "warning", "danger";
 }
 
 .notification-bar-x {
-  float: right;
+  right: 8px;
+  position: absolute;
+  top: 8px;
 }
 
 .notification-bar-fade-appear {

@@ -3,10 +3,9 @@
 import React, { Fragment, useState } from "react";
 
 // Internal Imports
-import { Checkbox, Chip, TextField } from "components/components";
+import { Checkbox, Chip, TextField, Notification } from "components/components";
 import { IconEyeClose, IconEyeOpen, IconSearch } from "assets/images/images";
 import { combineClasses } from "components/Utility/utils";
-import { NotificationBar } from "components/NotificationBar";
 
 function Demo() {
   function textFieldOnChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -18,13 +17,13 @@ function Demo() {
   }
   return (
     <Fragment>
-      <NotificationBar autoHidden>
+      <Notification closable fade>
         This is a limited view. Please{" "}
         <a href="https://www.hackforla.org/getting-started">
           attend onboarding
         </a>{" "}
         with Hack for LA or log in to see full opportunities.
-      </NotificationBar>
+      </Notification>
       <div className="m-5"></div>
       <div className="m-5">
         <h1>
