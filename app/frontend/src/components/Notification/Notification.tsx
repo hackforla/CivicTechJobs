@@ -22,12 +22,12 @@ function Notification({
   const [hidden, setHidden] = useState(false);
   const nodeRef = useRef(null);
 
-  const TransitionWrapper = (props) => {
+  const TransitionWrapper = (props: React.PropsWithChildren) => {
     return (
       <CSSTransition
         in={!hidden}
         nodeRef={nodeRef}
-        classNames="notification-bar-fade"
+        classNames="notification"
         timeout={1000}
         appear
         unmountOnExit

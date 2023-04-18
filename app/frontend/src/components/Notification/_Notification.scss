@@ -19,25 +19,25 @@
   top: 8px;
 }
 
-.notification-bar-fade-appear {
+.notification-appear {
   opacity: 0;
 }
 
-.notification-bar-fade-appear-active {
+.notification-appear-active {
   opacity: 1;
   transition-duration: 500ms;
 }
 
-.notification-bar-fade-enter {
+.notification-enter {
   opacity: 0;
 }
 
-.notification-bar-fade-enter-active {
+.notification-enter-active {
   opacity: 1;
   transition-duration: 500ms;
 }
 
-.notification-bar-fade-exit {
+.notification-exit {
   opacity: 1;
 }
 
