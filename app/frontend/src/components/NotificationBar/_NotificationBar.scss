@@ -10,28 +10,12 @@
 $themes: "primary", "success", "warning", "danger";
 
 .notification-bar {
+  background-color: $color-tan;
   height: 55px;
 }
 
-.notification-bar-text {
-  flex: 1;
-}
-
-.show {
-  visibility: visible;
-}
-
-.hide {
-  visibility: hidden;
-}
-
-.notification-bar-close img {
-  height: 10px;
-  width: 10px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  margin: 10px;
+.notification-bar-x {
+  float: right;
 }
 
 .notification-bar-fade-appear {
@@ -40,7 +24,7 @@ $themes: "primary", "success", "warning", "danger";
 
 .notification-bar-fade-appear-active {
   opacity: 1;
-  transition-duration: 300ms;
+  transition-duration: 500ms;
 }
 
 .notification-bar-fade-enter {
@@ -49,7 +33,7 @@ $themes: "primary", "success", "warning", "danger";
 
 .notification-bar-fade-enter-active {
   opacity: 1;
-  transition-duration: 300ms;
+  transition-duration: 500ms;
 }
 
 .notification-bar-fade-exit {
@@ -58,40 +42,5 @@ $themes: "primary", "success", "warning", "danger";
 
 .notification-bar-fade-exit-active {
   opacity: 0;
-  transition-duration: 300ms;
-}
-
-/*********************************************
-*** Notification Bar classes concerning color themes ***
-*********************************************/
-$theme-values: (
-  "primary": (
-    "background-color": #8abbff,
-    "color": black
-  ),
-  "success": (
-    "background-color": #72ca9b,
-    "color": black
-  ),
-  "warning": (
-    "background-color": $color-tan,
-    "color": black
-  ),
-  "danger": (
-    "background-color": #fa999c,
-    "color": black
-  )
-);
-
-@mixin notification-bar-theme($theme) {
-  $theme-map: map.get($theme-values, $theme);
-
-  background-color: map.get($theme-map, "background-color");
-  color: map.get($theme-map, "color");
-}
-
-@each $theme in $themes {
-  .notification-bar-#{$theme} {
-    @include notification-bar-theme($theme);
-  }
+  transition-duration: 500ms;
 }

@@ -6,6 +6,7 @@ import React, { Fragment, useState } from "react";
 import { Checkbox, Chip, TextField } from "components/components";
 import { IconEyeClose, IconEyeOpen, IconSearch } from "assets/images/images";
 import { combineClasses } from "components/Utility/utils";
+import { NotificationBar } from "components/NotificationBar";
 
 function Demo() {
   function textFieldOnChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -15,49 +16,14 @@ function Demo() {
   function checkboxOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     console.log(e.target.checked);
   }
-  console.log("changes");
   return (
     <Fragment>
-      <HeaderNav
-        logoDesktop={logoHorizontal}
-        logoMobile={logoStacked}
-        menu={[
-          { name: "Hack for LA", link: "/" },
-          { name: "How to Join", link: "/qualifier" },
-          { name: "Projects", link: "/demo" },
-        ]}
-      />
-      <NotificationBar>
-        <p>
-          This is a limited view. Please
-          <a
-            style={{
-              textDecoration: "underline",
-              color: "blue",
-            }}
-            href="https://www.hackforla.org/"
-          >
-            {" "}
-            attend onboarding{" "}
-          </a>
-          with Hack for LA or log in to see full opportunities.
-        </p>
-      </NotificationBar>
-      <NotificationBar autoHidden={true}>
-        <p>
-          This is a limited view. Please
-          <a
-            style={{
-              textDecoration: "underline",
-              color: "blue",
-            }}
-            href="https://www.hackforla.org/"
-          >
-            {" "}
-            attend onboarding{" "}
-          </a>
-          with Hack for LA or log in to see full opportunities.
-        </p>
+      <NotificationBar autoHidden>
+        This is a limited view. Please{" "}
+        <a href="https://www.hackforla.org/getting-started">
+          attend onboarding
+        </a>{" "}
+        with Hack for LA or log in to see full opportunities.
       </NotificationBar>
       <div className="m-5"></div>
       <div className="m-5">
