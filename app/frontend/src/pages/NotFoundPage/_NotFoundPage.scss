@@ -1,0 +1,28 @@
+@use "components/Basics" as *;
+
+.not-found-container {
+  margin: 234px auto;
+  max-width: 904px;
+
+  @include breakpoint-media-max("smtablet") {
+    margin: 48px auto;
+  } 
+}
+
+.not-found-box {
+  width: '348px';
+}
+
+.not-found-title {
+  @include breakpoint-media-max("smtablet") {
+    @include title(4);
+  }
+}
+
+.not-found-paragraph {
+  max-width: 348px;
+  
+  @include breakpoint-media-max("smtablet") {
+    @include paragraph(3);
+  }
+}

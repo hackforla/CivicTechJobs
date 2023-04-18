@@ -8,6 +8,7 @@ import {
 
 // Internal Imports
 import { Demo } from "pages/Demo/Demo";
+import { NotFoundPage } from "pages/NotFoundPage/NotFoundPage";
 import { LandingPage } from "pages/LandingPage/LandingPage";
 import {
   QualifierPage,
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
         />
       </Route>
       <Route path="/demo" element={<Demo />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Fragment>
   )
 );
