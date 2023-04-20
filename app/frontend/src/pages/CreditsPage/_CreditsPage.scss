@@ -1,0 +1,21 @@
+@use "components/Basics" as *;
+
+.credits-intro-container {
+  background-image: url("assets/images/svgs/credits-page-bg1.svg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 75vw;
+}
+
+.credits-join-us-container {
+  background-image: url("assets/images/svgs/credits-page-bg2.svg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 75vw;
+}
+
+.credits-test {
+  color: teal;
+}

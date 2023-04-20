@@ -13,6 +13,7 @@
 @use "components/Navigation" as *;
 
 // Import page styles
+@use "pages/CreditsPage/CreditsPage";
 @use "pages/Demo/Demo";
 @use "pages/NotFoundPage/NotFoundPage";
 @use "pages/LandingPage/" as *;
