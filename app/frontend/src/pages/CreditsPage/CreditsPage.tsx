@@ -23,13 +23,16 @@ const CreditsPage = () => {
         ]}
       />
       <main>
-        <div className="credits-intro-container">
-
+        <div className="text-center credits-intro-container">
+          <div className="text-container text-left">
+            <h1 className="credits-intro-title mb-3">Credits</h1>
+            <p className="paragraph-1 credits-intro-paragraph">
+            Thank you to all of the artists and sponsors who help make our projects successful. Check out all of the illustrations and iconography we have used on our site.
+            </p>
+          </div>
         </div>
         <div className="credits-test">CreditsPage</div>
-        <div className="credits-join-us-container">
-          
-        </div>
+        <div className="credits-join-us-container"></div>
       </main>
       <FooterNav
         logoDesktop={logoHorizontalOnDark}
