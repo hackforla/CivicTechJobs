@@ -7,8 +7,10 @@ import {
   logoStacked,
   logoHorizontalOnDark,
   logoStackedOnDark,
+  HowToJoin
 } from "assets/images/images";
 import { HeaderNav, FooterNav } from "components/components";
+import { Card } from "components/Cards/StandardCard";
 
 const CreditsPage = () => {
   return (
@@ -27,7 +29,9 @@ const CreditsPage = () => {
           <div className="text-container text-left">
             <h1 className="credits-intro-title mb-3">Credits</h1>
             <p className="paragraph-1 credits-intro-paragraph">
-            Thank you to all of the artists and sponsors who help make our projects successful. Check out all of the illustrations and iconography we have used on our site.
+              Thank you to all of the artists and sponsors who help make our
+              projects successful. Check out all of the illustrations and
+              iconography we have used on our site.
             </p>
           </div>
         </div>

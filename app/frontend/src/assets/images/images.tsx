@@ -67,6 +67,9 @@ import logoType from "./svgs/logos/logo-logotype.svg?url";
 import logoVertical from "./svgs/logos/logo-vertical.svg?url";
 import logoWordmark from "./svgs/logos/logo-wordmark.svg?url";
 
+// Credits
+import howToJoin from "./svgs/credits/illustrations/how-to-join.svg"
+
 interface defaultProps {
   [attribute: string]: string;
 }
@@ -160,6 +163,12 @@ const LogoWordmark = svgWrapper(LogoWordmarkP, {
   desc: "platform name and logo with a word play",
 });
 
+// Credits
+const HowToJoin = svgWrapper(howToJoin, {
+  title: howToJoinIllustration,
+  desc: "How To Join Illustration",
+});
+
 export {
   // COP Icons
   CopIconData,
@@ -220,4 +229,6 @@ export {
   landingPageFg,
   landingPageBg,
   notFoundPageImg,
+  // Credits Illustration
+  HowToJoin,
 };
