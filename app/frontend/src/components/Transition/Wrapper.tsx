@@ -1,5 +1,5 @@
 // External exports
-import React, { useState, useRef, Fragment, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { CSSTransition } from "react-transition-group";
 
 interface TransitionWrapper extends React.PropsWithChildren {
