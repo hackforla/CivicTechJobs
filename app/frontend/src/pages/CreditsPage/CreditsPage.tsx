@@ -6,8 +6,7 @@ import {
   logoHorizontal,
   logoStacked,
   logoHorizontalOnDark,
-  logoStackedOnDark,
-  HowToJoin
+  logoStackedOnDark
 } from "assets/images/images";
 import { HeaderNav, FooterNav } from "components/components";
 import { Card } from "components/Cards/StandardCard";
