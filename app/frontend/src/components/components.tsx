@@ -13,6 +13,7 @@ import { HeaderNav } from "./Navigation/HeaderNav";
 import { FooterNav } from "./Navigation/FooterNav";
 import { ProgressBar } from "./Navigation/ProgressBar";
 import { Notification } from "./Notification/Notification";
+import { TransitionWrapper } from "./Transition/Wrapper";
 
 export {
   // Buttons
@@ -38,4 +39,6 @@ export {
   ProgressBar,
   // Notification
   Notification,
+  // Transition
+  TransitionWrapper,
 };

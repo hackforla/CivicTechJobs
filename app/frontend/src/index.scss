@@ -12,6 +12,7 @@
 @use "components/Inputs" as *;
 @use "components/Navigation" as *;
 @use "components/Notification/Notification";
+@use "components/Transition/Wrapper";
 
 // Import page styles
 @use "pages/Demo/Demo";
