@@ -24,6 +24,23 @@ function Demo() {
         </a>{" "}
         with Hack for LA or log in to see full opportunities.
       </Notification>
+      <br></br>
+      <Notification closable>
+        This is a limited view. Please{" "}
+        <a href="https://www.hackforla.org/getting-started">
+          attend onboarding
+        </a>{" "}
+        with Hack for LA or log in to see full opportunities.
+      </Notification>
+      <br></br>
+      <Notification autoHidden>
+        This is a limited view. Please{" "}
+        <a href="https://www.hackforla.org/getting-started">
+          attend onboarding
+        </a>{" "}
+        with Hack for LA or log in to see full opportunities.
+      </Notification>
+      <br></br>
       <div className="m-5"></div>
       <div className="m-5">
         <h1>

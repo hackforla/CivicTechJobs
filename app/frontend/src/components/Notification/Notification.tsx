@@ -1,16 +1,17 @@
-// Eternal Imports
+// External Imports
 import { combineClasses } from "components/Utility/utils";
-import React, { useState, useRef, Fragment } from "react";
-import { CSSTransition } from "react-transition-group";
+import React, { useState } from "react";
 import { IconButton } from "components/components";
 
 // Internal Imports
 import { iconX } from "../../assets/images/images";
+import { TransitionWrapper } from "components/components";
 
 interface NotificationProps extends React.PropsWithChildren {
   autoHidden: boolean;
   closable: boolean;
   fade: boolean;
+  show: boolean;
 }
 
 function Notification({
@@ -19,50 +20,52 @@ function Notification({
   fade = false,
   ...props
 }: NotificationProps) {
-  const [hidden, setHidden] = useState(false);
-  const nodeRef = useRef(null);
+  const [isHidden, setIsHidden] = useState(false);
+  const [show, setShow] = useState(true);
 
-  const TransitionWrapper = (props: React.PropsWithChildren) => {
+  const CloseButton = () => {
+    function handleClick() {
+      if (autoHidden || fade) {
+        setShow(false);
+      } else {
+        setIsHidden(true);
+      }
+    }
+
     return (
-      <CSSTransition
-        in={!hidden}
-        nodeRef={nodeRef}
-        classNames="notification"
-        timeout={1000}
-        appear
-        unmountOnExit
-        onEntered={() => {
-          if (autoHidden) setHidden(true);
+      <IconButton
+        addClass="notification-x"
+        iconUrl={iconX}
+        label="close"
+        onClick={() => {
+          handleClick();
         }}
-      >
-        <div ref={nodeRef}>{props.children}</div>
-      </CSSTransition>
+      />
     );
   };
 
-  const Tag = fade || autoHidden ? TransitionWrapper : Fragment;
-
-  return (
-    <Tag>
+  const Bar = () => {
+    return (
       <div
         className={combineClasses(
           "flex-center-x",
           "align-center",
-          "notification-bar",
-          hidden && !fade && "hidden"
+          "notification",
+          isHidden && "hidden"
         )}
       >
-        {closable && (
-          <IconButton
-            addClass="notification-bar-x"
-            iconUrl={iconX}
-            label="close"
-            onClick={() => setHidden(true)}
-          />
-        )}
+        {closable && <CloseButton />}
         <div className="paragraph-3 text-center">{props.children}</div>
       </div>
-    </Tag>
+    );
+  };
+
+  return fade || autoHidden ? (
+    <TransitionWrapper show={show} autoExit={autoHidden}>
+      <Bar></Bar>
+    </TransitionWrapper>
+  ) : (
+    <Bar></Bar>
   );
 }
 

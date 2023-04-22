@@ -8,40 +8,14 @@
 *** Notification Bar class ***
 *****************************/
 
-.notification-bar {
+.notification {
   background-color: $color-tan;
+  position: relative;
   height: 55px;
 }
 
-.notification-bar-x {
+.notification-x {
   right: 8px;
   position: absolute;
   top: 8px;
-}
-
-.notification-appear {
-  opacity: 0;
-}
-
-.notification-appear-active {
-  opacity: 1;
-  transition-duration: 500ms;
-}
-
-.notification-enter {
-  opacity: 0;
-}
-
-.notification-enter-active {
-  opacity: 1;
-  transition-duration: 500ms;
-}
-
-.notification-exit {
-  opacity: 1;
-}
-
-.notification-bar-fade-exit-active {
-  opacity: 0;
-  transition-duration: 500ms;
 }
