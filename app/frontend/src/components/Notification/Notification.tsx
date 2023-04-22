@@ -1,6 +1,6 @@
 // External Imports
 import { combineClasses } from "components/Utility/utils";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IconButton } from "components/components";
 
 // Internal Imports
@@ -8,25 +8,35 @@ import { iconX } from "../../assets/images/images";
 import { TransitionWrapper } from "components/components";
 
 interface NotificationProps extends React.PropsWithChildren {
-  autoHidden: boolean;
-  closable: boolean;
-  fade: boolean;
-  show: boolean;
+  autoHidden?: boolean;
+  closable?: boolean;
+  fade?: boolean;
+  role?: "status" | "alert";
+  show?: boolean;
 }
 
 function Notification({
   autoHidden = false,
   closable = false,
   fade = false,
+  role = "status",
+  show = true,
   ...props
 }: NotificationProps) {
   const [isHidden, setIsHidden] = useState(false);
-  const [show, setShow] = useState(true);
+  const [isShow, setIsShow] = useState(show);
+
+  useEffect(() => {
+    setIsShow(show);
+    if (!show) {
+      setIsHidden(true);
+    }
+  }, [show]);
 
   const CloseButton = () => {
     function handleClick() {
       if (autoHidden || fade) {
-        setShow(false);
+        setIsShow(false);
       } else {
         setIsHidden(true);
       }
@@ -53,6 +63,8 @@ function Notification({
           "notification",
           isHidden && "hidden"
         )}
+        aria-hidden={isHidden}
+        role={role}
       >
         {closable && <CloseButton />}
         <div className="paragraph-3 text-center">{props.children}</div>
@@ -61,7 +73,7 @@ function Notification({
   };
 
   return fade || autoHidden ? (
-    <TransitionWrapper show={show} autoExit={autoHidden}>
+    <TransitionWrapper show={isShow} autoExit={autoHidden}>
       <Bar></Bar>
     </TransitionWrapper>
   ) : (
