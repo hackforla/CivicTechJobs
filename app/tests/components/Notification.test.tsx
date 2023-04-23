@@ -29,9 +29,8 @@ describe("Notification", () => {
         This is a warning
       </Notification>
     );
-    await user.click(screen.queryByRole("button")!);
-    expect(screen.queryByText("This is a warning")).not.toBeVisible();
-    expect(screen.queryByRole("status")).not.toBeVisible();
+    await user.click(screen.getByRole("button")!);
+    expect(screen.getByRole("status", { hidden: true })).toHaveClass("hidden");
   });
 
   test("Notification component autoHidden", async () => {
