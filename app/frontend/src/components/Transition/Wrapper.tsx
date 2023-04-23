@@ -26,7 +26,7 @@ const TransitionWrapper = ({
       in={isNotificationOnDOM}
       nodeRef={nodeRef}
       classNames="fade"
-      timeout={400}
+      timeout={1000}
       unmountOnExit
       appear
       onEntered={() => {
