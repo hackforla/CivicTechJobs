@@ -1,0 +1,21 @@
+// External Imports
+@use "sass:map";
+
+// Internal Imports
+@use "../Basics" as *;
+
+/*****************************
+*** Notification Bar class ***
+*****************************/
+
+.notification {
+  background-color: $color-tan;
+  position: relative;
+  height: 55px;
+}
+
+.notification-x {
+  right: 16px;
+  position: absolute;
+  top: 8px;
+}
