@@ -13,8 +13,8 @@ RUN apk add --no-cache \
   python3-dev~=3.9 \
   musl-dev~=1.2 \
   py3-pip~=20.3 \
-  nodejs \
-  npm
+  nodejs~=16.20 \
+  npm~=8.1.3
 
 
 # install python dependencies
