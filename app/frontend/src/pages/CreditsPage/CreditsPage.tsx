@@ -8,7 +8,7 @@ import {
   logoHorizontalOnDark,
   logoStackedOnDark
 } from "assets/images/images";
-import { HeaderNav, FooterNav } from "components/components";
+import { HeaderNav, FooterNav, Button } from "components/components";
 import { Card } from "components/Cards/StandardCard";
 import { iconData } from "pages/api_data/creditsIconData";
 import { illustrationData } from "pages/api_data/creditsIllustrationData";
@@ -54,17 +54,34 @@ const CreditsPage = () => {
             </p>
           </div>
         </div>
-        <div className="credits-test">CreditsPage</div>
+        <div className="credits-test">Illustrations & Iconography</div>
+        
         <div>
-          
+          <Button
+            color="primary"
+            size="md"
+            length="long"
+          >
+            Illustrations
+          </Button>
+          <Button
+            size="md"
+            length="long"
+          >
+            Iconography
+          </Button>
         </div>
+      
         <div className="grid gap-5">
         { cardsData.map((cardData) => (
-        <Card key={cardData.id}>
-          <cardData.image />
+        <Card key={cardData.id} addClass="credit-card">
+          <div>
+          <cardData.image className="credit-card-img" />
           <p>Name: <span>{cardData.name}</span></p> 
           <p>Usedin: <span>{cardData.usedIn}</span></p> 
           <p>Provider: <span>{cardData.provider}</span></p> 
+          </div>
+          
         </Card>
       ))}
         </div>

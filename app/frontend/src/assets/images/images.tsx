@@ -178,12 +178,12 @@ const iconMenuSvg = svgWrapper(icongraphyMenu, {
   desc: "icon representing the scatter plot and line graph",
 });
 const iconCrossSvg = svgWrapper(icongraphyCross, {
-  title: "Data Science Community of Practice Logo",
-  desc: "icon representing the scatter plot and line graph",
+  title: "",
+  desc: "",
 });
 const iconArrowDownSvg = svgWrapper(icongraphyArrowDown, {
-  title: "Data Science Community of Practice Logo",
-  desc: "icon representing the scatter plot and line graph",
+  title: "",
+  desc: "",
 });
 
 
