@@ -47,6 +47,8 @@ import iconX from "./svgs/icons/icon-x.svg?url";
 import landingPageFg from "./svgs/landing-page-fg.svg?url";
 import landingPageBg from "./svgs/landing-page-bg.svg?url";
 import notFoundPageImg from "./svgs/not-found-page.svg?url";
+// import creditsPageBgTop from "./svgs/credits-page-bg-top.svg";
+// import creditsPageBgBottom from "./svgs/credits-page-bg-bottom.svg";
 
 // CTJ Logos
 import LogoHorizontalP from "./svgs/logos/logo-horizontal.svg";
@@ -67,6 +69,14 @@ import logoType from "./svgs/logos/logo-logotype.svg?url";
 import logoVertical from "./svgs/logos/logo-vertical.svg?url";
 import logoWordmark from "./svgs/logos/logo-wordmark.svg?url";
 
+// Credits Illustrations
+import illustrationTeamPage from "./svgs/credits/illustrations/team-page.svg";
+import illustrationOnboarding from "./svgs/credits/illustrations/onboarding.svg";
+
+// Credits Icons
+import icongraphyMenu from "./svgs/credits/icons/menu.svg";
+import icongraphyCross from "./svgs/credits/icons/cross.svg";
+import icongraphyArrowDown from "./svgs/credits/icons/arrow-down.svg";
 
 interface defaultProps {
   [attribute: string]: string;
@@ -162,6 +172,7 @@ const LogoWordmark = svgWrapper(LogoWordmarkP, {
 });
 
 
+
 export {
   // COP Icons
   CopIconData,
@@ -222,4 +233,13 @@ export {
   landingPageFg,
   landingPageBg,
   notFoundPageImg,
+  // creditsPageBgTop,
+  // creditsPageBgBottom,
+  // Credits Page Illustrations
+  illustrationTeamPage,
+  illustrationOnboarding,
+  // Credits Page Icons
+  icongraphyMenu,
+  icongraphyCross,
+  icongraphyArrowDown
 };

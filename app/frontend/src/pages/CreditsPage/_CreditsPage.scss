@@ -1,7 +1,7 @@
 @use "components/Basics" as *;
 
 .credits-intro-container {
-  background-image: url("assets/images/svgs/credits-page-bg1.svg");
+  background-image: url("assets/images/svgs/credits-page-bg-top.svg");
   background-position: top;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -10,7 +10,7 @@
 }
 
 .credits-join-us-container {
-  background-image: url("assets/images/svgs/credits-page-bg2.svg");
+  background-image: url("assets/images/svgs/credits-page-bg-bottom.svg");
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: 100%;
