@@ -172,6 +172,20 @@ const LogoWordmark = svgWrapper(LogoWordmarkP, {
 });
 
 
+// Credits Page Icons
+const iconMenuSvg = svgWrapper(icongraphyMenu, {
+  title: "Data Science Community of Practice Logo",
+  desc: "icon representing the scatter plot and line graph",
+});
+const iconCrossSvg = svgWrapper(icongraphyCross, {
+  title: "Data Science Community of Practice Logo",
+  desc: "icon representing the scatter plot and line graph",
+});
+const iconArrowDownSvg = svgWrapper(icongraphyArrowDown, {
+  title: "Data Science Community of Practice Logo",
+  desc: "icon representing the scatter plot and line graph",
+});
+
 
 export {
   // COP Icons
@@ -239,7 +253,7 @@ export {
   illustrationTeamPage,
   illustrationOnboarding,
   // Credits Page Icons
-  icongraphyMenu,
-  icongraphyCross,
-  icongraphyArrowDown
+  iconMenuSvg,
+  iconCrossSvg,
+  iconArrowDownSvg
 };
