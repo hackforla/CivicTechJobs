@@ -6,7 +6,7 @@ import {
   logoHorizontal,
   logoStacked,
   logoHorizontalOnDark,
-  logoStackedOnDark
+  logoStackedOnDark,
 } from "assets/images/images";
 import { HeaderNav, FooterNav, Button } from "components/components";
 import { Card } from "components/Cards/StandardCard";
@@ -65,39 +65,45 @@ const CreditsPage = () => {
             </p>
           </div>
         </div>
-        <div className="credits-test">Illustrations & Iconography</div>
-        
-        <div>
-          <Button
-            color="primary"
-            size="md"
-            length="long"
-            onClick={toggleToIllustrations}
-          >
-            Illustrations
-          </Button>
-          <Button
-            size="md"
-            length="long"
-            onClick={toggleToIcons}
-          >
-            Iconography
-          </Button>
-        </div>
-      
-        <div className="grid gap-5">
-        { activeData.map((cardData) => (
-        <Card key={cardData.id} addClass="credit-card">
+        <div className="main-container">
+          <h3 className="credits-test">Illustrations & Iconography</h3>
+
           <div>
-          <cardData.imgSrc className="credit-card-img" />
-          <p>Name: <span>{cardData.name}</span></p> 
-          <p>Usedin: <span>{cardData.usedIn}</span></p> 
-          <p>Provider: <span>{cardData.provider}</span></p> 
+            <Button
+              color="primary"
+              size="md"
+              length="long"
+              onClick={toggleToIllustrations}
+              addClass="mr-3"
+            >
+              Illustrations
+            </Button>
+            <Button size="md" length="long" onClick={toggleToIcons}>
+              Iconography
+            </Button>
           </div>
-          
-        </Card>
-      ))}
+
+          <div className="grid">
+            {activeData.map((cardData) => (
+              <Card key={cardData.id} addClass="credit-card">
+                <div>
+                  <cardData.imgSrc className="credit-card-img" />
+                  <p>
+                    Name: <span>{cardData.name}</span>
+                  </p>
+                  <p>
+                    Used In: <span>{cardData.usedIn}</span>
+                  </p>
+                  <p>
+                    Provider: <span>{cardData.provider}</span>
+                  </p>
+                  <a href={cardData.link}>Learn more</a>
+                </div>
+              </Card>
+            ))}
+          </div>
         </div>
+
         <div className="credits-join-us-container"></div>
       </main>
       <FooterNav

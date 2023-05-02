@@ -14,7 +14,7 @@ interface illustrationDatum {
   name: string;
   usedIn: string;
   provider: string;
-  link: Url;
+  link: string;
 }
 
 const illustrationData: illustrationDatum[] = [
@@ -25,7 +25,7 @@ const illustrationData: illustrationDatum[] = [
     name: "Team Page",
     usedIn: "How to Join",
     provider: "Storyset",
-    link: "",
+    link: "https://storyset.com/illustration/team-page/pana",
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ const illustrationData: illustrationDatum[] = [
     name: "Onboarding",
     usedIn: "How to Join",
     provider: "Storyset",
-    link: "",
+    link: "https://storyset.com/illustration/onboarding/pana",
   },
   {
     id: 3,

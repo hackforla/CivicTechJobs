@@ -47,14 +47,19 @@
   }
 }
 
+.main-container {
+  padding: 5rem 8rem;
+}
+
 .credits-test {
   color: teal;
 }
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  height: 500px;
-  margin: 2rem 5rem;
+  gap: 5rem;
+  margin-top: 5rem;
 }
 
 .credit-card {

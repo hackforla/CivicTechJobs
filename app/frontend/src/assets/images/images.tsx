@@ -188,7 +188,7 @@ const iconArrowDownSvg = svgWrapper(icongraphyArrowDown, {
 
 // Credits Page Illustrations
 const illustrationTeamPageSvg = svgWrapper(illustrationTeamPage, {
-  title: "Data Science Community of Practice Logo",
+  title: "Team Page",
   desc: "icon representing the scatter plot and line graph",
 });
 const illustrationOnboardingSvg = svgWrapper(illustrationOnboarding, {
