@@ -12,7 +12,7 @@ type Url = UrlString | UrlObject;
 
 interface iconDatum {
   id: number;
-  image: React.ElementType;
+  imgSrc: React.ElementType;
   name: string;
   usedIn: string;
   provider: string;
@@ -23,7 +23,7 @@ const iconData: iconDatum[] = [
 // const iconData = [
   {
     id: 1,
-    image: iconMenuSvg,
+    imgSrc: iconMenuSvg,
     name: "Menu line",
     usedIn: "Multiple pages",
     provider: "Majesticons",
@@ -31,7 +31,7 @@ const iconData: iconDatum[] = [
   },
   {
     id: 2,
-    image: iconCrossSvg,
+    imgSrc: iconCrossSvg,
     name: "Cross line",
     usedIn: "Multiple pages",
     provider: "Majesticons",
@@ -39,7 +39,7 @@ const iconData: iconDatum[] = [
   },
   {
     id: 3,
-    image: iconArrowDownSvg,
+    imgSrc: iconArrowDownSvg,
     name: "Arrow down line",
     usedIn: "How to Join",
     provider: "Majesticons",

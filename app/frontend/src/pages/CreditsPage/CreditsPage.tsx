@@ -14,7 +14,18 @@ import { iconData } from "pages/api_data/creditsIconData";
 import { illustrationData } from "pages/api_data/creditsIllustrationData";
 
 const CreditsPage = () => {
-  const [cardsData, setCardsData] = useState(iconData);
+  const [illustrations, setIllustrations] = useState(illustrationData);
+
+  const [icons, setIcons] = useState(iconData);
+  const [activeData, setActiveData] = useState(illustrations);
+
+  function toggleToIcons() {
+    setActiveData(icons);
+  }
+
+  function toggleToIllustrations() {
+    setActiveData(illustrations);
+  }
   // console.log(iconData);
   // let cardsData = [{
   //   id: useId(),
@@ -61,22 +72,24 @@ const CreditsPage = () => {
             color="primary"
             size="md"
             length="long"
+            onClick={toggleToIllustrations}
           >
             Illustrations
           </Button>
           <Button
             size="md"
             length="long"
+            onClick={toggleToIcons}
           >
             Iconography
           </Button>
         </div>
       
         <div className="grid gap-5">
-        { cardsData.map((cardData) => (
+        { activeData.map((cardData) => (
         <Card key={cardData.id} addClass="credit-card">
           <div>
-          <cardData.image className="credit-card-img" />
+          <cardData.imgSrc className="credit-card-img" />
           <p>Name: <span>{cardData.name}</span></p> 
           <p>Usedin: <span>{cardData.usedIn}</span></p> 
           <p>Provider: <span>{cardData.provider}</span></p> 

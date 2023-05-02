@@ -1,8 +1,7 @@
 // data that will be used for credits page
-import { useId } from "react";
 import {
-  illustrationTeamPage,
-  illustrationOnboarding
+  illustrationTeamPageSvg,
+  illustrationOnboardingSvg
 } from "assets/images/images";
 
 type UrlString = string;
@@ -10,8 +9,8 @@ type UrlObject = URL;
 type Url = UrlString | UrlObject;
 
 interface illustrationDatum {
-  id: string;
-  image: SVGAElement;
+  id: number;
+  imgSrc: React.ElementType;
   name: string;
   usedIn: string;
   provider: string;
@@ -21,16 +20,24 @@ interface illustrationDatum {
 const illustrationData: illustrationDatum[] = [
 // const illustrationData = [
   {
-    id: useId(),
-    image: illustrationTeamPage,
+    id: 1,
+    imgSrc: illustrationTeamPageSvg,
     name: "Team Page",
     usedIn: "How to Join",
     provider: "Storyset",
     link: "",
   },
   {
-    id: useId(),
-    image: illustrationOnboarding,
+    id: 2,
+    imgSrc: illustrationOnboardingSvg,
+    name: "Onboarding",
+    usedIn: "How to Join",
+    provider: "Storyset",
+    link: "",
+  },
+  {
+    id: 3,
+    imgSrc: illustrationOnboardingSvg,
     name: "Onboarding",
     usedIn: "How to Join",
     provider: "Storyset",
