@@ -11,7 +11,7 @@ services:
 
   django:
     build:
-      context: ./app
+      context: ./backend
       dockerfile: ../dev/django.dockerfile
     container_name: django
     command: >
@@ -20,7 +20,7 @@ services:
       python manage.py runserver 0.0.0.0:8000 &&
       python manage.py generateschema --file openapi-schema.yml"
     volumes:
-      - ./app/:/code
+      - ./backend/:/code
     ports:
       - "0.0.0.0:8000:8000"
     env_file:
@@ -30,14 +30,14 @@ services:
 
   webpack:
     build:
-      context: ./app
+      context: ./frontend
       dockerfile: ../dev/webpack.dockerfile
     container_name: webpack
     command: npm run watch
     env_file:
       - ./dev/dev.env
     volumes:
-      - ./app/:/code
+      - ./frontend/:/code
 
   linter:
     profiles: ["lint"]

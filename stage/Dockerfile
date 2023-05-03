@@ -1,13 +1,13 @@
 FROM node:18-alpine as react-builder
 WORKDIR /code
-COPY ./package.json .
-COPY ./package-lock.json .
+COPY ./frontend/package.json .
+COPY ./frontend/package-lock.json .
 RUN npm install
 COPY . .
 RUN npm run build
 
 FROM python:3-alpine as django-builder
-COPY requirements.stage.txt /
+COPY backend/requirements.stage.txt /
 RUN pip wheel --no-cache-dir --no-deps --wheel-dir /wheels -r requirements.stage.txt
 
 FROM python:3-alpine

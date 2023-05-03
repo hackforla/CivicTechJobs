@@ -11,7 +11,7 @@ services:
 
   django:
     build:
-      context: ./app
+      context: .
       dockerfile: ../stage/Dockerfile
     container_name: django
     ports:

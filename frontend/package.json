@@ -5,7 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "watch": "webpack --mode development --watch",
-    "build": "webpack --mode production --output-path ../backend/server/static/backend",
+    "build": "webpack --mode production --output-path ../backend/frontend/static/frontend",
     "test": "jest --config ./jest.config.js --testPathPattern=tests/",
     "test:w": "jest --config ./jest.config.js --watchAll --testPathPattern=tests/"
   },
