@@ -18,30 +18,14 @@ const CreditsPage = () => {
   const [icons, setIcons] = useState(iconData);
   const [activeData, setActiveData] = useState(illustrations);
 
-  function toggleToIcons() {
+  const toggleToIcons = () => {
     setActiveData(icons);
   }
 
-  function toggleToIllustrations() {
+  const toggleToIllustrations = () => {
     setActiveData(illustrations);
   }
-  // console.log(iconData);
-  // let cardsData = [{
-  //   id: useId(),
-  //   image: '',
-  //   name: "Team Page",
-  //   usedIn: "How to Join",
-  //   provider: "Storyset",
-  //   link: "",
-  // },
-  // {
-  //   id: useId(),
-  //   image: '',
-  //   name: "Onboarding",
-  //   usedIn: "How to Join",
-  //   provider: "Storyset",
-  //   link: "",
-  // }]
+  
   return (
     <>
       <HeaderNav
@@ -96,13 +80,13 @@ const CreditsPage = () => {
                   <p>
                     Provider: <span>{cardData.provider}</span>
                   </p> */}
-                  <div className="container mt-3">
-                    <div className="column">
+                  <div className="flex-container mt-3 mb-5">
+                    <div className="flex-column mr-2">
                       <div className="label">Name:</div>
                       <div className="label">Used In:</div>
                       <div className="label">Provider:</div>
                     </div>
-                    <div className="column">
+                    <div className="flex-column">
                       <div className="value">{cardData.name}</div>
                       <div className="value">{cardData.usedIn}</div>
                       <div className="value">{cardData.provider}</div>

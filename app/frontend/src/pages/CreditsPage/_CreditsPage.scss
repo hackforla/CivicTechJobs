@@ -70,6 +70,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-right: 0;
 }
 
 .credit-card-img {
@@ -86,7 +87,6 @@
 .column {
   display: flex;
   flex-direction: column;
-  // margin-right: 20px;
   font-size: 16px;
   color: $color-charcoal;
 }
@@ -97,7 +97,5 @@
 }
 
 .value {
-  // margin-top: 4px;
   line-height: 22px;
-
 }
