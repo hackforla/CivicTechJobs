@@ -44,7 +44,7 @@ jobs:
           # Full git history is needed to get a proper list of changed files within `super-linter`
           fetch-depth: 0
 
-      - run: cd app
+      - run: cd frontend
       - name: Download Linter Plugins
         uses: actions/setup-node@v3
         with:
