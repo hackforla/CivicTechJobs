@@ -8,8 +8,8 @@
     "allowJs": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "baseUrl": "./frontend/src",
+    "baseUrl": "./src",
     "strict": true
   },
-  "include": ["./frontend/src", "./tests"]
+  "include": ["./src", "./tests"]
 }
