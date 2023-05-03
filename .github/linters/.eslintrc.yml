@@ -27,7 +27,7 @@ parser: "@typescript-eslint/parser"
 parserOptions:
   ecmaVersion: 2018
   sourceType: module
-  project: "../app/tsconfig.json"
+  project: "../frontend/tsconfig.json"
   tsconfigRootDir: __dirname
 
 ignorePatterns:
