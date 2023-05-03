@@ -1,4 +1,8 @@
 @use "components/Basics" as *;
+.main-container {
+  max-width: 1088px;
+  margin: 0 auto;
+}
 
 .credits-intro-container {
   background-image: url("assets/images/svgs/credits-page-bg-top.svg");
@@ -52,12 +56,12 @@
 }
 
 .credits-test {
-  color: teal;
+  color: $color-charcoal;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 5rem;
   margin-top: 5rem;
 }
@@ -71,4 +75,29 @@
 .credit-card-img {
   width: 200px;
   height: 200px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  // margin-right: 20px;
+  font-size: 16px;
+  color: $color-charcoal;
+}
+
+.label {
+  font-weight: bold;
+  line-height: 22px;
+}
+
+.value {
+  // margin-top: 4px;
+  line-height: 22px;
+
 }

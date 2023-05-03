@@ -15,7 +15,6 @@ import { illustrationData } from "pages/api_data/creditsIllustrationData";
 
 const CreditsPage = () => {
   const [illustrations, setIllustrations] = useState(illustrationData);
-
   const [icons, setIcons] = useState(iconData);
   const [activeData, setActiveData] = useState(illustrations);
 
@@ -88,7 +87,7 @@ const CreditsPage = () => {
               <Card key={cardData.id} addClass="credit-card">
                 <div>
                   <cardData.imgSrc className="credit-card-img" />
-                  <p>
+                  {/* <p>
                     Name: <span>{cardData.name}</span>
                   </p>
                   <p>
@@ -96,7 +95,19 @@ const CreditsPage = () => {
                   </p>
                   <p>
                     Provider: <span>{cardData.provider}</span>
-                  </p>
+                  </p> */}
+                  <div className="container mt-3">
+                    <div className="column">
+                      <div className="label">Name:</div>
+                      <div className="label">Used In:</div>
+                      <div className="label">Provider:</div>
+                    </div>
+                    <div className="column">
+                      <div className="value">{cardData.name}</div>
+                      <div className="value">{cardData.usedIn}</div>
+                      <div className="value">{cardData.provider}</div>
+                    </div>
+                  </div>
                   <a href={cardData.link}>Learn more</a>
                 </div>
               </Card>

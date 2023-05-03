@@ -70,13 +70,33 @@ import logoVertical from "./svgs/logos/logo-vertical.svg?url";
 import logoWordmark from "./svgs/logos/logo-wordmark.svg?url";
 
 // Credits Illustrations
-import illustrationTeamPage from "./svgs/credits/illustrations/team-page.svg";
+import illustrationCreativeTeam from './svgs/credits/illustrations/creative-team.svg';
+import illustrationDigitalPresentation from './svgs/credits/illustrations/digital-presentation.svg';
+import illustrationHighFive from './svgs/credits/illustrations/high-five.svg';
 import illustrationOnboarding from "./svgs/credits/illustrations/onboarding.svg";
+import illustrationSelect from './svgs/credits/illustrations/select.svg';
+import illustrationSignUp from './svgs/credits/illustrations/sign-up.svg';
+import illustrationTeamPage from './svgs/credits/illustrations/team-page.svg';
+import illustrationTeamSpirit from './svgs/credits/illustrations/team-spirit.svg';
+import illustrationTeamWork from './svgs/credits/illustrations/team-work.svg';
 
 // Credits Icons
-import icongraphyMenu from "./svgs/credits/icons/menu.svg";
 import icongraphyCross from "./svgs/credits/icons/cross.svg";
 import icongraphyArrowDown from "./svgs/credits/icons/arrow-down.svg";
+import icongraphyArrowLeft from "./svgs/credits/icons/arrow-left.svg";
+import icongraphyCarousel from "./svgs/credits/icons/carousel.svg";
+import icongraphyCheck from "./svgs/credits/icons/check.svg";
+import icongraphyChevronDown from "./svgs/credits/icons/chevron-down.svg";
+import icongraphyChevronLeft from "./svgs/credits/icons/chevron-left.svg";
+import icongraphyChevronRight from "./svgs/credits/icons/chevron-right.svg";
+import icongraphyChevronUp from "./svgs/credits/icons/chevron-up.svg";
+import icongraphyClipboard from "./svgs/credits/icons/clipboard.svg";
+import icongraphyCross from "./svgs/credits/icons/cross.svg";
+import icongraphyFilter from "./svgs/credits/icons/filter.svg";
+import icongraphyMenu from "./svgs/credits/icons/menu.svg";
+import icongraphyMinus from "./svgs/credits/icons/minus.svg";
+import icongraphyPlus from "./svgs/credits/icons/plus.svg";
+import icongraphySearch from "./svgs/credits/icons/search.svg";
 
 interface defaultProps {
   [attribute: string]: string;
@@ -173,28 +193,108 @@ const LogoWordmark = svgWrapper(LogoWordmarkP, {
 
 
 // Credits Page Icons
-const iconMenuSvg = svgWrapper(icongraphyMenu, {
-  title: "Data Science Community of Practice Logo",
-  desc: "icon representing the scatter plot and line graph",
+const iconArrowDownSvg = svgWrapper(icongraphyArrowDown, {
+  title: "",
+  desc: "",
+});
+const iconArrowLeftSvg = svgWrapper(icongraphyArrowLeft, {
+  title: "",
+  desc: "",
+});
+const iconCarouselSvg = svgWrapper(icongraphyCarousel, {
+  title: "",
+  desc: "",
+});
+const iconCheckSvg = svgWrapper(icongraphyCheck, {
+  title: "",
+  desc: "",
+});
+const iconChevronDownSvg = svgWrapper(icongraphyChevronDown, {
+  title: "",
+  desc: "",
+});
+const iconChevronLeftSvg = svgWrapper(icongraphyChevronLeft, {
+  title: "",
+  desc: "",
+});
+const iconChevronRightSvg = svgWrapper(icongraphyChevronRight, {
+  title: "",
+  desc: "",
+});
+const iconChevronUpSvg = svgWrapper(icongraphyChevronUp, {
+  title: "",
+  desc: "",
+});
+const iconClipboardSvg = svgWrapper(icongraphyClipboard, {
+  title: "",
+  desc: "",
 });
 const iconCrossSvg = svgWrapper(icongraphyCross, {
   title: "",
   desc: "",
 });
-const iconArrowDownSvg = svgWrapper(icongraphyArrowDown, {
+const iconFilterSvg = svgWrapper(icongraphyFilter, {
+  title: "",
+  desc: "",
+});
+const iconMenuSvg = svgWrapper(icongraphyMenu, {
+  title: "Data Science Community of Practice Logo",
+  desc: "icon representing the scatter plot and line graph",
+});
+const iconMinusSvg = svgWrapper(icongraphyMinus, {
+  title: "",
+  desc: "",
+});
+const iconPlusSvg = svgWrapper(icongraphyPlus, {
+  title: "",
+  desc: "",
+});
+const iconSearchSvg = svgWrapper(icongraphySearch, {
   title: "",
   desc: "",
 });
 
+
+
 // Credits Page Illustrations
-const illustrationTeamPageSvg = svgWrapper(illustrationTeamPage, {
+const illustrationCreativeTeamSvg = svgWrapper(illustrationCreativeTeam, {
   title: "Team Page",
   desc: "icon representing the scatter plot and line graph",
+});
+const illustrationDigitalPresentationSvg = svgWrapper(illustrationDigitalPresentation, {
+  title: "Team Page",
+  desc: "icon representing the scatter plot and line graph",
+});
+const illustrationHighFiveSvg = svgWrapper(illustrationHighFive, {
+  title: "",
+  desc: "",
 });
 const illustrationOnboardingSvg = svgWrapper(illustrationOnboarding, {
   title: "",
   desc: "",
 });
+const illustrationSelectSvg = svgWrapper(illustrationSelect, {
+  title: "",
+  desc: "",
+});
+const illustrationSignUpSvg = svgWrapper(illustrationSignUp, {
+  title: "",
+  desc: "",
+});
+const illustrationTeamPageSvg = svgWrapper(illustrationTeamPage, {
+  title: "Team Page",
+  desc: "icon representing the scatter plot and line graph",
+});
+const illustrationTeamSpiritSvg = svgWrapper(illustrationTeamSpirit, {
+  title: "",
+  desc: "",
+});
+const illustrationTeamWorkSvg = svgWrapper(illustrationTeamWork, {
+  title: "",
+  desc: "",
+});
+
+
 
 export {
   // COP Icons
@@ -262,10 +362,29 @@ export {
   illustrationTeamPage,
   illustrationOnboarding,
   // Credits Page Icons
-  iconMenuSvg,
-  iconCrossSvg,
   iconArrowDownSvg,
+  iconArrowLeftSvg,
+  iconCarouselSvg,
+  iconCheckSvg,
+  iconChevronDownSvg,
+  iconChevronLeftSvg,
+  iconChevronRightSvg,
+  iconChevronUpSvg,
+  iconClipboardSvg,
+  iconCrossSvg,
+  iconFilterSvg,
+  iconMenuSvg,
+  iconMinusSvg,
+  iconPlusSvg,
+  iconSearchSvg,
   // Credits Page Illustrations,
-  illustrationTeamPageSvg,
+  illustrationCreativeTeamSvg,
+  illustrationDigitalPresentationSvg,
+  illustrationHighFiveSvg,
   illustrationOnboardingSvg,
+  illustrationSelectSvg,
+  illustrationSignUpSvg,
+  illustrationTeamPageSvg,
+  illustrationTeamSpiritSvg,
+  illustrationTeamWorkSvg,
 };
