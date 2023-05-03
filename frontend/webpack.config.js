@@ -12,7 +12,7 @@ module.exports = {
       keep: ".gitkeep",
     },
     filename: "[name].[contenthash].js",
-    path: path.resolve(__dirname, "frontend/static/frontend"),
+    path: path.resolve(__dirname, "../backend/server/static/backend"),
   },
   devtool: process.env.DEVTOOL,
   module: {
@@ -77,9 +77,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: "../../templates/frontend/index.html", //need to go back because will attempt to create file at output
+      filename: "../../templates/backend/index.html", // need to go back because will attempt to create file from output path
       template: "./src/templates/index.html",
-      favicon: "./src/assets/images/svgs/logos/logo-logomark.svg", //adds favicon to website
+      favicon: "./src/assets/images/svgs/logos/logo-logomark.svg",
     }),
     new DefinePlugin({
       "process.env.MODE": JSON.stringify(process.env.MODE),
