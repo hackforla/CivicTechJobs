@@ -1,6 +1,5 @@
 @use "components/Basics" as *;
 
-
 .credits-intro-container {
   background-image: url("assets/images/svgs/credits-page-bg-top.svg");
   background-position: top;
@@ -37,6 +36,22 @@
 
 .join-us-text {
   width: auto;
+}
+
+.btn-outline {
+  // box-sizing: content-box;
+  background-color: #fff;
+  color: $color-blue-dark;
+  font-weight: 400;
+}
+
+.btn-border {
+  border: 1px solid #3450a1;
+}
+
+.btn-outline:hover {
+  color: #fff;
+  font-weight: bold;
 }
 
 .text-container {

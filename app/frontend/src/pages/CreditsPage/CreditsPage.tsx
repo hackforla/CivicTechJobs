@@ -18,14 +18,19 @@ const CreditsPage = () => {
   const [illustrations, setIllustrations] = useState(illustrationData);
   const [icons, setIcons] = useState(iconData);
   const [activeData, setActiveData] = useState(illustrations);
+  const [activeButton, setActiveButton] = useState("btnIllustration");
 
-  const toggleToIcons = () => {
-    setActiveData(icons);
-  };
-
-  const toggleToIllustrations = () => {
+  const handleClickBtnIllustration = () => {
+    setActiveButton("btnIllustration");
     setActiveData(illustrations);
   };
+
+  const handleClickBtnIcon = () => {
+    setActiveData(icons);
+    setActiveButton("btnIcon");
+  };
+
+  // let btnClasses = `btn-border ${activeButton === 'btnIllustration' ? '' : 'btn-outline'}`
 
   return (
     <>
@@ -60,12 +65,22 @@ const CreditsPage = () => {
               color="primary"
               size="md"
               length="long"
-              onClick={toggleToIllustrations}
-              addClass="mr-3"
+              onClick={handleClickBtnIllustration}
+              // addClass="mr-3 btn-border"
+              addClass={`mr-3 btn-border ${
+                activeButton === "btnIllustration" ? "" : "btn-outline"
+              }`}
             >
               Illustrations
             </Button>
-            <Button size="md" length="long" onClick={toggleToIcons}>
+            <Button
+              size="md"
+              length="long"
+              onClick={handleClickBtnIcon}
+              addClass={`mr-3 btn-border ${
+                activeButton === "btnIcon" ? "" : "btn-outline"
+              }`}
+            >
               Iconography
             </Button>
           </div>
@@ -96,7 +111,9 @@ const CreditsPage = () => {
                       <div className="value">{cardData.provider}</div>
                     </div>
                   </div>
-                  <a href={cardData.link}>Learn more</a>
+                  <a className="links" href={cardData.link}>
+                    Learn more
+                  </a>
                 </div>
               </Card>
             ))}
@@ -110,8 +127,10 @@ const CreditsPage = () => {
               <h3>Join us!</h3>
               <p>
                 Civic Tech Jobs is one of the many projects at{" "}
-                <a href="">Hack for LA</a>, <br></br>Code for America's Los Angeles
-                chapter.
+                <a className="links" href="">
+                  Hack for LA
+                </a>
+                , <br></br>Code for America's Los Angeles chapter.
               </p>
             </div>
           </div>
