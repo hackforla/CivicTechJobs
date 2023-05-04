@@ -7,6 +7,7 @@ import {
   logoStacked,
   logoHorizontalOnDark,
   logoStackedOnDark,
+  logoHfLA,
 } from "assets/images/images";
 import { HeaderNav, FooterNav, Button } from "components/components";
 import { Card } from "components/Cards/StandardCard";
@@ -102,7 +103,19 @@ const CreditsPage = () => {
           </div>
         </div>
 
-        <div className="credits-join-us-container"></div>
+        <div className="credits-join-us-container">
+          <div className="flex-container join-us-content-container pt-5">
+            <img className="flex-col mr-3" src={logoHfLA} alt="" />
+            <div className="flex-col join-us-text">
+              <h3>Join us!</h3>
+              <p>
+                Civic Tech Jobs is one of the many projects at{" "}
+                <a href="">Hack for LA</a>, <br></br>Code for America's Los Angeles
+                chapter.
+              </p>
+            </div>
+          </div>
+        </div>
       </main>
       <FooterNav
         logoDesktop={logoHorizontalOnDark}

@@ -69,6 +69,9 @@ import logoType from "./svgs/logos/logo-logotype.svg?url";
 import logoVertical from "./svgs/logos/logo-vertical.svg?url";
 import logoWordmark from "./svgs/logos/logo-wordmark.svg?url";
 
+// HfLA logo
+import logoHfLA from "./svgs/logos/logo-hfla.svg?url"
+
 // Credits Illustrations
 import illustrationCreativeTeam from './svgs/credits/illustrations/creative-team.svg';
 import illustrationDigitalPresentation from './svgs/credits/illustrations/digital-presentation.svg';
@@ -352,6 +355,8 @@ export {
   logoType,
   logoVertical,
   logoWordmark,
+  // HfLA logo
+  logoHfLA,
   // Group Background Image
   landingPageFg,
   landingPageBg,
