@@ -1,0 +1,6 @@
+build: docker compose build
+start:docker compose up
+stop:docker compose down
+build-linter:docker compose build linter
+lint:docker compose run linter
+test:docker compose run webpack npm run test
