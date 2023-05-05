@@ -43,10 +43,12 @@ const CreditsPage = () => {
           { name: "Projects", link: "/demo" },
         ]}
       />
-      <main className="body-container">
+      <main>
         {/* <div className="text-center credits-intro-container">
           
         </div> */}
+
+        <div className="body-container">
         <div className="main-container">
           {/* <div className="text-container text-left"> */}
           <div className="text-container">
@@ -84,6 +86,9 @@ const CreditsPage = () => {
               Iconography
             </Button>
           </div>
+        </div>
+
+        
 
           <div className="grid">
             {activeData.map((cardData) => (

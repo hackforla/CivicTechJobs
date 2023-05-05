@@ -19,19 +19,30 @@
 
 .credits-join-us-container {
   background-image: url("assets/images/svgs/credits-page-bg-bottom.svg");
-  background-position: bottom;
+  background-position: bottom center;
   background-repeat: no-repeat;
   background-size: 100%;
-  height: 400px;
+  // height: 75vh;
+  height: 595px;
+  // width: 100%;
+  overflow: hidden;
   margin-top: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @include breakpoint-media-max("smtablet") {
+    height: 45vh;
+  }
 }
 
 .join-us-content-container {
+  // margin-top: 200px;
   justify-content: center;
   align-items: center;
+  @include breakpoint-media-max("smtablet") {
+    margin-top: 10vh;
+  }
 }
 
 .join-us-text {
