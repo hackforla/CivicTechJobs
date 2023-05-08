@@ -48,7 +48,7 @@ import landingPageFg from "./svgs/landing-page-fg.svg?url";
 import landingPageBg from "./svgs/landing-page-bg.svg?url";
 import notFoundPageImg from "./svgs/not-found-page.svg?url";
 // import creditsPageBgTop from "./svgs/credits-page-bg-top.svg";
-// import creditsPageBgBottom from "./svgs/credits-page-bg-bottom.svg";
+import creditsPageBgBottom from "./svgs/credits-page-bg-bottom.svg";
 
 // CTJ Logos
 import LogoHorizontalP from "./svgs/logos/logo-horizontal.svg";
@@ -362,7 +362,7 @@ export {
   landingPageBg,
   notFoundPageImg,
   // creditsPageBgTop,
-  // creditsPageBgBottom,
+  creditsPageBgBottom,
   // Credits Page Illustrations
   illustrationTeamPage,
   illustrationOnboarding,

@@ -11,10 +11,6 @@ import {
   illustrationTeamWorkSvg
 } from "assets/images/images";
 
-type UrlString = string;
-type UrlObject = URL;
-type Url = UrlString | UrlObject;
-
 interface illustrationDatum {
   id: number;
   imgSrc: React.ElementType;

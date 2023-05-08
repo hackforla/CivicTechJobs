@@ -18,17 +18,13 @@ import {
   iconSearchSvg
 } from "assets/images/images";
 
-type UrlString = string;
-type UrlObject = URL;
-type Url = UrlString | UrlObject;
-
 interface iconDatum {
   id: number;
   imgSrc: React.ElementType;
   name: string;
   usedIn: string;
   provider: string;
-  link: Url;
+  link: string;
 }
 
 const iconData: iconDatum[] = [
@@ -155,4 +151,4 @@ const iconData: iconDatum[] = [
   }
 ];
 
-export {iconData}
+export {iconDatum, iconData}

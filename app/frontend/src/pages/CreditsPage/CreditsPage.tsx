@@ -8,6 +8,7 @@ import {
   logoHorizontalOnDark,
   logoStackedOnDark,
   logoHfLA,
+  creditsPageBgBottom,
 } from "assets/images/images";
 import { HeaderNav, FooterNav, Button } from "components/components";
 import { Card } from "components/Cards/StandardCard";
@@ -30,8 +31,6 @@ const CreditsPage = () => {
     setActiveButton("btnIcon");
   };
 
-  // let btnClasses = `btn-border ${activeButton === 'btnIllustration' ? '' : 'btn-outline'}`
-
   return (
     <>
       <HeaderNav
@@ -44,66 +43,49 @@ const CreditsPage = () => {
         ]}
       />
       <main>
-        {/* <div className="text-center credits-intro-container">
-          
-        </div> */}
+        <section className="body-container">
+          <div className="main-container">
+            <div className="text-container">
+              <h1 className="credits-intro-title mt-0 mb-3">Credits</h1>
+              <p className="paragraph-1 credits-intro-paragraph">
+                Thank you to all of the artists and sponsors who help make our
+                projects successful. Check out all of the illustrations and
+                iconography we have used on our site.
+              </p>
+            </div>
 
-        <div className="body-container">
-        <div className="main-container">
-          {/* <div className="text-container text-left"> */}
-          <div className="text-container">
-            <h1 className="credits-intro-title mt-0 mb-3">Credits</h1>
-            <p className="paragraph-1 credits-intro-paragraph">
-              Thank you to all of the artists and sponsors who help make our
-              projects successful. Check out all of the illustrations and
-              iconography we have used on our site.
-            </p>
+            <h2 className="credits-test">Illustrations & Iconography</h2>
+
+            <div>
+              <Button
+                color="primary"
+                size="md"
+                length="long"
+                onClick={handleClickBtnIllustration}
+                addClass={`mr-3 btn-border ${
+                  activeButton === "btnIllustration" ? "" : "btn-outline"
+                }`}
+              >
+                Illustrations
+              </Button>
+              <Button
+                size="md"
+                length="long"
+                onClick={handleClickBtnIcon}
+                addClass={`mr-3 btn-border ${
+                  activeButton === "btnIcon" ? "" : "btn-outline"
+                }`}
+              >
+                Iconography
+              </Button>
+            </div>
           </div>
-
-          <h3 className="credits-test">Illustrations & Iconography</h3>
-
-          <div>
-            <Button
-              color="primary"
-              size="md"
-              length="long"
-              onClick={handleClickBtnIllustration}
-              // addClass="mr-3 btn-border"
-              addClass={`mr-3 btn-border ${
-                activeButton === "btnIllustration" ? "" : "btn-outline"
-              }`}
-            >
-              Illustrations
-            </Button>
-            <Button
-              size="md"
-              length="long"
-              onClick={handleClickBtnIcon}
-              addClass={`mr-3 btn-border ${
-                activeButton === "btnIcon" ? "" : "btn-outline"
-              }`}
-            >
-              Iconography
-            </Button>
-          </div>
-        </div>
-
-        
 
           <div className="grid">
             {activeData.map((cardData) => (
               <Card key={cardData.id} addClass="credit-card">
                 <div>
                   <cardData.imgSrc className="credit-card-img" />
-                  {/* <p>
-                    Name: <span>{cardData.name}</span>
-                  </p>
-                  <p>
-                    Used In: <span>{cardData.usedIn}</span>
-                  </p>
-                  <p>
-                    Provider: <span>{cardData.provider}</span>
-                  </p> */}
                   <div className="flex-container mt-3 mb-5">
                     <div className="flex-column mr-2">
                       <div className="label">Name:</div>
@@ -123,29 +105,29 @@ const CreditsPage = () => {
               </Card>
             ))}
           </div>
-        </div>
+        </section>
 
-        <div className="credits-join-us-container">
-          <div className="flex-container join-us-content-container pt-5">
-            <img className="flex-col mr-3" src={logoHfLA} alt="" />
+        <section className="join-us-section">
+          <div className="flex-container join-us-content-container">
+            <img className="flex-col mr-3" src={logoHfLA} alt="Hack for LA logo" />
             <div className="flex-col join-us-text">
               <h3>Join us!</h3>
               <p>
                 Civic Tech Jobs is one of the many projects at{" "}
-                <a className="links" href="">
+                <a className="links" href="https://www.hackforla.org/">
                   Hack for LA
                 </a>
                 , <br></br>Code for America's Los Angeles chapter.
               </p>
             </div>
           </div>
-        </div>
+        </section>
       </main>
       <FooterNav
         logoDesktop={logoHorizontalOnDark}
         logoMobile={logoStackedOnDark}
         menu={[
-          { name: "Credits", link: "/" },
+          { name: "Credits", link: "/credits" },
           { name: "Sitemap", link: "/" },
           { name: "Join Us", link: "/" },
         ]}

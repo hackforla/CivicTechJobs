@@ -17,40 +17,23 @@
   padding: 5% 10%;
 }
 
-.credits-join-us-container {
-  background-image: url("assets/images/svgs/credits-page-bg-bottom.svg");
-  background-position: bottom center;
+.join-us-section {
+  background-image: url("assets/images/svgs/credits-page-bg-bottom1.svg");
+  background-size: cover;
   background-repeat: no-repeat;
-  background-size: 100%;
-  // height: 75vh;
-  height: 595px;
-  // width: 100%;
-  overflow: hidden;
-  margin-top: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  @include breakpoint-media-max("smtablet") {
-    height: 45vh;
-  }
+  background-position: center bottom;
+  position: relative;
+  height: 600px;
 }
 
 .join-us-content-container {
-  // margin-top: 200px;
+  position: relative;
+  top: 250px;
   justify-content: center;
   align-items: center;
-  @include breakpoint-media-max("smtablet") {
-    margin-top: 10vh;
-  }
-}
-
-.join-us-text {
-  width: auto;
 }
 
 .btn-outline {
-  // box-sizing: content-box;
   background-color: #fff;
   color: $color-blue-dark;
   font-weight: 400;
@@ -66,11 +49,8 @@
 }
 
 .text-container {
-  // width: 50%;
   margin-bottom: 25%;
   @include breakpoint-media-max("smtablet") {
-    // margin-top: 25%;
-    // width: 100%;
     margin-bottom: 10%;
   }
 }
@@ -79,14 +59,11 @@
   width: 45%;
 
   @include breakpoint-media-max("smtablet") {
-    // @include title(3);
-    // margin-bottom: 3%;
     margin-top: 20%;
   }
 }
 
 .credits-intro-paragraph {
-  // font-size: 1.25rem;
   width: 45%;
   @include breakpoint-media-max("smtablet") {
     margin-top: 10%;
@@ -95,7 +72,6 @@
 }
 
 .main-container {
-  // padding: 5rem 8rem;
   max-width: 1088px;
   margin: 0 auto;
 }
@@ -106,6 +82,8 @@
 
 .grid {
   display: grid;
+  max-width: 1088px;
+  margin: 0 auto;
   grid-template-columns: repeat(auto-fit, minmax(292px, 1fr));
   gap: 5rem;
   margin-top: 5rem;
