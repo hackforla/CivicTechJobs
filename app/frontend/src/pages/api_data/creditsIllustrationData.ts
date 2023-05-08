@@ -21,7 +21,6 @@ interface illustrationDatum {
 }
 
 const illustrationData: illustrationDatum[] = [
-// const illustrationData = [
   {
     id: 1,
     imgSrc: illustrationTeamPageSvg,
@@ -44,7 +43,7 @@ const illustrationData: illustrationDatum[] = [
     name: "Digital Presentation",
     usedIn: "How to Join",
     provider: "Storyset",
-    link: "",
+    link: "https://storyset.com/",
   },
   {
     id: 4,
@@ -52,7 +51,7 @@ const illustrationData: illustrationDatum[] = [
     name: "Select",
     usedIn: "How to Join",
     provider: "Storyset",
-    link: "",
+    link: "https://storyset.com/illustration/select/pana",
   },
   {
     id: 5,
@@ -60,7 +59,7 @@ const illustrationData: illustrationDatum[] = [
     name: "Team Spirit",
     usedIn: "How to Join",
     provider: "Storyset",
-    link: "",
+    link: "https://storyset.com/illustration/team-spirit/pana",
   },
   {
     id: 6,
@@ -68,7 +67,7 @@ const illustrationData: illustrationDatum[] = [
     name: "Sign Up",
     usedIn: "How to Join",
     provider: "Storyset",
-    link: "",
+    link: "https://www.freepik.com/free-vector/sign-up-concept-illustration_20602852.htm#query=signup&position=17&from_view=search&track=sph",
   },
   {
     id: 7,
@@ -76,7 +75,7 @@ const illustrationData: illustrationDatum[] = [
     name: "Team Work",
     usedIn: "Login",
     provider: "Storyset",
-    link: "",
+    link: "https://storyset.com/illustration/team-work/pana",
   },
   {
     id: 8,
@@ -84,7 +83,7 @@ const illustrationData: illustrationDatum[] = [
     name: "High Five",
     usedIn: "Credits",
     provider: "Storyset",
-    link: "",
+    link: "https://storyset.com/illustration/high-five/pana",
   },
   {
     id: 9,
@@ -92,8 +91,8 @@ const illustrationData: illustrationDatum[] = [
     name: "Creative Team",
     usedIn: "Landing",
     provider: "Storyset",
-    link: "",
+    link: "https://storyset.com/illustration/creative-team/pana",
   }
 ];
 
-export { illustrationData }
+export { illustrationDatum, illustrationData }

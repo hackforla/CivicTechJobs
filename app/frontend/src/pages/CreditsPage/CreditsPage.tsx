@@ -1,5 +1,5 @@
 // External Imports
-import React, { Fragment, useState, useId } from "react";
+import React, { Fragment, useState } from "react";
 
 // Internal Imports
 import {
@@ -8,7 +8,6 @@ import {
   logoHorizontalOnDark,
   logoStackedOnDark,
   logoHfLA,
-  creditsPageBgBottom,
 } from "assets/images/images";
 import { HeaderNav, FooterNav, Button } from "components/components";
 import { Card } from "components/Cards/StandardCard";
@@ -16,18 +15,16 @@ import { iconData } from "pages/api_data/creditsIconData";
 import { illustrationData } from "pages/api_data/creditsIllustrationData";
 
 const CreditsPage = () => {
-  const [illustrations, setIllustrations] = useState(illustrationData);
-  const [icons, setIcons] = useState(iconData);
-  const [activeData, setActiveData] = useState(illustrations);
+  const [activeData, setActiveData] = useState(illustrationData);
   const [activeButton, setActiveButton] = useState("btnIllustration");
 
   const handleClickBtnIllustration = () => {
     setActiveButton("btnIllustration");
-    setActiveData(illustrations);
+    setActiveData(illustrationData);
   };
 
   const handleClickBtnIcon = () => {
-    setActiveData(icons);
+    setActiveData(iconData);
     setActiveButton("btnIcon");
   };
 

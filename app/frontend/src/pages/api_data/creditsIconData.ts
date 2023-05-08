@@ -1,5 +1,4 @@
 // data that will be used for credits page
-import { useId } from "react";
 import {
   iconArrowDownSvg,
   iconArrowLeftSvg,
@@ -28,14 +27,13 @@ interface iconDatum {
 }
 
 const iconData: iconDatum[] = [
-// const iconData = [
   {
     id: 1,
     imgSrc: iconMenuSvg,
     name: "Menu line",
     usedIn: "Multiple pages",
     provider: "Majesticons",
-    link: "",
+    link: "https://www.majesticons.com/",
   },
   {
     id: 2,
@@ -43,7 +41,7 @@ const iconData: iconDatum[] = [
     name: "Cross line",
     usedIn: "Multiple pages",
     provider: "Majesticons",
-    link: "",
+    link: "https://www.majesticons.com/",
   },
   {
     id: 3,
@@ -51,7 +49,7 @@ const iconData: iconDatum[] = [
     name: "Arrow down line",
     usedIn: "How to Join",
     provider: "Majesticons",
-    link: "",
+    link: "https://www.majesticons.com/",
   },
   {
     id: 4,
@@ -59,7 +57,7 @@ const iconData: iconDatum[] = [
     name: "Arrow left line",
     usedIn: "How to Join",
     provider: "Majesticons",
-    link: "",
+    link: "https://www.majesticons.com/",
   },
   {
     id: 5,
@@ -67,7 +65,7 @@ const iconData: iconDatum[] = [
     name: "Chevron down",
     usedIn: "How to Join",
     provider: "Majesticons",
-    link: "",
+    link: "https://www.majesticons.com/",
   },
   {
     id: 6,
@@ -75,7 +73,7 @@ const iconData: iconDatum[] = [
     name: "Chevron up",
     usedIn: "How to Join",
     provider: "Majesticons",
-    link: "",
+    link: "https://www.majesticons.com/",
   },
   {
     id: 7,
@@ -83,7 +81,7 @@ const iconData: iconDatum[] = [
     name: "Chevron left",
     usedIn: "How to Join",
     provider: "Majesticons",
-    link: "",
+    link: "https://www.majesticons.com/",
   },
   {
     id: 8,
@@ -91,7 +89,7 @@ const iconData: iconDatum[] = [
     name: "Chevron right",
     usedIn: "How to Join",
     provider: "Majesticons",
-    link: "",
+    link: "https://www.majesticons.com/",
   },
   {
     id: 9,
@@ -99,7 +97,7 @@ const iconData: iconDatum[] = [
     name: "Search line",
     usedIn: "How to Join",
     provider: "Majesticons",
-    link: "",
+    link: "https://www.majesticons.com/",
   },
   {
     id: 10,
@@ -107,7 +105,7 @@ const iconData: iconDatum[] = [
     name: "Carousel dot",
     usedIn: "How to Join",
     provider: "Majesticons",
-    link: "",
+    link: "https://www.majesticons.com/",
   },
   {
     id: 11,
@@ -115,7 +113,7 @@ const iconData: iconDatum[] = [
     name: "Check line",
     usedIn: "How to Join",
     provider: "Majesticons",
-    link: "",
+    link: "https://www.majesticons.com/",
   },
   {
     id: 12,
@@ -123,7 +121,7 @@ const iconData: iconDatum[] = [
     name: "Minus line",
     usedIn: "How to Join",
     provider: "Majesticons",
-    link: "",
+    link: "https://www.majesticons.com/",
   },
   {
     id: 13,
@@ -131,7 +129,7 @@ const iconData: iconDatum[] = [
     name: "Plus line",
     usedIn: "How to Join",
     provider: "Majesticons",
-    link: "",
+    link: "https://www.majesticons.com/",
   },
   {
     id: 14,
@@ -139,7 +137,7 @@ const iconData: iconDatum[] = [
     name: "Clipboard check",
     usedIn: "How to Join",
     provider: "Majesticons",
-    link: "",
+    link: "https://www.majesticons.com/",
   },
   {
     id: 15,
@@ -147,7 +145,7 @@ const iconData: iconDatum[] = [
     name: "Filter line",
     usedIn: "How to Join",
     provider: "Majesticons",
-    link: "",
+    link: "https://www.majesticons.com/",
   }
 ];
 

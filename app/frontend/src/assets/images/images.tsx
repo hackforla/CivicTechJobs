@@ -197,63 +197,63 @@ const LogoWordmark = svgWrapper(LogoWordmarkP, {
 
 // Credits Page Icons
 const iconArrowDownSvg = svgWrapper(icongraphyArrowDown, {
-  title: "",
+  title: "Arrow Down Icon",
   desc: "",
 });
 const iconArrowLeftSvg = svgWrapper(icongraphyArrowLeft, {
-  title: "",
+  title: "Arrow Left Icon",
   desc: "",
 });
 const iconCarouselSvg = svgWrapper(icongraphyCarousel, {
-  title: "",
+  title: "Carousel Icon",
   desc: "",
 });
 const iconCheckSvg = svgWrapper(icongraphyCheck, {
-  title: "",
+  title: "Check Icon",
   desc: "",
 });
 const iconChevronDownSvg = svgWrapper(icongraphyChevronDown, {
-  title: "",
+  title: "Chevron Down Icon",
   desc: "",
 });
 const iconChevronLeftSvg = svgWrapper(icongraphyChevronLeft, {
-  title: "",
+  title: "Chevron Left Icon",
   desc: "",
 });
 const iconChevronRightSvg = svgWrapper(icongraphyChevronRight, {
-  title: "",
+  title: "Chevron Right Icon",
   desc: "",
 });
 const iconChevronUpSvg = svgWrapper(icongraphyChevronUp, {
-  title: "",
+  title: "Chevron Up Icon",
   desc: "",
 });
 const iconClipboardSvg = svgWrapper(icongraphyClipboard, {
-  title: "",
+  title: "Clipboard Icon",
   desc: "",
 });
 const iconCrossSvg = svgWrapper(icongraphyCross, {
-  title: "",
+  title: "Cross Icon",
   desc: "",
 });
 const iconFilterSvg = svgWrapper(icongraphyFilter, {
-  title: "",
+  title: "Filter Icon",
   desc: "",
 });
 const iconMenuSvg = svgWrapper(icongraphyMenu, {
-  title: "Data Science Community of Practice Logo",
-  desc: "icon representing the scatter plot and line graph",
+  title: "Menu Icon",
+  desc: "",
 });
 const iconMinusSvg = svgWrapper(icongraphyMinus, {
-  title: "",
+  title: "Minus Icon",
   desc: "",
 });
 const iconPlusSvg = svgWrapper(icongraphyPlus, {
-  title: "",
+  title: "Plus Icon",
   desc: "",
 });
 const iconSearchSvg = svgWrapper(icongraphySearch, {
-  title: "",
+  title: "Search Icon",
   desc: "",
 });
 
@@ -261,39 +261,39 @@ const iconSearchSvg = svgWrapper(icongraphySearch, {
 
 // Credits Page Illustrations
 const illustrationCreativeTeamSvg = svgWrapper(illustrationCreativeTeam, {
-  title: "Team Page",
-  desc: "icon representing the scatter plot and line graph",
+  title: "Creative Team Illustration",
+  desc: "",
 });
 const illustrationDigitalPresentationSvg = svgWrapper(illustrationDigitalPresentation, {
-  title: "Team Page",
-  desc: "icon representing the scatter plot and line graph",
+  title: "Digital Presentation Illustration",
+  desc: "",
 });
 const illustrationHighFiveSvg = svgWrapper(illustrationHighFive, {
-  title: "",
+  title: "High Five Illustration",
   desc: "",
 });
 const illustrationOnboardingSvg = svgWrapper(illustrationOnboarding, {
-  title: "",
+  title: "Onboarding Illustration",
   desc: "",
 });
 const illustrationSelectSvg = svgWrapper(illustrationSelect, {
-  title: "",
+  title: "Select Illustration",
   desc: "",
 });
 const illustrationSignUpSvg = svgWrapper(illustrationSignUp, {
-  title: "",
+  title: "Sign Up Illustration",
   desc: "",
 });
 const illustrationTeamPageSvg = svgWrapper(illustrationTeamPage, {
-  title: "Team Page",
-  desc: "icon representing the scatter plot and line graph",
+  title: "Team Page Illustration",
+  desc: "",
 });
 const illustrationTeamSpiritSvg = svgWrapper(illustrationTeamSpirit, {
-  title: "",
+  title: "Team Spirit Illustration",
   desc: "",
 });
 const illustrationTeamWorkSvg = svgWrapper(illustrationTeamWork, {
-  title: "",
+  title: "Teamwork Illustration",
   desc: "",
 });
 
@@ -357,12 +357,7 @@ export {
   logoWordmark,
   // HfLA logo
   logoHfLA,
-  // Group Background Image
-  landingPageFg,
-  landingPageBg,
   notFoundPageImg,
-  // creditsPageBgTop,
-  creditsPageBgBottom,
   // Credits Page Illustrations
   illustrationTeamPage,
   illustrationOnboarding,
