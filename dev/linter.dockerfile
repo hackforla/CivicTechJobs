@@ -12,7 +12,9 @@ RUN apk add --no-cache \
   python3~=3.9 \
   python3-dev~=3.9 \
   musl-dev~=1.2 \
-  py3-pip~=20.3
+  py3-pip~=20.3 \
+  nodejs~=16.20 \
+  npm~=8.1.3
 
 
 # install python dependencies
@@ -21,9 +23,10 @@ ENV PYTHONUNBUFFERED=1
 RUN ln -sf python3 /usr/bin/python &&\
   python -m ensurepip &&\
   pip3 install --no-cache --no-cache-dir --ignore-installed --upgrade \
-    pip==22.1 \
-    pre-commit==2.19 \
-    setuptools==62.3
+  pip==22.1 \
+  pre-commit==2.19 \
+  setuptools==62.3
+
 
 WORKDIR /src
 ENTRYPOINT ["pre-commit"]

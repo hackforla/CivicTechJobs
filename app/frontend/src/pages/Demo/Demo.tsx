@@ -1,9 +1,9 @@
 // @ts-nocheck
 // External Imports
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useState } from "react";
 
 // Internal Imports
-import { Checkbox, Chip, TextField } from "components/components";
+import { Checkbox, Chip, TextField, Notification } from "components/components";
 import { IconEyeClose, IconEyeOpen, IconSearch } from "assets/images/images";
 import { combineClasses } from "components/Utility/utils";
 
@@ -15,9 +15,32 @@ function Demo() {
   function checkboxOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     console.log(e.target.checked);
   }
-
   return (
     <Fragment>
+      <Notification closable fade>
+        This is a limited view. Please{" "}
+        <a href="https://www.hackforla.org/getting-started">
+          attend onboarding
+        </a>{" "}
+        with Hack for LA or log in to see full opportunities.
+      </Notification>
+      <br></br>
+      <Notification closable>
+        This is a limited view. Please{" "}
+        <a href="https://www.hackforla.org/getting-started">
+          attend onboarding
+        </a>{" "}
+        with Hack for LA or log in to see full opportunities.
+      </Notification>
+      <br></br>
+      <Notification autoHidden>
+        This is a limited view. Please{" "}
+        <a href="https://www.hackforla.org/getting-started">
+          attend onboarding
+        </a>{" "}
+        with Hack for LA or log in to see full opportunities.
+      </Notification>
+      <br></br>
       <div className="m-5"></div>
       <div className="m-5">
         <h1>
