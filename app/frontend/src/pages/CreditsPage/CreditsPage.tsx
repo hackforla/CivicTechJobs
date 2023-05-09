@@ -106,7 +106,11 @@ const CreditsPage = () => {
 
         <section className="join-us-section">
           <div className="flex-container join-us-content-container">
-            <img className="flex-col mr-3" src={logoHfLA} alt="Hack for LA logo" />
+            <img
+              className="flex-col mr-3"
+              src={logoHfLA}
+              alt="Hack for LA logo"
+            />
             <div className="flex-col join-us-text">
               <h3>Join us!</h3>
               <p>

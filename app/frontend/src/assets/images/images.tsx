@@ -70,18 +70,18 @@ import logoVertical from "./svgs/logos/logo-vertical.svg?url";
 import logoWordmark from "./svgs/logos/logo-wordmark.svg?url";
 
 // HfLA logo
-import logoHfLA from "./svgs/logos/logo-hfla.svg?url"
+import logoHfLA from "./svgs/logos/logo-hfla.svg?url";
 
 // Credits Illustrations
-import illustrationCreativeTeam from './svgs/credits/illustrations/creative-team.svg';
-import illustrationDigitalPresentation from './svgs/credits/illustrations/digital-presentation.svg';
-import illustrationHighFive from './svgs/credits/illustrations/high-five.svg';
+import illustrationCreativeTeam from "./svgs/credits/illustrations/creative-team.svg";
+import illustrationDigitalPresentation from "./svgs/credits/illustrations/digital-presentation.svg";
+import illustrationHighFive from "./svgs/credits/illustrations/high-five.svg";
 import illustrationOnboarding from "./svgs/credits/illustrations/onboarding.svg";
-import illustrationSelect from './svgs/credits/illustrations/select.svg';
-import illustrationSignUp from './svgs/credits/illustrations/sign-up.svg';
-import illustrationTeamPage from './svgs/credits/illustrations/team-page.svg';
-import illustrationTeamSpirit from './svgs/credits/illustrations/team-spirit.svg';
-import illustrationTeamWork from './svgs/credits/illustrations/team-work.svg';
+import illustrationSelect from "./svgs/credits/illustrations/select.svg";
+import illustrationSignUp from "./svgs/credits/illustrations/sign-up.svg";
+import illustrationTeamPage from "./svgs/credits/illustrations/team-page.svg";
+import illustrationTeamSpirit from "./svgs/credits/illustrations/team-spirit.svg";
+import illustrationTeamWork from "./svgs/credits/illustrations/team-work.svg";
 
 // Credits Icons
 import icongraphyCross from "./svgs/credits/icons/cross.svg";
@@ -107,7 +107,7 @@ interface defaultProps {
 
 function svgWrapper(
   Svg: React.ElementType,
-  defaultProps: defaultProps,
+  defaultProps: defaultProps
 ): React.ElementType {
   return (props) => {
     const titleId = useId();
@@ -194,7 +194,6 @@ const LogoWordmark = svgWrapper(LogoWordmarkP, {
   desc: "platform name and logo with a word play",
 });
 
-
 // Credits Page Icons
 const iconArrowDownSvg = svgWrapper(icongraphyArrowDown, {
   title: "Arrow Down Icon",
@@ -257,17 +256,18 @@ const iconSearchSvg = svgWrapper(icongraphySearch, {
   desc: "",
 });
 
-
-
 // Credits Page Illustrations
 const illustrationCreativeTeamSvg = svgWrapper(illustrationCreativeTeam, {
   title: "Creative Team Illustration",
   desc: "",
 });
-const illustrationDigitalPresentationSvg = svgWrapper(illustrationDigitalPresentation, {
-  title: "Digital Presentation Illustration",
-  desc: "",
-});
+const illustrationDigitalPresentationSvg = svgWrapper(
+  illustrationDigitalPresentation,
+  {
+    title: "Digital Presentation Illustration",
+    desc: "",
+  }
+);
 const illustrationHighFiveSvg = svgWrapper(illustrationHighFive, {
   title: "High Five Illustration",
   desc: "",
@@ -296,8 +296,6 @@ const illustrationTeamWorkSvg = svgWrapper(illustrationTeamWork, {
   title: "Teamwork Illustration",
   desc: "",
 });
-
-
 
 export {
   // COP Icons

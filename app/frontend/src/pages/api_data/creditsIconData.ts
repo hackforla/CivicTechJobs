@@ -14,7 +14,7 @@ import {
   iconMenuSvg,
   iconMinusSvg,
   iconPlusSvg,
-  iconSearchSvg
+  iconSearchSvg,
 } from "assets/images/images";
 
 interface iconDatum {
@@ -146,7 +146,7 @@ const iconData: iconDatum[] = [
     usedIn: "How to Join",
     provider: "Majesticons",
     link: "https://www.majesticons.com/",
-  }
+  },
 ];
 
-export {iconDatum, iconData}
+export { iconDatum, iconData };

@@ -8,7 +8,7 @@ import {
   illustrationSignUpSvg,
   illustrationTeamPageSvg,
   illustrationTeamSpiritSvg,
-  illustrationTeamWorkSvg
+  illustrationTeamWorkSvg,
 } from "assets/images/images";
 
 interface illustrationDatum {
@@ -92,7 +92,7 @@ const illustrationData: illustrationDatum[] = [
     usedIn: "Landing",
     provider: "Storyset",
     link: "https://storyset.com/illustration/creative-team/pana",
-  }
+  },
 ];
 
-export { illustrationDatum, illustrationData }
+export { illustrationDatum, illustrationData };
