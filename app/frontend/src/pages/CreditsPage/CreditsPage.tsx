@@ -51,56 +51,55 @@ const CreditsPage = () => {
               </p>
             </div>
 
-            <h2 className="credits-test">Illustrations & Iconography</h2>
-
-            <div>
-              <Button
-                color="primary"
-                size="md"
-                length="long"
-                onClick={handleClickBtnIllustration}
-                addClass={`mr-3 btn-border ${
-                  activeButton === "btnIllustration" ? "" : "btn-outline"
-                }`}
-              >
-                Illustrations
-              </Button>
-              <Button
-                size="md"
-                length="long"
-                onClick={handleClickBtnIcon}
-                addClass={`mr-3 btn-border ${
-                  activeButton === "btnIcon" ? "" : "btn-outline"
-                }`}
-              >
-                Iconography
-              </Button>
+            <div className="pt-5 mt-5">
+              <h2 className="credits-test">Illustrations & Iconography</h2>
+              <div>
+                <Button
+                  color="primary"
+                  size="md"
+                  onClick={handleClickBtnIllustration}
+                  addClass={`mr-3 btn-border ${
+                    activeButton === "btnIllustration" ? "" : "btn-outline"
+                  }`}
+                >
+                  Illustrations
+                </Button>
+                <Button
+                  size="md"
+                  onClick={handleClickBtnIcon}
+                  addClass={`mr-3 btn-border ${
+                    activeButton === "btnIcon" ? "" : "btn-outline"
+                  }`}
+                >
+                  Iconography
+                </Button>
+              </div>
             </div>
-          </div>
 
-          <div className="grid">
-            {activeData.map((cardData) => (
-              <Card key={cardData.id} addClass="credit-card">
-                <div>
-                  <cardData.imgSrc className="credit-card-img" />
-                  <div className="flex-container mt-3 mb-5">
-                    <div className="flex-column mr-2">
-                      <div className="label">Name:</div>
-                      <div className="label">Used In:</div>
-                      <div className="label">Provider:</div>
+            <div className="grid">
+              {activeData.map((cardData) => (
+                <Card key={cardData.id} addClass="credit-card">
+                  <div>
+                    <cardData.imgSrc className="credit-card-img" />
+                    <div className="flex-container mt-3 mb-5">
+                      <div className="flex-column mr-2">
+                        <div className="label">Name:</div>
+                        <div className="label">Used In:</div>
+                        <div className="label">Provider:</div>
+                      </div>
+                      <div className="flex-column">
+                        <div className="value">{cardData.name}</div>
+                        <div className="value">{cardData.usedIn}</div>
+                        <div className="value">{cardData.provider}</div>
+                      </div>
                     </div>
-                    <div className="flex-column">
-                      <div className="value">{cardData.name}</div>
-                      <div className="value">{cardData.usedIn}</div>
-                      <div className="value">{cardData.provider}</div>
-                    </div>
+                    <a className="links" href={cardData.link}>
+                      Learn more
+                    </a>
                   </div>
-                  <a className="links" href={cardData.link}>
-                    Learn more
-                  </a>
-                </div>
-              </Card>
-            ))}
+                </Card>
+              ))}
+            </div>
           </div>
         </section>
 
