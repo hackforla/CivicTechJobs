@@ -73,15 +73,20 @@ import logoWordmark from "./svgs/logos/logo-wordmark.svg?url";
 import logoHfLA from "./svgs/logos/logo-hfla.svg?url";
 
 // Credits Illustrations
-import illustrationCreativeTeam from "./svgs/credits/illustrations/creative-team.svg";
-import illustrationDigitalPresentation from "./svgs/credits/illustrations/digital-presentation.svg";
-import illustrationHighFive from "./svgs/credits/illustrations/high-five.svg";
-import illustrationOnboarding from "./svgs/credits/illustrations/onboarding.svg";
-import illustrationSelect from "./svgs/credits/illustrations/select.svg";
-import illustrationSignUp from "./svgs/credits/illustrations/sign-up.svg";
-import illustrationTeamPage from "./svgs/credits/illustrations/team-page.svg";
-import illustrationTeamSpirit from "./svgs/credits/illustrations/team-spirit.svg";
-import illustrationTeamWork from "./svgs/credits/illustrations/team-work.svg";
+// import illustrationCreativeTeam from "./svgs/credits/illustrations/creative-team.svg";
+// import illustrationDigitalPresentation from "./svgs/credits/illustrations/digital-presentation.svg";
+// import illustrationHighFive from "./svgs/credits/illustrations/high-five.svg";
+// import illustrationOnboarding from "./svgs/credits/illustrations/onboarding.svg";
+// import illustrationSelect from "./svgs/credits/illustrations/select.svg";
+// import illustrationSignUp from "./svgs/credits/illustrations/sign-up.svg";
+// import illustrationTeamPage from "./svgs/credits/illustrations/team-page.svg";
+// import illustrationTeamSpirit from "./svgs/credits/illustrations/team-spirit.svg";
+// import illustrationTeamWork from "./svgs/credits/illustrations/team-work.svg";
+import illustrationCreativeTeam from "./pngs/illustrations/creative-team.png";
+import illustrationHighFive from "./pngs/illustrations/high-five.png";
+
+
+
 
 // Credits Icons
 import icongraphyCross from "./svgs/credits/icons/cross.svg";
@@ -257,45 +262,47 @@ const iconSearchSvg = svgWrapper(icongraphySearch, {
 });
 
 // Credits Page Illustrations
-const illustrationCreativeTeamSvg = svgWrapper(illustrationCreativeTeam, {
-  title: "Creative Team Illustration",
-  desc: "",
-});
-const illustrationDigitalPresentationSvg = svgWrapper(
-  illustrationDigitalPresentation,
-  {
-    title: "Digital Presentation Illustration",
-    desc: "",
-  }
-);
-const illustrationHighFiveSvg = svgWrapper(illustrationHighFive, {
-  title: "High Five Illustration",
-  desc: "",
-});
-const illustrationOnboardingSvg = svgWrapper(illustrationOnboarding, {
-  title: "Onboarding Illustration",
-  desc: "",
-});
-const illustrationSelectSvg = svgWrapper(illustrationSelect, {
-  title: "Select Illustration",
-  desc: "",
-});
-const illustrationSignUpSvg = svgWrapper(illustrationSignUp, {
-  title: "Sign Up Illustration",
-  desc: "",
-});
-const illustrationTeamPageSvg = svgWrapper(illustrationTeamPage, {
-  title: "Team Page Illustration",
-  desc: "",
-});
-const illustrationTeamSpiritSvg = svgWrapper(illustrationTeamSpirit, {
-  title: "Team Spirit Illustration",
-  desc: "",
-});
-const illustrationTeamWorkSvg = svgWrapper(illustrationTeamWork, {
-  title: "Teamwork Illustration",
-  desc: "",
-});
+// const illustrationCreativeTeamSvg = svgWrapper(illustrationCreativeTeam, {
+//   title: "Creative Team Illustration",
+//   desc: "",
+// });
+// const illustrationDigitalPresentationSvg = svgWrapper(
+//   illustrationDigitalPresentation,
+//   {
+//     title: "Digital Presentation Illustration",
+//     desc: "",
+//   }
+// );
+// const illustrationHighFiveSvg = svgWrapper(illustrationHighFive, {
+//   title: "High Five Illustration",
+//   desc: "",
+// });
+// const illustrationOnboardingSvg = svgWrapper(illustrationOnboarding, {
+//   title: "Onboarding Illustration",
+//   desc: "",
+// });
+// const illustrationSelectSvg = svgWrapper(illustrationSelect, {
+//   title: "Select Illustration",
+//   desc: "",
+// });
+// const illustrationSignUpSvg = svgWrapper(illustrationSignUp, {
+//   title: "Sign Up Illustration",
+//   desc: "",
+// });
+// const illustrationTeamPageSvg = svgWrapper(illustrationTeamPage, {
+//   title: "Team Page Illustration",
+//   desc: "",
+// });
+// const illustrationTeamSpiritSvg = svgWrapper(illustrationTeamSpirit, {
+//   title: "Team Spirit Illustration",
+//   desc: "",
+// });
+// const illustrationTeamWorkSvg = svgWrapper(illustrationTeamWork, {
+//   title: "Teamwork Illustration",
+//   desc: "",
+// });
+
+
 
 export {
   // COP Icons
@@ -356,9 +363,6 @@ export {
   // HfLA logo
   logoHfLA,
   notFoundPageImg,
-  // Credits Page Illustrations
-  illustrationTeamPage,
-  illustrationOnboarding,
   // Credits Page Icons
   iconArrowDownSvg,
   iconArrowLeftSvg,
@@ -376,13 +380,16 @@ export {
   iconPlusSvg,
   iconSearchSvg,
   // Credits Page Illustrations,
-  illustrationCreativeTeamSvg,
-  illustrationDigitalPresentationSvg,
-  illustrationHighFiveSvg,
-  illustrationOnboardingSvg,
-  illustrationSelectSvg,
-  illustrationSignUpSvg,
-  illustrationTeamPageSvg,
-  illustrationTeamSpiritSvg,
-  illustrationTeamWorkSvg,
+  // // illustrationCreativeTeamSvg,
+  // illustrationDigitalPresentationSvg,
+  // illustrationHighFiveSvg,
+  // illustrationOnboardingSvg,
+  // illustrationSelectSvg,
+  // illustrationSignUpSvg,
+  // illustrationTeamPageSvg,
+  // illustrationTeamSpiritSvg,
+  // illustrationTeamWorkSvg,
+  illustrationCreativeTeam,
+  illustrationHighFive,
+
 };

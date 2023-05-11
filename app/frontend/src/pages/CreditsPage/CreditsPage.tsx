@@ -7,7 +7,7 @@ import {
   logoStacked,
   logoHorizontalOnDark,
   logoStackedOnDark,
-  logoHfLA,
+  logoHfLA
 } from "assets/images/images";
 import { HeaderNav, FooterNav, Button } from "components/components";
 import { Card } from "components/Cards/StandardCard";
@@ -17,15 +17,18 @@ import { illustrationData } from "pages/api_data/creditsIllustrationData";
 const CreditsPage = () => {
   const [activeData, setActiveData] = useState(illustrationData);
   const [activeButton, setActiveButton] = useState("btnIllustration");
+  const [imgBgColor, setImgBgColor] = useState("#F2F2F2");
 
   const handleClickBtnIllustration = () => {
     setActiveButton("btnIllustration");
     setActiveData(illustrationData);
+    setImgBgColor("#F2F2F2");
   };
 
   const handleClickBtnIcon = () => {
     setActiveData(iconData);
     setActiveButton("btnIcon");
+    setImgBgColor("#FFEFDB");
   };
 
   return (
@@ -76,11 +79,13 @@ const CreditsPage = () => {
               </div>
             </div>
 
-            <div className="grid">
+            <div className="flex-container justify-start gap-5 mt-5">
               {activeData.map((cardData) => (
-                <Card key={cardData.id} addClass="credit-card">
+                <Card key={cardData.id} addClass="col-4">
                   <div>
-                    <cardData.imgSrc className="credit-card-img" />
+                    <div className="image-frame flex-container justify-center align-center" style={{backgroundColor: imgBgColor}}>
+                      <img src={cardData.imgSrc} alt={`${cardData.name} image`} />
+                    </div>
                     <div className="flex-container mt-3 mb-5">
                       <div className="flex-column mr-2">
                         <div className="label">Name:</div>
@@ -106,11 +111,11 @@ const CreditsPage = () => {
         <section className="join-us-section">
           <div className="flex-container join-us-content-container">
             <img
-              className="flex-col mr-3"
+              className="flex-column mr-3"
               src={logoHfLA}
               alt="Hack for LA logo"
             />
-            <div className="flex-col join-us-text">
+            <div className="flex-column join-us-text">
               <h3>Join us!</h3>
               <p>
                 Civic Tech Jobs is one of the many projects at{" "}
