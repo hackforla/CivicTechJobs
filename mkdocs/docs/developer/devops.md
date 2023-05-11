@@ -36,6 +36,8 @@ _<p style="text-align: center;">Overall project structure</p>_
 │    └── dev.env.example
 ├── .dockerignore
 ├── docker-compose.yml
+├── alias-config.txt
+└── alias.sh
 ```
 
 _<p style="text-align: center;">DevOps Architecture</p>_
@@ -53,6 +55,7 @@ Our devops files can be thought of as a set of files needed to create an exact r
 - **dev/:** contains two dockerfiles and an env file. `django.dockerfile` contains information for our Django server setup. `webpack.dockerfile` contains information to start our webpack watch plugin. `dev.env.example` is an example of the env file needed to configure our dev environment.
 - **.dockerignore:** This file tells Docker to ignore certain files when building the container. These are usually files that pertain to docker or git, which are not important when building the webserver.
 - **docker-compose.yml:** Contains instructions for docker when we run "docker compose". To know more about what each line does, please consult [Docker's documentation](https://docs.docker.com/compose/compose-file/).
+- **alias.sh:** Contains a shell script that allows for cumbersome commands to be executed with less typing by leveraging the aliases listed in `alias-config.txt`
 
 ## Docker
 
@@ -141,6 +144,18 @@ docker compose build --progress=plain
 ```
 
 Sometimes when a build is happening, the logs are too opaque to debug if a step goes wrong. This commands makes the logs a bit more verbose so that you might have an easier time debugging.
+
+### Alias Shell Script
+
+For convenience, we have created a shell script that allows for longer commands to be executed with less typing. The script is capable of executing any of the commands listed in `alias-config.txt` without having to type out the entire command.
+
+### `alias.sh`
+
+To use this script, run `bash alias.sh $arg` or `./alias.sh $arg` where `$arg` is the alias of the command you wish to execute. For example, try running `bash alias.sh test`.
+
+### `alias-config.txt`
+
+This file contains many of the important commands you will need when developing for this project. Note that each command starts with a single word followed by a `:` and then a command. You must follow this pattern when adding additional commands to the file. Please note that any `docker run` commands must use the `-T` flag to allocate a pusedo-TTY or the command will not work.
 
 ## Additional Resources
 
