@@ -1,0 +1,58 @@
+.chevron-scroll-container {
+    width: 1088px;
+    height: 47px;
+    overflow: auto;
+    white-space: nowrap;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 16px;
+}
+
+.chevron-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+.chevron-scroll-clear-all {
+    text-decoration: underline;
+    font-weight: 700;
+    font-size: 20px;
+    color: #333333;
+    cursor: pointer;
+}
+
+.chevron-scroll-left-box {
+    position: sticky;
+    left: 0;
+    top: 0;
+    width: max-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    background-color: white;
+    cursor: pointer;
+}
+.chevron-scroll-right-icon {
+    padding-left: 15px;
+    padding-right: 33px;
+}
+
+.chevron-scroll-right-box {
+    position: sticky;
+    right: 0;
+    top: 0;
+    width: max-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    background-color: white;
+    cursor: pointer;
+}
+
+.chevron-scroll-right-icon {
+    padding: 0 30px;
+}

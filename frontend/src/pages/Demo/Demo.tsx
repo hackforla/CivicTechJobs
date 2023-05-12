@@ -3,8 +3,19 @@
 import React, { Fragment, useState } from "react";
 
 // Internal Imports
-import { Checkbox, Chip, TextField, Notification } from "components/components";
-import { IconEyeClose, IconEyeOpen, IconSearch } from "assets/images/images";
+import {
+  Checkbox,
+  Chip,
+  TextField,
+  Notification,
+  ChevronScroll,
+} from "components/components";
+import {
+  IconEyeClose,
+  IconEyeOpen,
+  IconSearch,
+  IconDropdownDown,
+} from "assets/images/images";
 import { combineClasses } from "components/Utility/utils";
 
 function Demo() {
@@ -55,6 +66,24 @@ function Demo() {
         <h1>
           Hello World! Feel free to use this page as a playground to test code!
         </h1>
+        <h2>Chevron Scroll</h2>
+        <ChevronScroll>
+          {[
+            "Roles",
+            "Availability",
+            "Experience Level",
+            "Program Areas",
+            "Languages/Technologies",
+          ].map((category, idx) => (
+            <button
+              key={idx}
+              value={category}
+              className="demo-chevron-scroll-btn"
+            >
+              {category} <IconDropdownDown style={{ marginLeft: "15px" }} />
+            </button>
+          ))}
+        </ChevronScroll>
         <div style={{ width: "720px" }}>
           <h2>Single Chips</h2>
           <div style={{ width: "500px" }}>
