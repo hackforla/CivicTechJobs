@@ -1,17 +1,25 @@
-.chevron-scroll-container {
+.chevron-scroll-outer-container {
+    position: relative;
+    white-space: nowrap;
+    display: flex;
     width: 1088px;
     height: 47px;
+    padding: 0px;
+    // border: 1px solid blue;
+}
+
+
+.chevron-scroll-inner-container {
+    scroll-snap-type: x mandatory;
+    position: relative;
     overflow: auto;
     white-space: nowrap;
-    position: relative;
     display: flex;
-    flex-direction: row;
     align-items: center;
-    padding: 0px;
     gap: 16px;
 }
 
-.chevron-scroll-container::-webkit-scrollbar {
+.chevron-scroll-inner-container::-webkit-scrollbar {
     display: none;
 }
 
@@ -23,36 +31,39 @@
     cursor: pointer;
 }
 
+//might not need sticky and left, top
 .chevron-scroll-left-box {
-    position: sticky;
-    left: 0;
-    top: 0;
-    width: max-content;
-    height: 100%;
+    // position: sticky;
+    // left: 0;
+    // top: 0;
+    // border: 1px solid red;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
     background-color: white;
     cursor: pointer;
-}
-.chevron-scroll-right-icon {
-    padding-left: 15px;
-    padding-right: 33px;
+    width: 75px;
 }
 
+
+//might not need sticky and right, top
 .chevron-scroll-right-box {
-    position: sticky;
-    right: 0;
-    top: 0;
-    width: max-content;
+    // position: sticky;
+    // right: 0;
+    // top: 0;
+    display: flex;
+    align-items: center;
+    background-color: white;
+}
+
+.chevron-scroll-right-icon-box {
+    padding: 0 32px;
+    // border: 1px solid red;
+    cursor: pointer;
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: end;
-    background-color: white;
-    cursor: pointer;
 }
 
-.chevron-scroll-right-icon {
-    padding: 0 30px;
-}
+
+

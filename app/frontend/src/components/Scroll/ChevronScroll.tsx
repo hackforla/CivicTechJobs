@@ -2,56 +2,84 @@ import React, { useRef, useCallback } from "react";
 import { IconChevronLeft, IconChevronRight } from "assets/images/images";
 
 //scroll snap
-//scroll box detect children components?
 
 function ChevronScroll(props: React.PropsWithChildren<{}>) {
   const [showRightChevron, setShowRightChevron] = React.useState(true);
   const [showLeftChevron, setShowLeftChevron] = React.useState(false);
+  const [childIndex, setChildIndex] = React.useState(0);
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const handleScroll = useCallback((e: React.UIEvent<HTMLDivElement>) => {
-    const position = e.currentTarget.scrollLeft;
-    const maxScroll =
-      e.currentTarget.scrollWidth - e.currentTarget.clientWidth - 1;
+  const handleChevronVisibility = useCallback(
+    (e: React.UIEvent<HTMLDivElement>) => {
+      const scrollPosition = e.currentTarget.scrollLeft;
+      const maxScroll =
+        e.currentTarget.scrollWidth - e.currentTarget.clientWidth - 1;
 
-    if (position === 0) {
-      console.log("Reached the start!");
-      setShowLeftChevron(false);
-    } else {
-      setShowLeftChevron(true);
-    }
+      // show left chevron if not at start
+      if (scrollPosition === 0) {
+        setShowLeftChevron(false);
+      } else {
+        setShowLeftChevron(true);
+      }
+      //show right chevron if not at end
+      if (scrollPosition >= maxScroll) {
+        setShowRightChevron(false);
+      } else {
+        setShowRightChevron(true);
+      }
+    },
+    []
+  );
 
-    if (position >= maxScroll) {
-      console.log("Reached the end!");
-      setShowRightChevron(false);
-    } else {
-      setShowRightChevron(true);
+  // Move the scroll bar left or right by the width of each child
+  const scrollMove = (direction: string) => {
+    if (scrollRef.current) {
+      if (direction === "right") {
+        const scrollChildren = Array.from(scrollRef.current.children);
+        scrollRef.current.scrollLeft += scrollChildren[childIndex].scrollWidth;
+        setChildIndex(childIndex + 1);
+
+        //might need to fix left scroll somehow for the comeback after max scroll
+      } else if (direction === "left") {
+        scrollRef.current.scrollLeft -=
+          scrollRef.current.children[childIndex - 1].scrollWidth;
+        setChildIndex(childIndex - 1);
+      }
     }
-  }, []);
+  };
+
+  const clearAllBtn = <div className="chevron-scroll-clear-all">Clear all</div>;
 
   return (
-    <div
-      ref={scrollRef}
-      onScroll={handleScroll}
-      className="chevron-scroll-container"
-    >
+    <div className="chevron-scroll-outer-container">
       <div
         className="chevron-scroll-left-box"
+        onClick={() => scrollMove("left")}
         style={{ display: showLeftChevron ? "flex" : "none" }}
       >
-        <IconChevronLeft className="chevron-scroll-right-icon" />
+        <IconChevronLeft />
       </div>
-
-      {props.children}
-
+      <div
+        ref={scrollRef}
+        onScroll={handleChevronVisibility}
+        className="chevron-scroll-inner-container"
+      >
+        {props.children}
+        {clearAllBtn}
+      </div>
       <div
         className="chevron-scroll-right-box"
-        onClick={() => console.log("clicked")}
         style={{ display: showRightChevron ? "flex" : "none" }}
       >
-        <IconChevronRight className="chevron-scroll-right-icon" />
-        <div className="chevron-scroll-clear-all">Clear all</div>
+        <div
+          className="chevron-scroll-right-icon-box"
+          onClick={() => scrollMove("right")}
+        >
+          <IconChevronRight />
+        </div>
+
+        {clearAllBtn}
       </div>
     </div>
   );
