@@ -10,11 +10,8 @@ Fixes #
 -
 -
 
-<!-- Please ignore everything below until #78 closes. -->
-
 <!-- Please attach full page screenshots of changes to the website's appearance before and after code changes in HTML drop boxes (see below template). DO NOT POST PICTURES OF YOUR CODE! -->
 
-<!-- Commented out
 ### Screenshots, if applicable
 
 <details>
@@ -23,4 +20,3 @@ Fixes #
   <img src="" width="600" length="300" />
   <br>
 </details>
--->

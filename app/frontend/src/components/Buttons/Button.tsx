@@ -16,12 +16,14 @@ interface ButtonAnchorProps extends ButtonSharedProps {
   href: string;
   onClick?: never;
   target?: "_blank" | "_self" | "_parent" | "_top";
+  rel?: string;
 }
 
 interface ButtonButtonProps extends ButtonSharedProps {
   href?: never;
   onClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   target?: never;
+  rel?: never;
 }
 
 type ButtonProps = ButtonAnchorProps | ButtonButtonProps;
@@ -31,6 +33,7 @@ function Button({
   size = "sm",
   color = "primary",
   length = "", // empty string is falsy
+  rel = "noopener noreferrer",
   ...props
 }: ButtonProps) {
   const Tag = "href" in props ? "a" : "button"; // conditionally rendered tags
@@ -47,6 +50,7 @@ function Button({
       )}
       href={props.href}
       target={props.href ? props.target : undefined}
+      rel={props.href ? rel : undefined}
       onClick={props.onClick}
     >
       {props.children}

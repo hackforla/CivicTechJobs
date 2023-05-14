@@ -1,11 +1,15 @@
 // External Imports
 import React, { Fragment } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 // Internal Imports
 import { HeaderNav } from "components/components";
 import { Button } from "components/components";
-import { logoHorizontal, logoStacked, notFoundPageImg } from "assets/images/images";
+import {
+  logoHorizontal,
+  logoStacked,
+  notFoundPageImg,
+} from "assets/images/images";
 
 function NotFoundPage() {
   const navigate = useNavigate();
@@ -15,9 +19,12 @@ function NotFoundPage() {
         logoDesktop={logoHorizontal}
         logoMobile={logoStacked}
         menu={[
-          { name: "Hack for LA", link: "/" },
-          { name: "How to Join", link: "/qualifier/1" },
-          { name: "Projects", link: "/demo" },
+          { name: "Hack for LA", link: "https://www.hackforla.org/" },
+          {
+            name: "How to Join",
+            link: "https://www.hackforla.org/getting-started",
+          },
+          { name: "Projects", link: "https://www.hackforla.org/projects/" },
         ]}
       />
       <main>
@@ -25,14 +32,10 @@ function NotFoundPage() {
           <div className="not-found-box">
             <h1 className="not-found-title mt-0 mb-3">Page not found</h1>
             <p className="not-found-paragraph mb-3">
-              We can’t seem to find the page you’re looking for.
-              Try going back to the previous page.
+              We can't seem to find the page you're looking for. Try going back
+              to the previous page.
             </p>
-            <Button
-              length="long"
-              size="lg"
-              onClick={() => navigate(-1)}
-            >
+            <Button length="long" size="lg" onClick={() => navigate(-1)}>
               Go Back
             </Button>
           </div>

@@ -126,7 +126,7 @@ function LandingPageCop() {
                     color="primary"
                     size="md"
                     length="long"
-                    href="https://www.google.com/"
+                    href="/qualifier/1"
                   >
                     Join Us
                   </Button>
