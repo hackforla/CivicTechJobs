@@ -23,7 +23,7 @@ env:
 
   ENVIRON: stage
 
-  DJANGO_ALLOWED_HOSTS: ".stage.civictechjobs.org"
+  DJANGO_ALLOWED_HOSTS: ".stage.civictechjobs.org localhost"
 
 permissions:
   contents: read
