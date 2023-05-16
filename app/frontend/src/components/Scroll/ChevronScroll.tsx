@@ -1,5 +1,6 @@
 import React, { useRef, useCallback } from "react";
 import { IconChevronLeft, IconChevronRight } from "assets/images/images";
+import { combineClasses } from "components/Utility/utils";
 
 function ChevronScroll(props: React.PropsWithChildren<{}>) {
   const [showRightChevron, setShowRightChevron] = React.useState(true);
@@ -51,9 +52,11 @@ function ChevronScroll(props: React.PropsWithChildren<{}>) {
   return (
     <div className="chevron-scroll-outer-container">
       <button
-        className="chevron-scroll-left-btn"
+        className={combineClasses(
+          "chevron-scroll-left-btn",
+          showLeftChevron ? undefined : "hidden"
+        )}
         onClick={() => scrollMove("left")}
-        style={{ display: showLeftChevron ? "flex" : "none" }}
         aria-label="Scroll left"
       >
         <IconChevronLeft />
@@ -66,8 +69,10 @@ function ChevronScroll(props: React.PropsWithChildren<{}>) {
         {props.children}
       </div>
       <button
-        className="chevron-scroll-right-btn"
-        style={{ display: showRightChevron ? "flex" : "none" }}
+        className={combineClasses(
+          "chevron-scroll-right-btn",
+          showRightChevron ? undefined : "hidden"
+        )}
         onClick={() => scrollMove("right")}
         aria-label="Scroll right"
       >

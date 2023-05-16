@@ -1,4 +1,5 @@
 @use "../Basics/_colors" as *;
+@use "components/Basics" as *;
 
 .chevron-scroll-outer-container {
   white-space: nowrap;
@@ -27,6 +28,10 @@
   padding: 0 32px 0 15px;
   cursor: pointer;
   border: none;
+
+  &.hidden {
+    @include hidden;
+  }
 }
 
 .chevron-scroll-right-btn {
@@ -36,6 +41,10 @@
   padding: 0 15px 0 32px;
   border: none;
   cursor: pointer;
+
+  &.hidden {
+    @include hidden;
+  }
 }
 
 .chevron-scroll-clear-btn {
