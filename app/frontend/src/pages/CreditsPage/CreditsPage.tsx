@@ -18,17 +18,20 @@ const CreditsPage = () => {
   const [activeData, setActiveData] = useState(illustrationData);
   const [activeButton, setActiveButton] = useState("btnIllustration");
   const [imgBgColor, setImgBgColor] = useState("#F2F2F2");
+  const [imgSize, setImgSize] = useState("");
 
   const handleClickBtnIllustration = () => {
     setActiveButton("btnIllustration");
     setActiveData(illustrationData);
     setImgBgColor("#F2F2F2");
+    setImgSize("");
   };
 
   const handleClickBtnIcon = () => {
     setActiveData(iconData);
     setActiveButton("btnIcon");
     setImgBgColor("#FFEFDB");
+    setImgSize("28px");
   };
 
   return (
@@ -84,7 +87,7 @@ const CreditsPage = () => {
                 <Card key={cardData.id} addClass="col-4">
                   <div>
                     <div className="image-frame flex-container justify-center align-center" style={{backgroundColor: imgBgColor}}>
-                      <img src={cardData.imgSrc} alt={`${cardData.name} image`} />
+                      <img src={cardData.imgSrc} style={{width: imgSize}} alt={`${cardData.name} image`} />
                     </div>
                     <div className="flex-container mt-3 mb-5">
                       <div className="flex-column mr-2">

@@ -1,25 +1,23 @@
 // data that will be used for credits page
 import {
-  iconArrowDownSvg,
-  iconArrowLeftSvg,
-  iconCarouselSvg,
-  iconCheckSvg,
-  iconChevronDownSvg,
-  iconChevronLeftSvg,
-  iconChevronRightSvg,
-  iconChevronUpSvg,
-  iconClipboardSvg,
-  iconCrossSvg,
-  iconFilterSvg,
-  iconMenuSvg,
-  iconMinusSvg,
-  iconPlusSvg,
-  iconSearchSvg,
+  iconArrowDown,
+  iconArrowLeft,
+  iconCheckboxY,
+  iconCheckboxN,
+  iconCheckMark,
+  iconDropdownDown,
+  iconDropdownUp,
+  iconEyeClose,
+  iconEyeOpen,
+  iconHamburgerMenu,
+  iconPlus,
+  iconSearch,
+  iconX
 } from "assets/images/images";
 
 interface iconDatum {
   id: number;
-  imgSrc: React.ElementType;
+  imgSrc: string;
   name: string;
   usedIn: string;
   provider: string;
@@ -29,7 +27,7 @@ interface iconDatum {
 const iconData: iconDatum[] = [
   {
     id: 1,
-    imgSrc: iconMenuSvg,
+    imgSrc: iconHamburgerMenu,
     name: "Menu line",
     usedIn: "Multiple pages",
     provider: "Majesticons",
@@ -37,7 +35,7 @@ const iconData: iconDatum[] = [
   },
   {
     id: 2,
-    imgSrc: iconCrossSvg,
+    imgSrc: iconX,
     name: "Cross line",
     usedIn: "Multiple pages",
     provider: "Majesticons",
@@ -45,7 +43,7 @@ const iconData: iconDatum[] = [
   },
   {
     id: 3,
-    imgSrc: iconArrowDownSvg,
+    imgSrc: iconArrowDown,
     name: "Arrow down line",
     usedIn: "How to Join",
     provider: "Majesticons",
@@ -53,7 +51,7 @@ const iconData: iconDatum[] = [
   },
   {
     id: 4,
-    imgSrc: iconArrowLeftSvg,
+    imgSrc: iconArrowLeft,
     name: "Arrow left line",
     usedIn: "How to Join",
     provider: "Majesticons",
@@ -61,7 +59,7 @@ const iconData: iconDatum[] = [
   },
   {
     id: 5,
-    imgSrc: iconChevronDownSvg,
+    imgSrc: iconDropdownDown,
     name: "Chevron down",
     usedIn: "How to Join",
     provider: "Majesticons",
@@ -69,84 +67,84 @@ const iconData: iconDatum[] = [
   },
   {
     id: 6,
-    imgSrc: iconChevronUpSvg,
+    imgSrc: iconDropdownUp,
     name: "Chevron up",
     usedIn: "How to Join",
     provider: "Majesticons",
     link: "https://www.majesticons.com/",
   },
-  {
-    id: 7,
-    imgSrc: iconChevronLeftSvg,
-    name: "Chevron left",
-    usedIn: "How to Join",
-    provider: "Majesticons",
-    link: "https://www.majesticons.com/",
-  },
-  {
-    id: 8,
-    imgSrc: iconChevronRightSvg,
-    name: "Chevron right",
-    usedIn: "How to Join",
-    provider: "Majesticons",
-    link: "https://www.majesticons.com/",
-  },
+  // {
+  //   id: 7,
+  //   imgSrc: ,
+  //   name: "Chevron left",
+  //   usedIn: "How to Join",
+  //   provider: "Majesticons",
+  //   link: "https://www.majesticons.com/",
+  // },
+  // {
+  //   id: 8,
+  //   imgSrc: ,
+  //   name: "Chevron right",
+  //   usedIn: "How to Join",
+  //   provider: "Majesticons",
+  //   link: "https://www.majesticons.com/",
+  // },
   {
     id: 9,
-    imgSrc: iconSearchSvg,
+    imgSrc: iconSearch,
     name: "Search line",
     usedIn: "How to Join",
     provider: "Majesticons",
     link: "https://www.majesticons.com/",
   },
-  {
-    id: 10,
-    imgSrc: iconCarouselSvg,
-    name: "Carousel dot",
-    usedIn: "How to Join",
-    provider: "Majesticons",
-    link: "https://www.majesticons.com/",
-  },
+  // {
+  //   id: 10,
+  //   imgSrc: iconCarouselSvg,
+  //   name: "Carousel dot",
+  //   usedIn: "How to Join",
+  //   provider: "Majesticons",
+  //   link: "https://www.majesticons.com/",
+  // },
   {
     id: 11,
-    imgSrc: iconCheckSvg,
+    imgSrc: iconCheckMark,
     name: "Check line",
     usedIn: "How to Join",
     provider: "Majesticons",
     link: "https://www.majesticons.com/",
   },
-  {
-    id: 12,
-    imgSrc: iconMinusSvg,
-    name: "Minus line",
-    usedIn: "How to Join",
-    provider: "Majesticons",
-    link: "https://www.majesticons.com/",
-  },
+  // {
+  //   id: 12,
+  //   imgSrc: iconMinusSvg,
+  //   name: "Minus line",
+  //   usedIn: "How to Join",
+  //   provider: "Majesticons",
+  //   link: "https://www.majesticons.com/",
+  // },
   {
     id: 13,
-    imgSrc: iconPlusSvg,
+    imgSrc: iconPlus,
     name: "Plus line",
     usedIn: "How to Join",
     provider: "Majesticons",
     link: "https://www.majesticons.com/",
   },
-  {
-    id: 14,
-    imgSrc: iconClipboardSvg,
-    name: "Clipboard check",
-    usedIn: "How to Join",
-    provider: "Majesticons",
-    link: "https://www.majesticons.com/",
-  },
-  {
-    id: 15,
-    imgSrc: iconFilterSvg,
-    name: "Filter line",
-    usedIn: "How to Join",
-    provider: "Majesticons",
-    link: "https://www.majesticons.com/",
-  },
+  // {
+  //   id: 14,
+  //   imgSrc: iconClipboardSvg,
+  //   name: "Clipboard check",
+  //   usedIn: "How to Join",
+  //   provider: "Majesticons",
+  //   link: "https://www.majesticons.com/",
+  // },
+  // {
+  //   id: 15,
+  //   imgSrc: iconFilterSvg,
+  //   name: "Filter line",
+  //   usedIn: "How to Join",
+  //   provider: "Majesticons",
+  //   link: "https://www.majesticons.com/",
+  // },
 ];
 
 export { iconDatum, iconData };

@@ -88,23 +88,23 @@ import illustrationHighFive from "./pngs/illustrations/high-five.png";
 
 
 
-// Credits Icons
-import icongraphyCross from "./svgs/credits/icons/cross.svg";
-import icongraphyArrowDown from "./svgs/credits/icons/arrow-down.svg";
-import icongraphyArrowLeft from "./svgs/credits/icons/arrow-left.svg";
-import icongraphyCarousel from "./svgs/credits/icons/carousel.svg";
-import icongraphyCheck from "./svgs/credits/icons/check.svg";
-import icongraphyChevronDown from "./svgs/credits/icons/chevron-down.svg";
-import icongraphyChevronLeft from "./svgs/credits/icons/chevron-left.svg";
-import icongraphyChevronRight from "./svgs/credits/icons/chevron-right.svg";
-import icongraphyChevronUp from "./svgs/credits/icons/chevron-up.svg";
-import icongraphyClipboard from "./svgs/credits/icons/clipboard.svg";
-import icongraphyCross from "./svgs/credits/icons/cross.svg";
-import icongraphyFilter from "./svgs/credits/icons/filter.svg";
-import icongraphyMenu from "./svgs/credits/icons/menu.svg";
-import icongraphyMinus from "./svgs/credits/icons/minus.svg";
-import icongraphyPlus from "./svgs/credits/icons/plus.svg";
-import icongraphySearch from "./svgs/credits/icons/search.svg";
+// // Credits Icons
+// import icongraphyCross from "./svgs/credits/icons/cross.svg";
+// import icongraphyArrowDown from "./svgs/credits/icons/arrow-down.svg";
+// import icongraphyArrowLeft from "./svgs/credits/icons/arrow-left.svg";
+// import icongraphyCarousel from "./svgs/credits/icons/carousel.svg";
+// import icongraphyCheck from "./svgs/credits/icons/check.svg";
+// import icongraphyChevronDown from "./svgs/credits/icons/chevron-down.svg";
+// import icongraphyChevronLeft from "./svgs/credits/icons/chevron-left.svg";
+// import icongraphyChevronRight from "./svgs/credits/icons/chevron-right.svg";
+// import icongraphyChevronUp from "./svgs/credits/icons/chevron-up.svg";
+// import icongraphyClipboard from "./svgs/credits/icons/clipboard.svg";
+// import icongraphyCross from "./svgs/credits/icons/cross.svg";
+// import icongraphyFilter from "./svgs/credits/icons/filter.svg";
+// import icongraphyMenu from "./svgs/credits/icons/menu.svg";
+// import icongraphyMinus from "./svgs/credits/icons/minus.svg";
+// import icongraphyPlus from "./svgs/credits/icons/plus.svg";
+// import icongraphySearch from "./svgs/credits/icons/search.svg";
 
 interface defaultProps {
   [attribute: string]: string;
@@ -199,67 +199,67 @@ const LogoWordmark = svgWrapper(LogoWordmarkP, {
   desc: "platform name and logo with a word play",
 });
 
-// Credits Page Icons
-const iconArrowDownSvg = svgWrapper(icongraphyArrowDown, {
-  title: "Arrow Down Icon",
-  desc: "",
-});
-const iconArrowLeftSvg = svgWrapper(icongraphyArrowLeft, {
-  title: "Arrow Left Icon",
-  desc: "",
-});
-const iconCarouselSvg = svgWrapper(icongraphyCarousel, {
-  title: "Carousel Icon",
-  desc: "",
-});
-const iconCheckSvg = svgWrapper(icongraphyCheck, {
-  title: "Check Icon",
-  desc: "",
-});
-const iconChevronDownSvg = svgWrapper(icongraphyChevronDown, {
-  title: "Chevron Down Icon",
-  desc: "",
-});
-const iconChevronLeftSvg = svgWrapper(icongraphyChevronLeft, {
-  title: "Chevron Left Icon",
-  desc: "",
-});
-const iconChevronRightSvg = svgWrapper(icongraphyChevronRight, {
-  title: "Chevron Right Icon",
-  desc: "",
-});
-const iconChevronUpSvg = svgWrapper(icongraphyChevronUp, {
-  title: "Chevron Up Icon",
-  desc: "",
-});
-const iconClipboardSvg = svgWrapper(icongraphyClipboard, {
-  title: "Clipboard Icon",
-  desc: "",
-});
-const iconCrossSvg = svgWrapper(icongraphyCross, {
-  title: "Cross Icon",
-  desc: "",
-});
-const iconFilterSvg = svgWrapper(icongraphyFilter, {
-  title: "Filter Icon",
-  desc: "",
-});
-const iconMenuSvg = svgWrapper(icongraphyMenu, {
-  title: "Menu Icon",
-  desc: "",
-});
-const iconMinusSvg = svgWrapper(icongraphyMinus, {
-  title: "Minus Icon",
-  desc: "",
-});
-const iconPlusSvg = svgWrapper(icongraphyPlus, {
-  title: "Plus Icon",
-  desc: "",
-});
-const iconSearchSvg = svgWrapper(icongraphySearch, {
-  title: "Search Icon",
-  desc: "",
-});
+// // Credits Page Icons
+// const iconArrowDownSvg = svgWrapper(icongraphyArrowDown, {
+//   title: "Arrow Down Icon",
+//   desc: "",
+// });
+// const iconArrowLeftSvg = svgWrapper(icongraphyArrowLeft, {
+//   title: "Arrow Left Icon",
+//   desc: "",
+// });
+// const iconCarouselSvg = svgWrapper(icongraphyCarousel, {
+//   title: "Carousel Icon",
+//   desc: "",
+// });
+// const iconCheckSvg = svgWrapper(icongraphyCheck, {
+//   title: "Check Icon",
+//   desc: "",
+// });
+// const iconChevronDownSvg = svgWrapper(icongraphyChevronDown, {
+//   title: "Chevron Down Icon",
+//   desc: "",
+// });
+// const iconChevronLeftSvg = svgWrapper(icongraphyChevronLeft, {
+//   title: "Chevron Left Icon",
+//   desc: "",
+// });
+// const iconChevronRightSvg = svgWrapper(icongraphyChevronRight, {
+//   title: "Chevron Right Icon",
+//   desc: "",
+// });
+// const iconChevronUpSvg = svgWrapper(icongraphyChevronUp, {
+//   title: "Chevron Up Icon",
+//   desc: "",
+// });
+// const iconClipboardSvg = svgWrapper(icongraphyClipboard, {
+//   title: "Clipboard Icon",
+//   desc: "",
+// });
+// const iconCrossSvg = svgWrapper(icongraphyCross, {
+//   title: "Cross Icon",
+//   desc: "",
+// });
+// const iconFilterSvg = svgWrapper(icongraphyFilter, {
+//   title: "Filter Icon",
+//   desc: "",
+// });
+// const iconMenuSvg = svgWrapper(icongraphyMenu, {
+//   title: "Menu Icon",
+//   desc: "",
+// });
+// const iconMinusSvg = svgWrapper(icongraphyMinus, {
+//   title: "Minus Icon",
+//   desc: "",
+// });
+// const iconPlusSvg = svgWrapper(icongraphyPlus, {
+//   title: "Plus Icon",
+//   desc: "",
+// });
+// const iconSearchSvg = svgWrapper(icongraphySearch, {
+//   title: "Search Icon",
+//   desc: "",
+// });
 
 // Credits Page Illustrations
 // const illustrationCreativeTeamSvg = svgWrapper(illustrationCreativeTeam, {
@@ -363,22 +363,22 @@ export {
   // HfLA logo
   logoHfLA,
   notFoundPageImg,
-  // Credits Page Icons
-  iconArrowDownSvg,
-  iconArrowLeftSvg,
-  iconCarouselSvg,
-  iconCheckSvg,
-  iconChevronDownSvg,
-  iconChevronLeftSvg,
-  iconChevronRightSvg,
-  iconChevronUpSvg,
-  iconClipboardSvg,
-  iconCrossSvg,
-  iconFilterSvg,
-  iconMenuSvg,
-  iconMinusSvg,
-  iconPlusSvg,
-  iconSearchSvg,
+  // // Credits Page Icons
+  // iconArrowDownSvg,
+  // iconArrowLeftSvg,
+  // iconCarouselSvg,
+  // iconCheckSvg,
+  // iconChevronDownSvg,
+  // iconChevronLeftSvg,
+  // iconChevronRightSvg,
+  // iconChevronUpSvg,
+  // iconClipboardSvg,
+  // iconCrossSvg,
+  // iconFilterSvg,
+  // iconMenuSvg,
+  // iconMinusSvg,
+  // iconPlusSvg,
+  // iconSearchSvg,
   // Credits Page Illustrations,
   // // illustrationCreativeTeamSvg,
   // illustrationDigitalPresentationSvg,
