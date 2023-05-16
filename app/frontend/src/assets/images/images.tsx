@@ -49,7 +49,8 @@ import landingPageFg from "./svgs/landing-page-fg.svg?url";
 import landingPageBg from "./svgs/landing-page-bg.svg?url";
 import notFoundPageImg from "./svgs/not-found-page.svg?url";
 // import creditsPageBgTop from "./svgs/credits-page-bg-top.svg";
-import creditsPageBgBottom from "./svgs/credits-page-bg-bottom.svg";
+import creditsPageBgBottomSvg from "./svgs/credits-page-bg-bottom.svg";
+import creditsPageBgBottom from "./pngs/credits-page-bg-bottom.png";
 
 // CTJ Logos
 import LogoHorizontalP from "./svgs/logos/logo-horizontal.svg";
@@ -233,5 +234,4 @@ export {
   // illustrations
   illustrationCreativeTeam,
   illustrationHighFive,
-
 };
