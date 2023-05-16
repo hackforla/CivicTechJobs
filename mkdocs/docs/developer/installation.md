@@ -95,6 +95,14 @@ In this scenario, the full command would be:
 
 `docker compose run webpack npm install`
 
+##### 5. [webpack-cli] [Error: EACCES: permission denied', open '/code/frontend/templates/frontend/index.html']
+
+In this case, the `index.html` file has incorrect ownership and/or permissions. To fix this, run the following command in the root directory of the CTJ repository:
+
+`sudo chown -R $USER:$USER`
+
+This will utilize superuser permissions to change the user and group ownership of all the files and directories in the current directory to the current user.
+
 ## Additional Resources
 
 [Git Documentation](https://git-scm.com/doc)<br>

@@ -23,7 +23,7 @@ function LandingPageIntro() {
           length="long"
           size="lg"
           addClass="landing-intro-btn"
-          href="https://www.google.com"
+          href="/qualifier/1"
         >
           Join us
         </Button>

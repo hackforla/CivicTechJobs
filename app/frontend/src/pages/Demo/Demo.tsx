@@ -19,7 +19,10 @@ function Demo() {
     <Fragment>
       <Notification closable fade>
         This is a limited view. Please{" "}
-        <a href="https://www.hackforla.org/getting-started">
+        <a
+          href="https://www.hackforla.org/getting-started"
+          rel="noopener noreferrer"
+        >
           attend onboarding
         </a>{" "}
         with Hack for LA or log in to see full opportunities.
@@ -27,7 +30,10 @@ function Demo() {
       <br></br>
       <Notification closable>
         This is a limited view. Please{" "}
-        <a href="https://www.hackforla.org/getting-started">
+        <a
+          href="https://www.hackforla.org/getting-started"
+          rel="noopener noreferrer"
+        >
           attend onboarding
         </a>{" "}
         with Hack for LA or log in to see full opportunities.
@@ -35,7 +41,10 @@ function Demo() {
       <br></br>
       <Notification autoHidden>
         This is a limited view. Please{" "}
-        <a href="https://www.hackforla.org/getting-started">
+        <a
+          href="https://www.hackforla.org/getting-started"
+          rel="noopener noreferrer"
+        >
           attend onboarding
         </a>{" "}
         with Hack for LA or log in to see full opportunities.

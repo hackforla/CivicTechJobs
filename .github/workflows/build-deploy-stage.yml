@@ -23,7 +23,7 @@ env:
 
   ENVIRON: stage
 
-  DJANGO_ALLOWED_HOSTS: "ctj.kwpark.net .stage.civictechjobs.org localhost"
+  DJANGO_ALLOWED_HOSTS: ".stage.civictechjobs.org localhost"
 
 permissions:
   contents: read
@@ -88,6 +88,7 @@ jobs:
             SQL_PORT=${{ env.DB_PORT }}
             ENVIRON=${{ env.ENVIRON }}
             DJANGO_ALLOWED_HOSTS=${{ env.DJANGO_ALLOWED_HOSTS }}
+            DEBUG=False
             TARGET=ECS
 
       - name: Deploy Amazon ECS task definition

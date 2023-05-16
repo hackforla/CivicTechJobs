@@ -37,7 +37,7 @@ function QualifierPageCalendar() {
           iconUrl={iconArrowLeft}
           onClick={() => navigate("../1")}
         />
-        <Button size="lg" length="long" color="primary" href="/demo">
+        <Button size="lg" length="long" color="primary" href="/">
           View available roles
         </Button>
       </QualifierNav>
