@@ -9,27 +9,27 @@ import {
   logoStackedOnDark,
   logoHfLA
 } from "assets/images/images";
-import { HeaderNav, FooterNav, Button } from "components/components";
+import { HeaderNav, FooterNav, Button, Chip } from "components/components";
 import { Card } from "components/Cards/StandardCard";
 import { iconData } from "pages/api_data/creditsIconData";
 import { illustrationData } from "pages/api_data/creditsIllustrationData";
 
 const CreditsPage = () => {
   const [activeData, setActiveData] = useState(illustrationData);
-  const [activeButton, setActiveButton] = useState("btnIllustration");
+  const [activeChip, setActiveChip] = useState('illustrations');
   const [imgBgColor, setImgBgColor] = useState("#F2F2F2");
   const [imgSize, setImgSize] = useState("");
 
-  const handleClickBtnIllustration = () => {
-    setActiveButton("btnIllustration");
+  const handleClickChipIllustration = () => {
+    setActiveChip('illustrations');
     setActiveData(illustrationData);
     setImgBgColor("#F2F2F2");
     setImgSize("");
   };
 
-  const handleClickBtnIcon = () => {
+  const handleClickChipIcon = () => {
     setActiveData(iconData);
-    setActiveButton("btnIcon");
+    setActiveChip("icons");
     setImgBgColor("#FFEFDB");
     setImgSize("28px");
   };
@@ -60,7 +60,21 @@ const CreditsPage = () => {
             <div className="pt-5 mt-5">
               <h2 className="credits-test">Illustrations & Iconography</h2>
               <div>
-                <Button
+              <Chip
+                  variant="single"
+                  addClass={"mr-3 px-3"}
+                  checked={activeChip === 'illustrations' && true}
+                  onClick={handleClickChipIllustration}
+                  value="Illustrations"
+                />
+                <Chip
+                  variant="single"
+                  addClass="px-3"
+                  checked={activeChip === 'icons' && true}
+                  onClick={handleClickChipIcon}
+                  value="Icongraphy"
+                />
+                {/* <Button
                   color="primary"
                   size="md"
                   onClick={handleClickBtnIllustration}
@@ -78,7 +92,7 @@ const CreditsPage = () => {
                   }`}
                 >
                   Iconography
-                </Button>
+                </Button> */}
               </div>
             </div>
 
@@ -91,14 +105,14 @@ const CreditsPage = () => {
                     </div>
                     <div className="flex-container mt-3 mb-5">
                       <div className="flex-column mr-2">
-                        <div className="label">Name:</div>
-                        <div className="label">Used In:</div>
-                        <div className="label">Provider:</div>
+                        <div className="title-6">Name:</div>
+                        <div className="title-6">Used In:</div>
+                        <div className="title-6">Provider:</div>
                       </div>
                       <div className="flex-column">
-                        <div className="value">{cardData.name}</div>
-                        <div className="value">{cardData.usedIn}</div>
-                        <div className="value">{cardData.provider}</div>
+                        <div className="paragraph-3">{cardData.name}</div>
+                        <div className="paragraph-3">{cardData.usedIn}</div>
+                        <div className="paragraph-3">{cardData.provider}</div>
                       </div>
                     </div>
                     <a className="links" href={cardData.link}>
@@ -112,7 +126,7 @@ const CreditsPage = () => {
         </section>
 
         <section className="join-us-section">
-          <div className="flex-container join-us-content-container">
+          <div className="flex-container join-us-content-container justify-center align-center">
             <img
               className="flex-column mr-3"
               src={logoHfLA}

@@ -1,14 +1,5 @@
 @use "components/Basics" as *;
 
-.credits-intro-container {
-  background-image: url("assets/images/svgs/credits-page-bg-top.svg");
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  height: auto;
-  width: 100%;
-}
-
 .body-container {
   background-image: url("assets/images/svgs/credits-page-bg-top.svg");
   background-position: top center;
@@ -29,23 +20,6 @@
 .join-us-content-container {
   position: relative;
   top: 250px;
-  justify-content: center;
-  align-items: center;
-}
-
-.btn-outline {
-  background-color: #fff;
-  color: $color-blue-dark;
-  font-weight: 400;
-}
-
-.btn-border {
-  border: 1px solid #3450a1;
-}
-
-.btn-outline:hover {
-  color: #fff;
-  font-weight: bold;
 }
 
 .text-container {
@@ -74,56 +48,6 @@
 .main-container {
   max-width: 1088px;
   margin: 0 auto;
-}
-
-// .credits-test {
-//   color: $color-charcoal;
-// }
-
-// .grid {
-//   display: grid;
-//   max-width: 1088px;
-//   margin: 0 auto;
-//   grid-template-columns: repeat(auto-fit, minmax(292px, 1fr));
-//   gap: 5rem;
-//   margin-top: 5rem;
-// }
-
-// .credit-card {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   padding: 40px 35px;
-// }
-
-// .credit-card-img {
-//   width: 200px;
-//   height: 200px;
-//   display: block;
-//   margin: auto;
-// }
-
-// Footer
-// .container {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: flex-start;
-// }
-
-// .column {
-//   display: flex;
-//   flex-direction: column;
-//   font-size: 16px;
-//   color: $color-charcoal;
-// }
-
-.label {
-  font-weight: bold;
-  line-height: 22px;
-}
-
-.value {
-  line-height: 22px;
 }
 
 // Card image
