@@ -1,69 +1,53 @@
+@use "../Basics/_colors" as *;
+
 .chevron-scroll-outer-container {
-    position: relative;
-    white-space: nowrap;
-    display: flex;
-    width: 1088px;
-    height: 47px;
-    padding: 0px;
-    // border: 1px solid blue;
+  white-space: nowrap;
+  display: flex;
+  width: 1088px;
+  height: 47px;
 }
 
-
-.chevron-scroll-inner-container {
-    scroll-snap-type: x mandatory;
-    position: relative;
-    overflow: auto;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    gap: 16px;
+.chevron-scroll-child-container {
+  scroll-snap-type: x mandatory;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-.chevron-scroll-inner-container::-webkit-scrollbar {
-    display: none;
+.chevron-scroll-child-container::-webkit-scrollbar {
+  display: none;
 }
 
-.chevron-scroll-clear-all {
-    text-decoration: underline;
-    font-weight: 700;
-    font-size: 20px;
-    color: #333333;
-    cursor: pointer;
+.chevron-scroll-left-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 0 32px 0 15px;
+  cursor: pointer;
+  border: none;
 }
 
-//might not need sticky and left, top
-.chevron-scroll-left-box {
-    // position: sticky;
-    // left: 0;
-    // top: 0;
-    // border: 1px solid red;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    cursor: pointer;
-    width: 75px;
+.chevron-scroll-right-btn {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 0 15px 0 32px;
+  border: none;
+  cursor: pointer;
 }
 
-
-//might not need sticky and right, top
-.chevron-scroll-right-box {
-    // position: sticky;
-    // right: 0;
-    // top: 0;
-    display: flex;
-    align-items: center;
-    background-color: white;
+.chevron-scroll-clear-btn {
+  display: flex;
+  align-items: center;
+  text-decoration: underline;
+  font-weight: 700;
+  font-size: 20px;
+  color: $charcoal;
+  margin-left: 16px;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
 }
-
-.chevron-scroll-right-icon-box {
-    padding: 0 32px;
-    // border: 1px solid red;
-    cursor: pointer;
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
-
-
-

@@ -74,13 +74,14 @@ function Demo() {
             "Experience Level",
             "Program Areas",
             "Languages/Technologies",
+            "Location",
           ].map((category, idx) => (
             <button
               key={idx}
               value={category}
               className="demo-chevron-scroll-btn"
             >
-              {category} <IconDropdownDown style={{ marginLeft: "15px" }} />
+              {category} <IconDropdownDown className="ml-2 mr-1" />
             </button>
           ))}
         </ChevronScroll>
