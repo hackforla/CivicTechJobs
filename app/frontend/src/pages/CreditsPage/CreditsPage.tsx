@@ -7,7 +7,7 @@ import {
   logoStacked,
   logoHorizontalOnDark,
   logoStackedOnDark,
-  logoHfLA
+  logoHfLA,
 } from "assets/images/images";
 import { HeaderNav, FooterNav, Button, Chip } from "components/components";
 import { Card } from "components/Cards/StandardCard";
@@ -16,12 +16,12 @@ import { illustrationData } from "pages/api_data/creditsIllustrationData";
 
 const CreditsPage = () => {
   const [activeData, setActiveData] = useState(illustrationData);
-  const [activeChip, setActiveChip] = useState('illustrations');
+  const [activeChip, setActiveChip] = useState("illustrations");
   const [imgBgColor, setImgBgColor] = useState("#F2F2F2");
   const [imgSize, setImgSize] = useState("");
 
   const handleClickChipIllustration = () => {
-    setActiveChip('illustrations');
+    setActiveChip("illustrations");
     setActiveData(illustrationData);
     setImgBgColor("#F2F2F2");
     setImgSize("");
@@ -46,9 +46,9 @@ const CreditsPage = () => {
         ]}
       />
       <main>
-        <section className="body-container">
-          <div className="main-container">
-            <div className="text-container">
+        <section className="credits-body-container">
+          <div className="credits-main-container">
+            <div className="credits-text-container">
               <h1 className="credits-intro-title mt-0 mb-3">Credits</h1>
               <p className="paragraph-1 credits-intro-paragraph">
                 Thank you to all of the artists and sponsors who help make our
@@ -58,41 +58,22 @@ const CreditsPage = () => {
             </div>
 
             <div className="pt-5 mt-5">
-              <h2 className="credits-test">Illustrations & Iconography</h2>
+              <h2>Illustrations & Iconography</h2>
               <div>
-              <Chip
+                <Chip
                   variant="single"
                   addClass={"mr-3 px-3"}
-                  checked={activeChip === 'illustrations' && true}
+                  checked={activeChip === "illustrations" && true}
                   onClick={handleClickChipIllustration}
                   value="Illustrations"
                 />
                 <Chip
                   variant="single"
                   addClass="px-3"
-                  checked={activeChip === 'icons' && true}
+                  checked={activeChip === "icons" && true}
                   onClick={handleClickChipIcon}
                   value="Icongraphy"
                 />
-                {/* <Button
-                  color="primary"
-                  size="md"
-                  onClick={handleClickBtnIllustration}
-                  addClass={`mr-3 btn-border ${
-                    activeButton === "btnIllustration" ? "" : "btn-outline"
-                  }`}
-                >
-                  Illustrations
-                </Button>
-                <Button
-                  size="md"
-                  onClick={handleClickBtnIcon}
-                  addClass={`mr-3 btn-border ${
-                    activeButton === "btnIcon" ? "" : "btn-outline"
-                  }`}
-                >
-                  Iconography
-                </Button> */}
               </div>
             </div>
 
@@ -100,8 +81,15 @@ const CreditsPage = () => {
               {activeData.map((cardData) => (
                 <Card key={cardData.id} addClass="col-4">
                   <div>
-                    <div className="image-frame flex-container justify-center align-center" style={{backgroundColor: imgBgColor}}>
-                      <img src={cardData.imgSrc} style={{width: imgSize}} alt={`${cardData.name} image`} />
+                    <div
+                      className="credits-image-frame flex-container justify-center align-center"
+                      style={{ backgroundColor: imgBgColor }}
+                    >
+                      <img
+                        src={cardData.imgSrc}
+                        style={{ width: imgSize }}
+                        alt={`${cardData.name} image`}
+                      />
                     </div>
                     <div className="flex-container mt-3 mb-5">
                       <div className="flex-column mr-2">
@@ -125,14 +113,14 @@ const CreditsPage = () => {
           </div>
         </section>
 
-        <section className="join-us-section">
-          <div className="flex-container join-us-content-container justify-center align-center">
+        <section className="credits-join-us-section">
+          <div className="credits-join-us-content-container flex-container justify-center align-center">
             <img
               className="flex-column mr-3"
               src={logoHfLA}
               alt="Hack for LA logo"
             />
-            <div className="flex-column join-us-text">
+            <div className="flex-column credits-join-us-text">
               <h3>Join us!</h3>
               <p>
                 Civic Tech Jobs is one of the many projects at{" "}

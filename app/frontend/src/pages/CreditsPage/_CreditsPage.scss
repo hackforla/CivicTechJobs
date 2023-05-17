@@ -1,32 +1,16 @@
 @use "components/Basics" as *;
 
-.body-container {
+.credits-main-container {
+  max-width: 1088px;
+  margin: 0 auto;
+}
+
+.credits-body-container {
   background-image: url("assets/images/svgs/credits-page-bg-top.svg");
   background-position: top center;
   background-repeat: no-repeat;
   background-size: 100%;
   padding: 5% 10%;
-}
-
-.join-us-section {
-  background-image: url("assets/images/pngs/credits-page-bg-bottom.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  position: relative;
-  height: 600px;
-} 
-
-.join-us-content-container {
-  position: relative;
-  top: 250px;
-}
-
-.text-container {
-  margin-bottom: 25%;
-  @include breakpoint-media-max("smtablet") {
-    margin-bottom: 10%;
-  }
 }
 
 .credits-intro-title {
@@ -45,20 +29,36 @@
   }
 }
 
-.main-container {
-  max-width: 1088px;
-  margin: 0 auto;
+.credits-join-us-section {
+  background-image: url("assets/images/pngs/credits-page-bg-bottom.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  position: relative;
+  height: 600px;
+}
+
+.credits-join-us-content-container {
+  position: relative;
+  top: 250px;
+}
+
+.credits-text-container {
+  margin-bottom: 25%;
+  @include breakpoint-media-max("smtablet") {
+    margin-bottom: 10%;
+  }
 }
 
 // Card image
-.image-frame {
+.credits-image-frame {
   width: 200px;
   height: 200px;
   margin: 0 auto;
   border-radius: 50%;
 }
 
-.image-frame img {
+.credits-image-frame img {
   max-width: 80%;
   max-height: 80%;
 }

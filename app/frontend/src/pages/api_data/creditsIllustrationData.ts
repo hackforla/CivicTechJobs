@@ -1,16 +1,7 @@
 // data that will be used for credits page
 import {
-  // illustrationCreativeTeamSvg,
-  // illustrationDigitalPresentationSvg,
-  // illustrationHighFiveSvg,
-  // illustrationOnboardingSvg,
-  // illustrationSelectSvg,
-  // illustrationSignUpSvg,
-  // illustrationTeamPageSvg,
-  // illustrationTeamSpiritSvg,
-  // illustrationTeamWorkSvg,
   illustrationCreativeTeam,
-  illustrationHighFive
+  illustrationHighFive,
 } from "assets/images/images";
 
 interface illustrationDatum {
@@ -23,6 +14,7 @@ interface illustrationDatum {
 }
 
 const illustrationData: illustrationDatum[] = [
+  // // Commented out illustration info shown on Figma design but not yet used in MVP
   // {
   //   id: 1,
   //   imgSrc: illustrationTeamPageSvg,

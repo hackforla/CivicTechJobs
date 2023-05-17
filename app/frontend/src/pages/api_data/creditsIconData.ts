@@ -2,17 +2,13 @@
 import {
   iconArrowDown,
   iconArrowLeft,
-  iconCheckboxY,
-  iconCheckboxN,
   iconCheckMarkDark,
   iconDropdownDown,
   iconDropdownUp,
-  iconEyeClose,
-  iconEyeOpen,
   iconHamburgerMenu,
   iconPlus,
   iconSearch,
-  iconX
+  iconX,
 } from "assets/images/images";
 
 interface iconDatum {
@@ -73,6 +69,7 @@ const iconData: iconDatum[] = [
     provider: "Majesticons",
     link: "https://www.majesticons.com/",
   },
+  // // Commented out icon info shown on Figma design but not yet used in MVP
   // {
   //   id: 7,
   //   imgSrc: ,
