@@ -40,9 +40,12 @@ const CreditsPage = () => {
         logoDesktop={logoHorizontal}
         logoMobile={logoStacked}
         menu={[
-          { name: "Hack for LA", link: "/" },
-          { name: "How to Join", link: "/qualifier/1" },
-          { name: "Projects", link: "/demo" },
+          { name: "Hack for LA", link: "https://www.hackforla.org/" },
+          {
+            name: "How to Join",
+            link: "https://www.hackforla.org/getting-started",
+          },
+          { name: "Projects", link: "https://www.hackforla.org/projects/" },
         ]}
       />
       <main>
