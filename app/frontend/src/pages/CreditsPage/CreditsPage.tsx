@@ -88,7 +88,7 @@ const CreditsPage = () => {
                       <img
                         src={cardData.imgSrc}
                         style={{ width: imgSize }}
-                        alt={`${cardData.name} image`}
+                        alt={`${cardData.name}`}
                       />
                     </div>
                     <div className="flex-container mt-3 mb-5">

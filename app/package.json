@@ -8,7 +8,6 @@
     "build": "webpack --mode production --output-path ./frontend/static/frontend",
     "test": "jest --config ./jest.config.js --testPathPattern=tests/",
     "test:w": "jest --config ./jest.config.js --watchAll --testPathPattern=tests/",
-    "sass": "sass"
   },
   "repository": {
     "type": "git",
