@@ -7,7 +7,7 @@
     "watch": "webpack --mode development --watch",
     "build": "webpack --mode production --output-path ./frontend/static/frontend",
     "test": "jest --config ./jest.config.js --testPathPattern=tests/",
-    "test:w": "jest --config ./jest.config.js --watchAll --testPathPattern=tests/",
+    "test:w": "jest --config ./jest.config.js --watchAll --testPathPattern=tests/"
   },
   "repository": {
     "type": "git",
