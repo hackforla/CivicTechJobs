@@ -80,7 +80,7 @@ const CreditsPage = () => {
               </div>
             </div>
 
-            <div className="flex-container justify-start gap-5 mt-5">
+            <div className="flex-container justify-start gap-6 mt-5">
               {activeData.map((cardData) => (
                 <Card key={cardData.id} addClass="col-4">
                   <div>
