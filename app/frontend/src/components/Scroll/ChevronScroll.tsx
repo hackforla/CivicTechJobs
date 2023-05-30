@@ -54,6 +54,9 @@ function ChevronScroll(props: React.PropsWithChildren<{}>) {
       <button
         className={combineClasses(
           "chevron-scroll-left-btn",
+          "align-center",
+          "justify-center",
+          "row",
           showLeftChevron ? undefined : "hidden"
         )}
         onClick={() => scrollMove("left")}
@@ -71,6 +74,8 @@ function ChevronScroll(props: React.PropsWithChildren<{}>) {
       <button
         className={combineClasses(
           "chevron-scroll-right-btn",
+          "align-center",
+          "row",
           showRightChevron ? undefined : "hidden"
         )}
         onClick={() => scrollMove("right")}
