@@ -34,6 +34,7 @@ import iconArrowLeft from "./svgs/icons/icon-arrow-left.svg?url";
 import iconCheckboxY from "./svgs/icons/icon-checkbox-yes.svg?url";
 import iconCheckboxN from "./svgs/icons/icon-checkbox-no.svg?url";
 import iconCheckMark from "./svgs/icons/icon-checkmark.svg?url";
+import iconCheckMarkDark from "./svgs/icons/icon-checkmark-dark.svg?url";
 import iconDropdownDown from "./svgs/icons/icon-dropdown-down.svg?url";
 import iconDropdownUp from "./svgs/icons/icon-dropdown-up.svg?url";
 import iconEyeClose from "./svgs/icons/icon-eye-close.svg?url";
@@ -67,13 +68,20 @@ import logoType from "./svgs/logos/logo-logotype.svg?url";
 import logoVertical from "./svgs/logos/logo-vertical.svg?url";
 import logoWordmark from "./svgs/logos/logo-wordmark.svg?url";
 
+// HfLA logo
+import logoHfLA from "./svgs/logos/logo-hfla.svg?url";
+
+// Credits Illustrations
+import illustrationCreativeTeam from "./pngs/illustrations/creative-team.png";
+import illustrationHighFive from "./pngs/illustrations/high-five.png";
+
 interface defaultProps {
   [attribute: string]: string;
 }
 
 function svgWrapper(
   Svg: React.ElementType,
-  defaultProps: defaultProps,
+  defaultProps: defaultProps
 ): React.ElementType {
   return (props) => {
     const titleId = useId();
@@ -191,6 +199,7 @@ export {
   iconCheckboxY,
   iconCheckboxN,
   iconCheckMark,
+  iconCheckMarkDark,
   iconDropdownDown,
   iconDropdownUp,
   iconEyeClose,
@@ -216,8 +225,10 @@ export {
   logoType,
   logoVertical,
   logoWordmark,
-  // Group Background Image
-  landingPageFg,
-  landingPageBg,
+  // HfLA logo
+  logoHfLA,
   notFoundPageImg,
+  // illustrations
+  illustrationCreativeTeam,
+  illustrationHighFive,
 };

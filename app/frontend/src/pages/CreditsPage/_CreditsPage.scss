@@ -1,0 +1,84 @@
+@use "components/Basics" as *;
+
+.credits-illustration-bg {
+  background-color: $color-grey-light;
+}
+
+.credits-icon-bg {
+  background-color: $color-tan-light;
+}
+
+.credits-main-container {
+  max-width: 1088px;
+  margin: 0 auto;
+}
+
+.credits-body-container {
+  background-image: url("assets/images/svgs/credits-page-bg-top.svg");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding: 5% 10%;
+}
+
+.credits-intro-title {
+  width: 45%;
+
+  @include breakpoint-media-max("smtablet") {
+    margin-top: 20%;
+  }
+}
+
+.credits-intro-paragraph {
+  width: 45%;
+  @include breakpoint-media-max("smtablet") {
+    margin-top: 10%;
+    width: 100%;
+  }
+}
+
+.credits-join-us-section {
+  background-image: url("assets/images/pngs/credits-page-bg-bottom.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  position: relative;
+  height: 600px;
+}
+
+.credits-join-us-content-container {
+  position: relative;
+  top: 250px;
+}
+
+@media screen and (max-width: 1170px) {
+  .credits-card {
+    padding: 35px;
+  }
+}
+
+@media screen and (max-width: 1112px) {
+  .credits-card-container {
+    justify-content: space-evenly;
+  }
+}
+
+.credits-text-container {
+  margin-bottom: 25%;
+  @include breakpoint-media-max("smtablet") {
+    margin-bottom: 10%;
+  }
+}
+
+// Card image
+.credits-image-frame {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+.credits-image-frame img {
+  max-width: 80%;
+  max-height: 80%;
+}

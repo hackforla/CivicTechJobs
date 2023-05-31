@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 // Internal Imports
+import { CreditsPage } from "pages/CreditsPage/CreditsPage";
 import { Demo } from "pages/Demo/Demo";
 import { NotFoundPage } from "pages/NotFoundPage/NotFoundPage";
 import { LandingPage } from "pages/LandingPage/LandingPage";
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
         />
       </Route>
       <Route path="/demo" element={<Demo />} />
+      <Route path="/credits" element={<CreditsPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Fragment>
   )
