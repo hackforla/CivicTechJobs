@@ -17,20 +17,17 @@ import { illustrationData } from "pages/api_data/creditsIllustrationData";
 const CreditsPage = () => {
   const [activeData, setActiveData] = useState(illustrationData);
   const [activeChip, setActiveChip] = useState("illustrations");
-  const [imgBgColor, setImgBgColor] = useState("#F2F2F2");
   const [imgSize, setImgSize] = useState("");
 
   const handleClickChipIllustration = () => {
     setActiveChip("illustrations");
     setActiveData(illustrationData);
-    setImgBgColor("#F2F2F2");
     setImgSize("");
   };
 
   const handleClickChipIcon = () => {
     setActiveData(iconData);
     setActiveChip("icons");
-    setImgBgColor("#FFEFDB");
     setImgSize("28px");
   };
 
@@ -85,8 +82,7 @@ const CreditsPage = () => {
                 <Card key={cardData.id} addClass="col-4">
                   <div>
                     <div
-                      className="credits-image-frame flex-container justify-center align-center"
-                      style={{ backgroundColor: imgBgColor }}
+                      className={`credits-image-frame flex-container justify-center align-center ${activeChip === 'illustrations' ? 'credits-illustration-bg' : 'credits-icon-bg'}`}
                     >
                       <img
                         src={cardData.imgSrc}

@@ -1,5 +1,13 @@
 @use "components/Basics" as *;
 
+.credits-illustration-bg {
+  background-color: $color-grey-light;
+}
+
+.credits-icon-bg {
+  background-color: $color-tan-light;
+}
+
 .credits-main-container {
   max-width: 1088px;
   margin: 0 auto;
