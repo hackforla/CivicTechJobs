@@ -51,6 +51,20 @@
   top: 250px;
 }
 
+
+
+@media screen and (max-width: 1170px) {
+  .credits-card {
+    padding: 35px;
+  }
+}
+
+@media screen and (max-width: 1112px) {
+  .credits-card-container {
+    justify-content: space-evenly;
+  }
+}
+
 .credits-text-container {
   margin-bottom: 25%;
   @include breakpoint-media-max("smtablet") {

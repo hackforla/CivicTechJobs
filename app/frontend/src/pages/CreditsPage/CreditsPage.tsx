@@ -77,9 +77,9 @@ const CreditsPage = () => {
               </div>
             </div>
 
-            <div className="flex-container justify-start gap-6 mt-5">
+            <div className="flex-container justify-start gap-5 mt-5 credits-card-container">
               {activeData.map((cardData) => (
-                <Card key={cardData.id} addClass="col-4">
+                <Card key={cardData.id} addClass="col-4 credits-card">
                   <div>
                     <div
                       className={`credits-image-frame flex-container justify-center align-center ${activeChip === 'illustrations' ? 'credits-illustration-bg' : 'credits-icon-bg'}`}
