@@ -14,7 +14,6 @@ $margin-abbrs: (
   "mx": margin-right margin-left,
   "my": margin-top margin-bottom,
 );
-
 $padding-abbrs: (
   "p": padding,
   "pt": padding-top,
@@ -24,13 +23,11 @@ $padding-abbrs: (
   "px": padding-right padding-left,
   "py": padding-top padding-bottom,
 );
-
 $gap-abbrs: (
   "gap": gap,
   "gap-x": column-gap,
   "gap-y": row-gap,
 );
-
 $spacing-abbrs: map.merge(map.merge($margin-abbrs, $padding-abbrs), $gap-abbrs);
 $spacing-sizes: 0, 1, 2, 3, 4, 5, 6;
 
