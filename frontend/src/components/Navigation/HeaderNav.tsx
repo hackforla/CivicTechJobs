@@ -23,7 +23,7 @@ function HeaderNav({ logoDesktop, logoMobile, menu }: HeaderNavProps) {
   const Logo = () => {
     return (
       <div className="flex-center-y justify-left">
-        <a href="/">
+        <a href="/" rel="noopener noreferrer">
           <img
             className="logo-desktop"
             src={logoDesktop}
@@ -58,6 +58,7 @@ function HeaderNav({ logoDesktop, logoMobile, menu }: HeaderNavProps) {
                 <a
                   className="header-nav-link mr-4"
                   href={item.link}
+                  rel="noopener noreferrer"
                   key={index}
                 >
                   {item.name}
@@ -66,7 +67,7 @@ function HeaderNav({ logoDesktop, logoMobile, menu }: HeaderNavProps) {
             })}
           </nav>
 
-          <Button href="https://www.google.com/" color="primary" size="sm">
+          <Button href="/" color="primary" size="sm">
             Log In
           </Button>
           <button

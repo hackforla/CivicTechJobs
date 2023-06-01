@@ -18,7 +18,7 @@ interface menuObject {
 function FooterNav({ menu, logoDesktop, logoMobile }: FooterNavProps) {
   const Logo = () => {
     return (
-      <a className="footer-icons-on-dark" href="/">
+      <a className="footer-icons-on-dark" href="/" rel="noopener noreferrer">
         <img
           className="logo-desktop-footer"
           src={logoDesktop}
@@ -44,7 +44,11 @@ function FooterNav({ menu, logoDesktop, logoMobile }: FooterNavProps) {
           return (
             <Fragment key={index}>
               <div className="footer-menu-vertical-line"></div>
-              <a className="footer-links" href={item.link}>
+              <a
+                className="footer-links"
+                href={item.link}
+                rel="noopener noreferrer"
+              >
                 {item.name}
               </a>
             </Fragment>
@@ -52,7 +56,11 @@ function FooterNav({ menu, logoDesktop, logoMobile }: FooterNavProps) {
         })}
       </nav>
       <div className="footer-donate-button flex-container">
-        <Button color="primary-dark" href="https://www.google.com" size="sm">
+        <Button
+          color="primary-dark"
+          href="https://www.hackforla.org/donate/"
+          size="sm"
+        >
           Donate
         </Button>
       </div>
