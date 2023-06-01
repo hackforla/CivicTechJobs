@@ -6,11 +6,11 @@
 
   @include breakpoint-media-max("smtablet") {
     margin: 48px auto;
-  } 
+  }
 }
 
 .not-found-box {
-  width: '348px';
+  width: "348px";
 }
 
 .not-found-title {
@@ -21,7 +21,7 @@
 
 .not-found-paragraph {
   max-width: 348px;
-  
+
   @include breakpoint-media-max("smtablet") {
     @include paragraph(3);
   }
