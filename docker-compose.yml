@@ -33,11 +33,11 @@ services:
       context: ./frontend
       dockerfile: ../dev/webpack.dockerfile
     container_name: webpack
-    command: npm run watch
+    command: npm --prefix ./frontend run watch # We need the prefix because we are mounting from parent rather than frontend
     env_file:
       - ./dev/dev.env
     volumes:
-      - ./frontend/:/code
+      - ./:/code # The webpack output files are now in a sibling directory, therefore, we need to mount to parent
 
   linter:
     profiles: ["lint"]
