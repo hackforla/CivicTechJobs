@@ -10,7 +10,7 @@ function LandingPageIntro() {
     <div className="landing-container my-5">
       <div className="flex-column align-center text-center landing-intro-container">
         <h1 className="landing-intro-title mb-4">
-          Together,
+          Together, dadhagdjahgdj
           <br />
           we can create greater civic change
         </h1>

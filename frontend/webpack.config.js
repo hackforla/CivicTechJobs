@@ -1,7 +1,7 @@
 const { DefinePlugin } = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-
+console.log(process.env);
 module.exports = {
   mode: process.env.MODE,
   entry: {
@@ -77,7 +77,10 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: "../../templates/frontend/index.html", // need to go back because will attempt to create file from output path
+      filename:
+        process.env.MODE == "production"
+          ? "../templates"
+          : "../../templates/frontend/index.html", // need to go back because will attempt to create file from output path
       template: "./src/templates/index.html",
       favicon: "./src/assets/images/svgs/logos/logo-logomark.svg",
     }),
