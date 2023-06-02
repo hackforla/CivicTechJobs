@@ -1,7 +1,7 @@
 const { DefinePlugin } = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-console.log(process.env);
+
 module.exports = {
   mode: process.env.MODE,
   entry: {
