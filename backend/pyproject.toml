@@ -13,6 +13,8 @@ psycopg2-binary = "^2.9.6"
 pyyaml = "^6.0"
 uritemplate = "^4.1.1"
 
+[tool.poetry.group.staging]
+optional = true
 
 [tool.poetry.group.staging.dependencies]
 gunicorn = "^20.1.0"

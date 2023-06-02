@@ -15,4 +15,4 @@ ENV PATH=/opt/poetry/bin:$PATH
 # Download dependencies
 COPY pyproject.toml ./
 COPY poetry.lock ./
-RUN poetry config virtualenvs.create false && poetry install --only main --no-interaction --sync
+RUN poetry config virtualenvs.create false && poetry install --no-interaction --sync
