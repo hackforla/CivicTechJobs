@@ -79,10 +79,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename:
         process.env.MODE == "production"
-          ? "../templates"
+          ? "../templates/index.html"
           : "../../templates/frontend/index.html", // need to go back because will attempt to create file from output path
       template: "./src/templates/index.html",
       favicon: "./src/assets/images/svgs/logos/logo-logomark.svg",
+      inject: false,
     }),
     new DefinePlugin({
       "process.env.MODE": JSON.stringify(process.env.MODE),
