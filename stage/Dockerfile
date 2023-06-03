@@ -22,6 +22,9 @@ WORKDIR /code
 ENV POETRY_HOME=/usr/local/poetry
 ENV PATH="$POETRY_HOME/bin:${PATH}"
 
+# Set up shell for pipe
+SHELL ["/bin/sh", "-o", "pipefail", "-c"]
+
 # hadolint ignore=DL3018
 RUN apk update && apk add --no-cache curl gcc musl-dev libffi-dev jq
 RUN curl -sSL https://install.python-poetry.org | python3 -
