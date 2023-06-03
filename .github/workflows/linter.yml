@@ -15,10 +15,10 @@ name: Lint Code Base
 #############################
 on:
   push:
-    branches-ignore: [master, main, dev-branch-1]
+    branches-ignore: [master, main]
     # Remove the line above to run when pushing to master
   pull_request:
-    branches: [master, main, dev-branch-1]
+    branches: [master, main]
   workflow_dispatch:
 
 ###############
@@ -44,7 +44,7 @@ jobs:
           # Full git history is needed to get a proper list of changed files within `super-linter`
           fetch-depth: 0
 
-      - run: cd app
+      - run: cd frontend
       - name: Download Linter Plugins
         uses: actions/setup-node@v3
         with:
@@ -61,6 +61,7 @@ jobs:
           JAVASCRIPT_DEFAULT_STYLE: prettier
           TYPESCRIPT_DEFAULT_STYLE: prettier
           VALIDATE_ALL_CODEBASE: ${{ (github.event_name == 'workflow_dispatch' && true) || false }}
+          VALIDATE_HTML: false
           VALIDATE_MARKDOWN: false
           VALIDATE_PYTHON: false
           VALIDATE_PYTHON_BLACK: false

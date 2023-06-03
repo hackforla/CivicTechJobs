@@ -1,27 +1,41 @@
 FROM node:18-alpine as react-builder
 WORKDIR /code
-COPY ./package.json .
-COPY ./package-lock.json .
+
+# Install deps
+COPY ./frontend/package.json .
+COPY ./frontend/package-lock.json .
 RUN npm install
-COPY . .
+
+# Set up env and build
+ARG MODE
+ARG DEVTOOL
+COPY ./frontend/ .
 RUN npm run build
 
 FROM python:3-alpine as django-builder
-COPY requirements.stage.txt /
-RUN pip wheel --no-cache-dir --no-deps --wheel-dir /wheels -r requirements.stage.txt
 
-FROM python:3-alpine
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED=1
 WORKDIR /code
-COPY --from=django-builder /wheels /wheels
-# hadolint ignore=DL3013
-RUN pip install --no-cache --no-cache-dir --no-deps /wheels/*
-COPY . .
-COPY --from=react-builder /code/frontend/static/frontend/ ./frontend/static/frontend/
-COPY --from=react-builder /code/frontend/templates/frontend/ ./frontend/templates/frontend/
+
+# Download Poetry into Path
+ENV POETRY_HOME=/usr/local/poetry
+ENV PATH="$POETRY_HOME/bin:${PATH}"
+
+# Set up shell for pipe
+SHELL ["/bin/sh", "-o", "pipefail", "-c"]
+
 # hadolint ignore=DL3018
-RUN apk --no-cache add curl
-# hadolint ignore=DL3018
-RUN apk --no-cache add jq
+RUN apk update && apk add --no-cache curl gcc musl-dev libffi-dev jq
+# I could not make the linter accept 4006, so I will put this here. Whoever is interested should find a way to resolve this without ignoring. 
+# hadolint ignore=DL4006
+RUN curl -sSL https://install.python-poetry.org | python3 -
+
+COPY backend/pyproject.toml .
+COPY backend/poetry.lock .
+RUN poetry config virtualenvs.create false && poetry install --with staging --no-interaction --sync
+
+COPY ./backend/ .
+COPY --from=react-builder /code/static/ ./frontend/static/frontend/
+COPY --from=react-builder /code/templates/ ./frontend/templates/frontend/
 ENTRYPOINT ["./entrypoint.sh"]

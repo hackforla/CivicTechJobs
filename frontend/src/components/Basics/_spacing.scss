@@ -28,20 +28,20 @@ $gap-abbrs: (
   "gap-x": column-gap,
   "gap-y": row-gap,
 );
-$spacing-abbrs: map.merge(map.merge($margin-abbrs, $padding-abbrs), $gap-abbrs); 
-$spacing-sizes: 0, 1, 2, 3, 4, 5, 6; 
+$spacing-abbrs: map.merge(map.merge($margin-abbrs, $padding-abbrs), $gap-abbrs);
+$spacing-sizes: 0, 1, 2, 3, 4, 5, 6;
 
 /***********************************************
 *** Spacing classes for margins and paddings ***
 ***********************************************/
 
-@mixin spacing-size($name, $size) { 
-  @if list.index("mx" "my" "px" "py", $name) { 
-    @each $attr in map.get($spacing-abbrs, $name) { 
-      #{$attr}: $size * 8px; 
+@mixin spacing-size($name, $size) {
+  @if list.index("mx" "my" "px" "py", $name) {
+    @each $attr in map.get($spacing-abbrs, $name) {
+      #{$attr}: $size * 8px;
     }
   } @else {
-    #{map.get($spacing-abbrs, $name)}: $size * 8px; 
+    #{map.get($spacing-abbrs, $name)}: $size * 8px;
   }
 }
 

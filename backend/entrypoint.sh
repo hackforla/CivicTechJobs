@@ -4,7 +4,7 @@ if [ "$TARGET" = "ECS" ]; then
     export ECS_ALLOWED_HOST
 fi
 
-python manage.py collectstatic && \
+python manage.py collectstatic --link && \
     python manage.py makemigrations && \
     python manage.py migrate && \
     python manage.py generateschema --file openapi-schema.yml && \

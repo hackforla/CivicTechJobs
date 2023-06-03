@@ -1,10 +1,10 @@
 name: Jest-React Test
 on:
   push:
-    branches-ignore: [master, main, dev-branch-1]
+    branches-ignore: [master, main]
     # Remove the line above to run when pushing to master
   pull_request:
-    branches: [master, main, dev-branch-1]
+    branches: [master, main]
 jobs:
   build:
     name: Jest-React Test
@@ -18,9 +18,9 @@ jobs:
           node-version: 16
       - name: Install modules
         run: |
-          cd app
+          cd frontend
           npm install
       - name: Run test
         run: |
-          cd app
+          cd frontend
           npm run test

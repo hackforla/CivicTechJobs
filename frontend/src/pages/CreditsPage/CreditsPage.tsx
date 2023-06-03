@@ -9,7 +9,7 @@ import {
   logoStackedOnDark,
   logoHfLA,
 } from "assets/images/images";
-import { HeaderNav, FooterNav, Button, Chip } from "components/components";
+import { HeaderNav, FooterNav, Chip } from "components/components";
 import { Card } from "components/Cards/StandardCard";
 import { iconData } from "pages/api_data/creditsIconData";
 import { illustrationData } from "pages/api_data/creditsIllustrationData";
@@ -82,7 +82,11 @@ const CreditsPage = () => {
                 <Card key={cardData.id} addClass="col-4 credits-card">
                   <div>
                     <div
-                      className={`credits-image-frame flex-container justify-center align-center ${activeChip === 'illustrations' ? 'credits-illustration-bg' : 'credits-icon-bg'}`}
+                      className={`credits-image-frame flex-container justify-center align-center ${
+                        activeChip === "illustrations"
+                          ? "credits-illustration-bg"
+                          : "credits-icon-bg"
+                      }`}
                     >
                       <img
                         src={cardData.imgSrc}

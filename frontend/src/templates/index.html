@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Civic Tech Jobs</title>
+    {% load static %}
+
+    <!-- Loads favicon via template -->
+    <% if(htmlWebpackPlugin.files.favicon) { %>
+    <link
+      rel="icon"
+      href="{% static 'frontend/<%= htmlWebpackPlugin.files.favicon %>' %}"
+    />
+    <% } %>
+
+    <!-- Loads JS via template -->
+    <% for(var i=0; i < htmlWebpackPlugin.files.js.length; i++) {%>
+    <script
+      defer="defer"
+      src="{% static 'frontend/<%= htmlWebpackPlugin.files.js[i] %>' %}"
+    ></script>
+    <% } %>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>

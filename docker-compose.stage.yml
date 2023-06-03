@@ -11,8 +11,11 @@ services:
 
   django:
     build:
-      context: ./app
-      dockerfile: ../stage/Dockerfile
+      context: .
+      dockerfile: ./stage/Dockerfile
+      args:
+        - MODE=production
+        - DEVTOOL=source-map
     container_name: django
     ports:
       - "8000:8000"

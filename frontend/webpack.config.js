@@ -5,16 +5,16 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: process.env.MODE,
   entry: {
-    index: "./frontend/src/index.tsx", // place where the file to render is
+    index: "./src/index.tsx",
   },
   output: {
     clean: {
-      keep: ".gitkeep", // cleans all but this named file
+      keep: ".gitkeep",
     },
-    filename: "[name].[contenthash].js", // forces recaching of css by added hashes to filename
-    path: path.resolve(__dirname, "frontend/static/frontend"), // directory where the bundle is placed
+    filename: "[name].[contenthash].js",
+    path: path.resolve(__dirname, "../backend/frontend/static/frontend"),
   },
-  devtool: process.env.DEVTOOL, // for debugging, do NOT use in production
+  devtool: process.env.DEVTOOL,
   module: {
     rules: [
       {
@@ -26,14 +26,7 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [
-          // Creates `style` nodes from JS strings
-          "style-loader",
-          // Translates CSS into CommonJS
-          "css-loader",
-          // Compiles Sass to CSS
-          "sass-loader",
-        ],
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
         test: /\.(png|jpg|jpeg|gif)$/i,
@@ -69,9 +62,7 @@ module.exports = {
     ],
   },
   optimization: {
-    // tree shaking
     usedExports: true,
-    // all of the following is for chunking to split js into multiple files and prevent reusing code
     moduleIds: "deterministic",
     runtimeChunk: "single",
     splitChunks: {
@@ -85,21 +76,25 @@ module.exports = {
     },
   },
   plugins: [
-    // automatically adds the hashed js file paths to template
     new HtmlWebpackPlugin({
-      filename: "../../templates/frontend/index.html", //need to go back because will attempt to create file at output
-      template: "./frontend/src/templates/index.html",
-      favicon: "./frontend/src/assets/images/svgs/logos/logo-logomark.svg", //adds favicon to website
+      filename:
+        process.env.MODE == "production"
+          ? "../templates/index.html"
+          : "../../templates/frontend/index.html", // need to go back because will attempt to create file from output path
+      template: "./src/templates/index.html",
+      favicon: "./src/assets/images/svgs/logos/logo-logomark.svg",
+      publicPath: "",
+      inject: false,
     }),
     new DefinePlugin({
       "process.env.MODE": JSON.stringify(process.env.MODE),
     }),
   ],
   resolve: {
-    modules: [path.resolve(__dirname, "frontend/src"), "node_modules"],
+    modules: [path.resolve(__dirname, "src"), "node_modules"],
     extensions: [".ts", ".tsx", ".js", ".jsx"],
   },
   watchOptions: {
-    ignored: /node_modules/, // speeds up webpack watch
+    ignored: /node_modules/,
   },
 };
