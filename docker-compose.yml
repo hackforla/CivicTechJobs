@@ -38,6 +38,7 @@ services:
       - ./dev/dev.env
     volumes:
       - ./:/code # The webpack output files are now in a sibling directory, therefore, we need to mount to parent
+      - node_modules:/code/node_modules # Need to persist node_modules directory to prevent it from being overwritten by local directory mount (on line 40). This ensures npm packages installed during Docker build are available at runtime.
 
   linter:
     profiles: ["lint"]
@@ -56,3 +57,4 @@ services:
 
 volumes:
   postgres_data:
+  node_modules:
