@@ -3,30 +3,31 @@ import React, { Fragment } from "react";
 
 // Internal imports
 import { Button } from "../Buttons/Button";
-
-interface FooterNavProps {
-  logoDesktop: string;
-  logoMobile: string;
-  menu: menuObject[];
-}
+import { logoHorizontalOnDark, logoStackedOnDark } from "assets/images/images";
 
 interface menuObject {
   name?: string;
   link: string;
 }
 
-function FooterNav({ menu, logoDesktop, logoMobile }: FooterNavProps) {
+const menuItems: menuObject[] = [
+  { name: "Credits", link: "/" },
+  { name: "Sitemap", link: "/" },
+  { name: "Join Us", link: "/" },
+];
+
+function FooterNav() {
   const Logo = () => {
     return (
       <a className="footer-icons-on-dark" href="/" rel="noopener noreferrer">
         <img
           className="logo-desktop-footer"
-          src={logoDesktop}
+          src={logoHorizontalOnDark}
           alt="Civic Tech Jobs - Home"
         />
         <img
           className="logo-mobile-footer"
-          src={logoMobile}
+          src={logoStackedOnDark}
           alt="Civic Tech Jobs - Home"
         />
       </a>
@@ -40,7 +41,7 @@ function FooterNav({ menu, logoDesktop, logoMobile }: FooterNavProps) {
         className="footer-menu flex-container"
         aria-label="footer-navigation"
       >
-        {menu.map((item, index) => {
+        {menuItems.map((item, index) => {
           return (
             <Fragment key={index}>
               <div className="footer-menu-vertical-line"></div>

@@ -3,35 +3,37 @@ import React, { Fragment, useState } from "react";
 
 // Internal Imports
 import * as utility from "../Utility/utils";
+import { logoHorizontal, logoStacked } from "assets/images/images";
 import { IconHamburgerMenu } from "assets/images/images";
 import { Button } from "../Buttons/Button";
-
-interface HeaderNavProps {
-  logoDesktop: string;
-  logoMobile: string;
-  menu: menuObject[];
-}
 
 interface menuObject {
   name?: string;
   link: string;
 }
 
-function HeaderNav({ logoDesktop, logoMobile, menu }: HeaderNavProps) {
-  const [open, setOpen] = useState(false);
+const menuItems: menuObject[] = [
+  { name: "Hack for LA", link: "https://www.hackforla.org/" },
+  {
+    name: "How to Join",
+    link: "https://www.hackforla.org/getting-started",
+  },
+  { name: "Projects", link: "https://www.hackforla.org/projects/" },
+];
 
+function HeaderNav() {
   const Logo = () => {
     return (
       <div className="flex-center-y justify-left">
         <a href="/" rel="noopener noreferrer">
           <img
             className="logo-desktop"
-            src={logoDesktop}
+            src={logoHorizontal}
             alt="Civic Tech Jobs - Home"
           />
           <img
             className="logo-mobile"
-            src={logoMobile}
+            src={logoStacked}
             alt="Civic Tech Jobs - Home"
           />
         </a>
@@ -47,13 +49,10 @@ function HeaderNav({ logoDesktop, logoMobile, menu }: HeaderNavProps) {
         </div>
         <div className="row header-nav-menu justify-right align-center">
           <nav
-            className={utility.combineClasses(
-              "hamburger-menu"
-              //!open && "hidden"
-            )}
+            className={utility.combineClasses("hamburger-menu")}
             aria-label="header-navigation"
           >
-            {menu.map((item, index) => {
+            {menuItems.map((item, index) => {
               return (
                 <a
                   className="header-nav-link mr-4"
@@ -74,10 +73,6 @@ function HeaderNav({ logoDesktop, logoMobile, menu }: HeaderNavProps) {
             className="hamburger-icon ml-3"
             aria-expanded="false"
             aria-controls="menu"
-            onClick={() => {
-              setOpen(false);
-              alert("menu is now open");
-            }}
           >
             <IconHamburgerMenu />
           </button>
