@@ -2,14 +2,8 @@
 import React, { Fragment, useState } from "react";
 
 // Internal Imports
-import {
-  logoHorizontal,
-  logoStacked,
-  logoHorizontalOnDark,
-  logoStackedOnDark,
-  logoHfLA,
-} from "assets/images/images";
-import { HeaderNav, FooterNav, Chip } from "components/components";
+import { logoHfLA } from "assets/images/images";
+import { Chip } from "components/components";
 import { Card } from "components/Cards/StandardCard";
 import { iconData } from "pages/api_data/creditsIconData";
 import { illustrationData } from "pages/api_data/creditsIllustrationData";
@@ -33,18 +27,6 @@ const CreditsPage = () => {
 
   return (
     <>
-      <HeaderNav
-        logoDesktop={logoHorizontal}
-        logoMobile={logoStacked}
-        menu={[
-          { name: "Hack for LA", link: "https://www.hackforla.org/" },
-          {
-            name: "How to Join",
-            link: "https://www.hackforla.org/getting-started",
-          },
-          { name: "Projects", link: "https://www.hackforla.org/projects/" },
-        ]}
-      />
       <main>
         <section className="credits-body-container">
           <div className="credits-main-container">
@@ -136,15 +118,6 @@ const CreditsPage = () => {
           </div>
         </section>
       </main>
-      <FooterNav
-        logoDesktop={logoHorizontalOnDark}
-        logoMobile={logoStackedOnDark}
-        menu={[
-          { name: "Credits", link: "/credits" },
-          { name: "Sitemap", link: "/" },
-          { name: "Join Us", link: "/" },
-        ]}
-      />
     </>
   );
 };

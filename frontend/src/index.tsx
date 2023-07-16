@@ -1,9 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { createRoot } from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
-
-import router from "router/App";
+import App from "./App";
 import "./index.scss";
 
 if (process.env.MODE !== "production") {
@@ -16,10 +14,10 @@ if (container) {
   const root = createRoot(container);
 
   process.env.MODE === "production"
-    ? root.render(<RouterProvider router={router} />)
+    ? root.render(<App />)
     : root.render(
         <React.StrictMode>
-          <RouterProvider router={router} />
+          <App />
         </React.StrictMode>
       );
 }
