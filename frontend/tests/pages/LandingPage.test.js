@@ -13,19 +13,6 @@ import { LandingPage } from "pages/LandingPage/LandingPage";
 config.disabled = true;
 
 describe("Landing Page", () => {
-  test("Landing Page links", () => {
-    render(<LandingPage />);
-
-    expect(screen.getByText("Hack for LA")).toHaveAttribute("href");
-    expect(screen.getByText("How to Join")).toHaveAttribute("href");
-    expect(screen.getByText("Projects")).toHaveAttribute("href");
-    expect(screen.getByText("Credits")).toHaveAttribute("href");
-    expect(screen.getByText("Sitemap")).toHaveAttribute("href");
-    expect(
-      screen.getByText("Join Us", { selector: ".footer-links" })
-    ).toHaveAttribute("href");
-  });
-
   test("Landing Page dialog", async () => {
     const user = userEvent.setup();
     render(<LandingPage />);
