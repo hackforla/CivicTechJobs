@@ -1,15 +1,9 @@
 // External Imports
-import React, { Fragment, Suspense, useState } from "react";
+import React, { Fragment, Suspense } from "react";
 import { Outlet, useLoaderData } from "react-router-dom";
 
 // Internal Imports
-import { ProgressBar, HeaderNav, FooterNav } from "components/components";
-import {
-  logoHorizontal,
-  logoHorizontalOnDark,
-  logoStacked,
-  logoStackedOnDark,
-} from "assets/images/images";
+import { ProgressBar } from "components/components";
 
 // Lazy Imports
 const QualifierPageRoles = React.lazy(() => import("./QualifierPageRoles"));
@@ -55,30 +49,9 @@ function QualifierPage() {
   return (
     <Fragment>
       <Suspense fallback={<div>...Loading</div>}>
-        <HeaderNav
-          logoDesktop={logoHorizontal}
-          logoMobile={logoStacked}
-          menu={[
-            { name: "Hack for LA", link: "https://www.hackforla.org/" },
-            {
-              name: "How to Join",
-              link: "https://www.hackforla.org/getting-started",
-            },
-            { name: "Projects", link: "https://www.hackforla.org/projects/" },
-          ]}
-        />
         <main className="mx-6">
           <Outlet />
         </main>
-        <FooterNav
-          logoDesktop={logoHorizontalOnDark}
-          logoMobile={logoStackedOnDark}
-          menu={[
-            { name: "Credits", link: "/" },
-            { name: "Sitemap", link: "/" },
-            { name: "Join Us", link: "/" },
-          ]}
-        />
       </Suspense>
     </Fragment>
   );

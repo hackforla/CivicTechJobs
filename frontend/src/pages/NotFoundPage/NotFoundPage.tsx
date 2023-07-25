@@ -3,30 +3,13 @@ import React, { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Internal Imports
-import { HeaderNav } from "components/components";
 import { Button } from "components/components";
-import {
-  logoHorizontal,
-  logoStacked,
-  notFoundPageImg,
-} from "assets/images/images";
+import { notFoundPageImg } from "assets/images/images";
 
 function NotFoundPage() {
   const navigate = useNavigate();
   return (
     <Fragment>
-      <HeaderNav
-        logoDesktop={logoHorizontal}
-        logoMobile={logoStacked}
-        menu={[
-          { name: "Hack for LA", link: "https://www.hackforla.org/" },
-          {
-            name: "How to Join",
-            link: "https://www.hackforla.org/getting-started",
-          },
-          { name: "Projects", link: "https://www.hackforla.org/projects/" },
-        ]}
-      />
       <main>
         <div className="not-found-container flex-container justify-between align-center gap-3">
           <div className="not-found-box">
