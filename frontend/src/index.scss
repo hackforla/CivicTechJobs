@@ -13,6 +13,7 @@
 @use "components/Navigation" as *;
 @use "components/Notification/Notification";
 @use "components/Transition/Wrapper";
+@use "components/Scroll/ChevronScroll";
 
 // Import page styles
 @use "pages/CreditsPage/CreditsPage";

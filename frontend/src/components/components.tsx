@@ -14,6 +14,7 @@ import { FooterNav } from "./Navigation/FooterNav";
 import { ProgressBar } from "./Navigation/ProgressBar";
 import { Notification } from "./Notification/Notification";
 import { TransitionWrapper } from "./Transition/Wrapper";
+import { ChevronScroll } from "./Scroll/ChevronScroll";
 
 export {
   // Buttons
@@ -24,6 +25,7 @@ export {
   CircleCard,
   // Carousel
   ScrollCarousel,
+  ChevronScroll,
   // Dialog
   Dialog,
   // Inputs

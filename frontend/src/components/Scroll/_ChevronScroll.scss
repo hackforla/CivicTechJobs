@@ -1,0 +1,58 @@
+@use "../Basics/_colors" as *;
+@use "components/Basics" as *;
+
+.chevron-scroll-outer-container {
+  white-space: nowrap;
+  display: flex;
+  width: 1088px;
+  height: 47px;
+}
+
+.chevron-scroll-child-container {
+  scroll-snap-type: x mandatory;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  scrollbar-width: none; /* Firefox */
+}
+
+.chevron-scroll-child-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.chevron-scroll-left-btn {
+  background-color: white;
+  padding: 0 32px 0 15px;
+  cursor: pointer;
+  border: none;
+
+  &.hidden {
+    @include hidden;
+  }
+}
+
+.chevron-scroll-right-btn {
+  background-color: white;
+  padding: 0 15px 0 32px;
+  border: none;
+  cursor: pointer;
+
+  &.hidden {
+    @include hidden;
+  }
+}
+
+.chevron-scroll-clear-btn {
+  display: flex;
+  align-items: center;
+  text-decoration: underline;
+  font-weight: 700;
+  font-size: 20px;
+  color: $charcoal;
+  margin-left: 16px;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
