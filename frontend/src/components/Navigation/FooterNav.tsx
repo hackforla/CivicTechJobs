@@ -11,7 +11,7 @@ interface menuObject {
 }
 
 const menuItems: menuObject[] = [
-  { name: "Credits", link: "/" },
+  { name: "Credits", link: "/credits" },
   { name: "Sitemap", link: "/" },
   { name: "Join Us", link: "/" },
 ];
