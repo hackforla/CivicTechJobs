@@ -26,10 +26,11 @@ The macOS version of git involves downloading extra programs, such as Homebrew. 
 1. Navigate to the root of our directory, `CivicTechJobs/`, in the terminal.
 2. In `dev/`, create a file named, `dev.env`.
 3. In this newly created file, copy and paste the contents of `dev.env.example`. Afterwards, you must edit the lines specified below.
-4. In the terminal enter `docker compose build` and wait for the build to finish.
-5. In the terminal enter `docker compose run webpack npm install` to install npm dependencies into the host machine.
-6. Then, enter `docker compose up` to run the local server.
-7. Visit http://localhost:8000/ and you should see the front page of our website!
+4. Copy the existing `CivicTechJobs/dev/linter.env.example` and create a new file called `CivicTechJobs/dev/linter.env`
+5. In the terminal enter `docker compose build` and wait for the build to finish.
+6. Move to the frontend directory `cd frontend` and then `npm install`
+7. Then, enter `docker compose up` to run the local server.
+8. Visit http://localhost:8000/ and you should see the front page of our website!
 
 <details>
 <summary>dev.env lines to edit</summary>
