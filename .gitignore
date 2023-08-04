@@ -17,3 +17,5 @@ app/staticfiles
 
 dev/linter.env
 .DS_store
+
+.idea
