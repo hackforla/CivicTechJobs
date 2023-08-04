@@ -1,6 +1,0 @@
-build: docker compose build
-start:docker compose up
-stop:docker compose down
-build-linter:docker compose build linter
-lint:docker compose up linter
-test:docker compose run -T webpack npm run test
