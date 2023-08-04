@@ -1,6 +1,6 @@
-.PHONY: build start stop build-linter lint test test-server
+.PHONY: build start stop build-linter lint migrations migrate db-shell test-server test-frontend
 
-# Run commands with `make <alias>`
+# Run commands with `make <target>`
 
 build:
 	docker compose build
