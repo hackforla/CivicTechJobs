@@ -9,6 +9,7 @@ import {
 // Internal Imports
 import { CreditsPage } from "pages/CreditsPage/CreditsPage";
 import { Demo } from "pages/Demo/Demo";
+import DemoTailwind  from "pages/Demo/DemoTailwind";
 import { NotFoundPage } from "pages/NotFoundPage/NotFoundPage";
 import { LandingPage } from "pages/LandingPage/LandingPage";
 import {
@@ -29,6 +30,7 @@ const router = createBrowserRouter(
         />
       </Route>
       <Route path="/demo" element={<Demo />} />
+      <Route path="/demo-tailwind" element={<DemoTailwind />} />
       <Route path="/credits" element={<CreditsPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Fragment>
