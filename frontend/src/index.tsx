@@ -2,8 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { createRoot } from "react-dom/client";
 import App from "./App";
-import "./index.scss";
 import './styles.css';
+import "./index.scss";
+
 
 if (process.env.MODE !== "production") {
   const reactAxe = require("@axe-core/react");
