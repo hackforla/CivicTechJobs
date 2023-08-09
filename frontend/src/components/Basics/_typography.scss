@@ -7,9 +7,13 @@
   @if $size == 1 {
     font-size: 3rem;
     line-height: 3.625rem;
+    // Temporary: added margin for current components
+    margin: 0.67em 0;
   } @else if $size == 2 {
     font-size: 2.25rem;
     line-height: 2.75rem;
+    // Temporary: added margin for current components
+    margin: 0.83em 0;
   } @else if $size == 3 {
     font-size: 1.75rem;
     line-height: 2.125rem;

@@ -4,7 +4,9 @@ const DemoTailwind = () => {
   return (
     <div className="container p-6">
       <h2>Tailwind Styled Components</h2>
-      <a className="underline" href="https://tailwindcss.com/docs/installation">Docs</a>
+      <a className="underline" href="https://tailwindcss.com/docs/installation">
+        Docs
+      </a>
       <br></br>
       <a
         className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
@@ -55,6 +57,13 @@ const DemoTailwind = () => {
           </span>
         </div>
       </div>
+      <img
+        src="https://cdn-icons-png.flaticon.com/128/1082/1082240.png"
+        alt=""
+      />
+      <span>
+        Testing whether img has display:block set by tailwind preflight
+      </span>
     </div>
   );
 };
