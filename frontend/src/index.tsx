@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { createRoot } from "react-dom/client";
 import App from "./App";
-import "./styles.css";
+import "tailwindcss/tailwind.css";
 import "./index.scss";
 
 if (process.env.MODE !== "production") {
