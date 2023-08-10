@@ -179,6 +179,6 @@ $theme-values: (
 
 // TW preflight sets images display to block, so we need to add a rule for images in buttons to be inline
 button img,
-svg {
+button svg {
   display: inline;
 }
