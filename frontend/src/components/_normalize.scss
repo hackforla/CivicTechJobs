@@ -37,9 +37,25 @@ main {
    * `article` contexts in Chrome, Firefox, and Safari.
    */
 
+// ******** //
+// ******** //
+/* The heading and hr styles conflict with Tailwind preflight; check here: https://unpkg.com/tailwindcss@3.3.3/src/css/preflight.css */
+// ******** //
+// ******** //
+
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
+}
+
+h2 {
+  margin: 0.83em 0;
+}
+
+hr {
+  margin: 0.5em 0;
+  border-style: inset;
+  border-width: 1px;
 }
 
 /* Grouping content
