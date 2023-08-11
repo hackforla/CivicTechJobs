@@ -10,7 +10,8 @@ The tool will match volunteers by availability, role, and program area. Future i
 
 Civic Tech technology practitioners are a diverse and interdisciplinary group of people. Their backgrounds are in technology, design and product. They work inside governments, at nongovernmental agencies, and within for-profit corporations. Some of them do this full time as a career. Some do this to develop their personal skills in collaboration. Others do this in their spare time, as a hobby.
 
-[One Sheet](https://github.com/hackforla/product-management/blob/master/project-one-sheets/Civic-Tech-Jobs-One-Sheet.pdf)
+[One Sheet](https://github.com/hackforla/product-management/blob/a8cbef76c3d8b79b181ee8bd19548cc6ce5ce487/project-one-sheets/CTJ_%20Civic%20Tech%20Jobs%20One%20Sheet%20-%202023.pdf)
+
 
 ## Technology used
 
