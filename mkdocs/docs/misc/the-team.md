@@ -2,16 +2,18 @@
 
 | **Name**                                                | **Role**             |
 | ------------------------------------------------------- | -------------------- |
-| Sharad Gaurav                                           | Product Manager      |
-| Syed Danish Imran                                       | Product Manager      |
-| <!-- textlint-disable -->Ava Li<!-- textlint-enable --> | Full Stack Developer |
-| Sarah Williams                                          | Software Developer   |
-| Sagun Threshta                                          | Software Developer   |
-| Narek Tsaturyan                                         | Software Developer   |
-| Jen Chung                                               | UX/UI Designer       |
-| Grace Lin                                               | UX/UI Designer       |
-| Janzen Molina                                           | UX/UI Designer       |
-| Eva Lee                                                 | UX/UI Designer       |
-| Patty Costello                                          | UX Researcher        |
-| Helene Dendor                                           | UX Researcher        |
-| Stephanie G. Stahlberg                                  | UX Researcher        |
+| Karen Coronel                                           | Product Manager      |
+| Salima Yacoubi Soussane                                 | Product Manager      |
+| Bitian Zhang                                            | Full Stack Developer |
+| Matt Pereira                                            | Full Stack Developer |
+| Will Gillis                                             | Full Stack Developer |
+| Sarah Sanger                                            | Software Developer   |
+| Benny Van                                               | Software Developer   |
+| Jen Chung                                               | UX/UI Designer Lead  |
+| Tin Wei, Chung                                          | UX/UI Designer       |
+| Lu Feng                                                 | UX/UI Designer       |
+| Gabriel Vicencio                                        | UX/UI Designer       |
+| Melinda Sukosd                                          | UX Researcher Lead   |
+| Leah Ellis                                              | UX Researcher        |
+| Jenn Wu                                                 | UX Researcher        |
+| Nga Do                                                  | UX Researcher        |
