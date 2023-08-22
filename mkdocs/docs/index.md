@@ -34,7 +34,7 @@ We would like to streamline the process so that Product Managers can post the op
 
 ## Project One Sheet
 
-You can access our [project one sheet here]().
+You can access our [project one sheet here](https://docs.google.com/document/d/1bfxY8YlyCjzCL3oP0rpa77uEY4vuymDYZY_xWEgXiGs/edit?usp=sharing).
 
 ## Key Resources
 
