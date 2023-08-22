@@ -2,7 +2,8 @@
 
 | **Name**                                                | **Role**             |
 | ------------------------------------------------------- | -------------------- |
-| Karen Coronel                                           | Product Manager      |
+| Joyce Guo                                               | Product Manager      |
+| Sabrina Heasley                                         | Product Manager      |
 | Salima Yacoubi Soussane                                 | Product Manager      |
 | Bitian Zhang                                            | Full Stack Developer |
 | Matt Pereira                                            | Full Stack Developer |
