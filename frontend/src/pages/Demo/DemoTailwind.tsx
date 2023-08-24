@@ -15,19 +15,24 @@ const DemoTailwind = () => {
         Buttons
       </a>
       <br />
-      <div className="my-3 flex flex-col sm:flex-row">
-        <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded mr-3">
-          Button
+      <div className="m-3 flex flex-wrap">
+        <button className="h-8 px-3 rounded text-base  font-bold leading-extra-tight bg-blue-dark hover:bg-blue-dark-hover hover:shadow-lg focus:bg-blue-dark-focused text-white ">
+          Small
         </button>
-        <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
-          <svg
-            className="fill-current w-4 h-4 mr-2"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-          >
-            <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
-          </svg>
-          <span>Download</span>
+        <button className="h-10 px-5 rounded text-base font-bold bg-blue-dark hover:bg-blue-dark-hover hover:shadow-lg focus:bg-blue-dark-focused text-white ">
+          Medium-Long
+        </button>
+        <button className="h-10 px-3 rounded text-base font-bold bg-blue-dark hover:bg-blue-dark-hover hover:shadow-lg focus:bg-blue-dark-focused text-white ">
+          Medium-Narrow
+        </button>
+        <button className="h-10 px-4 rounded text-base font-bold bg-blue-dark hover:bg-blue-dark-hover hover:shadow-lg focus:bg-blue-dark-focused text-white ">
+          Medium
+        </button>
+        <button className="h-14 px-6 rounded-large text-xl font-bold bg-blue-dark hover:bg-blue-dark-hover hover:shadow-lg focus:bg-blue-dark-focused text-white ">
+          Large
+        </button>
+        <button className="h-16 px-6 rounded-x-large text-2xl font-bold bg-blue-dark hover:bg-blue-dark-hover hover:shadow-lg focus:bg-blue-dark-focused text-white ">
+          X-Large-Long
         </button>
       </div>
 
