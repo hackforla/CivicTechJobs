@@ -37,12 +37,12 @@ describe("Checkbox", () => {
     expect(screen.queryByRole("checkbox")).not.toBeChecked();
 
     await user.click(screen.getByLabelText(/disabled checkbox/));
-    expect(await screen.queryByRole("checkbox")).not.toBeChecked();
+    expect(screen.queryByRole("checkbox")).not.toBeChecked();
 
     await user.keyboard("{tab}{tab}");
-    expect(await screen.queryByRole("checkbox")).not.toHaveFocus();
+    expect(screen.queryByRole("checkbox")).not.toHaveFocus();
     await user.keyboard("{ }");
-    expect(await screen.queryByRole("checkbox")).not.toBeChecked();
+    expect(screen.queryByRole("checkbox")).not.toBeChecked();
   });
 
   test("Checkbox defaultChecked", async () => {
@@ -53,12 +53,12 @@ describe("Checkbox", () => {
     expect(screen.getByRole("checkbox")).toBeChecked();
 
     await user.click(screen.getByLabelText(/defaultChecked checkbox/));
-    expect(await screen.queryByRole("checkbox")).not.toBeChecked();
+    expect(screen.queryByRole("checkbox")).not.toBeChecked();
 
     await user.keyboard("{tab}{tab}");
-    expect(await screen.queryByRole("checkbox")).toHaveFocus();
+    expect(screen.queryByRole("checkbox")).toHaveFocus();
     await user.keyboard("{ }");
-    expect(await screen.queryByRole("checkbox")).toBeChecked();
+    expect(screen.queryByRole("checkbox")).toBeChecked();
   });
 
   test("Checkbox labelHidden", () => {

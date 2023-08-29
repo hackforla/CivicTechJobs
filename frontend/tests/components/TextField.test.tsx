@@ -20,12 +20,12 @@ describe("TextField", () => {
 
     await user.click(screen.getByRole("textbox"));
     await user.keyboard("foo");
-    expect(await screen.getByDisplayValue("foo")).toBeInTheDocument();
+    expect(screen.getByDisplayValue("foo")).toBeInTheDocument();
 
     await user.keyboard("{tab}{tab}");
-    expect(await screen.getByRole("textbox")).toHaveFocus();
+    expect(screen.getByRole("textbox")).toHaveFocus();
 
     await user.keyboard("bar");
-    expect(await screen.getByDisplayValue("bar")).toBeInTheDocument();
+    expect(screen.getByDisplayValue("bar")).toBeInTheDocument();
   });
 });
