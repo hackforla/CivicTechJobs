@@ -13,7 +13,7 @@ interface ButtonSharedProps extends React.PropsWithChildren {
 }
 
 interface ButtonAnchorProps extends ButtonSharedProps {
-  href: string;
+  href?: string;
   onClick?: never;
   target?: "_blank" | "_self" | "_parent" | "_top";
   rel?: string;
