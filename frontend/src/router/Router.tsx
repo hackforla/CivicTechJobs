@@ -9,7 +9,7 @@ import {
 // Internal Imports
 import { CreditsPage } from "pages/CreditsPage/CreditsPage";
 import { Demo } from "pages/Demo/Demo";
-import DemoTailwind  from "pages/Demo/DemoTailwind";
+import DemoTailwind from "pages/Demo/DemoTailwind";
 import { NotFoundPage } from "pages/NotFoundPage/NotFoundPage";
 import { LandingPage } from "pages/LandingPage/LandingPage";
 import {
@@ -17,11 +17,14 @@ import {
   QualifierContent,
   loader as qualifierLoader,
 } from "pages/QualifierPage/QualifierPage";
+import AuthenticationPage from "pages/Authentication/AuthenticationPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Fragment>
       <Route path="/" element={<LandingPage />} />
+      <Route path="/login" element={<AuthenticationPage />} />
+      <Route path="/signup" element={<AuthenticationPage />} />
       <Route path="qualifier/" element={<QualifierPage />}>
         <Route
           path=":page/"
