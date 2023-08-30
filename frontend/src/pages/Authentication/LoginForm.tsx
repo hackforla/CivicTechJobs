@@ -14,14 +14,14 @@ export default function LoginForm() {
           <input type="checkbox" className="mr-1" />
           <p>Keep me signed in</p>
         </div>
-        <button className="bg-[#3450A1] font-bold w-full text-white py-[12px] rounded-3xl">
+        <button className="font-bold w-full text-white py-[12px] rounded-3xl bg-blue-dark hover:bg-blue-dark-hover hover:shadow-lg focus:bg-blue-dark-focused">
           Login
         </button>
       </form>
       <div className="text-center mt-4">
         <p>
           New to Civic Tech Jobs?{" "}
-          <Link to="/signup" className="text-blue-800 font-bold underline">
+          <Link to="/signup" className="text-blue-dark font-bold underline">
             Sign up
           </Link>
         </p>

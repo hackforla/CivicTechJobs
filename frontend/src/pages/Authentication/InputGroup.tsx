@@ -24,7 +24,7 @@ export default function InputGroup({ label, id, type, icon }: InputGroupProps) {
       <input
         id={id}
         type={type}
-        className="h-11 w-full px-2 border border-neutral-300 rounded-lg"
+        className="h-11 w-full px-2 border border-grey rounded-lg"
       />
       {icon && <div className="input-icon">{icon}</div>}
     </div>

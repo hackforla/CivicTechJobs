@@ -15,15 +15,14 @@ export default function SignupForm() {
 
         <InputGroup label="Email" id="email" type="email" />
         <InputGroup label="Password" id="password" type="password" />
-        <p className="tex-sm">
-          Must be 8 or more characters and contain at least 1 number and 1
-          special character
-        </p>
+        <button className="font-bold w-full text-white py-[12px] rounded-3xl bg-blue-dark hover:bg-blue-dark-hover hover:shadow-lg focus:bg-blue-dark-focused">
+          Login
+        </button>
       </form>
       <div className="text-center mt-4">
         <p>
           Already on Civic Tech Jobs?{" "}
-          <Link to="/login" className="text-blue-800 font-bold underline">
+          <Link to="/login" className="text-blue-dark font-bold underline">
             Log in
           </Link>
         </p>
