@@ -12,7 +12,7 @@ export default function LoginForm() {
         <InputGroup label="Password" id="password" type="password" />
         <div className="flex mb-3">
           <input type="checkbox" className="mr-1" />
-          <p>Keep me signed in</p>
+          <p className="text-grey-dark">Keep me signed in</p>
         </div>
         <button className="font-bold w-full text-white py-[12px] rounded-3xl bg-blue-dark hover:bg-blue-dark-hover hover:shadow-lg focus:bg-blue-dark-focused">
           Login

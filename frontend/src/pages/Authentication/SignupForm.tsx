@@ -16,14 +16,14 @@ export default function SignupForm() {
         <InputGroup label="Email" id="email" type="email" />
         <InputGroup label="Password" id="password" type="password" />
         <button className="font-bold w-full text-white py-[12px] rounded-3xl bg-blue-dark hover:bg-blue-dark-hover hover:shadow-lg focus:bg-blue-dark-focused">
-          Login
+          Sign Up
         </button>
       </form>
       <div className="text-center mt-4">
         <p>
           Already on Civic Tech Jobs?{" "}
           <Link to="/login" className="text-blue-dark font-bold underline">
-            Log in
+            Log In
           </Link>
         </p>
       </div>
