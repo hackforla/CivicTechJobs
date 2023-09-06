@@ -4,6 +4,7 @@ module.exports = {
     "./src/pages/Demo/DemoTailwind.tsx",
     "./src/pages/Authentication/*.tsx",
     "./src/components/Navigation/HeaderNav.tsx",
+    "./src/tw-components/*.tsx",
   ], // Will change to "./src/**/*.{js,jsx,tsx}", "./templates/index.html"
   theme: {
     screens: {
