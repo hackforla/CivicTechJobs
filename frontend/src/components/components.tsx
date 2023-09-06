@@ -10,6 +10,7 @@ import { Chip } from "./Inputs/Chip";
 import { Dropdown, DropdownOption } from "./Inputs/Dropdown";
 import { TextField } from "./Inputs/Textfield";
 import { HeaderNav } from "./Navigation/HeaderNav";
+import { SimpleNav } from "./Navigation/SimpleNav";
 import { FooterNav } from "./Navigation/FooterNav";
 import { ProgressBar } from "./Navigation/ProgressBar";
 import { Notification } from "./Notification/Notification";
@@ -37,6 +38,7 @@ export {
   TextField,
   // Navigation
   HeaderNav,
+  SimpleNav,
   FooterNav,
   ProgressBar,
   // Notification
