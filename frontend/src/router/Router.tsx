@@ -54,10 +54,6 @@ const router = createBrowserRouter([
             element: <DemoTailwind />,
           },
           {
-            path: "demo",
-            element: <Demo />,
-          },
-          {
             path: "*",
             element: <NotFoundPage />,
           },
