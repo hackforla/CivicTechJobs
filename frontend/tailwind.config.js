@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/pages/Demo/DemoTailwind.tsx"], // Will change to "./src/**/*.{js,jsx,tsx}", "./templates/index.html"
+  content: [
+    "./src/pages/Demo/DemoTailwind.tsx",
+    "./src/pages/Authentication/*.tsx",
+    "./src/components/Navigation/HeaderNav.tsx",
+  ], // Will change to "./src/**/*.{js,jsx,tsx}", "./templates/index.html"
   theme: {
     screens: {
       sm: "577px",
