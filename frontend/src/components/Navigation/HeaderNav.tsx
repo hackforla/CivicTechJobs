@@ -22,8 +22,8 @@ const menuItems: menuObject[] = [
 ];
 
 /** HeaderNav component
- * - changes from default to auth header depending on the path
- * - can't use the Link component from react router because this component
+ * @dev changes from default to auth header depending on the path
+ * @dev can't use the Link component from react router because this component
  * is rendered outside of the router context created in Router.tsx
  */
 

@@ -17,7 +17,7 @@ import {
   QualifierContent,
   loader as qualifierLoader,
 } from "pages/QualifierPage/QualifierPage";
-import AuthenticationPage from "pages/Authentication/AuthenticationPage";
+import AuthenticationPage from "pages/Authentication/page";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

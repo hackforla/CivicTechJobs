@@ -19,7 +19,7 @@ interface InputGroupProps extends React.PropsWithChildren {
  * @TODO The password input's "Forgot password" and toggle visibility functionality
  */
 
-export default function InputGroup({ label, id, type, icon }: InputGroupProps) {
+export default function InputGroup({ label, id, type }: InputGroupProps) {
   return (
     <div className="w-full mb-3">
       <div className="mb-1 font-bold text-base">
