@@ -1,6 +1,7 @@
-import { FooterNav, HeaderNav } from "components/components";
 import React from "react";
 import { Outlet } from "react-router-dom";
+import { FooterNav } from "components/components";
+import { HeaderNav } from "tw-components";
 
 const DefaultNavLayout = () => {
   return (
@@ -11,4 +12,5 @@ const DefaultNavLayout = () => {
     </>
   );
 };
+
 export default DefaultNavLayout;

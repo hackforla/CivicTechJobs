@@ -4,7 +4,7 @@ import React from "react";
 // Internal Imports
 import { logoHorizontal } from "assets/images/images";
 import { IconHamburgerMenu } from "assets/images/images";
-import { Button } from "../Buttons/Button";
+import { Button } from "../components/components";
 import { Link } from "react-router-dom";
 
 interface menuObject {
@@ -20,12 +20,6 @@ const menuItems: menuObject[] = [
   },
   { name: "Projects", link: "https://www.hackforla.org/projects/" },
 ];
-
-/** HeaderNav component
- * @dev changes from default to auth header depending on the path
- * @dev can't use the Link component from react router because this component
- * is rendered outside of the router context created in Router.tsx
- */
 
 function HeaderNav() {
   const Logo = () => {
@@ -82,4 +76,4 @@ function HeaderNav() {
   );
 }
 
-export { HeaderNav };
+export default HeaderNav;

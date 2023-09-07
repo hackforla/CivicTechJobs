@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { logoHorizontal } from "assets/images/images";
 import { iconArrowLeft } from "assets/images/images";
 
-function SimpleNav() {
+function AuthNav() {
   const [path] = useState(window.location.pathname);
 
   const Logo = () => {
@@ -35,4 +35,4 @@ function SimpleNav() {
   );
 }
 
-export { SimpleNav };
+export default AuthNav;

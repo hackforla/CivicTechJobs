@@ -5,8 +5,8 @@ import React, { Fragment, useState } from "react";
 import { logoHfLA } from "assets/images/images";
 import { Chip } from "components/components";
 import { Card } from "components/Cards/StandardCard";
-import { iconData } from "pages/api_data/creditsIconData";
-import { illustrationData } from "pages/api_data/creditsIllustrationData";
+import { iconData } from "api_data/creditsIconData";
+import { illustrationData } from "api_data/creditsIllustrationData";
 
 const CreditsPage = () => {
   const [activeData, setActiveData] = useState(illustrationData);

@@ -1,18 +1,15 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-
-import InputGroup from "../../tw-components/InputGroup";
-import { SimpleNav } from "components/components";
+import { AuthNav, InputGroup } from "tw-components";
 
 /** AuthenticationPage
  * @dev handles both "/login" and "/signup" paths
- * @dev shows the <LoginForm /> or <SignupForm /> depending on the path
- */
+*/
 
 export default function AuthenticationPage() {
   return (
     <>
-      <SimpleNav />
+      <AuthNav />
       <div className="flex flex-row" style={{ height: "calc(100vh - 64px)" }}>
         <div className="w-full lg:basis-1/2 bg-tan">
           <div className="lg:hidden flex flex-col justify-center items-center h-full">

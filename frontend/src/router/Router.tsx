@@ -14,8 +14,8 @@ import {
   loader as qualifierLoader,
 } from "pages/QualifierPage/QualifierPage";
 import AuthenticationPage from "pages/Authentication/page";
-import HomeLayout from "pages/Layouts/HomeLayout";
-import DefaultNavLayout from "pages/Layouts/DefaultNavLayout";
+import HomeLayout from "layouts/HomeLayout";
+import DefaultNavLayout from "layouts/DefaultNavLayout";
 
 const router = createBrowserRouter([
   {
