@@ -1,11 +1,11 @@
 // External Imports
-import React, { Fragment, useState } from "react";
+import React from "react";
 
 // Internal Imports
-import { logoHorizontal, logoStacked } from "assets/images/images";
+import { logoHorizontal } from "assets/images/images";
 import { IconHamburgerMenu } from "assets/images/images";
-import { Button } from "../Buttons/Button";
-import { iconArrowLeft } from "assets/images/images";
+import { Button } from "../components/components";
+import { Link } from "react-router-dom";
 
 interface menuObject {
   name?: string;
@@ -21,15 +21,7 @@ const menuItems: menuObject[] = [
   { name: "Projects", link: "https://www.hackforla.org/projects/" },
 ];
 
-/** HeaderNav component
- * @dev changes from default to auth header depending on the path
- * @dev can't use the Link component from react router because this component
- * is rendered outside of the router context created in Router.tsx
- */
-
 function HeaderNav() {
-  const [path] = useState(window.location.pathname);
-
   const Logo = () => {
     return (
       <a href="/" rel="noopener noreferrer">
@@ -42,7 +34,7 @@ function HeaderNav() {
     );
   };
 
-  const DefaultHeader = (
+  return (
     <header className="h-16 py-1 px-3 w-full flex items-center justify-between shadow-[-1px_1px_2px_rgb(51,51,51,0.2)]">
       <div>
         <Logo />
@@ -67,9 +59,11 @@ function HeaderNav() {
           })}
         </nav>
 
-        <Button href="/login" color="primary" size="sm">
-          Log In
-        </Button>
+        <Link to="/login">
+          <Button color="primary" size="sm">
+            Log In
+          </Button>
+        </Link>
         <button
           className="md:hidden ml-3"
           aria-expanded="false"
@@ -80,26 +74,6 @@ function HeaderNav() {
       </div>
     </header>
   );
-
-  const AuthHeader = (
-    <header className="h-16 py-1 px-3 w-full flex items-center justify-center shadow-[-1px_1px_2px_rgb(51,51,51,0.2)]">
-      <div className="grow flex justify-center">
-        <a href="/">
-          <img src={iconArrowLeft} alt="Back to home arrow" className="w-5" />
-        </a>
-      </div>
-      <div>
-        <Logo />
-      </div>
-      <div className="grow"></div>
-    </header>
-  );
-
-  if (path === "/login" || path === "/signup") {
-    return AuthHeader;
-  } else {
-    return DefaultHeader;
-  }
 }
 
-export { HeaderNav };
+export default HeaderNav;

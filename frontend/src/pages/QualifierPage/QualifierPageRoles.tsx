@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 // Internal Imports
 import { Button, Chip } from "components/components";
 import { QualifierNav, QualifierTitle } from "./QualifierComponents";
-import { fetchAllCopData, copDatum } from "pages/api_data/copData";
+import { fetchAllCopData, copDatum } from "api_data/copData";
 import { onKey } from "components/Utility/utils";
 
 function QualifierPageRoles() {

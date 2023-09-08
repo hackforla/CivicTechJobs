@@ -8,7 +8,7 @@ import {
   copDatum,
   fetchAllCopData,
   fetchCopDataById,
-} from "../api_data/copData";
+} from "../../api_data/copData";
 
 function LandingPageCop() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);

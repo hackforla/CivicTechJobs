@@ -9,7 +9,6 @@ import { Checkbox } from "./Inputs/Checkbox";
 import { Chip } from "./Inputs/Chip";
 import { Dropdown, DropdownOption } from "./Inputs/Dropdown";
 import { TextField } from "./Inputs/Textfield";
-import { HeaderNav } from "./Navigation/HeaderNav";
 import { FooterNav } from "./Navigation/FooterNav";
 import { ProgressBar } from "./Navigation/ProgressBar";
 import { Notification } from "./Notification/Notification";
@@ -36,7 +35,6 @@ export {
   DropdownOption,
   TextField,
   // Navigation
-  HeaderNav,
   FooterNav,
   ProgressBar,
   // Notification

@@ -1,10 +1,6 @@
 // External Imports
-import React, { Fragment } from "react";
-import {
-  createRoutesFromElements,
-  createBrowserRouter,
-  Route,
-} from "react-router-dom";
+import React from "react";
+import { createBrowserRouter } from "react-router-dom";
 
 // Internal Imports
 import { CreditsPage } from "pages/CreditsPage/CreditsPage";
@@ -18,26 +14,61 @@ import {
   loader as qualifierLoader,
 } from "pages/QualifierPage/QualifierPage";
 import AuthenticationPage from "pages/Authentication/page";
+import HomeLayout from "layouts/HomeLayout";
+import DefaultNavLayout from "layouts/DefaultNavLayout";
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Fragment>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/login" element={<AuthenticationPage />} />
-      <Route path="/signup" element={<AuthenticationPage />} />
-      <Route path="qualifier/" element={<QualifierPage />}>
-        <Route
-          path=":page/"
-          element={<QualifierContent />}
-          loader={qualifierLoader}
-        />
-      </Route>
-      <Route path="/demo" element={<Demo />} />
-      <Route path="/demo-tailwind" element={<DemoTailwind />} />
-      <Route path="/credits" element={<CreditsPage />} />
-      <Route path="*" element={<NotFoundPage />} />
-    </Fragment>
-  )
-);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomeLayout />,
+    children: [
+      {
+        path: "/",
+        element: <DefaultNavLayout />,
+        children: [
+          {
+            index: true,
+            element: <LandingPage />,
+          },
+          {
+            path: "qualifier",
+            element: <QualifierPage />,
+            children: [
+              {
+                path: ":page",
+                element: <QualifierContent />,
+                loader: qualifierLoader,
+              },
+            ],
+          },
+          {
+            path: "credits",
+            element: <CreditsPage />,
+          },
+          {
+            path: "demo",
+            element: <Demo />,
+          },
+          {
+            path: "demo-tailwind",
+            element: <DemoTailwind />,
+          },
+          {
+            path: "*",
+            element: <NotFoundPage />,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    path: "login",
+    element: <AuthenticationPage />,
+  },
+  {
+    path: "signup",
+    element: <AuthenticationPage />,
+  },
+]);
 
 export default router;
