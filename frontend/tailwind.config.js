@@ -29,6 +29,7 @@ module.exports = {
       tan: "#ffe0b9",
       "tan-light": "#ffefdb",
       green: "#13831e",
+      red: "#CC0023",
       // Neutral Colors
       white: "#fff",
       "grey-light": "#f2f2f2",
