@@ -9,11 +9,9 @@ type Inputs = {
 };
 
 /** Login Form Component
- *
+ * @dev used on the Authentication page
  * @dev noValidate on form to disable browser vaildation so we can use react-hook-form validations instead
- *
  */
-
 export default function LoginForm() {
   const {
     register,
@@ -33,7 +31,13 @@ export default function LoginForm() {
           id="email"
           type="email"
           register={register}
-          validations={{ required: "Please enter your email address" }}
+          validations={{
+            required: "Please enter your email address",
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+              message: "Please enter a valid email address",
+            },
+          }}
           errors={errors.email}
         />
         <TextField

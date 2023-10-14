@@ -8,7 +8,6 @@ import SignupForm from "./SignupForm";
 /** AuthenticationPage
  * @dev handles both "/login" and "/signup" paths
  */
-
 export default function AuthenticationPage() {
   const { pathname } = useLocation();
 

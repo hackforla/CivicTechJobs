@@ -19,8 +19,6 @@ interface TextFieldProps extends React.PropsWithChildren {
  * @prop register -> React Hook Form's register function
  * @prop validations -> React Hook Form's validation object
  * @prop errors -> React Hook Form's errors object
- *
- * @TODO The password input's "Forgot password" and toggle visibility functionality
  */
 
 export default function TextField({
@@ -32,8 +30,8 @@ export default function TextField({
   errors,
 }: TextFieldProps) {
   return (
-    <div className="w-full mb-3">
-      <div className="mb-2 font-bold text-base">
+    <div className="w-full">
+      <div className="mb-1 font-bold text-base">
         <label htmlFor={id}>{label}</label>
         {type === "password" && (
           <span className="text-blue-dark font-bold underline float-right cursor-pointer">
@@ -58,9 +56,10 @@ export default function TextField({
           </div>
         )}
       </div>
-      {errors && (
-        <p className="mt-1 text-red font-gothic font-bold">{errors.message}</p>
-      )}
+
+      <div className="h-8 text-red font-gothic font-bold flex flex-col justify-center">
+        {errors && errors.message}
+      </div>
     </div>
   );
 }

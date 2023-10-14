@@ -10,6 +10,10 @@ type Inputs = {
   password: string;
 };
 
+/** Signup Form Component
+ * @dev used on the Authentication page
+ * @dev noValidate on form to disable browser vaildation so we can use react-hook-form validations instead
+ */
 export default function SignupForm() {
   const {
     register,
@@ -19,6 +23,7 @@ export default function SignupForm() {
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log("Sending form data to server...", data);
   };
+
   return (
     <div>
       <h3 className="mb-10 text-4xl font-bold">Sign up</h3>
@@ -47,7 +52,13 @@ export default function SignupForm() {
           type="email"
           register={register}
           errors={errors.email}
-          validations={{ required: "Please enter your email address" }}
+          validations={{
+            required: "Please enter your email address",
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+              message: "Please enter a valid email address",
+            },
+          }}
         />
         <TextField
           label="Password"
