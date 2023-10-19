@@ -29,7 +29,7 @@ SHELL ["/bin/sh", "-o", "pipefail", "-c"]
 RUN apk update && apk add --no-cache curl gcc musl-dev libffi-dev jq
 # I could not make the linter accept 4006, so I will put this here. Whoever is interested should find a way to resolve this without ignoring. 
 # hadolint ignore=DL4006
-RUN curl -sSL https://install.python-poetry.org | python3 -
+RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/opt/poetry POETRY_VERSION=1.3.0 python3 -
 
 COPY backend/pyproject.toml .
 COPY backend/poetry.lock .

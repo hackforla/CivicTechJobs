@@ -9,7 +9,7 @@ WORKDIR /code
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Download Poetry into Path
-RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/opt/poetry python3 -
+RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/opt/poetry POETRY_VERSION=1.3.0 python3 -
 ENV PATH=/opt/poetry/bin:$PATH
 
 # Download dependencies
