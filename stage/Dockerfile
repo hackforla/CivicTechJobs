@@ -30,7 +30,7 @@ RUN apk update && apk add --no-cache curl gcc musl-dev libffi-dev jq
 
 # Disabling shellcheck SC2034 because it considers the unused variables POETRY_HOME and POETRY_VERSION as a bug
 # shellcheck disable=SC2034
-RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/opt/poetry POETRY_VERSION=1.3.0 python3 -
+RUN curl -sSL https://install.python-poetry.org | POETRY_VERSION=1.3.0 python3 -
 
 COPY backend/pyproject.toml .
 COPY backend/poetry.lock .
