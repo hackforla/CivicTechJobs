@@ -51,7 +51,7 @@ function Calendar({ value = "0".repeat(24 * 2 * 7), ...props }: CalendarProps) {
     props.onChange(data);
   }, [data]);
   return (
-    <div className={combineClasses("flex-container fill", props.addClass)}>
+    <div className={combineClasses("flex-container fill", props.addClass)} data-testid="calendar-root">
       {/* Side column with headers. Needs to be separate due to labels being on the border, and alternating */}
       <CalendarHeaderColumn rowNames={hoursOfDay()} />
       <div style={{ flex: "2 1 0" }}>
