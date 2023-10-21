@@ -23,14 +23,13 @@ ENV POETRY_HOME=/usr/local/poetry
 ENV PATH="$POETRY_HOME/bin:${PATH}"
 
 # Set up shell for pipe
-SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
+SHELL ["/bin/sh", "-o", "pipefail", "-c"]
 
 # hadolint ignore=DL3018
 RUN apk update && apk add --no-cache curl gcc musl-dev libffi-dev jq
-
-# Disabling shellcheck SC2034 because it considers the unused variables POETRY_HOME and POETRY_VERSION as a bug
-# shellcheck disable=SC2034
-RUN curl -sSL https://install.python-poetry.org | POETRY_VERSION=1.3.0 python3 -
+# I could not make the linter accept 4006, so I will put this here. Whoever is interested should find a way to resolve this without ignoring. 
+# hadolint ignore=DL4006
+RUN curl -sSL https://install.python-poetry.org | python3 -
 
 COPY backend/pyproject.toml .
 COPY backend/poetry.lock .
