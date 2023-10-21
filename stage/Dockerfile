@@ -26,7 +26,7 @@ ENV PATH="$POETRY_HOME/bin:${PATH}"
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 
 # hadolint ignore=DL3018
-RUN apk update && apk add --no-cache curl gcc musl-dev libffi-dev jq && pip install psycopg2-binary==2.9.9
+RUN apk update && apk add --no-cache curl gcc musl-dev libffi-dev jq && pip install --no-cache-dir psycopg2-binary==2.9.9
 
 # Disabling shellcheck SC2034 because it considers the unused variables POETRY_HOME and POETRY_VERSION as a bug
 # shellcheck disable=SC2034
