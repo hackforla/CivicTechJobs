@@ -58,7 +58,7 @@ function Chip({
       onClick={handleClick}
       className={combineClasses(
         `${variant}-chip`,
-        "px-2",
+        "px-4",
         "paragraph-3",
         active && "active",
         addClass
