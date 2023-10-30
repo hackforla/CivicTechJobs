@@ -59,9 +59,9 @@ module.exports = {
         "x-large": "100px",
       },
       rotate: {
-        '290': '290deg',
-        '345': '345deg',
-      }
+        290: "290deg",
+        345: "345deg",
+      },
     },
   },
   plugins: [],
