@@ -236,3 +236,7 @@ export {
   illustrationCreativeTeam,
   illustrationHighFive,
 };
+
+export { default as loginTanBg } from "./svgs/login-tan-bg.svg?url";
+export { default as dotsSvg } from "./svgs/dots.svg?url";
+export { default as loginIllustration } from "./svgs/login-illustration.svg?url";
