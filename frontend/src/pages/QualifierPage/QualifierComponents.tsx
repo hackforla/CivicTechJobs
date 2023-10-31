@@ -13,7 +13,7 @@ function QualifierTitle({ children, title }: QualifierTitleProps) {
   return (
     <Fragment>
       <h1 className="title-2 mt-6">{title}</h1>
-      <p className="paragraph-1 row justify-center mt-3">{children}</p>
+      <p className="paragraph-1 row justify-center my-3">{children}</p>
     </Fragment>
   );
 }

@@ -24,7 +24,7 @@ export default function LoginForm() {
 
   return (
     <div>
-      <h3 className="mb-10 text-4xl font-bold">Log in</h3>
+      <h3 className="mb-8 text-4xl font-bold">Log in</h3>
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <TextField
           label="Email"

@@ -35,7 +35,7 @@ function HeaderNav() {
   };
 
   return (
-    <header className="h-16 py-1 px-3 w-full flex items-center justify-between shadow-[-1px_1px_2px_rgb(51,51,51,0.2)]">
+    <header className="h-16 py-1 px-3 w-full flex items-center justify-between lg:justify-around shadow-[-1px_1px_2px_rgb(51,51,51,0.2)]">
       <div>
         <Logo />
       </div>
@@ -48,7 +48,7 @@ function HeaderNav() {
           {menuItems.map((item, index) => {
             return (
               <a
-                className="hover:underline font-bold mr-4"
+                className="hover:underline font-bold md:mx-6 lg:mx-8"
                 href={item.link}
                 rel="noopener noreferrer"
                 key={index}
@@ -59,7 +59,7 @@ function HeaderNav() {
           })}
         </nav>
 
-        <Link to="/login">
+        <Link to="/login" className="mg:ml-6 lg:ml-8">
           <Button color="primary" size="sm">
             Log In
           </Button>
