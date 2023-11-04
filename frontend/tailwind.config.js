@@ -4,6 +4,7 @@ module.exports = {
     "./src/pages/Demo/DemoTailwind.tsx",
     "./src/pages/Authentication/*.tsx",
     "./src/tw-components/*.tsx",
+    "./src/pages/LandingPage/*.tsx",
   ], // Will change to "./src/**/*.{js,jsx,tsx}", "./templates/index.html"
   theme: {
     screens: {
@@ -29,6 +30,7 @@ module.exports = {
       tan: "#ffe0b9",
       "tan-light": "#ffefdb",
       green: "#13831e",
+      red: "#CC0023",
       // Neutral Colors
       white: "#fff",
       "grey-light": "#f2f2f2",
@@ -55,6 +57,10 @@ module.exports = {
         DEFAULT: "20px",
         large: "60px",
         "x-large": "100px",
+      },
+      rotate: {
+        290: "290deg",
+        345: "345deg",
       },
     },
   },

@@ -28,20 +28,20 @@ function LandingPageCop() {
 
   return (
     <div className="flex-container align-center justify-center py-5">
-      <h2 className="col-12 text-center my-4">Communities of Practice (COP)</h2>
+      <h2 className="col-12 text-center text-4xl font-bold leading-normal my-8">Communities of Practice (COP)</h2>
       <div className="row paragraph-1 text-center mb-5 landing-cop-description">
         A Community of Practice (CoP) is a group of volunteers who share a
         common interest in a topic and meet regularly to fulfill both individual
         and group goals. We use CoPs to share effective practices and relevant
         domain knowledge to help our members grow.
       </div>
-      <div className="row m-5 landing-cop-circle-container">
+      <div className="row m-10 landing-cop-circle-container">
         {copData.map((cop) => {
           return (
             <CircleCard
               key={cop.id}
               size="lg"
-              addClass="m-4"
+              addClass="m-8"
               onClick={() => {
                 handleCopData(cop.id);
                 setIsDialogOpen(true);
@@ -49,7 +49,7 @@ function LandingPageCop() {
               role="button"
             >
               <div className="flex-column">
-                <div className="pb-3 row justify-center">
+                <div className="pb-6 row justify-center">
                   <cop.icon strokeWidth="0.2" height="65" aria-hidden="true" />
                 </div>
                 <div className="title-4 landing-cop-circle-title text-center">
@@ -82,9 +82,9 @@ function LandingPageCop() {
                     key={cop.id}
                     isActive={isActive}
                     onClick={() => handleCopData(cop.id)}
-                    addClass="flex-container justify-center align-center p-1"
+                    addClass="flex-container justify-center align-center p-2"
                   >
-                    <div className="pr-1">
+                    <div className="pr-2">
                       <cop.icon
                         fill={isActive ? "white" : "black"}
                         stroke={isActive ? "white" : "black"}
@@ -101,11 +101,11 @@ function LandingPageCop() {
                 );
               })}
             </nav>
-            <div className="col-9 ml-2">
+            <div className="col-9 ml-4">
               <InnerCopCard addClass="landing-inner-cop-card-content">
                 <div>
                   <div className="title-3 flex-container pb-4 align-bottom">
-                    <div className="pr-2">
+                    <div className="pr-4">
                       {currentDatum.icon && (
                         <currentDatum.icon
                           fill="black"

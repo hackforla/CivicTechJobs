@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { createRoot } from "react-dom/client";
 import App from "./App";
-import "tailwindcss/tailwind.css";
 import "./index.scss";
+import "tailwindcss/tailwind.css";
 
 if (process.env.MODE !== "production") {
   const reactAxe = require("@axe-core/react");

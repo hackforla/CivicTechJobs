@@ -65,15 +65,27 @@ function CopRoles({ copDatum }: CopRolesProps) {
 
   return (
     <div className="row fill flex-center-x my-1">
-      <div className="col-7">
-        <div className="row align-center my-2">
-          <copDatum.icon
-            fill="black"
-            strokeWidth="0.2"
-            height="21"
-            aria-hidden="true"
-          />
-          <span className="title-4 ml-1">{copDatum.title}</span>
+      <div className="col-8">
+        <div className="row align-center my-3 justify-between">
+          <div className="flex items-center">
+            <copDatum.icon
+              fill="black"
+              strokeWidth="0.2"
+              height="21"
+              aria-hidden="true"
+            />
+            <span className="title-4 ml-1">{copDatum.title}</span>
+          </div>
+          <span
+            className="links"
+            tabIndex={0}
+            role="button"
+            aria-pressed={isAllSelected}
+            onClick={handleSelectAll}
+            onKeyDown={(e) => onKey(handleSelectAll, "Enter")(e)}
+          >
+            {isAllSelected ? "Deselect all" : "Select all"}
+          </span>
         </div>
         <div>
           {copDatum.roles.map((role, index) => {
@@ -81,7 +93,7 @@ function CopRoles({ copDatum }: CopRolesProps) {
               <Chip
                 key={index}
                 variant="multi"
-                addClass="mr-2 mb-2"
+                addClass="mr-4 mb-4"
                 checked={isRoleChecked[index]}
                 value={role}
                 onClick={(active, value) => {
@@ -94,18 +106,6 @@ function CopRoles({ copDatum }: CopRolesProps) {
             );
           })}
         </div>
-      </div>
-      <div className="col-1 text-right">
-        <span
-          className="links"
-          tabIndex={0}
-          role="button"
-          aria-pressed={isAllSelected}
-          onClick={handleSelectAll}
-          onKeyDown={(e) => onKey(handleSelectAll, "Enter")(e)}
-        >
-          {isAllSelected ? "Deselect all" : "Select all"}
-        </span>
       </div>
     </div>
   );
