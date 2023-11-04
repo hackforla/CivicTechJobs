@@ -1,5 +1,6 @@
 // External Imports
 import React, { useState } from "react";
+import Cookies from 'js-cookie';
 
 // Internal Imports
 import { Button } from "../components/components";
@@ -9,12 +10,22 @@ import { iconX } from "assets/images/images";
 interface CookieBannerProps extends React.PropsWithChildren {}
 
 function CookieBanner(props: CookieBannerProps) {
-  //TO-DO - implement functionality for cookie w/ react cookie library
-  const [hidden, setIsHidden] = useState(false);
+  const [hidden, setIsHidden] = useState(Cookies.get('cookieConsent') !== undefined);
+
+  const handleAcceptCookies = () => {
+    Cookies.set('cookieConsent', 'true', { expires: 365})
+    setIsHidden(true)
+  }
+
+  const handleDeclineCookies = () => {
+    Cookies.set('cookieConsent', 'false', { expires: 365})
+    setIsHidden(true)
+  }
 
   return (
-    //create cookies banner container
     <div
+      role='dialog'
+      aria-label="cookies banner"
       className={`${
         hidden ? "hidden" : ""
       } fixed flex flex-col bottom-12 left-1/2 transform -translate-x-1/2 bg-white w-3/4 p-4 z-50W rounded-lg shadow-xl`}
@@ -25,9 +36,7 @@ function CookieBanner(props: CookieBannerProps) {
           <IconButton
             iconUrl={iconX}
             label="close"
-            onClick={(e) => {
-              setIsHidden(true);
-            }}
+            onClick={(e) => { setIsHidden(true)}}
           ></IconButton>{" "}
         </div>
         <p className="max-w-[80%]">
@@ -36,13 +45,11 @@ function CookieBanner(props: CookieBannerProps) {
           our <a className="text-blue-dark-hover underline cursor-pointer hover:text-blue-dark-focused">Cookie Policy</a>
         </p>
         <div className="flex flex-row items-center space-x-6">
-          <Button color="primary" size="md">
+          <Button color="primary" size="md" onClick={handleAcceptCookies}>
             Accept
           </Button>
           <a
-            onClick={(e) => {
-              setIsHidden(true);
-            }}
+            onClick={handleDeclineCookies}
             className="text-blue-dark-hover cursor-pointer hover:text-blue-dark-focused pl-2"
           >
             No Thanks
