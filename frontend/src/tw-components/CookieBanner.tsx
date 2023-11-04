@@ -42,18 +42,18 @@ function CookieBanner(props: CookieBannerProps) {
         <p className="max-w-[80%]">
           We use cookies to improve your experience. By clicking "Accept
           Cookies", you are agreeing to the collection of data as described in
-          our <a className="text-blue-dark-hover underline cursor-pointer hover:text-blue-dark-focused">Cookie Policy</a>
+          our <a href='/' className="text-blue-dark-hover underline cursor-pointer hover:text-blue-dark-focused">Cookie Policy</a>
         </p>
         <div className="flex flex-row items-center space-x-6">
           <Button color="primary" size="md" onClick={handleAcceptCookies}>
             Accept
           </Button>
-          <a
+          <button
             onClick={handleDeclineCookies}
             className="text-blue-dark-hover cursor-pointer hover:text-blue-dark-focused pl-2"
           >
             No Thanks
-          </a>
+          </button>
         </div>
       </div>
     </div>
