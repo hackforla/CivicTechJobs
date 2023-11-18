@@ -19,16 +19,15 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.9"
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip setuptools wheel
-          pip install mkdocs
+      - name: Install mkdocs
+        uses: actions/setup-python@v3
       - name: Publish docs
         run: |
-          git config user.name 'github-actions[bot]' && git config user.email 'github-actions[bot]@users.noreply.github.com'
+          pip install --upgrade pip && pip install mkdocs
           python mkdocs/mkdocs-config/setup.py develop
-          mkdocs gh-deploy --config-file mkdocs/mkdocs.yml
+          git config user.name 'github-actions[bot]' && git config user.email 'github-actions[bot]@users.noreply.github.com'
+          cd mkdocs
+          cd mkdocs-config
+          python setup.py develop
+          cd ..
+          mkdocs gh-deploy
