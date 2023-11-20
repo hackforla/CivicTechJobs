@@ -240,3 +240,5 @@ export {
 export { default as loginTanBg } from "./svgs/login-tan-bg.svg?url";
 export { default as dotsSvg } from "./svgs/dots.svg?url";
 export { default as loginIllustration } from "./svgs/login-illustration.svg?url";
+export { default as privacyPageBg } from "./svgs/privacy-policy-bg-top.svg?url";
+export { default as  privacyPolicyIllustration} from "./svgs/privacy-policy-illustration.svg?url";

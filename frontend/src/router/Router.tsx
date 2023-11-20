@@ -16,6 +16,7 @@ import {
 import AuthenticationPage from "pages/Authentication/page";
 import HomeLayout from "layouts/HomeLayout";
 import DefaultNavLayout from "layouts/DefaultNavLayout";
+import PrivacyPolicyPage from "pages/PrivacyPolicyPage/PrivacyPolicyPage";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
           {
             path: "*",
             element: <NotFoundPage />,
+          },
+          {
+            path: "privacypolicy",
+            element: <PrivacyPolicyPage/>
           },
         ],
       },
