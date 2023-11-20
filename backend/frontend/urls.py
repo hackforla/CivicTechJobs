@@ -10,7 +10,7 @@ url_paths = [
     "qualifier/<int:page_number>",
     "login",
     "signup",
-    "privacypolicy"
+    "privacypolicy",
 ]
 
 urlpatterns = [path(url_path, views.index) for url_path in url_paths]
