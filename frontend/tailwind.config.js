@@ -5,7 +5,7 @@ module.exports = {
     "./src/pages/Authentication/*.tsx",
     "./src/tw-components/*.tsx",
     "./src/pages/LandingPage/*.tsx",
-    "./src/pages/PrivacyPolicyPage/*"
+    "./src/pages/PrivacyPolicyPage/*",
   ], // Will change to "./src/**/*.{js,jsx,tsx}", "./templates/index.html"
   theme: {
     screens: {
