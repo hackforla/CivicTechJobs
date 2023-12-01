@@ -63,14 +63,14 @@ const illustrationData: illustrationDatum[] = [
   //   provider: "Storyset",
   //   link: "https://www.freepik.com/free-vector/sign-up-concept-illustration_20602852.htm#query=signup&position=17&from_view=search&track=sph",
   // },
-  // {
-  //   id: 7,
-  //   imgSrc: illustrationTeamWorkSvg,
-  //   name: "Team Work",
-  //   usedIn: "Login",
-  //   provider: "Storyset",
-  //   link: "https://storyset.com/illustration/team-work/pana",
-  // },
+  {
+    id: 7,
+    imgSrc: illustrationHighFive,
+    name: "Team Work",
+    usedIn: "Login",
+    provider: "Storyset",
+    link: "https://storyset.com/illustration/team-work/pana",
+  },
   {
     id: 8,
     imgSrc: illustrationHighFive,

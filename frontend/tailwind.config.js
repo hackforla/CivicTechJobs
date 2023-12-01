@@ -6,9 +6,12 @@ module.exports = {
     "./src/tw-components/*.tsx",
     "./src/pages/LandingPage/*.tsx",
     "./src/pages/PrivacyPolicyPage/*",
+    "./src/pages/CreditsPage/*.tsx",
   ], // Will change to "./src/**/*.{js,jsx,tsx}", "./templates/index.html"
   theme: {
     screens: {
+      xs: "480px",
+      // => @media (min-width: 480px) { ... }
       sm: "577px",
       // => @media (min-width: 577px) { ... }
       md: "769px",

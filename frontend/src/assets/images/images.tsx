@@ -242,3 +242,6 @@ export { default as dotsSvg } from "./svgs/dots.svg?url";
 export { default as loginIllustration } from "./svgs/login-illustration.svg?url";
 export { default as privacyPageBg } from "./svgs/privacy-policy-bg-top.svg?url";
 export { default as  privacyPolicyIllustration} from "./svgs/privacy-policy-illustration.svg?url";
+export {default as creditsPageBgTop} from "./svgs/credits-page-bg-top.svg?url";
+export {default as creditsPageBgBottom} from "./svgs/credits-page-bg-bottom.svg?url";
+export {default as creditsPageHighFive} from "./svgs/credits-page-high-five.svg?url";
