@@ -33,6 +33,7 @@ module.exports = {
       // Secondary Colors
       tan: "#ffe0b9",
       "tan-light": "#ffefdb",
+      "tan-bg": "#fbe8ce",
       green: "#13831e",
       red: "#CC0023",
       // Neutral Colors

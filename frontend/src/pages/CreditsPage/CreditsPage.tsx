@@ -38,9 +38,29 @@ const CreditsPage: FC = () => {
   return (
     <div className="relative flex flex-col">
       {/* Create stacking context for the top SVG */}
-      <div className="relative z-0">
+      <div className="relative z-0" style={{ minHeight: "300px" }}>
+        <div className="absolute top-5 sm:top-8 md:top-10 lg:top-16 xl:top-22 left-0 right-0 z-10 flex flex-col items-center justify-around sm:flex-row sm:items-start pl-16 pr-8">
+          <div className="flex-column text-center sm:text-left w-full sm:w-1/2 md:w-1/2">
+            <h3 className="font-bold mt-3 mb-2 md:mb-3 sm:text-lg md:text-2xl lg:text-3xl xl:text-5xl">
+              Credits
+            </h3>
+            <p className="mt-2 md:mt-3 text-xs sm:text-sm md:text-base lg:text-lg xl:text-2xl">
+              Thank you to all of the artists and sponsors who help make our
+              projects successful. Check out all of the illustrations and
+              iconography we have used on our site.
+            </p>
+          </div>
+          <img
+            className="w-1/2 md:w-2/5 md:mx-2 md:mr-4"
+            src={creditsPageHighFive}
+            alt="High Five Illustration"
+          />
+        </div>
+
         {/* Top SVG */}
-        <TopSvg className="flex-none w-full relative">
+        {/* Overlay div for extending background color on small screens */}
+        <div className="flex-none w-full h-24 sm:h-8 bg-tan-bg"></div>
+        <TopSvg className="flex-none w-full">
           {/* Content that goes below the top SVG */}
         </TopSvg>
       </div>
@@ -48,35 +68,36 @@ const CreditsPage: FC = () => {
       {/* Main Content */}
       <div className="flex-1 bg-white px-3 xs:px-24 md:px-12 lg:px-24">
         {/* Your main content goes here */}
-        <h1 className="text-4xl font-bold">Hello, World!</h1>
+        <div className="p-6 xl:px-20">
+          <h1 className="text-4xl font-bold">Illustrations & Icongraphy</h1>
 
-        {/* Add more content as needed */}
-        <div className="pt-5 mt-5">
-          <h2>Illustrations & Iconography</h2>
-          <div>
-            <button
-              className={`${styleClasses.buttonDefault}
-              ${
-                activeButton === "illustrations"
-                  ? styleClasses.buttonActive
-                  : styleClasses.buttonInactive
-              } mr-4`}
-              onClick={handleClickIllustrationButton}
-            >
-              Illustrations
-            </button>
+          {/* Add more content as needed */}
+          <div className="mt-5">
+            <div>
+              <button
+                className={`${styleClasses.buttonDefault}
+      ${
+        activeButton === "illustrations"
+          ? styleClasses.buttonActive
+          : styleClasses.buttonInactive
+      } mr-4`}
+                onClick={handleClickIllustrationButton}
+              >
+                Illustrations
+              </button>
 
-            <button
-              className={`${styleClasses.buttonDefault}
-              ${
-                activeButton === "icons"
-                  ? styleClasses.buttonActive
-                  : styleClasses.buttonInactive
-              }`}
-              onClick={handleClickIconButton}
-            >
-              Iconography
-            </button>
+              <button
+                className={`${styleClasses.buttonDefault}
+      ${
+        activeButton === "icons"
+          ? styleClasses.buttonActive
+          : styleClasses.buttonInactive
+      }`}
+                onClick={handleClickIconButton}
+              >
+                Iconography
+              </button>
+            </div>
           </div>
         </div>
 
