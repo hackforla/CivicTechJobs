@@ -1,9 +1,6 @@
-// External Imports
-import React, { Fragment, useState, FC, SVGProps } from "react";
+import React, { useState, FC } from "react";
 
-// Internal Imports
 import { logoHfLA, creditsPageHighFive } from "assets/images/images";
-// import { Card } from "components/Cards/StandardCard";
 import { iconData } from "api_data/creditsIconData";
 import { illustrationData } from "api_data/creditsIllustrationData";
 import Card from "tw-components/StandardCard";
@@ -30,7 +27,7 @@ const CreditsPage: FC = () => {
 
   const styleClasses = {
     buttonDefault:
-      "h-10 px-7 rounded text-base border hover:bg-blue-dark-hover hover:border-blue-dark-hover hover:text-white focus:border-blue-dark-focused focus:bg-blue-dark-focused focus:text-white",
+      "h-6 px-4 sm:h-10 sm:px-7 rounded text-xs sm:text-base border hover:bg-blue-dark-hover hover:border-blue-dark-hover hover:text-white focus:border-blue-dark-focused focus:bg-blue-dark-focused focus:text-white",
     buttonActive: "border-blue-dark bg-blue-dark text-white",
     buttonInactive: "border-grey-dark bg-white text-grey-dark",
   };
@@ -60,16 +57,14 @@ const CreditsPage: FC = () => {
         {/* Top SVG */}
         {/* Overlay div for extending background color on small screens */}
         <div className="flex-none w-full h-24 sm:h-8 bg-tan-bg"></div>
-        <TopSvg className="flex-none w-full">
-          {/* Content that goes below the top SVG */}
-        </TopSvg>
+        <TopSvg className="flex-none w-full" />
       </div>
 
-      {/* Main Content */}
       <div className="flex-1 bg-white4">
-        {/* Your main content goes here */}
         <div className="my-4 py-6 px-16 md:px-24 lg:px-32">
-          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">Illustrations & Icongraphy</h1>
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">
+            Illustrations & Icongraphy
+          </h1>
 
           <div className="my-5">
             <div>
@@ -103,10 +98,8 @@ const CreditsPage: FC = () => {
           </div>
         </div>
 
-{/* px-12 xs:px-32 md:px-24 lg:px-24 xl:px-36 */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 content-center md:grid-cols-3 sm:gap-8 md:gap-8 lg:gap-x-12 xl:gap-x-20 place-items-stretch mx-auto px-8 sm:px-0 w-full xs:w-10/12 sm:w-4/5 md:w-4/5 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 content-center md:grid-cols-3 gap-8 md:gap-8 lg:gap-x-12 xl:gap-x-20 place-items-stretch mx-auto px-8 sm:px-0 w-full xs:w-10/12 sm:w-4/5 md:w-4/5 ">
           {activeData.map((cardData) => (
-            // name, usedIn, provider, imgSrc, learnMoreLink
             <Card
               key={cardData.id}
               name={cardData.name}
@@ -114,7 +107,7 @@ const CreditsPage: FC = () => {
               provider={cardData.provider}
               imgSrc={cardData.imgSrc}
               imgStyleClasses={`${
-                activeButton === "icons" ? "w-1/6" : "w-5/6"
+                activeButton === "icons" ? "w-1/6" : "w-4/5"
               } h-auto place-self-center`}
               imgContainerStyleClasses={`${
                 activeButton === "illustrations"
@@ -152,8 +145,7 @@ const CreditsPage: FC = () => {
           </div>
         </div>
 
-        {/* Bottom SVG */}
-        <BottomSvg className="flex-none md:w-full relative"></BottomSvg>
+        <BottomSvg className="flex-none md:w-full relative" />
       </div>
     </div>
   );

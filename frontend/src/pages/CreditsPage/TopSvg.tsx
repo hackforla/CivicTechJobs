@@ -7,7 +7,7 @@ const TopSvg: FC<SVGProps<SVGSVGElement>> = (props) => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
-    className=""
+    className="w-full h-1/3"
   >
     <g clip-path="url(#clip0_6412_58802)">
       <path

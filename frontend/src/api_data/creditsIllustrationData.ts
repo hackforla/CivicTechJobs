@@ -2,6 +2,8 @@
 import {
   illustrationCreativeTeam,
   illustrationHighFive,
+  notFoundPageImg,
+  privacyPolicyIllustration,
 } from "assets/images/images";
 
 interface illustrationDatum {
@@ -63,14 +65,14 @@ const illustrationData: illustrationDatum[] = [
   //   provider: "Storyset",
   //   link: "https://www.freepik.com/free-vector/sign-up-concept-illustration_20602852.htm#query=signup&position=17&from_view=search&track=sph",
   // },
-  {
-    id: 7,
-    imgSrc: illustrationHighFive,
-    name: "Team Work",
-    usedIn: "Login",
-    provider: "Storyset",
-    link: "https://storyset.com/illustration/team-work/pana",
-  },
+  // {
+  //   id: 7,
+  //   imgSrc: illustrationTeamWorkSvg,
+  //   name: "Team Work",
+  //   usedIn: "Login",
+  //   provider: "Storyset",
+  //   link: "https://storyset.com/illustration/team-work/pana",
+  // },
   {
     id: 8,
     imgSrc: illustrationHighFive,
@@ -87,6 +89,23 @@ const illustrationData: illustrationDatum[] = [
     provider: "Storyset",
     link: "https://storyset.com/illustration/creative-team/pana",
   },
+  {
+    id: 10,
+    imgSrc: notFoundPageImg,
+    name: "404 Error",
+    usedIn: "404 Page",
+    provider: "Storyset",
+    link: "https://storyset.com/illustration/404-error-with-a-tired-person/pana",
+  },
+  {
+    id: 11,
+    imgSrc: privacyPolicyIllustration,
+    name: "Privacy Policy",
+    usedIn: "Privacy",
+    provider: "Storyset",
+    link: "https://storyset.com/illustration/privacy-policy/pana",
+  },
+  // notFoundPageImg
 ];
 
 export { illustrationDatum, illustrationData };
