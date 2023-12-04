@@ -107,7 +107,7 @@ const CreditsPage: FC = () => {
               provider={cardData.provider}
               imgSrc={cardData.imgSrc}
               imgStyleClasses={`${
-                activeButton === "icons" ? "w-1/6" : "w-4/5"
+                activeButton === "icons" ? "w-1/6" : "w-2/3"
               } h-auto place-self-center`}
               imgContainerStyleClasses={`${
                 activeButton === "illustrations"

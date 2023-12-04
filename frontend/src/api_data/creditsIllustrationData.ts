@@ -1,7 +1,8 @@
 // data that will be used for credits page
 import {
-  illustrationCreativeTeam,
-  illustrationHighFive,
+  creditsPageHighFive,
+  landingPageCreativeTeam,
+  loginIllustration,
   notFoundPageImg,
   privacyPolicyIllustration,
 } from "assets/images/images";
@@ -75,7 +76,7 @@ const illustrationData: illustrationDatum[] = [
   // },
   {
     id: 8,
-    imgSrc: illustrationHighFive,
+    imgSrc: creditsPageHighFive,
     name: "High Five",
     usedIn: "Credits",
     provider: "Storyset",
@@ -83,7 +84,7 @@ const illustrationData: illustrationDatum[] = [
   },
   {
     id: 9,
-    imgSrc: illustrationCreativeTeam,
+    imgSrc: landingPageCreativeTeam,
     name: "Creative Team",
     usedIn: "Landing",
     provider: "Storyset",
@@ -91,6 +92,14 @@ const illustrationData: illustrationDatum[] = [
   },
   {
     id: 10,
+    imgSrc: loginIllustration,
+    name: "Team Work",
+    usedIn: "Login",
+    provider: "Storyset",
+    link: "https://storyset.com/illustration/team-work/pana",
+  },
+  {
+    id: 11,
     imgSrc: notFoundPageImg,
     name: "404 Error",
     usedIn: "404 Page",
@@ -98,14 +107,13 @@ const illustrationData: illustrationDatum[] = [
     link: "https://storyset.com/illustration/404-error-with-a-tired-person/pana",
   },
   {
-    id: 11,
+    id: 12,
     imgSrc: privacyPolicyIllustration,
     name: "Privacy Policy",
     usedIn: "Privacy",
     provider: "Storyset",
     link: "https://storyset.com/illustration/privacy-policy/pana",
   },
-  // notFoundPageImg
 ];
 
 export { illustrationDatum, illustrationData };
