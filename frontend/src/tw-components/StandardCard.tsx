@@ -21,7 +21,7 @@ const Card: React.FC<CardProps> = ({
   learnMoreLink,
 }) => {
   return (
-    <div className="auto-cols-max rounded-lg shadow-lg p-3 md:p-6 flex flex-row sm:flex-col items-center justify-center md:justify-evenly gap-4">
+    <div className="auto-cols-max rounded-xl shadow-xl p-3 md:p-6 flex flex-row sm:flex-col items-center justify-center md:justify-evenly gap-4">
 
       {/* Photo Container */}
       <div className={imgContainerStyleClasses}>
@@ -51,8 +51,8 @@ const Card: React.FC<CardProps> = ({
         </table>
 
         {/* Learn More Link */}
-        <div className="mt-3 md:mt-6 text-sm">
-          <a href={learnMoreLink} className="text-blue-500 hover:underline">
+        <div className="mt-3 md:mt-6">
+          <a href={learnMoreLink} className="text-blue-link underline font-semibold text-sm sm:text-base md:text-lg lx:text-xl">
             Learn more
           </a>
         </div>

@@ -41,7 +41,7 @@ const CreditsPage: FC = () => {
       <div className="relative z-0" style={{ minHeight: "300px" }}>
         <div className="absolute top-5 sm:top-8 md:top-10 lg:top-16 xl:top-22 left-0 right-0 z-10 flex flex-col items-center justify-around sm:flex-row sm:items-start pl-16 pr-8">
           <div className="flex-column text-center sm:text-left w-full sm:w-1/2 md:w-1/2">
-            <h3 className="font-bold mt-3 mb-2 md:mb-3 sm:text-lg md:text-2xl lg:text-3xl xl:text-5xl">
+            <h3 className="font-bold mt-3 mb-2 md:mb-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
               Credits
             </h3>
             <p className="mt-2 md:mt-3 text-xs sm:text-sm md:text-base lg:text-lg xl:text-2xl">
@@ -66,33 +66,35 @@ const CreditsPage: FC = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 bg-white px-3 xs:px-24 md:px-12 lg:px-24">
+      <div className="flex-1 bg-white4">
         {/* Your main content goes here */}
-        <div className="p-6 xl:px-20">
-          <h1 className="text-4xl font-bold">Illustrations & Icongraphy</h1>
+        <div className="my-4 py-6 px-16 md:px-24 lg:px-32">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">Illustrations & Icongraphy</h1>
 
-          {/* Add more content as needed */}
-          <div className="mt-5">
+          <div className="my-5">
             <div>
               <button
-                className={`${styleClasses.buttonDefault}
-      ${
-        activeButton === "illustrations"
-          ? styleClasses.buttonActive
-          : styleClasses.buttonInactive
-      } mr-4`}
+                className={`
+                  ${styleClasses.buttonDefault}
+                  ${
+                    activeButton === "illustrations"
+                      ? styleClasses.buttonActive
+                      : styleClasses.buttonInactive
+                  } 
+                  mr-4`}
                 onClick={handleClickIllustrationButton}
               >
                 Illustrations
               </button>
 
               <button
-                className={`${styleClasses.buttonDefault}
-      ${
-        activeButton === "icons"
-          ? styleClasses.buttonActive
-          : styleClasses.buttonInactive
-      }`}
+                className={`
+                            ${styleClasses.buttonDefault}
+                            ${
+                              activeButton === "icons"
+                                ? styleClasses.buttonActive
+                                : styleClasses.buttonInactive
+                            }`}
                 onClick={handleClickIconButton}
               >
                 Iconography
@@ -101,7 +103,8 @@ const CreditsPage: FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 content-center md:grid-cols-3 sm:gap-8 md:gap-8 xl:gap-x-20 place-items-stretch p-6 xl:px-20">
+{/* px-12 xs:px-32 md:px-24 lg:px-24 xl:px-36 */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 content-center md:grid-cols-3 sm:gap-8 md:gap-8 lg:gap-x-12 xl:gap-x-20 place-items-stretch mx-auto px-8 sm:px-0 w-full xs:w-10/12 sm:w-4/5 md:w-4/5 ">
           {activeData.map((cardData) => (
             // name, usedIn, provider, imgSrc, learnMoreLink
             <Card

@@ -30,6 +30,7 @@ module.exports = {
       // Primary on Dark Colors
       blue: "#44aff1",
       "blue-focused": "#3fa1de",
+      "blue-link": "#3a4f9c",
       // Secondary Colors
       tan: "#ffe0b9",
       "tan-light": "#ffefdb",
