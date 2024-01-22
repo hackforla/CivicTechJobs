@@ -98,7 +98,7 @@ const CreditsPage: FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 content-center md:grid-cols-3 gap-8 md:gap-8 lg:gap-x-12 xl:gap-x-20 place-items-stretch mx-auto px-8 sm:px-0 w-full xs:w-10/12 sm:w-4/5 md:w-4/5 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 content-center md:grid-cols-3 gap-x-8 md:gap-x-8 gap-y-10 lg:gap-x-12 xl:gap-x-20 place-items-stretch mx-auto px-8 sm:px-0 w-full xs:w-10/12 sm:w-4/5 md:w-4/5 ">
           {activeData.map((cardData) => (
             <Card
               key={cardData.id}
