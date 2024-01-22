@@ -73,10 +73,6 @@ import logoWordmark from "./svgs/logos/logo-wordmark.svg?url";
 // HfLA logo
 import logoHfLA from "./svgs/logos/logo-hfla.svg?url";
 
-// Credits Illustrations
-import illustrationCreativeTeam from "./pngs/illustrations/creative-team.png";
-import illustrationHighFive from "./pngs/illustrations/high-five.png";
-
 interface defaultProps {
   [attribute: string]: string;
 }
@@ -232,13 +228,14 @@ export {
   // HfLA logo
   logoHfLA,
   notFoundPageImg,
-  // illustrations
-  illustrationCreativeTeam,
-  illustrationHighFive,
 };
 
 export { default as loginTanBg } from "./svgs/login-tan-bg.svg?url";
 export { default as dotsSvg } from "./svgs/dots.svg?url";
 export { default as loginIllustration } from "./svgs/login-illustration.svg?url";
 export { default as privacyPageBg } from "./svgs/privacy-policy-bg-top.svg?url";
-export { default as  privacyPolicyIllustration} from "./svgs/privacy-policy-illustration.svg?url";
+export { default as privacyPolicyIllustration } from "./svgs/privacy-policy-illustration.svg?url";
+export { default as creditsPageBgTop } from "./svgs/credits-page-bg-top.svg?url";
+export { default as creditsPageBgBottom } from "./svgs/credits-page-bg-bottom.svg?url";
+export { default as creditsPageHighFive } from "./svgs/credits-page-high-five.svg?url";
+export { default as landingPageCreativeTeam } from "./svgs/landing-page-creative-team.svg?url";

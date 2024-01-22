@@ -6,9 +6,12 @@ module.exports = {
     "./src/tw-components/*.tsx",
     "./src/pages/LandingPage/*.tsx",
     "./src/pages/PrivacyPolicyPage/*",
+    "./src/pages/CreditsPage/*.tsx",
   ], // Will change to "./src/**/*.{js,jsx,tsx}", "./templates/index.html"
   theme: {
     screens: {
+      xs: "480px",
+      // => @media (min-width: 480px) { ... }
       sm: "577px",
       // => @media (min-width: 577px) { ... }
       md: "769px",
@@ -27,9 +30,11 @@ module.exports = {
       // Primary on Dark Colors
       blue: "#44aff1",
       "blue-focused": "#3fa1de",
+      "blue-link": "#3a4f9c",
       // Secondary Colors
       tan: "#ffe0b9",
       "tan-light": "#ffefdb",
+      "tan-bg": "#fbe8ce",
       green: "#13831e",
       red: "#CC0023",
       // Neutral Colors
