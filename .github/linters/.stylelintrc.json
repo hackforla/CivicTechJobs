@@ -12,5 +12,5 @@
     "mkdocs/docs/developer/frontend.md",
     "../../mkdocs/docs/developer/frontend.md"
   ],
-  "ignorePatterns": ["mkdocs/**/*.md"]
+  "ignorePatterns": ["**/mkdocs/**/*.md"]
 }
