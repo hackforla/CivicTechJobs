@@ -63,6 +63,7 @@ jobs:
           VALIDATE_ALL_CODEBASE: ${{ (github.event_name == 'workflow_dispatch' && true) || false }}
           VALIDATE_HTML: false
           VALIDATE_MARKDOWN: false
+          VALIDATE_NATURAL_LANGUAGE: false
           VALIDATE_PYTHON: false
           VALIDATE_PYTHON_BLACK: false
           VALIDATE_PYTHON_FLAKE8: false
