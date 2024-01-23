@@ -7,17 +7,7 @@
     "stylelint-config-prettier-scss"
   ],
   "ignoreFiles": [
-    "../../frontend/src/components/_normalize.scss",
-    "**/mkdocs/**/*.md",
-    "../../mkdocs/docs/developer/frontend.md"
+    "../../frontend/src/components/_normalize.scss"
   ],
-  "ignorePatterns": ["**/mkdocs/**/*.md", "!**/*.md"],
-  "overrides": [
-    {
-      "files": ["**/*.md"],
-      "options": {
-        "processor": "markdown/markdown"
-      }
-    }
-  ]
+  "ignorePatterns": ["*.md"]
 }
