@@ -10,5 +10,6 @@
     "../../frontend/src/components/_normalize.scss",
     "**/mkdocs/**/*.md",
     "../../mkdocs/docs/developer/frontend.md"
-  ]
+  ],
+  "ignorePatterns": ["**/mkdocs/**/*.md", "!**/*.md"]
 }
