@@ -11,5 +11,13 @@
     "**/mkdocs/**/*.md",
     "../../mkdocs/docs/developer/frontend.md"
   ],
-  "ignorePatterns": ["**/mkdocs/**/*.md", "!**/*.md"]
+  "ignorePatterns": ["**/mkdocs/**/*.md", "!**/*.md"],
+  "overrides": [
+    {
+      "files": ["**/*.md"],
+      "options": {
+        "processor": "markdown/markdown"
+      }
+    }
+  ]
 }
