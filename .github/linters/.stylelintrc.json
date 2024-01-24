@@ -6,5 +6,8 @@
     "stylelint-config-standard-scss",
     "stylelint-config-prettier-scss"
   ],
-  "ignoreFiles": ["../../frontend/src/components/_normalize.scss"]
+  "ignoreFiles": [
+    "../../frontend/src/components/_normalize.scss"
+  ],
+  "ignorePatterns": ["*.md"]
 }

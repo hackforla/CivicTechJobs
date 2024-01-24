@@ -57,7 +57,7 @@ _<p style="text-align: center;">Frontend Architecture</p>_
 
 ## Summary
 
-**Frontend Tech Stack**: React, Babel, webpack, Jest, React Testing Library, HTML, SCSS, JS
+**Frontend Tech Stack**: React, Babel, webpack, Jest, React Testing Library, HTML, SCSS, JS, TailwindCSS
 
 The over ninety percent of our frontend architecture is housed in our `frontend/` directory. This directory is a [Django app](https://docs.djangoproject.com/en/3.2/intro/tutorial01/), which is a set of files that can be ported to any Django-based application.
 
