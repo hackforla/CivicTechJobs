@@ -23,7 +23,7 @@ jobs:
         uses: actions/setup-python@v3
       - name: Publish docs
         run: |
-          pip install --upgrade pip && pip install mkdocs
+          pip install --upgrade pip && pip install setuptools mkdocs
           python mkdocs/mkdocs-config/setup.py develop
           git config user.name 'github-actions[bot]' && git config user.email 'github-actions[bot]@users.noreply.github.com'
           cd mkdocs
