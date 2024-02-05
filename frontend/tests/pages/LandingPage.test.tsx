@@ -8,6 +8,7 @@ import { config } from "react-transition-group";
 
 // Internal imports
 import { LandingPage } from "pages/LandingPage/LandingPage";
+import { MemoryRouter } from "react-router-dom";
 
 // Disables animation transition time so it will not hamper testing
 config.disabled = true;
@@ -15,7 +16,11 @@ config.disabled = true;
 describe("Landing Page", () => {
   test("Landing Page dialog", async () => {
     const user = userEvent.setup();
-    render(<LandingPage />);
+    render(
+      <MemoryRouter>
+        <LandingPage />
+      </MemoryRouter>
+    );
 
     expect(screen.getByRole("presentation")).toHaveClass("hidden");
 

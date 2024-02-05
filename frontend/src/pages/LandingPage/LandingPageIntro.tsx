@@ -24,7 +24,7 @@ function LandingPageIntro() {
           products, programs, and services.
         </p>
         <Link
-          to="/qualifier/1"
+          to="qualifier/1"
           className="h-min-12 px-14 py-3 mb-10 rounded-x-large text-xl font-bold bg-blue-dark hover:bg-blue-dark-hover hover:shadow-lg focus:bg-blue-dark-focused text-white"
         >
           Join us
