@@ -31,7 +31,6 @@ import IconX from "./svgs/icons/icon-x.svg";
 import IconChevronLeft from "./svgs/icons/icon-chevron-left.svg";
 import IconChevronRight from "./svgs/icons/icon-chevron-right.svg";
 
-import iconArrowDown from "./svgs/icons/icon-arrow-down.svg?url";
 import iconArrowLeft from "./svgs/icons/icon-arrow-left.svg?url";
 import iconCheckboxY from "./svgs/icons/icon-checkbox-yes.svg?url";
 import iconCheckboxN from "./svgs/icons/icon-checkbox-no.svg?url";
@@ -47,8 +46,6 @@ import iconSearch from "./svgs/icons/icon-search.svg?url";
 import iconX from "./svgs/icons/icon-x.svg?url";
 
 // Group Background Image
-import landingPageFg from "./svgs/landing-page-fg.svg?url";
-import landingPageBg from "./svgs/landing-page-bg.svg?url";
 import notFoundPageImg from "./svgs/not-found-page.svg?url";
 
 // CTJ Logos
@@ -192,7 +189,6 @@ export {
   IconPlus,
   IconSearch,
   IconX,
-  iconArrowDown,
   iconArrowLeft,
   iconCheckboxY,
   iconCheckboxN,
@@ -239,3 +235,6 @@ export { default as creditsPageBgTop } from "./svgs/credits-page-bg-top.svg?url"
 export { default as creditsPageBgBottom } from "./svgs/credits-page-bg-bottom.svg?url";
 export { default as creditsPageHighFive } from "./svgs/credits-page-high-five.svg?url";
 export { default as landingPageCreativeTeam } from "./svgs/landing-page-creative-team.svg?url";
+export { default as LandingPageBg } from "./svgs/landing-page-bg.svg?url";
+export { default as LandingPageFg } from "./svgs/landing-page-fg.svg?url";
+export { default as iconArrowDown } from "./svgs/icons/icon-arrow-down.svg?url";
