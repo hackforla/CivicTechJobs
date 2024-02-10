@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
+import { copData, copDatum } from "api_data/copData";
 
 // Types
 type QualifiersType = {
@@ -9,6 +10,7 @@ type QualifiersType = {
 };
 
 type QualifiersContextType = {
+  copData: copDatum[];
   qualifiers: QualifiersType;
   updateQualifiers: (newQualifiers: QualifiersType) => void;
 };
@@ -33,10 +35,10 @@ export const useQualifiersContext = () => {
 export const QualifiersProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  // Initial state for qualifiers, should be fetched once the user has an account
+  // Initial state for qualifiers only for testing purposes, actual data should be fetched once the user has an account, and then used to setQualifiers, by using useEffect
   const initialState: QualifiersType = {
     COPs: {
-      // // Data below is for testing
+      // // Uncomment data below for testing
       // "UI/UX": [
       //   "UI/UX Designer",
       //   "UX Researcher",
@@ -54,7 +56,9 @@ export const QualifiersProvider: React.FC<{ children: ReactNode }> = ({
   };
 
   return (
-    <QualifiersContext.Provider value={{ qualifiers, updateQualifiers }}>
+    <QualifiersContext.Provider
+      value={{ copData, qualifiers, updateQualifiers }}
+    >
       {children}
     </QualifiersContext.Provider>
   );

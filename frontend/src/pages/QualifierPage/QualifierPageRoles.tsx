@@ -1,24 +1,18 @@
 // External Imports
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Internal Imports
 import { Button, Chip } from "components/components";
 import { QualifierNav, QualifierTitle } from "./QualifierComponents";
-import { fetchAllCopData, copDatum } from "api_data/copData";
 import { useQualifiersContext } from "context/QualifiersContext";
 import { onKey } from "components/Utility/utils";
 
 const QualifierPageRoles: React.FC = () => {
   // Call useContext at the top level of your component to read and subscribe to context
-  const { qualifiers, updateQualifiers } = useQualifiersContext();
+  const { copData, qualifiers, updateQualifiers } = useQualifiersContext();
 
   const navigate = useNavigate();
-
-  const [data, setData] = useState<copDatum[]>([] as copDatum[]);
-  useEffect(() => {
-    setData(fetchAllCopData());
-  }, []);
 
   // Initialize selectedRoles state with COP qualifiers from the context
   const [selectedRoles, setSelectedRoles] = useState<{
@@ -99,7 +93,7 @@ const QualifierPageRoles: React.FC = () => {
         Select as many roles as you'd like to find opportunities in.
       </QualifierTitle>
       <div className="flex-center-x">
-        {data.map((cop, index) => {
+        {copData.map((cop, index) => {
           return (
             <Fragment key={index}>
               <div className="row fill flex-center-x my-1">
@@ -158,7 +152,7 @@ const QualifierPageRoles: React.FC = () => {
                   </div>
                 </div>
               </div>
-              {index < data.length - 1 && (
+              {index < copData.length - 1 && (
                 <hr className="row col-8 qroles-border"></hr>
               )}
             </Fragment>
