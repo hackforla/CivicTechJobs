@@ -38,6 +38,8 @@ _<p style="text-align: center;">Overall project structure</p>_
 │       ├── components/
 │           ├── Apps.js
 │           └── <Components>/
+│       ├── context/
+│           ├── QualifiersContext.tsx
 │       ├── pages/
 │       ├── templates/
 │           └── index.html
@@ -75,6 +77,47 @@ The files that should be manipulated by developers are housed within the `src/` 
 - **frontend/src/:** houses all the files for developers to manipulate. The files here are read by webpack before being bundled into the `static/` and `templates/` directories.
   - **assets/:** this is where we store all of our miscellaneous files, such as .jpegs, .svgs, .gifs, etc.
   - **componenents/:** this is where we store the files that generate our components, such as buttons and cards. To learn more about this in-depth, read the [components](#components-directory) section of this guide.
+  - **context/:** contains the logic and data management utilities related to context providers and consumers. Contexts are used for managing global state within our application, providing a way to pass data through the component tree without having to pass props manually at every level.
+    - **COP (Community of Practice) JSON Structure:** The COP data represents different communities of practice within our organization, each consisting of various roles and descriptions. Below is the JSON structure of the COP data for QualifierPageRoles.tsx:
+    ```
+    {
+      COPs: {
+        "UI/UX": [
+          "UI/UX Designer",
+          "UX Researcher",
+          "UX Writing",
+          "UX Practice Lead",
+        ],
+        Engineering: [
+          "Back End Developer",
+          "Front End Developer",
+          "Full Stack Developer",
+          "Engineering Practice Lead",
+        ],
+        "Data Science": [
+          "Data Scientist",
+          "Data Analyst",
+          "Data Engineer",
+          "Data Science Practice Lead",
+        ],
+        "Project/Product Management": [
+          "Product Manager",
+          "Project Manager",
+          "Business Analyst",
+          "Product Owner",
+          "Special Projects Coordinator",
+          "Product Management Practice Lead",
+        ],
+        "DevOps": [
+          "Site Reliability Engineer",
+          "Data Engineer",
+          "Database Architect",
+          "Security Engineer",
+          "DevOps Practice Lead",
+        ],
+      }
+    }
+    ```
   - **pages/:** contains the React files that pools together various components to generate a page.
   - **router/:** contains the routing logic for the project. It uses the [React-Router library](https://reactrouter.com/docs/en/v6).
   - **templates/:** contains HTML files that are then generated into the regular templates directory. To learn more about how webpack bundle our files, read the [webpack](#webpack-configurations) section of this guide.

@@ -4,6 +4,7 @@ import { Outlet, useLoaderData } from "react-router-dom";
 
 // Internal Imports
 import { ProgressBar } from "components/components";
+import { QualifiersProvider } from "context/QualifiersContext";
 
 // Lazy Imports
 const QualifierPageRoles = React.lazy(() => import("./QualifierPageRoles"));
@@ -47,13 +48,13 @@ function QualifierContent() {
 
 function QualifierPage() {
   return (
-    <Fragment>
+    <QualifiersProvider>
       <Suspense fallback={<div>...Loading</div>}>
         <main className="mx-6">
           <Outlet />
         </main>
       </Suspense>
-    </Fragment>
+    </QualifiersProvider>
   );
 }
 
