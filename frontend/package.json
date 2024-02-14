@@ -8,7 +8,8 @@
     "build": "webpack --mode production --output-path ./static",
     "test": "jest --config ./jest.config.js --testPathPattern=tests/ --maxWorkers=2",
     "test:w": "jest --config ./jest.config.js --watchAll --testPathPattern=tests/",
-    "dev": "vite"
+    "dev": "vite",
+    "serve": "vite build && vite preview"
   },
   "repository": {
     "type": "git",

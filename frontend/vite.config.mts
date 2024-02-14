@@ -7,7 +7,6 @@ import path from 'path';
 
 export default defineConfig({
   //to resolve relative file paths for sass (no plugin)
-  mode: 'development',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
