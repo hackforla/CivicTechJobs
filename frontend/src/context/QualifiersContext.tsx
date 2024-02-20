@@ -38,13 +38,14 @@ export const QualifiersProvider: React.FC<{ children: ReactNode }> = ({
   // Initial state for qualifiers only for testing purposes, actual data should be fetched once the user has an account, and then used to setQualifiers, by using useEffect
   const initialState: QualifiersType = {
     COPs: {
-      // // Uncomment data below for testing
+      // Uncomment data below for testing
       // "UI/UX": [
-      //   "UI/UX Designer",
-      //   "UX Researcher",
-      //   "UX Writing",
-      //   "UX Practice Lead",
+      //   "UI/UX_Designer",
+      //   "UX_Researcher",
+      //   "UX_Writing",
+      //   "UX_Practice_Lead",
       // ],
+      // Data_Science: ["Data_Scientist", "Data_Analyst"],
     },
     // availabilityTimeSlots: [],
   };

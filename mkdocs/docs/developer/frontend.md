@@ -77,47 +77,46 @@ The files that should be manipulated by developers are housed within the `src/` 
 - **frontend/src/:** houses all the files for developers to manipulate. The files here are read by webpack before being bundled into the `static/` and `templates/` directories.
   - **assets/:** this is where we store all of our miscellaneous files, such as .jpegs, .svgs, .gifs, etc.
   - **componenents/:** this is where we store the files that generate our components, such as buttons and cards. To learn more about this in-depth, read the [components](#components-directory) section of this guide.
-  - **context/:** contains the logic and data management utilities related to context providers and consumers. Contexts are used for managing global state within our application, providing a way to pass data through the component tree without having to pass props manually at every level.
-    - **COP (Community of Practice) JSON Structure:** The COP data represents different communities of practice within our organization, each consisting of various roles and descriptions. Below is the JSON structure of the COP data for QualifierPageRoles.tsx:
-    ```
-    {
-      COPs: {
-        "UI/UX": [
-          "UI/UX Designer",
-          "UX Researcher",
-          "UX Writing",
-          "UX Practice Lead",
-        ],
-        Engineering: [
-          "Back End Developer",
-          "Front End Developer",
-          "Full Stack Developer",
-          "Engineering Practice Lead",
-        ],
-        "Data Science": [
-          "Data Scientist",
-          "Data Analyst",
-          "Data Engineer",
-          "Data Science Practice Lead",
-        ],
-        "Project/Product Management": [
-          "Product Manager",
-          "Project Manager",
-          "Business Analyst",
-          "Product Owner",
-          "Special Projects Coordinator",
-          "Product Management Practice Lead",
-        ],
-        "DevOps": [
-          "Site Reliability Engineer",
-          "Data Engineer",
-          "Database Architect",
-          "Security Engineer",
-          "DevOps Practice Lead",
-        ],
-      }
+  - **context/:** contains the logic and data management utilities related to context providers and consumers. Contexts are used for managing global state within our application, providing a way to pass data through the component tree without having to pass props manually at every level. - **COP (Community of Practice) JSON Structure:** The COP data represents different communities of practice within our organization, each consisting of various roles and descriptions. Below is the JSON structure of the COP data for QualifierPageRoles.tsx:
+  ```
+  {
+    "COPs": {
+      "UI/UX": [
+        "UI/UX_Designer",
+        "UX_Researcher",
+        "UX_Writing",
+        "UX_Practice_Lead"
+      ],
+      "Engineering": [
+        "Back_End_Developer",
+        "Front_End_Developer",
+        "Full_Stack_Developer",
+        "Engineering_Practice_Lead"
+      ],
+      "Data_Science": [
+        "Data_Scientist",
+        "Data_Analyst",
+        "Data_Engineer",
+        "Data_Science_Practice_Lead"
+      ],
+      "Project/Product_Management": [
+        "Product_Manager",
+        "Project_Manager",
+        "Business_Analyst",
+        "Product_Owner",
+        "Special_Projects_Coordinator",
+        "Product_Management_Practice_Lead"
+      ],
+      "DevOps": [
+        "Site_Reliability_Engineer",
+        "Data_Engineer",
+        "Database_Architect",
+        "Security_Engineer",
+        "DevOps_Practice_Lead"
+      ]
     }
-    ```
+  }
+  ```
   - **pages/:** contains the React files that pools together various components to generate a page.
   - **router/:** contains the routing logic for the project. It uses the [React-Router library](https://reactrouter.com/docs/en/v6).
   - **templates/:** contains HTML files that are then generated into the regular templates directory. To learn more about how webpack bundle our files, read the [webpack](#webpack-configurations) section of this guide.
@@ -147,7 +146,7 @@ The files that should be manipulated by developers are housed within the `src/` 
 │       ├── Cards.js
 │       └── Cards.scss
 │   └── <Components>/
-```
+````
 
 _<p style="text-align: center;">A closer look at a theoretical expansion of the components directory</p>_
 

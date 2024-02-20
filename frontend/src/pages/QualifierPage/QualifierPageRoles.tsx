@@ -45,10 +45,14 @@ const QualifierPageRoles: React.FC = () => {
   // Toggle "Select all"/"Deselect all" within each COP
   const handleSelectAll = (copName: string, roles: string[]) => {
     setSelectedRoles((prevState) => {
-      const allSelected = roles.every((role) => prevState[copName]?.[role]); // Check if all roles are selected
+      const allSelected = roles.every((role) => {
+        const cleanRoleName = role.replace(/\s+/g, "_");
+        return prevState[copName]?.[cleanRoleName];
+      }); // Check if all roles are selected
       const updatedRolesState = roles.reduce(
         (acc: { [key: string]: boolean }, role) => {
-          acc[role] = !allSelected; // Set all roles to true if not all are currently selected, otherwise set all to false
+          const cleanRoleName = role.replace(/\s+/g, "_");
+          acc[cleanRoleName] = !allSelected; // Set all roles to true if not all are currently selected, otherwise set all to false
           return acc;
         },
         {}
@@ -94,6 +98,8 @@ const QualifierPageRoles: React.FC = () => {
       </QualifierTitle>
       <div className="flex-center-x">
         {copData.map((cop, index) => {
+          const cleanCopName = cop.title.replace(/\s+/g, "_");
+
           return (
             <Fragment key={index}>
               <div className="row fill flex-center-x my-1">
@@ -106,28 +112,30 @@ const QualifierPageRoles: React.FC = () => {
                         height="21"
                         aria-hidden="true"
                       />
-                      <span className="title-4 ml-1">{cop.title}</span>
+                      <span className="title-4 ml-1">
+                        {cleanCopName.replace(/_/g, " ")}
+                      </span>
                     </div>
                     <span
                       className="links"
                       tabIndex={0}
                       role="button"
                       aria-pressed={
-                        selectedRoles[cop.title] &&
-                        Object.values(selectedRoles[cop.title]).every(
+                        selectedRoles[cleanCopName] &&
+                        Object.values(selectedRoles[cleanCopName]).every(
                           (role) => role
                         )
                       }
-                      onClick={() => handleSelectAll(cop.title, cop.roles)}
+                      onClick={() => handleSelectAll(cleanCopName, cop.roles)}
                       onKeyDown={(e) =>
                         onKey(
-                          () => handleSelectAll(cop.title, cop.roles),
+                          () => handleSelectAll(cleanCopName, cop.roles),
                           "Enter"
                         )(e)
                       }
                     >
-                      {selectedRoles[cop.title] &&
-                      Object.values(selectedRoles[cop.title]).every(
+                      {selectedRoles[cleanCopName] &&
+                      Object.values(selectedRoles[cleanCopName]).every(
                         (role) => role
                       )
                         ? "Deselect All"
@@ -136,15 +144,20 @@ const QualifierPageRoles: React.FC = () => {
                   </div>
                   <div>
                     {cop.roles.map((role, index) => {
+                      const cleanRoleName = role.replace(/\s+/g, "_");
+
                       return (
                         <Chip
                           key={index}
                           variant="multi"
                           addClass="mr-4 mb-4"
-                          checked={selectedRoles[cop.title]?.[role] || false}
-                          value={role}
+                          checked={
+                            selectedRoles[cleanCopName]?.[cleanRoleName] ||
+                            false
+                          }
+                          value={role.replace(/_/g, " ")}
                           onClick={() => {
-                            handleRoleSelect(cop.title, role);
+                            handleRoleSelect(cleanCopName, cleanRoleName);
                           }}
                         />
                       );
