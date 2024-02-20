@@ -146,7 +146,7 @@ The files that should be manipulated by developers are housed within the `src/` 
 │       ├── Cards.js
 │       └── Cards.scss
 │   └── <Components>/
-````
+```
 
 _<p style="text-align: center;">A closer look at a theoretical expansion of the components directory</p>_
 
