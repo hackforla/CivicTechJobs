@@ -79,15 +79,15 @@ function svgWrapper(
   defaultProps: defaultProps
 ): React.ElementType {
   return (props) => {
-    const titleId = useId();
-    const descId = useId();
+    const titleid = useId();
+    const descid = useId();
 
     if ("title" in defaultProps) {
-      defaultProps["titleId"] = titleId;
+      defaultProps["titleid"] = titleid;
     }
 
     if ("desc" in defaultProps) {
-      defaultProps["descId"] = descId;
+      defaultProps["descid"] = descid;
     }
 
     return <Svg {...defaultProps} {...props}></Svg>;
