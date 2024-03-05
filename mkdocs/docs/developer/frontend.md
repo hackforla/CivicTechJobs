@@ -75,53 +75,79 @@ The files that should be manipulated by developers are housed within the `src/` 
 
 - **frontend/:** houses all the frontend files.
 - **frontend/src/:** houses all the files for developers to manipulate. The files here are read by webpack before being bundled into the `static/` and `templates/` directories.
+
   - **assets/:** this is where we store all of our miscellaneous files, such as .jpegs, .svgs, .gifs, etc.
   - **componenents/:** this is where we store the files that generate our components, such as buttons and cards. To learn more about this in-depth, read the [components](#components-directory) section of this guide.
-  - **context/:** contains the logic and data management utilities related to context providers and consumers. Contexts are used for managing global state within our application, providing a way to pass data through the component tree without having to pass props manually at every level. - **COP (Community of Practice) JSON Structure:** The COP data represents different communities of practice within our organization, each consisting of various roles and descriptions. Below is the JSON structure of the COP data for QualifierPageRoles.tsx:
-  ```
-  {
-    "COPs": {
-      "UI/UX": [
-        "UI/UX_Designer",
-        "UX_Researcher",
-        "UX_Writing",
-        "UX_Practice_Lead"
-      ],
-      "Engineering": [
-        "Back_End_Developer",
-        "Front_End_Developer",
-        "Full_Stack_Developer",
-        "Engineering_Practice_Lead"
-      ],
-      "Data_Science": [
-        "Data_Scientist",
-        "Data_Analyst",
-        "Data_Engineer",
-        "Data_Science_Practice_Lead"
-      ],
-      "Project/Product_Management": [
-        "Product_Manager",
-        "Project_Manager",
-        "Business_Analyst",
-        "Product_Owner",
-        "Special_Projects_Coordinator",
-        "Product_Management_Practice_Lead"
-      ],
-      "DevOps": [
-        "Site_Reliability_Engineer",
-        "Data_Engineer",
-        "Database_Architect",
-        "Security_Engineer",
-        "DevOps_Practice_Lead"
-      ]
-    }
-  }
-  ```
-  - **pages/:** contains the React files that pools together various components to generate a page.
-  - **router/:** contains the routing logic for the project. It uses the [React-Router library](https://reactrouter.com/docs/en/v6).
-  - **templates/:** contains HTML files that are then generated into the regular templates directory. To learn more about how webpack bundle our files, read the [webpack](#webpack-configurations) section of this guide.
-  - **index.js:** this file serves as the entry point for all other js files\*. This file is read by webpack, and then bundled into code in the `static` directory.
-  - **index.scss:** this file serves as the entry point for all other scss files\*.
+  - **context/:** contains the logic and data management utilities related to context providers and consumers. Contexts are used for managing global state within our application, providing a way to pass data through the component tree without having to pass props manually at every level.
+
+    - **Qualifiers JSON Structure:**
+
+      - **COP (Community of Practice)** The COP data represents different communities of practice within our organization, each consisting of various roles and descriptions.
+      - **availableTimeSlots:** The availableTimeSlots represents availability time slots for a week in **_Los Angeles (Pacific Standard Time, PST)_**. The string is composed entirely of the characters "0" and "1", where each character corresponds to a 30-minute time slot. "1" indicates the time slot is available. "0" indicates the time slot is not available. The length of the string is 168 characters. This corresponds to: 7 days a week, 24 hours per day and 2 slots per hour (30-minute intervals).
+        - Time Slot Mapping: The characters in the string map to specific 30-minute time slots in the following order:
+          - index 0: Sunday, 12:00 AM - 12:30 AM
+          - index 1: Monday, 12:00 AM - 12:30 AM
+            ...
+          - index 6: Saturday, 12:00 AM - 12:30 AM
+          - index 7: Sunday, 12:30 AM - 1:00 AM
+          - index 8: Monday, 12:30 AM - 1:00 AM
+            ...
+          - index 13: Saturday, 12:30 AM - 1:00 AM
+          - index 14: Sunday, 1:00 AM - 1:30 AM
+            ...
+          - index 161: Sunday, 11:30 PM - 12:00 AM (next day)
+            ...
+          - index 167: Saturday, 11:30 PM - 12:00 AM (next day)
+
+    Below is the JSON structure of the qualifiers:
+
+```
+{
+  "COPs": {
+    "UI/UX": [
+      "UI/UX_Designer",
+      "UX_Researcher",
+      "UX_Writing",
+      "UX_Practice_Lead"
+    ],
+    "Engineering": [
+      "Back_End_Developer",
+      "Front_End_Developer",
+      "Full_Stack_Developer",
+      "Engineering_Practice_Lead"
+    ],
+    "Data_Science": [
+      "Data_Scientist",
+      "Data_Analyst",
+      "Data_Engineer",
+      "Data_Science_Practice_Lead"
+    ],
+    "Project/Product_Management": [
+      "Product_Manager",
+      "Project_Manager",
+      "Business_Analyst",
+      "Product_Owner",
+      "Special_Projects_Coordinator",
+      "Product_Management_Practice_Lead"
+    ],
+    "DevOps": [
+      "Site_Reliability_Engineer",
+      "Data_Engineer",
+      "Database_Architect",
+      "Security_Engineer",
+      "DevOps_Practice_Lead"
+    ]
+  },
+  "availabilityTimeSlots": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+}
+```
+
+- **pages/:** contains the React files that pools together various components to generate a page.
+- **router/:** contains the routing logic for the project. It uses the [React-Router library](https://reactrouter.com/docs/en/v6).
+- **templates/:** contains HTML files that are then generated into the regular templates directory. To learn more about how webpack bundle our files, read the [webpack](#webpack-configurations) section of this guide.
+- **index.js:** this file serves as the entry point for all other js files\*. This file is read by webpack, and then bundled into code in the `static` directory.
+- **index.scss:** this file serves as the entry point for all other scss files\*.
+
 - **frontend/static/:** automatically generated by webpack, _DO NOT EDIT_
 - **frontend/templates/:** automatically generated by webpack, _DO NOT EDIT_
 - **tests/:** contains our test files. To run these files simply use `docker compose run webpack npm run test`.

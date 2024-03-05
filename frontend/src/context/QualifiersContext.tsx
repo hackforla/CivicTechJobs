@@ -6,7 +6,7 @@ type QualifiersType = {
   COPs: {
     [copName: string]: string[];
   };
-  // availabilityTimeSlots: string[];
+  availabilityTimeSlots: string;
 };
 
 type QualifiersContextType = {
@@ -47,7 +47,9 @@ export const QualifiersProvider: React.FC<{ children: ReactNode }> = ({
       // ],
       // Data_Science: ["Data_Scientist", "Data_Analyst"],
     },
-    // availabilityTimeSlots: [],
+    availabilityTimeSlots: "",
+    // // availabilityTimeSlots for testing:
+    // availabilityTimeSlots: '000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000010000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
   };
 
   const [qualifiers, setQualifiers] = useState<QualifiersType>(initialState);
