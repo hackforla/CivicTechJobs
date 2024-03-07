@@ -17,7 +17,7 @@ function ClickCarousel({ hidden = false, selected = 0, ...props }) {
     setLastIndex(props.items.length - 1);
   }, [props.items]);
 
-  function handleClick(increase) {
+  function handleClick(increase:boolean) {
     if (increase) {
       console.log("clicked");
       if (index == lastIndex) {
