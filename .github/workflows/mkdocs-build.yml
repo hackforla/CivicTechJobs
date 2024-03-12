@@ -1,34 +1,28 @@
-# Credit for code: https://github.com/mkdocs/mkdocs/discussions/2369#discussioncomment-625475
-name: Build MkDocs site
-
+name: CI for MkDocs
 on:
   push:
     branches:
-      - main
-    paths:
-      - "mkdocs/**/**.md"
-      - "mkdocs/mkdocs.yml"
-  workflow_dispatch:
-
+      - develop
+permissions:
+  contents: write
 jobs:
-  docs:
+  deploy:
     runs-on: ubuntu-latest
-    if: github.actor != 'github-actions[bot]'
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Install mkdocs
-        uses: actions/setup-python@v3
-      - name: Publish docs
+      - uses: actions/checkout@v4
+      - name: Configure Git Credentials
         run: |
-          pip install --upgrade pip && pip install setuptools mkdocs
-          pip install markdown==3.2.0
-          python mkdocs/mkdocs-config/setup.py develop
-          git config user.name 'github-actions[bot]' && git config user.email 'github-actions[bot]@users.noreply.github.com'
-          cd mkdocs
-          cd mkdocs-config
-          python setup.py develop
-          cd ..
-          mkdocs gh-deploy
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+      - uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+      - run: pip install mkdocs-material
+      - run: mkdocs gh-deploy --force
