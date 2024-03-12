@@ -1,3 +1,4 @@
 frontend/static
 frontend/templates
 node_modules
+dist/

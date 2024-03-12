@@ -5,11 +5,11 @@
   "main": "webpack.config.js",
   "scripts": {
     "watch": "webpack --mode development --watch",
-    "build": "webpack --mode production --output-path ./static",
+    "vbuild": "webpack --mode production --output-path ./static",
     "test": "jest --config ./jest.config.js --testPathPattern=tests/ --maxWorkers=2",
     "test:w": "jest --config ./jest.config.js --watchAll --testPathPattern=tests/",
     "dev": "vite",
-    "vbuild": "vite build"
+    "build": "vite build"
   },
   "repository": {
     "type": "git",
