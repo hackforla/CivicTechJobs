@@ -68,6 +68,7 @@ function HeaderNav() {
           className="md:hidden ml-3"
           aria-expanded="false"
           aria-controls="menu"
+          aria-label="Menu Options"
         >
           <IconHamburgerMenu />
         </button>
