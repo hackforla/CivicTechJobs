@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from server.models import Opportunity
 from server.serializers import OpportunitySerializer, UserSerializer
-
+import time
 
 class OpportunitiesViewSet(viewsets.ModelViewSet):
     """
@@ -28,5 +28,17 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
 
 
 class Healthcheck(APIView):
+    start_time = time.time()
+
     def get(self, request):
-        return Response({"message": "healthcheck"})
+        uptime_seconds = time.time() - self.start_time
+        uptime_hours = uptime_seconds / 3600
+
+        version = 0.1
+
+        return Response({
+            "message": "healthcheck",
+            "uptime": f"{uptime_hours:.2f} hours",
+            # "uptime": f"{uptime_seconds:.1f} seconds",
+            "version": version
+        })
