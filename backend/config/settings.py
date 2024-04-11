@@ -90,6 +90,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
+VERSION = '1.0.0'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases

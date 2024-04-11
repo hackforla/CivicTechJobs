@@ -5,6 +5,7 @@ from rest_framework.views import APIView
 from server.models import Opportunity
 from server.serializers import OpportunitySerializer, UserSerializer
 import time
+from django.conf import settings
 
 class OpportunitiesViewSet(viewsets.ModelViewSet):
     """
@@ -34,11 +35,9 @@ class Healthcheck(APIView):
         uptime_seconds = time.time() - self.start_time
         uptime_hours = uptime_seconds / 3600
 
-        version = 0.1
-
         return Response({
             "message": "healthcheck",
             "uptime": f"{uptime_hours:.2f} hours",
             # "uptime": f"{uptime_seconds:.1f} seconds",
-            "version": version
+            "version": settings.VERSION
         })
