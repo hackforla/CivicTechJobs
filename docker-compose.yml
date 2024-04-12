@@ -5,9 +5,10 @@ services:
     image: postgres
     container_name: pgdb
     volumes:
-      - postgres_data:/lib/postgresql/data
+      - ./data/init.sql:/docker-entrypoint-initdb.d/init.sql
     env_file:
       - ./dev/dev.env
+
 
   django:
     build:
@@ -56,5 +57,4 @@ services:
       - ${HOME}/.cache:${HOME}/.cache:rw
 
 volumes:
-  postgres_data:
   node_modules:
