@@ -10,7 +10,6 @@ app/frontend/static/frontend/*
 !app/frontend/static/frontend/.gitkeep
 app/frontend/templates/frontend/*
 !app/frontend/templates/frontend/.gitkeep
-data/
 
 **/super-linter.log
 app/staticfiles
