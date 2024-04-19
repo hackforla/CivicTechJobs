@@ -11,7 +11,7 @@ router.register(r"users", views.UserViewSet, basename="user")
 urlpatterns = [
     path("", include(router.urls)),
     path("", include("rest_framework.urls")),
-    path("healthcheck", views.Healthcheck.as_view()),
+    path('healthcheck/', views.Healthcheck.as_view(), name='healthcheck'),
     path(
         "schema",
         get_schema_view(
