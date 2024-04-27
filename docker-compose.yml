@@ -4,8 +4,8 @@ services:
   pgdb:
     image: postgres
     container_name: pgdb
-    volumes:
-      - ./data/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
     env_file:
       - ./dev/dev.env
 
@@ -23,38 +23,38 @@ services:
     volumes:
       - ./backend/:/code
     ports:
-      - "0.0.0.0:8000:8000"
+      - "8000:8000"
     env_file:
       - ./dev/dev.env
     depends_on:
       - pgdb
 
-  webpack:
-    build:
-      context: ./frontend
-      dockerfile: ../dev/webpack.dockerfile
-    container_name: webpack
-    command: npm --prefix ./frontend run watch # We need the prefix because we are mounting from parent rather than frontend
-    env_file:
-      - ./dev/dev.env
-    volumes:
-      - ./:/code # The webpack output files are now in a sibling directory, therefore, we need to mount to parent
-      - node_modules:/code/node_modules # Need to persist node_modules directory to prevent it from being overwritten by local directory mount (on line 40). This ensures npm packages installed during Docker build are available at runtime.
+  # webpack:
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: ../dev/webpack.dockerfile
+  #   container_name: webpack
+  #   command: npm --prefix ./frontend run watch # We need the prefix because we are mounting from parent rather than frontend
+  #   env_file:
+  #     - ./dev/dev.env
+  #   volumes:
+  #     - ./:/code # The webpack output files are now in a sibling directory, therefore, we need to mount to parent
+  #     - node_modules:/code/node_modules # Need to persist node_modules directory to prevent it from being overwritten by local directory mount (on line 40). This ensures npm packages installed during Docker build are available at runtime.
 
-  linter:
-    profiles: ["lint"]
-    build:
-      context: .
-      dockerfile: ./dev/linter.dockerfile
-    container_name: linter
-    environment:
-      - PRE_COMMIT_HOME=${HOME}/.cache/pre-commit
-    user: ${UID}:${GID}
-    env_file:
-      - ./dev/linter.env
-    volumes:
-      - .:/src:rw
-      - ${HOME}/.cache:${HOME}/.cache:rw
+  # linter:
+  #   profiles: ["lint"]
+  #   build:
+  #     context: .
+  #     dockerfile: ./dev/linter.dockerfile
+  #   container_name: linter
+  #   environment:
+  #     - PRE_COMMIT_HOME=${HOME}/.cache/pre-commit
+  #   user: ${UID}:${GID}
+  #   env_file:
+  #     - ./dev/linter.env
+  #   volumes:
+  #     - .:/src:rw
+  #     - ${HOME}/.cache:${HOME}/.cache:rw
 
 volumes:
   node_modules:
