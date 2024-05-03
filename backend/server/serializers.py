@@ -1,7 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from server.models import Opportunity, OpportunityXMeetings, OpportunityXTech
-
+from server.models import Opportunity, OpportunityXMeetings, OpportunityXTech, Post
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -26,4 +25,10 @@ class OpportunityXMeetingsSerializer(serializers.ModelSerializer):
 class OpportunityXTechSerializer(serializers.ModelSerializer):
     class Meta:
         model = OpportunityXTech
+        fields = "__all__"
+
+
+class PostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Post
         fields = "__all__"

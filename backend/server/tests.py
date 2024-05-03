@@ -1,5 +1,7 @@
 from django.test import TestCase
 from rest_framework.test import RequestsClient
+from server.models import Post
+
 
 HOST = "http://localhost:8000"
 BASE_URI = "/api"
@@ -73,3 +75,22 @@ class HealthcheckTestCase(TestCase):
         response = self.client.get(f"{HOST}{BASE_URI}{self.uri}", format="json")
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json()["message"], "healthcheck")
+
+# This test failed with a 400 code even though the CreatePost view worked as intended, remove this comment if test works
+class CreatePostTest(TestCase):
+    def test_create_post(self):
+        data = {
+            "role": "Developer",
+            "subrole": "Backend",
+            "project": "Project X",
+            "meetings_times": ["Monday 10am", "Wednesday 5pm"],
+            "difficulty_level": 3,
+            "details": {"description": "Project description and requirement..."},
+            "updated_by_or_token": "user123"
+        }
+        c = Client()
+        print(f"{HOST}{BASE_URI}/create_post")
+        response = c.post("/api/create_post", data, format='json')
+        
+        self.assertEqual(response.status_code, 201)
+        self.assertTrue(Post.objects.filter(role="Developer").exists())
