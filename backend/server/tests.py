@@ -88,9 +88,8 @@ class CreatePostTest(TestCase):
             "details": {"description": "Project description and requirement..."},
             "updated_by_or_token": "user123"
         }
-        c = Client()
         print(f"{HOST}{BASE_URI}/create_post")
-        response = c.post("/api/create_post", data, format='json')
+        response = self.client.post("/api/create_post", data, format='json')
         
         self.assertEqual(response.status_code, 201)
         self.assertTrue(Post.objects.filter(role="Developer").exists())
