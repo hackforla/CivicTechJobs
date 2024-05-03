@@ -27,4 +27,5 @@ urlpatterns = [
         ),
         name="swagger-ui",
     ),
+    path('create_post', views.CreatePost.as_view(), name='create_post'),
 ]
