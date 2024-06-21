@@ -1,0 +1,19 @@
+version: '3.8'  # Use the version of Docker Compose that you need
+
+services:
+  postgresdb:
+    image: postgres:latest  # Use the latest PostgreSQL image
+    container_name: postgresdb  # Name your container
+    environment:
+      POSTGRES_USER: yourusername  # Set the username for the PostgreSQL database
+      POSTGRES_PASSWORD: yourpassword  # Set the password for the PostgreSQL database
+      POSTGRES_DB: yourdatabase  # Set the name of the database
+    ports:
+      - "5432:5432"  # Map the PostgreSQL port to the host
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Persist the data using a named volume
+
+volumes:
+  postgres_data:
+    driver: local  # Use the local driver for the volume
+
