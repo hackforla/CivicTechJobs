@@ -1,0 +1,182 @@
+[
+  {
+      "model": "ctjbackend.Opportunities",
+      "pk": "e04c5cc3-79a2-4a5e-9f2e-904938f08ac6",
+      "fields": {
+          "role": "Software Engineer",
+          "subrole": "Frontend Developer",
+          "project": "E-commerce Website",
+          "meetings_times": [],
+          "difficulty_level": 3,
+          "details": {
+              "requirements": "Proficiency in React.js",
+              "deadline": "2024-07-15"
+          },
+          "created_at": "2024-04-20T10:00:00Z",
+          "updated_at": "2024-04-20T10:00:00Z",
+          "updated_by_or_token": "admin"
+      }
+  },
+  {
+      "model": "ctjbackend.Opportunities",
+      "pk": "e04c5cc3-79a2-4a5e-9f2e-904938f08ac2",
+      "fields": {
+          "role": "Data Scientist",
+          "subrole": "Machine Learning Engineer",
+          "project": "Predictive Analytics Platform",
+          "meetings_times": ["Monday 10:00 AM", "Wednesday 2:00 PM"],
+          "difficulty_level": 5,
+          "details": {
+              "requirements": "Experience with TensorFlow",
+              "deadline": "2024-08-30"
+          },
+          "created_at": "2024-04-21T09:30:00Z",
+          "updated_at": "2024-04-21T09:30:00Z",
+          "updated_by_or_token": "admin"
+      }
+  },
+  {
+      "model": "ctjbackend.Opportunities",
+      "pk": "e04c5cc3-79a2-4a5e-9f2e-904938f08ac3",
+      "fields": {
+          "role": "Project Manager",
+          "subrole": "Scrum Master",
+          "project": "Agile Development Team",
+          "meetings_times": ["Monday 9:00 AM", "Thursday 3:00 PM"],
+          "difficulty_level": 4,
+          "details": {
+              "requirements": "Certified ScrumMaster (CSM)",
+              "deadline": "2024-07-31"
+          },
+          "created_at": "2024-04-22T14:45:00Z",
+          "updated_at": "2024-04-22T14:45:00Z",
+          "updated_by_or_token": "admin"
+      }
+  },
+  {
+      "model": "ctjbackend.Opportunities",
+      "pk": "e04c5cc3-79a2-4a5e-9f2e-904938f08ac4",
+      "fields": {
+          "role": "UX Designer",
+          "subrole": "UI Developer",
+          "project": "Mobile App Redesign",
+          "meetings_times": ["Tuesday 11:00 AM", "Friday 2:00 PM"],
+          "difficulty_level": 3,
+          "details": {
+              "requirements": "Proficiency in Adobe XD",
+              "deadline": "2024-08-15"
+          },
+          "created_at": "2024-04-23T11:20:00Z",
+          "updated_at": "2024-04-23T11:20:00Z",
+          "updated_by_or_token": "admin"
+      }
+  },
+  {
+      "model": "ctjbackend.Opportunities",
+      "pk": "e04c5cc3-79a2-4a5e-9f2e-904938f08ac5",
+      "fields": {
+          "role": "Backend Developer",
+          "subrole": "Database Administrator",
+          "project": "Enterprise Resource Planning System",
+          "meetings_times": ["Wednesday 3:00 PM", "Friday 10:00 AM"],
+          "difficulty_level": 4,
+          "details": {
+              "requirements": "Experience with SQL Server",
+              "deadline": "2024-09-30"
+          },
+          "created_at": "2024-04-24T13:10:00Z",
+          "updated_at": "2024-04-24T13:10:00Z",
+          "updated_by_or_token": "admin"
+      }
+  },
+  {
+      "model": "ctjbackend.Opportunities",
+      "pk": "e04c5cc3-79a2-4a5e-9f2e-904938f08ac7",
+      "fields": {
+          "role": "DevOps Engineer",
+          "subrole": "Cloud Architect",
+          "project": "Microservices Migration",
+          "meetings_times": ["Tuesday 2:00 PM", "Thursday 10:00 AM"],
+          "difficulty_level": 5,
+          "details": {
+              "requirements": "Experience with AWS and Docker",
+              "deadline": "2024-09-15"
+          },
+          "created_at": "2024-04-25T09:45:00Z",
+          "updated_at": "2024-04-25T09:45:00Z",
+          "updated_by_or_token": "admin"
+      }
+  },
+  {
+      "model": "ctjbackend.Opportunities",
+      "pk": "e04c5cc3-79a2-4a5e-9f2e-904938f08ac8",
+      "fields": {
+          "role": "Quality Assurance Engineer",
+          "subrole": "Automation Tester",
+          "project": "Mobile Game Testing",
+          "meetings_times": ["Monday 11:00 AM", "Wednesday 3:00 PM"],
+          "difficulty_level": 3,
+          "details": {
+              "requirements": "Experience with Appium",
+              "deadline": "2024-07-31"
+          },
+          "created_at": "2024-04-26T10:30:00Z",
+          "updated_at": "2024-04-26T10:30:00Z",
+          "updated_by_or_token": "admin"
+      }
+  },
+  {
+      "model": "ctjbackend.Opportunities",
+      "pk": "e04c5cc3-79a2-4a5e-9f2e-904938f08ac9",
+      "fields": {
+          "role": "Technical Writer",
+          "subrole": "Documentation Specialist",
+          "project": "Software User Manuals",
+          "meetings_times": [],
+          "difficulty_level": 2,
+          "details": {
+              "requirements": "Proficiency in Markdown",
+              "deadline": "2024-08-10"
+          },
+          "created_at": "2024-04-27T08:50:00Z",
+          "updated_at": "2024-04-27T08:50:00Z",
+          "updated_by_or_token": "admin"
+      }
+  },
+  {
+      "model": "ctjbackend.Opportunities",
+      "pk": "e04c5cc3-79a2-4a5e-9f2e-904938f08ac0",
+      "fields": {
+          "role": "Network Engineer",
+          "subrole": "Security Specialist",
+          "project": "Cybersecurity Infrastructure Upgrade",
+          "meetings_times": ["Wednesday 9:00 AM", "Friday 1:00 PM"],
+          "difficulty_level": 4,
+          "details": {
+              "requirements": "Certified Information Systems Security Professional (CISSP)",
+              "deadline": "2024-09-30"
+          },
+          "created_at": "2024-04-28T14:15:00Z",
+          "updated_at": "2024-04-28T14:15:00Z",
+          "updated_by_or_token": "admin"
+      }
+  },
+  {
+      "model": "ctjbackend.Opportunities",
+      "pk": "e04c5cc3-79a2-4a5e-9f2e-904938f08ad6",
+      "fields": {
+          "role": "Business Analyst",
+          "subrole": "Data Analyst",
+          "project": "Market Research Initiative",
+          "meetings_times": ["Monday 2:00 PM", "Thursday 11:00 AM"],
+          "difficulty_level": 3,
+          "details": {
+              "requirements": "Proficiency in Excel and SQL",
+              "deadline": "2024-08-31"
+          },
+          "created_at": "2024-04-29T11:40:00Z",
+          "updated_at": "2024-04-29T11:40:00Z",
+          "updated_by_or_token": "admin"
+      }
+  }
+]

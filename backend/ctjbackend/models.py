@@ -18,4 +18,4 @@ class Opportunities(models.Model):
     updated_by_or_token = models.CharField(max_length=255)
 
     class Meta:
-        db_table = "opportunities"
+        db_table = "Opportunities"
