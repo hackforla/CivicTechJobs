@@ -1,4 +1,5 @@
 from django.apps import AppConfig
+import ctjbackend.uptime
 
 
 class CtjbackendConfig(AppConfig):
