@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class CtjbackendConfig(AppConfig):
+class CtjApiConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'ctjbackend'
+    name = 'ctj_api'
