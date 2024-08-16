@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'yourdatabase',
         'USER': 'yourusername',
         'PASSWORD': 'yourpassword',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': 5432, #default port you don't need to mention in docker-compose
     }
 }
