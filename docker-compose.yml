@@ -2,7 +2,7 @@ version: "3.9"  # Use the version of Docker Compose that you need
 
 services:
   db:
-    image: postgres  # Use the latest PostgreSQL image
+    image: postgres:12  # Use the latest PostgreSQL image
     volumes:
       - ./data/db:/var/lib/postgresql/data
     environment:
@@ -11,12 +11,19 @@ services:
       - POSTGRES_DB=yourdatabase  # Set the name of the database
     ports:
       - "5432:5432"  # Map the PostgreSQL port to the host
-#  backend:
-#    build: ./backend
-#    command: python manage.py runserver 0.0.0.0:8000
-#    volumes:
-#      - ./backend:/app
-#    ports:
-#      - "8000:8000"
-#    depends_on:
-#      - db
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U yourusername -d yourdatabase"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  backend:
+    build: ./backend
+    command: python manage.py runserver 0.0.0.0:8000
+    restart: on-failure:10
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
