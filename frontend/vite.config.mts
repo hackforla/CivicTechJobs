@@ -9,6 +9,8 @@ export default defineConfig(({ mode }) => {
 
   const INPUT_DIR = './src';
   const OUTPUT_DIR = '../backend/vite_assets_dist';
+  const SERVER_HOST = env.DJANGO_VITE_DEV_SERVER_HOST
+  const SERVER_PORT = env.DJANGO_VITE_DEV_SERVER_PORT
 
   return {
     //to resolve relative file paths for sass (no plugin)
@@ -26,8 +28,9 @@ export default defineConfig(({ mode }) => {
       tsconfigPaths(),
     ],
     server: {
-      host: env.DJANGO_VITE_DEV_SERVER_HOST,
-      port: +env.DJANGO_VITE_DEV_SERVER_PORT,
+      host: SERVER_HOST,
+      port: +SERVER_PORT,
+      origin: `http://127.0.0.1:${SERVER_PORT}`,
     },
     build: {
       manifest: true,
