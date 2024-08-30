@@ -1,9 +1,22 @@
-./node_modules
 dev
 stage
+docs/
+
+# Dependency directories
+**/node_modules/
+**/__pycache__/
+
+# Docker
+*/Dockerfile
+*/*.Dockerfile
 .dockerignore
+
+# git
 .git
 .gitignore
-**/__pycache__/
-mkdocs/
-/.env
+
+# Builds
+backend/vite_assets_dist
+
+# vite
+frontend/vite.config.*.timestamp-*

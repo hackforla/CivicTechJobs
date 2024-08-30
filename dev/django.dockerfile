@@ -1,20 +1,35 @@
-FROM python:3
+FROM python:3.12-alpine
+
+# Set the working directory inside the container
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
 # Setup environment
 ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED=1
-WORKDIR /code
+ENV PYTHONUNBUFFERED 1s
 
-# Set up shell for pipe
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+# Install system dependencies
+RUN apk update && apk upgrade && \
+    apk add --no-cache gcc g++ musl-dev curl libffi-dev postgresql-dev zlib-dev jpeg-dev freetype-dev
 
-# Download Poetry into Path
-RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/opt/poetry python3 -
-ENV PATH=/opt/poetry/bin:$PATH
+# Install Poetry
+RUN curl -sSL https://install.python-poetry.org | python3 -
 
-# Download dependencies
-COPY pyproject.toml ./
-COPY poetry.lock ./
+# Add Poetry to PATH
+ENV PATH="${PATH}:/root/.local/bin"
 
-RUN poetry config virtualenvs.create false && poetry install --no-interaction --sync
+# Copy only the pyproject.toml and poetry.lock to leverage Docker cache
+COPY ./pyproject.toml .
+COPY ./poetry.lock .
 
+# Install project dependencies
+RUN poetry config virtualenvs.create false && poetry install --no-interaction --no-ansi
+
+# Copy the entire Django project to the working directory
+COPY . .
+
+# Expose the port your application will run on
+EXPOSE 8000
+
+# Command to run the Django server
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
