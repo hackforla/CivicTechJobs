@@ -2,3 +2,5 @@ frontend/static
 frontend/templates
 node_modules
 dist/
+
+vite.config.*.timestamp-*
