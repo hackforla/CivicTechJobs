@@ -4,13 +4,10 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import svgr from "vite-plugin-svgr";
 import { resolve, join } from 'path';
 
-export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, process.cwd(), '');
+export default defineConfig(() => {
 
   const INPUT_DIR = './src';
   const OUTPUT_DIR = '../backend/vite_assets_dist';
-  const SERVER_HOST = env.DJANGO_VITE_DEV_SERVER_HOST
-  const SERVER_PORT = env.DJANGO_VITE_DEV_SERVER_PORT
 
   return {
     //to resolve relative file paths for sass (no plugin)
@@ -29,9 +26,9 @@ export default defineConfig(({ mode }) => {
       tsconfigPaths(),
     ],
     server: {
-      host: SERVER_HOST,
-      port: +SERVER_PORT,
-      origin: `http://127.0.0.1:${SERVER_PORT}`,
+      host: true,
+      port: 5173,
+      origin: 'http://127.0.0.1:5173',
     },
     build: {
       manifest: true,
