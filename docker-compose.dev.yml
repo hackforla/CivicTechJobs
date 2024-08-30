@@ -1,0 +1,52 @@
+name: CivicTechJobs
+
+services:
+  pgdb:
+    image: postgres:12
+    container_name: pgdb
+    volumes:
+      - postgres_data:/lib/postgresql/data
+    env_file:
+      - dev/dev.env
+    ports:
+      - "5432:5432"
+  
+  django:
+    build:
+      context: backend
+      dockerfile: ../dev/django.Dockerfile
+    container_name: django
+    command: >
+      sh -c "python manage.py makemigrations &&
+      python manage.py migrate &&
+      python manage.py runserver 0.0.0.0:8000 &&
+      python manage.py generateschema --file openapi-schema.yml"
+    ports:
+      - "8000:8000"
+    env_file:
+    - dev/dev.env
+    depends_on:
+      - pgdb
+    develop:
+      watch:
+        - action: sync
+          path: ./backend
+          target: /usr/src/app
+
+  vite:
+    build:
+      context: frontend
+      dockerfile: ../dev/vite.Dockerfile
+    container_name: vite
+    env_file:
+      - dev/dev.env
+    ports:
+      - "5175:5175"
+    develop:
+      watch:
+        - action: sync
+          path: ./frontend
+          target: /user/src/app
+
+volumes:
+  postgres_data: {}

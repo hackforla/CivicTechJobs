@@ -27,8 +27,8 @@ export default defineConfig(() => {
     ],
     server: {
       host: true,
-      port: 5173,
-      origin: 'http://127.0.0.1:5173',
+      port: 5175,
+      origin: 'http://127.0.0.1:5175',
     },
     build: {
       manifest: true,
