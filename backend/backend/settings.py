@@ -136,7 +136,7 @@ DJANGO_VITE = {
   "default": {
     # enable vite HMR in dev mode
     "dev_mode": config("DEBUG", default=False, cast=bool),
-    "dev_server_port": config("DJANGO_VITE_DEV_SERVER_PORT", default="5173"),
+    "dev_server_port": 5175,
     # resolve static asset paths in production
     "manifest_path": Path(BASE_DIR / "vite_assets_dist" / ".vite" / "manifest.json").resolve()
   }
