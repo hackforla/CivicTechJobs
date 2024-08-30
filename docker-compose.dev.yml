@@ -46,7 +46,7 @@ services:
       watch:
         - action: sync
           path: ./frontend
-          target: /user/src/app
+          target: /usr/src/app
 
 volumes:
   postgres_data: {}
