@@ -20,6 +20,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     root: resolve(INPUT_DIR),
+    //keep static assets path consistent with django
     base: "/static/",
     plugins: [
       svgr(),
