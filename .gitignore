@@ -19,3 +19,5 @@ dev/linter.env
 .DS_store
 data
 .idea
+
+backend/vite_assets_dist
