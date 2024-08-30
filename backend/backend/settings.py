@@ -134,12 +134,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # https://github.com/MrBin99/django-vite
 DJANGO_VITE = {
   "default": {
-    "dev_mode": config("DJANGO_VITE_DEV_MODE", default=False, cast=bool),
+    # enable vite HMR in dev mode
+    "dev_mode": config("DEBUG", default=False, cast=bool),
     "dev_server_port": config("DJANGO_VITE_DEV_SERVER_PORT", default="5173"),
-    "manifest_path": Path('../vite_assets_dist/.vite/manifest.json').resolve()
+    # serve static assets in production
+    "manifest_path": Path(BASE_DIR / "vite_assets_dist" / ".vite" / "manifest.json").resolve()
   }
 }
-
 # Add the build.outDir from vite.config.js to STATICFILES_DIRS
 # so that collectstatic can collect your compiled vite assets.
 STATICFILES_DIRS = [
