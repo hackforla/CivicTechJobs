@@ -3,6 +3,7 @@ db.sqlite3
 secret_key.txt
 dev.env
 stage.env
+.env
 __pycache__
 .vscode/
 *venv/
