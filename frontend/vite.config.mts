@@ -1,4 +1,4 @@
-import { defineConfig, loadEnv } from "vite";
+import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import svgr from "vite-plugin-svgr";
@@ -28,7 +28,10 @@ export default defineConfig(() => {
     server: {
       host: true,
       port: 5175,
-      origin: 'http://127.0.0.1:5175',
+      origin: "http://127.0.0.1:5175",
+      watch: {
+        usePolling: true,
+      },
     },
     build: {
       manifest: true,
