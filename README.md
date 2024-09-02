@@ -19,7 +19,7 @@ Civic Tech technology practitioners are a diverse and interdisciplinary group of
 
 - [GitHub Project Board](https://github.com/hackforla/CivicTechJobs/projects/1)
 - [Slack](https://hackforla.slack.com/archives/C02509WHFQQ)
-- [Google Drive](https://drive.google.com/drive/u/0/folders/0AMdnUkSXicNCUk9PVA)
+- [Google Drive](https://drive.google.com/drive/u/0/folders/1hXxvpC8W5Uuzjqo4CxnjDpAMI7sbVnq8)
 - [Figma](https://www.figma.com/file/G5bOqhud6azbxyR9El9Ygp/Civic-Tech-Jobs?node-id=0%3A1)
 
 ### Project Tech Stack
