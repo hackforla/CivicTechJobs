@@ -2,7 +2,7 @@ version: "3.9"  # Use the version of Docker Compose that you need
 
 services:
   db:
-    image: postgres:12  # Use the latest PostgreSQL image
+    image: postgres:16  # Use the latest PostgreSQL image
     volumes:
       - ./data/db:/var/lib/postgresql/data
     environment:
