@@ -14,7 +14,7 @@ services:
   django:
     build:
       context: backend
-      dockerfile: ../dev/django.Dockerfile
+      dockerfile: ../dev/django.dockerfile
     container_name: django
     command: >
       sh -c "python manage.py makemigrations &&
@@ -36,7 +36,7 @@ services:
   vite:
     build:
       context: frontend
-      dockerfile: ../dev/vite.Dockerfile
+      dockerfile: ../dev/vite.dockerfile
     container_name: vite
     env_file:
       - dev/dev.env
