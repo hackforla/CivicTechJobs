@@ -42,7 +42,7 @@ services:
   vite:
     build:
       context: frontend
-      dockerfile: ../dev/vite.dockerfile
+      dockerfile: ../dev/vite.Dockerfile
     container_name: vite
     env_file:
       - dev/dev.env
