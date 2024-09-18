@@ -57,7 +57,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'frontend/templates'],
+        'DIRS': [BASE_DIR / 'frontend/templates/frontend'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,7 +86,6 @@ DATABASES = {
         'PORT': config('SQL_PORT'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -144,5 +143,5 @@ DJANGO_VITE = {
 # Add the build.outDir from vite.config.js to STATICFILES_DIRS
 # so that collectstatic can collect your compiled vite assets.
 STATICFILES_DIRS = [
-  BASE_DIR / "frontend/static/vite_assets_dist"
+  BASE_DIR / 'frontend/static/vite_assets_dist'
 ]
