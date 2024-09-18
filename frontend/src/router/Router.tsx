@@ -22,6 +22,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout />,
+    errorElement: <NotFoundPage />,
     children: [
       {
         path: "/",
@@ -53,10 +54,6 @@ const router = createBrowserRouter([
           {
             path: "demo-tailwind",
             element: <DemoTailwind />,
-          },
-          {
-            path: "*",
-            element: <NotFoundPage />,
           },
           {
             path: "privacypolicy",
