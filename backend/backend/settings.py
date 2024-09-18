@@ -57,7 +57,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [BASE_DIR / 'frontend/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -138,11 +138,11 @@ DJANGO_VITE = {
     "dev_mode": config("DEBUG", default=False, cast=bool),
     "dev_server_port": 5175,
     # resolve static asset paths in production
-    "manifest_path": Path(BASE_DIR / "vite_assets_dist" / ".vite" / "manifest.json").resolve()
+    "manifest_path": Path(BASE_DIR / "frontend" / "static" / "vite_assets_dist" / ".vite" / "manifest.json").resolve()
   }
 }
 # Add the build.outDir from vite.config.js to STATICFILES_DIRS
 # so that collectstatic can collect your compiled vite assets.
 STATICFILES_DIRS = [
-  BASE_DIR / "vite_assets_dist"
+  BASE_DIR / "frontend/static/vite_assets_dist"
 ]

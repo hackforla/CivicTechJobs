@@ -20,4 +20,4 @@ dev/linter.env
 data
 .idea
 
-backend/vite_assets_dist
+backend/frontend/static/vite_assets_dist
