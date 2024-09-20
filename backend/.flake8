@@ -1,0 +1,10 @@
+[flake8]
+extend-ignore = E203, W503
+exclude =
+    migrations
+    __pycache__
+    manage.py
+    settings.py
+    env
+    .pytest_cache
+    .vscode
