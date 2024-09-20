@@ -1,4 +1,5 @@
 from rest_framework import generics
+
 from ctj_api.models import Opportunities
 from ctj_api.serializers import OpportunitiesSerializer
 
