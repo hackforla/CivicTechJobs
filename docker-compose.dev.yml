@@ -1,4 +1,4 @@
-name: CivicTechJobs
+name: civic-tech-jobs
 
 services:
   pgdb:
