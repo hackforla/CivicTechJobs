@@ -1,0 +1,20 @@
+repos:
+  - repo: https://github.com/psf/black
+    rev: 24.8.0  # Use the latest stable version
+    hooks:
+      - id: black
+
+  - repo: https://github.com/pre-commit/mirrors-isort
+    rev: v5.10.1  # Use the latest stable version of isort
+    hooks:
+      - id: isort
+        args:
+          - "--profile=black"  # Ensures compatibility with Black
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.1.1  # Use the latest stable version of Flake8
+    hooks:
+      - id: flake8
+        args:
+          - "--max-line-length=88"
+          - "--extend-ignore=E203,W503"  # Ignore conflicts with Black
