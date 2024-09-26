@@ -7,7 +7,7 @@ services:
       - ./data/db:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=ctj-user  # Set the username for the PostgreSQL database
-      - POSTGRES_PASSWORD=ctj-db  # Set the password for the PostgreSQL database
+      - POSTGRES_PASSWORD=ctj-db # Set the password for the PostgreSQL database
       - POSTGRES_DB=ctj          # Set the name of the database
     ports:
       - "5432:5432"  # Map the PostgreSQL port to the host

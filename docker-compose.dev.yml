@@ -57,7 +57,7 @@ services:
     profiles: ["lint"]
     build:  
       context: .
-      dockerfile: ./dev/linter.dockerfile
+      dockerfile:  ./dev/linter.dockerfile 
     container_name: linter
     environment:
       - PRE_COMMIT_HOME=${HOME}/.cache/pre-commit
