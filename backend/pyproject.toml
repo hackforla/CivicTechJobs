@@ -13,6 +13,18 @@ djangorestframework = "^3.15.2"
 django-vite = "^3.0.4"
 python-decouple = "^3.8"
 
+[tool.poetry.group.dev.dependencies]
+black = "^24.8.0"
+flake8 = "^7.1.1"
+isort = "^5.13.2"
+pre-commit = "^3.8.0"
+
+[tool.isort]
+profile = "black"
+include_trailing_comma = true
+known_third_party = ["django"]
+skip_gitignore=true
+skip_glob="**/migrations/*.py"
 
 [build-system]
 requires = ["poetry-core"]

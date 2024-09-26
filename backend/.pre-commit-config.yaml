@@ -1,0 +1,41 @@
+default_language_version:
+  # default language version for each language used in the repository
+  python: python3.11
+repos:
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        args:
+          - "--profile=black"
+          - "--thirdparty=django"
+        exclude: |
+          (?x)^(
+              .*/(migrations)/(.)*|
+              .*/manage\.py$|
+              .*/settings\.py$
+          )$
+        language: python
+        files: ^backend/.*\.py$
+
+  - repo: https://github.com/psf/black
+    rev: 24.8.0
+    hooks:
+      - id: black
+        language: python
+        files: ^backend/.*\.py$
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 7.1.1
+    hooks:
+      - id: flake8
+        args:
+          - "--extend-ignore=E203,W503"  # Ignore conflicts with Black
+        exclude: |
+          (?x)^(
+              .*/(migrations)/(.)*|
+              .*/manage\.py$|
+              .*/settings\.py$
+          )$
+        language: python
+        files: ^backend/.*\.py$
