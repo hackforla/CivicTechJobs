@@ -2,12 +2,6 @@ default_language_version:
   # default language version for each language used in the repository
   python: python3.11
 repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
-    hooks:
-      # See https://pre-commit.com/hooks.html for more hooks
-      - id: trailing-whitespace
-
   - repo: https://github.com/pycqa/isort
     rev: 5.12.0
     hooks:
