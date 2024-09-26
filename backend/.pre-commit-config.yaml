@@ -29,7 +29,12 @@ repos:
     hooks:
       - id: flake8
         args:
-          - "--max-line-length=88"
           - "--extend-ignore=E203,W503"  # Ignore conflicts with Black
+        exclude: |
+          (?x)^(
+              .*/(migrations)/(.)*|
+              .*/manage\.py$|
+              .*/settings\.py$
+          )$
         language: python
         files: ^backend/.*\.py$
