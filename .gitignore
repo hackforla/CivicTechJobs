@@ -5,7 +5,6 @@ dev.env
 stage.env
 .env
 __pycache__
-.pytest_cache
 .vscode/
 *venv/
 app/frontend/static/frontend/*
