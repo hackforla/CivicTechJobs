@@ -1,20 +1,35 @@
+default_language_version:
+  # default language version for each language used in the repository
+  python: python3.11
 repos:
-  - repo: https://github.com/psf/black
-    rev: 24.8.0  # Use the latest stable version
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
     hooks:
-      - id: black
+      # See https://pre-commit.com/hooks.html for more hooks
+      - id: trailing-whitespace
 
-  - repo: https://github.com/pre-commit/mirrors-isort
-    rev: v5.10.1  # Use the latest stable version of isort
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
     hooks:
       - id: isort
         args:
           - "--profile=black"  # Ensures compatibility with Black
+        language: python
+        files: ^backend/.*\.py$
 
-  - repo: https://github.com/pycqa/flake8
-    rev: 7.1.1  # Use the latest stable version of Flake8
+  - repo: https://github.com/psf/black
+    rev: 24.8.0
+    hooks:
+      - id: black
+        language: python
+        files: ^backend/.*\.py$
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 7.1.1
     hooks:
       - id: flake8
         args:
           - "--max-line-length=88"
           - "--extend-ignore=E203,W503"  # Ignore conflicts with Black
+        language: python
+        files: ^backend/.*\.py$

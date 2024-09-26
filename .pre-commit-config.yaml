@@ -19,7 +19,7 @@ repos:
     rev: 5.12.0
     hooks:
       - id: isort
-        args: ["--settings-file", "app/setup.cfg"]
+        args: ["--settings-file", "app/setup.cfg"]  # TL: try to set this up in new pre-commit
   - repo: https://github.com/psf/black
     rev: 22.12.0
     hooks:
