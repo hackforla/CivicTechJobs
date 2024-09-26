@@ -14,33 +14,28 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-
-from django.http import JsonResponse
-
 # from django.contrib import admin
-from django.urls import include, path, re_path
+from django.urls import path, re_path, include
+from django.http import JsonResponse
 from django.views.generic import TemplateView
-
 
 # Custom handler for incorrect API routes
 def api_not_found(request, exception=None):
-    return JsonResponse(
-        {
-            "error": "API endpoint not found",
-            "status_code": 404,
-            "message": "The requested API endpoint does not exist",
-        },
-        status=404,
-    )
+    return JsonResponse({
+        'error': 'API endpoint not found',
+        'status_code': 404,
+        'message': 'The requested API endpoint does not exist'
+    }, status=404)
 
 
 urlpatterns = [
-    path("api/", include("ctj_api.urls"), name="api"),
-    # Catch-all for incorrect API routes
-    re_path(r"^api/.*$", api_not_found),
+    path('api/', include('ctj_api.urls'), name="api"),
+    # Custom error handler for invalid API routes
+    re_path(r'^api/.*$', api_not_found),  # Catch-all for incorrect API routes
+
     # Catch-all for frontend (React)
     re_path(
-        r"^.*$",
+        r'^.*$',
         TemplateView.as_view(template_name="index.html"),
         name="index",
     ),

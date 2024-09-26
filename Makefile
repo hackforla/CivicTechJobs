@@ -23,7 +23,7 @@ migrations:
 	docker compose exec django python manage.py makemigrations
 
 migrate:
-	docker compose exec django python manage.py migrate
+	docker compose exec django python manage.py migrate 
 
 db-shell:
 	docker compose exec django python manage.py shell
