@@ -6,16 +6,17 @@ services:
     volumes:
       - ./data/db:/var/lib/postgresql/data
     environment:
-      - POSTGRES_USER=yourusername  # Set the username for the PostgreSQL database
-      - POSTGRES_PASSWORD=yourpassword  # Set the password for the PostgreSQL database
-      - POSTGRES_DB=yourdatabase  # Set the name of the database
+      - POSTGRES_USER=ctj-user  # Set the username for the PostgreSQL database
+      - POSTGRES_PASSWORD=ctj-db  # Set the password for the PostgreSQL database
+      - POSTGRES_DB=ctj          # Set the name of the database
     ports:
       - "5432:5432"  # Map the PostgreSQL port to the host
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U yourusername -d yourdatabase"]
+      test: ["CMD-SHELL", "pg_isready -U ctj-user -d ctj"]  # Updated to use the correct user and database
       interval: 10s
       timeout: 5s
       retries: 5
+
   backend:
     build: ./backend
     command: python manage.py runserver 0.0.0.0:8000

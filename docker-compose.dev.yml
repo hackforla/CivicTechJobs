@@ -53,6 +53,20 @@ services:
         - action: sync
           path: ./frontend
           target: /usr/src/app
+  linter:
+    profiles: ["lint"]
+    build:  
+      context: .
+      dockerfile: ./dev/linter.dockerfile
+    container_name: linter
+    environment:
+      - PRE_COMMIT_HOME=${HOME}/.cache/pre-commit
+    user: ${UID}:${GID}
+    env_file:
+      - ./dev/linter.env
+    volumes:
+      - .:/src:rw
+      - ${HOME}/.cache:${HOME}/.cache:rw
 
 volumes:
   postgres_data: {}
