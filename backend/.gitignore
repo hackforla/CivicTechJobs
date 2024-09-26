@@ -2,3 +2,6 @@
 .idea
 DCIM
 data
+
+__pycache__
+.pytest_cache

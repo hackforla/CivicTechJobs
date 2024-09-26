@@ -23,8 +23,8 @@ pre-commit = "^3.8.0"
 profile = "black"
 include_trailing_comma = true
 known_third_party = ["django"]
-skip_glob="env/*"
-extend_skip_glob="**/migrations"
+skip_gitignore=true
+skip_glob="**/migrations/*.py"
 
 [build-system]
 requires = ["poetry-core"]

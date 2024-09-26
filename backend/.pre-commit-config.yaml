@@ -13,7 +13,14 @@ repos:
     hooks:
       - id: isort
         args:
-          - "--profile=black"  # Ensures compatibility with Black
+          - "--profile=black"
+          - "--thirdparty=django"
+        exclude: |
+          (?x)^(
+              .*/(migrations)/(.)*|
+              .*/manage\.py$|
+              .*/settings\.py$
+          )$
         language: python
         files: ^backend/.*\.py$
 
