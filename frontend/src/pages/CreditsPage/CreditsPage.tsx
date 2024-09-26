@@ -75,7 +75,7 @@ const CreditsPage: FC = () => {
                     activeButton === "illustrations"
                       ? styleClasses.buttonActive
                       : styleClasses.buttonInactive
-                  } 
+                  }
                   mr-4`}
                 onClick={handleClickIllustrationButton}
               >
@@ -113,7 +113,7 @@ const CreditsPage: FC = () => {
                 activeButton === "illustrations"
                   ? "bg-grey-light"
                   : "bg-tan-light"
-              } 
+              }
               w-24 h-24 sm:w-36 sm:h-36 md:w-36 md:w-36 md:h-36 lg:w-44 lg:h-44 rounded-full grid
               `}
               learnMoreLink={cardData.link}
