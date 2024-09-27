@@ -1,8 +1,9 @@
 ---
 name: Dev Onboarding Template
-about: This issue has been created for our new Devs to familiarize themselves with CTJ project and set-up their dev environment. 
+about: This issue has been created for our new Devs to familiarize themselves with
+  CTJ project and set-up their dev environment.
 title: 'Dev Onboarding: [replace with your Name] '
-labels: 'milestone missing, role missing, feature: Onboarding, size: 0.5pt'
+labels: 'feature: Onboarding, size: 0.5pt'
 assignees: ''
 
 ---
@@ -18,5 +19,3 @@ This issue has been created for our new Developer [PLEASE ADD WHETHER FRONT-END 
 - [ ] Follow the steps outlined [here](https://docs.google.com/document/d/1v_81bQXrad7Tg-_0CBjhr6FKkn-q0xNpc_NKcWASvdU/edit?usp=sharing) to set up a dev environment for the develop branch:
 
 ### Resources
-
-
