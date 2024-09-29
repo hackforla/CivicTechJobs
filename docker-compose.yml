@@ -1,18 +1,18 @@
-version: "3.9"  # Use the version of Docker Compose that you need
+version: "3.9" # Use the version of Docker Compose that you need
 
 services:
   db:
-    image: postgres:16  # Use the latest PostgreSQL image
+    image: postgres:16 # Use the latest PostgreSQL image
     volumes:
       - ./data/db:/var/lib/postgresql/data
     environment:
-      - POSTGRES_USER=ctj-user  # Set the username for the PostgreSQL database
-      - POSTGRES_PASSWORD=ctj-db # Set the password for the PostgreSQL database
-      - POSTGRES_DB=ctj          # Set the name of the database
+      - POSTGRES_USER=yourusername # Set the username for the PostgreSQL database
+      - POSTGRES_PASSWORD=yourpassword # Set the password for the PostgreSQL database
+      - POSTGRES_DB=yourdatabase # Set the name of the database
     ports:
-      - "5432:5432"  # Map the PostgreSQL port to the host
+      - "5432:5432" # Map the PostgreSQL port to the host
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ctj-user -d ctj"]  # Updated to use the correct user and database
+      test: ["CMD-SHELL", "pg_isready -U yourusername -d yourdatabase"] # Updated to use the correct user and database
       interval: 10s
       timeout: 5s
       retries: 5
