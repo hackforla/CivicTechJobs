@@ -5,7 +5,7 @@ on:
   push:
     branches:
       # TODO: change to main when we merge develop to main
-      - feat/fix-mkdocs
+      - develop
     paths:
       - "mkdocs/**/**.md"
       - "mkdocs/mkdocs.yml"
