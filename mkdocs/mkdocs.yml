@@ -31,6 +31,7 @@ nav:
           - Installation Instructions: developer/installation.md
           - MkDocs Architecture: developer/mkdocs-architecture.md
           - MkDocs Guide: developer/mkdocs.md
+          - MkDocs - How to Edit: developer/mkdocs-edit-instructions.md
       - Misc:
           - ADA Guide: misc/ada-guide.md
           - Glossary: misc/glossary.md
