@@ -10,7 +10,7 @@
 
 1. Communicate with the PM about your interest in being assigned a task.
 
-1. Your first commit will likely be an issue labeled good first issue. Check [the board](https://github.com/hackforla/[INSERT-REPO-NAME-HERE]/projects/1?card_filter_query=label%3A%22good+first+issue%22) for those issues. Don't worry if you don't see anything now, we are working on it.
+1. Your first commit will likely be an issue labeled good first issue. Check [the board](https://github.com/hackforla/CivicTechJobs/projects/37) for those issues. Don't worry if you don't see anything now, we are working on it.
 
 ## Additional Reading
 
