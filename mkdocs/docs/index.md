@@ -1,7 +1,5 @@
 # Welcome to the Civictechjobs.org Wiki!
 
-test
-
 ## Project Definition
 
 CivicTechJobs will be a site to find open volunteer positions for projects at hackforla.

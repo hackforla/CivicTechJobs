@@ -1,13 +1,22 @@
-name: CI for MkDocs
+# Credit for code: https://github.com/mkdocs/mkdocs/discussions/2369#discussioncomment-625475
+name: Build MkDocs site
+
 on:
   push:
     branches:
-      - develop
+      - feat/fix-mkdocs
+    paths:
+      - "mkdocs/**/**.md"
+      - "mkdocs/mkdocs.yml"
+  workflow_dispatch:
+
 permissions:
   contents: write
+
 jobs:
-  deploy:
+  deploy-docs:
     runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]'
     steps:
       - uses: actions/checkout@v4
       - name: Configure Git Credentials
@@ -24,6 +33,11 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install mkdocs-material
-      - run: mkdocs gh-deploy --force
- 
+      - name: Install Dependencies
+        run: pip install \
+          mkdocs-material==9.1.17 \
+          mkdocs-autolinks-plugin==0.7.1
+      - name: Publish docs
+        run: |
+          cd mkdocs
+          mkdocs gh-deploy --force

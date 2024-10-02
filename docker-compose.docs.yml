@@ -1,12 +1,9 @@
 version: "3.9"
 services:
   mkdocs:
-    image: hackforlaops/mkdocs:latest 
-    # build:
-    #   context: .
-    #   dockerfile: Dockerfile
-    command: mkdocs serve -a "0.0.0.0:8000" 
+    image: hackforlaops/mkdocs:latest
+    command: mkdocs serve -a "0.0.0.0:8000"
     ports:
-      - "8005:8000" 
+      - "8005:8000"
     volumes:
-      - ./mkdocs:/app 
+      - ./mkdocs:/app
