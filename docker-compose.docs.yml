@@ -1,9 +1,16 @@
-version: "3.9"
+name: civic-tech-jobs-mkdocs
+
 services:
   mkdocs:
+    container_name: mkdocs
     image: hackforlaops/mkdocs:latest
-    command: mkdocs serve -a "0.0.0.0:8000"
+    command: mkdocs serve -a "0.0.0.0:8005"
     ports:
-      - "8005:8000"
+      - "8005:8005"
     volumes:
       - ./mkdocs:/app
+    develop:
+      watch:
+        - action: sync
+          path: ./mkdocs
+          target: /app
