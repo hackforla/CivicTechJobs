@@ -27,7 +27,7 @@ function CookieBanner(props: CookieBannerProps) {
       aria-label="cookies banner"
       className={`${
         hidden ? "hidden" : ""
-      } fixed flex flex-col bottom-12 left-1/2 transform -translate-x-1/2 bg-white w-3/4 p-4 z-50 rounded-lg shadow-2xl shadow-inner`}
+      } fixed flex flex-col bottom-12 left-1/2 transform -translate-x-1/2 bg-white w-3/4 p-4 z-50 rounded-lg shadow-2xl`}
     >
       <div className="min-h-48 max-h-64 justify-between space-y-5 p-6">
         <div className="flex flex-row justify-between items-center">
