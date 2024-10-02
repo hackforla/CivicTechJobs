@@ -4,7 +4,8 @@ name: Build MkDocs site
 on:
   push:
     branches:
-      - feat/fix-mkdocs
+      # TODO: change to main when we merge develop to main
+      - develop
     paths:
       - "mkdocs/**/**.md"
       - "mkdocs/mkdocs.yml"
