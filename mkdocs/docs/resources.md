@@ -1,13 +1,45 @@
-## Resources
+# Resources
 
 More resources to be added as project progresses:
 
-1. [GoFullPage Screenshot Chrome Extension](https://chrome.google.com/webstore/detail/gofullpage-full-page-scre/fdpohaocaechififmbbbbbknoalclacl?hl=en)'
-2. [Userflow Diagram](https://docs.google.com/document/d/1ja1rfgEksPwH5-zaJdOas7SvZghC2NqjO7ePxsyxxFg/edit)
+### Core - Start here
+
+1. [civictechjobs.org](https://civictechjobs.org/)
+2. [Github Repo](https://github.com/hackforla/CivicTechJobs)
+3. [Our Figma](https://www.figma.com/file/G5bOqhud6azbxyR9El9Ygp/Civic-Tech-Jobs)
+4. [CivicTechJobs Docs](https://hackforla.github.io/CivicTechJobs/)
+5. [CivicTechJobs Github Wiki](https://github.com/hackforla/CivicTechJobs/wiki/Resources)
+6. [CTJ Core Team](https://github.com/hackforla/CivicTechJobs/wiki/The-Team)
+7. `#civictechjobs` slack channel \(in the Hack For LA organization slack\)
+8. `#civictechjobs-dev` channel
+
+### Project Management
+
+1. [Project Board](https://github.com/orgs/hackforla/projects/37)
+2. [Project one sheet](https://docs.google.com/document/d/1bfxY8YlyCjzCL3oP0rpa77uEY4vuymDYZY_xWEgXiGs)
+3. [Our Shared Google Drive](https://drive.google.com/drive/folders/1hXxvpC8W5Uuzjqo4CxnjDpAMI7sbVnq8?usp=sharing&pli=1)
+4. [GitHub Workflow](https://docs.google.com/document/d/1CuRX6hhWzs8ydVCnl6OrGZ4LeVSk9X_pIzoKchAqFcU)
+
+### Roadmaps
+
+1. [CTJ Requirements & Roadmap (Feature Roadmap)](https://docs.google.com/spreadsheets/d/1VcDLJnDA5CE7euzaZxOcqS3LLgyUFVLeqvdZx2sFGQk)
+2. [Developer Roadmap · Issue #381 · hackforla/CivicTechJobs · GitHub](https://github.com/hackforla/CivicTechJobs/issues/381)
+
+### Team Meeting Agendas
+
+1. [CTJ: Monthly All Hands Team Meeting Agenda](https://github.com/hackforla/CivicTechJobs/issues/16)
+2. [CTJ: Leads Agenda](https://github.com/hackforla/CivicTechJobs/issues/476)
+3. [CTJ: Development Meeting Agenda](https://github.com/hackforla/CivicTechJobs/issues/450)
+4. [CTJ: UXR Meeting Agenda](https://github.com/hackforla/CivicTechJobs/issues/140)
+5. [CTJ: PM/ORG Meeting Agenda and Notes](https://github.com/hackforla/CivicTechJobs/issues/101)
+
+### Design Resources
+
+1. [Our Figma](https://www.figma.com/file/G5bOqhud6azbxyR9El9Ygp/Civic-Tech-Jobs)
+2. [Userflow Diagram](https://docs.google.com/document/d/1ja1rfgEksPwH5-zaJdOas7SvZghC2NqjO7ePxsyxxFg/edit) - OUTDATED
 3. [Research Slide Deck](https://docs.google.com/presentation/d/1fJOK6-2YyMgLKfF4ZmJfR5YMUNic4hGn/edit#slide=id.p1)
-4. [Our Figma](https://www.figma.com/file/G5bOqhud6azbxyR9El9Ygp/Civic-Tech-Jobs?node-id=1%3A6)
-5. [Task and User Flow](https://whimsical.com/ctj-task-and-user-flow-8GgB5Moy14fnQDv24o1fGC)
-6. [Our Shared Google Drive](https://drive.google.com/drive/folders/1hXxvpC8W5Uuzjqo4CxnjDpAMI7sbVnq8?usp=sharing&pli=1)
+4. [Task and User Flow](https://whimsical.com/ctj-task-and-user-flow-8GgB5Moy14fnQDv24o1fGC)
+5. [HfLA Website Figma - Section for Volunteer Opportunities](https://www.figma.com/design/0RRPy1Ph7HafI3qOITg0Mr/Hack-for-LA-Website?node-id=5326-26395&t=x2ib7NJm3z5aB5H0-0)
 
 ### For Developers
 
@@ -25,3 +57,7 @@ More resources to be added as project progresses:
 7. [Installation Instructions](https://hackforla.github.io/CivicTechJobs/developer/installation/)<br>
    - [Installation Resources](http://hackforla.github.io/CivicTechJobs/developer/installation/#additional-resources)
 8. [Development Culture](https://hackforla.github.io/CivicTechJobs/developer/development-culture/)<br>
+
+### Tools
+
+1. [GoFullPage Screenshot Chrome Extension](https://chrome.google.com/webstore/detail/gofullpage-full-page-scre/fdpohaocaechififmbbbbbknoalclacl?hl=en)'
