@@ -9,7 +9,7 @@ import { QualifiersProvider } from "context/QualifiersContext";
 // Lazy Imports
 const QualifierPageRoles = React.lazy(() => import("./QualifierPageRoles"));
 const QualifierPageCalendar = React.lazy(
-  () => import("./QualifierPageCalendar")
+  () => import("./QualifierPageCalendar"),
 );
 
 function loader({ params }: any) {

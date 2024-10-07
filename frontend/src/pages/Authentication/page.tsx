@@ -16,7 +16,10 @@ export default function AuthenticationPage() {
   return (
     <>
       <AuthNav />
-      <div className="flex flex-row" style={{ height: "calc(100vh - 64px)", overflow: "hidden" }}>
+      <div
+        className="flex flex-row"
+        style={{ height: "calc(100vh - 64px)", overflow: "hidden" }}
+      >
         <div className="max-lg:hidden lg:basis-1/2 bg-tan-light relative">
           <img
             src={loginIllustration}

@@ -12,12 +12,12 @@ config.disabled = true;
 
 describe("Calendar", () => {
   test("Calendar Component", async () => {
-    render(<Calendar onChange={(e) => {}} />);
+    render(<Calendar onChange={() => {}} />);
     expect(screen.getByTestId("calendar-root")).toBeInTheDocument();
   });
 
   test("Able to Drag to Select and Unselect Availability", async () => {
-    const { container } = render(<Calendar onChange={(e) => {}} />);
+    const { container } = render(<Calendar onChange={() => {}} />);
     const calendarCells = container.querySelectorAll(".calendar-cell");
     const checkbox1 = calendarCells[0].querySelector('[role="checkbox"]');
     const checkbox2 = calendarCells[1].querySelector('[role="checkbox"]');
@@ -40,12 +40,15 @@ describe("Calendar", () => {
   });
 
   test("Calendar Accessibility Labels are Applied", () => {
-    render(<Calendar onChange={(e) => {}} />);
+    render(<Calendar onChange={() => {}} />);
     const cells = screen.getAllByRole("checkbox");
     cells.forEach((cell, index) => {
       const row = Math.floor(index / 7) + 1;
       const col = (index % 7) + 1;
-      expect(cell).toHaveAttribute("aria-label", `I am available on ${row}, ${col}`);
+      expect(cell).toHaveAttribute(
+        "aria-label",
+        `I am available on ${row}, ${col}`,
+      );
     });
   });
 });

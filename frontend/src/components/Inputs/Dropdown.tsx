@@ -21,7 +21,7 @@ function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
   const [referenceElement, setReferenceElement] =
     useState<HTMLDivElement | null>(null);
   const [popperElement, setPopperElement] = useState<HTMLUListElement | null>(
-    null
+    null,
   );
   const { styles, attributes, state } = usePopper(
     referenceElement,
@@ -36,7 +36,7 @@ function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
           },
         },
       ],
-    }
+    },
   );
   const dropdownId = useId();
   const dropdownBoxId = useId();

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 // External Imports
 import React, { Fragment } from "react";
 import { useNavigate } from "react-router-dom";

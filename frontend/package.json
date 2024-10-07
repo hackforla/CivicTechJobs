@@ -10,7 +10,7 @@
     "test:w": "jest --config ./jest.config.js --watchAll --testPathPattern=tests/",
     "dev": "vite dev",
     "build": "vite build",
-    "lint": "eslint '**/*.{js,mjs,cjs,ts,jsx,tsx}' || (echo 'Linting failed!' && exit 1) && echo 'Linting passed! All good to go!'",
+    "lint": "eslint . || (echo 'Linting failed!' && exit 1) && echo 'Linting passed! All good to go!'",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|jsx|ts|tsx|json)\""
   },
   "repository": {
@@ -41,7 +41,8 @@
     "css-loader": "^6.7.3",
     "eslint": "^9.11.1",
     "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-react": "^7.37.0",
+    "eslint-plugin-react": "^7.37.1",
+    "eslint-plugin-tailwindcss": "^3.17.4",
     "globals": "^15.9.0",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^28.1.3",

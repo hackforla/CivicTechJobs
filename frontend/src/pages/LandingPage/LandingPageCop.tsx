@@ -28,7 +28,9 @@ function LandingPageCop() {
 
   return (
     <div className="flex-container align-center justify-center py-5">
-      <h2 className="col-12 text-center text-4xl font-bold leading-normal my-8">Communities of Practice (COP)</h2>
+      <h2 className="col-12 text-center text-4xl font-bold leading-normal my-8">
+        Communities of Practice (COP)
+      </h2>
       <div className="row paragraph-1 text-center mb-5 landing-cop-description">
         A Community of Practice (CoP) is a group of volunteers who share a
         common interest in a topic and meet regularly to fulfill both individual

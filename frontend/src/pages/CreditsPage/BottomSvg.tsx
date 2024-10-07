@@ -13,7 +13,7 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
         opacity="0.1"
         d="M496.503 535.661C935.969 461.827 1239.51 470.778 1481 559V50H-299V512.182C-299 512.182 227.835 580.8 496.503 535.661Z"
         fill="url(#paint0_linear_5167_51077)"
-        fill-opacity="0.8"
+        fillOpacity="0.8"
       />
       <path
         d="M644 115.743C999.77 187.692 1245.5 178.969 1441 93V589H0V138.622C0 138.622 426.5 71.757 644 115.743Z"
@@ -21,10 +21,10 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
       />
       <g opacity="0.1">
         <g filter="url(#filter0_i_5167_51077)">
-          <circle cx="817" cy="187" r="16" fill="#D9D9D9" fill-opacity="0.6" />
+          <circle cx="817" cy="187" r="16" fill="#D9D9D9" fillOpacity="0.6" />
         </g>
         <g filter="url(#filter1_i_5167_51077)">
-          <circle cx="881" cy="187" r="16" fill="#D9D9D9" fill-opacity="0.6" />
+          <circle cx="881" cy="187" r="16" fill="#D9D9D9" fillOpacity="0.6" />
         </g>
         <g opacity="0.7" filter="url(#filter2_i_5167_51077)">
           <circle cx="945" cy="187" r="16" fill="#D9D9D9" />
@@ -51,10 +51,10 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           <circle cx="1393" cy="187" r="16" fill="#D9D9D9" />
         </g>
         <g filter="url(#filter10_i_5167_51077)">
-          <circle cx="817" cy="251" r="16" fill="#D9D9D9" fill-opacity="0.6" />
+          <circle cx="817" cy="251" r="16" fill="#D9D9D9" fillOpacity="0.6" />
         </g>
         <g filter="url(#filter11_i_5167_51077)">
-          <circle cx="881" cy="251" r="16" fill="#D9D9D9" fill-opacity="0.6" />
+          <circle cx="881" cy="251" r="16" fill="#D9D9D9" fillOpacity="0.6" />
         </g>
         <g opacity="0.7" filter="url(#filter12_i_5167_51077)">
           <circle cx="945" cy="251" r="16" fill="#D9D9D9" />
@@ -81,10 +81,10 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           <circle cx="1393" cy="251" r="16" fill="#D9D9D9" />
         </g>
         <g filter="url(#filter20_i_5167_51077)">
-          <circle cx="817" cy="315" r="16" fill="#D9D9D9" fill-opacity="0.6" />
+          <circle cx="817" cy="315" r="16" fill="#D9D9D9" fillOpacity="0.6" />
         </g>
         <g filter="url(#filter21_i_5167_51077)">
-          <circle cx="881" cy="315" r="16" fill="#D9D9D9" fill-opacity="0.6" />
+          <circle cx="881" cy="315" r="16" fill="#D9D9D9" fillOpacity="0.6" />
         </g>
         <g opacity="0.7" filter="url(#filter22_i_5167_51077)">
           <circle cx="945" cy="315" r="16" fill="#D9D9D9" />
@@ -111,10 +111,10 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           <circle cx="1393" cy="315" r="16" fill="#D9D9D9" />
         </g>
         <g filter="url(#filter30_i_5167_51077)">
-          <circle cx="817" cy="379" r="16" fill="#D9D9D9" fill-opacity="0.6" />
+          <circle cx="817" cy="379" r="16" fill="#D9D9D9" fillOpacity="0.6" />
         </g>
         <g filter="url(#filter31_i_5167_51077)">
-          <circle cx="881" cy="379" r="16" fill="#D9D9D9" fill-opacity="0.6" />
+          <circle cx="881" cy="379" r="16" fill="#D9D9D9" fillOpacity="0.6" />
         </g>
         <g opacity="0.7" filter="url(#filter32_i_5167_51077)">
           <circle cx="945" cy="379" r="16" fill="#D9D9D9" />
@@ -141,10 +141,10 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           <circle cx="1393" cy="379" r="16" fill="#D9D9D9" />
         </g>
         <g filter="url(#filter40_i_5167_51077)">
-          <circle cx="817" cy="443" r="16" fill="#D9D9D9" fill-opacity="0.6" />
+          <circle cx="817" cy="443" r="16" fill="#D9D9D9" fillOpacity="0.6" />
         </g>
         <g filter="url(#filter41_i_5167_51077)">
-          <circle cx="881" cy="443" r="16" fill="#D9D9D9" fill-opacity="0.6" />
+          <circle cx="881" cy="443" r="16" fill="#D9D9D9" fillOpacity="0.6" />
         </g>
         <g opacity="0.7" filter="url(#filter42_i_5167_51077)">
           <circle cx="945" cy="443" r="16" fill="#D9D9D9" />
@@ -171,10 +171,10 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           <circle cx="1393" cy="443" r="16" fill="#D9D9D9" />
         </g>
         <g filter="url(#filter50_i_5167_51077)">
-          <circle cx="817" cy="507" r="16" fill="#D9D9D9" fill-opacity="0.6" />
+          <circle cx="817" cy="507" r="16" fill="#D9D9D9" fillOpacity="0.6" />
         </g>
         <g filter="url(#filter51_i_5167_51077)">
-          <circle cx="881" cy="507" r="16" fill="#D9D9D9" fill-opacity="0.6" />
+          <circle cx="881" cy="507" r="16" fill="#D9D9D9" fillOpacity="0.6" />
         </g>
         <g opacity="0.7" filter="url(#filter52_i_5167_51077)">
           <circle cx="945" cy="507" r="16" fill="#D9D9D9" />
@@ -201,10 +201,10 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           <circle cx="1393" cy="507" r="16" fill="#D9D9D9" />
         </g>
         <g filter="url(#filter60_i_5167_51077)">
-          <circle cx="817" cy="571" r="16" fill="#D9D9D9" fill-opacity="0.6" />
+          <circle cx="817" cy="571" r="16" fill="#D9D9D9" fillOpacity="0.6" />
         </g>
         <g filter="url(#filter61_i_5167_51077)">
-          <circle cx="881" cy="571" r="16" fill="#D9D9D9" fill-opacity="0.6" />
+          <circle cx="881" cy="571" r="16" fill="#D9D9D9" fillOpacity="0.6" />
         </g>
         <g opacity="0.7" filter="url(#filter62_i_5167_51077)">
           <circle cx="945" cy="571" r="16" fill="#D9D9D9" />
@@ -451,9 +451,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -486,9 +486,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -521,9 +521,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -556,9 +556,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -591,9 +591,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -626,9 +626,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -661,9 +661,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -696,9 +696,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -731,9 +731,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -766,9 +766,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -801,9 +801,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -836,9 +836,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -871,9 +871,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -906,9 +906,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -941,9 +941,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -976,9 +976,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1011,9 +1011,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1046,9 +1046,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1081,9 +1081,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1116,9 +1116,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1151,9 +1151,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1186,9 +1186,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1221,9 +1221,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1256,9 +1256,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1291,9 +1291,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1326,9 +1326,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1361,9 +1361,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1396,9 +1396,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1431,9 +1431,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1466,9 +1466,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1501,9 +1501,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1536,9 +1536,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1571,9 +1571,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1606,9 +1606,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1641,9 +1641,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1676,9 +1676,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1711,9 +1711,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1746,9 +1746,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1781,9 +1781,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1816,9 +1816,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1851,9 +1851,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1886,9 +1886,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1921,9 +1921,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1956,9 +1956,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1991,9 +1991,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2026,9 +2026,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2061,9 +2061,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2096,9 +2096,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2131,9 +2131,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2166,9 +2166,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2201,9 +2201,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2236,9 +2236,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2271,9 +2271,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2306,9 +2306,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2341,9 +2341,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2376,9 +2376,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2411,9 +2411,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2446,9 +2446,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2481,9 +2481,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2516,9 +2516,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2551,9 +2551,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2586,9 +2586,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2621,9 +2621,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2656,9 +2656,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2691,9 +2691,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2726,9 +2726,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2761,9 +2761,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2796,9 +2796,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2831,9 +2831,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2866,9 +2866,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="32"
           height="36"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2901,9 +2901,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2936,9 +2936,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2971,9 +2971,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3006,9 +3006,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3041,9 +3041,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3076,9 +3076,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3111,9 +3111,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3146,9 +3146,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3181,9 +3181,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3216,9 +3216,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3251,9 +3251,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3286,9 +3286,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3321,9 +3321,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3356,9 +3356,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3391,9 +3391,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3426,9 +3426,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3461,9 +3461,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3496,9 +3496,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3531,9 +3531,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3566,9 +3566,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3601,9 +3601,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3636,9 +3636,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3671,9 +3671,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3706,9 +3706,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3741,9 +3741,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3776,9 +3776,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3811,9 +3811,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3846,9 +3846,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3881,9 +3881,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3916,9 +3916,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3951,9 +3951,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3986,9 +3986,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4021,9 +4021,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4056,9 +4056,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4091,9 +4091,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4126,9 +4126,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4161,9 +4161,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4196,9 +4196,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4231,9 +4231,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4266,9 +4266,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4301,9 +4301,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4336,9 +4336,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4371,9 +4371,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4406,9 +4406,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4441,9 +4441,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4476,9 +4476,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4511,9 +4511,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4546,9 +4546,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4581,9 +4581,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4616,9 +4616,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4651,9 +4651,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4686,9 +4686,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4721,9 +4721,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4756,9 +4756,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4791,9 +4791,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4826,9 +4826,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4861,9 +4861,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4896,9 +4896,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4931,9 +4931,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -4966,9 +4966,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -5001,9 +5001,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -5036,9 +5036,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -5071,9 +5071,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -5106,9 +5106,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -5141,9 +5141,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -5176,9 +5176,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -5211,9 +5211,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -5246,9 +5246,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -5281,9 +5281,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -5316,9 +5316,9 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           width="40"
           height="40"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -5363,8 +5363,8 @@ const BottomSvg: FC<SVGProps<SVGSVGElement>> = (props) => {
           y2="50"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.822917" stop-color="#C1C1C1" />
-          <stop offset="1" stop-color="#C1C1C1" stop-opacity="0" />
+          <stop offset="0.822917" stopColor="#C1C1C1" />
+          <stop offset="1" stopColor="#C1C1C1" stopOpacity="0" />
         </linearGradient>
         <image
           id="image0_5167_51077"

@@ -46,7 +46,7 @@ function Button({
         `btn-${color}`,
         length && `btn-${size}-${length}`,
         props.disabled && "disabled",
-        props.addClass
+        props.addClass,
       )}
       href={props.href}
       target={props.href ? props.target : undefined}
