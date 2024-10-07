@@ -29,7 +29,8 @@ export default [
       "prettier/prettier": "error",
       "react/no-unescaped-entities": "off",
       "@typescript-eslint/no-unused-vars": ["error"],
-      "tailwindcss/no-custom-classname": "error",
+      "tailwindcss/no-contradicting-classname": "error",
+      "tailwindcss/no-unnecessary-arbitrary-value": "error",
     },
   },
   {
