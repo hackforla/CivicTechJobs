@@ -18,7 +18,7 @@ function CircleCard({ size = "sm", ...props }: CircleCardProps) {
         "circle-card",
         `circle-card-${size}`,
         props.onClick && "circle-card-button",
-        props.addClass
+        props.addClass,
       )}
       onClick={props.onClick}
       onKeyDown={props.onClick && onKey(props.onClick, "Enter")}

@@ -49,7 +49,7 @@ function TextField({
           props.icon
             ? `textfield-${iconPosition == "left" ? "right" : "left"}`
             : "textfield",
-          props.addInputClass
+          props.addInputClass,
         )}
         onChange={(e) => {
           if (props.onChange) props.onChange(e);

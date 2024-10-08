@@ -26,7 +26,7 @@ function CopCard({ hidden = true, size = "sm", ...props }: CopCardProps) {
       addClass={combineClasses(
         `cop-card-${size}`,
         props.addClass,
-        isHidden ? "hidden" : undefined
+        isHidden ? "hidden" : undefined,
       )}
     >
       <IconButton
@@ -79,7 +79,7 @@ function InnerCopNavCard({ isActive = false, ...props }: InnerCopNavCardProps) {
       className={combineClasses(
         "inner-cop-nav-card",
         isActive ? "active" : undefined,
-        props.addClass
+        props.addClass,
       )}
       onClick={props.onClick}
     >

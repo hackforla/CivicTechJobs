@@ -28,12 +28,12 @@ function useDragState() {
 // sets the state to selected or deselected
 function useDragToSelectUnselect(cell: any, data_: string, toSelect: boolean) {
   const [nextdata, setData] = useState(data_);
-  let { row, col } = cell;
+  const { row, col } = cell;
   const [next, setNext] = useState(CellStatus());
   const handleSelect = (isMouseDown: boolean) => {
     if (isMouseDown) {
-      let newrow = row - 1;
-      let newcol = col - 1;
+      const newrow = row - 1;
+      const newcol = col - 1;
       const nestedArr = dissect(data_);
       if (nestedArr) {
         nestedArr[newrow][newcol] = toSelect ? "1" : "0";
@@ -45,8 +45,8 @@ function useDragToSelectUnselect(cell: any, data_: string, toSelect: boolean) {
   };
 
   function CellStatus() {
-    let newrow = row - 1;
-    let newcol = col - 1;
+    const newrow = row - 1;
+    const newcol = col - 1;
     const nestedArr = dissect(nextdata);
     if (nestedArr) {
       if (nestedArr[newrow][newcol] === "1") {

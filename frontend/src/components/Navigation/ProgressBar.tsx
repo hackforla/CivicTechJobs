@@ -33,7 +33,7 @@ function ProgressBar({
         className={combineClasses(
           "flex-container",
           "progress-bar",
-          props.addClass
+          props.addClass,
         )}
         role="progressbar"
         aria-labelledby={ariaLabelledBy}
@@ -47,7 +47,7 @@ function ProgressBar({
               key={index}
               className={combineClasses(
                 `progress-bar-${max}`,
-                num <= value && "active"
+                num <= value && "active",
               )}
             ></div>
           );

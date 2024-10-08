@@ -17,7 +17,7 @@ type QualifiersContextType = {
 
 // Create the context
 const QualifiersContext = createContext<QualifiersContextType | undefined>(
-  undefined
+  undefined,
 );
 
 // Custom hook to use the qualifiers context
@@ -25,7 +25,7 @@ export const useQualifiersContext = () => {
   const context = useContext(QualifiersContext);
   if (!context) {
     throw new Error(
-      "useQualifiersContext must be used within a QualifiersProvider"
+      "useQualifiersContext must be used within a QualifiersProvider",
     );
   }
   return context;

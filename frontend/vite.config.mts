@@ -2,12 +2,11 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import svgr from "vite-plugin-svgr";
-import { resolve, join } from 'path';
+import { resolve, join } from "path";
 
 export default defineConfig(() => {
-
-  const INPUT_DIR = './src';
-  const OUTPUT_DIR = '../backend/frontend/static/vite_assets_dist';
+  const INPUT_DIR = "./src";
+  const OUTPUT_DIR = "../backend/frontend/static/vite_assets_dist";
 
   return {
     //to resolve relative file paths for sass (no plugin)
@@ -39,9 +38,9 @@ export default defineConfig(() => {
       outDir: resolve(OUTPUT_DIR),
       rollupOptions: {
         input: {
-          entry: join(INPUT_DIR, '/index.tsx'),
+          entry: join(INPUT_DIR, "/index.tsx"),
         },
-      }
+      },
     },
   };
 });

@@ -46,7 +46,9 @@ function FooterNav() {
           return (
             <Fragment key={index}>
               <div className="footer-menu-vertical-line"></div>
-              <Link className="footer-links" to={item.link}>{item.name}</Link>
+              <Link className="footer-links" to={item.link}>
+                {item.name}
+              </Link>
             </Fragment>
           );
         })}

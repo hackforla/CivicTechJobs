@@ -19,7 +19,7 @@ describe("Landing Page", () => {
     render(
       <MemoryRouter>
         <LandingPage />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(screen.getByRole("presentation")).toHaveClass("hidden");
@@ -27,7 +27,7 @@ describe("Landing Page", () => {
     await user.click(
       screen.getByText(/Engineering/, {
         selector: ".landing-cop-circle-title",
-      })
+      }),
     );
     expect(await screen.findByRole("presentation")).not.toHaveClass("hidden");
 
@@ -37,7 +37,7 @@ describe("Landing Page", () => {
     await user.click(
       screen.getByText(/Data Science/, {
         selector: ".landing-cop-circle-title",
-      })
+      }),
     );
     expect(await screen.findByRole("presentation")).not.toHaveClass("hidden");
 

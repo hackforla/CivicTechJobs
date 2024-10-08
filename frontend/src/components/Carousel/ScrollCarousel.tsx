@@ -14,7 +14,7 @@ function ScrollCarousel({ hidden = false, ...props }) {
   const [scrollDif, startLoss] = carouselOffset(
     containerSize,
     itemSize,
-    props.totalMargins
+    props.totalMargins,
   );
   // Note: the +/- one offset for the edges accounts for floating point discrepencies
   const leftEdge =
@@ -25,7 +25,7 @@ function ScrollCarousel({ hidden = false, ...props }) {
   const endPosition = carouselPositionIndex(
     scrollDif,
     startLoss,
-    2 * numItems - 1
+    2 * numItems - 1,
   );
 
   window.addEventListener("resize", () => {
@@ -98,7 +98,7 @@ function ScrollCarousel({ hidden = false, ...props }) {
       className={combineClasses(
         "scroll-carousel",
         props.addClass,
-        hidden ? "hidden" : ""
+        hidden ? "hidden" : "",
       )}
       onTouchStart={(e) => handleTouchStart(e)}
       onTouchMove={(e) => handleTouchMove(e)}

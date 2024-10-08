@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 // External Imports
 import React from "react";
 
@@ -9,12 +10,13 @@ const PrivacyPolicyPage = () => {
   //Tailwind Classes - unsure of best practice
   const domainName = "localhost:8000";
   const styleClass = {
-    hyperlink: "text-blue-dark-hover cursor-pointer hover:text-blue-dark-focused font-bold",
+    hyperlink:
+      "text-blue-dark-hover cursor-pointer hover:text-blue-dark-focused font-bold",
     h2: "my-6 pt-6 text-2xl font-bold text-charcoal",
     h3: "my-6 font-bold text-charcoal",
     bullets: "list-disc list-outside pl-4 ml-4 text-grey-dark",
-    p: "text-grey-dark"
-  }
+    p: "text-grey-dark",
+  };
 
   return (
     <div className="flex flex-col justify-between" role="main">
@@ -193,7 +195,9 @@ const PrivacyPolicyPage = () => {
             </a>{" "}
             for more info on how to opt out.
           </p>
-          <h2 className={styleClass.h2}>Cookies and other tracking technologies</h2>
+          <h2 className={styleClass.h2}>
+            Cookies and other tracking technologies
+          </h2>
           <ul className={styleClass.bullets}>
             <li>
               Cookies are small text files that websites place on the computers
@@ -220,7 +224,10 @@ const PrivacyPolicyPage = () => {
             improve the user experience, manage the content on our Sites, and
             analyze how users navigate and use the Sites.
             <br></br> Third-party service providers we may use include{" "}
-            <a href="https://analytics.google.com/" className={styleClass.hyperlink}>
+            <a
+              href="https://analytics.google.com/"
+              className={styleClass.hyperlink}
+            >
               Google Analytics
             </a>
             ,{" "}
@@ -233,21 +240,28 @@ const PrivacyPolicyPage = () => {
             </a>
             .
           </p>
-          <h3 className={styleClass.h3}>How to opt-out of the use of cookies</h3>
+          <h3 className={styleClass.h3}>
+            How to opt-out of the use of cookies
+          </h3>
           <p className={styleClass.p}>
             Most browsers are initially set up to accept HTTP cookies. If you
             want to restrict or block the cookies that are set by our Site, or
             any other site, you can do so through your browser setting. The
             ‘Help’ function in your browser should explain how. Alternatively,
             you can visit{" "}
-            <a href="http://www.aboutcookies.org" className={styleClass.hyperlink}>
+            <a
+              href="http://www.aboutcookies.org"
+              className={styleClass.hyperlink}
+            >
               www.aboutcookies.org
             </a>
             , which contains comprehensive information on how to do this on a
             wide variety of browsers. You will find general information about
             cookies and details on how to delete cookies from your machine.
           </p>
-          <h2 className={styleClass.h2}>As required by law and similar disclosures</h2>
+          <h2 className={styleClass.h2}>
+            As required by law and similar disclosures
+          </h2>
           <ul className={styleClass.bullets}>
             <li>
               We may access, preserve, and disclose your information if we
@@ -312,7 +326,9 @@ const PrivacyPolicyPage = () => {
               security or privacy of your information.
             </li>
           </ul>
-          <h2 className={styleClass.h2}>Right to be forgotten and rectification</h2>
+          <h2 className={styleClass.h2}>
+            Right to be forgotten and rectification
+          </h2>
           <ul className={styleClass.bullets}>
             <li>
               You may request that we make corrections to any personal data that
@@ -344,7 +360,10 @@ const PrivacyPolicyPage = () => {
           <p className={styleClass.p}>
             If you have any questions, comments, concerns, or complaints related
             to our Review Tool websites, please contact us by email at{" "}
-            <a href="mailto:privacy@hackforla.org" className={styleClass.hyperlink}>
+            <a
+              href="mailto:privacy@hackforla.org"
+              className={styleClass.hyperlink}
+            >
               privacy@hackforla.org
             </a>
             , or by mail at:

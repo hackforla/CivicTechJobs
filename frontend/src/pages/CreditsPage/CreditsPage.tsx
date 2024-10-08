@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useState, FC } from "react";
 
 import { logoHfLA, creditsPageHighFive } from "assets/images/images";
