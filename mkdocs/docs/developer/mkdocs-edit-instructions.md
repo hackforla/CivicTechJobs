@@ -1,8 +1,20 @@
-# How to Edit MkDocs
+# How to Publish new Documentation
 
-To make changes to the docs, you have to edit the `.md` files located in the `mkdocs/docs/` folder. To make a new page, you have to create a new `.md` file in the appropriate folder.
+The goal of this page is to document how to create and publish new changes to the CTJ documentation.
+
+Writing documentation into mkdocs requires some knowledge of [Markdown](https://www.markdownguide.org/).
+
+### Making changes to the mkdocs
+
+What you essentially need to know:
+
+- To make changes to the docs, edit the `.md` files located in the `mkdocs/docs/` folder.
+- To make a new page, create a new `.md` file in the appropriate folder.
+- To add or edit links in the navmenu, configure the `mkdocs.yml` file.
 
 MkDocs provides a development server that makes it convenient to see your changes in `localhost` before you deploy them to github.
+
+*For more a detailed editing guide please see the official [MkDocs Tutorial](https://www.mkdocs.org/getting-started/)*
 
 ### Quickstart
 
@@ -27,6 +39,8 @@ Once the pull request is approved and merged into `develop`, the changes will be
 If anything goes wrong, you can investigate the workflow in the project's [github actions page](https://github.com/hackforla/CivicTechJobs/actions)
 
 **Note**: At the moment, the docs are set to deploy from the `develop` branch, using the github action located in `mkdocs-build.yml`. This means that whenever a file is changed inside the `mkdocs/` directory, and is merged into the `develop` branch on github, the changes will be automatically deployed to the official site hosted on github pages. In the near future we will set it to deploy from the `main` branch.
+
+*Check out our [MkDocs Architecture](mkdocs-architecture.md) page for more details on how it all fits together.*
 
 ### Recap
 

@@ -30,7 +30,7 @@ nav:
           - GitHub Architecture: developer/github.md
           - Installation Instructions: developer/installation.md
           - MkDocs Architecture: developer/mkdocs-architecture.md
-          - MkDocs Guide: developer/mkdocs.md
+          - MkDocs - Documentation Guide: developer/mkdocs-guide.md
           - MkDocs - How to Edit: developer/mkdocs-edit-instructions.md
       - Misc:
           - ADA Guide: misc/ada-guide.md

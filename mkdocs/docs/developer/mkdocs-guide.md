@@ -1,12 +1,14 @@
-# MkDocs guide
+# MkDocs - Documentation Guide
 
 We are using mkdocs to handle documentation.
 
-Developers should document their architectural and coding decisions in here, so that other team members can easily reference these docs whenever they are lost or confused or new to the project.
+Developers should document their architectural and coding decisions, so that other team members can easily reference these docs whenever they are lost or confused or new to the project.
 
 ### What is MKdocs?
 
 [MkDocs](https://www.mkdocs.org/) is a static site generator that is designed specifically for building project documentation. It allows you to write documentation using [Markdown](https://www.markdownguide.org/), a lightweight markup language that's easy to use, and generates a clean, professional website that can be hosted on our project's GitHub Pages.
+
+Please see [MkDocs - How to Edit](mkdocs-edit-instructions.md) for instructions on how to make changes to the CTJ documentation and publish new docs.
 
 ### What should developers document?
 
@@ -42,4 +44,7 @@ API Documentation
 
 ### What are best practices for documentation?
 
-Keep it updated and consistent. Be clear and concise. Write in simple terms. Use examples.
+- Keep it updated and consistent.
+- Be clear and concise.
+- Write in simple terms.
+- Use examples.
