@@ -101,6 +101,8 @@ The docs are set to automatically deploy to github pages using the `mkdocs-build
 
 ### Github Action for mkdocs deployment
 
+Links to the github action: [Build MkDocs site (develop)](https://github.com/hackforla/CivicTechJobs/actions/workflows/mkdocs-build.yml)
+
 ```yml
 name: Build MkDocs site (develop)
 

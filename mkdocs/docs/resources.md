@@ -19,6 +19,7 @@ More resources to be added as project progresses:
 2. [Project one sheet](https://docs.google.com/document/d/1bfxY8YlyCjzCL3oP0rpa77uEY4vuymDYZY_xWEgXiGs)
 3. [Our Shared Google Drive](https://drive.google.com/drive/folders/1hXxvpC8W5Uuzjqo4CxnjDpAMI7sbVnq8?usp=sharing&pli=1)
 4. [GitHub Workflow](https://docs.google.com/document/d/1CuRX6hhWzs8ydVCnl6OrGZ4LeVSk9X_pIzoKchAqFcU)
+5. [Milestones](https://github.com/hackforla/CivicTechJobs/milestones)
 
 ### Roadmaps
 
@@ -40,6 +41,10 @@ More resources to be added as project progresses:
 3. [Research Slide Deck](https://docs.google.com/presentation/d/1fJOK6-2YyMgLKfF4ZmJfR5YMUNic4hGn/edit#slide=id.p1)
 4. [Task and User Flow](https://whimsical.com/ctj-task-and-user-flow-8GgB5Moy14fnQDv24o1fGC)
 5. [HfLA Website Figma - Section for Volunteer Opportunities](https://www.figma.com/design/0RRPy1Ph7HafI3qOITg0Mr/Hack-for-LA-Website?node-id=5326-26395&t=x2ib7NJm3z5aB5H0-0)
+
+### Diagrams
+
+1. [Frontend and Backend UML diagrams](https://github.com/hackforla/CivicTechJobs/issues/236)
 
 ### For Developers
 
