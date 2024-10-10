@@ -1,29 +1,58 @@
-version: "3.9"  # Use the version of Docker Compose that you need
+name: civic-tech-jobs
 
 services:
-  db:
-    image: postgres:16  # Use the latest PostgreSQL image
+  pgdb:
+    image: postgres:16
+    container_name: pgdb
     volumes:
-      - ./data/db:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_USER=yourusername  # Set the username for the PostgreSQL database
-      - POSTGRES_PASSWORD=yourpassword  # Set the password for the PostgreSQL database
-      - POSTGRES_DB=yourdatabase  # Set the name of the database
+      - postgres_data:/lib/postgresql/data
+    env_file:
+      - dev/dev.env
     ports:
-      - "5432:5432"  # Map the PostgreSQL port to the host
+      - "5432:5432"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U yourusername -d yourdatabase"]
+      test: ["CMD-SHELL", "pg_isready"]
       interval: 10s
       timeout: 5s
       retries: 5
-  backend:
-    build: ./backend
-    command: python manage.py runserver 0.0.0.0:8000
-    restart: on-failure:10
-    volumes:
-      - .:/code
+  
+  django:
+    build:
+      context: backend
+      dockerfile: ../dev/django.dockerfile
+    container_name: django
+    command: >
+      sh -c "python manage.py makemigrations &&
+      python manage.py migrate &&
+      python manage.py runserver 0.0.0.0:8000 &&
+      python manage.py generateschema --file openapi-schema.yml"
     ports:
       - "8000:8000"
+    env_file:
+      - dev/dev.env
     depends_on:
-      db:
+      pgdb:
         condition: service_healthy
+    develop:
+      watch:
+        - action: sync
+          path: ./backend
+          target: /usr/src/app
+
+  vite:
+    build:
+      context: frontend
+      dockerfile: ../dev/vite.Dockerfile
+    container_name: vite
+    env_file:
+      - dev/dev.env
+    ports:
+      - "5175:5175"
+    develop:
+      watch:
+        - action: sync
+          path: ./frontend
+          target: /usr/src/app
+
+volumes:
+  postgres_data: {}
