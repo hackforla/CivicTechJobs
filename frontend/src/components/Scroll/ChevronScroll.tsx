@@ -13,9 +13,9 @@ function ChevronScroll(props: React.PropsWithChildren<{}>) {
     (e: React.UIEvent<HTMLDivElement>) => {
       const { scrollLeft, scrollWidth, clientWidth } = e.currentTarget;
       const maxScroll = scrollWidth - clientWidth - 1;
-      // show left chevron if not at start of scrollable area
+      // Show left chevron if not at the start of the scrollable area
       setShowLeftChevron(scrollLeft !== 0);
-      //show right chevron if not at end of scrollable area
+      // Show right chevron if not at the end of the scrollable area
       setShowRightChevron(scrollLeft < maxScroll);
     },
     []
@@ -32,7 +32,7 @@ function ChevronScroll(props: React.PropsWithChildren<{}>) {
         });
         setChildIndex(childIndex + 1);
       } else if (direction === "left") {
-        // if at end of scrollable area, don't want to skip over partially cut element
+        // If at the end of the scrollable area, don't skip over a partially cut element
         if (!showRightChevron) {
           scrollRef.current.scrollBy({
             left: -1,
@@ -50,13 +50,10 @@ function ChevronScroll(props: React.PropsWithChildren<{}>) {
   };
 
   return (
-    <div className="chevron-scroll-outer-container">
+    <div className="whitespace-nowrap flex w-[1088px] h-[47px]">
       <button
         className={combineClasses(
-          "chevron-scroll-left-btn",
-          "align-center",
-          "justify-center",
-          "row",
+          "bg-white px-[32px] py-0 cursor-pointer border-none justify-center",
           showLeftChevron ? undefined : "hidden"
         )}
         onClick={() => scrollMove("left")}
@@ -67,15 +64,13 @@ function ChevronScroll(props: React.PropsWithChildren<{}>) {
       <div
         ref={scrollRef}
         onScroll={handleChevronVisibility}
-        className="chevron-scroll-child-container"
+        className="scroll-snap-x mandatory overflow-auto flex items-center gap-4 scrollbar-none"
       >
         {props.children}
       </div>
       <button
         className={combineClasses(
-          "chevron-scroll-right-btn",
-          "align-center",
-          "row",
+          "bg-white px-[32px] py-0 cursor-pointer border-none justify-center",
           showRightChevron ? undefined : "hidden"
         )}
         onClick={() => scrollMove("right")}
@@ -83,7 +78,7 @@ function ChevronScroll(props: React.PropsWithChildren<{}>) {
       >
         <IconChevronRight />
       </button>
-      <button className="chevron-scroll-clear-btn">Clear all</button>
+      <button className="flex items-center underline font-bold text-lg text-gray-700 ml-4 bg-transparent p-0 border-none cursor-pointer">Clear all</button>
     </div>
   );
 }
