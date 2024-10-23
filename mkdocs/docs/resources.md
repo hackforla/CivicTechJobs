@@ -20,6 +20,8 @@ More resources to be added as project progresses:
 3. [Our Shared Google Drive](https://drive.google.com/drive/folders/1hXxvpC8W5Uuzjqo4CxnjDpAMI7sbVnq8?usp=sharing&pli=1)
 4. [GitHub Workflow](https://docs.google.com/document/d/1CuRX6hhWzs8ydVCnl6OrGZ4LeVSk9X_pIzoKchAqFcU)
 5. [Milestones](https://github.com/hackforla/CivicTechJobs/milestones)
+6. [Path to MVP](https://docs.google.com/spreadsheets/d/1oyLDs02q_t7-Goyqb547svJwyLlEWG4mv2Tr_ftIhps)
+7. [CTJ : HfLA Skills and Experience Matrix - Google Sheets](https://docs.google.com/spreadsheets/d/1_sCd8Kc2Tlhe--8UJLkgyDoqyQw_eZxhie3QTOwTHrM)
 
 ### Roadmaps
 
