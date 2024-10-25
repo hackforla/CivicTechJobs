@@ -17,7 +17,7 @@ Including another URLconf
 
 from django.http import JsonResponse
 
-# from django.contrib import admin
+from django.contrib import admin
 from django.urls import include, path, re_path
 from django.views.generic import TemplateView
 
@@ -36,6 +36,7 @@ def api_not_found(request, exception=None):
 
 urlpatterns = [
     path("api/", include("ctj_api.urls"), name="api"),
+    path("admin/", admin.site.urls),
     # Custom error handler for invalid API routes
     re_path(r"^api/.*$", api_not_found),  # Catch-all for incorrect API routes
     # Catch-all for frontend (React)
