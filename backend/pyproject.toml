@@ -30,8 +30,7 @@ exclude = '''
 /(
     \.git
     | \.venv
-    | build
-    | dist
+    | frontend
     | migrations
     | __pycache__
 )/
