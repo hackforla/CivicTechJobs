@@ -305,6 +305,14 @@ These steps help ensure a consistent coding style across the project, minimizing
   
 This ESLint setup ensures our codebase is both clean and accessible, while supporting best practices in React, TypeScript, and Tailwind CSS usage. For any adjustments to the rules or extensions, reach out to the team for further guidance.
 
+### Required Extensions for VS Code
+To ensure consistent code quality and style across the team, please install the following extensions in Visual Studio Code:
+
+Prettier: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+
+ESLint: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+
+
 ## Additional Resources
 
 [Sass Documentation](https://sass-lang.com/documentation)<br>
