@@ -21,8 +21,8 @@ function AuthNav() {
   };
 
   return (
-    <header className="h-16 py-1 px-3 w-full flex items-center justify-center shadow-[-1px_1px_2px_rgb(51,51,51,0.2)]">
-      <div className="grow flex justify-center">
+    <header className="flex h-16 w-full items-center justify-center px-3 py-1 shadow-[-1px_1px_2px_rgb(51,51,51,0.2)]">
+      <div className="flex grow justify-center">
         <a href="/">
           <img src={iconArrowLeft} alt="Back to home arrow" className="w-5" />
         </a>

@@ -12,9 +12,9 @@ function NotFoundPage() {
   return (
     <Fragment>
       <main>
-        <div className="not-found-container flex-container justify-between align-center gap-3">
+        <div className="not-found-container flex-container align-center justify-between gap-3">
           <div className="not-found-box">
-            <h1 className="not-found-title mt-0 mb-3">Page not found</h1>
+            <h1 className="not-found-title mb-3 mt-0">Page not found</h1>
             <p className="not-found-paragraph mb-3">
               We can't seem to find the page you're looking for. Try going back
               to the previous page.

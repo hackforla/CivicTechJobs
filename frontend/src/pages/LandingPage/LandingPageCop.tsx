@@ -28,16 +28,16 @@ function LandingPageCop() {
 
   return (
     <div className="flex-container align-center justify-center py-5">
-      <h2 className="col-12 text-center text-4xl font-bold leading-normal my-8">
+      <h2 className="col-12 my-8 text-center text-4xl font-bold leading-normal">
         Communities of Practice (COP)
       </h2>
-      <div className="row paragraph-1 text-center mb-5 landing-cop-description">
+      <div className="row paragraph-1 landing-cop-description mb-5 text-center">
         A Community of Practice (CoP) is a group of volunteers who share a
         common interest in a topic and meet regularly to fulfill both individual
         and group goals. We use CoPs to share effective practices and relevant
         domain knowledge to help our members grow.
       </div>
-      <div className="row m-10 landing-cop-circle-container">
+      <div className="row landing-cop-circle-container m-10">
         {copData.map((cop) => {
           return (
             <CircleCard
@@ -51,7 +51,7 @@ function LandingPageCop() {
               role="button"
             >
               <div className="flex-column">
-                <div className="pb-6 row justify-center">
+                <div className="row justify-center pb-6">
                   <cop.icon strokeWidth="0.2" height="65" aria-hidden="true" />
                 </div>
                 <div className="title-4 landing-cop-circle-title text-center">

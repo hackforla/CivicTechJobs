@@ -21,14 +21,14 @@ const PrivacyPolicyPage = () => {
   return (
     <div className="flex flex-col justify-between" role="main">
       <div
-        className="bg-no-repeat bg-bottom pb-24 bg-cover"
+        className="bg-cover bg-bottom bg-no-repeat pb-24"
         style={{ backgroundImage: `url(${privacyPageBg})` }}
       >
         <div className="flex justify-center">
-          <div className="w-4/5 mb-4">
+          <div className="mb-4 w-4/5">
             <div className="flex flex-row items-end">
               <div className="space-y-8">
-                <h1 className="my-6 text-4xl font-bold text-grey-dark py-8">
+                <h1 className="my-6 py-8 text-4xl font-bold text-grey-dark">
                   Privacy Policy
                 </h1>
                 <p className="text-grey-dark">
@@ -52,14 +52,14 @@ const PrivacyPolicyPage = () => {
               <img
                 src={privacyPolicyIllustration}
                 alt="Privacy Policiy Pana Illustration"
-                className="float-right w-52 ml-24 hidden lg:block"
+                className="float-right ml-24 hidden w-52 lg:block"
               />
             </div>
           </div>
         </div>
       </div>
-      <div className="flex justify-center mb-12">
-        <div className="w-4/5 mb-4 space-y-6">
+      <div className="mb-12 flex justify-center">
+        <div className="mb-4 w-4/5 space-y-6">
           <h2 className={styleClass.h2}>Overview</h2>
           <ul className={`${styleClass.bullets} space-y-4`}>
             <li>

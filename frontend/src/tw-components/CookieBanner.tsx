@@ -30,10 +30,10 @@ function CookieBanner(props: CookieBannerProps) {
       aria-label="cookies banner"
       className={`${
         hidden ? "hidden" : ""
-      } fixed flex flex-col bottom-12 left-1/2 transform -translate-x-1/2 bg-white w-3/4 p-4 z-50 rounded-lg shadow-2xl shadow-inner`}
+      } fixed bottom-12 left-1/2 z-50 flex w-3/4 -translate-x-1/2 transform flex-col rounded-lg bg-white p-4 shadow-2xl shadow-inner`}
     >
-      <div className="min-h-48 max-h-64 justify-between space-y-5 p-6">
-        <div className="flex flex-row justify-between items-center">
+      <div className="max-h-64 min-h-48 justify-between space-y-5 p-6">
+        <div className="flex flex-row items-center justify-between">
           <p className="text-xl font-bold text-charcoal">
             This site use cookies!
           </p>
@@ -51,21 +51,21 @@ function CookieBanner(props: CookieBannerProps) {
           our{" "}
           <a
             href="/privacypolicy"
-            className="text-blue-dark underline cursor-pointer hover:text-blue-dark-hover focus:bg-blue-dark-focused"
+            className="cursor-pointer text-blue-dark underline hover:text-blue-dark-hover focus:bg-blue-dark-focused"
           >
             Cookie Policy
           </a>
         </p>
         <div className="flex flex-row items-center space-x-12">
           <button
-            className="rounded px-10 py-1 bg-blue-dark text-white hover:bg-blue-dark-hover hover:shadow-lg focus:bg-blue-dark-focused"
+            className="rounded bg-blue-dark px-10 py-1 text-white hover:bg-blue-dark-hover hover:shadow-lg focus:bg-blue-dark-focused"
             onClick={handleAcceptCookies}
           >
             Accept
           </button>
           <button
             onClick={handleDeclineCookies}
-            className="text-blue-dark cursor-pointer hover:text-blue-dark-hover focus:bg-blue-dark-focused hover:drop-shadow-lg"
+            className="cursor-pointer text-blue-dark hover:text-blue-dark-hover hover:drop-shadow-lg focus:bg-blue-dark-focused"
           >
             No Thanks
           </button>

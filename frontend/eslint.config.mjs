@@ -31,6 +31,7 @@ export default [
       "@typescript-eslint/no-unused-vars": ["error"],
       "tailwindcss/no-contradicting-classname": "error",
       "tailwindcss/no-unnecessary-arbitrary-value": "error",
+      "tailwindcss/classnames-order": "error",
     },
   },
   {
