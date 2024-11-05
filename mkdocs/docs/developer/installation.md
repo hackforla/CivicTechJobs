@@ -21,16 +21,22 @@ The macOS version of git involves downloading extra programs, such as Homebrew. 
 2. [Clone our repository to a local version on your PC.](https://docs.github.com/en/get-started/quickstart/fork-a-repo#cloning-your-forked-repository)
 3. [Configuring Git to sync your fork with the original repository.](https://docs.github.com/en/get-started/quickstart/fork-a-repo#configuring-git-to-sync-your-fork-with-the-original-repository) When configuring, make sure to not blindly copy and paste the commands without making appropriate edits, especially when it involves your username or the repository name.
 
+While developing, make sure to create new branches off of the `develop` branch. To checkout the `develop` branch into your local repository, you can do the following:
+
+1. Navigate to the root of our directory, `CivicTechJobs/`, in the terminal.
+2. Run `git remote add upstream https://github.com/hackforla/CivicTechJobs.git` - this command adds the original hackforla CivicTechJobs github repo as a remote to your local repository and names it "upstream".
+3. Run `git fetch upstream develop` - this command fetches the `develop` branch.
+4. Run `git checkout -b develop upstream/develop` - this command creates and checks out a new branch called "develop" that tracks the upstream `develop` branch.
+
+
 ## Running Docker
 
 1. Navigate to the root of our directory, `CivicTechJobs/`, in the terminal.
 2. In `dev/`, create a file named, `dev.env`.
 3. In this newly created file, copy and paste the contents of `dev.env.example`. Afterwards, you must edit the lines specified below.
-4. Copy the existing `CivicTechJobs/dev/linter.env.example` and create a new file called `CivicTechJobs/dev/linter.env`
-5. In the terminal enter `docker compose build` and wait for the build to finish.
-6. Move to the frontend directory `cd frontend` and then `npm install`
-7. Then, enter `docker compose up` to run the local server.
-8. Visit http://localhost:8000/ and you should see the front page of our website!
+4. Move to the frontend directory `cd frontend` and then `npm install`. When this is finished, move back to the root directory `cd ..`
+5. Finally, enter `docker compose up --watch` to run the local server.
+6. Visit `http://localhost:8000` and you should see the front page of our website!
 
 <details>
 <summary>dev.env lines to edit</summary>
@@ -43,8 +49,16 @@ The macOS version of git involves downloading extra programs, such as Homebrew. 
    <li>SQL_USER: same as POSTGRES_USER</li>
    <li>SQL_PASSWORD: same as POSTGRES_PASSWORD</li>
 </ul>
+</details>
+
+<details>
+<summary>Note on docker `--watch` flag</summary>
+   <p>The `--watch` flag enables hot module reloads during development. This flag requires a later version of Docker Compose(<a href="https://docs.docker.com/compose/how-tos/file-watch/" target="_blank">2.22.0</a>).</p>
+   <p>If you are running into issues or getting errors running `docker compose up --watch`, please make sure you have installed the latest version of Docker and Docker Desktop on your machine.</p>
 </details><br>
 
+<!-- TODO: Fix the linter container  -->
+<!-- 
 ### Linting
 
 Executing `docker compose build linter` following the instructions above also creates a docker image called `linter` that can be used to run various linters/formatters against the source code. The [pre-commit](https://pre-commit.com/) is used to manage the linters/formatters, and the configurations for it can be found at: `CivicTechJobs/.pre-commit-config.yaml`
@@ -55,10 +69,11 @@ To run the linters/formatters:
 2. Fill out all the lines following the instructions in the example doc and save the `linter.env` file
 3. Run the linter/formatters using the following command:
 
-- `docker compose run linter` --> runs the linters/formatters against the files staged for commit via `git add <file>`
-- `docker compose run linter run --all-files` --> runs the linters/formatters across all non-excluded files in this repository
+- `docker compose run linter` - runs the linters/formatters against the files staged for commit via `git add <file>`
+- `docker compose run linter run --all-files` - runs the linters/formatters across all non-excluded files in this repository
 
 _Note_: The linter does not yet incorporate with [hadolint](https://github.com/hadolint/hadolint), a Dockerfile linter. To run hadolint locally, easiest way is via: `docker run --rm --interactive docker.io/hadolint/hadolint < Dockerfile`
+ -->
 
 ## Frequently Asked Questions
 

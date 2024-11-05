@@ -16,7 +16,7 @@ docs/
 .gitignore
 
 # Builds
-backend/vite_assets_dist
+backend/frontend/static/vite_assets_dist
 
 # vite
 frontend/vite.config.*.timestamp-*
