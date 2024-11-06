@@ -95,7 +95,7 @@ function Demo() {
                   addClass={combineClasses("mr-3", index >= 2 && "fill")}
                   onChange={(active, value) => {
                     console.log(
-                      `${value} was ${active ? "selected" : "deselected"}`
+                      `${value} was ${active ? "selected" : "deselected"}`,
                     );
                   }}
                   value={role}
@@ -113,7 +113,7 @@ function Demo() {
                   addClass={"mr-3"}
                   onChange={(active, value) => {
                     console.log(
-                      `${value} was ${active ? "selected" : "deselected"}`
+                      `${value} was ${active ? "selected" : "deselected"}`,
                     );
                   }}
                   value={role}

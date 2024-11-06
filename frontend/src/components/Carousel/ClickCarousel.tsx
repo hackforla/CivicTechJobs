@@ -1,6 +1,6 @@
 // External Imports
 import PropTypes from "prop-types";
-import React, { Fragment, useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
@@ -17,9 +17,8 @@ function ClickCarousel({ hidden = false, selected = 0, ...props }) {
     setLastIndex(props.items.length - 1);
   }, [props.items]);
 
-  function handleClick(increase:boolean) {
+  function handleClick(increase: boolean) {
     if (increase) {
-      console.log("clicked");
       if (index == lastIndex) {
         setIndex(0);
       } else {
@@ -39,7 +38,7 @@ function ClickCarousel({ hidden = false, selected = 0, ...props }) {
       className={combineClasses(
         "click-carousel",
         props.addClass,
-        isHidden ? "hidden" : ""
+        isHidden ? "hidden" : "",
       )}
     >
       <Button size="icon" onClick={() => handleClick(false)}>

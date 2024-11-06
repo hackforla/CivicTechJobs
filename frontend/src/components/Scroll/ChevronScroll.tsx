@@ -18,7 +18,7 @@ function ChevronScroll(props: React.PropsWithChildren<{}>) {
       //show right chevron if not at end of scrollable area
       setShowRightChevron(scrollLeft < maxScroll);
     },
-    []
+    [],
   );
 
   const scrollMove = (direction: string) => {
@@ -57,7 +57,7 @@ function ChevronScroll(props: React.PropsWithChildren<{}>) {
           "align-center",
           "justify-center",
           "row",
-          showLeftChevron ? undefined : "hidden"
+          showLeftChevron ? undefined : "hidden",
         )}
         onClick={() => scrollMove("left")}
         aria-label="Scroll left"
@@ -76,7 +76,7 @@ function ChevronScroll(props: React.PropsWithChildren<{}>) {
           "chevron-scroll-right-btn",
           "align-center",
           "row",
-          showRightChevron ? undefined : "hidden"
+          showRightChevron ? undefined : "hidden",
         )}
         onClick={() => scrollMove("right")}
         aria-label="Scroll right"

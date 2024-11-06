@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 // External Imports
 import React, { Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -55,7 +56,7 @@ const QualifierPageRoles: React.FC = () => {
           acc[cleanRoleName] = !allSelected; // Set all roles to true if not all are currently selected, otherwise set all to false
           return acc;
         },
-        {}
+        {},
       );
       return {
         ...prevState,
@@ -123,20 +124,20 @@ const QualifierPageRoles: React.FC = () => {
                       aria-pressed={
                         selectedRoles[cleanCopName] &&
                         Object.values(selectedRoles[cleanCopName]).every(
-                          (role) => role
+                          (role) => role,
                         )
                       }
                       onClick={() => handleSelectAll(cleanCopName, cop.roles)}
                       onKeyDown={(e) =>
                         onKey(
                           () => handleSelectAll(cleanCopName, cop.roles),
-                          "Enter"
+                          "Enter",
                         )(e)
                       }
                     >
                       {selectedRoles[cleanCopName] &&
                       Object.values(selectedRoles[cleanCopName]).every(
-                        (role) => role
+                        (role) => role,
                       )
                         ? "Deselect All"
                         : "Select All"}

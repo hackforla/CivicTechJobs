@@ -35,20 +35,20 @@ function HeaderNav() {
   };
 
   return (
-    <header className="h-16 py-1 px-3 w-full flex items-center justify-between lg:justify-around shadow-[-1px_1px_2px_rgb(51,51,51,0.2)]">
+    <header className="flex h-16 w-full items-center justify-between px-3 py-1 shadow-[-1px_1px_2px_rgb(51,51,51,0.2)] lg:justify-around">
       <div>
         <Logo />
       </div>
 
       <div className="flex items-center">
         <nav
-          className="max-md:hidden flex items-center justify-center"
+          className="flex items-center justify-center max-md:hidden"
           aria-label="header-navigation"
         >
           {menuItems.map((item, index) => {
             return (
               <a
-                className="hover:underline font-bold md:mx-6 lg:mx-8"
+                className="font-bold hover:underline md:mx-6 lg:mx-8"
                 href={item.link}
                 rel="noopener noreferrer"
                 key={index}
@@ -65,7 +65,7 @@ function HeaderNav() {
           </Button>
         </Link>
         <button
-          className="md:hidden ml-3"
+          className="ml-3 md:hidden"
           aria-expanded="false"
           aria-controls="menu"
           aria-label="Menu Options"

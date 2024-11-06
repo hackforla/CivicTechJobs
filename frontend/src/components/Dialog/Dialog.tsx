@@ -22,7 +22,7 @@ function Dialog({ open = false, ...props }: DialogProps) {
   useEffect(() => {
     if (isBackdropOpen) {
       const scrollWidth = Math.abs(
-        window.innerWidth - document.documentElement.clientWidth
+        window.innerWidth - document.documentElement.clientWidth,
       );
       document.body.style.paddingRight = `${scrollWidth}px`;
       document.body.style.overflow = "hidden";
@@ -47,7 +47,7 @@ function Dialog({ open = false, ...props }: DialogProps) {
       className={combineClasses(
         "dialog-backdrop",
         !isBackdropOpen && "hidden",
-        props.addClass
+        props.addClass,
       )}
       ref={windowRef}
       onClick={handleClose}
