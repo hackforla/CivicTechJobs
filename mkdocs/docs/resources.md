@@ -47,6 +47,8 @@ More resources to be added as project progresses:
 ### Diagrams
 
 1. [Frontend and Backend UML diagrams](https://github.com/hackforla/CivicTechJobs/issues/236)
+2. [Data Model diagram](https://dbdiagram.io/d/hfla-civic-tech-jobs-671ad87097a66db9a333224e)
+3. [E2E flow](https://drive.google.com/file/d/1Ux9yUAEs5q2dFoLDtxRaObdxB1RK08zK/view?usp=drive_link)
 
 ### For Developers
 
