@@ -17,19 +17,19 @@ describe("ProgressBar", () => {
     expect(screen.getByText("page number:")).toBeInTheDocument();
     expect(screen.getByRole("progressbar")).toHaveAttribute(
       "aria-valuemin",
-      "1"
+      "1",
     );
     expect(screen.getByRole("progressbar")).toHaveAttribute(
       "aria-valuemax",
-      "4"
+      "4",
     );
     expect(screen.getByRole("progressbar")).toHaveAttribute(
       "aria-valuenow",
-      "2"
+      "2",
     );
     expect(screen.getByRole("progressbar")).not.toHaveAttribute(
       "aria-valuenow",
-      "1"
+      "1",
     );
   });
 });

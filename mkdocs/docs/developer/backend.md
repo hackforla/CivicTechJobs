@@ -44,6 +44,8 @@ _<p style="text-align: center;">Overall project structure</p>_
 
 _<p style="text-align: center;">Backend Architecture</p>_
 
+These diagrams show how data flows through the app: [Frontend and Backend UML diagrams](https://github.com/hackforla/CivicTechJobs/issues/236)
+
 ## Summary
 
 **Backend Tech Stack**: Django, DjangoRESTFramework

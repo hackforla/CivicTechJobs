@@ -13,8 +13,11 @@ import {
 import { QualifierNav, QualifierTitle } from "./QualifierComponents";
 import { timezones } from "../../api_data/timezoneData";
 import { iconArrowLeft } from "assets/images/images";
+// import { useQualifiersContext } from "context/QualifiersContext";
 
 function QualifierPageCalendar() {
+  // const {qualifiers} = useQualifiersContext();
+  // console.log(qualifiers);
   const navigate = useNavigate();
 
   return (

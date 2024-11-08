@@ -7,9 +7,9 @@ const TopSvg: FC<SVGProps<SVGSVGElement>> = (props) => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
-    className="w-full h-1/3"
+    className="h-1/3 w-full"
   >
-    <g clip-path="url(#clip0_6412_58802)">
+    <g clipPath="url(#clip0_6412_58802)">
       <path
         opacity="0.5"
         d="M644 374.717C999.77 437.091 1245.5 429.53 1441 355L1441 785L-3.75918e-05 785L-3.45772e-06 394.552C-3.45772e-06 394.552 426.5 336.584 644 374.717Z"
@@ -34,8 +34,8 @@ const TopSvg: FC<SVGProps<SVGSVGElement>> = (props) => (
         y2="785"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFEFDB" />
-        <stop offset="0.339691" stop-color="#FFEFDB" stop-opacity="0" />
+        <stop stopColor="#FFEFDB" />
+        <stop offset="0.339691" stopColor="#FFEFDB" stopOpacity="0" />
       </linearGradient>
       <clipPath id="clip0_6412_58802">
         <rect width="1440" height="520" fill="white" />

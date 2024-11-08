@@ -55,18 +55,18 @@ export default function LoginForm() {
           }}
           errors={errors.password}
         />
-        <div className="flex mb-4">
+        <div className="mb-4 flex">
           <input type="checkbox" className="mr-2" />
           <p className="text-grey-dark">Keep me signed in</p>
         </div>
-        <button className="font-bold w-full text-white py-[12px] rounded-3xl bg-blue-dark hover:bg-blue-dark-hover hover:shadow-lg focus:bg-blue-dark-focused">
+        <button className="w-full rounded-3xl bg-blue-dark py-[12px] font-bold text-white hover:bg-blue-dark-hover hover:shadow-lg focus:bg-blue-dark-focused">
           Login
         </button>
       </form>
-      <div className="text-center mt-4">
+      <div className="mt-4 text-center">
         <p>
           New to Civic Tech Jobs?{" "}
-          <Link to="/signup" className="text-blue-dark font-bold underline">
+          <Link to="/signup" className="font-bold text-blue-dark underline">
             Sign up
           </Link>
         </p>

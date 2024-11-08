@@ -65,7 +65,7 @@ function Checkbox({
       <label
         className={combineClasses(
           "checkbox-label",
-          disabled && "checkbox-disabled"
+          disabled && "checkbox-disabled",
         )}
         htmlFor={checkboxId}
       >

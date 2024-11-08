@@ -61,7 +61,7 @@ function Notification({
           "flex-center-x",
           "align-center",
           "notification",
-          isHidden && "hidden"
+          isHidden && "hidden",
         )}
         aria-hidden={isHidden}
         role={role}

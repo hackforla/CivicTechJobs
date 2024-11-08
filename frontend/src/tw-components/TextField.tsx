@@ -31,10 +31,10 @@ export default function TextField({
 }: TextFieldProps) {
   return (
     <div className="w-full">
-      <div className="mb-1 font-bold text-base">
+      <div className="mb-1 text-base font-bold">
         <label htmlFor={id}>{label}</label>
         {type === "password" && (
-          <span className="text-blue-dark font-bold underline float-right cursor-pointer">
+          <span className="float-right cursor-pointer font-bold text-blue-dark underline">
             Forgot password?
           </span>
         )}
@@ -44,20 +44,20 @@ export default function TextField({
           id={id}
           type={type}
           {...register(id, validations)}
-          className={`h-11 w-full px-2 border rounded-lg ${
+          className={`h-11 w-full rounded-lg border px-2 ${
             errors
               ? "border-red focus:outline-red"
               : "border-grey focus:outline-blue-dark"
           }`}
         />
         {type === "password" && (
-          <div className="absolute inset-y-0 right-0 pr-2 flex items-center">
+          <div className="absolute inset-y-0 right-0 flex items-center pr-2">
             <IconEyeOpen />
           </div>
         )}
       </div>
 
-      <div className="h-8 text-red font-gothic font-bold flex flex-col justify-center">
+      <div className="font-gothic flex h-8 flex-col justify-center font-bold text-red">
         {errors && errors.message}
       </div>
     </div>

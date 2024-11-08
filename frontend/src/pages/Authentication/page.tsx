@@ -16,12 +16,15 @@ export default function AuthenticationPage() {
   return (
     <>
       <AuthNav />
-      <div className="flex flex-row" style={{ height: "calc(100vh - 64px)", overflow: "hidden" }}>
-        <div className="max-lg:hidden lg:basis-1/2 bg-tan-light relative">
+      <div
+        className="flex flex-row"
+        style={{ height: "calc(100vh - 64px)", overflow: "hidden" }}
+      >
+        <div className="relative bg-tan-light max-lg:hidden lg:basis-1/2">
           <img
             src={loginIllustration}
             alt="Team work Pana Illustration"
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4/5 z-20"
+            className="absolute left-1/2 top-1/2 z-20 w-4/5 -translate-x-1/2 -translate-y-1/2 transform"
           />
           <img
             src={loginTanBg}
@@ -31,18 +34,18 @@ export default function AuthenticationPage() {
           <img
             src={dotsSvg}
             alt="Corner dots pattern"
-            className="absolute -top-4 -right-4 w-1/6 h-1/6 transform rotate-290 z-10"
+            className="absolute -right-4 -top-4 z-10 h-1/6 w-1/6 rotate-290 transform"
           />
           <img
             src={dotsSvg}
             alt="Corner dots pattern"
-            className="absolute -bottom-4 -left-4 w-1/6 h-1/6 transform rotate-345 z-10"
+            className="absolute -bottom-4 -left-4 z-10 h-1/6 w-1/6 rotate-345 transform"
           />
         </div>
-        <div className="w-full lg:basis-1/2 bg-tan">
-          <div className="flex flex-col justify-center items-center h-full lg:bg-white">
+        <div className="w-full bg-tan lg:basis-1/2">
+          <div className="flex h-full flex-col items-center justify-center lg:bg-white">
             <div className="w-10/12 lg:w-[439px]">
-              <div className="bg-white rounded-2xl lg:bg-transparent max-lg:p-7">
+              <div className="lg:bg-transparent rounded-2xl bg-white max-lg:p-7">
                 {pathname === "/login" && <LoginForm />}
                 {pathname === "/signup" && <SignupForm />}
               </div>

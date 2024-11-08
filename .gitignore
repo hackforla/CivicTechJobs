@@ -3,6 +3,7 @@ db.sqlite3
 secret_key.txt
 dev.env
 stage.env
+.env
 __pycache__
 .vscode/
 *venv/
@@ -10,12 +11,13 @@ app/frontend/static/frontend/*
 !app/frontend/static/frontend/.gitkeep
 app/frontend/templates/frontend/*
 !app/frontend/templates/frontend/.gitkeep
-data/
 
 **/super-linter.log
 app/staticfiles
 
 dev/linter.env
 .DS_store
-
+data
 .idea
+
+backend/frontend/static/vite_assets_dist

@@ -51,7 +51,10 @@ function Calendar({ value = "0".repeat(24 * 2 * 7), ...props }: CalendarProps) {
     props.onChange(data);
   }, [data]);
   return (
-    <div className={combineClasses("flex-container fill", props.addClass)} data-testid="calendar-root">
+    <div
+      className={combineClasses("flex-container fill", props.addClass)}
+      data-testid="calendar-root"
+    >
       {/* Side column with headers. Needs to be separate due to labels being on the border, and alternating */}
       <CalendarHeaderColumn rowNames={hoursOfDay()} />
       <div style={{ flex: "2 1 0" }}>
@@ -131,13 +134,13 @@ function CalendarRow(props: CalendarRowProps) {
     <tr
       className={combineClasses(
         "calendar-row",
-        props.rowNum % 2 == 0 ? "dashed" : "solid"
+        props.rowNum % 2 == 0 ? "dashed" : "solid",
       )}
     >
       <td
         className={combineClasses(
           "calendar-ticks-left",
-          props.rowNum % 2 == 0 ? "dashed" : "solid"
+          props.rowNum % 2 == 0 ? "dashed" : "solid",
         )}
         aria-hidden={true}
       ></td>
@@ -158,13 +161,13 @@ function CalendarCell({
   const [next, nextdata, handleSelect] = useDragToSelectUnselect(
     cell,
     data,
-    toSelect
+    toSelect,
   );
   useEffect(() => {
     setData(nextdata);
   }, [next]);
 
-  function mouseDown(e: any) {
+  function mouseDown() {
     setToSelect(!next);
     setIsMouseDown(true);
   }
@@ -180,7 +183,7 @@ function CalendarCell({
       className={combineClasses(
         "calendar-cell",
         cell.row % 2 == 0 ? "dashed" : "solid",
-        next && "selected"
+        next && "selected",
       )}
     >
       <div

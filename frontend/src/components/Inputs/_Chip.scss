@@ -1,5 +1,5 @@
 // Internal Imports
-@use "../Basics/" as *;
+@use "../Basics" as *;
 
 @mixin chip-base {
   background-color: $color-white;

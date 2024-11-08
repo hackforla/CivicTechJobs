@@ -38,6 +38,8 @@ _<p style="text-align: center;">Overall project structure</p>_
 │       ├── components/
 │           ├── Apps.js
 │           └── <Components>/
+│       ├── context/
+│           ├── QualifiersContext.tsx
 │       ├── pages/
 │       ├── templates/
 │           └── index.html
@@ -54,6 +56,8 @@ _<p style="text-align: center;">Overall project structure</p>_
 ```
 
 _<p style="text-align: center;">Frontend Architecture</p>_
+
+These diagrams show how data flows through the app: [Frontend and Backend UML diagrams](https://github.com/hackforla/CivicTechJobs/issues/236)
 
 ## Summary
 
@@ -75,6 +79,46 @@ The files that should be manipulated by developers are housed within the `src/` 
 - **frontend/src/:** houses all the files for developers to manipulate. The files here are read by webpack before being bundled into the `static/` and `templates/` directories.
   - **assets/:** this is where we store all of our miscellaneous files, such as .jpegs, .svgs, .gifs, etc.
   - **componenents/:** this is where we store the files that generate our components, such as buttons and cards. To learn more about this in-depth, read the [components](#components-directory) section of this guide.
+  - **context/:** contains the logic and data management utilities related to context providers and consumers. Contexts are used for managing global state within our application, providing a way to pass data through the component tree without having to pass props manually at every level. - **COP (Community of Practice) JSON Structure:** The COP data represents different communities of practice within our organization, each consisting of various roles and descriptions. Below is the JSON structure of the COP data for QualifierPageRoles.tsx:
+  ```
+  {
+    "COPs": {
+      "UI/UX": [
+        "UI/UX_Designer",
+        "UX_Researcher",
+        "UX_Writing",
+        "UX_Practice_Lead"
+      ],
+      "Engineering": [
+        "Back_End_Developer",
+        "Front_End_Developer",
+        "Full_Stack_Developer",
+        "Engineering_Practice_Lead"
+      ],
+      "Data_Science": [
+        "Data_Scientist",
+        "Data_Analyst",
+        "Data_Engineer",
+        "Data_Science_Practice_Lead"
+      ],
+      "Project/Product_Management": [
+        "Product_Manager",
+        "Project_Manager",
+        "Business_Analyst",
+        "Product_Owner",
+        "Special_Projects_Coordinator",
+        "Product_Management_Practice_Lead"
+      ],
+      "DevOps": [
+        "Site_Reliability_Engineer",
+        "Data_Engineer",
+        "Database_Architect",
+        "Security_Engineer",
+        "DevOps_Practice_Lead"
+      ]
+    }
+  }
+  ```
   - **pages/:** contains the React files that pools together various components to generate a page.
   - **router/:** contains the routing logic for the project. It uses the [React-Router library](https://reactrouter.com/docs/en/v6).
   - **templates/:** contains HTML files that are then generated into the regular templates directory. To learn more about how webpack bundle our files, read the [webpack](#webpack-configurations) section of this guide.
@@ -182,6 +226,94 @@ Note: `jest-environment-jsdom` is a library that is absolutely required to link 
 ### Accessibility Testing
 
 In addition to testing the functioning of our components, we also test the accessability of it via the library, [@axe-core/react](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/react). This library prints out accessibility issues onto the browser console, providing accessibiltiy testing once the HTML has fully rendered. That said, the library is known to give both false positives and false negatives. As always reading the official documentation is best when it comes to resolving these errors.
+
+## ESLint Configuration Documentation for Frontend Developers
+
+Our ESLint configuration is tailored to help us maintain a clean, consistent codebase with special attention to React, TypeScript, Tailwind CSS, and accessibility standards. Below is an overview of the main components and rules in the configuration and how they function.
+
+### Plugins and Extensions
+This configuration uses several plugins to enhance linting capabilities:
+
+1. **@eslint/js** - Provides basic JavaScript linting rules.
+2. **typescript-eslint** - Adds TypeScript support, integrating rules to enforce TypeScript-specific syntax and best practices.
+3. **eslint-plugin-react** - Adds React-specific linting rules to ensure best practices with JSX.
+4. **eslint-plugin-prettier** - Enforces code formatting consistency, using Prettier's rules.
+5. **eslint-plugin-tailwindcss** - Adds rules specific to Tailwind CSS, helping with class management and preventing misconfigured or conflicting classes.
+6. **eslint-plugin-react-hooks** - Enforces React Hooks rules, including hook dependency checking.
+7. **eslint-plugin-jsx-a11y** - Adds accessibility rules for JSX, ensuring the markup adheres to accessibility standards.
+
+### Key Configuration Options
+
+1. **File Matching**  
+   The configuration applies to all JavaScript, JSX, TypeScript, and TSX files in the project, matching the following patterns:
+   - `**/*.js`
+   - `**/*.jsx`
+   - `**/*.ts`
+   - `**/*.tsx`
+
+2. **Global Environment**  
+   Sets up global variables specific to browser environments to avoid undefined variable errors.
+
+3. **React Settings**  
+   Automatically detects the version of React being used, which optimizes the linting experience.
+
+4. **Rules**
+
+   - **General Rules:**
+     - `no-unused-vars`: Warns about variables defined but not used.
+     - `no-console`: Warns when `console` statements are used in production code.
+     - `indent`: Enforces a 2-space indentation style for code consistency.
+     - `no-irregular-whitespace`: Prevents errors caused by unexpected whitespace.
+
+   - **Prettier Integration**:  
+     - `prettier/prettier`: Enforces Prettier's formatting rules for a consistent code style.
+
+   - **React-Specific Rules:**
+     - `react/no-unescaped-entities`: Disabled globally. To bypass, use `/* eslint-disable react/no-unescaped-entities */` at the top of a file when necessary.
+     - `react-hooks/rules-of-hooks`: Ensures hooks are only used within functional components and custom hooks.
+     - `react-hooks/exhaustive-deps`: Warns about missing dependencies in effect hooks.
+
+   - **TypeScript Rules:**
+     - `@typescript-eslint/no-unused-vars`: Flags unused variables in TypeScript code as errors.
+
+   - **Tailwind CSS Rules:**
+     - `tailwindcss/no-contradicting-classname`: Prevents usage of conflicting Tailwind CSS classes.
+     - `tailwindcss/no-unnecessary-arbitrary-value`: Warns about arbitrary values in Tailwind that could be simplified.
+     - `tailwindcss/classnames-order`: Enforces consistent order of Tailwind CSS classes.
+
+   - **Accessibility Rules (JSX A11y)**:
+     - `jsx-a11y/alt-text`: Ensures all `img` elements have an `alt` attribute for accessibility.
+
+5. **Ignored Files and Folders**
+   - Certain files and folders are ignored to avoid unnecessary linting errors, such as `node_modules/`, config files (`*.config.js`), and mock data in `tests/__mocks__`.
+
+### Notes on Using ESLint in Development
+
+- **Disabling Rules Temporarily**: If you encounter specific rule warnings or errors that are intentional or irrelevant to your case, you can disable rules at the file or line level using `// eslint-disable` comments.
+- **Testing New Plugins or Rules**: When new plugins or rules are added, test them in a few sample files to ensure compatibility and expected behavior.
+
+### Running Linter and Formatter
+To help maintain consistent code quality and style across the project, we’ve set up commands for both linting and formatting. Here’s how to use them:
+
+### Linting:
+
+Run the linter using `npm run lint`. This command will analyze all files in the project for potential linting issues. It will attempt to auto-fix any issues it can and will display whether the code passed or failed the check.
+If there are any issues that cannot be auto-fixed, the output will provide details so they can be manually reviewed and addressed.
+
+### Formatting:
+
+Run the formatter using `npm run format`. This command will format all JavaScript, TypeScript, and JSON files in the project, skipping any files specified in .gitignore.
+These steps help ensure a consistent coding style across the project, minimizing style-related issues and making code easier to read and maintain.
+  
+This ESLint setup ensures our codebase is both clean and accessible, while supporting best practices in React, TypeScript, and Tailwind CSS usage. For any adjustments to the rules or extensions, reach out to the team for further guidance.
+
+### Required Extensions for VS Code
+To ensure consistent code quality and style across the team, please install the following extensions in Visual Studio Code:
+
+Prettier: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+
+ESLint: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+
 
 ## Additional Resources
 
