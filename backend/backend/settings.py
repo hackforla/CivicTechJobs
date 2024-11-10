@@ -32,7 +32,6 @@ DEBUG = config("DEBUG", default=False, cast=bool)
 ALLOWED_HOSTS = config("DJANGO_ALLOWED_HOSTS", default="localhost").split(" ")
 
 # Application definition
-
 INSTALLED_APPS = [
     "daphne",
     "django.contrib.admin",
@@ -74,8 +73,20 @@ TEMPLATES = [
     },
 ]
 
+# Deployment configs
 WSGI_APPLICATION = "backend.wsgi.application"
 ASGI_APPLICATION = "backend.asgi.application"
+
+ENVIRON = config("ENVIRON")
+
+# Deployment checklist
+# https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
+CSRF_COOKIE_SECURE = ENVIRON == "stage"
+SESSION_COOKIE_SECURE = ENVIRON == "stage"
+SECURE_SSL_REDIRECT = ENVIRON == "stage"
+SECURE_HSTS_SECONDS = 31536000 if ENVIRON == "stage" else None
+SECURE_HSTS_INCLUDE_SUBDOMAINS = ENVIRON == "stage"
+SECURE_HSTS_PRELOAD = ENVIRON == "stage"
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
