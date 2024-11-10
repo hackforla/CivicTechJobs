@@ -30,8 +30,8 @@ ALLOWED_HOSTS = config("DJANGO_ALLOWED_HOSTS", default="localhost").split(" ")
 
 # Application definition
 INSTALLED_APPS = [
-    "whitenoise.runserver_nostatic",
     "daphne",
+    "whitenoise.runserver_nostatic",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -79,12 +79,15 @@ ENVIRON = config("ENVIRON")
 
 # Deployment - security checklist
 # https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
-CSRF_COOKIE_SECURE = ENVIRON == "stage"
-SESSION_COOKIE_SECURE = ENVIRON == "stage"
-SECURE_SSL_REDIRECT = ENVIRON == "stage"
-SECURE_HSTS_SECONDS = 31536000 if ENVIRON == "stage" else None
-SECURE_HSTS_INCLUDE_SUBDOMAINS = ENVIRON == "stage"
-SECURE_HSTS_PRELOAD = ENVIRON == "stage"
+# These vars should all be set to `True` in prod
+CSRF_COOKIE_SECURE = config("CSRF_COOKIE_SECURE", default=False, cast=bool)
+SESSION_COOKIE_SECURE = config("SESSION_COOKIE_SECURE", default=False, cast=bool)
+SECURE_SSL_REDIRECT = config("SECURE_SSL_REDIRECT", default=False, cast=bool)
+SECURE_HSTS_SECONDS = (
+    31536000 if config("HSTS_ENABLED", default=False, cast=bool) else None
+)
+SECURE_HSTS_INCLUDE_SUBDOMAINS = config("HSTS_ENABLED", default=False, cast=bool)
+SECURE_HSTS_PRELOAD = config("HSTS_ENABLED", default=False, cast=bool)
 
 
 # Whitenoise settings
