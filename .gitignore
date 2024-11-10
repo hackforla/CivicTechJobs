@@ -1,23 +1,28 @@
-node_modules
-db.sqlite3
-secret_key.txt
+# Environment files
+.env
 dev.env
 stage.env
-.env
-__pycache__
-.vscode/
+secret_key.txt
 *venv/
-app/frontend/static/frontend/*
-!app/frontend/static/frontend/.gitkeep
-app/frontend/templates/frontend/*
-!app/frontend/templates/frontend/.gitkeep
 
-**/super-linter.log
-app/staticfiles
-
-dev/linter.env
-.DS_store
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
+db.sqlite3
 data
-.idea
+media
 
+# IDEs
+.vscode/
+.idea
+.DS_store
+
+# linters
+dev/linter.env
+**/super-linter.log
+
+# static build files
 backend/frontend/static/vite_assets_dist
+backend/staticfiles
