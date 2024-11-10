@@ -10,18 +10,15 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
-from pathlib import Path
-from decouple import config
 import re
+from pathlib import Path
+
+from decouple import config
 
 VERSION = "1.0.0"
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config("SECRET_KEY")
@@ -75,19 +72,12 @@ TEMPLATES = [
     },
 ]
 
-STORAGES = {
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
-
-# Deployment configs
 WSGI_APPLICATION = "backend.wsgi.application"
 ASGI_APPLICATION = "backend.asgi.application"
 
 ENVIRON = config("ENVIRON")
 
-# Deployment checklist
+# Deployment - security checklist
 # https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 CSRF_COOKIE_SECURE = ENVIRON == "stage"
 SESSION_COOKIE_SECURE = ENVIRON == "stage"
@@ -97,7 +87,7 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = ENVIRON == "stage"
 SECURE_HSTS_PRELOAD = ENVIRON == "stage"
 
 
-# Whitenoise config
+# Whitenoise settings
 # http://whitenoise.evans.io/en/stable/django.html#WHITENOISE_IMMUTABLE_FILE_TEST
 def immutable_file_test(path, url):
     # Match vite (rollup)-generated hashes, à la, `some_file-CSliV9zW.js`
@@ -106,6 +96,11 @@ def immutable_file_test(path, url):
 
 WHITENOISE_IMMUTABLE_FILE_TEST = immutable_file_test
 
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -120,6 +115,11 @@ DATABASES = {
         "PORT": config("SQL_PORT"),
     }
 }
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -157,11 +157,6 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # django-vite settings
