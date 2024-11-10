@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-
 from decouple import config
+import re
 
 VERSION = "1.0.0"
 
@@ -33,6 +33,7 @@ ALLOWED_HOSTS = config("DJANGO_ALLOWED_HOSTS", default="localhost").split(" ")
 
 # Application definition
 INSTALLED_APPS = [
+    "whitenoise.runserver_nostatic",
     "daphne",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -73,6 +75,12 @@ TEMPLATES = [
     },
 ]
 
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
 # Deployment configs
 WSGI_APPLICATION = "backend.wsgi.application"
 ASGI_APPLICATION = "backend.asgi.application"
@@ -87,6 +95,17 @@ SECURE_SSL_REDIRECT = ENVIRON == "stage"
 SECURE_HSTS_SECONDS = 31536000 if ENVIRON == "stage" else None
 SECURE_HSTS_INCLUDE_SUBDOMAINS = ENVIRON == "stage"
 SECURE_HSTS_PRELOAD = ENVIRON == "stage"
+
+
+# Whitenoise config
+# http://whitenoise.evans.io/en/stable/django.html#WHITENOISE_IMMUTABLE_FILE_TEST
+def immutable_file_test(path, url):
+    # Match vite (rollup)-generated hashes, à la, `some_file-CSliV9zW.js`
+    return re.match(r"^.+[.-][0-9a-zA-Z_-]{8,12}\..+$", url)
+
+
+WHITENOISE_IMMUTABLE_FILE_TEST = immutable_file_test
+
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -137,6 +156,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
