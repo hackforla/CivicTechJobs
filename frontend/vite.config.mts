@@ -6,7 +6,7 @@ import { resolve, join } from "path";
 
 export default defineConfig(() => {
   const INPUT_DIR = "./src";
-  const OUTPUT_DIR = "../backend/frontend/static/vite_assets_dist";
+  const OUTPUT_DIR = "./dist";
 
   return {
     //to resolve relative file paths for sass (no plugin)

@@ -183,3 +183,4 @@ DJANGO_VITE = {
 # Add the build.outDir from vite.config.js to STATICFILES_DIRS
 # so that collectstatic can collect your compiled vite assets.
 STATICFILES_DIRS = [BASE_DIR / "frontend/static/vite_assets_dist"]
+# Note: When building, these files need to be copied over from /frontend/dist
