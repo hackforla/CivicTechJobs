@@ -12,6 +12,9 @@ ENV PYTHONUNBUFFERED 1s
 RUN apk update && apk upgrade && \
     apk add --no-cache gcc g++ musl-dev curl libffi-dev postgresql-dev zlib-dev jpeg-dev freetype-dev
 
+# Set up the shell to fail on any command error, improving reliability
+SHELL ["/bin/ash", "-o", "pipefail", "-c"]
+
 # Install Poetry
 RUN curl -sSL https://install.python-poetry.org | python3 -
 

@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import re
 from pathlib import Path
 
 from decouple import config
@@ -18,10 +19,6 @@ VERSION = "1.0.0"
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config("SECRET_KEY")
@@ -32,8 +29,9 @@ DEBUG = config("DEBUG", default=False, cast=bool)
 ALLOWED_HOSTS = config("DJANGO_ALLOWED_HOSTS", default="localhost").split(" ")
 
 # Application definition
-
 INSTALLED_APPS = [
+    "daphne",
+    "whitenoise.runserver_nostatic",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -47,6 +45,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -74,7 +73,37 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "backend.wsgi.application"
+ASGI_APPLICATION = "backend.asgi.application"
 
+ENVIRON = config("ENVIRON")
+
+# Deployment - security checklist
+# https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
+# These vars should all be set to `True` in prod
+CSRF_COOKIE_SECURE = config("CSRF_COOKIE_SECURE", default=False, cast=bool)
+SESSION_COOKIE_SECURE = config("SESSION_COOKIE_SECURE", default=False, cast=bool)
+SECURE_SSL_REDIRECT = config("SECURE_SSL_REDIRECT", default=False, cast=bool)
+SECURE_HSTS_SECONDS = (
+    31536000 if config("HSTS_ENABLED", default=False, cast=bool) else None
+)
+SECURE_HSTS_INCLUDE_SUBDOMAINS = config("HSTS_ENABLED", default=False, cast=bool)
+SECURE_HSTS_PRELOAD = config("HSTS_ENABLED", default=False, cast=bool)
+
+
+# Whitenoise settings
+# http://whitenoise.evans.io/en/stable/django.html#WHITENOISE_IMMUTABLE_FILE_TEST
+def immutable_file_test(path, url):
+    # Match vite (rollup)-generated hashes, à la, `some_file-CSliV9zW.js`
+    return re.match(r"^.+[.-][0-9a-zA-Z_-]{8,12}\..+$", url)
+
+
+WHITENOISE_IMMUTABLE_FILE_TEST = immutable_file_test
+
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -89,6 +118,11 @@ DATABASES = {
         "PORT": config("SQL_PORT"),
     }
 }
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -125,11 +159,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = "static/"
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 
 # django-vite settings
@@ -153,3 +183,4 @@ DJANGO_VITE = {
 # Add the build.outDir from vite.config.js to STATICFILES_DIRS
 # so that collectstatic can collect your compiled vite assets.
 STATICFILES_DIRS = [BASE_DIR / "frontend/static/vite_assets_dist"]
+# Note: When building, these files need to be copied over from /frontend/dist

@@ -2,9 +2,23 @@ dev
 stage
 docs/
 
+# Environment files
+.env
+*/*.env
+*venv/
+.DS_store
+
 # Dependency directories
 **/node_modules/
+
+# Django
+*.log
+*.pot
+*.pyc
 **/__pycache__/
+db.sqlite3
+data
+media
 
 # Docker
 */Dockerfile
@@ -17,6 +31,8 @@ docs/
 
 # Builds
 backend/frontend/static/vite_assets_dist
+backend/staticfiles
 
 # vite
 frontend/vite.config.*.timestamp-*
+frontend/dist

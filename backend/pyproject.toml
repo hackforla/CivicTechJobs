@@ -12,6 +12,11 @@ psycopg2-binary = "^2.9.9"
 djangorestframework = "^3.15.2"
 django-vite = "^3.0.4"
 python-decouple = "^3.8"
+daphne = "^4.1.2"
+whitenoise = "^6.8.2"
+inflection = "^0.5.1"
+uritemplate = "^4.1.1"
+pyyaml = "^6.0.2"
 
 
 [tool.poetry.group.dev.dependencies]
