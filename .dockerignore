@@ -34,6 +34,7 @@ mkdocs
 # Builds
 backend/frontend/static/vite_assets_dist
 backend/staticfiles
+backend/openapi-schema.yml
 
 # vite
 frontend/vite.config.*.timestamp-*
