@@ -1,6 +1,8 @@
+# stage dockerignore
+
 dev
 stage
-docs/
+mkdocs
 
 # Environment files
 .env

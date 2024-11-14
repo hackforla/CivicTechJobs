@@ -1,0 +1,23 @@
+# frontend dockerignore
+# .dockerignore should be in the build context root
+
+# Environment files
+.env
+*/*.env
+.DS_store
+
+# Dependency directories
+**/node_modules/
+
+# Docker
+.dockerignore
+
+# git
+.git
+.gitignore
+
+# builds
+dist
+
+# vite
+vite.config.*.timestamp-*
