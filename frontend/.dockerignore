@@ -12,6 +12,10 @@
 # Docker
 .dockerignore
 
+# git
+.git
+.gitignore
+
 # builds
 dist
 
