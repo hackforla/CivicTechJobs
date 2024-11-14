@@ -5,19 +5,20 @@ import { useNavigate } from "react-router-dom";
 // Internal Imports
 import {
   Dropdown,
-  DropdownOption,
+  // DropdownOption,
   Calendar,
   IconButton,
   Button,
 } from "components/components";
 import { QualifierNav, QualifierTitle } from "./QualifierComponents";
-import { timezones } from "../../api_data/timezoneData";
+// import { timezones } from "../../api_data/timezoneData";
 import { iconArrowLeft } from "assets/images/images";
-// import { useQualifiersContext } from "context/QualifiersContext";
+import { useQualifiersContext } from "context/QualifiersContext";
 
 function QualifierPageCalendar() {
-  // const {qualifiers} = useQualifiersContext();
-  // console.log(qualifiers);
+  const { qualifiers, updateQualifiers } = useQualifiersContext();
+  // console.log(qualifiers.availabilityTimeSlots);
+
   const navigate = useNavigate();
 
   return (
@@ -29,9 +30,13 @@ function QualifierPageCalendar() {
       </QualifierTitle>
       <TimeZoneDropDown />
       <Calendar
+        value={qualifiers.availabilityTimeSlots}
         addClass="mt-5"
         onChange={(e) => {
           console.log(e);
+          const newQualifiers = { ...qualifiers, availabilityTimeSlots: e };
+          updateQualifiers(newQualifiers);
+          // console.log(newQualifiers)
         }}
       />
       <QualifierNav addClass="justify-between">
@@ -49,27 +54,30 @@ function QualifierPageCalendar() {
 }
 
 function TimeZoneDropDown() {
-  const [currentTimeZone, setCurrentTimeZone] = useState(0);
+  // const [currentTimeZone, setCurrentTimeZone] = useState(0);
 
-  useEffect(() => {
-    const userTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    for (const [index, zone] of timezones.entries()) {
-      if (zone.utc.includes(userTz)) {
-        setCurrentTimeZone(index);
-        break;
-      }
-    }
-  }, []);
+  // useEffect(() => {
+  //   const userTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  //   for (const [index, zone] of timezones.entries()) {
+  //     if (zone.utc.includes(userTz)) {
+  //       setCurrentTimeZone(index);
+  //       break;
+  //     }
+  //   }
+  // }, []);
+
   return (
     <div className="qcalendar-dropdown flex-container justify-right">
       <Dropdown
         addClass="col-3 ovflow-hidden"
         ariaLabel="timezone-dropdown"
-        label="Your timezone:"
+        // label="Your timezone:"
+        label="Time Zone:"
         labelHidden={false}
-        value={timezones[currentTimeZone].text}
+        // value={timezones[currentTimeZone].text}
+        value="Pacific Time/Los Angeles"
       >
-        {timezones.map((zone, index) => {
+        {/* {timezones.map((zone, index) => {
           return (
             <DropdownOption
               key={index}
@@ -84,7 +92,7 @@ function TimeZoneDropDown() {
               {zone.text}
             </DropdownOption>
           );
-        })}
+        })} */}
       </Dropdown>
     </div>
   );
