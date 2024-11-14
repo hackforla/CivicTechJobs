@@ -1,0 +1,28 @@
+# backend dockerignore
+# .dockerignore should be in the build context root
+
+# Environment files
+.env
+*/*.env
+*venv/
+.DS_store
+
+# Django
+*.log
+*.pot
+*.pyc
+**/__pycache__/
+db.sqlite3
+data
+media
+
+# Docker
+.dockerignore
+
+# git
+.git
+.gitignore
+
+# Builds
+frontend/static/vite_assets_dist/*
+staticfiles

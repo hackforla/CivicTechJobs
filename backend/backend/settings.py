@@ -75,8 +75,6 @@ TEMPLATES = [
 WSGI_APPLICATION = "backend.wsgi.application"
 ASGI_APPLICATION = "backend.asgi.application"
 
-ENVIRON = config("ENVIRON")
-
 # Deployment - security checklist
 # https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 # These vars should all be set to `True` in prod

@@ -4,10 +4,12 @@ services:
   pgdb:
     image: postgres:16
     container_name: pgdb
-    volumes:
-      - postgres_data:/lib/postgresql/data
+    # user should be the same as your POSTGRES_USER .env variable
+    user: postgres
     env_file:
       - dev/dev.env
+    volumes:
+      - postgres_data:/lib/postgresql/data
     ports:
       - "5434:5434"
     healthcheck:
