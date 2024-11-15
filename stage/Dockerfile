@@ -21,8 +21,8 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Set up environment
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1s
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1s
 
 # Install system dependencies
 RUN apk update && apk upgrade && \
