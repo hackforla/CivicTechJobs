@@ -5,35 +5,36 @@ stage
 mkdocs
 
 # Environment files
-.env
-*/*.env
+**/.env
+**/*.env
 *venv/
-.DS_store
+**/.DS_store
 
 # Dependency directories
-**/node_modules/
+**/node_modules
 
 # Django
 *.log
 *.pot
 *.pyc
 **/__pycache__/
-db.sqlite3
-data
-media
+**/db.sqlite3
+**/data
+**/media
 
 # Docker
-*/Dockerfile
-*/*.Dockerfile
-.dockerignore
+**/Dockerfile
+**/*.Dockerfile
+**/.dockerignore
 
 # git
 .git
-.gitignore
+**/.gitignore
 
 # Builds
 backend/frontend/static/vite_assets_dist
 backend/staticfiles
+backend/openapi-schema.yml
 
 # vite
 frontend/vite.config.*.timestamp-*
