@@ -99,7 +99,11 @@ WHITENOISE_IMMUTABLE_FILE_TEST = immutable_file_test
 
 STORAGES = {
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        # "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        # BUG: whitenoise storage might be causing issues AWS. Temporary fix below:
+        "BACKEND": "django.contrib.staticfiles.storage.ManifestStaticFilesStorage",
+        # TODO: Go back and fix this after successful deployment to AWS
+        # https://whitenoise.readthedocs.io/en/stable/django.html#storage-troubleshoot
     },
 }
 
