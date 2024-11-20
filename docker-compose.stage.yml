@@ -4,6 +4,8 @@ services:
   pgdb:
     image: postgres:16
     container_name: pgdb-stage
+    # user should be the same as your POSTGRES_USER stage.env variable
+    user: postgres
     volumes:
       - postgres_data:/lib/postgresql/data
     env_file:
