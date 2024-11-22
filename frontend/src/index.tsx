@@ -15,11 +15,9 @@ const container = document.getElementById("app");
 if (container) {
   const root = createRoot(container);
 
-  import.meta.env.MODE === "production"
-    ? root.render(<App />)
-    : root.render(
-        <React.StrictMode>
-          <App />
-        </React.StrictMode>,
-      );
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+  );
 }
