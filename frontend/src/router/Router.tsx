@@ -1,5 +1,5 @@
 // External Imports
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 
 // Internal Imports
@@ -8,15 +8,14 @@ import { Demo } from "pages/Demo/Demo";
 import DemoTailwind from "pages/Demo/DemoTailwind";
 import { NotFoundPage } from "pages/NotFoundPage/NotFoundPage";
 import { LandingPage } from "pages/LandingPage/LandingPage";
-import {
-  QualifierPage,
-  QualifierContent,
-  loader as qualifierLoader,
-} from "pages/QualifierPage/QualifierPage";
 import AuthenticationPage from "pages/Authentication/page";
 import HomeLayout from "layouts/HomeLayout";
 import DefaultNavLayout from "layouts/DefaultNavLayout";
 import PrivacyPolicyPage from "pages/PrivacyPolicyPage/PrivacyPolicyPage";
+
+const QualifierPage = lazy(
+  () => import("../pages/QualifierPage/QualifierPage"),
+);
 
 const router = createBrowserRouter([
   {
@@ -33,15 +32,12 @@ const router = createBrowserRouter([
             element: <LandingPage />,
           },
           {
-            path: "qualifier",
-            element: <QualifierPage />,
-            children: [
-              {
-                path: ":page",
-                element: <QualifierContent />,
-                loader: qualifierLoader,
-              },
-            ],
+            path: "qualifier/:page",
+            element: (
+              <Suspense fallback={"...loading"}>
+                <QualifierPage />
+              </Suspense>
+            ),
           },
           {
             path: "credits",

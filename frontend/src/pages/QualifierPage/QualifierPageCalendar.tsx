@@ -38,7 +38,7 @@ function QualifierPageCalendar() {
         <IconButton
           label="previous page"
           iconUrl={iconArrowLeft}
-          onClick={() => navigate("../1")}
+          onClick={() => navigate("../1", { relative: "path" })}
         />
         <Button size="lg" length="long" color="primary" href="/">
           View available roles
@@ -90,4 +90,4 @@ function TimeZoneDropDown() {
   );
 }
 
-export default QualifierPageCalendar;
+export { QualifierPageCalendar };

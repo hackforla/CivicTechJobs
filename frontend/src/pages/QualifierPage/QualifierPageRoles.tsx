@@ -180,7 +180,7 @@ const QualifierPageRoles: React.FC = () => {
           color="primary"
           onClick={() => {
             handleUpdateCopQualifiers();
-            navigate("../2");
+            navigate("../2", { relative: "path" });
           }}
         >
           Next
@@ -190,4 +190,4 @@ const QualifierPageRoles: React.FC = () => {
   );
 };
 
-export default QualifierPageRoles;
+export { QualifierPageRoles };
