@@ -1,16 +1,19 @@
 /* eslint-disable react/no-unescaped-entities */
 // External Imports
-import React, { Fragment } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 // Internal Imports
+import { HeaderNav } from "tw-components";
+import { FooterNav } from "components/components";
 import { Button } from "components/components";
 import { notFoundPageImg } from "assets/images/images";
 
 function NotFoundPage() {
   const navigate = useNavigate();
   return (
-    <Fragment>
+    <>
+      <HeaderNav />
       <main>
         <div className="not-found-container flex-container align-center justify-between gap-3">
           <div className="not-found-box">
@@ -28,7 +31,8 @@ function NotFoundPage() {
           </div>
         </div>
       </main>
-    </Fragment>
+      <FooterNav />
+    </>
   );
 }
 
