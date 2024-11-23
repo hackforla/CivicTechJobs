@@ -1,5 +1,5 @@
 // External Imports
-import React, { Suspense } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 
 // Internal Imports
@@ -27,20 +27,18 @@ function QualifierPage() {
 
   return (
     <QualifiersProvider>
-      <Suspense fallback={<div>...Loading</div>}>
-        <main className="mx-6">
-          <ProgressBar
-            label={`Page ${page}`}
-            value={parseInt(page)}
-            addClass="px-5"
-          />
-          <div className="flex-center-x">
-            <div className="flex-column qualifier-content align-center px-5">
-              <Content page={page} />
-            </div>
+      <main className="mx-6">
+        <ProgressBar
+          label={`Page ${page}`}
+          value={parseInt(page)}
+          addClass="px-5"
+        />
+        <div className="flex-center-x">
+          <div className="flex-column qualifier-content align-center px-5">
+            <Content page={page} />
           </div>
-        </main>
-      </Suspense>
+        </div>
+      </main>
     </QualifiersProvider>
   );
 }
