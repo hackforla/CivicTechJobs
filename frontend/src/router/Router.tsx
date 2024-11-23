@@ -34,7 +34,7 @@ const router = createBrowserRouter([
           {
             path: "qualifier/:page",
             element: (
-              <Suspense fallback={"...loading"}>
+              <Suspense fallback={<div>...loading</div>}>
                 <QualifierPage />
               </Suspense>
             ),
