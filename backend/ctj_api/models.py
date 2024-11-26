@@ -74,6 +74,7 @@ class Skill(models.Model):
 class Project(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     people_depot_project_id = models.CharField(max_length=255)
+    name = models.CharField(max_length=50)
     meeting_times = models.JSONField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -82,4 +83,4 @@ class Project(models.Model):
         db_table = "projects"
 
     def __str__(self):
-        return self.people_depot_project_id
+        return self.name
