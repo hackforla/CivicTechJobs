@@ -15,9 +15,9 @@ export default defineConfig(() => {
         "@": resolve(INPUT_DIR),
       },
     },
-    // root: resolve(INPUT_DIR),
+    root: resolve(INPUT_DIR),
     //keep static assets path consistent with django
-    // base: "/static/",
+    base: "/static/",
     plugins: [
       svgr(),
       react(),
@@ -32,15 +32,15 @@ export default defineConfig(() => {
         usePolling: true,
       },
     },
-    // build: {
-    //   manifest: true,
-    //   emptyOutDir: true,
-    //   outDir: resolve(OUTPUT_DIR),
-    //   rollupOptions: {
-    //     input: {
-    //       entry: join(INPUT_DIR, "/index.tsx"),
-    //     },
-    //   },
-    // },
+    build: {
+      manifest: true,
+      emptyOutDir: true,
+      outDir: resolve(OUTPUT_DIR),
+      rollupOptions: {
+        input: {
+          entry: join(INPUT_DIR, "/index.tsx"),
+        },
+      },
+    },
   };
 });
