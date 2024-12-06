@@ -1,28 +1,35 @@
-version: "3.8"
+name: civic-tech-jobs-stage
 
 services:
   pgdb:
-    image: postgres
-    container_name: pgdb
+    image: postgres:16
+    container_name: pgdb-stage
+    # user should be the same as your POSTGRES_USER stage.env variable
+    user: postgres
     volumes:
       - postgres_data:/lib/postgresql/data
     env_file:
-      - ./stage/stage.env
+      - stage/stage.env
+    ports:
+      - "5434:5434"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   django:
     build:
       context: .
       dockerfile: ./stage/Dockerfile
-      args:
-        - MODE=production
-        - DEVTOOL=source-map
-    container_name: django
+    container_name: django-stage
     ports:
       - "8000:8000"
     env_file:
-      - ./stage/stage.env
+      - stage/stage.env
     depends_on:
-      - pgdb
+      pgdb:
+        condition: service_healthy
 
 volumes:
   postgres_data:

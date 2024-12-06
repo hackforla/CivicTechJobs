@@ -3,10 +3,6 @@ site_url: https://hackforla.github.io/CivicTechJobs/
 
 # Optionals
 edit_uri: ""
-extra_css:
-  - css/extra.css
-extra_javascript:
-  - js/extra.js
 nav:
   - Joining the Team:
       - Intro: joining-the-team/intro.md
@@ -33,6 +29,9 @@ nav:
           - Frontend Architecture: developer/frontend.md
           - GitHub Architecture: developer/github.md
           - Installation Instructions: developer/installation.md
+          - MkDocs Architecture: developer/mkdocs-architecture.md
+          - MkDocs - Documentation Guide: developer/mkdocs-guide.md
+          - MkDocs - How to Edit: developer/mkdocs-edit-instructions.md
       - Misc:
           - ADA Guide: misc/ada-guide.md
           - Glossary: misc/glossary.md
@@ -44,11 +43,8 @@ nav:
   - Resources: resources.md
   - CivicTechJobs Repo: https://github.com/hackforla/CivicTechJobs
 markdown_extensions:
-  - mkdocs-config
+#  - mkdocs-config
 repo_url: https://github.com/hackforla/CivicTechJobs/tree/main/mkdocs
 repo_name: GitHub
 theme:
-  name: mkdocs
-  nav_style: dark
-  navigation_depth: 3
-  locale: en
+  name: material

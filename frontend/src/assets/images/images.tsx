@@ -2,11 +2,11 @@
 import React, { useId } from "react";
 
 // COP Icons
-import CopIconDataP from "./svgs/communities-of-practice/cop-icon-datascience.svg";
-import CopIconEngineeringP from "./svgs/communities-of-practice/cop-icon-engineering.svg";
-import CopIconOpsP from "./svgs/communities-of-practice/cop-icon-ops.svg";
-import CopIconProductP from "./svgs/communities-of-practice/cop-icon-product.svg";
-import CopIconUiuxP from "./svgs/communities-of-practice/cop-icon-uiux.svg";
+import CopIconDataP from "./svgs/communities-of-practice/cop-icon-datascience.svg?react";
+import CopIconEngineeringP from "./svgs/communities-of-practice/cop-icon-engineering.svg?react";
+import CopIconOpsP from "./svgs/communities-of-practice/cop-icon-ops.svg?react";
+import CopIconProductP from "./svgs/communities-of-practice/cop-icon-product.svg?react";
+import CopIconUiuxP from "./svgs/communities-of-practice/cop-icon-uiux.svg?react";
 
 import copIconData from "./svgs/communities-of-practice/cop-icon-datascience.svg?url";
 import copIconEngineering from "./svgs/communities-of-practice/cop-icon-engineering.svg?url";
@@ -15,21 +15,21 @@ import copIconProduct from "./svgs/communities-of-practice/cop-icon-product.svg?
 import copIconUiux from "./svgs/communities-of-practice/cop-icon-uiux.svg?url";
 
 // Icons
-import IconArrowDown from "./svgs/icons/icon-arrow-down.svg";
-import IconArrowLeft from "./svgs/icons/icon-arrow-left.svg";
-import IconCheckboxY from "./svgs/icons/icon-checkbox-yes.svg";
-import IconCheckboxN from "./svgs/icons/icon-checkbox-no.svg";
-import IconCheckMark from "./svgs/icons/icon-checkmark.svg";
-import IconDropdownDown from "./svgs/icons/icon-dropdown-down.svg";
-import IconDropdownUp from "./svgs/icons/icon-dropdown-up.svg";
-import IconEyeClose from "./svgs/icons/icon-eye-close.svg";
-import IconEyeOpen from "./svgs/icons/icon-eye-open.svg";
-import IconHamburgerMenu from "./svgs/icons/icon-hamburger-menu.svg";
-import IconPlus from "./svgs/icons/icon-plus.svg";
-import IconSearch from "./svgs/icons/icon-search.svg";
-import IconX from "./svgs/icons/icon-x.svg";
-import IconChevronLeft from "./svgs/icons/icon-chevron-left.svg";
-import IconChevronRight from "./svgs/icons/icon-chevron-right.svg";
+import IconArrowDown from "./svgs/icons/icon-arrow-down.svg?react";
+import IconArrowLeft from "./svgs/icons/icon-arrow-left.svg?react";
+import IconCheckboxY from "./svgs/icons/icon-checkbox-yes.svg?react";
+import IconCheckboxN from "./svgs/icons/icon-checkbox-no.svg?react";
+import IconCheckMark from "./svgs/icons/icon-checkmark.svg?react";
+import IconDropdownDown from "./svgs/icons/icon-dropdown-down.svg?react";
+import IconDropdownUp from "./svgs/icons/icon-dropdown-up.svg?react";
+import IconEyeClose from "./svgs/icons/icon-eye-close.svg?react";
+import IconEyeOpen from "./svgs/icons/icon-eye-open.svg?react";
+import IconHamburgerMenu from "./svgs/icons/icon-hamburger-menu.svg?react";
+import IconPlus from "./svgs/icons/icon-plus.svg?react";
+import IconSearch from "./svgs/icons/icon-search.svg?react";
+import IconX from "./svgs/icons/icon-x.svg?react";
+import IconChevronLeft from "./svgs/icons/icon-chevron-left.svg?react";
+import IconChevronRight from "./svgs/icons/icon-chevron-right.svg?react";
 
 import iconArrowLeft from "./svgs/icons/icon-arrow-left.svg?url";
 import iconCheckboxY from "./svgs/icons/icon-checkbox-yes.svg?url";
@@ -49,14 +49,14 @@ import iconX from "./svgs/icons/icon-x.svg?url";
 import notFoundPageImg from "./svgs/not-found-page.svg?url";
 
 // CTJ Logos
-import LogoHorizontalP from "./svgs/logos/logo-horizontal.svg";
-import LogoHorizontalOnDarkP from "./svgs/logos/logo-horizontal-on-dark.svg";
-import LogoMarkP from "./svgs/logos/logo-logomark.svg";
-import LogoStackedP from "./svgs/logos/logo-stacked.svg";
-import LogoStackedOnDarkP from "./svgs/logos/logo-stacked-on-dark.svg";
-import LogoTypeP from "./svgs/logos/logo-logotype.svg";
-import LogoVerticalP from "./svgs/logos/logo-vertical.svg";
-import LogoWordmarkP from "./svgs/logos/logo-wordmark.svg";
+import LogoHorizontalP from "./svgs/logos/logo-horizontal.svg?react";
+import LogoHorizontalOnDarkP from "./svgs/logos/logo-horizontal-on-dark.svg?react";
+import LogoMarkP from "./svgs/logos/logo-logomark.svg?react";
+import LogoStackedP from "./svgs/logos/logo-stacked.svg?react";
+import LogoStackedOnDarkP from "./svgs/logos/logo-stacked-on-dark.svg?react";
+import LogoTypeP from "./svgs/logos/logo-logotype.svg?react";
+import LogoVerticalP from "./svgs/logos/logo-vertical.svg?react";
+import LogoWordmarkP from "./svgs/logos/logo-wordmark.svg?react";
 
 import logoHorizontal from "./svgs/logos/logo-horizontal.svg?url";
 import logoHorizontalOnDark from "./svgs/logos/logo-horizontal-on-dark.svg?url";
@@ -76,18 +76,18 @@ interface defaultProps {
 
 function svgWrapper(
   Svg: React.ElementType,
-  defaultProps: defaultProps
+  defaultProps: defaultProps,
 ): React.ElementType {
   return (props) => {
-    const titleId = useId();
-    const descId = useId();
+    const titleid = useId();
+    const descid = useId();
 
     if ("title" in defaultProps) {
-      defaultProps["titleId"] = titleId;
+      defaultProps["titleid"] = titleid;
     }
 
     if ("desc" in defaultProps) {
-      defaultProps["descId"] = descId;
+      defaultProps["descid"] = descid;
     }
 
     return <Svg {...defaultProps} {...props}></Svg>;

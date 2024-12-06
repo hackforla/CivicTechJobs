@@ -2,24 +2,49 @@
 name = "backend"
 version = "0.1.0"
 description = ""
-authors = ["Aveline-art <62368440+Aveline-art@users.noreply.github.com>"]
-readme = "README.md"
+authors = ["Your Name <you@example.com>"]
+readme = "../README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
-Django = "^4.2.1"
-djangorestframework = "^3.14.0"
-psycopg2-binary = "^2.9.6"
-pyyaml = "^6.0"
+python = "^3.12"
+django = "^5.1.2"
+psycopg2-binary = "^2.9.9"
+djangorestframework = "^3.15.2"
+django-vite = "^3.0.4"
+python-decouple = "^3.8"
+daphne = "^4.1.2"
+whitenoise = "^6.8.2"
+inflection = "^0.5.1"
 uritemplate = "^4.1.1"
+pyyaml = "^6.0.2"
 
-[tool.poetry.group.staging]
-optional = true
 
-[tool.poetry.group.staging.dependencies]
-gunicorn = "^20.1.0"
-whitenoise = "^6.4.0"
+[tool.poetry.group.dev.dependencies]
+black = "^24.10.0"
+flake8 = "^7.1.1"
+isort = "^5.13.2"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ['py312']
+exclude = '''
+/(
+    \.git
+    | \.venv
+    | frontend
+    | migrations
+    | __pycache__
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 88
+multi_line_output = 3
+include_trailing_comma = true
+known_third_party = ["django"]
+skip = [".gitignore", ".dockerignore","__pycache__", "migrations", "frontend"]

@@ -1,3 +1,5 @@
-frontend/static/frontend
-frontend/templates/frontend
-.idea/
+.venv
+.idea
+DCIM
+data
+staticfiles

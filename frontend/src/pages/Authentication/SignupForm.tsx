@@ -75,14 +75,14 @@ export default function SignupForm() {
           }}
           errors={errors.password}
         />
-        <button className="font-bold w-full text-white py-[12px] rounded-3xl bg-blue-dark hover:bg-blue-dark-hover hover:shadow-lg focus:bg-blue-dark-focused">
+        <button className="w-full rounded-3xl bg-blue-dark py-[12px] font-bold text-white hover:bg-blue-dark-hover hover:shadow-lg focus:bg-blue-dark-focused">
           Sign Up
         </button>
       </form>
-      <div className="text-center mt-4">
+      <div className="mt-4 text-center">
         <p>
           Already on Civic Tech Jobs?{" "}
-          <Link to="/login" className="text-blue-dark font-bold underline">
+          <Link to="/login" className="font-bold text-blue-dark underline">
             Log In
           </Link>
         </p>

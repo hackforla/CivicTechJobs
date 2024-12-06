@@ -1,20 +1,96 @@
+/* eslint-disable react/no-unescaped-entities */
 // External Imports
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Internal Imports
 import { Button, Chip } from "components/components";
 import { QualifierNav, QualifierTitle } from "./QualifierComponents";
-import { fetchAllCopData, copDatum } from "api_data/copData";
+import { useQualifiersContext } from "context/QualifiersContext";
 import { onKey } from "components/Utility/utils";
 
-function QualifierPageRoles() {
-  const [data, setData] = useState<copDatum[]>([] as copDatum[]);
+const QualifierPageRoles: React.FC = () => {
+  // Call useContext at the top level of your component to read and subscribe to context
+  const { copData, qualifiers, updateQualifiers } = useQualifiersContext();
+
   const navigate = useNavigate();
 
-  useEffect(() => {
-    setData(fetchAllCopData());
-  }, []);
+  // Initialize selectedRoles state with COP qualifiers from the context
+  const [selectedRoles, setSelectedRoles] = useState<{
+    [copName: string]: { [roleName: string]: boolean };
+  }>(() => {
+    // Convert qualifiers.COP to selectedRoles format
+    const selectedRolesFromQualifiers: {
+      [copName: string]: { [roleName: string]: boolean };
+    } = {};
+    for (const copName in qualifiers.COPs) {
+      selectedRolesFromQualifiers[copName] = {};
+      qualifiers.COPs[copName].forEach((role: string) => {
+        selectedRolesFromQualifiers[copName][role] = true;
+      });
+    }
+    return selectedRolesFromQualifiers;
+  });
+
+  // Toggle role selection
+  const handleRoleSelect = (copName: string, roleName: string) => {
+    setSelectedRoles((prevState) => ({
+      ...prevState,
+      [copName]: {
+        ...prevState[copName],
+        [roleName]: !prevState[copName]?.[roleName],
+      },
+    }));
+  };
+
+  // Toggle "Select all"/"Deselect all" within each COP
+  const handleSelectAll = (copName: string, roles: string[]) => {
+    setSelectedRoles((prevState) => {
+      const allSelected = roles.every((role) => {
+        const cleanRoleName = role.replace(/\s+/g, "_");
+        return prevState[copName]?.[cleanRoleName];
+      }); // Check if all roles are selected
+      const updatedRolesState = roles.reduce(
+        (acc: { [key: string]: boolean }, role) => {
+          const cleanRoleName = role.replace(/\s+/g, "_");
+          acc[cleanRoleName] = !allSelected; // Set all roles to true if not all are currently selected, otherwise set all to false
+          return acc;
+        },
+        {},
+      );
+      return {
+        ...prevState,
+        [copName]: updatedRolesState,
+      };
+    });
+  };
+
+  // Update qualifiers in the context
+  const handleUpdateCopQualifiers = () => {
+    const updatedCopQualifiers: { [copName: string]: string[] } = {};
+
+    for (const copName in selectedRoles) {
+      // console.log(`Cop Name: ${copName}`);
+      const roles = selectedRoles[copName];
+      // console.log("Roles:");
+
+      for (const roleName in roles) {
+        // console.log(`${roleName} (${typeof roleName}): ${roles[roleName]}`);
+        if (roles[roleName]) {
+          // If role is true, add it to the roles array
+          updatedCopQualifiers[copName] = updatedCopQualifiers[copName] || [];
+          updatedCopQualifiers[copName].push(roleName);
+        }
+      }
+    }
+
+    // console.log("Updated Cop Qualifiers:", updatedCopQualifiers);
+    // console.log("Old Qualifiers:", qualifiers);
+    const newQualifiers = { ...qualifiers, COPs: updatedCopQualifiers };
+
+    console.log("New Qualifiers:", newQualifiers);
+    updateQualifiers(newQualifiers); // Update qualifiers
+  };
 
   return (
     <Fragment>
@@ -22,11 +98,75 @@ function QualifierPageRoles() {
         Select as many roles as you'd like to find opportunities in.
       </QualifierTitle>
       <div className="flex-center-x">
-        {data.map((datum, index) => {
+        {copData.map((cop, index) => {
+          const cleanCopName = cop.title.replace(/\s+/g, "_");
+
           return (
             <Fragment key={index}>
-              <CopRoles copDatum={datum} />
-              {index < data.length - 1 && (
+              <div className="row fill flex-center-x my-1">
+                <div className="col-8">
+                  <div className="row align-center my-3 justify-between">
+                    <div className="flex items-center">
+                      <cop.icon
+                        fill="black"
+                        strokeWidth="0.2"
+                        height="21"
+                        aria-hidden="true"
+                      />
+                      <span className="title-4 ml-1">
+                        {cleanCopName.replace(/_/g, " ")}
+                      </span>
+                    </div>
+                    <span
+                      className="links"
+                      tabIndex={0}
+                      role="button"
+                      aria-pressed={
+                        selectedRoles[cleanCopName] &&
+                        Object.values(selectedRoles[cleanCopName]).every(
+                          (role) => role,
+                        )
+                      }
+                      onClick={() => handleSelectAll(cleanCopName, cop.roles)}
+                      onKeyDown={(e) =>
+                        onKey(
+                          () => handleSelectAll(cleanCopName, cop.roles),
+                          "Enter",
+                        )(e)
+                      }
+                    >
+                      {selectedRoles[cleanCopName] &&
+                      Object.values(selectedRoles[cleanCopName]).every(
+                        (role) => role,
+                      )
+                        ? "Deselect All"
+                        : "Select All"}
+                    </span>
+                  </div>
+                  <div>
+                    {cop.roles.map((role, index) => {
+                      const cleanRoleName = role.replace(/\s+/g, "_");
+
+                      return (
+                        <Chip
+                          key={index}
+                          variant="multi"
+                          addClass="mr-4 mb-4"
+                          checked={
+                            selectedRoles[cleanCopName]?.[cleanRoleName] ||
+                            false
+                          }
+                          value={role.replace(/_/g, " ")}
+                          onClick={() => {
+                            handleRoleSelect(cleanCopName, cleanRoleName);
+                          }}
+                        />
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+              {index < copData.length - 1 && (
                 <hr className="row col-8 qroles-border"></hr>
               )}
             </Fragment>
@@ -38,77 +178,16 @@ function QualifierPageRoles() {
           size="lg"
           length="long"
           color="primary"
-          onClick={() => navigate("../2")}
+          onClick={() => {
+            handleUpdateCopQualifiers();
+            navigate("../2", { relative: "path" });
+          }}
         >
           Next
         </Button>
       </QualifierNav>
     </Fragment>
   );
-}
+};
 
-interface CopRolesProps {
-  copDatum: copDatum;
-}
-
-function CopRoles({ copDatum }: CopRolesProps) {
-  const [isAllSelected, setIsAllSelected] = useState(false);
-  const [isRoleChecked, setIsRoleChecked] = useState<boolean[]>(
-    Array(copDatum.roles.length).fill(false)
-  );
-
-  function handleSelectAll() {
-    const copy = isRoleChecked.map((_) => !isAllSelected);
-    setIsRoleChecked(copy);
-    setIsAllSelected(!isAllSelected);
-  }
-
-  return (
-    <div className="row fill flex-center-x my-1">
-      <div className="col-8">
-        <div className="row align-center my-3 justify-between">
-          <div className="flex items-center">
-            <copDatum.icon
-              fill="black"
-              strokeWidth="0.2"
-              height="21"
-              aria-hidden="true"
-            />
-            <span className="title-4 ml-1">{copDatum.title}</span>
-          </div>
-          <span
-            className="links"
-            tabIndex={0}
-            role="button"
-            aria-pressed={isAllSelected}
-            onClick={handleSelectAll}
-            onKeyDown={(e) => onKey(handleSelectAll, "Enter")(e)}
-          >
-            {isAllSelected ? "Deselect all" : "Select all"}
-          </span>
-        </div>
-        <div>
-          {copDatum.roles.map((role, index) => {
-            return (
-              <Chip
-                key={index}
-                variant="multi"
-                addClass="mr-4 mb-4"
-                checked={isRoleChecked[index]}
-                value={role}
-                onClick={(active, value) => {
-                  const copy = [...isRoleChecked];
-                  copy[index] = active;
-                  setIsRoleChecked(copy);
-                  console.log(isRoleChecked);
-                }}
-              />
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export default QualifierPageRoles;
+export { QualifierPageRoles };

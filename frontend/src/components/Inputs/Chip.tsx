@@ -61,7 +61,7 @@ function Chip({
         "px-4",
         "paragraph-3",
         active && "active",
-        addClass
+        addClass,
       )}
       role="checkbox"
       aria-checked={active}

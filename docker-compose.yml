@@ -1,17 +1,26 @@
-version: "3.8"
+name: civic-tech-jobs
 
 services:
   pgdb:
-    image: postgres
+    image: postgres:16
     container_name: pgdb
+    # user should be the same as your POSTGRES_USER .env variable
+    user: postgres
+    env_file:
+      - dev/dev.env
     volumes:
       - postgres_data:/lib/postgresql/data
-    env_file:
-      - ./dev/dev.env
+    ports:
+      - "5434:5434"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   django:
     build:
-      context: ./backend
+      context: backend
       dockerfile: ../dev/django.dockerfile
     container_name: django
     command: >
@@ -19,42 +28,33 @@ services:
       python manage.py migrate &&
       python manage.py runserver 0.0.0.0:8000 &&
       python manage.py generateschema --file openapi-schema.yml"
-    volumes:
-      - ./backend/:/code
     ports:
-      - "0.0.0.0:8000:8000"
+      - "8000:8000"
     env_file:
-      - ./dev/dev.env
+      - dev/dev.env
     depends_on:
-      - pgdb
+      pgdb:
+        condition: service_healthy
+    develop:
+      watch:
+        - action: sync
+          path: ./backend
+          target: /usr/src/app
 
-  webpack:
+  vite:
     build:
-      context: ./frontend
-      dockerfile: ../dev/webpack.dockerfile
-    container_name: webpack
-    command: npm --prefix ./frontend run watch # We need the prefix because we are mounting from parent rather than frontend
+      context: frontend
+      dockerfile: ../dev/vite.Dockerfile
+    container_name: vite
     env_file:
-      - ./dev/dev.env
-    volumes:
-      - ./:/code # The webpack output files are now in a sibling directory, therefore, we need to mount to parent
-      - node_modules:/code/node_modules # Need to persist node_modules directory to prevent it from being overwritten by local directory mount (on line 40). This ensures npm packages installed during Docker build are available at runtime.
-
-  linter:
-    profiles: ["lint"]
-    build:
-      context: .
-      dockerfile: ./dev/linter.dockerfile
-    container_name: linter
-    environment:
-      - PRE_COMMIT_HOME=${HOME}/.cache/pre-commit
-    user: ${UID}:${GID}
-    env_file:
-      - ./dev/linter.env
-    volumes:
-      - .:/src:rw
-      - ${HOME}/.cache:${HOME}/.cache:rw
+      - dev/dev.env
+    ports:
+      - "5175:5175"
+    develop:
+      watch:
+        - action: sync
+          path: ./frontend
+          target: /usr/src/app
 
 volumes:
-  postgres_data:
-  node_modules:
+  postgres_data: {}

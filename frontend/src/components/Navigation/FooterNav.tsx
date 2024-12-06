@@ -1,5 +1,6 @@
 // External imports
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 
 // Internal imports
 import { Button } from "../Buttons/Button";
@@ -11,9 +12,9 @@ interface menuObject {
 }
 
 const menuItems: menuObject[] = [
-  { name: "Credits", link: "/credits" },
-  { name: "Sitemap", link: "/" },
-  { name: "Join Us", link: "/" },
+  { name: "Credits", link: "credits" },
+  { name: "Sitemap", link: "#" },
+  { name: "Join Us", link: "qualifier/1" },
 ];
 
 function FooterNav() {
@@ -45,13 +46,9 @@ function FooterNav() {
           return (
             <Fragment key={index}>
               <div className="footer-menu-vertical-line"></div>
-              <a
-                className="footer-links"
-                href={item.link}
-                rel="noopener noreferrer"
-              >
+              <Link className="footer-links" to={item.link}>
                 {item.name}
-              </a>
+              </Link>
             </Fragment>
           );
         })}

@@ -64,7 +64,7 @@ describe("Checkbox", () => {
   test("Checkbox labelHidden", () => {
     render(<Checkbox label="labelHidden checkbox" labelHidden />);
     expect(screen.getByLabelText(/labelHidden checkbox/)).toHaveClass(
-      "sr-only"
+      "sr-only",
     );
   });
 });

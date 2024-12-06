@@ -13,8 +13,11 @@ import {
 import { QualifierNav, QualifierTitle } from "./QualifierComponents";
 import { timezones } from "../../api_data/timezoneData";
 import { iconArrowLeft } from "assets/images/images";
+// import { useQualifiersContext } from "context/QualifiersContext";
 
 function QualifierPageCalendar() {
+  // const {qualifiers} = useQualifiersContext();
+  // console.log(qualifiers);
   const navigate = useNavigate();
 
   return (
@@ -35,7 +38,7 @@ function QualifierPageCalendar() {
         <IconButton
           label="previous page"
           iconUrl={iconArrowLeft}
-          onClick={() => navigate("../1")}
+          onClick={() => navigate("../1", { relative: "path" })}
         />
         <Button size="lg" length="long" color="primary" href="/">
           View available roles
@@ -87,4 +90,4 @@ function TimeZoneDropDown() {
   );
 }
 
-export default QualifierPageCalendar;
+export { QualifierPageCalendar };

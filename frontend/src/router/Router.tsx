@@ -8,20 +8,22 @@ import { Demo } from "pages/Demo/Demo";
 import DemoTailwind from "pages/Demo/DemoTailwind";
 import { NotFoundPage } from "pages/NotFoundPage/NotFoundPage";
 import { LandingPage } from "pages/LandingPage/LandingPage";
-import {
-  QualifierPage,
-  QualifierContent,
-  loader as qualifierLoader,
-} from "pages/QualifierPage/QualifierPage";
 import AuthenticationPage from "pages/Authentication/page";
 import HomeLayout from "layouts/HomeLayout";
 import DefaultNavLayout from "layouts/DefaultNavLayout";
 import PrivacyPolicyPage from "pages/PrivacyPolicyPage/PrivacyPolicyPage";
 
+// TODO: fix lazy loading
+/* const QualifierPage = lazy(
+  () => import("../pages/QualifierPage/QualifierPage"),
+); */
+import QualifierPage from "pages/QualifierPage/QualifierPage";
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout />,
+    errorElement: <NotFoundPage />,
     children: [
       {
         path: "/",
@@ -32,15 +34,13 @@ const router = createBrowserRouter([
             element: <LandingPage />,
           },
           {
-            path: "qualifier",
+            path: "qualifier/:page",
+            /* element: (
+              <Suspense fallback={<div>...loading</div>}>
+                <QualifierPage />
+              </Suspense>
+            ), */
             element: <QualifierPage />,
-            children: [
-              {
-                path: ":page",
-                element: <QualifierContent />,
-                loader: qualifierLoader,
-              },
-            ],
           },
           {
             path: "credits",
@@ -55,12 +55,8 @@ const router = createBrowserRouter([
             element: <DemoTailwind />,
           },
           {
-            path: "*",
-            element: <NotFoundPage />,
-          },
-          {
             path: "privacypolicy",
-            element: <PrivacyPolicyPage/>,
+            element: <PrivacyPolicyPage />,
           },
         ],
       },

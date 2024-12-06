@@ -27,7 +27,7 @@ describe("Notification", () => {
     render(
       <Notification show={true} closable>
         This is a warning
-      </Notification>
+      </Notification>,
     );
     await user.click(screen.getByRole("button")!);
     expect(screen.getByRole("status", { hidden: true })).toHaveClass("hidden");
@@ -38,7 +38,7 @@ describe("Notification", () => {
     render(
       <Notification show={true} autoHidden>
         This is a warning
-      </Notification>
+      </Notification>,
     );
     await waitForElementToBeRemoved(screen.getByRole("status"), {
       timeout: 10,

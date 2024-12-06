@@ -97,4 +97,4 @@ function fetchAllCopData() {
   return copData;
 }
 
-export { copDatum, fetchCopDataById, fetchAllCopData };
+export { copData, copDatum, fetchCopDataById, fetchAllCopData };

@@ -1,9 +1,41 @@
-./node_modules
+# stage dockerignore
+
 dev
 stage
-.dockerignore
-.git
-.gitignore
+mkdocs
+
+# Environment files
+**/.env
+**/*.env
+*venv/
+**/.DS_store
+
+# Dependency directories
+**/node_modules
+
+# Django
+*.log
+*.pot
+*.pyc
 **/__pycache__/
-mkdocs/
-/.env
+**/db.sqlite3
+**/data
+**/media
+
+# Docker
+**/Dockerfile
+**/*.Dockerfile
+**/.dockerignore
+
+# git
+.git
+**/.gitignore
+
+# Builds
+backend/frontend/static/vite_assets_dist
+backend/staticfiles
+backend/openapi-schema.yml
+
+# vite
+frontend/vite.config.*.timestamp-*
+frontend/dist

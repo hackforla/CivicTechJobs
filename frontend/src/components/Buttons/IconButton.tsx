@@ -3,7 +3,6 @@ import React from "react";
 
 // Internal Imports
 import { combineClasses, onKey } from "../Utility/utils";
-import { iconX, iconArrowLeft } from "../../assets/images/images";
 
 interface IconButtonProps extends React.PropsWithChildren {
   addClass?: string;
