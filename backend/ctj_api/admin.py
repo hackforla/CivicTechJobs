@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Opportunities, CommunityOfPractice, Role, Skill, Project
+from .models import CommunityOfPractice, Opportunities, Project, Role, Skill
 
 # Register your models here.
 admin.site.register(Opportunities)

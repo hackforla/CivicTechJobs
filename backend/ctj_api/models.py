@@ -23,11 +23,12 @@ class Opportunities(models.Model):
 class CommunityOfPractice(models.Model):
 
     class PracticeAreas(models.TextChoices):
-        DATA_SCIENCE = 'data_science', 'Data Science'
-        ENGINEERING = 'engineering', 'Engineering'
-        OPS = 'ops', 'Ops'
-        PROJECT_MANAGEMENT = 'project_management', 'Project/Product Management'
-        UI_UX = 'ui_ux', 'UI/UX'
+        DATA_SCIENCE = "data_science", "Data Science"
+        ENGINEERING = "engineering", "Engineering"
+        OPS = "ops", "Ops"
+        PROJECT_MANAGEMENT = "project_management", "Project/Product Management"
+        UI_UX = "ui_ux", "UI/UX"
+
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     practice_area = models.CharField(max_length=50, choices=PracticeAreas.choices)
     description = models.TextField()
@@ -46,21 +47,25 @@ class CommunityOfPractice(models.Model):
 class Role(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=50)
-    community_of_practice = models.ForeignKey(CommunityOfPractice, on_delete=models.CASCADE,  related_name="roles")
+    community_of_practice = models.ForeignKey(
+        CommunityOfPractice, on_delete=models.CASCADE, related_name="roles"
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = "roles"
-    
+
     def __str__(self):
-        return f"{self.title} ({self.community_of_practice.get_practice_area_display()})"
+        return (
+            f"{self.title} ({self.community_of_practice.get_practice_area_display()})"
+        )
 
 
 class Skill(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=50)
-    roles = models.ManyToManyField('Role', related_name='skills')
+    roles = models.ManyToManyField("Role", related_name="skills")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
