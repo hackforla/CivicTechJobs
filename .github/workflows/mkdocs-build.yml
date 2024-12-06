@@ -1,10 +1,9 @@
-name: Build MkDocs site (develop)
+name: Build MkDocs site
 
 on:
   push:
     branches:
-      # TODO: change to main when we merge develop to main
-      - develop
+      - main
     paths:
       - "mkdocs/**/**.md"
       - "mkdocs/mkdocs.yml"
