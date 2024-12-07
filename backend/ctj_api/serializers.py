@@ -1,15 +1,17 @@
 from rest_framework import serializers
-
-from ctj_api.models import CommunityOfPractice, Opportunities, Project, Role, Skill
-
-
-class OpportunitiesSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Opportunities
-        fields = ["id", "role", "subrole", "project"]
+from ctj_api.models import (
+    CommunityOfPractice,
+    Role,
+    Skill,
+    Project,
+    SkillMatrix,
+    CustomUser,
+    Opportunity,
+)
 
 
 class CommunityOfPracticeSerializer(serializers.ModelSerializer):
+    practice_area = serializers.ChoiceField(choices=CommunityOfPractice.PracticeAreas.choices)
     class Meta:
         model = CommunityOfPractice
         fields = ["id", "practice_area", "description", "created_at", "updated_at"]
@@ -37,7 +39,40 @@ class ProjectSerializer(serializers.ModelSerializer):
         fields = [
             "id",
             "people_depot_project_id",
+            "name",
             "meeting_times",
+            "created_at",
+            "updated_at",
+        ]
+
+
+class SkillMatrixSerializer(serializers.ModelSerializer):
+    owner_type = serializers.ChoiceField(choices=[('user', 'User'), ('opportunity', 'Opportunity')])
+    
+    class Meta:
+        model = SkillMatrix
+        fields = [
+            "id",
+            "owner_type",
+            "owner_id",
+            "skill_matrix",
+            "created_at",
+            "updated_at",
+        ]
+
+
+class CustomUserSerializer(serializers.ModelSerializer):
+    skills_learned_matrix = SkillMatrixSerializer(read_only=True)
+    community_of_practice = CommunityOfPracticeSerializer(read_only=True)
+    projects = ProjectSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = CustomUser
+        fields = [
+            "id",
+            "people_depot_user_id",
+            "name",
+            "email",
             "created_at",
             "updated_at",
         ]
