@@ -11,7 +11,10 @@ from ctj_api.models import (
 
 
 class CommunityOfPracticeSerializer(serializers.ModelSerializer):
-    practice_area = serializers.ChoiceField(choices=CommunityOfPractice.PracticeAreas.choices)
+    practice_area = serializers.ChoiceField(
+        choices=CommunityOfPractice.PracticeAreas.choices
+    )
+
     class Meta:
         model = CommunityOfPractice
         fields = ["id", "practice_area", "description", "created_at", "updated_at"]
@@ -47,8 +50,10 @@ class ProjectSerializer(serializers.ModelSerializer):
 
 
 class SkillMatrixSerializer(serializers.ModelSerializer):
-    owner_type = serializers.ChoiceField(choices=[('user', 'User'), ('opportunity', 'Opportunity')])
-    
+    owner_type = serializers.ChoiceField(
+        choices=[("user", "User"), ("opportunity", "Opportunity")]
+    )
+
     class Meta:
         model = SkillMatrix
         fields = [
@@ -64,7 +69,7 @@ class SkillMatrixSerializer(serializers.ModelSerializer):
 class CustomUserSerializer(serializers.ModelSerializer):
     skills_learned_matrix = SkillMatrixSerializer(read_only=True)
     community_of_practice = CommunityOfPracticeSerializer(read_only=True)
-    projects = ProjectSerializer(many=True, read_only=True)
+    project = ProjectSerializer(many=True, read_only=True)
 
     class Meta:
         model = CustomUser
@@ -73,6 +78,8 @@ class CustomUserSerializer(serializers.ModelSerializer):
             "people_depot_user_id",
             "name",
             "email",
+            "max_available_hours",
+            "meeting_availability",
             "created_at",
             "updated_at",
         ]

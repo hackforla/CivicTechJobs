@@ -112,7 +112,7 @@ class CustomUser(AbstractUser):
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
-        related_name="opportunity",
+        related_name="user",
     )
     community_of_practice = models.ForeignKey(
         CommunityOfPractice,
