@@ -28,6 +28,7 @@ nav:
           - Development Culture: developer/development-culture.md
           - Frontend Architecture: developer/frontend.md
           - GitHub Architecture: developer/github.md
+          - Git branch Structure: developer/git-branch-structure.md
           - Installation Instructions: developer/installation.md
           - MkDocs Architecture: developer/mkdocs-architecture.md
           - MkDocs - Documentation Guide: developer/mkdocs-guide.md

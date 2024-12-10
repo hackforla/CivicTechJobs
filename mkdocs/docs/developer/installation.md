@@ -51,11 +51,6 @@ While developing, make sure to create new branches off of the `develop` branch. 
 </ul>
 </details>
 
-<details>
-<summary>Note on docker `--watch` flag</summary>
-   <p>The `--watch` flag enables hot module reloads during development. This flag requires a later version of Docker Compose(<a href="https://docs.docker.com/compose/how-tos/file-watch/" target="_blank">2.22.0</a>).</p>
-   <p>If you are running into issues or getting errors running `docker compose up --watch`, please make sure you have installed the latest version of Docker and Docker Desktop on your machine.</p>
-</details><br>
 
 <!-- TODO: Fix the linter container  -->
 <!-- 
@@ -85,11 +80,15 @@ This section might answer some of the burning questions you have. If you cannot 
 
 Make sure to turn on Docker by opening the Docker program on your desktop.
 
-##### 2. can't find a suitable configuration file in this directory or any parent: not found
+##### 2. Docker error: 'unknown flag: --watch'
+
+The `--watch` flag enables hot module reloads during development. This flag requires a later version of Docker Compose(<a href="https://docs.docker.com/compose/how-tos/file-watch/" target="_blank">2.22.0</a>). If you are running into issues or getting errors running `docker compose up --watch`, please make sure you have installed the latest version of Docker and Docker Desktop on your machine.
+
+##### 3. can't find a suitable configuration file in this directory or any parent: not found
 
 Make sure that your terminal location is in a directory with a `docker-compose.yml` file. And make sure that the file is not hidden.
 
-##### 3. code ERR_SOCKET_TIMEOUT
+##### 4. code ERR_SOCKET_TIMEOUT
 
 This can result for several reasons, such as havin your sockets overloaded. In order to prevent this, the best thing to do is to lower the amount of sockets used when performing npm install. Change this line in `docker/webpack`:
 
@@ -101,7 +100,7 @@ to:
 
 This should allow `docker compose up` to work. Be sure to delete the addition once your image and container is set up.
 
-##### 4. [dependency] not found
+##### 5. [dependency] not found
 
 This sometimes happen when npm did not install successfully. In this scenario, you need to manually install the dependencies inside the container. Generally the command to run a command inside a container is:
 
@@ -111,7 +110,7 @@ In this scenario, the full command would be:
 
 `docker compose run webpack npm install`
 
-##### 5. [webpack-cli] [Error: EACCES: permission denied', open '/code/frontend/templates/frontend/index.html']
+##### 6. [webpack-cli] [Error: EACCES: permission denied', open '/code/frontend/templates/frontend/index.html']
 
 In this case, the `index.html` file has incorrect ownership and/or permissions. To fix this, run the following command in the root directory of the CTJ repository:
 

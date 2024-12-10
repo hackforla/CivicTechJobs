@@ -10,7 +10,7 @@
 ├── frontend/
 ├── mkdocs/ # Docs
 │   ├── docs/
-│   └── mkdocs.yml # Docs
+│   └── mkdocs.yml
 ├── .dockerignore
 ├── .gitignore
 ├── CONTRIBUTING.md
@@ -101,15 +101,15 @@ The docs are set to automatically deploy to github pages using the `mkdocs-build
 
 ### Github Action for mkdocs deployment
 
-Links to the github action: [Build MkDocs site (develop)](https://github.com/hackforla/CivicTechJobs/actions/workflows/mkdocs-build.yml)
+Links to the github action: [Build MkDocs site](https://github.com/hackforla/CivicTechJobs/actions/workflows/mkdocs-build.yml)
 
 ```yml
-name: Build MkDocs site (develop)
+name: Build MkDocs site
 
 on:
   push:
     branches:
-      - develop
+      - main
     paths:
       - "mkdocs/**/**.md"
       - "mkdocs/mkdocs.yml"
@@ -151,7 +151,7 @@ jobs:
 Workflow Overview
 
 - `name: Build MkDocs site` - The name of this workflow is "Build MkDocs site."
-- `on: push: - develop` - The workflow is triggered when there’s a push to the develop branch. (We will change this to `main` later)
+- `on: push: - main` - The workflow is triggered when there’s a push to the `main` branch.
 - `paths: ...` - The workflow will only run if the files being pushed are Markdown files (`.md`) or the `mkdocs.yml` configuration file inside the mkdocs directory.
 - `workflow_dispatch:` - This allows manual triggering of the workflow via the GitHub Actions interface.
 - `permissions: contents: write` - This grants the action permission to write contents to the repository. It's needed for deploying the site, which requires pushing to the `gh-pages` branch.
@@ -188,7 +188,7 @@ Publish Documentation
 - then it deploys the MkDocs site to GitHub Pages using `mkdocs gh-deploy --force`. The `--force` flag ensures that the contents of the GitHub Pages branch (`gh-pages`) are overwritten with the latest deployment.
 
 ##### Summary
-This workflow automates the process of building and deploying a MkDocs site when changes are pushed to the develop branch. It does the following:
+This workflow automates the process of building and deploying a MkDocs site when changes are pushed to the `main` branch. It does the following:
 
 1. Checks out the repository and configures Git for pushing changes.
 2. Sets up Python and installs the necessary MkDocs dependencies.
