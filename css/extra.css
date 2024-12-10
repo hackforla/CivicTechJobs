@@ -1,0 +1,4 @@
+.dropdown-menu {
+    position: relative;
+    top: 2.3rem; /* this is important to move up so that the mouse does not trigger leave when touching the padding on the navbar */
+}
