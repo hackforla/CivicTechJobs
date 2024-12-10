@@ -8,6 +8,18 @@ The two core branches we will use to develop with are  `main` and `develop`. We 
 
 The branch `ava-main-v1` is archived for historical purposes.
 
+## What are the `main` and `develop` branches?
+
+The `main` branch is the **core branch in which production code resides**. This is the branch that houses the code that will get deployed to the production environment and delivered to real live users. It is extremely important to make sure this branch is 100% functional, tested and bug-free.
+
+The `develop` branch is the branch we use to stage new features and changes to the code, before pushing it to production. We use this branch to test new code inside a staging environment before delivering it to production.
+
+Developers should create feature branches off of the `develop` branch, then make a pull request from that new feature branch into the `develop` branch. For example: `feature/mybutton-component` gets branched off `develop`, worked on in a dev's local machine, then pushed up the origin repo, and finally pull requested back into the `develop` branch.
+
+Once all the new code in the `develop` branch passed all checks and tests, it should be merged into the `main` branch. This will finally deliver the new code to end users.
+
+If you are still confused, please read the link or watch the youtube video in Additional Resources below for more details. It explains everything much more clearly. Also feel free to ask anyone on the team how it all works.
+
 ## What is the V1 branch?
 
 To understand the branch `ava-main-v1`, we need a quick background on the history of this project for context.
@@ -22,4 +34,5 @@ For example, they had implemented a super linter for python and javascript, whic
 
 ## Additional Resources
 
-[A successful Git branching model » nvie.com](https://nvie.com/posts/a-successful-git-branching-model/)
+[Getting started with branching workflows, Git Flow and GitHub Flow - YouTube](https://www.youtube.com/watch?v=gW6dFpTMk8s)<br>
+[A successful Git branching model » nvie.com](https://nvie.com/posts/a-successful-git-branching-model/)<br>
