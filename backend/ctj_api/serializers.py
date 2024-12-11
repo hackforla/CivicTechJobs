@@ -83,3 +83,40 @@ class CustomUserSerializer(serializers.ModelSerializer):
             "created_at",
             "updated_at",
         ]
+
+
+class OpportunitySerializer(serializers.ModelSerializer):
+    project = ProjectSerializer(read_only=True)
+    role = RoleSerializer(read_only=True)
+    work_environment = serializers.ChoiceField(
+        choices=[("remote", "Remote"), ("hybrid", "Hybrid"), ("in_person", "In Person")]
+    )
+    skills_required_matrix = SkillMatrixSerializer(read_only=True)
+    created_by_id = serializers.PrimaryKeyRelatedField(
+        queryset=CustomUser.objects.all(),
+        required=False,
+        allow_null=True,
+    )
+    updated_by_id = serializers.PrimaryKeyRelatedField(
+        queryset=CustomUser.objects.all(),
+        required=False,
+        allow_null=True,
+    )
+
+    class Meta:
+        model = Opportunity
+        fields = [
+            "id",
+            "project",
+            "role",
+            "min_experience_required",
+            "work_environment",
+            "min_hours_required",
+            "skills_required_matrix",
+            "body",
+            "status",
+            "created_by_id",
+            "updated_by_id",
+            "created_at",
+            "updated_at",
+        ]
