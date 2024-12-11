@@ -157,14 +157,14 @@ class Opportunity(models.Model):
         ],
     )
     min_hours_required = models.IntegerField()
-    skills_learned_matrix = models.OneToOneField(
+    skills_required_matrix = models.OneToOneField(
         "SkillMatrix",
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
         related_name="opportunity",
     )
-    description = models.TextField()
+    body = models.TextField()
     status = models.CharField(max_length=20)
     created_by_id = models.ForeignKey(
         CustomUser,
