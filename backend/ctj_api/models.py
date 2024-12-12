@@ -107,7 +107,6 @@ class CustomUser(AbstractUser):
     people_depot_user_id = models.CharField(max_length=255, unique=True)
     name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
-    # AbstractUser already includes password field with methods like set_password and check_password
     skills_learned_matrix = models.OneToOneField(
         "SkillMatrix",
         on_delete=models.SET_NULL,

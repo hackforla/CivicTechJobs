@@ -122,7 +122,7 @@ DATABASES = {
 }
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
@@ -144,9 +144,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Enable django custom User model
+# https://docs.djangoproject.com/en/5.1/topics/auth/customizing/#substituting-a-custom-user-model
+AUTH_USER_MODEL = "ctj_api.CustomUser"
 
 # Internationalization
-# https://docs.djangoproject.com/en/5.0/topics/i18n/
+# https://docs.djangoproject.com/en/5.1/topics/i18n/
 
 LANGUAGE_CODE = "en-us"
 
@@ -158,7 +161,7 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
+# https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
@@ -186,5 +189,3 @@ DJANGO_VITE = {
 # so that collectstatic can collect your compiled vite assets.
 STATICFILES_DIRS = [BASE_DIR / "frontend/static/vite_assets_dist"]
 # Note: When building, these files need to be copied over from /frontend/dist
-
-AUTH_USER_MODEL = 'ctj_api.CustomUser'
