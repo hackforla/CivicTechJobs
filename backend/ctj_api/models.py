@@ -1,23 +1,6 @@
 import uuid
-
 from django.db import models
-from django.utils import timezone
-
-
-class Opportunities(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    role = models.CharField(max_length=255, default="default-role")
-    subrole = models.CharField(max_length=255, default="default-subrole")
-    project = models.CharField(max_length=255, default="default-project")
-    meetings_times = models.JSONField(default=list)
-    difficulty_level = models.IntegerField(default=0)
-    details = models.JSONField(default=dict)
-    created_at = models.DateTimeField(default=timezone.now)
-    updated_at = models.DateTimeField(default=timezone.now)
-    updated_by = models.CharField(max_length=255)
-
-    class Meta:
-        db_table = "opportunities"
+from django.contrib.auth.models import AbstractUser
 
 
 class CommunityOfPractice(models.Model):
@@ -89,3 +72,118 @@ class Project(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class SkillMatrix(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    owner_type = models.CharField(
+        max_length=20,
+        choices=[
+            ("user", "User"),
+            ("opportunity", "Opportunity"),
+        ],
+        help_text="Type of the owner is either user or opportunity.",
+    )
+    owner_id = models.UUIDField(help_text="ID of the related user or opportunity.")
+    skill_matrix = models.JSONField(
+        default=dict,  # {skill_id: rating (integer 1-5)}
+        help_text="Skill matrix mapping Skill id to a mastery level (1-5).",
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = "skill_matrices"
+        verbose_name = "Skill Matrix"
+        verbose_name_plural = "Skill Matrices"
+
+    def __str__(self):
+        return f"Skill matrix for {self.owner_type} (ID: {self.owner_id})"
+
+
+class CustomUser(AbstractUser):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    people_depot_user_id = models.CharField(max_length=255, unique=True)
+    name = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+    # AbstractUser already includes password field with methods like set_password and check_password
+    skills_learned_matrix = models.OneToOneField(
+        "SkillMatrix",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="user",
+    )
+    community_of_practice = models.ForeignKey(
+        CommunityOfPractice,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="user",
+    )
+    max_available_hours = models.IntegerField(
+        null=True, blank=True, help_text="User's available hours per week."
+    )
+    meeting_availability = models.JSONField(null=True, blank=True)
+    project = models.ManyToManyField("Project", related_name="users")
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = "users"
+        verbose_name = "User"
+        verbose_name_plural = "Users"
+
+    def __str__(self):
+        return self.name
+
+
+class Opportunity(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    project = models.ForeignKey(
+        Project, on_delete=models.CASCADE, related_name="opportunities"
+    )
+    role = models.ForeignKey(
+        Role, on_delete=models.CASCADE, related_name="opportunities"
+    )
+    min_experience_required = models.CharField(max_length=50)
+    work_environment = models.CharField(
+        max_length=20,
+        choices=[
+            ("remote", "Remote"),
+            ("hybrid", "Hybrid"),
+            ("in_person", "In Person"),
+        ],
+    )
+    min_hours_required = models.IntegerField()
+    skills_required_matrix = models.OneToOneField(
+        "SkillMatrix",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="opportunity",
+    )
+    body = models.TextField()
+    status = models.CharField(max_length=20)
+    created_by_id = models.ForeignKey(
+        CustomUser,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="created_opportunities",
+    )
+    updated_by_id = models.ForeignKey(
+        CustomUser,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="updated_opportunities",
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = "opportunities"
+        verbose_name = "Opportunity"
+        verbose_name_plural = "Opportunities"
