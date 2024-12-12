@@ -1,12 +1,13 @@
 from rest_framework import serializers
+
 from ctj_api.models import (
     CommunityOfPractice,
-    Role,
-    Skill,
-    Project,
-    SkillMatrix,
     CustomUser,
     Opportunity,
+    Project,
+    Role,
+    Skill,
+    SkillMatrix,
 )
 
 

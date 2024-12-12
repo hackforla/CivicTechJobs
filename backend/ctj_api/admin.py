@@ -2,12 +2,12 @@ from django.contrib import admin
 
 from .models import (
     CommunityOfPractice,
-    Role,
-    Skill,
-    Project,
-    SkillMatrix,
     CustomUser,
     Opportunity,
+    Project,
+    Role,
+    Skill,
+    SkillMatrix,
 )
 
 # Register your models here.
