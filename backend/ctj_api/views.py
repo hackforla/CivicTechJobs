@@ -1,22 +1,23 @@
 import time
 
 from django.conf import settings
-from rest_framework import generics
+
+# from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from ctj_api.models import Opportunities
-from ctj_api.serializers import OpportunitiesSerializer
+# from ctj_api.models import Opportunities
+# from ctj_api.serializers import OpportunitiesSerializer
 
 
-class OpportunitiesList(generics.ListCreateAPIView):
-    queryset = Opportunities.objects.all()
-    serializer_class = OpportunitiesSerializer
+# class OpportunitiesList(generics.ListCreateAPIView):
+#     queryset = Opportunities.objects.all()
+#     serializer_class = OpportunitiesSerializer
 
 
-class OpportunitiesDetails(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Opportunities.objects.all()
-    serializer_class = OpportunitiesSerializer
+# class OpportunitiesDetails(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Opportunities.objects.all()
+#     serializer_class = OpportunitiesSerializer
 
 
 class Healthcheck(APIView):
