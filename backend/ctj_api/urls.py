@@ -11,8 +11,9 @@ router.register(r"skills", views.SkillViewSet)
 router.register(r"projects", views.ProjectViewSet)
 
 urlpatterns = [
-    re_path(r"^", include(router.urls)),
     path("healthcheck", views.Healthcheck.as_view(), name="healthcheck"),
+    re_path(r"^", include(router.urls)),
+    path("users/<uuid:pk>/", views.UserDetail.as_view()),
     # Catch-all for incorrect API routes
     re_path(r"^.*$", views.api_not_found),
 ]
