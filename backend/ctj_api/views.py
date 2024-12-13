@@ -107,6 +107,3 @@ class ProjectViewSet(viewsets.ReadOnlyModelViewSet):
 
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
-
-
-# project
