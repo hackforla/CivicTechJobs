@@ -17,3 +17,12 @@ class OpportunityPermission(permissions.BasePermission):
 
         # PUT and PATCH permissions are only allowed to the PM that created the opportunity.
         return obj.created_by == request.user
+
+
+class UserDetailPermission(permissions.BasePermission):
+    """
+    Only the authenticated user can access and modify their own user data
+    """
+
+    def has_object_permission(self, request, view, obj):
+        return obj.id == request.user.id

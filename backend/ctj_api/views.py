@@ -2,15 +2,23 @@ import time
 
 from django.conf import settings
 from django.http import JsonResponse
-from rest_framework import renderers, viewsets
-from rest_framework.decorators import action
+from rest_framework import generics, permissions, viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from ctj_api.models import CommunityOfPractice, Opportunity, Project, Role, Skill
+from ctj_api.models import (
+    CustomUser,
+    Opportunity,
+    CommunityOfPractice,
+    Project,
+    Role,
+    Skill,
+)
+from ctj_api.permissions import OpportunityPermission, UserDetailPermission
 from ctj_api.serializers import (
-    CommunityOfPracticeSerializer,
+    CustomUserSerializer,
     OpportunitySerializer,
+    CommunityOfPracticeSerializer,
     ProjectSerializer,
     RoleSerializer,
     SkillSerializer,
@@ -48,30 +56,31 @@ class Healthcheck(APIView):
         )
 
 
-# TODO: Add permissions classes to make sure only project PMs can CRUD opportunities
+class UserDetail(generics.RetrieveAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = CustomUserSerializer
+    permission_classes = (permissions.IsAuthenticated, UserDetailPermission)
+
+
 class OpportunityViewSet(viewsets.ModelViewSet):
     """
     This viewset automatically provides `list`, `create`, `retrieve`,
     `update` and `destroy` actions.
-
-    Additionally we also provide an extra `highlight` action.
     """
 
     queryset = Opportunity.objects.all()
     serializer_class = OpportunitySerializer
-
-    @action(detail=True, renderer_classes=[renderers.StaticHTMLRenderer])
-    def highlight(self, request, *args, **kwargs):
-        opportunity = self.get_object()
-        return Response(opportunity.highlighted)
+    permission_classes = (
+        permissions.IsAuthenticatedOrReadOnly,
+        OpportunityPermission,
+    )
 
     def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+        serializer.save(created_by=self.request.user)
 
 
 class CommunityOfPracticeViewSet(viewsets.ReadOnlyModelViewSet):
     """
-    This viewset automatically provides `list` and `detail` actions.
     Only admins can modify CoPs data in: civictechjobs.com/admin/
     """
 
@@ -81,7 +90,6 @@ class CommunityOfPracticeViewSet(viewsets.ReadOnlyModelViewSet):
 
 class RoleViewSet(viewsets.ReadOnlyModelViewSet):
     """
-    This viewset automatically provides `list` and `detail` actions.
     Only admins can modify roles data in: civictechjobs.com/admin/
     """
 
@@ -91,7 +99,6 @@ class RoleViewSet(viewsets.ReadOnlyModelViewSet):
 
 class SkillViewSet(viewsets.ReadOnlyModelViewSet):
     """
-    This viewset automatically provides `list` and `detail` actions.
     Only admins can modify skills data in: civictechjobs.com/admin/
     """
 
@@ -101,7 +108,6 @@ class SkillViewSet(viewsets.ReadOnlyModelViewSet):
 
 class ProjectViewSet(viewsets.ReadOnlyModelViewSet):
     """
-    This viewset automatically provides `list` and `detail` actions.
     Only admins can modify skills data in: civictechjobs.com/admin/
     """
 
