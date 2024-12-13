@@ -1,25 +1,18 @@
-from django.urls import path, re_path
-from django.http import JsonResponse
+from django.urls import include, path, re_path
+from rest_framework.routers import DefaultRouter
 
 from ctj_api import views
 
-
-# Custom error handler for incorrect API routes
-def api_not_found(request, exception=None):
-    return JsonResponse(
-        {
-            "error": "API endpoint not found",
-            "status_code": 404,
-            "message": "The requested API endpoint does not exist",
-        },
-        status=404,
-    )
-
+router = DefaultRouter()
+router.register(r"opportunities", views.OpportunityViewSet)
+router.register(r"communityOfPractice", views.CommunityOfPracticeViewSet)
+router.register(r"roles", views.RoleViewSet)
+router.register(r"skills", views.SkillViewSet)
+router.register(r"projects", views.ProjectViewSet)
 
 urlpatterns = [
-    path("opportunities/", views.OpportunityList.as_view()),
-    path("opportunities/<uuid:pk>/", views.OpportunityDetails.as_view()),
+    re_path(r"^", include(router.urls)),
     path("healthcheck", views.Healthcheck.as_view(), name="healthcheck"),
     # Catch-all for incorrect API routes
-    re_path(r"^.*$", api_not_found),
+    re_path(r"^.*$", views.api_not_found),
 ]

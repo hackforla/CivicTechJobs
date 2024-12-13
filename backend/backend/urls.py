@@ -19,7 +19,6 @@ from django.contrib import admin
 from django.urls import include, path, re_path
 from django.views.generic import TemplateView
 
-
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include("ctj_api.urls"), name="api"),
