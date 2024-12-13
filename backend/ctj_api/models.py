@@ -4,23 +4,36 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
-class Skill(models.Model):
+class CommunityOfPractice(models.Model):
+
+    class PracticeAreas(models.TextChoices):
+        DATA_SCIENCE = "data_science", "Data Science"
+        ENGINEERING = "engineering", "Engineering"
+        DEVOPS = "devops", "DevOps"
+        PROJECT_MANAGEMENT = "project_management", "Project/Product Management"
+        UI_UX = "ui_ux", "UI/UX"
+
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(max_length=50)
+    practice_area = models.CharField(max_length=50, choices=PracticeAreas.choices)
+    description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        db_table = "skills"
+        db_table = "community_of_practice"
+        verbose_name = "Community of Practice"
+        verbose_name_plural = "Communities of Practice"
 
     def __str__(self):
-        return self.name
+        return f"{self.get_practice_area_display()}"
 
 
 class Role(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=50)
-    skills = models.ManyToManyField(Skill, related_name="roles")
+    community_of_practice = models.ForeignKey(
+        CommunityOfPractice, on_delete=models.CASCADE, related_name="roles"
+    )
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -34,31 +47,20 @@ class Role(models.Model):
         )
 
 
-class CommunityOfPractice(models.Model):
-
-    class PracticeAreas(models.TextChoices):
-        DATA_SCIENCE = "data_science", "Data Science"
-        ENGINEERING = "engineering", "Engineering"
-        DEVOPS = "devops", "DevOps"
-        PROJECT_MANAGEMENT = "project_management", "Project/Product Management"
-        UI_UX = "ui_ux", "UI/UX"
-
+class Skill(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    practice_area = models.CharField(max_length=50, choices=PracticeAreas.choices)
-    description = models.TextField()
-    roles = models.ForeignKey(
-        Role, on_delete=models.CASCADE, related_name="community_of_practice"
+    name = models.CharField(max_length=50)
+    communities_of_practice = models.ManyToManyField(
+        CommunityOfPractice, related_name="skills"
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        db_table = "community_of_practice"
-        verbose_name = "Community of Practice"
-        verbose_name_plural = "Communities of Practice"
+        db_table = "skills"
 
     def __str__(self):
-        return f"{self.get_practice_area_display()}"
+        return self.name
 
 
 class Project(models.Model):

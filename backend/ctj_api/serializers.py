@@ -73,7 +73,6 @@ class CommunityOfPracticeSerializer(serializers.ModelSerializer):
             "id",
             "practice_area",
             "description",
-            "roles",
             "created_at",
             "updated_at",
         ]
@@ -82,13 +81,13 @@ class CommunityOfPracticeSerializer(serializers.ModelSerializer):
 class RoleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Role
-        fields = ["id", "title", "skills", "created_at", "updated_at"]
+        fields = ["id", "title", "community_of_practice", "created_at", "updated_at"]
 
 
 class SkillSerializer(serializers.ModelSerializer):
     class Meta:
         model = Skill
-        fields = ["id", "name", "created_at", "updated_at"]
+        fields = ["id", "name", "communities_of_practice", "created_at", "updated_at"]
 
 
 class ProjectSerializer(serializers.ModelSerializer):

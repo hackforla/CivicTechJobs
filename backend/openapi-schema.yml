@@ -6,8 +6,9 @@ paths:
   /api/opportunities/:
     get:
       operationId: listOpportunities
-      description: This viewset automatically provides `list`, `create`, `retrieve`,
-        `update` and `destroy` actions.
+      description: 'This viewset automatically provides `list`, `create`, `retrieve`,
+
+        `update` and `destroy` actions.'
       parameters: []
       responses:
         '200':
@@ -22,8 +23,9 @@ paths:
       - api
     post:
       operationId: createOpportunity
-      description: This viewset automatically provides `list`, `create`, `retrieve`,
-        `update` and `destroy` actions.
+      description: 'This viewset automatically provides `list`, `create`, `retrieve`,
+
+        `update` and `destroy` actions.'
       parameters: []
       requestBody:
         content:
@@ -48,8 +50,9 @@ paths:
   /api/opportunities/{id}/:
     get:
       operationId: retrieveOpportunity
-      description: This viewset automatically provides `list`, `create`, `retrieve`,
-        `update` and `destroy` actions.
+      description: 'This viewset automatically provides `list`, `create`, `retrieve`,
+
+        `update` and `destroy` actions.'
       parameters:
       - name: id
         in: path
@@ -68,8 +71,9 @@ paths:
       - api
     put:
       operationId: updateOpportunity
-      description: This viewset automatically provides `list`, `create`, `retrieve`,
-        `update` and `destroy` actions.
+      description: 'This viewset automatically provides `list`, `create`, `retrieve`,
+
+        `update` and `destroy` actions.'
       parameters:
       - name: id
         in: path
@@ -99,8 +103,9 @@ paths:
       - api
     patch:
       operationId: partialUpdateOpportunity
-      description: This viewset automatically provides `list`, `create`, `retrieve`,
-        `update` and `destroy` actions.
+      description: 'This viewset automatically provides `list`, `create`, `retrieve`,
+
+        `update` and `destroy` actions.'
       parameters:
       - name: id
         in: path
@@ -130,8 +135,9 @@ paths:
       - api
     delete:
       operationId: destroyOpportunity
-      description: This viewset automatically provides `list`, `create`, `retrieve`,
-        `update` and `destroy` actions.
+      description: 'This viewset automatically provides `list`, `create`, `retrieve`,
+
+        `update` and `destroy` actions.'
       parameters:
       - name: id
         in: path
@@ -383,8 +389,6 @@ components:
           type: string
         description:
           type: string
-        roles:
-          type: string
         created_at:
           type: string
           format: date-time
@@ -396,7 +400,6 @@ components:
       required:
       - practice_area
       - description
-      - roles
     Role:
       type: object
       properties:
@@ -407,7 +410,30 @@ components:
         title:
           type: string
           maxLength: 50
-        skills:
+        community_of_practice:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - title
+      - community_of_practice
+    Skill:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          maxLength: 50
+        communities_of_practice:
           type: array
           items:
             type: string
@@ -420,28 +446,8 @@ components:
           format: date-time
           readOnly: true
       required:
-      - title
-      - skills
-    Skill:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          readOnly: true
-        name:
-          type: string
-          maxLength: 50
-        created_at:
-          type: string
-          format: date-time
-          readOnly: true
-        updated_at:
-          type: string
-          format: date-time
-          readOnly: true
-      required:
       - name
+      - communities_of_practice
     Project:
       type: object
       properties:
