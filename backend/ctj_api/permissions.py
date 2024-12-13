@@ -3,7 +3,8 @@ from rest_framework import permissions
 
 class OpportunityPermission(permissions.BasePermission):
     """
-    Only PM users can create new opportunities. Only the creator of an opportunity can edit it.
+    Only PM users can create new opportunities.
+    Only the creator of an opportunity can edit it.
     """
 
     def has_object_permission(self, request, view, obj):
@@ -15,7 +16,7 @@ class OpportunityPermission(permissions.BasePermission):
         if request.method == "POST":
             return request.user.isProjectManager
 
-        # PUT and PATCH permissions are only allowed to the PM that created the opportunity.
+        # PUT permissions are only allowed to the PM that created the opportunity.
         return obj.created_by == request.user
 
 

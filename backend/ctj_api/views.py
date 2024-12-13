@@ -3,27 +3,24 @@ import time
 from django.conf import settings
 from django.http import JsonResponse
 from rest_framework import generics, permissions, viewsets
-from rest_framework.response import Response
-from rest_framework.views import APIView
 
 from ctj_api.models import (
+    CommunityOfPractice,
     CustomUser,
     Opportunity,
-    CommunityOfPractice,
     Project,
     Role,
     Skill,
 )
 from ctj_api.permissions import OpportunityPermission, UserDetailPermission
 from ctj_api.serializers import (
+    CommunityOfPracticeSerializer,
     CustomUserSerializer,
     OpportunitySerializer,
-    CommunityOfPracticeSerializer,
     ProjectSerializer,
     RoleSerializer,
     SkillSerializer,
 )
-
 
 start_time = time.time()
 
