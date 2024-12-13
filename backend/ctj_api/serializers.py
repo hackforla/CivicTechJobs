@@ -35,7 +35,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
 
 
 class OpportunitySerializer(serializers.ModelSerializer):
-    created_by = serializers.ReadOnlyField(source="created_by_id.email")
+    created_by = serializers.ReadOnlyField(source="created_by.email")
 
     class Meta:
         model = Opportunity
