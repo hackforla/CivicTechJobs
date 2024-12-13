@@ -1,0 +1,702 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /api/opportunities/:
+    get:
+      operationId: listOpportunities
+      description: 'This viewset automatically provides `list`, `create`, `retrieve`,
+
+        `update` and `destroy` actions.
+
+
+        Additionally we also provide an extra `highlight` action.'
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Opportunity'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createOpportunity
+      description: 'This viewset automatically provides `list`, `create`, `retrieve`,
+
+        `update` and `destroy` actions.
+
+
+        Additionally we also provide an extra `highlight` action.'
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Opportunity'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Opportunity'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Opportunity'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Opportunity'
+          description: ''
+      tags:
+      - api
+  /api/opportunities/{id}/:
+    get:
+      operationId: retrieveOpportunity
+      description: 'This viewset automatically provides `list`, `create`, `retrieve`,
+
+        `update` and `destroy` actions.
+
+
+        Additionally we also provide an extra `highlight` action.'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A UUID string identifying this Opportunity.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Opportunity'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateOpportunity
+      description: 'This viewset automatically provides `list`, `create`, `retrieve`,
+
+        `update` and `destroy` actions.
+
+
+        Additionally we also provide an extra `highlight` action.'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A UUID string identifying this Opportunity.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Opportunity'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Opportunity'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Opportunity'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Opportunity'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateOpportunity
+      description: 'This viewset automatically provides `list`, `create`, `retrieve`,
+
+        `update` and `destroy` actions.
+
+
+        Additionally we also provide an extra `highlight` action.'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A UUID string identifying this Opportunity.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Opportunity'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Opportunity'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Opportunity'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Opportunity'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyOpportunity
+      description: 'This viewset automatically provides `list`, `create`, `retrieve`,
+
+        `update` and `destroy` actions.
+
+
+        Additionally we also provide an extra `highlight` action.'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A UUID string identifying this Opportunity.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/opportunities/{id}/highlight/:
+    get:
+      operationId: highlightOpportunity
+      description: 'This viewset automatically provides `list`, `create`, `retrieve`,
+
+        `update` and `destroy` actions.
+
+
+        Additionally we also provide an extra `highlight` action.'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A UUID string identifying this Opportunity.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            text/html:
+              schema:
+                $ref: '#/components/schemas/Opportunity'
+          description: ''
+      tags:
+      - api
+  /api/communityOfPractice/:
+    get:
+      operationId: listCommunityOfPractices
+      description: 'This viewset automatically provides `list` and `detail` actions.
+
+        Only admins can modify CoPs data in: civictechjobs.com/admin/'
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CommunityOfPractice'
+          description: ''
+      tags:
+      - api
+  /api/communityOfPractice/{id}/:
+    get:
+      operationId: retrieveCommunityOfPractice
+      description: 'This viewset automatically provides `list` and `detail` actions.
+
+        Only admins can modify CoPs data in: civictechjobs.com/admin/'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A UUID string identifying this Community of Practice.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommunityOfPractice'
+          description: ''
+      tags:
+      - api
+  /api/roles/:
+    get:
+      operationId: listRoles
+      description: 'This viewset automatically provides `list` and `detail` actions.
+
+        Only admins can modify roles data in: civictechjobs.com/admin/'
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Role'
+          description: ''
+      tags:
+      - api
+  /api/roles/{id}/:
+    get:
+      operationId: retrieveRole
+      description: 'This viewset automatically provides `list` and `detail` actions.
+
+        Only admins can modify roles data in: civictechjobs.com/admin/'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A UUID string identifying this role.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Role'
+          description: ''
+      tags:
+      - api
+  /api/skills/:
+    get:
+      operationId: listSkills
+      description: 'This viewset automatically provides `list` and `detail` actions.
+
+        Only admins can modify skills data in: civictechjobs.com/admin/'
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Skill'
+          description: ''
+      tags:
+      - api
+  /api/skills/{id}/:
+    get:
+      operationId: retrieveSkill
+      description: 'This viewset automatically provides `list` and `detail` actions.
+
+        Only admins can modify skills data in: civictechjobs.com/admin/'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A UUID string identifying this skill.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Skill'
+          description: ''
+      tags:
+      - api
+  /api/projects/:
+    get:
+      operationId: listProjects
+      description: 'This viewset automatically provides `list` and `detail` actions.
+
+        Only admins can modify skills data in: civictechjobs.com/admin/'
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+          description: ''
+      tags:
+      - api
+  /api/projects/{id}/:
+    get:
+      operationId: retrieveProject
+      description: 'This viewset automatically provides `list` and `detail` actions.
+
+        Only admins can modify skills data in: civictechjobs.com/admin/'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A UUID string identifying this project.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+          description: ''
+      tags:
+      - api
+  /api/healthcheck:
+    get:
+      operationId: listHealthchecks
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+          description: ''
+      tags:
+      - api
+components:
+  schemas:
+    Opportunity:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        project:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+              readOnly: true
+            people_depot_project_id:
+              type: string
+              maxLength: 255
+            name:
+              type: string
+              maxLength: 50
+            meeting_times:
+              type: object
+              nullable: true
+            created_at:
+              type: string
+              format: date-time
+              readOnly: true
+            updated_at:
+              type: string
+              format: date-time
+              readOnly: true
+          required:
+          - people_depot_project_id
+          - name
+          readOnly: true
+        role:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+              readOnly: true
+            title:
+              type: string
+              maxLength: 50
+            community_of_practice:
+              type: object
+              properties:
+                id:
+                  type: string
+                  format: uuid
+                  readOnly: true
+                practice_area:
+                  enum:
+                  - data_science
+                  - engineering
+                  - ops
+                  - project_management
+                  - ui_ux
+                  type: string
+                description:
+                  type: string
+                created_at:
+                  type: string
+                  format: date-time
+                  readOnly: true
+                updated_at:
+                  type: string
+                  format: date-time
+                  readOnly: true
+              required:
+              - practice_area
+              - description
+              readOnly: true
+            created_at:
+              type: string
+              format: date-time
+              readOnly: true
+            updated_at:
+              type: string
+              format: date-time
+              readOnly: true
+          required:
+          - title
+          readOnly: true
+        min_experience_required:
+          type: string
+          maxLength: 50
+        work_environment:
+          enum:
+          - remote
+          - hybrid
+          - in_person
+          type: string
+        min_hours_required:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        skills_required_matrix:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+              readOnly: true
+            owner_type:
+              enum:
+              - user
+              - opportunity
+              type: string
+            owner_id:
+              type: string
+              format: uuid
+              description: ID of the related user or opportunity.
+            skill_matrix:
+              type: object
+              description: Skill matrix mapping Skill id to a mastery level (1-5).
+            created_at:
+              type: string
+              format: date-time
+              readOnly: true
+            updated_at:
+              type: string
+              format: date-time
+              readOnly: true
+          required:
+          - owner_type
+          - owner_id
+          readOnly: true
+        body:
+          type: string
+        status:
+          type: string
+          maxLength: 20
+        created_by_id:
+          type: string
+          nullable: true
+        updated_by_id:
+          type: string
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - min_experience_required
+      - work_environment
+      - min_hours_required
+      - body
+      - status
+    CommunityOfPractice:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        practice_area:
+          enum:
+          - data_science
+          - engineering
+          - ops
+          - project_management
+          - ui_ux
+          type: string
+        description:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - practice_area
+      - description
+    Role:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        title:
+          type: string
+          maxLength: 50
+        community_of_practice:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+              readOnly: true
+            practice_area:
+              enum:
+              - data_science
+              - engineering
+              - ops
+              - project_management
+              - ui_ux
+              type: string
+            description:
+              type: string
+            created_at:
+              type: string
+              format: date-time
+              readOnly: true
+            updated_at:
+              type: string
+              format: date-time
+              readOnly: true
+          required:
+          - practice_area
+          - description
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - title
+    Skill:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          maxLength: 50
+        roles:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                format: uuid
+                readOnly: true
+              title:
+                type: string
+                maxLength: 50
+              community_of_practice:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    readOnly: true
+                  practice_area:
+                    enum:
+                    - data_science
+                    - engineering
+                    - ops
+                    - project_management
+                    - ui_ux
+                    type: string
+                  description:
+                    type: string
+                  created_at:
+                    type: string
+                    format: date-time
+                    readOnly: true
+                  updated_at:
+                    type: string
+                    format: date-time
+                    readOnly: true
+                required:
+                - practice_area
+                - description
+                readOnly: true
+              created_at:
+                type: string
+                format: date-time
+                readOnly: true
+              updated_at:
+                type: string
+                format: date-time
+                readOnly: true
+            required:
+            - title
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - name
+    Project:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        people_depot_project_id:
+          type: string
+          maxLength: 255
+        name:
+          type: string
+          maxLength: 50
+        meeting_times:
+          type: object
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - people_depot_project_id
+      - name
