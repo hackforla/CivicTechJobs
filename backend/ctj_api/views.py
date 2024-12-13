@@ -25,6 +25,25 @@ from ctj_api.serializers import (
 )
 
 
+start_time = time.time()
+
+
+def healthcheck(request):
+    uptime_seconds = time.time() - start_time
+    uptime_hours = uptime_seconds / 3600
+    hostname = request.get_host()
+    return JsonResponse(
+        {
+            "message": "healthcheck",
+            "uptime": f"{uptime_hours:.2f} hours",
+            # "uptime": f"{uptime_seconds:.1f} seconds",
+            "version": settings.VERSION,
+            "hostname": hostname,
+        },
+        status=200,
+    )
+
+
 # Custom error handler for incorrect API routes
 def api_not_found(request, exception=None):
     return JsonResponse(
@@ -35,25 +54,6 @@ def api_not_found(request, exception=None):
         },
         status=404,
     )
-
-
-class Healthcheck(APIView):
-    start_time = time.time()
-
-    def get(self, request):
-        uptime_seconds = time.time() - self.start_time
-        uptime_hours = uptime_seconds / 3600
-        hostname = request.get_host()
-
-        return Response(
-            {
-                "message": "healthcheck",
-                "uptime": f"{uptime_hours:.2f} hours",
-                # "uptime": f"{uptime_seconds:.1f} seconds",
-                "version": settings.VERSION,
-                "hostname": hostname,
-            }
-        )
 
 
 class UserDetail(generics.RetrieveAPIView):
