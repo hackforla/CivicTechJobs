@@ -14,7 +14,9 @@ class CommunityOfPractice(models.Model):
         UI_UX = "ui_ux", "UI/UX"
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    practice_area = models.CharField(max_length=50, choices=PracticeAreas.choices)
+    practice_area = models.CharField(
+        max_length=50, choices=PracticeAreas.choices, unique=True
+    )
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -49,7 +51,7 @@ class Role(models.Model):
 
 class Skill(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique=True)
     communities_of_practice = models.ManyToManyField(
         CommunityOfPractice, related_name="skills"
     )
@@ -65,7 +67,7 @@ class Skill(models.Model):
 
 class Project(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    people_depot_project_id = models.CharField(max_length=255)
+    people_depot_project_id = models.CharField(max_length=255, unique=True)
     name = models.CharField(max_length=50)
     meeting_times = models.JSONField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -114,15 +116,16 @@ class CustomUser(AbstractUser):
         null=True,
         blank=True,
         related_name="user",
+        help_text="User's list of skills mapped to a mastery level (1-5).",
     )
     max_available_hours = models.IntegerField(
         null=True, blank=True, help_text="User's available hours per week."
     )
     meeting_availability = models.JSONField(null=True, blank=True)
-
-    # isProjectManager users can CRUD opportunities
-    isProjectManager = models.BooleanField(default=False)
-
+    isProjectManager = models.BooleanField(
+        default=False,
+        help_text="A user that is a PM can create and edit opportunities in the CMS.",
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -141,16 +144,21 @@ class Opportunity(models.Model):
         Project, on_delete=models.CASCADE, related_name="opportunities"
     )
     role = models.ForeignKey(
-        Role, on_delete=models.CASCADE, related_name="opportunities"
+        Role,
+        on_delete=models.CASCADE,
+        related_name="opportunities",
+        help_text="Role.title will be the title of the opportunity.",
     )
-    body = models.TextField()
-    # min_experience_required: junior, senior, mid-level, etc.
+    body = models.TextField(help_text="A description of the opportunity.")
     min_experience_required = models.CharField(
         max_length=50,
         null=True,
         blank=True,
+        help_text="min_experience_required: junior, senior, mid-level, etc.",
     )
-    min_hours_required = models.IntegerField()
+    min_hours_required = models.IntegerField(
+        help_text="Minimum hours required per week."
+    )
     work_environment = models.CharField(
         max_length=20,
         choices=[
@@ -165,6 +173,7 @@ class Opportunity(models.Model):
         null=True,
         blank=True,
         related_name="opportunity",
+        help_text="A list of required skills mapped to desired skill level (1-5).",
     )
     status = models.CharField(
         max_length=20,
@@ -175,6 +184,7 @@ class Opportunity(models.Model):
             ("filled", "Filled"),
             ("draft", "Draft"),
         ],
+        help_text="Status will determine how the opportunity will be shown publicly.",
     )
     created_by = models.ForeignKey(
         CustomUser,
@@ -182,6 +192,7 @@ class Opportunity(models.Model):
         null=True,
         blank=True,
         related_name="created_opportunities",
+        help_text="For now, only the creator can make changes to the opportunity.",
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
