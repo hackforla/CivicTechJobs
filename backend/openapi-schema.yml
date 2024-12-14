@@ -327,16 +327,20 @@ components:
           type: string
         role:
           type: string
+          description: Role.title will be the title of the opportunity.
         body:
           type: string
+          description: A description of the opportunity.
         min_experience_required:
           type: string
           nullable: true
+          description: 'min_experience_required: junior, senior, mid-level, etc.'
           maxLength: 50
         min_hours_required:
           type: integer
           maximum: 2147483647
           minimum: -2147483648
+          description: Minimum hours required per week.
         work_environment:
           enum:
           - remote
@@ -346,6 +350,7 @@ components:
         skills_required_matrix:
           type: string
           nullable: true
+          description: A list of required skills mapped to desired skill level (1-5).
         status:
           enum:
           - open
@@ -354,6 +359,7 @@ components:
           - filled
           - draft
           type: string
+          description: Status will determine how the opportunity will be shown publicly.
         created_by:
           type: string
           readOnly: true
@@ -498,6 +504,7 @@ components:
         skills_learned_matrix:
           type: string
           nullable: true
+          description: User's list of skills mapped to a mastery level (1-5).
         max_available_hours:
           type: integer
           maximum: 2147483647
@@ -509,6 +516,8 @@ components:
           nullable: true
         isProjectManager:
           type: boolean
+          description: A user that is a PM can create and edit opportunities in the
+            CMS.
         opportunities:
           type: array
           items:
