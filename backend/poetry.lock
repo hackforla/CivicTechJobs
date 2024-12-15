@@ -324,23 +324,6 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
-name = "django-vite"
-version = "3.0.5"
-description = "Integration of Vite in a Django project."
-optional = false
-python-versions = "*"
-files = [
-    {file = "django_vite-3.0.5-py3-none-any.whl", hash = "sha256:049b74f38c999cbfcf0e2c21b254c2e059bb97bfd7e4049caf2d0f9fba0b482f"},
-    {file = "django_vite-3.0.5.tar.gz", hash = "sha256:431c1212e7627adc20666d150578f1a8983f043e90f3905778fb3c5c0ffe6963"},
-]
-
-[package.dependencies]
-Django = ">=3.2"
-
-[package.extras]
-dev = ["black"]
-
-[[package]]
 name = "djangorestframework"
 version = "3.15.2"
 description = "Web APIs for Django, made easy."
@@ -942,4 +925,4 @@ testing = ["coverage[toml]", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "549936fbfdd0e94a355f8c4a993660c0e14bcf2538bc39ff133844357d087df9"
+content-hash = "1799fc19a45dc8ced086b5e43606ccf1f82b90822f8a96fd4c003f70c4f1e67a"
