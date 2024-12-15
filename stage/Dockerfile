@@ -42,7 +42,7 @@ RUN poetry config virtualenvs.create false && poetry install --no-interaction --
 COPY ./backend/ .
 
 # Copy frontend application static files into django project
-COPY --from=react-builder /code/dist/ ./frontend/static/vite_assets_dist/
+COPY --from=react-builder /code/dist/ ./frontend_dist/
 
 # ENTRYPOINT contains the start server script
 ENTRYPOINT ["./entrypoint.sh"]

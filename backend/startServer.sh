@@ -16,7 +16,7 @@ poetry run python manage.py collectstatic --noinput --clear --link && \
     # django runserver - starts the development server:
     # poetry run python manage.py runserver
 
-    # daphne start command:
+    # daphne start server command:
     poetry run daphne -b localhost -p 8000 backend.asgi:application
 
-# Run this script with either `django runserver` or `daphne run`. Never both.
+# Run this script with either `python manage.py runserver` or `daphne`. Never both.
