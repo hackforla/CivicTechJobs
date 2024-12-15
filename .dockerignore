@@ -32,7 +32,7 @@ mkdocs
 **/.gitignore
 
 # Builds
-backend/frontend/static/vite_assets_dist
+backend/frontend_dist
 backend/staticfiles
 backend/openapi-schema.yml
 
