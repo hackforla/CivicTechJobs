@@ -5,7 +5,6 @@ import App from "./App";
 import "./index.scss";
 import "tailwindcss/tailwind.css";
 import reactAxe from "@axe-core/react";
-import "vite/modulepreload-polyfill"; // required for vite entrypoint backend (django) integration
 
 if (import.meta.env.MODE !== "production") {
   reactAxe(React, ReactDOM, 1000);
