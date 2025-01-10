@@ -19,6 +19,7 @@ VERSION = "1.0.0"
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+BACKEND_DIR = BASE_DIR
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config("SECRET_KEY")
@@ -40,7 +41,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "ctj_api.apps.CtjApiConfig",
     "rest_framework",
-    "django_vite",
 ]
 
 MIDDLEWARE = [
@@ -59,7 +59,10 @@ ROOT_URLCONF = "backend.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "frontend/templates/frontend"],
+        "DIRS": [
+            BACKEND_DIR / "backend/templates/backend",
+            BACKEND_DIR / "frontend_dist",
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -88,25 +91,6 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = config("HSTS_ENABLED", default=False, cast=bool
 SECURE_HSTS_PRELOAD = config("HSTS_ENABLED", default=False, cast=bool)
 
 
-# Whitenoise settings
-# http://whitenoise.evans.io/en/stable/django.html#WHITENOISE_IMMUTABLE_FILE_TEST
-def immutable_file_test(path, url):
-    # Match vite (rollup)-generated hashes, à la, `some_file-CSliV9zW.js`
-    return re.match(r"^.+[.-][0-9a-zA-Z_-]{8,12}\..+$", url)
-
-
-WHITENOISE_IMMUTABLE_FILE_TEST = immutable_file_test
-
-STORAGES = {
-    "staticfiles": {
-        # "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-        # BUG: whitenoise storage might be causing issues AWS. Temporary fix below:
-        "BACKEND": "django.contrib.staticfiles.storage.ManifestStaticFilesStorage",
-        # TODO: Go back and fix this after successful deployment to AWS
-        # https://whitenoise.readthedocs.io/en/stable/django.html#storage-troubleshoot
-    },
-}
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
@@ -122,7 +106,7 @@ DATABASES = {
 }
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
@@ -144,9 +128,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Enable django custom User model
+# https://docs.djangoproject.com/en/5.1/topics/auth/customizing/#substituting-a-custom-user-model
+AUTH_USER_MODEL = "ctj_api.CustomUser"
 
 # Internationalization
-# https://docs.djangoproject.com/en/5.0/topics/i18n/
+# https://docs.djangoproject.com/en/5.1/topics/i18n/
 
 LANGUAGE_CODE = "en-us"
 
@@ -158,31 +145,28 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
+# https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = "static/"
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_URL = "/static/"
+STATIC_ROOT = BACKEND_DIR / "staticfiles"
+STATICFILES_DIRS = [BACKEND_DIR / "frontend_dist" / "static"]
 
-
-# django-vite settings
-# https://github.com/MrBin99/django-vite
-DJANGO_VITE = {
-    "default": {
-        # enable vite HMR in dev mode
-        "dev_mode": config("DEBUG", default=False, cast=bool),
-        "dev_server_port": 5175,
-        # resolve static asset paths in production
-        "manifest_path": Path(
-            BASE_DIR
-            / "frontend"
-            / "static"
-            / "vite_assets_dist"
-            / ".vite"
-            / "manifest.json"
-        ).resolve(),
-    }
+STORAGES = {
+    "staticfiles": {
+        # "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        # BUG: whitenoise storage might be causing issues AWS. Temporary fix below:
+        "BACKEND": "django.contrib.staticfiles.storage.ManifestStaticFilesStorage",
+        # TODO: Go back and fix this after successful deployment to AWS
+        # https://whitenoise.readthedocs.io/en/stable/django.html#storage-troubleshoot
+    },
 }
-# Add the build.outDir from vite.config.js to STATICFILES_DIRS
-# so that collectstatic can collect your compiled vite assets.
-STATICFILES_DIRS = [BASE_DIR / "frontend/static/vite_assets_dist"]
-# Note: When building, these files need to be copied over from /frontend/dist
+
+
+# Whitenoise settings
+# http://whitenoise.evans.io/en/stable/django.html#WHITENOISE_IMMUTABLE_FILE_TEST
+def immutable_file_test(path, url):
+    # Match vite (rollup)-generated hashes, à la, `some_file-CSliV9zW.js`
+    return re.match(r"^.+[.-][0-9a-zA-Z_-]{8,12}\..+$", url)
+
+
+WHITENOISE_IMMUTABLE_FILE_TEST = immutable_file_test

@@ -24,6 +24,5 @@ dev/linter.env
 **/super-linter.log
 
 # static build files
-backend/frontend/static/vite_assets_dist
+backend/frontend_dist
 backend/staticfiles
-backend/openapi-schema.yml

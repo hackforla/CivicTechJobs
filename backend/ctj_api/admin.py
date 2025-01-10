@@ -1,10 +1,20 @@
 from django.contrib import admin
 
-from .models import CommunityOfPractice, Opportunities, Project, Role, Skill
+from .models import (
+    CommunityOfPractice,
+    CustomUser,
+    Opportunity,
+    Project,
+    Role,
+    Skill,
+    SkillMatrix,
+)
 
 # Register your models here.
-admin.site.register(Opportunities)
 admin.site.register(CommunityOfPractice)
 admin.site.register(Role)
 admin.site.register(Skill)
 admin.site.register(Project)
+admin.site.register(SkillMatrix)
+admin.site.register(CustomUser)
+admin.site.register(Opportunity)

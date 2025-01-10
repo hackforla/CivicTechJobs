@@ -1,0 +1,537 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /api/opportunities/:
+    get:
+      operationId: listOpportunities
+      description: 'This viewset automatically provides `list`, `create`, `retrieve`,
+
+        `update` and `destroy` actions.'
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Opportunity'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createOpportunity
+      description: 'This viewset automatically provides `list`, `create`, `retrieve`,
+
+        `update` and `destroy` actions.'
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Opportunity'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Opportunity'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Opportunity'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Opportunity'
+          description: ''
+      tags:
+      - api
+  /api/opportunities/{id}/:
+    get:
+      operationId: retrieveOpportunity
+      description: 'This viewset automatically provides `list`, `create`, `retrieve`,
+
+        `update` and `destroy` actions.'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A UUID string identifying this Opportunity.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Opportunity'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateOpportunity
+      description: 'This viewset automatically provides `list`, `create`, `retrieve`,
+
+        `update` and `destroy` actions.'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A UUID string identifying this Opportunity.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Opportunity'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Opportunity'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Opportunity'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Opportunity'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateOpportunity
+      description: 'This viewset automatically provides `list`, `create`, `retrieve`,
+
+        `update` and `destroy` actions.'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A UUID string identifying this Opportunity.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Opportunity'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Opportunity'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Opportunity'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Opportunity'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyOpportunity
+      description: 'This viewset automatically provides `list`, `create`, `retrieve`,
+
+        `update` and `destroy` actions.'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A UUID string identifying this Opportunity.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/communityOfPractice/:
+    get:
+      operationId: listCommunityOfPractices
+      description: 'Only admins can modify CoPs data in: civictechjobs.com/admin/'
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CommunityOfPractice'
+          description: ''
+      tags:
+      - api
+  /api/communityOfPractice/{id}/:
+    get:
+      operationId: retrieveCommunityOfPractice
+      description: 'Only admins can modify CoPs data in: civictechjobs.com/admin/'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A UUID string identifying this Community of Practice.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommunityOfPractice'
+          description: ''
+      tags:
+      - api
+  /api/roles/:
+    get:
+      operationId: listRoles
+      description: 'Only admins can modify roles data in: civictechjobs.com/admin/'
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Role'
+          description: ''
+      tags:
+      - api
+  /api/roles/{id}/:
+    get:
+      operationId: retrieveRole
+      description: 'Only admins can modify roles data in: civictechjobs.com/admin/'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A UUID string identifying this role.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Role'
+          description: ''
+      tags:
+      - api
+  /api/skills/:
+    get:
+      operationId: listSkills
+      description: 'Only admins can modify skills data in: civictechjobs.com/admin/'
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Skill'
+          description: ''
+      tags:
+      - api
+  /api/skills/{id}/:
+    get:
+      operationId: retrieveSkill
+      description: 'Only admins can modify skills data in: civictechjobs.com/admin/'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A UUID string identifying this skill.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Skill'
+          description: ''
+      tags:
+      - api
+  /api/projects/:
+    get:
+      operationId: listProjects
+      description: 'Only admins can modify skills data in: civictechjobs.com/admin/'
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+          description: ''
+      tags:
+      - api
+  /api/projects/{id}/:
+    get:
+      operationId: retrieveProject
+      description: 'Only admins can modify skills data in: civictechjobs.com/admin/'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A UUID string identifying this project.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+          description: ''
+      tags:
+      - api
+  /api/users/{id}/:
+    get:
+      operationId: retrieveCustomUser
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A UUID string identifying this User.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomUser'
+          description: ''
+      tags:
+      - api
+components:
+  schemas:
+    Opportunity:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        project:
+          type: string
+        role:
+          type: string
+          description: Role.title will be the title of the opportunity.
+        body:
+          type: string
+          description: A description of the opportunity.
+        min_experience_required:
+          type: string
+          nullable: true
+          description: 'min_experience_required: junior, senior, mid-level, etc.'
+          maxLength: 50
+        min_hours_required:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          description: Minimum hours required per week.
+        work_environment:
+          enum:
+          - remote
+          - hybrid
+          - in_person
+          type: string
+        skills_required_matrix:
+          type: string
+          nullable: true
+          description: A list of required skills mapped to desired skill level (1-5).
+        status:
+          enum:
+          - open
+          - closed
+          - on hold
+          - filled
+          - draft
+          type: string
+          description: Status will determine how the opportunity will be shown publicly.
+        created_by:
+          type: string
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - project
+      - role
+      - body
+      - min_hours_required
+      - work_environment
+      - status
+    CommunityOfPractice:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        practice_area:
+          enum:
+          - data_science
+          - engineering
+          - devops
+          - project_management
+          - ui_ux
+          type: string
+        description:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - practice_area
+      - description
+    Role:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        title:
+          type: string
+          maxLength: 50
+        community_of_practice:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - title
+      - community_of_practice
+    Skill:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          maxLength: 50
+        communities_of_practice:
+          type: array
+          items:
+            type: string
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - name
+      - communities_of_practice
+    Project:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        people_depot_project_id:
+          type: string
+          maxLength: 255
+        name:
+          type: string
+          maxLength: 50
+        meeting_times:
+          type: object
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - people_depot_project_id
+      - name
+    CustomUser:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        people_depot_user_id:
+          type: string
+          maxLength: 255
+        name:
+          type: string
+          maxLength: 100
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        community_of_practice:
+          type: string
+          nullable: true
+        skills_learned_matrix:
+          type: string
+          nullable: true
+          description: User's list of skills mapped to a mastery level (1-5).
+        max_available_hours:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+          description: User's available hours per week.
+        meeting_availability:
+          type: object
+          nullable: true
+        isProjectManager:
+          type: boolean
+          description: A user that is a PM can create and edit opportunities in the
+            CMS.
+        opportunities:
+          type: array
+          items:
+            type: string
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - people_depot_user_id
+      - name
+      - email
+      - opportunities

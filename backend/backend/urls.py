@@ -16,32 +16,17 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.http import JsonResponse
 from django.urls import include, path, re_path
-from django.views.generic import TemplateView
 
-
-# Custom handler for incorrect API routes
-def api_not_found(request, exception=None):
-    return JsonResponse(
-        {
-            "error": "API endpoint not found",
-            "status_code": 404,
-            "message": "The requested API endpoint does not exist",
-        },
-        status=404,
-    )
-
+from . import views
 
 urlpatterns = [
-    path("api/", include("ctj_api.urls"), name="api"),
     path("admin/", admin.site.urls),
-    # Custom error handler for invalid API routes
-    re_path(r"^api/.*$", api_not_found),  # Catch-all for incorrect API routes
+    path("api/", include("ctj_api.urls"), name="api"),
     # Catch-all for frontend (React)
     re_path(
         r"^.*$",
-        TemplateView.as_view(template_name="index.html"),
+        views.catchall,
         name="index",
     ),
 ]

@@ -1,34 +1,93 @@
 from rest_framework import serializers
 
-from ctj_api.models import CommunityOfPractice, Opportunities, Project, Role, Skill
+from ctj_api.models import (
+    CommunityOfPractice,
+    CustomUser,
+    Opportunity,
+    Project,
+    Role,
+    Skill,
+    SkillMatrix,
+)
 
 
-class OpportunitiesSerializer(serializers.ModelSerializer):
+class CustomUserSerializer(serializers.ModelSerializer):
+    opportunities = serializers.PrimaryKeyRelatedField(
+        many=True, queryset=Opportunity.objects.all()
+    )
+
     class Meta:
-        model = Opportunities
-        fields = ["id", "role", "subrole", "project"]
+        model = CustomUser
+        fields = [
+            "id",
+            "people_depot_user_id",
+            "name",
+            "email",
+            "community_of_practice",
+            "skills_learned_matrix",
+            "max_available_hours",
+            "meeting_availability",
+            "isProjectManager",
+            "opportunities",
+            "created_at",
+            "updated_at",
+        ]
+
+
+class OpportunitySerializer(serializers.ModelSerializer):
+    created_by = serializers.ReadOnlyField(source="created_by.email")
+
+    class Meta:
+        model = Opportunity
+        fields = [
+            "id",
+            "project",
+            "role",
+            "body",
+            "min_experience_required",
+            "min_hours_required",
+            "work_environment",
+            "skills_required_matrix",
+            "status",
+            "created_by",
+            "created_at",
+            "updated_at",
+        ]
+
+
+class SkillMatrixSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SkillMatrix
+        fields = [
+            "id",
+            "skill_matrix",
+            "created_at",
+            "updated_at",
+        ]
 
 
 class CommunityOfPracticeSerializer(serializers.ModelSerializer):
     class Meta:
         model = CommunityOfPractice
-        fields = ["id", "practice_area", "description", "created_at", "updated_at"]
+        fields = [
+            "id",
+            "practice_area",
+            "description",
+            "created_at",
+            "updated_at",
+        ]
 
 
 class RoleSerializer(serializers.ModelSerializer):
-    community_of_practice = CommunityOfPracticeSerializer(read_only=True)
-
     class Meta:
         model = Role
         fields = ["id", "title", "community_of_practice", "created_at", "updated_at"]
 
 
 class SkillSerializer(serializers.ModelSerializer):
-    roles = RoleSerializer(many=True, read_only=True)
-
     class Meta:
         model = Skill
-        fields = ["id", "name", "roles", "created_at", "updated_at"]
+        fields = ["id", "name", "communities_of_practice", "created_at", "updated_at"]
 
 
 class ProjectSerializer(serializers.ModelSerializer):
@@ -37,6 +96,7 @@ class ProjectSerializer(serializers.ModelSerializer):
         fields = [
             "id",
             "people_depot_project_id",
+            "name",
             "meeting_times",
             "created_at",
             "updated_at",
