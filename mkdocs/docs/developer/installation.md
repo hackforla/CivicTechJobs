@@ -10,6 +10,8 @@ Git - [Windows](https://git-scm.com/download/win) - [macOS](https://git-scm.com/
 Docker - [Windows](https://docs.docker.com/desktop/windows/install/) - [macOS](https://docs.docker.com/desktop/mac/install/) - [Linux/Unix](https://docs.docker.com/engine/install/)<br>
 Prettier - [VSCode Extension](https://github.com/prettier/prettier-vscode)<br>
 
+It is also recommended to install Python, Poetry, Node.js, and NPM in order to do things outside of Docker.
+
 <details>
 <summary>Note on macOS</summary>
 The macOS version of git involves downloading extra programs, such as Homebrew. In some cases this program can run up to 8GB of storage space, which might be too much for some. In that scenario, a <a href='https://www.datacamp.com/community/tutorials/homebrew-install-use'>miniature version of Homebrew can be installed through XCode</a>. But do be warned that the containers for our project takes up a substantial amount of disk space as well. Do consider freeing up your disk space by deleting or backing up unneeded files, like photos or videos, and delete programs that are no longer useful. Your OS's native disk cleaner can also clear out unused cache files.
@@ -36,7 +38,8 @@ While developing, make sure to create new branches off of the `develop` branch. 
 3. In this newly created file, copy and paste the contents of `dev.env.example`. Afterwards, you must edit the lines specified below.
 4. Move to the frontend directory `cd frontend` and then `npm install`. When this is finished, move back to the root directory `cd ..`
 5. Finally, enter `docker compose up --watch` to run the local server.
-6. Visit `http://localhost:8000` and you should see the front page of our website!
+6. In a browser, visit `http://localhost:5175` and you should see the front page of our website!
+7. Use `http://localhost:8000` to test the backend django server.
 
 <details>
 <summary>dev.env lines to edit</summary>
@@ -51,6 +54,7 @@ While developing, make sure to create new branches off of the `develop` branch. 
 </ul>
 </details>
 
+In development mode, our frontend and backend dev servers are split into two separate processes. The React frontend is hosted on `localhost:5175`, and the django backend API server is hosted on `localhost:8000`. Docker compose sets the two dev servers up so that they can communicate to each other.
 
 <!-- TODO: Fix the linter container  -->
 <!-- 
