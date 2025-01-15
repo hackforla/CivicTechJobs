@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React, { useId } from "react";
 
 // COP Icons
@@ -75,10 +74,10 @@ interface defaultProps {
 }
 
 function svgWrapper(
-  Svg: React.ElementType,
+  Svg: React.ComponentType,
   defaultProps: defaultProps,
-): React.ElementType {
-  return (props) => {
+): React.ComponentType {
+  const Wrapper = (props) => {
     const titleid = useId();
     const descid = useId();
 
@@ -92,6 +91,10 @@ function svgWrapper(
 
     return <Svg {...defaultProps} {...props}></Svg>;
   };
+
+  Wrapper.displayName = `SvgWrapper(${Svg.displayName || Svg.name || "SvgComponent"})`;
+
+  return Wrapper;
 }
 
 /// COP Icons
