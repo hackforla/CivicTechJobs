@@ -130,9 +130,26 @@ Permissions allow you to create access permissions for specific API endpoints.
 
 Please refer to [DjangoRESTFramework's documentation](https://www.django-rest-framework.org/) for more information.
 
+### Linting the backend
+
+Run before making a backend PR:
+
+```
+poetry run isort .
+poetry run black .
+poetry run flake8
+```
+
+- Make sure you are in the `/backend` folder
+- Make sure you run it in the above order (isort, then black, then flake8)
+- `isort`: sorts the import statements
+- `black`: automatically formats python code
+- `flake8`: lints python code
+
 ### Additional Resources
 
 [Django Documentation](https://docs.djangoproject.com/en/)<br>
 [DjangoRestFramework Documentation](https://www.django-rest-framework.org/)<br>
 [OpenAPI Documentation](https://learn.openapis.org/)<br>
 [Poetry Documentation](https://python-poetry.org/docs/)<br>
+[Feature/lint python redo by LoTerence · Pull Request #603 · hackforla/CivicTechJobs · GitHub](https://github.com/hackforla/CivicTechJobs/pull/603)<br>
