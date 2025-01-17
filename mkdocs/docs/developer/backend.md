@@ -14,7 +14,7 @@ _<p style="text-align: center;">Overall project structure</p>_
 │    └── pyproject.toml  # Backend
 ├── dev/
 │    ├── django.dockerfile
-│    ├── webpack.dockerfile
+│    ├── vite.Dockerfile
 │    └── dev.env
 ├── frontend/
 ├── mkdocs/

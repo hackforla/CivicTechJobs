@@ -1,3 +1,7 @@
+# OUTDATED
+
+<!-- TODO: Update this doc with Vite notes -->
+
 # Frontend Architecture
 
 ```yml
@@ -15,10 +19,10 @@
 │    ├── requirements.txt
 │    ├── package.json # Frontend
 │    ├── package-lock.json # Frontend
-│    └── webpack.config.js # Frontend
+│    └── vite.config.mts # Frontend
 ├── dev/
 │    ├── django.dockerfile
-│    ├── webpack.dockerfile
+│    ├── vite.Dockerfile
 │    └── dev.env
 ├── .dockerignore
 ├── .gitignore
@@ -52,7 +56,7 @@ _<p style="text-align: center;">Overall project structure</p>_
 ├── .jest.config.js
 ├── package-lock.json
 ├── package.json
-└── webpack.config.js
+└── vite.config.mts
 ```
 
 _<p style="text-align: center;">Frontend Architecture</p>_

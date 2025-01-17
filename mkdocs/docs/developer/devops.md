@@ -16,7 +16,7 @@
 │    └── startServer.sh
 ├── dev/ # DevOps
 │    ├── django.dockerfile
-│    ├── webpack.dockerfile
+│    ├── vite.Dockerfile
 │    └── dev.env
 ├── frontend/
 ├── mkdocs/
@@ -75,7 +75,7 @@ Docker is a platform that allows packaging and virtualizing applications within 
 
 This file contains configuration directions for docker compose. It consists of three services: `pgdb` (our database), `vite` (our vite bundler), and `django` (our django server). The vite and django service relies on separate dockerfiles, located in the `dev` directory to build the container. This separation of dockerfiles enable each container to be build with its own set of dependencies. It also makes rebuilding the container simple when dependencies are migrated to a newer version.
 
-For those of you used to creating applications without Docker, most would run webpack and django in separate terminals, so that they can both run at the same time. For the purposes of brevity, the different services can be considered to be Docker's way of running separate terminals.
+For those of you used to creating applications without Docker, most would run vite and django in separate terminals, so that they can both run at the same time. For the purposes of brevity, the different services can be considered to be Docker's way of running separate terminals.
 
 One will also notice that the Django command uses a placeholder server name, `0.0.0.0:8000`. This placeholder is important, since Docker creates an isolated environment. As a result, servers that are run in Docker does not recognize a browser from outside of that environment. Without this server name, localhost:8000 will not reach the server, as the server would recognize your browser as coming from a foreign machine. Therefore, all warnings related to 0.0.0.0, should they pop-up, should be ignored.
 
@@ -83,7 +83,7 @@ The vite frontend and django backend dev servers are split into `localhost:5175`
 
 #### `*.dockerfile`
 
-Dockerfiles are files that define how a container is built. Although containerization is a deep concept, to put it briefly, you can think of containers as separate "mini-computers", each programmed to do one thing. Some containers, such as our `pgdb` container does not require a dockerfile to configure it, as it works out of the box. On the otherhand, our `webpack` and `django` containers need dockerfile to built out the files we need to run it effectively.
+Dockerfiles are files that define how a container is built. Although containerization is a deep concept, to put it briefly, you can think of containers as separate "mini-computers", each programmed to do one thing. Some containers, such as our `pgdb` container does not require a dockerfile to configure it, as it works out of the box. On the otherhand, our `vite` and `django` containers need dockerfile to built out the files we need to run it effectively.
 
 ```dockerfile
 FROM node:latest
