@@ -94,7 +94,7 @@ Make sure that your terminal location is in a directory with a `docker-compose.y
 
 ##### 4. code ERR_SOCKET_TIMEOUT
 
-This can result for several reasons, such as havin your sockets overloaded. In order to prevent this, the best thing to do is to lower the amount of sockets used when performing npm install. Change this line in `docker/webpack`:
+This can result for several reasons, such as having your sockets overloaded. In order to prevent this, the best thing to do is to lower the amount of sockets used when performing npm install. Change this line in `dev/vite.Dockerfile`:
 
 `RUN npm install`
 
@@ -112,7 +112,7 @@ This sometimes happen when npm did not install successfully. In this scenario, y
 
 In this scenario, the full command would be:
 
-`docker compose run webpack npm install`
+`docker compose run vite npm install`
 
 ##### 6. [webpack-cli] [Error: EACCES: permission denied', open '/code/frontend/templates/frontend/index.html']
 

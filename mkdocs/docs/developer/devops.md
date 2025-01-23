@@ -1,29 +1,33 @@
-# Warning: This page is OUTDATED
-
 # DevOps Architecture
 
 ```yml
 ├── .github/
 │   └── ISSUE_TEMPLATE/
-├── app/
-│    ├── config/
+├── aws/ # DevOps
+├── backend/
+│    ├── backend/
 │          └── settings.py
-│    ├── frontend/
-│    ├── server/
-│    ├── .babelrc
+│    ├── ctj_api/
+│    ├── frontend_dist/
+│    ├── staticfiles/
+│    ├── entrypoint.sh # DevOps
 │    ├── manage.py
-│    ├── requirements.txt
-│    ├── package.json
-│    ├── package-lock.json
-│    └── webpack.config.js
+│    ├── pyproject.toml
+│    └── startServer.sh
 ├── dev/ # DevOps
 │    ├── django.dockerfile
-│    ├── webpack.dockerfile
+│    ├── vite.Dockerfile
 │    └── dev.env
+├── frontend/
+├── mkdocs/
+├── stage/  # DevOps
+│    ├── Dockerfile
+│    └── stage.env
 ├── .dockerignore # DevOps
 ├── .gitignore
-├── jsconfig.json
 ├── CONTRIBUTING.md
+├── docker-compose.docs.yml # DevOps
+├── docker-compose.stage.yml # DevOps
 ├── docker-compose.yml # DevOps
 ├── LICENSE
 └── README.md
@@ -33,47 +37,53 @@ _<p style="text-align: center;">Overall project structure</p>_
 
 ```yml
 ├── dev/
+│    ├── dev.env.example
 │    ├── django.dockerfile
-│    ├── webpack.dockerfile
-│    └── dev.env.example
+│    └── vite.Dockerfile
+├── stage/
+│    ├── Dockerfile
+│    └── stage.env.example
 ├── .dockerignore
-├── docker-compose.yml
-├── alias-config.txt
-└── alias.sh
+├── docker-compose.docs.yml
+├── docker-compose.stage.yml
+└── docker-compose.yml
 ```
 
 _<p style="text-align: center;">DevOps Architecture</p>_
 
-## Summary
+### Summary
 
-**DevOps Tech Stack**: Docker, Gunicorn, Nginx, PostgreSQL, test
+**DevOps Tech Stack**: Docker, Daphne, Whitenoise, PostgreSQL
 
-Our devops files can be thought of as a set of files needed to create an exact replica of our environments for our developers. Although the overall structure appears deceptively basic, it only represents a fraction of our devops files. Several of our files, such as the ones that construct our staging environment, contains sensitive information, and as such as not placed in our public repository. For most frontend and backend work, there is never a need to access these files.
+Our devops files can be thought of as a set of files needed to create an exact replica of our environments for our developers. Although the overall structure appears deceptively basic, it only represents a fraction of our devops files. Several of our files, such as the ones that construct our staging environment, contains sensitive information, and as such are not placed in our public repository. For most frontend and backend work, there is never a need to access these files.
 
-> ###### _\*Note: On the rare occasions that there is a need to access the sensitive files for environments other than development, please consult the development lead of the project. They will know exactly what files you need, and what permissions you need to access them._
+> _\*Note: On the rare occasions that there is a need to access the sensitive files for environments other than development, please consult the development lead of the project. They will know exactly what files you need, and what permissions you need to access them._
 
-## Overview of Directories and Files
+### Overview of Directories and Files
 
-- **dev/:** contains two dockerfiles and an env file. `django.dockerfile` contains information for our Django server setup. `webpack.dockerfile` contains information to start our webpack watch plugin. `dev.env.example` is an example of the env file needed to configure our dev environment.
+- **dev/:** contains two dockerfiles and an env file. `django.dockerfile` contains information for our Django server setup. `vite.Dockerfile` contains information to start our vite dev server. `dev.env.example` is an example of the env file needed to configure our dev environment.
 - **.dockerignore:** This file tells Docker to ignore certain files when building the container. These are usually files that pertain to docker or git, which are not important when building the webserver.
-- **docker-compose.yml:** Contains instructions for docker when we run "docker compose". To know more about what each line does, please consult [Docker's documentation](https://docs.docker.com/compose/compose-file/).
-- **alias.sh:** Contains a shell script that allows for cumbersome commands to be executed with less typing by leveraging the aliases listed in `alias-config.txt`
+- **docker-compose.yml:** Contains instructions for docker when we run "docker compose". To know more about what each line does, please consult [Docker's documentation](https://docs.docker.com/compose/compose-file/). This compose file starts the development environment.
+- **docker-compose.stage.yml:** Docker compose file for starting the stage environment.
+- **docker-compose.docs.yml:** Docker compose file for starting the mkdocs development server.
 
-## Docker
+### Docker
 
-Docker is a platform that allows packaging and virtualizing applications within a container. This gives developers the powerful ability to collaborate in a stable, synchonized environment, and deploying web applications with the greatest of ease. We will not be going too much into Docker here, but we will explain in greater depth some of the Docker configurations we have made.
+Docker is a platform that allows packaging and virtualizing applications within a container. This gives developers the powerful ability to collaborate in a stable, synchronized environment, and deploying web applications with the greatest of ease. We will not be going too much into Docker here, but we will explain in greater depth some of the Docker configurations we have made.
 
-### `docker-compose.yml`
+#### `docker-compose.yml`
 
-This file contains configuration directions for docker compose. It consists of three services: pgdb (our database), webpack (our webpack bundler), and django (our django server). The webpack and django service relies in separate dockerfiles, located in the `dev` directory to build the container. This separation of dockerfiles enable each container to be build with its own set of dependencies. It also makes rebuilding the container simple when dependencies are migrated to a newer version.
+This file contains configuration directions for docker compose. It consists of three services: `pgdb` (our database), `vite` (our vite bundler), and `django` (our django server). The vite and django service relies on separate dockerfiles, located in the `dev` directory to build the container. This separation of dockerfiles enable each container to be build with its own set of dependencies. It also makes rebuilding the container simple when dependencies are migrated to a newer version.
 
-For those of you used to creating applications without Docker, most would run webpack and django in separate terminals, so that they can both run at the same time. For the purposes of brevity, the different services can be considered to be Docker's way of running separate terminals.
+For those of you used to creating applications without Docker, most would run vite and django in separate terminals, so that they can both run at the same time. For the purposes of brevity, the different services can be considered to be Docker's way of running separate terminals.
 
-One will also notice that the Django command uses a placeholder server name, 0.0.0.0:8000. This placeholder is important, since Docker creates an isolated environment. As a result, servers that are run in Docker does not recognize a browser from outside of that environment. Without this server name, localhost:8000 will not reach the server, as the server would recognize your browser as coming from a foreign machine. Therefore, all warnings related to 0.0.0.0, should they pop-up, should be ignored.
+One will also notice that the Django command uses a placeholder server name, `0.0.0.0:8000`. This placeholder is important, since Docker creates an isolated environment. As a result, servers that are run in Docker does not recognize a browser from outside of that environment. Without this server name, localhost:8000 will not reach the server, as the server would recognize your browser as coming from a foreign machine. Therefore, all warnings related to 0.0.0.0, should they pop-up, should be ignored.
 
-### `*.dockerfile`
+The vite frontend and django backend dev servers are split into `localhost:5175` and `localhost:8000`, respectively. 
 
-Dockerfiles are files that define how a container is built. Although containerization is a deep concept, to put it briefly, you can think of containers as separate "mini-computers", each programmed to do one thing. Some containers, such as our `pgdb` container does not require a dockerfile to configure it, as it works out of the box. On the otherhand, our `webpack` and `django` containers need dockerfile to built out the files we need to run it effectively.
+#### `*.dockerfile`
+
+Dockerfiles are files that define how a container is built. Although containerization is a deep concept, to put it briefly, you can think of containers as separate "mini-computers", each programmed to do one thing. Some containers, such as our `pgdb` container does not require a dockerfile to configure it, as it works out of the box. On the otherhand, our `vite` and `django` containers need dockerfile to built out the files we need to run it effectively.
 
 ```dockerfile
 FROM node:latest
@@ -99,15 +109,34 @@ Do note that docker and dockerfiles can be fickle to work with, especially on ol
 
 ## Environments
 
-### Development
+#### Development
 
 Our development environment is entirely defined by our `docker-compose.yml`, and the files inside of `dev/`. More information about those files can be found above.
 
-Of note, however, is the dev.env.example file. This file is only a sample, but lists out all the environmental variables needed to run our site. While most of them are prefilled, some uses `<>` to indicate placeholders, which must be filled in by the developer.
+Of note, however, is the `dev.env.example` file. This file is only a sample, but lists out all the environmental variables needed to run our site. While most of them are prefilled, some uses `<>` to indicate placeholders, which must be filled in by the developer.
 
-### Staging
+#### Staging
 
-More information on our staging files can be found with our staging files. To access this information, please ask for the required permissions from the development lead.
+The main stage file is `docker-compose.stage.yml`. This docker compose file sets up a staging environment in our local machine.
+
+The following is a brief overview of how the stage environment is set up:
+1. First build the React frontend with `vite build`.
+2. Copy the `/frontend/dist` folder contents into `/backend/frontend_dist`
+3. In the backend, build the django staticfiles with the command `python manage.py collecstatic`
+4. Run the django migration commands to set up the postgres database.
+5. Use daphne to start the python web server: `daphne -b 0.0.0.0 -p 8000 backend.asgi:application`
+
+The `stage.env.example` contains environment variables used to configure the staging environment.
+
+The `/stage/Dockerfile` sets up the Django server. It first uses a JavaScript container to build the React frontend, then copies the files into a django container. Finally, it  uses the `/backend/entrypoint.sh` script to build and start the server.
+
+Our Django web server uses Whitenoise to serve the static html, css and js files. In other words, whitenoise serves the static frontend files.
+
+#### AWS staging
+
+More information on our AWS staging files can be found in the `/aws` directory, and github action files. To access this information, please ask for the required permissions from the development lead.
+
+We plan to replace some of these files with Terraform scripts.
 
 ## Useful Commands
 
@@ -147,18 +176,9 @@ docker compose build --progress=plain
 
 Sometimes when a build is happening, the logs are too opaque to debug if a step goes wrong. This commands makes the logs a bit more verbose so that you might have an easier time debugging.
 
-### Alias Shell Script
-
-For convenience, we have created a shell script that allows for longer commands to be executed with less typing. The script is capable of executing any of the commands listed in `alias-config.txt` without having to type out the entire command.
-
-### `alias.sh`
-
-To use this script, run `bash alias.sh $arg` or `./alias.sh $arg` where `$arg` is the alias of the command you wish to execute. For example, try running `bash alias.sh test`.
-
-### `alias-config.txt`
-
-This file contains many of the important commands you will need when developing for this project. Note that each command starts with a single word followed by a `:` and then a command. You must follow this pattern when adding additional commands to the file. Please note that any `docker run` commands must use the `-T` flag to allocate a pusedo-TTY or the command will not work.
-
 ## Additional Resources
 
 [Docker Documentation](https://docs.docker.com/)<br>
+[How to use Django with Daphne](https://docs.djangoproject.com/en/5.1/howto/deployment/asgi/daphne/)<br>
+[Making React and Django play well together - the "hybrid app" model - Fractal Ideas](https://fractalideas.com/blog/making-react-and-django-play-well-together-hybrid-app-model)<br>
+[Feature: Set up stage environment in docker by LoTerence · Pull Request #613 · hackforla/CivicTechJobs · GitHub](https://github.com/hackforla/CivicTechJobs/pull/613)<br>

@@ -13,10 +13,10 @@
 │    ├── requirements.txt
 │    ├── package.json
 │    ├── package-lock.json
-│    └── webpack.config.js
+│    └── vite.config.mts
 ├── dev/
 │    ├── django.dockerfile
-│    ├── webpack.dockerfile
+│    ├── vite.Dockerfile
 │    └── dev.env
 ├── .dockerignore
 ├── .gitignore # Github

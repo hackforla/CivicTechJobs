@@ -28,8 +28,5 @@ migrate:
 db-shell:
 	docker compose exec django python manage.py shell
 
-test-frontend:
-	docker compose run -T -w /code/frontend webpack npm run test
-
 test-server:
 	docker exec django python manage.py test server.tests
