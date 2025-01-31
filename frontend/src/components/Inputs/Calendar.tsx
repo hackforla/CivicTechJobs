@@ -12,8 +12,8 @@ import {
 // Type declaration for props
 interface CalendarProps extends React.PropsWithChildren {
   addClass?: string;
-  onChange: (data: string) => any;
-  value?: any;
+  onChange: (data: string) => void;
+  value?: string;
 }
 
 interface CalendarHeaderColumnProps {
@@ -172,7 +172,7 @@ function CalendarCell({
     setIsMouseDown(true);
   }
 
-  function mouseMove(e: any) {
+  function mouseMove(e: React.MouseEvent<HTMLDivElement>) {
     e.preventDefault();
     handleSelect(isMouseDown);
   }
@@ -201,4 +201,4 @@ function CalendarCell({
   );
 }
 
-export { Calendar };
+export { Calendar, cell };

@@ -10,7 +10,7 @@ function ClickCarousel({ hidden = false, selected = 0, ...props }) {
   const [items, setItems] = useState([]);
   const [lastIndex, setLastIndex] = useState(0);
   const [index, setIndex] = useState(selected);
-  // `setHidden` is unused currently but may be used in future features to control visibility
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isHidden, setHidden] = useState(hidden);
 
   useEffect(() => {

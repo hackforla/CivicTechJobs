@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { cell } from "../../Inputs/Calendar";
 
 function dissect(str: string, partition: number = 7) {
   const arr = str.match(new RegExp(`.{1,${partition}}`, "g"));
@@ -26,7 +27,7 @@ function useDragState() {
 }
 
 // sets the state to selected or deselected
-function useDragToSelectUnselect(cell: any, data_: string, toSelect: boolean) {
+function useDragToSelectUnselect(cell: cell, data_: string, toSelect: boolean) {
   const [nextdata, setData] = useState(data_);
   const { row, col } = cell;
   const [next, setNext] = useState(CellStatus());

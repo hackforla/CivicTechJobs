@@ -8,7 +8,7 @@ import { combineClasses } from "../Utility/utils";
 interface DialogProps extends React.PropsWithChildren {
   addClass?: string;
   ariaLabel: string;
-  onClose: Function;
+  onClose: () => void;
   open: boolean;
 }
 
