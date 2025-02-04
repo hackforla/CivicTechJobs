@@ -4,21 +4,31 @@ import Typography from "tw-components/Typography";
 const DemoTailwind = () => {
   return (
     <div className="min-h-screen bg-grey-light p-8">
-      <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
-        <Typography.Title1 className="text-blue-dark mb-4">
+      <div className="mx-auto max-w-4xl rounded-lg bg-white p-6 shadow-md">
+        <Typography.Title1 className="mb-4 text-blue-dark">
           Typography Demo (Title 1 - Roboto Bold 48/137% +0)
         </Typography.Title1>
 
-        <Typography.Title2 className="text-blue-dark mb-2">
+        <Typography.Title2 className="mb-2 text-blue-dark">
           Title Styles (Title 2 - Roboto Bold 36/137% +0)
         </Typography.Title2>
-        <Typography.Title3 className="mb-2">Title 3 - Roboto Bold 28/137% +0</Typography.Title3>
-        <Typography.Title4 className="mb-2">Title 4 - Roboto Bold 24/30 +0</Typography.Title4>
-        <Typography.Title5 className="mb-2">Title 5 - Roboto Bold 20/137% +0</Typography.Title5>
-        <Typography.Title6 className="mb-2">Title 6 - Roboto Bold 16/137% +0</Typography.Title6>
-        <Typography.Title7 className="mb-4">Title 7 - Roboto Bold 14/137% +0</Typography.Title7>
+        <Typography.Title3 className="mb-2">
+          Title 3 - Roboto Bold 28/137% +0
+        </Typography.Title3>
+        <Typography.Title4 className="mb-2">
+          Title 4 - Roboto Bold 24/30 +0
+        </Typography.Title4>
+        <Typography.Title5 className="mb-2">
+          Title 5 - Roboto Bold 20/137% +0
+        </Typography.Title5>
+        <Typography.Title6 className="mb-2">
+          Title 6 - Roboto Bold 16/137% +0
+        </Typography.Title6>
+        <Typography.Title7 className="mb-4">
+          Title 7 - Roboto Bold 14/137% +0
+        </Typography.Title7>
 
-        <Typography.Title2 className="text-blue-dark mb-2">
+        <Typography.Title2 className="mb-2 text-blue-dark">
           Paragraph Styles
         </Typography.Title2>
         <Typography.Paragraph1 className="mb-2">
@@ -37,13 +47,10 @@ const DemoTailwind = () => {
           Paragraph 5 - Roboto Regular 14/137% +0
         </Typography.Paragraph5>
 
-        <Typography.Title2 className="text-blue-dark mb-2">
+        <Typography.Title2 className="mb-2 text-blue-dark">
           Hyperlink Styles
         </Typography.Title2>
-        <Typography.HyperlinkBold
-          href="#"
-          className="text-blue-link mr-4"
-        >
+        <Typography.HyperlinkBold href="#" className="mr-4 text-blue-link">
           Bold Hyperlink - Roboto Bold Underlined 16/137% +0
         </Typography.HyperlinkBold>
         <Typography.Hyperlink href="#" className="text-blue-link">
@@ -117,7 +124,6 @@ const DemoTailwind = () => {
       <span>
         Testing whether img has display:block set by tailwind preflight
       </span>
-
     </div>
   );
 };
