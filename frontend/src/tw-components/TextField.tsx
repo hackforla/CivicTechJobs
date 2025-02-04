@@ -2,11 +2,15 @@ import React from "react";
 import { UseFormRegister, FieldError } from "react-hook-form";
 import { IconEyeOpen } from "assets/images/images";
 
+interface FormValues {
+  password: string;
+}
+
 interface TextFieldProps extends React.PropsWithChildren {
   label: string;
   id: string;
   type: "text" | "email" | "password";
-  register: UseFormRegister<any>;
+  register: UseFormRegister<FormValues>;
   validations?: object;
   errors?: FieldError | undefined;
 }

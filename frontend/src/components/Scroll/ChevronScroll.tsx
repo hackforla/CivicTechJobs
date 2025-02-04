@@ -2,7 +2,7 @@ import React, { useRef, useCallback } from "react";
 import { IconChevronLeft, IconChevronRight } from "assets/images/images";
 import { combineClasses } from "components/Utility/utils";
 
-function ChevronScroll(props: React.PropsWithChildren<{}>) {
+function ChevronScroll(props: { children: React.ReactNode }) {
   const [showRightChevron, setShowRightChevron] = React.useState(true);
   const [showLeftChevron, setShowLeftChevron] = React.useState(false);
   const [childIndex, setChildIndex] = React.useState(0);
