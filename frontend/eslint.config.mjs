@@ -40,7 +40,7 @@ export default [
     },
   },
   {
-    ignores: ["node_modules/", "*.config.js", "tests/__mocks__/*"],
+    ignores: ["node_modules/", "dist/", "*.config.js", "tests/__mocks__/*"],
   },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
