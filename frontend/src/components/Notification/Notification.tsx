@@ -13,6 +13,7 @@ interface NotificationProps extends React.PropsWithChildren {
   fade?: boolean;
   role?: "status" | "alert";
   show?: boolean;
+  children: React.ReactNode;
 }
 
 function Notification({

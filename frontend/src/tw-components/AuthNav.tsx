@@ -6,6 +6,7 @@ import { logoHorizontal } from "assets/images/images";
 import { iconArrowLeft } from "assets/images/images";
 
 function AuthNav() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [path] = useState(window.location.pathname);
 
   const Logo = () => {

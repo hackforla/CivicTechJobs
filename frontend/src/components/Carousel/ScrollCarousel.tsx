@@ -118,6 +118,7 @@ ScrollCarousel.propTypes = {
   hidden: PropTypes.bool,
   itemSize: PropTypes.number.isRequired,
   totalMargins: PropTypes.number.isRequired,
+  children: PropTypes.node,
 };
 
 /**

@@ -12,7 +12,7 @@ interface DropdownProps
   extends React.PropsWithChildren,
     Omit<ProtoInputProps, "innerComponent" | "icon" | "iconPosition" | "id"> {
   ariaLabel: string;
-  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => any;
+  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   value: string | number;
 }
 
@@ -110,7 +110,7 @@ function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
 }
 
 interface DropdownOptionProps extends React.PropsWithChildren {
-  onClick: (value: string | number) => any;
+  onClick: (value: string | number) => void;
   selected: boolean;
   value: string | number;
 }

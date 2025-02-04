@@ -1,7 +1,7 @@
 import React from "react";
 
 interface CardProps {
-  key: any;
+  key: number;
   name: string;
   usedIn: string;
   provider: string;

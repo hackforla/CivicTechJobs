@@ -11,7 +11,7 @@ interface ProtoInputProps extends React.PropsWithChildren {
   id: string;
   label: string;
   labelHidden?: boolean;
-  passRef?: any;
+  passRef?: React.RefCallback<HTMLDivElement>;
 }
 
 function ProtoInput({

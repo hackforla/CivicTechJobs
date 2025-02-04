@@ -4,7 +4,7 @@ import { CSSTransition } from "react-transition-group";
 
 interface TransitionWrapper extends React.PropsWithChildren {
   autoExit?: boolean;
-  onExited?: () => any;
+  onExited?: () => void;
   show?: boolean;
 }
 

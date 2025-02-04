@@ -5,7 +5,7 @@ import React from "react";
  * @param  {...any} args an array of anything
  * @returns a joined string after filtering out non-strings from args
  */
-function combineClasses(...args: any[]) {
+function combineClasses(...args: (string | boolean | undefined)[]) {
   return args.filter((x) => typeof x === "string").join(" ");
 }
 
@@ -15,7 +15,9 @@ function combineClasses(...args: any[]) {
  * @param  {...string[]} keyValues strings denoting key values
  * @returns a function that runs only when the event key passed in matches any of the keyValues
  */
-function onKey(fn: React.EventHandler<any>, ...keyValues: string[]) {
+
+type Handler = (() => void) | React.EventHandler<React.SyntheticEvent>;
+function onKey(fn: Handler, ...keyValues: string[]) {
   return (e: React.KeyboardEvent) => {
     if (keyValues.includes(e.key)) {
       e.preventDefault();

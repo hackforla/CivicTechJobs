@@ -11,6 +11,7 @@ import BottomSvg from "./BottomSvg";
 
 const CreditsPage: FC = () => {
   const [activeData, setActiveData] = useState(illustrationData);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [imgSize, setImgSize] = useState("32");
   const [activeButton, setActiveButton] = useState("illustrations");
 

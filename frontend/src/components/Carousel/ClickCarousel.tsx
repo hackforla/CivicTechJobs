@@ -10,6 +10,7 @@ function ClickCarousel({ hidden = false, selected = 0, ...props }) {
   const [items, setItems] = useState([]);
   const [lastIndex, setLastIndex] = useState(0);
   const [index, setIndex] = useState(selected);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isHidden, setHidden] = useState(hidden);
 
   useEffect(() => {
