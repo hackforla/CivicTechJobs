@@ -33,11 +33,6 @@ function ScrollCarousel({ hidden = false, ...props }) {
     setItemSize(carouselRef.current.children[0].offsetWidth);
   });
 
-  useEffect(() => {
-    // when the item size changes, reset position to where it should be, based on the item index
-    setPosition(carouselPositionIndex(scrollDif, startLoss, index));
-  }, [startPosition]);
-
   const [position, setPosition] = useState(startPosition);
   const [behavior, setBehavior] = useState("instant");
   const [touch, setTouch] = useState(true);
@@ -46,11 +41,16 @@ function ScrollCarousel({ hidden = false, ...props }) {
   const carouselRef = useRef(null);
 
   useEffect(() => {
+    // when the item size changes, reset position to where it should be, based on the item index
+    setPosition(carouselPositionIndex(scrollDif, startLoss, index));
+  }, [index, scrollDif, startLoss]);
+
+  useEffect(() => {
     carouselRef.current.scroll({
       left: position,
       behavior: behavior,
     });
-  }, [position]);
+  }, [position, behavior]);
 
   function handleTouchStart(e) {
     setTouch(true);

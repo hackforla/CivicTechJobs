@@ -11,5 +11,5 @@
     "baseUrl": "./src",
     "strict": true
   },
-  "include": ["./src", "./tests", "global.d.ts"],
+  "include": ["./src", "./tests", "global.d.ts"]
 }

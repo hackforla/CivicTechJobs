@@ -1,5 +1,5 @@
 // External Imports
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 // Internal Imports
 import { combineClasses } from "components/Utility/utils";
@@ -10,17 +10,11 @@ import { iconX } from "assets/images/images";
 interface CopCardProps extends React.PropsWithChildren {
   addClass?: string;
   onClick: (e?: React.SyntheticEvent) => void;
-  hidden?: boolean;
+  isHidden?: boolean;
   size?: "lg" | "sm";
 }
 
-function CopCard({ hidden = true, size = "sm", ...props }: CopCardProps) {
-  const [isHidden, setIsHidden] = useState(hidden);
-
-  useEffect(() => {
-    setIsHidden(hidden);
-  }, [isHidden]);
-
+function CopCard({ isHidden = true, size = "sm", ...props }: CopCardProps) {
   return (
     <Card
       addClass={combineClasses(
