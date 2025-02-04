@@ -34,7 +34,7 @@ describe("Notification", () => {
   });
 
   test("Notification component autoHidden", async () => {
-    const user = userEvent.setup();
+    // const user = userEvent.setup();
     render(
       <Notification show={true} autoHidden>
         This is a warning
@@ -42,7 +42,7 @@ describe("Notification", () => {
     );
     await waitForElementToBeRemoved(screen.getByRole("status"), {
       timeout: 10,
-    }).catch((err) => {
+    }).catch(() => {
       expect(screen.getByText("This is a warning")).toBeInTheDocument();
       expect(screen.queryByRole("alert")).not.toBeInTheDocument();
     });
