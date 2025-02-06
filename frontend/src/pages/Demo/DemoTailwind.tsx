@@ -1,14 +1,79 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Typography from "tw-components/Typography";
+import { Button, IconButton } from "tw-components/Buttons";
 
 const DemoTailwind = () => {
+  // Add a setDarkMode for testing dark mode styles
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
+
   return (
     <div className="min-h-screen bg-grey-light p-8">
+      <div className="mx-auto max-w-4xl rounded-lg bg-white p-6 shadow-md dark:bg-[#030D2D] transition-colors duration-300">
+        <Typography.Title1 className="mb-4 text-blue-dark dark:text-white">
+          Buttons
+        </Typography.Title1>
+
+        <Button onClick={() => setDarkMode(!darkMode)}>Toggle Dark Mode</Button>
+
+        {/* Regular Buttons, active is the default state */}
+        <Typography.Title3 className="mt-4 mb-2 text-blue-dark dark:text-white">
+          Active
+        </Typography.Title3>
+        <div className="flex flex-wrap items-center gap-4 mb-4">
+          <Button size="small">Small</Button>
+          <Button size="small-long">Small-Long</Button>
+          {/* Medium is the default*/}
+          <Button>Medium</Button>
+          <Button size="medium-long">Medium-Long</Button>
+          <Button size="large">Large</Button>
+          <Button size="large-long">Large-Long</Button>
+        </div>
+
+        {/* Disabled Buttons */}
+        <Typography.Title3 className="mb-2 text-blue-dark dark:text-white">
+          Disabled
+        </Typography.Title3>
+        <div className="flex flex-wrap items-center gap-4 mb-4">
+          <Button state="disabled">
+            Medium Disabled
+          </Button>
+          <Button size="large" state="disabled">
+            Large Disabled
+          </Button>
+        </div>
+
+        {/* Hover & Active/Focused States */}
+        <Typography.Title3 className="mb-2 text-blue-dark dark:text-white">
+          Hover, Focused and Active
+        </Typography.Title3>
+        <div className="flex flex-wrap items-center gap-4 mb-4">
+          <Button>Hover</Button>
+          <Button>Focus (tab)</Button>
+          <Button>Active (click & hold)</Button>
+        </div>
+
+        {/* Icon Buttons */}
+        <Typography.Title3 className="mb-2 text-blue-dark dark:text-white">
+          Search Icon
+        </Typography.Title3>
+        <div className="flex flex-wrap items-center gap-4">
+          <IconButton />
+          <IconButton state="disabled" />
+        </div>
+      </div>
+
       <div className="mx-auto max-w-4xl rounded-lg bg-white p-6 shadow-md">
         <Typography.Title1 className="mb-4 text-blue-dark">
           Typography Demo (Title 1 - Roboto Bold 48/137% +0)
         </Typography.Title1>
-
         <Typography.Title2 className="mb-2 text-blue-dark">
           Title Styles (Title 2 - Roboto Bold 36/137% +0)
         </Typography.Title2>
