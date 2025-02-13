@@ -16,7 +16,7 @@ const DemoTailwind = () => {
 
   return (
     <div className="min-h-screen bg-grey-light p-8">
-      <div className="mx-auto max-w-4xl rounded-lg bg-white p-6 shadow-md dark:bg-[#030D2D] transition-colors duration-300">
+      <div className="mx-auto max-w-4xl rounded-lg bg-white p-6 shadow-md transition-colors duration-300 dark:bg-[#030D2D]">
         <Typography.Title1 className="mb-4 text-blue-dark dark:text-white">
           Buttons
         </Typography.Title1>
@@ -24,10 +24,10 @@ const DemoTailwind = () => {
         <Button onClick={() => setDarkMode(!darkMode)}>Toggle Dark Mode</Button>
 
         {/* Regular Buttons, active is the default state */}
-        <Typography.Title3 className="mt-4 mb-2 text-blue-dark dark:text-white">
+        <Typography.Title3 className="mb-2 mt-4 text-blue-dark dark:text-white">
           Active
         </Typography.Title3>
-        <div className="flex flex-wrap items-center gap-4 mb-4">
+        <div className="mb-4 flex flex-wrap items-center gap-4">
           <Button size="small">Small</Button>
           <Button size="small-long">Small-Long</Button>
           {/* Medium is the default*/}
@@ -41,11 +41,9 @@ const DemoTailwind = () => {
         <Typography.Title3 className="mb-2 text-blue-dark dark:text-white">
           Disabled
         </Typography.Title3>
-        <div className="flex flex-wrap items-center gap-4 mb-4">
-          <Button state="disabled">
-            Medium Disabled
-          </Button>
-          <Button size="large" state="disabled">
+        <div className="mb-4 flex flex-wrap items-center gap-4">
+          <Button disabled={true}>Medium Disabled</Button>
+          <Button size="large" disabled={true}>
             Large Disabled
           </Button>
         </div>
@@ -54,7 +52,7 @@ const DemoTailwind = () => {
         <Typography.Title3 className="mb-2 text-blue-dark dark:text-white">
           Hover, Focused and Active
         </Typography.Title3>
-        <div className="flex flex-wrap items-center gap-4 mb-4">
+        <div className="mb-4 flex flex-wrap items-center gap-4">
           <Button>Hover</Button>
           <Button>Focus (tab)</Button>
           <Button>Active (click & hold)</Button>
@@ -66,7 +64,7 @@ const DemoTailwind = () => {
         </Typography.Title3>
         <div className="flex flex-wrap items-center gap-4">
           <IconButton />
-          <IconButton state="disabled" />
+          <IconButton disabled={true} />
         </div>
       </div>
 
