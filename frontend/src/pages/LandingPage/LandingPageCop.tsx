@@ -71,7 +71,7 @@ function LandingPageCop() {
         ariaLabel="Communities of Practice (COP)"
       >
         <CopCard
-          hidden={false}
+          isHidden={false}
           size="lg"
           onClick={() => setIsDialogOpen(false)}
         >

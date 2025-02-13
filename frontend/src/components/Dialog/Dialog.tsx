@@ -34,7 +34,7 @@ function Dialog({ open = false, ...props }: DialogProps) {
 
   useEffect(() => {
     if (open) setIsBackdropOpen(true);
-  });
+  }, [open]);
 
   function handleClose(e: React.MouseEvent) {
     if (e.target === windowRef.current) {

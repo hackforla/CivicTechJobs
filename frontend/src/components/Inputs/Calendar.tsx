@@ -44,15 +44,19 @@ interface CalendarCellProps {
   setToSelect: (bool: boolean) => void;
 }
 
-function Calendar({ value = "0".repeat(24 * 2 * 7), ...props }: CalendarProps) {
+const initialValue = "0".repeat(24 * 2 * 7);
+
+function Calendar({ value = initialValue, addClass, onChange }: CalendarProps) {
   const [data, setData] = useState(value);
   const [isMouseDown, setIsMouseDown, toSelect, setToSelect] = useDragState();
+
   useEffect(() => {
-    props.onChange(data);
-  }, [data]);
+    onChange(data);
+  }, [onChange, data]);
+
   return (
     <div
-      className={combineClasses("flex-container fill", props.addClass)}
+      className={combineClasses("flex-container fill", addClass)}
       data-testid="calendar-root"
     >
       {/* Side column with headers. Needs to be separate due to labels being on the border, and alternating */}
@@ -165,7 +169,7 @@ function CalendarCell({
   );
   useEffect(() => {
     setData(nextdata);
-  }, [next]);
+  }, [setData, nextdata]);
 
   function mouseDown() {
     setToSelect(!next);

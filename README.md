@@ -32,7 +32,7 @@ Civic Tech technology practitioners are a diverse and interdisciplinary group of
   - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
   - [@axe-core/react](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/react)
 - [Sass](https://sass-lang.com/documentation)
-- [Webpack](https://webpack.js.org/)
+- [Vite](https://vite.dev/)
 - [Babel](https://babeljs.io/)
 
 #### Backend

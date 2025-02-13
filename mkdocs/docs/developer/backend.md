@@ -1,69 +1,99 @@
 # Backend Architecture
 
+_<p style="text-align: center;">Overall project structure</p>_
+
 ```yml
 ├── .github/
 │   └── ISSUE_TEMPLATE/
-├── app/ # Backend
-│    ├── config/  # Backend
+├── backend/ # Backend
+│    ├── backend/  # Backend
 │          └── settings.py
-│    ├── frontend/ # Backend
-│    ├── server/  # Backend
-│    ├── .babelrc
+│    ├── ctj_api/  # Backend
 │    ├── manage.py
-│    ├── requirements.txt  # Backend
-│    ├── package.json
-│    ├── package-lock.json
-│    └── webpack.config.js
+│    ├── poetry.lock
+│    └── pyproject.toml  # Backend
 ├── dev/
 │    ├── django.dockerfile
-│    ├── webpack.dockerfile
+│    ├── vite.Dockerfile
 │    └── dev.env
+├── frontend/
+├── mkdocs/
+├── stage/
+│    ├── Dockerfile
+│    └── stage.env
 ├── .dockerignore
 ├── .gitignore
-├── jsconfig.json
 ├── CONTRIBUTING.md
 ├── docker-compose.yml
 ├── LICENSE
 └── README.md
 ```
 
-_<p style="text-align: center;">Overall project structure</p>_
+_<p style="text-align: center;">Backend folder structure</p>_
 
 ```yml
-├── config/
-│   ├── <Django Project Files>
-├── frontend/
-│   └── <Django App Files>
-├── server/
+├── backend/
+│   ├── templates/
+│   └── <Django Project Files>
+├── ctj_api/
+│   ├── migrations/
 │   ├── <Django App Files>
-│   ├─── <RESTFramework Files>
-|   └── templates
+│   └── <RESTFramework Files>
+├── frontend_dist/
+│   └── <Vite build Files>
+├── staticfiles/
+│   └── <Django built Static Files>
+├── .flake8
+├── entrypoint.sh
 ├── manage.py
-└── requirements.txt
+├── openapi-schema.yml
+├── poetry.lock
+├── pyproject.toml
+└── startServer.sh
 ```
 
 _<p style="text-align: center;">Backend Architecture</p>_
 
 These diagrams show how data flows through the app: [Frontend and Backend UML diagrams](https://github.com/hackforla/CivicTechJobs/issues/236)
 
-## Summary
+<!-- TODO: the diagrams above may be outdated -->
+
+### Summary
 
 **Backend Tech Stack**: Django, DjangoRESTFramework
 
-The backend architecture is consists the the Django `config/` project, and the `frontend/` and `server/` Django apps. In addition to serving as part of our backend, the `frontend/` directory also serves our frontend architecture. More about the `frontend/` directory as it relates our frontend architecture can be found in our guide on [Frontend Architecture](../../developer/frontend/).
+The backend architecture consists of the Django `backend/` project, and the `ctj_api/` Django apps. The `frontend_dist/` directory serves as our frontend build folder. More about the `frontend/` directory as it relates our frontend architecture can be found in our guide on [Frontend Architecture](../../developer/frontend/).
 
-## Overview of Directories and Files
+### Overview of Directories and Files
 
-- **config/**: houses the Django project files.
+- **backend/backend/**: houses the core Django project files. 
   - **<Django Project Files\>**: More on the files in this directory can be found in [Django's documentation](https://docs.djangoproject.com/en/4.0/).
-- **<Django App\>:** currently we have two directories that are Django apps: `frontend/` and `server/`. Within these directories are the default `<Django App Files>` that are created with every app as well as `<RESTFramework Files>`.
+- **<Django App\>:** currently we have two directories that are Django apps: `backend/` and `ctj_api/`. Within these directories are the default `<Django App Files>` that are created with every app as well as `<RESTFramework Files>`.
   - **<Django App Files\>**: These files make up a Django App. To know more about these apps, read the section about [Django App Files](#django-app-files).
-  - **<RESTFramework Files\>:** Currently consists of only `serializers.py`, these files are additional files that support Django via the [DjangoRestFramework library](https://www.django-rest-framework.org/).
-  - **temaples/**: contains swagger templates to host the swagger ui representation of our API.
+  - **<RESTFramework Files\>:** Currently consists of `serializers.py` and `permissions.py`. These files are additional files that support Django via the [DjangoRestFramework library](https://www.django-rest-framework.org/).
 - **manage.py**: Part of Django, this is the entry point file for starting the Django server. This file handles a lot of critical settings, so be sure to read up on it in [Django's documentation](https://docs.djangoproject.com/en/4.0/ref/django-admin/).
-- **requirements.txt:** A Python file that contains all dependencies for a project. It is the Python equivalent to Javascript's `package.json`.
 
-## Django App Files
+<br>
+Django Build files
+
+- **frontend_dist/:** The frontend React application's vite build files go in here. Django will use this to build the static frontend site to be served over whitenoise in stage/production.
+- **staticfiles/:** The static files django will serve to the client in stage/production. This folder is built when we run `python manage.py collectstatic`
+- **openapi-schema.yml:** Django REST Framework automatically generates this OpenAPI specification using our API code.
+
+<br>
+Dependency management
+
+- **pyproject.toml:** A Python file that contains all dependencies for a project. It is the Python + Poetry equivalent to Javascript's `package.json`.
+- **poetry.lock:** Poetry's dependency lock file. Equivalent to `package-lock.json` in JS.
+
+<br>
+Other files
+
+- **.flake8:** flake8 linter settings.
+- **entrypoint.sh:** script that docker uses to build and start the stage and prod environments.
+- **startServer.sh:** you can use this script to test and start the django server on your local machine without using docker.
+
+### Django App Files
 
 ```yml
 ├── migrations/
@@ -79,13 +109,16 @@ The backend architecture is consists the the Django `config/` project, and the `
 
 _<p style="text-align: center;">Files generated by Django when creating a new Django app</p>_
 
-These files uses DjangoRestFramework in order to quickly create an API. The most often editted files here are `models.py`, `urls.py`, and `views.py`. The models define the schema for our database tables. Once the models are made, they are router to views.py where the data is transformed and exposed to our API. It is in views where we create handlers to manage REST operations.
+These files use DjangoRestFramework in order to quickly create an API. The most often edited files here are `models.py`, `urls.py`, and `views.py`. The models define the schema for our database tables. Once the models are made, they are routed to `views.py` where the data is transformed and exposed to our API. It is in views where we create handlers to manage REST operations.
 
 Please refer to [Django's documentation](https://docs.djangoproject.com/en/) for more information.
 
-## Django REST Framework Files
+### Django REST Framework Files
+
+The `backend/ctj_api/` folder houses the core CivicTechJobs API server files.
 
 ```yml
+├── permissions.py
 ├── serializers.py
 ```
 
@@ -93,9 +126,30 @@ _<p style="text-align: center;">RESTFramework files used to create a Django REST
 
 Serializers turn the data from the database into a Python-readable form.
 
+Permissions allow you to create access permissions for specific API endpoints.
+
 Please refer to [DjangoRESTFramework's documentation](https://www.django-rest-framework.org/) for more information.
 
-## Additional Resources
+### Linting the backend
+
+Run before making a backend PR:
+
+```
+poetry run isort .
+poetry run black .
+poetry run flake8
+```
+
+- Make sure you are in the `/backend` folder
+- Make sure you run it in the above order (isort, then black, then flake8)
+- `isort`: sorts the import statements
+- `black`: automatically formats python code
+- `flake8`: lints python code
+
+### Additional Resources
 
 [Django Documentation](https://docs.djangoproject.com/en/)<br>
 [DjangoRestFramework Documentation](https://www.django-rest-framework.org/)<br>
+[OpenAPI Documentation](https://learn.openapis.org/)<br>
+[Poetry Documentation](https://python-poetry.org/docs/)<br>
+[Feature/lint python redo by LoTerence · Pull Request #603 · hackforla/CivicTechJobs · GitHub](https://github.com/hackforla/CivicTechJobs/pull/603)<br>
