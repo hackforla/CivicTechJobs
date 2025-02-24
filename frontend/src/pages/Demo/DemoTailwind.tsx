@@ -42,8 +42,8 @@ const DemoTailwind = () => {
           Disabled
         </Typography.Title3>
         <div className="mb-4 flex flex-wrap items-center gap-4">
-          <Button disabled={true}>Medium Disabled</Button>
-          <Button size="large" disabled={true}>
+          <Button disabled>Medium Disabled</Button>
+          <Button size="large" disabled>
             Large Disabled
           </Button>
         </div>
@@ -64,7 +64,7 @@ const DemoTailwind = () => {
         </Typography.Title3>
         <div className="flex flex-wrap items-center gap-4">
           <IconButton />
-          <IconButton disabled={true} />
+          <IconButton disabled />
         </div>
       </div>
 
