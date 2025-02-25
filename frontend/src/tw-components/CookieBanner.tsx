@@ -7,8 +7,7 @@ import Cookies from "js-cookie";
 import { IconButton } from "components/components";
 import { iconX } from "assets/images/images";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function CookieBanner(props: { children: React.ReactNode }) {
+function CookieBanner() {
   const [hidden, setIsHidden] = useState(
     Cookies.get("cookieConsent") !== undefined,
   );
