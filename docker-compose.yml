@@ -48,6 +48,9 @@ services:
     container_name: vite
     env_file:
       - dev/dev.env
+    environment:
+      - VITE_APP_SERVER_URL=django://django:8000
+      - VITE_APP_CLIENT_URL=vite://vite:5175
     ports:
       - "5175:5175"
     develop:

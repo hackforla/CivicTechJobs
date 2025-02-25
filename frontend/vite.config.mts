@@ -1,10 +1,16 @@
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import svgr from "vite-plugin-svgr";
 import { resolve } from "path";
 
-export default defineConfig(() => {
+export default defineConfig(({ mode }) => {
+  process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
+
+  const SERVER_URL = `${
+    process.env.VITE_APP_SERVER_URL ?? "http://localhost:8000"
+  }`;
+
   return {
     //to resolve relative file paths for sass (no plugin)
     resolve: {
@@ -22,6 +28,13 @@ export default defineConfig(() => {
       host: true,
       port: 5175,
       origin: "http://127.0.0.1:5175",
+      proxy: {
+        "/api": {
+          target: `${SERVER_URL}/api`,
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, ""),
+        },
+      },
       watch: {
         usePolling: true,
       },

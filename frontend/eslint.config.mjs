@@ -28,7 +28,12 @@ export default [
       "no-console": "warn",
       indent: ["error", 2],
       "no-irregular-whitespace": "error",
-      "prettier/prettier": "error",
+      "prettier/prettier": [
+        "error",
+        {
+          endOfLine: "auto",
+        },
+      ],
       "react/no-unescaped-entities": "off",
       "@typescript-eslint/no-unused-vars": ["error"],
       "tailwindcss/no-contradicting-classname": "error",
