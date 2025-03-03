@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from "react";
 
 // Internal Imports
-import { Button, CircleCard, Dialog } from "components/components";
+import { Button, Dialog } from "components/components";
+import { CircleCard } from "tw-components/CircleCard";
 import { CopCard, InnerCopCard, InnerCopNavCard } from "./LandingPageCopCards";
 import {
   copDatum,
@@ -43,7 +44,7 @@ function LandingPageCop() {
             <CircleCard
               key={cop.id}
               size="lg"
-              addClass="m-8"
+              className="m-8"
               onClick={() => {
                 handleCopData(cop.id);
                 setIsDialogOpen(true);
