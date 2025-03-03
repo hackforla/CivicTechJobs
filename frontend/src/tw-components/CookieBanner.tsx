@@ -25,10 +25,9 @@ function CookieBanner() {
     <div
       role="dialog"
       aria-label="cookies banner"
-      // eslint-disable-next-line tailwindcss/no-contradicting-classname
       className={`${
         hidden ? "hidden" : ""
-      } fixed bottom-12 left-1/2 z-50 flex w-3/4 -translate-x-1/2 transform flex-col rounded-lg bg-white p-4 shadow-2xl shadow-inner`}
+      } fixed bottom-12 left-1/2 z-50 flex w-3/4 -translate-x-1/2 transform flex-col rounded-lg bg-white p-4 shadow-2xl`}
     >
       <div className="max-h-64 min-h-48 justify-between space-y-5 p-6">
         <div className="flex flex-row items-center justify-between">
