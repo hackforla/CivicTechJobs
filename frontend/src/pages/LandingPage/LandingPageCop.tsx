@@ -10,6 +10,7 @@ import {
   fetchAllCopData,
   fetchCopDataById,
 } from "../../api_data/copData";
+import Typography from "tw-components/Typography";
 
 function LandingPageCop() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -38,7 +39,7 @@ function LandingPageCop() {
         and group goals. We use CoPs to share effective practices and relevant
         domain knowledge to help our members grow.
       </div>
-      <div className="row landing-cop-circle-container m-10">
+      <div className="m-10 box-border flex flex-wrap justify-evenly">
         {copData.map((cop) => {
           return (
             <CircleCard
@@ -55,8 +56,8 @@ function LandingPageCop() {
                 <div className="row justify-center pb-6">
                   <cop.icon strokeWidth="0.2" height="65" aria-hidden="true" />
                 </div>
-                <div className="title-4 landing-cop-circle-title text-center">
-                  {cop.title}
+                <div className="text-center text-blue-dark">
+                  <Typography.Title4>{cop.title}</Typography.Title4>
                 </div>
               </div>
             </CircleCard>
