@@ -1,23 +1,9 @@
 @use "@/components/Basics" as *;
 
-.landing-cop-description {
-  max-width: 800px;
-}
-
 .landing-inner-cop-nav {
   row-gap: 32px;
 }
 
 .landing-cop-nav-title {
   inline-size: min-content;
-
-  .inner-cop-nav-card:hover > & {
-    text-decoration: underline;
-  }
-}
-
-.landing-inner-cop-card-content > .inner-cop-card-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }

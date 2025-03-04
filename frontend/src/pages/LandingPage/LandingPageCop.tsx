@@ -3,13 +3,13 @@ import React, { useState, useEffect } from "react";
 
 // Internal Imports
 import { Button, Dialog } from "components/components";
-import { CircleCard } from "tw-components/CircleCard";
 import { CopCard, InnerCopCard, InnerCopNavCard } from "./LandingPageCopCards";
 import {
   copDatum,
   fetchAllCopData,
   fetchCopDataById,
 } from "../../api_data/copData";
+import { CircleCard } from "tw-components/CircleCard";
 import Typography from "tw-components/Typography";
 
 function LandingPageCop() {
@@ -33,7 +33,7 @@ function LandingPageCop() {
       <h2 className="col-12 my-8 text-center text-4xl font-bold leading-normal">
         Communities of Practice (COP)
       </h2>
-      <div className="row paragraph-1 landing-cop-description mb-5 text-center">
+      <div className="row paragraph-1 mb-5 max-w-[800px] text-center">
         A Community of Practice (CoP) is a group of volunteers who share a
         common interest in a topic and meet regularly to fulfill both individual
         and group goals. We use CoPs to share effective practices and relevant
@@ -86,7 +86,7 @@ function LandingPageCop() {
                     key={cop.id}
                     isActive={isActive}
                     onClick={() => handleCopData(cop.id)}
-                    addClass="flex-container justify-center align-center p-2"
+                    className="flex-container align-center justify-center p-2"
                   >
                     <div className="pr-2">
                       <cop.icon
@@ -98,15 +98,13 @@ function LandingPageCop() {
                         aria-hidden="true"
                       />
                     </div>
-                    <span className="title-6 landing-cop-nav-title">
-                      {cop.title}
-                    </span>
+                    <span className="title-6">{cop.title}</span>
                   </InnerCopNavCard>
                 );
               })}
             </nav>
             <div className="col-9 ml-4">
-              <InnerCopCard addClass="landing-inner-cop-card-content">
+              <InnerCopCard>
                 <div>
                   <div className="title-3 flex-container pb-4 align-bottom">
                     <div className="pr-4">
