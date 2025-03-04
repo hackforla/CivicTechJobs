@@ -19,7 +19,7 @@ function CircleCard({ size = "sm", ...props }: CircleCardProps) {
   return (
     <div
       className={clsx(
-        "rounded-full bg-grey-light shadow-lg",
+        "rounded-full bg-grey-light shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]",
         cardSizes[size],
         props.onClick && "hover:underline",
         props.className,
