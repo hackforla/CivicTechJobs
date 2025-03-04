@@ -6,7 +6,6 @@
 
 // Import component styles
 @use "@/components/Buttons" as *;
-@use "@/components/Cards" as *;
 @use "@/components/Carousel/ScrollCarousel";
 @use "@/components/Dialog/Dialog";
 @use "@/components/Inputs" as *;
@@ -16,7 +15,6 @@
 @use "@/components/Scroll/ChevronScroll";
 
 // Import page styles
-// @use "pages/CreditsPage/CreditsPage";
 @use "@/pages/Demo/Demo";
 @use "@/pages/NotFoundPage/NotFoundPage";
 @use "@/pages/LandingPage" as *;
