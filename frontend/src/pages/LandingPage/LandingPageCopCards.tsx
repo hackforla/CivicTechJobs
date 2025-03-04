@@ -1,5 +1,6 @@
 // External Imports
 import React from "react";
+import clsx from "clsx";
 
 // Internal Imports
 import { combineClasses } from "components/Utility/utils";
@@ -17,8 +18,8 @@ interface CopCardProps extends React.PropsWithChildren {
 function CopCard({ isHidden = true, size = "sm", ...props }: CopCardProps) {
   return (
     <Card
-      addClass={combineClasses(
-        `cop-card-${size}`,
+      className={clsx(
+        "m-2 min-h-[624px] max-w-screen-lg bg-grey-light",
         props.addClass,
         isHidden ? "hidden" : undefined,
       )}
@@ -40,7 +41,7 @@ interface InnerCopCardProps extends React.PropsWithChildren {
 
 function InnerCopCard(props: InnerCopCardProps) {
   return (
-    <Card addClass={combineClasses("inner-cop-card", props.addClass)}>
+    <Card className={clsx("inner-cop-card", props.addClass)}>
       <div className="inner-cop-card-content">{props.children}</div>
     </Card>
   );

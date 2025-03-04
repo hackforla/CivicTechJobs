@@ -1,16 +1,16 @@
 // External Imports
 import React from "react";
-
-// Internal Imports
-import { combineClasses } from "../Utility/utils";
+import clsx from "clsx";
 
 interface CardProps extends React.PropsWithChildren {
-  addClass?: string;
+  className?: string;
 }
 
 function Card({ ...props }: CardProps) {
   return (
-    <div className={combineClasses("card", props.addClass)}>
+    <div
+      className={clsx(props.className, "box-border rounded-2xl p-8 shadow-md")}
+    >
       {props.children}
     </div>
   );
