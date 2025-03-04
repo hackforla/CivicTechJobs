@@ -4,27 +4,23 @@ import React, { useState, FC } from "react";
 import { logoHfLA, creditsPageHighFive } from "assets/images/images";
 import { iconData } from "api_data/creditsIconData";
 import { illustrationData } from "api_data/creditsIllustrationData";
-import Card from "tw-components/StandardCard";
 
+import Card from "./Card";
 import TopSvg from "./TopSvg";
 import BottomSvg from "./BottomSvg";
 
 const CreditsPage: FC = () => {
   const [activeData, setActiveData] = useState(illustrationData);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [imgSize, setImgSize] = useState("32");
   const [activeButton, setActiveButton] = useState("illustrations");
 
   const handleClickIllustrationButton = () => {
     setActiveButton("illustrations");
     setActiveData(illustrationData);
-    setImgSize("32");
   };
 
   const handleClickIconButton = () => {
     setActiveData(iconData);
     setActiveButton("icons");
-    setImgSize("2");
   };
 
   const styleClasses = {
