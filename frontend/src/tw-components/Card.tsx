@@ -9,7 +9,10 @@ interface CardProps extends React.PropsWithChildren {
 function Card({ ...props }: CardProps) {
   return (
     <div
-      className={clsx("box-border rounded-2xl p-8 shadow-md", props.className)}
+      className={clsx(
+        "box-border rounded-2xl p-10 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]",
+        props.className,
+      )}
     >
       {props.children}
     </div>

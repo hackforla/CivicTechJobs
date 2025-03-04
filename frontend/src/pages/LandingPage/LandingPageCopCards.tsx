@@ -5,7 +5,7 @@ import clsx from "clsx";
 // Internal Imports
 import { combineClasses } from "components/Utility/utils";
 import { IconButton } from "components/Buttons/IconButton";
-import { Card } from "components/Cards/StandardCard";
+import { Card } from "tw-components/Card";
 import { iconX } from "assets/images/images";
 
 interface CopCardProps extends React.PropsWithChildren {

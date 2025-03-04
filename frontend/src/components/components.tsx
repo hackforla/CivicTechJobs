@@ -1,6 +1,5 @@
 import { Button } from "./Buttons/Button";
 import { IconButton } from "./Buttons/IconButton";
-import { Card } from "./Cards/StandardCard";
 import { ScrollCarousel } from "./Carousel/ScrollCarousel";
 import { Dialog } from "./Dialog/Dialog";
 import { Calendar } from "./Inputs/Calendar";
@@ -18,8 +17,6 @@ export {
   // Buttons
   Button,
   IconButton,
-  // Cards
-  Card,
   // Carousel
   ScrollCarousel,
   ChevronScroll,
