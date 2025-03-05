@@ -32,7 +32,6 @@ jobs:
           ECR_REPOSITORY: civic-tech-jobs-fullstack
           IMAGE_TAG: dev
         run: |
-          docker pull nmatsui/hello-world-api
-          docker tag nmatsui/hello-world-api $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker build -f ./stage/Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          
+
