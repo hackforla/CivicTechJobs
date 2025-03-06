@@ -8,15 +8,15 @@ CivicTechJobs will be a site to find open volunteer positions for projects at Ha
 
 ### What is Civictechjobs.org?
 
-CivicTechJobs will be a platform to help prospective volunteers find interdisciplinary projects that will be useful for their career development while contributing to positive civic impact, and also a CMS (Content Mgmt System) for Hack for LA projects to be able to list their open roles.
+Civic Tech Jobs is a platform designed to connect prospective Hack for LA volunteers with interdisciplinary projects that align with their career goals while driving positive civic impact. The custom-built CMS enables this by allowing projects to list required skills and then matching volunteers based on their availability, skills, and program area.
 
 ### Why do it?
 
-To match the right volunteers with the right projects at hackforla.
+CTJ will tackle key challenges in project recruitment and organizational sustainability, with future development focused on connecting volunteers to opportunities that align with paid job postings.
 
 ### Hasn't it been done already?
 
-Yes, through CoP GitHub pages. However, the process is cumbersome and involves multiple steps to match the candidate with the right role.
+Yes, there are recruitment issues on project boards. However, the process is cumbersome and involves multiple steps to match candidates with the right roles.
 
 Read more about what lead up to us developing this project, at our [History](History) page.
 
