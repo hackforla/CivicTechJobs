@@ -2,7 +2,7 @@
 
 ## Project Definition
 
-CivicTechJobs will be a site to find open volunteer positions for projects at hackforla.
+CivicTechJobs will be a site to find open volunteer positions for projects at Hack for LA.
 
 ## Introduction To The Project
 
