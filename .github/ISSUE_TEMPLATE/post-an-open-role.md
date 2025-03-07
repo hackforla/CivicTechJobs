@@ -2,7 +2,7 @@
 name: Post an open role
 about: Recruit volunteers for specific open roles template
 title: 'CTJ: Open Role for: [Replace with NAME OF ROLE]'
-labels: 'feature: recruiting'
+labels: ''
 assignees: ''
 
 ---
