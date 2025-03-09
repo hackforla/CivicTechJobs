@@ -1,5 +1,7 @@
 # Welcome to the Civictechjobs.org Wiki!
 
+Here, you'll find all the essential information about our project. This wiki is designed to be a helpful resource for both new and existing team members.
+
 ## Project Definition
 
 CivicTechJobs will be a site to find open volunteer positions for projects at Hack for LA.
@@ -22,19 +24,19 @@ Read more about what lead up to us developing this project, at our [History](His
 
 ### So how is this different?
 
-We would like to streamline the process so that Product Managers can post the open oppotunities within their team efficiently, but most importantly a volunteer is able to find the right match with a project based on their skills, and aspirations.
+We aim to streamline the process so that Product Managers can efficiently post open opportunities within their team. Most importantly, we want to ensure that volunteers can easily find the right match with a project based on their skills and aspirations.
 
 ## Guiding Objectives
 
 ### What are our guiding objectives?
 
-1. Provide product managers ability to post, edit, or close open positions on an easy to use instinctive site (CMS)
-2. Assist potential volunteers to self-filter for roles that matches their availability
+1. Enable product managers ability to post, edit, or close open positions on an easy to use instinctive site (CMS).
+2. Assist potential volunteers to self-filter roles based on their availability.
 3. Provide potential volunteers list of open roles with different projects that matches their skills, and interest.
 
 ## Project One Sheet
 
-You can access our [project one sheet here](https://docs.google.com/document/d/1bfxY8YlyCjzCL3oP0rpa77uEY4vuymDYZY_xWEgXiGs/edit?usp=sharing).
+Access our project one sheet [CTJ_ Civic Tech Jobs One Sheet - 2025.pdf](https://github.com/user-attachments/files/19147708/CTJ_.Civic.Tech.Jobs.One.Sheet.-.2025.pdf)
 
 ## Key Resources
 
