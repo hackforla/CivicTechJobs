@@ -2,19 +2,14 @@
 
 | **Name**                                                | **Role**             |
 | ------------------------------------------------------- | -------------------- |
-| Joyce Guo                                               | Product Manager      |
-| Sabrina Heasley                                         | Product Manager      |
-| Salima Yacoubi Soussane                                 | Product Manager      |
+| Karen Coronel                                           | Product Manager      |
+| Janis Mollineau                                         | Product Manager      |
+| Nooria Ali                                              | Product Manager      |
+| Lu Feng                                                 | UX/UI Design Team Lead |
+| Rishi Raghu                                             | UX/UI Designer       |
+| Xiaotian Vivian Li                                      | UX Research Team Lead |
+| Jialing Wang                                            | UX Researcher        |
+| Terence Lo                                              | Development Team Lead |                                                    
 | Bitian Zhang                                            | Full Stack Developer |
-| Matt Pereira                                            | Full Stack Developer |
-| Will Gillis                                             | Full Stack Developer |
-| Sarah Sanger                                            | Software Developer   |
-| Benny Van                                               | Software Developer   |
-| Jen Chung                                               | UX/UI Designer Lead  |
-| Tin Wei, Chung                                          | UX/UI Designer       |
-| Lu Feng                                                 | UX/UI Designer       |
-| Gabriel Vicencio                                        | UX/UI Designer       |
-| Melinda Sukosd                                          | UX Researcher Lead   |
-| Leah Ellis                                              | UX Researcher        |
-| Jenn Wu                                                 | UX Researcher        |
-| Nga Do                                                  | UX Researcher        |
+| Roja Pinnamraju                                         | Frontend Developer   |
+| Ryan Sakuma                                             | Software Developer   |
