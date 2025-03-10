@@ -18,7 +18,7 @@ const TypographyStyles = {
   Paragraph5: "text-[14px]",
   HyperlinkBold: "text-[16px] font-bold underline",
   Hyperlink: "text-[14px] underline",
-} as const;
+};
 
 type TypographyProps = {
   children: React.ReactNode;
