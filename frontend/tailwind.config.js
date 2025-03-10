@@ -22,11 +22,6 @@ module.exports = {
       lg: "1025px",
       xl: "1201px",
     },
-    borderRadius: {
-      DEFAULT: "20px",
-      large: "60px",
-      "x-large": "100px",
-    },
     colors: {
       // Primary Colors
       "blue-dark": "#3450a1",
@@ -62,6 +57,11 @@ module.exports = {
       black: "900",
     },
     extend: {
+      borderRadius: {
+        DEFAULT: "20px",
+        large: "60px",
+        "x-large": "100px",
+      },
       lineHeight: {
         "extra-tight": "1.125rem",
       },
