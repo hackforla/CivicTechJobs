@@ -4,8 +4,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 // Internal Imports
-import { HeaderNav } from "tw-components";
-import { FooterNav } from "components/components";
+import { HeaderNav, FooterNav } from "tw-components";
 import { Button } from "components/components";
 import { notFoundPageImg } from "assets/images/images";
 
