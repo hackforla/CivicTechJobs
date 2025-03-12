@@ -1,40 +1,42 @@
 # Welcome to the Civictechjobs.org Wiki!
 
+Here, you'll find all the essential information about our project. This wiki is designed to be a helpful resource for both new and existing team members.
+
 ## Project Definition
 
-CivicTechJobs will be a site to find open volunteer positions for projects at hackforla.
+CivicTechJobs will be a site to find open volunteer positions for projects at Hack for LA.
 
 ## Introduction To The Project
 
 ### What is Civictechjobs.org?
 
-CivicTechJobs will be a platform to help prospective volunteers find interdisciplinary projects that will be useful for their career development while contributing to positive civic impact, and also a CMS (Content Mgmt System) for Hack for LA projects to be able to list their open roles.
+Civic Tech Jobs is a platform designed to connect prospective Hack for LA volunteers with interdisciplinary projects that align with their career goals while driving positive civic impact. The custom-built CMS enables this by allowing projects to list required skills and then matching volunteers based on their availability, skills, and program area.
 
 ### Why do it?
 
-To match the right volunteers with the right projects at hackforla.
+CTJ will tackle key challenges in project recruitment and organizational sustainability, with future development focused on connecting volunteers to opportunities that align with paid job postings.
 
 ### Hasn't it been done already?
 
-Yes, through CoP GitHub pages. However, the process is cumbersome and involves multiple steps to match the candidate with the right role.
+Yes, there are recruitment issues on project boards. However, the process is cumbersome and involves multiple steps to match candidates with the right roles.
 
 Read more about what lead up to us developing this project, at our [History](History) page.
 
 ### So how is this different?
 
-We would like to streamline the process so that Product Managers can post the open oppotunities within their team efficiently, but most importantly a volunteer is able to find the right match with a project based on their skills, and aspirations.
+We aim to streamline the process so that Product Managers can efficiently post open opportunities within their team. Most importantly, we want to ensure that volunteers can easily find the right match with a project based on their skills and aspirations.
 
 ## Guiding Objectives
 
 ### What are our guiding objectives?
 
-1. Provide product managers ability to post, edit, or close open positions on an easy to use instinctive site (CMS)
-2. Assist potential volunteers to self-filter for roles that matches their availability
+1. Enable product managers ability to post, edit, or close open positions on an easy to use instinctive site (CMS).
+2. Assist potential volunteers to self-filter roles based on their availability.
 3. Provide potential volunteers list of open roles with different projects that matches their skills, and interest.
 
 ## Project One Sheet
 
-You can access our [project one sheet here](https://docs.google.com/document/d/1bfxY8YlyCjzCL3oP0rpa77uEY4vuymDYZY_xWEgXiGs/edit?usp=sharing).
+Access our project one sheet [CTJ_ Civic Tech Jobs One Sheet - 2025.pdf](https://github.com/user-attachments/files/19147708/CTJ_.Civic.Tech.Jobs.One.Sheet.-.2025.pdf)
 
 ## Key Resources
 

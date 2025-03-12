@@ -4,10 +4,7 @@
 
 1. Review the UI/UX issues on the [Project Management Board](https://github.com/hackforla/CivicTechJobs/projects/1?card_filter_query=label%3A%22role%3A+ui%2Fux%22) and identify an actionable backlog item.
 
-1. Communicate with PM your interest in being assigned a task.
-
-1. Ask your lead to invite you to the [Civic Tech Jobs figma workspace](https://www.figma.com/files/team/1040075117587297658/Civic-Tech-Jobs?fuid=775836858007206739)
-   - Leads should send invite to team members AFTER they have been added to the Google Drive and put their information into the team roster.
+1. Communicate with the UI/UX Design Team Lead about your interest in being assigned a task.
 
 ## Additional Reading
 
