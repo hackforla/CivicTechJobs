@@ -1,4 +1,24 @@
 import React from "react";
+import clsx from "clsx";
+
+const baseStyles = "font-sans leading-[137%]";
+
+const TypographyStyles = {
+  Title1: "text-[48px] font-bold",
+  Title2: "text-[36px] font-bold",
+  Title3: "text-[28px] font-bold",
+  Title4: "text-[24px] font-bold",
+  Title5: "text-[20px] font-bold",
+  Title6: "text-[16px] font-bold",
+  Title7: "text-[14px] font-bold",
+  Paragraph1: "text-[20px]",
+  Paragraph2: "text-[18px]",
+  Paragraph3: "text-[16px]",
+  Paragraph4: "text-[15px]",
+  Paragraph5: "text-[14px]",
+  HyperlinkBold: "text-[16px] font-bold underline",
+  Hyperlink: "text-[14px] underline",
+};
 
 type TypographyProps = {
   children: React.ReactNode;
@@ -10,107 +30,38 @@ type HyperlinkProps = {
 } & TypographyProps &
   React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
+const createTypography = (
+  Tag: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p",
+  size: (typeof TypographyStyles)[keyof typeof TypographyStyles],
+) => {
+  const Component = ({ children, className, ...props }: TypographyProps) => (
+    <Tag className={clsx(baseStyles, size, className)} {...props}>
+      {children}
+    </Tag>
+  );
+
+  Component.displayName = `Typography.${Tag}`;
+
+  return Component;
+};
+
 const Typography = {
-  Title1: ({ children, className = "", ...props }: TypographyProps) => (
-    <h1
-      className={`font-sans text-[48px] font-bold leading-[137%] ${className}`}
-      {...props}
-    >
-      {children}
-    </h1>
-  ),
-  Title2: ({ children, className = "", ...props }: TypographyProps) => (
-    <h2
-      className={`font-sans text-[36px] font-bold leading-[137%] ${className}`}
-      {...props}
-    >
-      {children}
-    </h2>
-  ),
-  Title3: ({ children, className = "", ...props }: TypographyProps) => (
-    <h3
-      className={`font-sans text-[28px] font-bold leading-[137%] ${className}`}
-      {...props}
-    >
-      {children}
-    </h3>
-  ),
-  Title4: ({ children, className = "", ...props }: TypographyProps) => (
-    <h4
-      className={`font-sans text-[24px] font-bold leading-[30px] ${className}`}
-      {...props}
-    >
-      {children}
-    </h4>
-  ),
-  Title5: ({ children, className = "", ...props }: TypographyProps) => (
-    <h5
-      className={`font-sans text-[20px] font-bold leading-[137%] ${className}`}
-      {...props}
-    >
-      {children}
-    </h5>
-  ),
-  Title6: ({ children, className = "", ...props }: TypographyProps) => (
-    <h6
-      className={`font-sans text-[16px] font-bold leading-[137%] ${className}`}
-      {...props}
-    >
-      {children}
-    </h6>
-  ),
-  Title7: ({ children, className = "", ...props }: TypographyProps) => (
-    <h6
-      className={`font-sans text-[14px] font-bold leading-[137%] ${className}`}
-      {...props}
-    >
-      {children}
-    </h6>
-  ),
-  Paragraph1: ({ children, className = "", ...props }: TypographyProps) => (
-    <p
-      className={`font-sans text-[20px] leading-[137%] ${className}`}
-      {...props}
-    >
-      {children}
-    </p>
-  ),
-  Paragraph2: ({ children, className = "", ...props }: TypographyProps) => (
-    <p
-      className={`font-sans text-[18px] leading-[137%] ${className}`}
-      {...props}
-    >
-      {children}
-    </p>
-  ),
-  Paragraph3: ({ children, className = "", ...props }: TypographyProps) => (
-    <p
-      className={`font-sans text-[16px] leading-[137%] ${className}`}
-      {...props}
-    >
-      {children}
-    </p>
-  ),
-  Paragraph4: ({ children, className = "", ...props }: TypographyProps) => (
-    <p
-      className={`font-sans text-[15px] leading-[137%] ${className}`}
-      {...props}
-    >
-      {children}
-    </p>
-  ),
-  Paragraph5: ({ children, className = "", ...props }: TypographyProps) => (
-    <p
-      className={`font-sans text-[14px] leading-[137%] ${className}`}
-      {...props}
-    >
-      {children}
-    </p>
-  ),
+  Title1: createTypography("h1", TypographyStyles.Title1),
+  Title2: createTypography("h2", TypographyStyles.Title2),
+  Title3: createTypography("h3", TypographyStyles.Title3),
+  Title4: createTypography("h4", TypographyStyles.Title4),
+  Title5: createTypography("h5", TypographyStyles.Title5),
+  Title6: createTypography("h6", TypographyStyles.Title6),
+  Title7: createTypography("h6", TypographyStyles.Title7),
+  Paragraph1: createTypography("p", TypographyStyles.Paragraph1),
+  Paragraph2: createTypography("p", TypographyStyles.Paragraph2),
+  Paragraph3: createTypography("p", TypographyStyles.Paragraph3),
+  Paragraph4: createTypography("p", TypographyStyles.Paragraph4),
+  Paragraph5: createTypography("p", TypographyStyles.Paragraph5),
   HyperlinkBold: ({ children, className, href, ...props }: HyperlinkProps) => (
     <a
       href={href}
-      className={`font-sans text-[16px] font-bold leading-[137%] underline ${className}`}
+      className={clsx(baseStyles, TypographyStyles.HyperlinkBold, className)}
       {...props}
     >
       {children}
@@ -119,7 +70,7 @@ const Typography = {
   Hyperlink: ({ children, className, href, ...props }: HyperlinkProps) => (
     <a
       href={href}
-      className={`font-sans text-[14px] leading-[137%] underline ${className}`}
+      className={clsx(baseStyles, TypographyStyles.Hyperlink, className)}
       {...props}
     >
       {children}

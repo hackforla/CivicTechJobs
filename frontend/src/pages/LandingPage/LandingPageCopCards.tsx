@@ -1,10 +1,10 @@
 // External Imports
 import React from "react";
+import clsx from "clsx";
 
 // Internal Imports
-import { combineClasses } from "components/Utility/utils";
 import { IconButton } from "components/Buttons/IconButton";
-import { Card } from "components/Cards/StandardCard";
+import { Card } from "tw-components/StandardCard";
 import { iconX } from "assets/images/images";
 
 interface CopCardProps extends React.PropsWithChildren {
@@ -17,8 +17,8 @@ interface CopCardProps extends React.PropsWithChildren {
 function CopCard({ isHidden = true, size = "sm", ...props }: CopCardProps) {
   return (
     <Card
-      addClass={combineClasses(
-        `cop-card-${size}`,
+      className={clsx(
+        "m-2 min-h-[624px] max-w-[1088px] bg-grey-light",
         props.addClass,
         isHidden ? "hidden" : undefined,
       )}
@@ -40,14 +40,21 @@ interface InnerCopCardProps extends React.PropsWithChildren {
 
 function InnerCopCard(props: InnerCopCardProps) {
   return (
-    <Card addClass={combineClasses("inner-cop-card", props.addClass)}>
-      <div className="inner-cop-card-content">{props.children}</div>
+    <Card
+      className={clsx(
+        "h-full min-h-[448px] max-w-[625px] bg-white",
+        props.addClass,
+      )}
+    >
+      <div className="box-border flex h-full flex-col justify-between px-[0.6vw] py-2">
+        {props.children}
+      </div>
     </Card>
   );
 }
 
 interface InnerCopNavCardSharedProps extends React.PropsWithChildren {
-  addClass?: string;
+  className?: string;
   isActive?: boolean;
 }
 
@@ -66,19 +73,17 @@ type InnerCopNavCardProps =
   | InnerCopNavCardButtonProps;
 
 function InnerCopNavCard({ isActive = false, ...props }: InnerCopNavCardProps) {
-  const Tag = "href" in props ? "a" : "button"; // conditionally rendered tagss
-
   return (
-    <Tag
-      className={combineClasses(
-        "inner-cop-nav-card",
-        isActive ? "active" : undefined,
-        props.addClass,
+    <button
+      className={clsx(
+        "min-h-16 max-w-[188px] rounded-2xl border-0 hover:underline",
+        isActive ? "bg-blue-dark text-white" : "bg-white",
+        props.className,
       )}
       onClick={props.onClick}
     >
       {props.children}
-    </Tag>
+    </button>
   );
 }
 
