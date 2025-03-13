@@ -27,14 +27,14 @@ function QualifierPage() {
 
   return (
     <QualifiersProvider>
-      <main className="container mx-auto">
+      <div className="container mx-auto">
         <Stepper />
-        <div className="flex-center-x">
-          <div className="flex-column qualifier-content align-center px-5">
+        <div className="mx-auto max-w-fit">
+          <div className="align-center flex w-fit flex-col px-5">
             <Content page={page} />
           </div>
         </div>
-      </main>
+      </div>
     </QualifiersProvider>
   );
 }
