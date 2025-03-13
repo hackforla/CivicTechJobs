@@ -27,7 +27,7 @@ function QualifierPage() {
 
   return (
     <QualifiersProvider>
-      <main className="mx-6">
+      <main className="container mx-auto">
         <ProgressBar
           label={`Page ${page}`}
           value={parseInt(page)}

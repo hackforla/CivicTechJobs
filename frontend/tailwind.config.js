@@ -13,6 +13,7 @@ module.exports = {
     "./src/pages/LandingPage/*.tsx",
     "./src/pages/PrivacyPolicyPage/*",
     "./src/pages/CreditsPage/*.tsx",
+    "./src/pages/QualifierPage/*.tsx",
   ], // Will change to "./src/**/*.{js,jsx,tsx}", "./templates/index.html"
   theme: {
     screens: {
