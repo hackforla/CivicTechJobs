@@ -28,7 +28,7 @@ function QualifierPage() {
 
   return (
     <QualifiersProvider>
-      <div className="container mx-auto">
+      <div className="container mx-auto mb-8">
         <Stepper />
         <div className="mx-auto max-w-fit">
           <div className="align-center flex w-fit flex-col px-5">
