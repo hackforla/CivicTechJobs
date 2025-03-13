@@ -4,8 +4,9 @@ import React, { Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Internal Imports
+import Typography from "tw-components/Typography";
 import { Button, Chip } from "components/components";
-import { QualifierNav, QualifierTitle } from "./QualifierComponents";
+import { QualifierNav } from "./QualifierComponents";
 import { useQualifiersContext } from "context/QualifiersContext";
 import { onKey } from "components/Utility/utils";
 
@@ -88,15 +89,19 @@ const QualifierPageRoles: React.FC = () => {
     // console.log("Old Qualifiers:", qualifiers);
     const newQualifiers = { ...qualifiers, COPs: updatedCopQualifiers };
 
-    console.log("New Qualifiers:", newQualifiers);
+    // console.log("New Qualifiers:", newQualifiers);
     updateQualifiers(newQualifiers); // Update qualifiers
   };
 
   return (
-    <Fragment>
-      <QualifierTitle title="What type of role are you looking for?">
+    <>
+      <Typography.Title3 className="mt-8 text-charcoal">
+        What type of Practice Area are you looking for?
+      </Typography.Title3>
+      <Typography.Paragraph3 className="my-5 text-grey-dark">
         Select as many roles as you'd like to find opportunities in.
-      </QualifierTitle>
+      </Typography.Paragraph3>
+
       <div className="flex-center-x">
         {copData.map((cop, index) => {
           const cleanCopName = cop.title.replace(/\s+/g, "_");
@@ -186,7 +191,7 @@ const QualifierPageRoles: React.FC = () => {
           Next
         </Button>
       </QualifierNav>
-    </Fragment>
+    </>
   );
 };
 

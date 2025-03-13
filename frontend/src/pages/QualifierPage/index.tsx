@@ -5,13 +5,14 @@ import { useParams } from "react-router-dom";
 // Internal Imports
 import { Stepper } from "./components/Stepper";
 import { QualifiersProvider } from "context/QualifiersContext";
-import { QualifierPageRoles } from "./QualifierPageRoles";
 import { QualifierPageCalendar } from "./QualifierPageCalendar";
+
+import { QualifierPage1 } from "./QualifierPage1";
 
 function Content({ page }: { page: string }) {
   switch (page) {
     case "1":
-      return <QualifierPageRoles />;
+      return <QualifierPage1 />;
     case "2":
       return <QualifierPageCalendar />;
     default:

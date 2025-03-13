@@ -12,7 +12,7 @@ interface QualifierTitleProps {
 function QualifierTitle({ children, title }: QualifierTitleProps) {
   return (
     <Fragment>
-      <h1 className="title-2 mt-6">{title}</h1>
+      <h1 className="title-2 mt-8">{title}</h1>
       <p className="paragraph-1 row my-3 justify-center">{children}</p>
     </Fragment>
   );
