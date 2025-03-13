@@ -14,6 +14,7 @@ module.exports = {
     "./src/pages/PrivacyPolicyPage/*",
     "./src/pages/CreditsPage/*.tsx",
     "./src/pages/QualifierPage/*.tsx",
+    "./src/pages/QualifierPage/components/*.tsx",
   ], // Will change to "./src/**/*.{js,jsx,tsx}", "./templates/index.html"
   theme: {
     screens: {

@@ -3,7 +3,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 // Internal Imports
-import { ProgressBar } from "components/components";
+import { Stepper } from "./components/Stepper";
 import { QualifiersProvider } from "context/QualifiersContext";
 import { QualifierPageRoles } from "./QualifierPageRoles";
 import { QualifierPageCalendar } from "./QualifierPageCalendar";
@@ -28,11 +28,7 @@ function QualifierPage() {
   return (
     <QualifiersProvider>
       <main className="container mx-auto">
-        <ProgressBar
-          label={`Page ${page}`}
-          value={parseInt(page)}
-          addClass="px-5"
-        />
+        <Stepper />
         <div className="flex-center-x">
           <div className="flex-column qualifier-content align-center px-5">
             <Content page={page} />
