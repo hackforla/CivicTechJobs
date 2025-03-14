@@ -35,7 +35,7 @@ jobs:
           ECR_REPOSITORY: civic-tech-jobs-fullstack
           IMAGE_TAG: stage
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ./stage/
+          docker build -f ./stage/Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
       - name: Redeploy Image in Amazon ECS-Fargate
