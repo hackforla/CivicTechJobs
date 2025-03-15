@@ -12,13 +12,16 @@ import { QualifierNav } from "./QualifierComponents";
 function QualifierPage1() {
   const navigate = useNavigate();
   const [copData, setCopData] = useState<copDatum[]>([] as copDatum[]);
-  const [selectedCOP, setSelectedCOP] = useState(null);
+  const [selectedCOP, setSelectedCOP] = useState<number>(-1);
 
   useEffect(() => {
     setCopData(fetchAllCopData());
   }, []);
 
-  const handleSelectCOP = (e, cop) => {
+  const handleSelectCOP = (
+    e: React.MouseEvent<HTMLDivElement>,
+    cop: copDatum,
+  ) => {
     e.stopPropagation();
     setSelectedCOP(cop.id);
   };
@@ -32,6 +35,7 @@ function QualifierPage1() {
         Select one practice area
       </Typography.Paragraph3>
 
+      {/* COP Cards */}
       <div className="flex min-w-fit flex-wrap gap-10">
         {copData.map((cop) => {
           const isSelected = selectedCOP === cop.id;
@@ -46,6 +50,8 @@ function QualifierPage1() {
                   : "border-transparent",
               )}
               onClick={(e) => handleSelectCOP(e, cop)}
+              role="button"
+              tabIndex={0}
             >
               <div
                 className={clsx(
