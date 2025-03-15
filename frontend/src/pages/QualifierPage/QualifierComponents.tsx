@@ -1,18 +1,19 @@
 // External Imports
 import React from "react";
-
-// Internal Imports
-import { combineClasses } from "components/Utility/utils";
+import clsx from "clsx";
 
 interface QualifierNavProps {
-  addClass?: string;
+  className?: string;
   children?: React.ReactNode;
 }
 
-function QualifierNav({ addClass, children }: QualifierNavProps) {
+function QualifierNav({ className, children }: QualifierNavProps) {
   return (
     <div
-      className={combineClasses("flex-center-y px-3 qualifier-nav", addClass)}
+      className={clsx(
+        "sticky bottom-0 box-content flex h-24 w-full flex-wrap items-center bg-white px-6 opacity-80 hover:opacity-100",
+        className,
+      )}
     >
       {children}
     </div>

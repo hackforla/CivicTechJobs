@@ -38,7 +38,7 @@ function QualifierPageCalendar() {
           console.log(e);
         }}
       />
-      <QualifierNav addClass="justify-between">
+      <QualifierNav className="justify-between">
         <IconButton
           label="previous page"
           iconUrl={iconArrowLeft}

@@ -178,7 +178,7 @@ const QualifierPageRoles: React.FC = () => {
           );
         })}
       </div>
-      <QualifierNav addClass="justify-right">
+      <QualifierNav className="justify-end">
         <Button
           size="lg"
           length="long"

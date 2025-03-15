@@ -72,7 +72,7 @@ function QualifierPage1() {
         })}
       </div>
 
-      <QualifierNav addClass="justify-right">
+      <QualifierNav className="justify-end">
         <Button
           size="lg"
           length="long"
