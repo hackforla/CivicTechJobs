@@ -25,6 +25,7 @@ module.exports = {
       xl: "1201px",
     },
     colors: {
+      transparent: "transparent",
       // Primary Colors
       "blue-dark": "#3450a1",
       "blue-darker": "#323d69",
