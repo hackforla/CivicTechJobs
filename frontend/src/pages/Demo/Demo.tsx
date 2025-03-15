@@ -65,6 +65,7 @@ function Demo() {
         <h1>
           Hello World! Feel free to use this page as a playground to test code!
         </h1>
+        <p>Test AWS CI/CD pipeline</p>
         <h2>Chevron Scroll</h2>
         <ChevronScroll>
           {[
