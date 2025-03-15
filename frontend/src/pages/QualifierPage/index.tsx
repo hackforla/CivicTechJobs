@@ -8,12 +8,15 @@ import { QualifiersProvider } from "context/QualifiersContext";
 import { QualifierPageCalendar } from "./QualifierPageCalendar";
 
 import { QualifierPage1 } from "./pages/QualifierPage1";
+import { QualifierPage2 } from "./pages/QualifierPage2";
 
 function Content({ page }: { page: string }) {
   switch (page) {
     case "1":
       return <QualifierPage1 />;
     case "2":
+      return <QualifierPage2 />;
+    case "3":
       return <QualifierPageCalendar />;
     default:
       throw new Error("Page not found");
