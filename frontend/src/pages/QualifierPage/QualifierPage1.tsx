@@ -7,7 +7,7 @@ import clsx from "clsx";
 import { copDatum, fetchAllCopData } from "api_data/copData";
 import Typography from "tw-components/Typography";
 import { Button } from "components/components";
-import { QualifierNav } from "./QualifierComponents";
+import { QualifierNav } from "./components/QualifierNav";
 
 function QualifierPage1() {
   const navigate = useNavigate();

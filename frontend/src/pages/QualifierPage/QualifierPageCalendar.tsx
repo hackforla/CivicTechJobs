@@ -11,7 +11,7 @@ import {
   IconButton,
   Button,
 } from "components/components";
-import { QualifierNav } from "./QualifierComponents";
+import { QualifierNav } from "./components/QualifierNav";
 import { timezones } from "../../api_data/timezoneData";
 import { iconArrowLeft } from "assets/images/images";
 // import { useQualifiersContext } from "context/QualifiersContext";

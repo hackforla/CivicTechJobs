@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 // Internal Imports
 import Typography from "tw-components/Typography";
 import { Button, Chip } from "components/components";
-import { QualifierNav } from "./QualifierComponents";
+import { QualifierNav } from "./components/QualifierNav";
 import { useQualifiersContext } from "context/QualifiersContext";
 import { onKey } from "components/Utility/utils";
 
