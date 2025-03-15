@@ -28,9 +28,9 @@ function QualifierPage1() {
 
   return (
     <>
-      <Typography.Title3 className="mt-8 text-charcoal">
+      <Typography.Title2 className="mt-8 text-charcoal">
         What type of Practice Area are you looking for?
-      </Typography.Title3>
+      </Typography.Title2>
       <Typography.Paragraph3 className="my-5 text-grey-dark">
         Select one practice area
       </Typography.Paragraph3>

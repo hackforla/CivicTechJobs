@@ -1,8 +1,9 @@
 // External Imports
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Internal Imports
+import Typography from "tw-components/Typography";
 import {
   Dropdown,
   DropdownOption,
@@ -10,7 +11,7 @@ import {
   IconButton,
   Button,
 } from "components/components";
-import { QualifierNav, QualifierTitle } from "./QualifierComponents";
+import { QualifierNav } from "./QualifierComponents";
 import { timezones } from "../../api_data/timezoneData";
 import { iconArrowLeft } from "assets/images/images";
 // import { useQualifiersContext } from "context/QualifiersContext";
@@ -21,12 +22,15 @@ function QualifierPageCalendar() {
   const navigate = useNavigate();
 
   return (
-    <Fragment>
-      <QualifierTitle title="What is your weekly availability?">
+    <>
+      <Typography.Title2 className="mt-8 text-charcoal">
+        What is your weekly availability?
+      </Typography.Title2>
+      <Typography.Paragraph3 className="my-5 text-grey-dark">
         Drag to select.&nbsp;&nbsp;
         <span className="qcalendar-green-square"></span>
         &nbsp;=&nbsp;available
-      </QualifierTitle>
+      </Typography.Paragraph3>
       <TimeZoneDropDown />
       <Calendar
         addClass="mt-5"
@@ -44,7 +48,7 @@ function QualifierPageCalendar() {
           View available roles
         </Button>
       </QualifierNav>
-    </Fragment>
+    </>
   );
 }
 

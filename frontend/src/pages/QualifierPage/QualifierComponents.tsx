@@ -1,22 +1,8 @@
 // External Imports
-import React, { Fragment } from "react";
+import React from "react";
 
 // Internal Imports
 import { combineClasses } from "components/Utility/utils";
-
-interface QualifierTitleProps {
-  children: React.ReactNode;
-  title: string;
-}
-
-function QualifierTitle({ children, title }: QualifierTitleProps) {
-  return (
-    <Fragment>
-      <h1 className="title-2 mt-8">{title}</h1>
-      <p className="paragraph-1 row my-3 justify-center">{children}</p>
-    </Fragment>
-  );
-}
 
 interface QualifierNavProps {
   addClass?: string;
@@ -33,4 +19,4 @@ function QualifierNav({ addClass, children }: QualifierNavProps) {
   );
 }
 
-export { QualifierTitle, QualifierNav };
+export { QualifierNav };
