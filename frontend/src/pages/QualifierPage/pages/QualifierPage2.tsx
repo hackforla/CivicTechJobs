@@ -1,6 +1,6 @@
 // External Imports
 import React from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import clsx from "clsx";
 
 // Internal Imports
@@ -9,6 +9,8 @@ import { Button } from "components/components";
 import { QualifierNav } from "../components/QualifierNav";
 
 function QualifierPage2() {
+  const navigate = useNavigate();
+
   return (
     <>
       <Typography.Title2 className="mt-8 text-charcoal">
