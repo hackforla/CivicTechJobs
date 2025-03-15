@@ -44,5 +44,8 @@ COPY ./backend/ .
 # Copy frontend application static files into django project
 COPY --from=react-builder /code/dist/ ./frontend_dist/
 
+# Set run permission on entrypoint.sh
+RUN chmod +x entrypoint.sh
+
 # ENTRYPOINT contains the start server script
 ENTRYPOINT ["./entrypoint.sh"]
