@@ -7,7 +7,7 @@ import { Stepper } from "./components/Stepper";
 import { QualifiersProvider } from "context/QualifiersContext";
 import { QualifierPageCalendar } from "./QualifierPageCalendar";
 
-import { QualifierPage1 } from "./QualifierPage1";
+import { QualifierPage1 } from "./pages/QualifierPage1";
 
 function Content({ page }: { page: string }) {
   switch (page) {
