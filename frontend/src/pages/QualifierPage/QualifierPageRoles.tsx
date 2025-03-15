@@ -172,7 +172,7 @@ const QualifierPageRoles: React.FC = () => {
                 </div>
               </div>
               {index < copData.length - 1 && (
-                <hr className="row col-8 qroles-border"></hr>
+                <hr className="row col-8 text-grey"></hr>
               )}
             </Fragment>
           );

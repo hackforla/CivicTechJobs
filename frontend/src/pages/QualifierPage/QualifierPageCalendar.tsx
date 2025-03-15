@@ -28,7 +28,7 @@ function QualifierPageCalendar() {
       </Typography.Title2>
       <Typography.Paragraph3 className="my-5 text-grey-dark">
         Drag to select.&nbsp;&nbsp;
-        <span className="qcalendar-green-square"></span>
+        <span className="inline-block size-6 rounded-sm bg-green leading-8"></span>
         &nbsp;=&nbsp;available
       </Typography.Paragraph3>
       <TimeZoneDropDown />
@@ -65,7 +65,7 @@ function TimeZoneDropDown() {
     }
   }, []);
   return (
-    <div className="qcalendar-dropdown flex-container justify-right">
+    <div className="flex w-full flex-wrap justify-end">
       <Dropdown
         addClass="col-3 ovflow-hidden"
         ariaLabel="timezone-dropdown"
