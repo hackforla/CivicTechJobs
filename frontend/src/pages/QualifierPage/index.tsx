@@ -33,10 +33,8 @@ function QualifierPage() {
     <QualifiersProvider>
       <div className="container mx-auto mb-8">
         <Stepper />
-        <div className="mx-auto max-w-fit">
-          <div className="align-center flex w-fit flex-col px-5">
-            <Content page={page} />
-          </div>
+        <div className="flex w-full items-center justify-center">
+          <Content page={page} />
         </div>
       </div>
     </QualifiersProvider>

@@ -27,7 +27,7 @@ function QualifierPage1() {
   };
 
   return (
-    <>
+    <div className="flex w-full flex-col items-center px-5">
       <Typography.Title2 className="mt-8 text-charcoal">
         What type of Practice Area are you looking for?
       </Typography.Title2>
@@ -84,7 +84,7 @@ function QualifierPage1() {
           Next
         </Button>
       </QualifierNav>
-    </>
+    </div>
   );
 }
 

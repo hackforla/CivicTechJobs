@@ -22,7 +22,7 @@ function QualifierPageCalendar() {
   const navigate = useNavigate();
 
   return (
-    <>
+    <div className="flex w-full flex-col items-center px-5">
       <Typography.Title2 className="mt-8 text-charcoal">
         What is your weekly availability?
       </Typography.Title2>
@@ -42,13 +42,13 @@ function QualifierPageCalendar() {
         <IconButton
           label="previous page"
           iconUrl={iconArrowLeft}
-          onClick={() => navigate("../1", { relative: "path" })}
+          onClick={() => navigate("../2", { relative: "path" })}
         />
         <Button size="lg" length="long" color="primary" href="/">
           View available roles
         </Button>
       </QualifierNav>
-    </>
+    </div>
   );
 }
 
