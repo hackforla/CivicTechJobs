@@ -7,7 +7,9 @@ import Typography from "tw-components/Typography";
 import { Button, IconButton } from "components/components";
 import { iconArrowLeft } from "assets/images/images";
 import { QualifierNav } from "../components/QualifierNav";
+
 import { RadioButtonForm } from "../components/RadioButtonForm";
+// import { ChipsSelection } from "../components/ChipsSelection";
 
 function QualifierPage2() {
   const navigate = useNavigate();
@@ -23,6 +25,7 @@ function QualifierPage2() {
         </Typography.Paragraph3>
 
         <RadioButtonForm />
+        {/* <ChipsSelection /> */}
       </div>
       <QualifierNav className="justify-between">
         <IconButton
