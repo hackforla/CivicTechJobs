@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 // Internal Imports
 import Typography from "tw-components/Typography";
-import { Button } from "components/components";
+import { Button, IconButton } from "components/components";
+import { iconArrowLeft } from "assets/images/images";
 import { QualifierNav } from "../components/QualifierNav";
 import { RadioButtonForm } from "../components/RadioButtonForm";
 
@@ -22,7 +23,12 @@ function QualifierPage2() {
 
       <RadioButtonForm />
 
-      <QualifierNav className="justify-end">
+      <QualifierNav className="justify-between">
+        <IconButton
+          label="previous page"
+          iconUrl={iconArrowLeft}
+          onClick={() => navigate("../1", { relative: "path" })}
+        />
         <Button
           size="lg"
           length="long"
