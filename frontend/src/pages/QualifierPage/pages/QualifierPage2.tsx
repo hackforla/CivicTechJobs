@@ -13,16 +13,17 @@ function QualifierPage2() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex w-full flex-col items-center px-5">
-      <Typography.Title2 className="mt-8 text-charcoal">
-        Skill Evaluation
-      </Typography.Title2>
-      <Typography.Paragraph3 className="my-5 text-grey-dark">
-        Evaluate each skill based on your experience
-      </Typography.Paragraph3>
+    <>
+      <div className="flex w-full flex-col items-center px-5 pb-10">
+        <Typography.Title2 className="mt-8 text-charcoal">
+          Skill Evaluation
+        </Typography.Title2>
+        <Typography.Paragraph3 className="my-5 text-grey-dark">
+          Evaluate each skill based on your experience
+        </Typography.Paragraph3>
 
-      <RadioButtonForm />
-
+        <RadioButtonForm />
+      </div>
       <QualifierNav className="justify-between">
         <IconButton
           label="previous page"
@@ -40,7 +41,7 @@ function QualifierPage2() {
           Next
         </Button>
       </QualifierNav>
-    </div>
+    </>
   );
 }
 
