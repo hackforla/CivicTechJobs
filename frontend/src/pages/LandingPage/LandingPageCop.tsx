@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from "react";
 
 // Internal Imports
-import { Button, Dialog } from "components/components";
+import { Button } from "components/components";
+import { Dialog, Typography } from "tw-components";
 import { CopCard, InnerCopCard, InnerCopNavCard } from "./LandingPageCopCards";
 import {
   copDatum,
@@ -10,7 +11,6 @@ import {
   fetchCopDataById,
 } from "../../api_data/copData";
 import { CircleCard } from "tw-components/CircleCard";
-import Typography from "tw-components/Typography";
 
 function LandingPageCop() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -69,7 +69,7 @@ function LandingPageCop() {
         onClose={() => {
           setIsDialogOpen(false);
         }}
-        addClass="flex-container justify-center align-center"
+        className="flex flex-col items-center justify-center"
         ariaLabel="Communities of Practice (COP)"
       >
         <CopCard
