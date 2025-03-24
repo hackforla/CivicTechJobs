@@ -58,8 +58,8 @@ function Dialog({ open = false, ...props }: DialogProps) {
         className={clsx(
           "fixed inset-0 flex items-start justify-center",
           open 
-            ? "animate-slide-down" 
-            : "animate-slide-up",
+            ? "animate-slide-in-top" 
+            : "animate-slide-out-bottom",
           props.className
         )}
         role="dialog"
