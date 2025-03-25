@@ -1,7 +1,6 @@
 import { Button } from "./Buttons/Button";
 import { IconButton } from "./Buttons/IconButton";
 import { ScrollCarousel } from "./Carousel/ScrollCarousel";
-import { Dialog } from "./Dialog/Dialog";
 import { Calendar } from "./Inputs/Calendar";
 import { Checkbox } from "./Inputs/Checkbox";
 import { Chip } from "./Inputs/Chip";
@@ -20,7 +19,6 @@ export {
   ScrollCarousel,
   ChevronScroll,
   // Dialog
-  Dialog,
   // Inputs
   Calendar,
   Checkbox,
