@@ -126,7 +126,8 @@ This will utilize superuser permissions to change the user and group ownership o
 
 [Git Documentation](https://git-scm.com/doc)<br>
 [Docker Documentation](https://docs.docker.com/)<br>
-[Frontend Architecture](https://hackforla.github.io/CivicTechJobs/developer/frontend/)<br>
-[Backend Architecture](https://hackforla.github.io/CivicTechJobs/developer/backend/)<br>
-[DevOps Architecture](https://hackforla.github.io/CivicTechJobs/developer/devops/)<br>
-[GitHub Architecture](https://hackforla.github.io/CivicTechJobs/developer/backend/)<br>
+[Quickstart Guide](developer/quickstart-guide)<br>
+[Frontend Architecture](developer/frontend/)<br>
+[Backend Architecture](developer/backend/)<br>
+[DevOps Architecture](developer/devops/)<br>
+[GitHub Architecture](developer/backend/)<br>

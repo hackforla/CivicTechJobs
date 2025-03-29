@@ -117,6 +117,8 @@ Of note, however, is the `dev.env.example` file. This file is only a sample, but
 
 #### Staging
 
+You can view the staging environment with the following URL: [https://civictechjobs-stage.vrms.io/](https://civictechjobs-stage.vrms.io/)
+
 The main stage file is `docker-compose.stage.yml`. This docker compose file sets up a staging environment in our local machine.
 
 The following is a brief overview of how the stage environment is set up:
