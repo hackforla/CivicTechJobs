@@ -25,17 +25,20 @@ Civic Tech technology practitioners are a diverse and interdisciplinary group of
 
 #### Frontend
 
+- [Typescript](https://www.typescriptlang.org/)
 - [React](https://reactjs.org/)
   - [React Router](https://reactrouter.com/)
   - [Jest](https://jestjs.io/)
   - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
   - [@axe-core/react](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/react)
-- [Sass](https://sass-lang.com/documentation)
 - [Vite](https://vite.dev/)
-- [Babel](https://babeljs.io/)
+- [Tailwind CSS](https://v3.tailwindcss.com/)
+- [Sass](https://sass-lang.com/documentation)
 
 #### Backend
 
+- [Python](https://www.python.org/)
+- [Poetry](https://python-poetry.org/docs/)
 - [Django](https://www.djangoproject.com/)
 - [Django Rest Framework](https://www.django-rest-framework.org/)
 - [Swagger](https://swagger.io/docs/)
@@ -43,9 +46,9 @@ Civic Tech technology practitioners are a diverse and interdisciplinary group of
 
 #### CD/CI Infrastructure
 
+- [hackforla/incubator](https://github.com/hackforla/incubator)
 - [Whitenoise](https://whitenoise.readthedocs.io/en/latest/)
 - [AWS](https://docs.aws.amazon.com/)
-- [hackforla/incubator](https://github.com/hackforla/incubator)
 - [Docker](https://www.docker.com/)
 - [GitHub Actions](https://github.com/features/actions)
 
