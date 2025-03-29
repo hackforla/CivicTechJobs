@@ -6,16 +6,13 @@ import { Checkbox } from "./Inputs/Checkbox";
 import { Chip } from "./Inputs/Chip";
 import { Dropdown, DropdownOption } from "./Inputs/Dropdown";
 import { TextField } from "./Inputs/Textfield";
-import { ProgressBar } from "./Navigation/ProgressBar";
 import { Notification } from "./Notification/Notification";
 import { TransitionWrapper } from "./Transition/Wrapper";
 import { ChevronScroll } from "./Scroll/ChevronScroll";
 
 export {
-  // Buttons
   Button,
   IconButton,
-  // Carousel
   ScrollCarousel,
   ChevronScroll,
   // Dialog
@@ -26,10 +23,6 @@ export {
   Dropdown,
   DropdownOption,
   TextField,
-  // Navigation
-  ProgressBar,
-  // Notification
   Notification,
-  // Transition
   TransitionWrapper,
 };

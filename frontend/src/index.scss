@@ -8,7 +8,6 @@
 @use "@/components/Buttons" as *;
 @use "@/components/Carousel/ScrollCarousel";
 @use "@/components/Inputs" as *;
-@use "@/components/Navigation" as *;
 @use "@/components/Notification/Notification";
 @use "@/components/Transition/Wrapper";
 @use "@/components/Scroll/ChevronScroll";
@@ -17,7 +16,6 @@
 @use "@/pages/Demo/Demo";
 @use "@/pages/NotFoundPage/NotFoundPage";
 @use "@/pages/LandingPage" as *;
-@use "@/pages/QualifierPage" as *;
 
 body {
   font-family: Roboto, Tahoma, Verdana, sans-serif;

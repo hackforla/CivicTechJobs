@@ -1,11 +1,11 @@
 // External Imports
 import React from "react";
+import { Link } from "react-router-dom";
 
 // Internal Imports
 import { logoHorizontal } from "assets/images/images";
 import { IconHamburgerMenu } from "assets/images/images";
 import { Button } from "../components/components";
-import { Link } from "react-router-dom";
 
 interface menuObject {
   name?: string;
@@ -23,13 +23,13 @@ const menuItems: menuObject[] = [
 
 const Logo = () => {
   return (
-    <a href="/" rel="noopener noreferrer">
+    <Link to="/">
       <img
         className="max-h-p3 md:max-h-p4"
         src={logoHorizontal}
         alt="Civic Tech Jobs - Home"
       />
-    </a>
+    </Link>
   );
 };
 
