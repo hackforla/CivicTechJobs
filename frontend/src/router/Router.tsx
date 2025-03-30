@@ -13,9 +13,7 @@ import HomeLayout from "layouts/HomeLayout";
 import DefaultNavLayout from "layouts/DefaultNavLayout";
 import PrivacyPolicyPage from "pages/PrivacyPolicyPage/PrivacyPolicyPage";
 
-const QualifierPage = lazy(
-  () => import("../pages/QualifierPage/QualifierPage"),
-);
+const QualifierPage = lazy(() => import("../pages/QualifierPage"));
 
 const router = createBrowserRouter([
   {
