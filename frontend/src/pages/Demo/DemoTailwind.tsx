@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Typography from "tw-components/Typography";
 import { Button, IconButton } from "tw-components/Buttons";
+import Checkbox from "tw-components/Checkbox";
 
 const DemoTailwind = () => {
   // Add a setDarkMode for testing dark mode styles
@@ -16,6 +17,14 @@ const DemoTailwind = () => {
 
   return (
     <div className="min-h-screen bg-grey-light p-8">
+      <div className="mx-auto max-w-4xl rounded-lg bg-white p-6 shadow-md transition-colors duration-300 dark:bg-[#030D2D]">
+        <Typography.Title2 className="mb-4">Checkboxes</Typography.Title2>
+        <Checkbox label="Enabled selected" defaultChecked />
+        <Checkbox label="Enabled unselected" />
+        <Checkbox label="Disabled selected" defaultChecked disabled />
+        <Checkbox label="Disabled unselected" disabled />
+        <Checkbox label="Enabled selected" defaultChecked labelHidden />
+      </div>
       <div className="mx-auto max-w-4xl rounded-lg bg-white p-6 shadow-md transition-colors duration-300 dark:bg-[#030D2D]">
         <Typography.Title1 className="mb-4 text-blue-dark dark:text-white">
           Buttons
