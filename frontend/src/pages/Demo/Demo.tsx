@@ -3,7 +3,6 @@ import React, { Fragment, useState } from "react";
 
 // Internal Imports
 import {
-  Checkbox,
   Chip,
   TextField,
   Notification,
@@ -16,6 +15,7 @@ import {
   IconDropdownDown,
 } from "assets/images/images";
 import { combineClasses } from "components/Utility/utils";
+import Checkbox from "tw-components/Checkbox";
 
 function Demo() {
   function textFieldOnChange(e: React.ChangeEvent<HTMLInputElement>) {
