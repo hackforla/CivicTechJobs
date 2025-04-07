@@ -39,7 +39,7 @@ function QualifierPage1() {
 
         {/* COP Cards */}
         <div className="w-4/5">
-          <div className="grid w-full grid-cols-3 gap-10">
+          <div className="grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             {copData.map((cop) => {
               const isSelected = selectedCOP === cop.id;
 
