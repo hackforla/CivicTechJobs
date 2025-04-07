@@ -4,12 +4,10 @@ import { useNavigate } from "react-router-dom";
 
 // Internal Imports
 import Typography from "tw-components/Typography";
-import { Button, IconButton } from "components/components";
-import { iconArrowLeft } from "assets/images/images";
+import { Button } from "components/components";
 import { QualifierNav } from "../components/QualifierNav";
-
 import { RadioButtonForm } from "../components/RadioButtonForm";
-// import { ChipsSelection } from "../components/ChipsSelection";
+import { ProgressIndicator } from "../components/ProgressIndicator";
 
 function QualifierPage2() {
   const navigate = useNavigate();
@@ -23,26 +21,36 @@ function QualifierPage2() {
         <Typography.Paragraph3 className="my-5 text-grey-dark">
           Evaluate each skill based on your experience
         </Typography.Paragraph3>
-
-        <RadioButtonForm />
-        {/* <ChipsSelection /> */}
+        FIX
+        <RadioButtonForm onSkillSelect={(skill, level) => console.log(`Skill: ${skill}, Level: ${level}`)} />
       </div>
-      <QualifierNav className="justify-between">
-        <IconButton
-          label="previous page"
-          iconUrl={iconArrowLeft}
-          onClick={() => navigate("../1", { relative: "path" })}
+      <QualifierNav className="justify-between items-center">
+        <ProgressIndicator
+          currentPart={1}
+          totalParts={5}
+          title="INSERT TITLE"
+          progressPercentage={10}
         />
-        <Button
-          size="lg"
-          length="long"
-          color="primary"
-          onClick={() => {
-            navigate("../3", { relative: "path" });
-          }}
-        >
-          Next
-        </Button>
+        <div className="flex gap-4">
+          <Button
+            size="md"
+            length="long"
+            color="primary-dark"
+            onClick={() => navigate("../1", { relative: "path" })}
+          >
+            Back
+          </Button>
+          <Button
+            size="md"
+            length="long"
+            color="primary"
+            onClick={() => {
+              navigate("../3", { relative: "path" });
+            }}
+          >
+            Next
+          </Button>
+        </div>
       </QualifierNav>
     </>
   );
