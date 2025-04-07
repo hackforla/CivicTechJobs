@@ -1,5 +1,5 @@
 // External Imports
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import clsx from "clsx";
 
@@ -9,14 +9,14 @@ import Typography from "tw-components/Typography";
 import { Button } from "components/components";
 import { QualifierNav } from "../components/QualifierNav";
 import { IconCheckMark } from "assets/images/images";
+import { useQualifiersContext } from "context/QualifiersContext";
 
 function QualifierPage1() {
   const navigate = useNavigate();
-  const [copData, setCopData] = useState<copDatum[]>([] as copDatum[]);
-  const [selectedCOP, setSelectedCOP] = useState<number>(-1);
+  const { copData, qualifiers, updateQualifiers } = useQualifiersContext();
 
   useEffect(() => {
-    setCopData(fetchAllCopData());
+    fetchAllCopData();
   }, []);
 
   const handleSelectCOP = (
@@ -24,7 +24,12 @@ function QualifierPage1() {
     cop: copDatum,
   ) => {
     e.stopPropagation();
-    setSelectedCOP(cop.id);
+
+    const newQualifiers = {
+      ...qualifiers,
+      selectedCOP: cop.title,
+    };
+    updateQualifiers(newQualifiers); 
   };
 
   return (
@@ -41,7 +46,7 @@ function QualifierPage1() {
         <div className="w-4/5">
           <div className="grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             {copData.map((cop) => {
-              const isSelected = selectedCOP === cop.id;
+              const isSelected = qualifiers.selectedCOP === cop.title;
 
               return (
                 <div
@@ -74,7 +79,11 @@ function QualifierPage1() {
               );
             })}
           </div>
-          <QualifierNav className={`mt-20 justify-between ${selectedCOP === -1 && "hidden"}`}>
+          <QualifierNav
+            className={`mt-20 justify-between ${
+              !qualifiers.selectedCOP && "hidden"
+            }`}
+          >
             <div className="flex items-center ml-4">
               <div className="h-5 w-5 rounded-full bg-blue-dark flex items-center justify-center">
                 <IconCheckMark
