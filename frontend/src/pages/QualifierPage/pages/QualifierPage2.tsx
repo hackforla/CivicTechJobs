@@ -8,9 +8,25 @@ import { Button } from "components/components";
 import { QualifierNav } from "../components/QualifierNav";
 import { RadioButtonForm } from "../components/RadioButtonForm";
 import { ProgressIndicator } from "../components/ProgressIndicator";
+import { useQualifiersContext } from "context/QualifiersContext";
 
 function QualifierPage2() {
   const navigate = useNavigate();
+  const { qualifiers, updateQualifiers } = useQualifiersContext();
+
+  const handleSkillSelect = (skill: string, level: string) => {
+    const newExperienceLevels = {
+      ...qualifiers.experienceLevels,
+      [skill]: level, 
+    };
+
+    const newQualifiers = {
+      ...qualifiers,
+      experienceLevels: newExperienceLevels, 
+    };
+
+    updateQualifiers(newQualifiers); 
+  };
 
   return (
     <>
@@ -21,8 +37,10 @@ function QualifierPage2() {
         <Typography.Paragraph3 className="my-5 text-grey-dark">
           Evaluate each skill based on your experience
         </Typography.Paragraph3>
-        FIX
-        <RadioButtonForm onSkillSelect={(skill, level) => console.log(`Skill: ${skill}, Level: ${level}`)} />
+        <RadioButtonForm 
+          onSkillSelect={handleSkillSelect} 
+          selectedExperienceLevels={qualifiers.experienceLevels || {}} 
+        />
       </div>
       <QualifierNav className="justify-between items-center">
         <ProgressIndicator
