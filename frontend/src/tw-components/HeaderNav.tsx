@@ -1,11 +1,11 @@
 // External Imports
 import React from "react";
+import { Link } from "react-router-dom";
 
 // Internal Imports
 import { logoHorizontal } from "assets/images/images";
 import { IconHamburgerMenu } from "assets/images/images";
 import { Button } from "../components/components";
-import { Link } from "react-router-dom";
 
 interface menuObject {
   name?: string;
@@ -21,19 +21,19 @@ const menuItems: menuObject[] = [
   { name: "Projects", link: "https://www.hackforla.org/projects/" },
 ];
 
-function HeaderNav() {
-  const Logo = () => {
-    return (
-      <a href="/" rel="noopener noreferrer">
-        <img
-          className="max-h-[24px] md:max-h-[32px]"
-          src={logoHorizontal}
-          alt="Civic Tech Jobs - Home"
-        />
-      </a>
-    );
-  };
+const Logo = () => {
+  return (
+    <Link to="/">
+      <img
+        className="max-h-p3 md:max-h-p4"
+        src={logoHorizontal}
+        alt="Civic Tech Jobs - Home"
+      />
+    </Link>
+  );
+};
 
+function HeaderNav() {
   return (
     <header className="flex h-16 w-full items-center justify-between px-3 py-1 shadow-[-1px_1px_2px_rgb(51,51,51,0.2)] lg:justify-around">
       <div>

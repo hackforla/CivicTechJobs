@@ -2,6 +2,10 @@
 
 ## Getting Started
 
+1. Review the UI/UX issues on the [Project Management Board](https://github.com/orgs/hackforla/projects/37/views/5) and identify an actionable backlog item.
+
+2. Communicate with the UI/UX Research Team Lead about your interest in being assigned a task.
+
 ## Research Documents
 
 - [Completed Research](research-completed)

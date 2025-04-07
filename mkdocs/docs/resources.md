@@ -18,6 +18,7 @@ More resources to be added as project progresses:
 1. [Project Board](https://github.com/orgs/hackforla/projects/37)
 2. [Project one sheet](https://docs.google.com/document/d/1bfxY8YlyCjzCL3oP0rpa77uEY4vuymDYZY_xWEgXiGs)
 3. [Our Shared Google Drive](https://drive.google.com/drive/folders/1hXxvpC8W5Uuzjqo4CxnjDpAMI7sbVnq8?usp=sharing&pli=1)
+      - [CTJ: Google Drive folder navigation ](https://docs.google.com/document/d/1N7SXNYYOapdxJrafgNT54XTwl7oacpzB/edit?usp=sharing&ouid=116206592762819886900&rtpof=true&sd=true)
 4. [GitHub Workflow](https://docs.google.com/document/d/1CuRX6hhWzs8ydVCnl6OrGZ4LeVSk9X_pIzoKchAqFcU)
 5. [Milestones](https://github.com/hackforla/CivicTechJobs/milestones)
 6. [Path to MVP](https://docs.google.com/spreadsheets/d/1oyLDs02q_t7-Goyqb547svJwyLlEWG4mv2Tr_ftIhps)

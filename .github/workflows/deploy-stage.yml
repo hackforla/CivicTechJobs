@@ -1,8 +1,11 @@
-name: deploy-dev
+name: deploy-stage
 on:
   push:
     branches:
       - main
+    paths-ignore:
+      - "mkdocs/**"
+      - "dev/**"
   workflow_dispatch:
 jobs:
   deploy:
@@ -30,8 +33,15 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: civic-tech-jobs-fullstack
-          IMAGE_TAG: dev
+          IMAGE_TAG: stage
         run: |
-          docker build -f ./stage/Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker build -f ./stage/Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
+      - name: Redeploy Image in Amazon ECS-Fargate
+        id: redeploy-service
+        env:
+          CLUSTER_NAME: incubator-prod
+          SERVICE_NAME: civic-tech-jobs-fs-stage 
+        run: |
+          aws ecs update-service --force-new-deployment --service $SERVICE_NAME --cluster $CLUSTER_NAME

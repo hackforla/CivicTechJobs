@@ -1,22 +1,11 @@
-**_DRAFT NOT YET FILLED OUT_**
-
-### Introduction
-
-Welcome to the Civic Tech Jobs team! This guide will help get you up to speed on what you need to know to get started as a project team member.
-
----
+Welcome to the Civic Tech Jobs team! This guide will help you get up to speed with everything you need to know to get started as a project team member.
 
 ### Let's go!
 
-If you have not read the [Guide for New Volunteers](https://www.hackforla.org/getting-started), please do so.
-
-1. Check the [Community of Practice -> Open Roles Board](https://github.com/hackforla/communities-of-practice) for current open roles in the Civic Tech Jobs project.
+1. Before proceeding, please confirm that you have reviewed and completed the steps outlined in Hack for LA’s [Guide for New Volunteers](https://www.hackforla.org/getting-started)
 2. Read [Introduction to the Project](https://hackforla.github.io/CivicTechJobs/) if you haven't already read it.
-3. If interested in joining the team, complete this form [Team Roster Onboarding Form](https://docs.google.com/forms/d/e/1FAIpQLSfv-VTLseKixhzbPvY_hBHW30CaokUh4FOmst-4ZEM639EinQ/viewform).
-4. Join the [Civic Tech Jobs](https://hackforla.slack.com/archives/C02509WHFQQ) Slack channel and introduce yourself and mention the role you are interested in. Our PM's will help you get onboarded with the following steps.
-1. Accept your Google Drive invite to access the [shared folder](https://drive.google.com/drive/u/0/folders/0AMdnUkSXicNCUk9PVA).
-1. Review the [Glossary](https://hackforla.github.io/CivicTechJobs/misc/glossary/).
-1. Attend our monthly all team meeting on the third Tuesday at 5pm PST. You can find the link pinned in our slack channel.
+3. Check the [Community of Practice -> Open Roles](https://github.com/orgs/hackforla/projects/67/views/8) for current open roles in the Civic Tech Jobs project. Please follow the steps outlined in the respective open role issue. 
+4. Attend our monthly all team meeting on the third Tuesday at 5pm PST. You can find the link pinned in our [Civic Tech Jobs slack channel](https://hackforla.slack.com/archives/C02509WHFQQ).
 
 ---
 
@@ -29,10 +18,6 @@ Click the link that applies to you to find a sequence of immediate action steps:
 [UI/UX Designer](UI-UX-Designer)
 
 [UI/UX Researcher](UI-UX-Researcher)
-
-[Data Scientist](Data-Scientist)
-
-[Content Writer](Content-Writer)
 
 [Product Manager/Owner](Product-Manager-and-Owner)
 
