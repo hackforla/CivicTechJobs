@@ -17,15 +17,15 @@ function QualifierPage2() {
   const handleSkillSelect = (skill: string, level: string) => {
     const newExperienceLevels = {
       ...qualifiers.experienceLevels,
-      [skill]: level, 
+      [skill]: level,
     };
 
     const newQualifiers = {
       ...qualifiers,
-      experienceLevels: newExperienceLevels, 
+      experienceLevels: newExperienceLevels,
     };
 
-    updateQualifiers(newQualifiers); 
+    updateQualifiers(newQualifiers);
   };
 
   return (
@@ -37,39 +37,41 @@ function QualifierPage2() {
         <Typography.Paragraph3 className="my-5 text-grey-dark">
           Evaluate each skill based on your experience
         </Typography.Paragraph3>
-        <RadioButtonForm 
-          onSkillSelect={handleSkillSelect} 
-          selectedExperienceLevels={qualifiers.experienceLevels || {}} 
+        <RadioButtonForm
+          onSkillSelect={handleSkillSelect}
+          selectedExperienceLevels={qualifiers.experienceLevels || {}}
         />
       </div>
-      <QualifierNav className="justify-between items-center">
-        <ProgressIndicator
-          currentPart={1}
-          totalParts={5}
-          title="INSERT TITLE"
-          progressPercentage={10}
-        />
-        <div className="flex gap-4">
-          <Button
-            size="md"
-            length="long"
-            color="primary-dark"
-            onClick={() => navigate("../1", { relative: "path" })}
-          >
-            Back
-          </Button>
-          <Button
-            size="md"
-            length="long"
-            color="primary"
-            onClick={() => {
-              navigate("../3", { relative: "path" });
-            }}
-          >
-            Next
-          </Button>
-        </div>
-      </QualifierNav>
+      <div className="w-4/5">
+        <QualifierNav className="justify-between items-center">
+          <ProgressIndicator
+            currentPart={1}
+            totalParts={5}
+            title="INSERT TITLE"
+            progressPercentage={10}
+          />
+          <div className="flex gap-4">
+            <Button
+              size="md"
+              length="long"
+              color="primary-dark"
+              onClick={() => navigate("../1", { relative: "path" })}
+            >
+              Back
+            </Button>
+            <Button
+              size="md"
+              length="long"
+              color="primary"
+              onClick={() => {
+                navigate("../3", { relative: "path" });
+              }}
+            >
+              Next
+            </Button>
+          </div>
+        </QualifierNav>
+      </div>
     </>
   );
 }
