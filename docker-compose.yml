@@ -11,7 +11,7 @@ services:
     volumes:
       - postgres_data:/lib/postgresql/data
     ports:
-      - "5434:5434"
+      - "5432:5432"
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready" ]
       interval: 10s
@@ -58,6 +58,9 @@ services:
         - action: sync
           path: ./frontend
           target: /usr/src/app
+    volumes:
+      - ./frontend:/usr/src/app 
+      - /usr/src/app/node_modules
 
 volumes:
   postgres_data: {}

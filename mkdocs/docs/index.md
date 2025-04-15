@@ -20,7 +20,7 @@ CTJ will tackle key challenges in project recruitment and organizational sustain
 
 Yes, there are recruitment issues on project boards. However, the process is cumbersome and involves multiple steps to match candidates with the right roles.
 
-Read more about what lead up to us developing this project, at our [History](History) page.
+Read more about what lead up to us developing this project, at our [History](misc/history) page.
 
 ### So how is this different?
 
