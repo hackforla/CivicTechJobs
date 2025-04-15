@@ -104,7 +104,7 @@ poetry run flake8
 
 ## Staging environment
 
-You can view the staging deployment with the following URL: [https://civictechjobs-stage.vrms.io/](https://civictechjobs-stage.vrms.io/)
+You can view the staging deployment with the following URL: [https://stage.civictechjobs.org/](https://stage.civictechjobs.org/)
 
 How to run the stage environment locally:
 
