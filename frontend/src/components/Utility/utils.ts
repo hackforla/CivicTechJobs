@@ -1,4 +1,6 @@
 import React from "react";
+import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
 
 /**
  * Takes an array of different and combine them into one string to be placed in an element's class attribute.
@@ -6,7 +8,7 @@ import React from "react";
  * @returns a joined string after filtering out non-strings from args
  */
 function combineClasses(...args: (string | boolean | undefined)[]) {
-  return args.filter((x) => typeof x === "string").join(" ");
+  return twMerge(clsx(...args));
 }
 
 /**
@@ -30,7 +32,7 @@ function onKey(fn: Handler, ...keyValues: string[]) {
 function range(start: number, stop: number, step: number = 1) {
   return Array.from(
     { length: (stop - start) / step + 1 },
-    (_, i) => start + i * step,
+    (_, i) => start + i * step
   );
 }
 
