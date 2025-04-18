@@ -15,16 +15,12 @@ import {
   IconDropdownDown,
 } from "assets/images/images";
 import { combineClasses } from "components/Utility/utils";
-import Checkbox from "tw-components/Checkbox";
 
 function Demo() {
   function textFieldOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     console.log(e.target.value);
   }
 
-  function checkboxOnChange(e: React.ChangeEvent<HTMLInputElement>) {
-    console.log(e.target.checked);
-  }
   return (
     <Fragment>
       <Notification closable fade>
@@ -121,17 +117,6 @@ function Demo() {
               );
             })}
           </div>
-          <h2>Checkboxes</h2>
-          <Checkbox label="Enabled selected" defaultChecked />
-          <Checkbox label="Enabled unselected" />
-          <Checkbox label="Disabled selected" defaultChecked disabled />
-          <Checkbox label="Disabled unselected" disabled />
-          <Checkbox
-            label="Enabled selected"
-            defaultChecked
-            labelHidden={true}
-            onChange={checkboxOnChange}
-          />
           <h2>Textfields</h2>
           <TextField
             type="email"

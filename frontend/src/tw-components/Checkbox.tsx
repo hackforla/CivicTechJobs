@@ -4,7 +4,7 @@ import clsx from "clsx";
 
 // Type declaration for props
 interface CheckboxProps {
-  additionalClass?: string;
+  className?: string;
   defaultChecked?: boolean;
   disabled?: boolean;
   label: string;
@@ -38,7 +38,7 @@ function Checkbox({
   }
 
   return (
-    <div className={clsx("relative flex items-center", props.additionalClass)}>
+    <div className={clsx("relative flex items-center", props.className)}>
       <input
         id={checkboxId}
         type="checkbox"
@@ -54,7 +54,6 @@ function Checkbox({
         className={clsx(
           "absolute h-10 w-10 rounded-full opacity-0",
           "peer-focus:bg-blue-dark peer-focus:opacity-[.16] peer-active:bg-blue-dark peer-active:opacity-[.32]",
-          { hidden: disabled }, // no effect when disabled
         )}
       ></span>
 
@@ -62,8 +61,8 @@ function Checkbox({
       <label
         htmlFor={checkboxId}
         className={clsx(
-          "relative flex cursor-pointer select-none items-center",
-          { "opacity-50 cursor-not-allowed": disabled },
+          "relative flex select-none items-center",
+          disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer",
         )}
       >
         <span className="relative flex h-10 w-10 items-center justify-center">
@@ -87,14 +86,10 @@ function Checkbox({
             />
           )}
         </span>
-        <span
-          className={clsx({ "sr-only": labelHidden, "ml-1": !labelHidden })}
-        >
-          {props.label}
-        </span>
+        <span className={labelHidden ? "sr-only" : "ml-1"}>{props.label}</span>
       </label>
     </div>
   );
 }
 
-export default Checkbox;
+export { Checkbox };
