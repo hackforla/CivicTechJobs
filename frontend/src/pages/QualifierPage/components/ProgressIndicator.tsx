@@ -14,7 +14,10 @@ export const ProgressIndicator: React.FC<ProgressIndicatorProps> = ({
   progressPercentage,
 }) => {
   // Ensure progressPercentage is clamped between 0 and 100
-  const validProgressPercentage = Math.min(Math.max(progressPercentage, 0), 100);
+  const validProgressPercentage = Math.min(
+    Math.max(progressPercentage, 0),
+    100,
+  );
   const strokeDashoffset = 62.8 - (62.8 * validProgressPercentage) / 100;
 
   return (

@@ -11,11 +11,11 @@ function QualifierNav({ className, children }: QualifierNavProps) {
   return (
     <div
       className={clsx(
-        "border border-[#E0E0E0] sticky bottom-0 box-content flex h-16 w-full flex-wrap items-center rounded-lg bg-[#FDFDFD] opacity-80 shadow-[0_8px_25px_#00000014] hover:opacity-100",
+        "sticky bottom-0 box-content flex h-16 w-full flex-wrap items-center rounded-lg border border-[#E0E0E0] bg-[#FDFDFD] opacity-80 shadow-[0_8px_25px_#00000014] hover:opacity-100",
         className,
       )}
     >
-      <div className="w-full px-6 flex items-center justify-between">
+      <div className="flex w-full items-center justify-between px-6">
         {children}
       </div>
     </div>

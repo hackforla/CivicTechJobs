@@ -5,7 +5,7 @@ import Typography from "tw-components/Typography";
 
 interface RadioButtonFormProps {
   onSkillSelect: (skill: string, level: string) => void;
-  selectedExperienceLevels: Record<string, string>;
+  selectedSkillsLevel: Record<string, string>;
 }
 
 const skills = [
@@ -15,11 +15,13 @@ const skills = [
   },
   {
     name: "User Personas & Journey Mapping",
-    description: "Developing representative user profiles and mapping user journeys",
+    description:
+      "Developing representative user profiles and mapping user journeys",
   },
   {
     name: "Information Architecture",
-    description: "E.g., creating site maps, navigation flows, or using card sorting",
+    description:
+      "E.g., creating site maps, navigation flows, or using card sorting",
   },
   {
     name: "Wireframing & Sketching",
@@ -27,7 +29,10 @@ const skills = [
   },
 ];
 
-function RadioButtonForm({ onSkillSelect, selectedExperienceLevels }: RadioButtonFormProps) {
+function RadioButtonForm({
+  onSkillSelect,
+  selectedSkillsLevel,
+}: RadioButtonFormProps) {
   return (
     <table className="w-full table-fixed border-collapse text-charcoal">
       <thead>
@@ -59,7 +64,7 @@ function RadioButtonForm({ onSkillSelect, selectedExperienceLevels }: RadioButto
             skillName={skill.name}
             description={skill.description}
             onSkillSelect={onSkillSelect}
-            selectedLevel={selectedExperienceLevels[skill.name]}
+            selectedLevel={selectedSkillsLevel[skill.name]}
           />
         ))}
       </tbody>
@@ -74,7 +79,12 @@ interface SkillRowProps {
   selectedLevel?: string;
 }
 
-function SkillRow({ skillName, description, onSkillSelect, selectedLevel }: SkillRowProps) {
+function SkillRow({
+  skillName,
+  description,
+  onSkillSelect,
+  selectedLevel,
+}: SkillRowProps) {
   return (
     <tr className="border-b-2 border-grey last:border-0">
       <td className="pb-7 pt-6">

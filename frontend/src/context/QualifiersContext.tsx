@@ -7,7 +7,7 @@ type QualifiersType = {
     [copName: string]: string[];
   };
   selectedCOP?: string;
-  experienceLevels?: { [skill: string]: string };
+  skills_matrix?: { [skill: string]: string };
   // availabilityTimeSlots: string[];
 };
 

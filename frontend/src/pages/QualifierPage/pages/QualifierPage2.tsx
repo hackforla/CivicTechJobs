@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 // Internal Imports
 import Typography from "tw-components/Typography";
-import { Button } from "components/components";
+import { Button } from "tw-components/Buttons";
 import { QualifierNav } from "../components/QualifierNav";
 import { RadioButtonForm } from "../components/RadioButtonForm";
 import { ProgressIndicator } from "../components/ProgressIndicator";
@@ -15,14 +15,14 @@ function QualifierPage2() {
   const { qualifiers, updateQualifiers } = useQualifiersContext();
 
   const handleSkillSelect = (skill: string, level: string) => {
-    const newExperienceLevels = {
-      ...qualifiers.experienceLevels,
+    const newSkillsMatrix = {
+      ...qualifiers.skills_matrix,
       [skill]: level,
     };
 
     const newQualifiers = {
       ...qualifiers,
-      experienceLevels: newExperienceLevels,
+      skills_matrix: newSkillsMatrix,
     };
 
     updateQualifiers(newQualifiers);
@@ -39,11 +39,11 @@ function QualifierPage2() {
         </Typography.Paragraph3>
         <RadioButtonForm
           onSkillSelect={handleSkillSelect}
-          selectedExperienceLevels={qualifiers.experienceLevels || {}}
+          selectedSkillsLevel={qualifiers.skills_matrix || {}}
         />
       </div>
       <div className="w-4/5">
-        <QualifierNav className="justify-between items-center">
+        <QualifierNav className="items-center justify-between">
           <ProgressIndicator
             currentPart={1}
             totalParts={5}
@@ -52,17 +52,14 @@ function QualifierPage2() {
           />
           <div className="flex gap-4">
             <Button
-              size="md"
-              length="long"
-              color="primary-dark"
+              size="medium-long"
+              className="style-2"
               onClick={() => navigate("../1", { relative: "path" })}
             >
               Back
             </Button>
             <Button
-              size="md"
-              length="long"
-              color="primary"
+              size="medium-long"
               onClick={() => {
                 navigate("../3", { relative: "path" });
               }}

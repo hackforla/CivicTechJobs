@@ -30,7 +30,10 @@ const baseButtonStyles =
 const enabledDarkModeStyles =
   "dark:bg-white dark:text-blue-dark dark:hover:bg-grey-light dark:focus:bg-[#D9DBDF] dark:active:bg-[#D9DBDF] dark:disabled:bg-grey dark:disabled:text-grey-light";
 
-// Base Button, no text, just styling
+// Style 2: White background with blue text
+const style2ButtonStyles =
+  "transition-all duration-200 flex items-center justify-center rounded-[64px] bg-white text-blue-dark hover:bg-blue-dark hover:text-white focus:bg-blue-dark focus:text-white active:bg-blue-dark active:text-white disabled:bg-grey disabled:text-grey disabled:cursor-not-allowed";
+
 const BaseButton: React.FC<BaseButtonProps> = ({
   size = "medium",
   disabled = false,
@@ -41,7 +44,7 @@ const BaseButton: React.FC<BaseButtonProps> = ({
   return (
     <button
       className={clsx(
-        baseButtonStyles,
+        className?.includes("style-2") ? style2ButtonStyles : baseButtonStyles,
         buttonSizes[size],
         !disabled && enabledDarkModeStyles,
         className,

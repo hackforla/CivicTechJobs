@@ -6,7 +6,7 @@ import clsx from "clsx";
 // Internal Imports
 import { copDatum, fetchAllCopData } from "api_data/copData";
 import Typography from "tw-components/Typography";
-import { Button } from "components/components";
+import { Button } from "tw-components/Buttons";
 import { QualifierNav } from "../components/QualifierNav";
 import { IconCheckMark } from "assets/images/images";
 import { useQualifiersContext } from "context/QualifiersContext";
@@ -29,12 +29,12 @@ function QualifierPage1() {
       ...qualifiers,
       selectedCOP: cop.title,
     };
-    updateQualifiers(newQualifiers); 
+    updateQualifiers(newQualifiers);
   };
 
   return (
     <>
-      <div className="flex h-full w-full flex-col items-center px-5 pb-10 justify-between">
+      <div className="flex h-full w-full flex-col items-center justify-between px-5 pb-10">
         <Typography.Title2 className="mt-8 text-charcoal">
           What type of Practice Area are you looking for?
         </Typography.Title2>
@@ -44,7 +44,7 @@ function QualifierPage1() {
 
         {/* COP Cards */}
         <div className="w-4/5">
-          <div className="grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid w-full grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
             {copData.map((cop) => {
               const isSelected = qualifiers.selectedCOP === cop.title;
 
@@ -67,7 +67,11 @@ function QualifierPage1() {
                       isSelected ? "bg-white" : "bg-[#EFF3FF]",
                     )}
                   >
-                    <cop.icon strokeWidth="0.2" height="25" aria-hidden="true" />
+                    <cop.icon
+                      strokeWidth="0.2"
+                      height="25"
+                      aria-hidden="true"
+                    />
                   </div>
                   <Typography.Title5 className="mt-10 text-charcoal">
                     {cop.title}
@@ -84,22 +88,16 @@ function QualifierPage1() {
               !qualifiers.selectedCOP && "hidden"
             }`}
           >
-            <div className="flex items-center ml-4">
-              <div className="h-5 w-5 rounded-full bg-blue-dark flex items-center justify-center">
-                <IconCheckMark
-                  height="12"
-                  width="12"
-                  aria-hidden="true"
-                />
+            <div className="ml-4 flex items-center">
+              <div className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-dark">
+                <IconCheckMark height="12" width="12" aria-hidden="true" />
               </div>
               <Typography.Paragraph3 className="ml-2 font-bold text-charcoal">
                 Practice Area: Complete
               </Typography.Paragraph3>
             </div>
             <Button
-              size="md"
-              length="long"
-              color="primary"
+              size="medium"
               onClick={() => {
                 navigate("../2", { relative: "path" });
               }}
