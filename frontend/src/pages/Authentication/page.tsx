@@ -45,7 +45,7 @@ export default function AuthenticationPage() {
         <div className="w-full bg-tan lg:basis-1/2">
           <div className="flex h-full flex-col items-center justify-center lg:bg-white">
             <div className="w-10/12 lg:w-[439px]">
-              <div className="lg:bg-transparent rounded-2xl bg-white max-lg:p-7">
+              <div className="rounded-2xl bg-white max-lg:p-7 lg:bg-transparent">
                 {pathname === "/login" && <LoginForm />}
                 {pathname === "/signup" && <SignupForm />}
               </div>

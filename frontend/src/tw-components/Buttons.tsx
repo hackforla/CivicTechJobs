@@ -1,6 +1,6 @@
 import React from "react";
-import clsx from "clsx";
 import Typography from "tw-components/Typography";
+import { cn } from "lib/utils";
 
 const buttonSizes = {
   small: "px-[24px] h-[32px]",
@@ -40,7 +40,7 @@ const BaseButton: React.FC<BaseButtonProps> = ({
 }) => {
   return (
     <button
-      className={clsx(
+      className={cn(
         baseButtonStyles,
         buttonSizes[size],
         !disabled && enabledDarkModeStyles,

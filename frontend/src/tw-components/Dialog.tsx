@@ -1,6 +1,6 @@
 // External Imports
 import React, { useState, useEffect, useRef } from "react";
-import clsx from "clsx";
+import { cn } from "lib/utils";
 
 interface DialogProps extends React.PropsWithChildren {
   className?: string;
@@ -27,7 +27,7 @@ function Dialog({ open = false, ...props }: DialogProps) {
       document.body.style.overflow = "auto";
     }
   }, [isBackdropOpen]);
-  
+
   useEffect(() => {
     if (open) {
       setIsBackdropOpen(true);
@@ -44,23 +44,21 @@ function Dialog({ open = false, ...props }: DialogProps) {
 
   return (
     <div
-      className={clsx(
-        "fixed inset-0 h-screen w-full overflow-auto z-50 bg-[rgba(0,0,0,0.4)] transition-opacity duration-[400ms] ease-in-out",
-        !isBackdropOpen && "opacity-0 pointer-events-none",
+      className={cn(
+        "fixed inset-0 z-50 h-screen w-full overflow-auto bg-[rgba(0,0,0,0.4)] transition-opacity duration-[400ms] ease-in-out",
+        !isBackdropOpen && "pointer-events-none opacity-0",
         isBackdropOpen && "opacity-100",
-        props.className
+        props.className,
       )}
       ref={windowRef}
       onClick={handleClose}
       role="presentation"
     >
       <div
-        className={clsx(
+        className={cn(
           "fixed inset-0 flex items-start justify-center",
-          open 
-            ? "animate-slide-in-top" 
-            : "animate-slide-out-bottom",
-          props.className
+          open ? "animate-slide-in-top" : "animate-slide-out-bottom",
+          props.className,
         )}
         role="dialog"
         aria-label={props.ariaLabel}
