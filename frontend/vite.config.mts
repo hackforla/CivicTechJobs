@@ -52,7 +52,9 @@ export default defineConfig(({ mode }) => {
       },
     },
     test: {
-      exclude: [...configDefaults.exclude, "**/tests/**"],
+      exclude: [...configDefaults.exclude],
+      environment: "jsdom",
+      globals: true,
     },
   };
 });

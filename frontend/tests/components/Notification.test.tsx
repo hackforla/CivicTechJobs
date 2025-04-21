@@ -1,5 +1,6 @@
 // External imports
 import React from "react";
+import { describe, it, expect } from "vitest";
 import {
   render,
   screen,
@@ -15,14 +16,14 @@ import { Notification } from "components/components";
 config.disabled = true;
 
 describe("Notification", () => {
-  test("Notification component", () => {
+  it("Notification component", () => {
     render(<Notification>This is a warning</Notification>);
     expect(screen.getByText("This is a warning")).toBeInTheDocument();
     expect(screen.getByRole("status")).toBeInTheDocument();
     expect(screen.queryByRole("alert")).not.toBeInTheDocument();
   });
 
-  test("Notification component closable", async () => {
+  it("Notification component closable", async () => {
     const user = userEvent.setup();
     render(
       <Notification show={true} closable>
@@ -33,7 +34,7 @@ describe("Notification", () => {
     expect(screen.getByRole("status", { hidden: true })).toHaveClass("hidden");
   });
 
-  test("Notification component autoHidden", async () => {
+  it("Notification component autoHidden", async () => {
     // const user = userEvent.setup();
     render(
       <Notification show={true} autoHidden>
