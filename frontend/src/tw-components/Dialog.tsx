@@ -27,7 +27,7 @@ function Dialog({ open = false, ...props }: DialogProps) {
       document.body.style.overflow = "auto";
     }
   }, [isBackdropOpen]);
-  
+
   useEffect(() => {
     if (open) {
       setIsBackdropOpen(true);
@@ -45,10 +45,9 @@ function Dialog({ open = false, ...props }: DialogProps) {
   return (
     <div
       className={clsx(
-        "fixed inset-0 h-screen w-full overflow-auto z-50 bg-[rgba(0,0,0,0.4)] transition-opacity duration-[400ms] ease-in-out",
-        !isBackdropOpen && "opacity-0 pointer-events-none",
-        isBackdropOpen && "opacity-100",
-        props.className
+        "fixed inset-0 z-50 h-screen w-full overflow-auto bg-[rgba(0,0,0,0.4)] transition-opacity duration-[400ms] ease-in-out",
+        isBackdropOpen ? "opacity-100" : "pointer-events-none opacity-0",
+        props.className,
       )}
       ref={windowRef}
       onClick={handleClose}
@@ -57,10 +56,8 @@ function Dialog({ open = false, ...props }: DialogProps) {
       <div
         className={clsx(
           "fixed inset-0 flex items-start justify-center",
-          open 
-            ? "animate-slide-in-top" 
-            : "animate-slide-out-bottom",
-          props.className
+          open ? "animate-slide-in-top" : "animate-slide-out-bottom",
+          props.className,
         )}
         role="dialog"
         aria-label={props.ariaLabel}

@@ -1,20 +1,21 @@
 // External imports
 import React from "react";
+import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
 import "regenerator-runtime/runtime"; // needed to run async tests
 import { config } from "react-transition-group";
+import { MemoryRouter } from "react-router-dom";
 
 // Internal imports
 import { LandingPage } from "pages/LandingPage/LandingPage";
-import { MemoryRouter } from "react-router-dom";
 
 // Disables animation transition time so it will not hamper testing
 config.disabled = true;
 
 describe("Landing Page", () => {
-  test("Landing Page dialog", async () => {
+  it("Landing Page dialog", async () => {
     const user = userEvent.setup();
     render(
       <MemoryRouter>
