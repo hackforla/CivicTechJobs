@@ -60,7 +60,8 @@ services:
           target: /usr/src/app
     volumes:
       - ./frontend:/usr/src/app 
-      - /usr/src/app/node_modules
+      - node_modules:/usr/src/app/node_modules
 
 volumes:
   postgres_data: {}
+  node_modules:
