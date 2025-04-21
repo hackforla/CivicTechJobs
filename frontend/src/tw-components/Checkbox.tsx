@@ -1,6 +1,7 @@
 import React, { useId, useRef, useState, useEffect } from "react";
 import { IconCheckboxY, IconCheckboxN } from "assets/images/images";
 import clsx from "clsx";
+import { cn } from "lib/utils";
 
 // Type declaration for props
 interface CheckboxProps {
@@ -60,10 +61,9 @@ function Checkbox({
       {/* Label & Checkbox Icon */}
       <label
         htmlFor={checkboxId}
-        className={clsx(
-          "relative flex select-none items-center",
-          disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer",
-        )}
+        className={cn("relative flex cursor-pointer select-none items-center", {
+          "opacity-50 cursor-not-allowed": disabled,
+        })}
       >
         <span className="relative flex h-10 w-10 items-center justify-center">
           {isChecked ? (
