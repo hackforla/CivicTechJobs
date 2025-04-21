@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 
 // Internal imports
-import { Button } from "components/components";
+import { Button } from "tw-components/Buttons";
 import { logoHorizontalOnDark, logoStackedOnDark } from "assets/images/images";
 
 interface menuObject {
@@ -55,9 +55,9 @@ function FooterNav() {
       </nav>
       <div className="mx-0 flex lg:ml-auto">
         <Button
-          color="primary-dark"
+          size="small"
+          variant="primary-dark"
           href="https://www.hackforla.org/donate/"
-          size="sm"
         >
           Donate
         </Button>
