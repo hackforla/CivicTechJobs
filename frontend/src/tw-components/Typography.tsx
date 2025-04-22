@@ -1,5 +1,5 @@
 import React from "react";
-import clsx from "clsx";
+import { cn } from "lib/utils";
 
 const baseStyles = "font-sans leading-[137%]";
 
@@ -35,7 +35,7 @@ const createTypography = (
   size: (typeof TypographyStyles)[keyof typeof TypographyStyles],
 ) => {
   const Component = ({ children, className, ...props }: TypographyProps) => (
-    <Tag className={clsx(baseStyles, size, className)} {...props}>
+    <Tag className={cn(baseStyles, size, className)} {...props}>
       {children}
     </Tag>
   );
@@ -61,7 +61,7 @@ const Typography = {
   HyperlinkBold: ({ children, className, href, ...props }: HyperlinkProps) => (
     <a
       href={href}
-      className={clsx(baseStyles, TypographyStyles.HyperlinkBold, className)}
+      className={cn(baseStyles, TypographyStyles.HyperlinkBold, className)}
       {...props}
     >
       {children}
@@ -70,7 +70,7 @@ const Typography = {
   Hyperlink: ({ children, className, href, ...props }: HyperlinkProps) => (
     <a
       href={href}
-      className={clsx(baseStyles, TypographyStyles.Hyperlink, className)}
+      className={cn(baseStyles, TypographyStyles.Hyperlink, className)}
       {...props}
     >
       {children}
