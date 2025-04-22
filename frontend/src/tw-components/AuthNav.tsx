@@ -13,7 +13,7 @@ function AuthNav() {
     return (
       <a href="/" rel="noopener noreferrer">
         <img
-          className="max-h-[24px] md:max-h-[32px]"
+          className="max-h-p3 md:max-h-p4"
           src={logoHorizontal}
           alt="Civic Tech Jobs - Home"
         />
