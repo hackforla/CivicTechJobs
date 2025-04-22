@@ -1,6 +1,5 @@
 import React, { useId, useRef, useState, useEffect } from "react";
 import { IconCheckboxY, IconCheckboxN } from "assets/images/images";
-import clsx from "clsx";
 import { cn } from "lib/utils";
 
 // Type declaration for props
@@ -39,7 +38,7 @@ function Checkbox({
   }
 
   return (
-    <div className={clsx("relative flex items-center", props.className)}>
+    <div className={cn("relative flex items-center", props.className)}>
       <input
         id={checkboxId}
         type="checkbox"
@@ -52,7 +51,7 @@ function Checkbox({
 
       {/* Circle Effect */}
       <span
-        className={clsx(
+        className={cn(
           "absolute h-10 w-10 rounded-full opacity-0",
           "peer-focus:bg-blue-dark peer-focus:opacity-[.16] peer-active:bg-blue-dark peer-active:opacity-[.32]",
         )}
