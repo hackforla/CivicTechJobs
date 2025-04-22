@@ -28,6 +28,7 @@ function Dialog({ open = false, ...props }: DialogProps) {
     }
   }, [isBackdropOpen]);
 
+
   useEffect(() => {
     if (open) {
       setIsBackdropOpen(true);
