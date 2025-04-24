@@ -5,7 +5,7 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 // Internal imports
-import { Button } from "components/components";
+import { Button } from "tw-components";
 
 describe("Button", () => {
   it("Button component", () => {
@@ -15,13 +15,13 @@ describe("Button", () => {
   });
 
   it("Button tag accessibility", () => {
-    render(<Button />);
+    render(<Button>Click me</Button>);
     expect(screen.getByRole("button")).toBeInTheDocument();
     expect(screen.queryByRole("link")).not.toBeInTheDocument();
   });
 
   it("Button tag accessibility with link", () => {
-    render(<Button href="www.google.com" />);
+    render(<Button href="www.google.com">My Link</Button>);
     expect(screen.getByRole("link")).toBeInTheDocument();
     expect(screen.queryByRole("button")).not.toBeInTheDocument();
   });
