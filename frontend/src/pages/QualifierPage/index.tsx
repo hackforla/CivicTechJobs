@@ -31,12 +31,15 @@ function QualifierPage() {
 
   return (
     <QualifiersProvider>
-      <div className="container mx-auto mb-8">
-        <Stepper />
-        <div className="flex w-full flex-col items-center justify-center">
-          <Content page={page} />
+      <main>
+        <div className="container mx-auto mb-8">
+          <h1 className="sr-only">Qualifier Page</h1>
+          <Stepper />
+          <div className="flex w-full flex-col items-center justify-center">
+            <Content page={page} />
+          </div>
         </div>
-      </div>
+      </main>
     </QualifiersProvider>
   );
 }
