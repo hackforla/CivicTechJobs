@@ -30,7 +30,7 @@ function Step({ children, step }: StepProps) {
   return (
     <div className="group flex w-full flex-col items-center">
       <Typography.Title6
-        className={stepStatus === "pending" ? "text-grey" : "text-blue-dark"}
+        className={stepStatus === "pending" ? "text-grey-dark" : "text-blue-dark"}
       >
         {children}
       </Typography.Title6>
