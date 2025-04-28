@@ -72,3 +72,8 @@ More resources to be added as project progresses:
 ### Tools
 
 1. [GoFullPage Screenshot Chrome Extension](https://chrome.google.com/webstore/detail/gofullpage-full-page-scre/fdpohaocaechififmbbbbbknoalclacl?hl=en)'
+
+### Historical Docs
+
+1. CTJ old docs website: [CivicTechJobs Docs](https://hackforla.github.io/CivicTechJobs-Documentation)
+2. CTJ old docs Repo: [hackforla/CivicTechJobs-documentation](https://github.com/hackforla/CivicTechJobs-documentation)

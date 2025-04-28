@@ -1,6 +1,6 @@
 import React from "react";
-import clsx from "clsx";
 import Typography from "tw-components/Typography";
+import { cn } from "lib/utils";
 
 const buttonSizes = {
   small: "px-[24px] h-[32px]",
@@ -14,21 +14,43 @@ const buttonSizes = {
 
 type ButtonSize = keyof typeof buttonSizes;
 
+type ButtonVariant = "default" | "primary-dark";
+
 type BaseButtonProps = {
   size?: ButtonSize;
   disabled?: boolean;
   className?: string;
+  variant?: ButtonVariant;
   children?: React.ReactNode;
   onClick?: () => void;
+  href?: string;
 };
 
-// Shared styles
-const baseButtonStyles =
-  "transition-all duration-200 flex items-center justify-center rounded-[64px] bg-blue-dark text-white hover:bg-blue-dark-hover focus:bg-blue-dark-focused focus:outline-none active:bg-blue-dark-focused disabled:bg-grey disabled:text-white disabled:cursor-not-allowed";
-
-// Dark mode styles for enabled buttons
-const enabledDarkModeStyles =
-  "dark:bg-white dark:text-blue-dark dark:hover:bg-grey-light dark:focus:bg-[#D9DBDF] dark:active:bg-[#D9DBDF] dark:disabled:bg-grey dark:disabled:text-grey-light";
+const variantStyles: Record<ButtonVariant, string> = {
+  default: `
+    bg-blue-dark 
+    text-white
+    hover:bg-blue-dark-hover
+    focus:bg-blue-dark-focused
+    active:bg-blue-dark-focused
+    disabled:bg-grey 
+    disabled:text-white
+    dark:bg-white 
+    dark:text-blue-dark
+    dark:hover:bg-grey-light
+    dark:focus:bg-[#D9DBDF]
+    dark:active:bg-[#D9DBDF]
+    dark:disabled:bg-grey
+    dark:disabled:text-grey-light
+  `,
+  "primary-dark": `
+    bg-white
+    text-blue-dark
+    hover:bg-grey-light
+    focus:bg-grey-light
+    active:bg-grey-light
+  `,
+};
 
 // Style 2: White background with blue text
 const style2ButtonStyles =
@@ -38,20 +60,34 @@ const BaseButton: React.FC<BaseButtonProps> = ({
   size = "medium",
   disabled = false,
   className,
+  variant = "default",
   children,
   onClick,
+  href,
 }) => {
+  const buttonClasses = cn(
+    "transition-all duration-200 flex items-center justify-center rounded-[64px] focus:outline-none disabled:cursor-not-allowed",
+    buttonSizes[size],
+    variantStyles[variant],
+    className,
+  );
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        className={buttonClasses}
+        onClick={onClick}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
-    <button
-      className={clsx(
-        className?.includes("style-2") ? style2ButtonStyles : baseButtonStyles,
-        buttonSizes[size],
-        !disabled && enabledDarkModeStyles,
-        className,
-      )}
-      disabled={disabled}
-      onClick={onClick}
-    >
+    <button className={buttonClasses} disabled={disabled} onClick={onClick}>
       {children}
     </button>
   );

@@ -1,6 +1,6 @@
 // External Imports
 import React, { useState, useEffect, useRef } from "react";
-import clsx from "clsx";
+import { cn } from "lib/utils";
 
 interface DialogProps extends React.PropsWithChildren {
   className?: string;
@@ -44,7 +44,7 @@ function Dialog({ open = false, ...props }: DialogProps) {
 
   return (
     <div
-      className={clsx(
+      className={cn(
         "fixed inset-0 z-50 h-screen w-full overflow-auto bg-[rgba(0,0,0,0.4)] transition-opacity duration-[400ms] ease-in-out",
         !isBackdropOpen && "pointer-events-none opacity-0",
         isBackdropOpen && "opacity-100",
@@ -55,7 +55,7 @@ function Dialog({ open = false, ...props }: DialogProps) {
       role="presentation"
     >
       <div
-        className={clsx(
+        className={cn(
           "fixed inset-0 flex items-start justify-center",
           open ? "animate-slide-in-top" : "animate-slide-out-bottom",
           props.className,
