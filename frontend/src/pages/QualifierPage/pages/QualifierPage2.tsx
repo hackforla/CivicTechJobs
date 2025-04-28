@@ -17,8 +17,8 @@ function QualifierPage2() {
   const [currentSkillsIndex, setCurrentSkillsIndex] = useState(0);
     
   const updateProgressPercentage = () => {
+    // Use a fallback value of 1 for selectedCopData?.skills?.length to avoid division by zero
     const increments = (Object.keys(qualifiers.skills_matrix || {}).length / (selectedCopData?.skills?.length ?? 1)) * 70;
-    setProgressPercentage(10 + increments);
   }
 
   const handleNavClick = (direction: "back" | "next") => {
