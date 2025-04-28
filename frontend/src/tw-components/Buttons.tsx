@@ -52,10 +52,6 @@ const variantStyles: Record<ButtonVariant, string> = {
   `,
 };
 
-// Style 2: White background with blue text
-const style2ButtonStyles =
-  "transition-all duration-200 flex items-center justify-center rounded-[64px] bg-white text-blue-dark hover:bg-blue-dark hover:text-white focus:bg-blue-dark focus:text-white active:bg-blue-dark active:text-white disabled:bg-grey disabled:text-grey disabled:cursor-not-allowed";
-
 const BaseButton: React.FC<BaseButtonProps> = ({
   size = "medium",
   disabled = false,

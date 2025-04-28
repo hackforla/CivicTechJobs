@@ -53,7 +53,7 @@ function QualifierPage2() {
           <div className="flex gap-4">
             <Button
               size="medium-long"
-              className="style-2"
+              variant="primary-dark"
               onClick={() => navigate("../1", { relative: "path" })}
             >
               Back
