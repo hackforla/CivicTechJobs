@@ -52,7 +52,6 @@ const variantStyles: Record<ButtonVariant, string> = {
   `,
 };
 
-// Base Button, no text, just styling
 const BaseButton: React.FC<BaseButtonProps> = ({
   size = "medium",
   disabled = false,

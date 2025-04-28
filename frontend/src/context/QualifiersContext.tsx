@@ -6,6 +6,8 @@ type QualifiersType = {
   COPs: {
     [copName: string]: string[];
   };
+  selectedCOP?: string;
+  skills_matrix?: { [skill: string]: string };
   // availabilityTimeSlots: string[];
 };
 
@@ -53,6 +55,7 @@ export const QualifiersProvider: React.FC<{ children: ReactNode }> = ({
   const [qualifiers, setQualifiers] = useState<QualifiersType>(initialState);
 
   const updateQualifiers = (newQualifiers: QualifiersType) => {
+    console.log("Updated Qualifiers:", newQualifiers); // Log the updated qualifiers TO DELETE
     setQualifiers(newQualifiers);
   };
 

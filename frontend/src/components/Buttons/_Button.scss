@@ -102,18 +102,18 @@ $theme-values: (
     ),
   ),
   "primary-dark": (
-    "background-color": $color-blue,
-    "color": $color-white,
+    "background-color": $color-white,
+    "color": $color-blue-dark,
     "focus": (
-      "background-color": $color-blue-focused,
+      "background-color": $color-blue-dark-focused,
     ),
     "hover": (
-      "background-color": $color-white,
+      "background-color": $color-blue-dark-hover,
       "box-shadow": 0 4px 4px rgb(0 0 0 / 20%),
-      "color": $color-charcoal,
+      "color": $color-white,
     ),
     "active": (
-      "background-color": $color-blue-focused,
+      "background-color": $color-blue-dark-focused,
     ),
   ),
 );
