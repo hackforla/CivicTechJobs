@@ -4,32 +4,18 @@ import React from "react";
 import Typography from "tw-components/Typography";
 
 interface RadioButtonFormProps {
+  skills: Array<{
+    Name: string;
+    Description: string;
+  }>;
+  selectedCOPData: string
   onSkillSelect: (skill: string, level: string) => void;
   selectedSkillsLevel: Record<string, string>;
 }
 
-const skills = [
-  {
-    name: "User Research Methods",
-    description: "Interviews, surveys, and usability testing",
-  },
-  {
-    name: "User Personas & Journey Mapping",
-    description:
-      "Developing representative user profiles and mapping user journeys",
-  },
-  {
-    name: "Information Architecture",
-    description:
-      "E.g., creating site maps, navigation flows, or using card sorting",
-  },
-  {
-    name: "Wireframing & Sketching",
-    description: "low-fidelity layouts to visualize structure and flow",
-  },
-];
-
 function RadioButtonForm({
+  selectedCOPData,
+  skills,
   onSkillSelect,
   selectedSkillsLevel,
 }: RadioButtonFormProps) {
@@ -38,7 +24,7 @@ function RadioButtonForm({
       <thead>
         <tr>
           <th className="w-2/3 text-left">
-            <Typography.Title4>UX Research and Strategy</Typography.Title4>
+            <Typography.Title4>{selectedCOPData}</Typography.Title4>
           </th>
           <th colSpan={3} className="pb-2 text-left">
             <Typography.Title5>Experience Level</Typography.Title5>
@@ -60,11 +46,11 @@ function RadioButtonForm({
       <tbody>
         {skills.map((skill) => (
           <SkillRow
-            key={skill.name}
-            skillName={skill.name}
-            description={skill.description}
+            key={skill.Name}
+            skillName={skill.Name}
+            description={skill.Description}
             onSkillSelect={onSkillSelect}
-            selectedLevel={selectedSkillsLevel[skill.name]}
+            selectedLevel={selectedSkillsLevel[skill.Name]}
           />
         ))}
       </tbody>
