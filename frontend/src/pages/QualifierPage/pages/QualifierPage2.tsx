@@ -21,24 +21,24 @@ function QualifierPage2() {
     setProgressPercentage(10 + increments);
   }
 
-  const handleBackClick = () => {
-    if (currentSkillsIndex > 0) {
-      setCurrentSkillsIndex((prevIndex) => prevIndex - 4);
-    } else {
-      updateQualifiers({ ...qualifiers, skills_matrix: {} });
-      updateProgressPercentage();
-      navigate("../1", { relative: "path" });
+  const handleNavClick = (direction: "back" | "next") => {
+    if (direction === "back") {
+      if (currentSkillsIndex > 0) {
+        setCurrentSkillsIndex((prevIndex) => prevIndex - 4);
+      } else {
+        updateQualifiers({ ...qualifiers, skills_matrix: {} });
+        updateProgressPercentage();
+        navigate("../1", { relative: "path" });
+      }
+    } else if (direction === "next") {
+      if (currentSkillsIndex + 4 >= (selectedCopData?.skills?.length ?? 0)) {
+        navigate("../3", { relative: "path" });
+      } else {
+        updateProgressPercentage();
+        setCurrentSkillsIndex((prevIndex) => prevIndex + 4);
+      }
     }
-  } 
-
-  const handleNextClick = () => {
-    if (currentSkillsIndex + 4 >= (selectedCopData?.skills?.length ?? 0)) {
-      navigate("../3", { relative: "path" });
-    } else {
-      updateProgressPercentage();
-      setCurrentSkillsIndex((prevIndex) => prevIndex + 4);
-    }
-  }
+  };
   
   const handleSkillSelect = (skill: string, level: string) => {
     const newSkillsMatrix = {
@@ -82,13 +82,13 @@ function QualifierPage2() {
             <Button
               size="medium-long"
               variant="primary-dark"
-              onClick={() => handleBackClick()}
+              onClick={() => handleNavClick("back")}
             >
               Back
             </Button>
             <Button
               size="medium-long"
-              onClick={() => handleNextClick()}
+              onClick={() => handleNavClick("next")}
             >
               Next
             </Button>
