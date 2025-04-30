@@ -13,6 +13,7 @@ module.exports = {
     "./src/pages/LandingPage/*.tsx",
     "./src/pages/PrivacyPolicyPage/*",
     "./src/pages/CreditsPage/*.tsx",
+    "./src/pages/QualifierPage/**/*.tsx",
   ], // Will change to "./src/**/*.{js,jsx,tsx}", "./templates/index.html"
   theme: {
     screens: {
@@ -23,6 +24,7 @@ module.exports = {
       xl: "1201px",
     },
     colors: {
+      transparent: "transparent",
       // Primary Colors
       "blue-dark": "#3450a1",
       "blue-darker": "#323d69",
@@ -81,6 +83,20 @@ module.exports = {
         p8: "64px",
         p9: "72px",
         p10: "80px",
+      },
+    },
+    animation: {
+      "slide-in-top": "slide-in-top 400ms ease-in-out",
+      "slide-out-bottom": "slide-out-bottom 400ms ease-in-out",
+    },
+    keyframes: {
+      "slide-in-top": {
+        "0%": { transform: "translateY(-100%)", opacity: "0" },
+        "100%": { transform: "translateY(0)", opacity: "1" },
+      },
+      "slide-out-bottom": {
+        "0%": { transform: "translateY(0)", opacity: "1" },
+        "100%": { transform: "translateY(100%)", opacity: "0" },
       },
     },
   },

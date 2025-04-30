@@ -1,7 +1,6 @@
 import React from "react";
-import clsx from "clsx";
-
 import { onKey } from "components/Utility/utils";
+import { cn } from "lib/utils";
 
 interface CircleCardProps extends React.PropsWithChildren {
   className?: string;
@@ -18,7 +17,7 @@ const cardSizes = {
 function CircleCard({ size = "sm", ...props }: CircleCardProps) {
   return (
     <div
-      className={clsx(
+      className={cn(
         "rounded-full bg-grey-light shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]",
         cardSizes[size],
         props.onClick && "hover:underline",

@@ -26,10 +26,12 @@ nav:
           - Design System Helper: developer/design-system.md
           - DevOps Architecture: developer/devops.md
           - Development Culture: developer/development-culture.md
+          - ESLint Guide: developer/eslint-guide.md
           - Frontend Architecture: developer/frontend.md
           - GitHub Architecture: developer/github.md
           - Git branch Structure: developer/git-branch-structure.md
           - Installation Instructions: developer/installation.md
+          - Quickstart Guide: developer/quickstart-guide.md
           - MkDocs Architecture: developer/mkdocs-architecture.md
           - MkDocs - Documentation Guide: developer/mkdocs-guide.md
           - MkDocs - How to Edit: developer/mkdocs-edit-instructions.md

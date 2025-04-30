@@ -1,12 +1,9 @@
 // External Imports
 import React, { useState, useEffect, useRef } from "react";
-import { CSSTransition } from "react-transition-group";
-
-// Internal Imports
-import { combineClasses } from "../Utility/utils";
+import { cn } from "lib/utils";
 
 interface DialogProps extends React.PropsWithChildren {
-  addClass?: string;
+  className?: string;
   ariaLabel: string;
   onClose: () => void;
   open: boolean;
@@ -14,7 +11,6 @@ interface DialogProps extends React.PropsWithChildren {
 
 function Dialog({ open = false, ...props }: DialogProps) {
   const [isBackdropOpen, setIsBackdropOpen] = useState(false);
-
   const windowRef = useRef(null);
   const nodeRef = useRef(null);
 
@@ -33,7 +29,11 @@ function Dialog({ open = false, ...props }: DialogProps) {
   }, [isBackdropOpen]);
 
   useEffect(() => {
-    if (open) setIsBackdropOpen(true);
+    if (open) {
+      setIsBackdropOpen(true);
+    } else {
+      setIsBackdropOpen(false);
+    }
   }, [open]);
 
   function handleClose(e: React.MouseEvent) {
@@ -44,38 +44,31 @@ function Dialog({ open = false, ...props }: DialogProps) {
 
   return (
     <div
-      className={combineClasses(
-        "dialog-backdrop",
-        !isBackdropOpen && "hidden",
-        props.addClass,
+      className={cn(
+        "fixed inset-0 z-50 h-screen w-full overflow-auto bg-[rgba(0,0,0,0.4)] transition-opacity duration-[400ms] ease-in-out",
+        !isBackdropOpen && "pointer-events-none opacity-0",
+        isBackdropOpen && "opacity-100",
+        props.className,
       )}
       ref={windowRef}
       onClick={handleClose}
       role="presentation"
     >
-      <CSSTransition
-        in={open}
-        classNames="dialog"
-        timeout={400}
-        unmountOnExit
-        onEnter={() => setIsBackdropOpen(true)}
-        onExited={() => {
-          setIsBackdropOpen(false);
-        }}
-        nodeRef={nodeRef}
+      <div
+        className={cn(
+          "fixed inset-0 flex items-start justify-center",
+          open ? "animate-slide-in-top" : "animate-slide-out-bottom",
+          props.className,
+        )}
+        role="dialog"
+        aria-label={props.ariaLabel}
+        tabIndex={-1}
+        ref={nodeRef}
       >
-        <div
-          className={combineClasses(props.addClass)}
-          role="dialog"
-          aria-label={props.ariaLabel}
-          tabIndex={-1}
-          ref={nodeRef}
-        >
-          {props.children}
-        </div>
-      </CSSTransition>
+        {props.children}
+      </div>
     </div>
   );
 }
 
-export { Dialog };
+export default Dialog;
