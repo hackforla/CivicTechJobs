@@ -1,0 +1,1153 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://hackforla.github.io/CivicTechJobs/developer/mkdocs-architecture/">
+      
+      
+        <link rel="prev" href="../quickstart-guide/">
+      
+      
+        <link rel="next" href="../mkdocs-guide/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.1.17">
+    
+    
+      
+        <title>MkDocs Architecture - CivicTechJobs Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mkdocs-architecture" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CivicTechJobs Docs" class="md-header__button md-logo" aria-label="CivicTechJobs Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CivicTechJobs Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MkDocs Architecture
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/hackforla/CivicTechJobs/tree/main/mkdocs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CivicTechJobs Docs" class="md-nav__button md-logo" aria-label="CivicTechJobs Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    CivicTechJobs Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/hackforla/CivicTechJobs/tree/main/mkdocs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Joining the Team
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Joining the Team
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../joining-the-team/intro/" class="md-nav__link">
+        Intro
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../joining-the-team/content-writer/" class="md-nav__link">
+        Content Writer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../joining-the-team/data-scientist/" class="md-nav__link">
+        Data Scientist
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../joining-the-team/product-manager/" class="md-nav__link">
+        Project Manager
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../joining-the-team/uiux-designer/" class="md-nav__link">
+        UI/UX Designer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../joining-the-team/uiux-researcher/" class="md-nav__link">
+        UI/UX Researcher
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../joining-the-team/web-developer/" class="md-nav__link">
+        Web Developer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../joining-the-team/other-volunteer/" class="md-nav__link">
+        Other Volunteer
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Docs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Docs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          Web Developer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Web Developer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/hackforla/CivicTechJobs/blob/main/CONTRIBUTING.md#welcome-to-the-civictechjobs-contributing-guide" class="md-nav__link">
+        CONTRIBUTING.md
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend/" class="md-nav__link">
+        Backend Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-system/" class="md-nav__link">
+        Design System Helper
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/" class="md-nav__link">
+        DevOps Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development-culture/" class="md-nav__link">
+        Development Culture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eslint-guide/" class="md-nav__link">
+        ESLint Guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend/" class="md-nav__link">
+        Frontend Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/" class="md-nav__link">
+        GitHub Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git-branch-structure/" class="md-nav__link">
+        Git branch Structure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        Installation Instructions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart-guide/" class="md-nav__link">
+        Quickstart Guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          MkDocs Architecture
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        MkDocs Architecture
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-mkdocs" class="md-nav__link">
+    Docker MkDocs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mkdocs-deployment" class="md-nav__link">
+    MkDocs Deployment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-action-for-mkdocs-deployment" class="md-nav__link">
+    Github Action for mkdocs deployment
+  </a>
+  
+    <nav class="md-nav" aria-label="Github Action for mkdocs deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_1" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs-guide/" class="md-nav__link">
+        MkDocs - Documentation Guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs-edit-instructions/" class="md-nav__link">
+        MkDocs - How to Edit
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          Misc
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Misc
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/ada-guide/" class="md-nav__link">
+        ADA Guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/history/" class="md-nav__link">
+        History
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/our-process/" class="md-nav__link">
+        Our Process
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/research-wiki-template/" class="md-nav__link">
+        Research Wiki Template
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/security-updates/" class="md-nav__link">
+        Security Updates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/the-team/" class="md-nav__link">
+        The Team
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        Resources
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/hackforla/CivicTechJobs" class="md-nav__link">
+        CivicTechJobs Repo
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-mkdocs" class="md-nav__link">
+    Docker MkDocs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mkdocs-deployment" class="md-nav__link">
+    MkDocs Deployment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-action-for-mkdocs-deployment" class="md-nav__link">
+    Github Action for mkdocs deployment
+  </a>
+  
+    <nav class="md-nav" aria-label="Github Action for mkdocs deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_1" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="mkdocs-architecture">MKdocs Architecture</h1>
+<pre><code class="language-yml">├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   └── workflows/
+│       └── mkdocs-build.yml # Docs
+├── backend/
+├── dev/
+├── frontend/
+├── mkdocs/ # Docs
+│   ├── docs/
+│   └── mkdocs.yml
+├── .dockerignore
+├── .gitignore
+├── CONTRIBUTING.md
+├── docker-compose.yml
+├── docker-compose.docs.yml # Docs
+├── LICENSE
+└── README.md
+</code></pre>
+<p><em><p style="text-align: center;">Overall project structure</p></em></p>
+<pre><code class="language-yml">├── docs/
+│   ├── assets/
+│   ├── css/
+│   ├── developer/
+│   ├── joining-the-team/
+│   ├── js/
+│   └── misc/
+├── index.md
+├── resources.md
+├── mkdocs.yml
+</code></pre>
+<p><em><p style="text-align: center;">mkdocs directory structure</p></em></p>
+<h3 id="summary">Summary</h3>
+<p>The MkDocs "sub-project" lives in the <code>mkdocs/</code> folder. A development server can be run using the <code>docker-compose.docs.yml</code> compose script. The mkdocs is set to automatically deploy to github pages using the <code>mkdocs-build.yml</code> github action.</p>
+<h3 id="docker-mkdocs">Docker MkDocs</h3>
+<p>It is important to note that we are using Hack for LA's prebuilt docker mkdocs image for convenient setup. Please see the resources below for more information:</p>
+<ul>
+<li><a href="https://github.com/hackforla/docker-mkdocs">Hack for LA - docker-mkdocs repo</a></li>
+<li><a href="https://hackforla.github.io/docker-mkdocs/">Hack for LA - docker-mkdocs documentation</a></li>
+<li><a href="https://hub.docker.com/r/hackforlaops/mkdocs">Hack for LA - docker-mkdocs dockerhub image</a></li>
+</ul>
+<p>This prebuilt docker image makes it easy to get a mkdocs development server running with one command, without having to install python or mkdocs dependencies on your local machine. It also includes common useful plugins that we dont have to worry about installing ourselves, and already includes the <code>mkdocs-material</code> theme pre-installed.</p>
+<p>Our project implements the HFLA mkdocs image by pulling it inside the <code>docker-compose.docs.yml</code> file:</p>
+<pre><code class="language-yml">name: civic-tech-jobs-mkdocs
+
+services:
+  mkdocs:
+    container_name: mkdocs
+    image: hackforlaops/mkdocs:latest
+    command: mkdocs serve -a &quot;0.0.0.0:8005&quot;
+    ports:
+      - &quot;8005:8005&quot;
+    volumes:
+      - ./mkdocs:/app
+    develop:
+      watch:
+        - action: sync
+          path: ./mkdocs
+          target: /app
+</code></pre>
+<p>Now when we run docker compose up like so:</p>
+<pre><code class="language-sh">docker-compose -f docker-compose.docs.yml up --watch
+</code></pre>
+<p>A mkdocs development server is started on <code>http://localhost:8005</code></p>
+<h3 id="mkdocs-deployment">MkDocs Deployment</h3>
+<p>The url for the github pages site is: <code>https://hackforla.github.io/CivicTechJobs/</code> (the website you are reading this on right now).</p>
+<p>Our github repo is set to publish the docs to Github Pages using the <code>gh-pages</code> branch. This setting can be configured in the project's <a href="https://github.com/hackforla/CivicTechJobs/settings/pages">Pages settings</a>.</p>
+<p>External Resources:</p>
+<ul>
+<li><a href="https://www.mkdocs.org/user-guide/deploying-your-docs/">MkDocs Documentation | deployment instructions</a></li>
+<li><a href="https://docs.github.com/en/pages/quickstart">Github Pages documentation</a></li>
+</ul>
+<p>Relevant PR and Issue:</p>
+<ul>
+<li><a href="https://github.com/hackforla/CivicTechJobs/issues/456">Fix mkdocs deployment #456</a></li>
+<li><a href="https://github.com/hackforla/CivicTechJobs/pull/592">Feat/fix mkdocs #592</a></li>
+</ul>
+<p>The docs are set to automatically deploy to github pages using the <code>mkdocs-build.yml</code> github action. This action builds the mkdocs and saves the static files into the <code>gh-pages</code> branch.</p>
+<h3 id="github-action-for-mkdocs-deployment">Github Action for mkdocs deployment</h3>
+<p>Links to the github action: <a href="https://github.com/hackforla/CivicTechJobs/actions/workflows/mkdocs-build.yml">Build MkDocs site</a></p>
+<pre><code class="language-yml">name: Build MkDocs site
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - &quot;mkdocs/**/**.md&quot;
+      - &quot;mkdocs/mkdocs.yml&quot;
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy-docs:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+      - run: echo &quot;cache_id=$(date --utc '+%V')&quot; &gt;&gt; $GITHUB_ENV
+      - uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+      - name: Install Dependencies
+        run: pip install \
+          mkdocs-material==9.1.17 \
+          mkdocs-autolinks-plugin==0.7.1
+      - name: Publish docs
+        run: |
+          cd mkdocs
+          mkdocs gh-deploy --force
+</code></pre>
+<p>Workflow Overview</p>
+<ul>
+<li><code>name: Build MkDocs site</code> - The name of this workflow is "Build MkDocs site."</li>
+<li><code>on: push: - main</code> - The workflow is triggered when there’s a push to the <code>main</code> branch.</li>
+<li><code>paths: ...</code> - The workflow will only run if the files being pushed are Markdown files (<code>.md</code>) or the <code>mkdocs.yml</code> configuration file inside the mkdocs directory.</li>
+<li><code>workflow_dispatch:</code> - This allows manual triggering of the workflow via the GitHub Actions interface.</li>
+<li><code>permissions: contents: write</code> - This grants the action permission to write contents to the repository. It's needed for deploying the site, which requires pushing to the <code>gh-pages</code> branch.</li>
+<li><code>runs-on: ubuntu-latest</code> - This specifies that the job will run on the latest Ubuntu environment provided by GitHub Actions.</li>
+<li><code>if: github.actor != 'github-actions[bot]'</code> - This condition ensures that the job doesn’t trigger if the GitHub Actions bot is the one making the changes. This prevents infinite loops where the action keeps triggering itself.</li>
+<li><code>uses: actions/checkout@v4</code> - This step checks out the repository code so the workflow can access the files.</li>
+<li><code>run: git config user.name github-actions[bot]</code> - Configures Git to use the <code>github-actions[bot]</code> user for any commits or pushes that may happen during the deployment.</li>
+<li><code>git config user.email 41898282+github-actions[bot]@users.noreply.github.com</code> - Sets the email for the github-actions[bot] user.</li>
+<li><code>uses: actions/setup-python@v5</code> - This sets up a Python environment in the GitHub runner, which is necessary for installing and running MkDocs.</li>
+</ul>
+<p>Set environment variable for caching</p>
+<ul>
+<li><code>run: echo "cache_id=$(date --utc '+%V')" &gt;&gt; $GITHUB_ENV</code></li>
+<li>This step sets an environment variable called <code>cache_id</code> to the current week of the year (<code>%V</code>). This value will be used as the key for caching to ensure that the cache is updated weekly.</li>
+</ul>
+<p>Cache dependencies</p>
+<ul>
+<li><code>uses: actions/cache@v4</code> - This step caches dependencies (to speed up future builds) in the .cache directory.</li>
+<li><code>with: key: mkdocs-material-${{ env.cache_id }}</code> - The cache key is based on the cache_id, so the cache is refreshed weekly.</li>
+<li><code>path: .cache</code> - Specifies that the cache should be stored in the .cache directory.</li>
+<li><code>restore-keys: mkdocs-material-</code> - This allows for fallback caching if an exact cache match is not found.</li>
+</ul>
+<p>Install Dependencies</p>
+<ul>
+<li><code>run: pip install mkdocs-material==9.1.17 mkdocs-autolinks-plugin==0.7.1</code></li>
+<li>This installs the necessary dependencies for MkDocs to work. In this case:</li>
+<li><code>mkdocs-material==9.1.17</code>: A popular theme for MkDocs.</li>
+<li><code>mkdocs-autolinks-plugin==0.7.1</code>: A plugin that automatically creates links between pages in your documentation based on their titles.</li>
+</ul>
+<p>Publish Documentation</p>
+<ul>
+<li><code>run: cd mkdocs &amp;&amp; mkdocs gh-deploy --force</code></li>
+<li>first it changes to the <code>mkdocs/</code> directory.</li>
+<li>then it deploys the MkDocs site to GitHub Pages using <code>mkdocs gh-deploy --force</code>. The <code>--force</code> flag ensures that the contents of the GitHub Pages branch (<code>gh-pages</code>) are overwritten with the latest deployment.</li>
+</ul>
+<h5 id="summary_1">Summary</h5>
+<p>This workflow automates the process of building and deploying a MkDocs site when changes are pushed to the <code>main</code> branch. It does the following:</p>
+<ol>
+<li>Checks out the repository and configures Git for pushing changes.</li>
+<li>Sets up Python and installs the necessary MkDocs dependencies.</li>
+<li>Caches dependencies to speed up future builds.</li>
+<li>Deploys the site to GitHub Pages using mkdocs <code>gh-deploy</code>.</li>
+</ol>
+<p>This workflow ensures the documentation is always up to date and available on GitHub Pages whenever changes are made to relevant Markdown files or the MkDocs configuration.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b425cdc4.min.js"></script>
+      
+    
+  </body>
+</html>
