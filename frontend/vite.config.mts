@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import svgr from "vite-plugin-svgr";
 import { resolve } from "path";
+import { configDefaults } from "vitest/config";
 
 export default defineConfig(({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
@@ -49,6 +50,11 @@ export default defineConfig(({ mode }) => {
           entryFileNames: "static/[name]-[hash].js",
         },
       },
+    },
+    test: {
+      exclude: [...configDefaults.exclude],
+      environment: "jsdom",
+      globals: true,
     },
   };
 });

@@ -1,20 +1,22 @@
 // External imports
 import React from "react";
+import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
 import "regenerator-runtime/runtime"; // needed to run async tests
 import { config } from "react-transition-group";
+import { MemoryRouter } from "react-router-dom";
 
 // Internal imports
 import { LandingPage } from "pages/LandingPage/LandingPage";
-import { MemoryRouter } from "react-router-dom";
 
 // Disables animation transition time so it will not hamper testing
 config.disabled = true;
 
+// TODO: Warning: An update to Dialog inside a test was not wrapped in act(...).
 describe("Landing Page", () => {
-  test("Landing Page dialog", async () => {
+  it("Landing Page dialog", async () => {
     const user = userEvent.setup();
     render(
       <MemoryRouter>
@@ -22,26 +24,26 @@ describe("Landing Page", () => {
       </MemoryRouter>,
     );
 
-    expect(screen.getByRole("presentation")).toHaveClass("hidden");
+    expect(screen.getByRole("presentation")).toHaveClass("opacity-0");
 
     await user.click(
       screen.getByText(/Engineering/, {
-        selector: ".landing-cop-circle-title",
+        selector: "h4",
       }),
     );
-    expect(await screen.findByRole("presentation")).not.toHaveClass("hidden");
+    expect(await screen.findByRole("presentation")).toHaveClass("opacity-100");
 
     await user.click(screen.getByLabelText("close"));
-    expect(await screen.findByRole("presentation")).toHaveClass("hidden");
+    expect(await screen.findByRole("presentation")).toHaveClass("opacity-0");
 
     await user.click(
       screen.getByText(/Data Science/, {
-        selector: ".landing-cop-circle-title",
+        selector: "h4",
       }),
     );
-    expect(await screen.findByRole("presentation")).not.toHaveClass("hidden");
+    expect(await screen.findByRole("presentation")).toHaveClass("opacity-100");
 
     await user.click(screen.getByRole("presentation"));
-    expect(await screen.findByRole("presentation")).toHaveClass("hidden");
+    expect(await screen.findByRole("presentation")).toHaveClass("opacity-0");
   });
 });

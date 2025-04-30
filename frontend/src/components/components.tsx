@@ -15,7 +15,6 @@ export {
   IconButton,
   ScrollCarousel,
   ChevronScroll,
-  // Dialog
   // Inputs
   Calendar,
   Checkbox,

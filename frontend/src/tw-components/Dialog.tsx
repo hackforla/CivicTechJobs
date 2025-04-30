@@ -46,8 +46,7 @@ function Dialog({ open = false, ...props }: DialogProps) {
     <div
       className={cn(
         "fixed inset-0 z-50 h-screen w-full overflow-auto bg-[rgba(0,0,0,0.4)] transition-opacity duration-[400ms] ease-in-out",
-        !isBackdropOpen && "pointer-events-none opacity-0",
-        isBackdropOpen && "opacity-100",
+        isBackdropOpen ? "opacity-100" : "pointer-events-none opacity-0",
         props.className,
       )}
       ref={windowRef}

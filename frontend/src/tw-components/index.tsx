@@ -6,3 +6,4 @@ export { default as TextField } from "./TextField";
 export { default as Dialog } from "./Dialog";
 export { default as Typography } from "./Typography";
 export { CircleCard } from "./CircleCard";
+export { Button, IconButton } from "./Buttons";

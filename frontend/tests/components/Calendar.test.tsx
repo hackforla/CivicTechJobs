@@ -1,5 +1,6 @@
 // External imports
 import React from "react";
+import { describe, it, expect } from "vitest";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import "regenerator-runtime/runtime";
@@ -11,12 +12,12 @@ import { Calendar } from "components/components";
 config.disabled = true;
 
 describe("Calendar", () => {
-  test("Calendar Component", async () => {
+  it("Calendar Component", async () => {
     render(<Calendar onChange={() => {}} />);
     expect(screen.getByTestId("calendar-root")).toBeInTheDocument();
   });
 
-  test("Able to Drag to Select and Unselect Availability", async () => {
+  it("Able to Drag to Select and Unselect Availability", async () => {
     const { container } = render(<Calendar onChange={() => {}} />);
     const calendarCells = container.querySelectorAll(".calendar-cell");
     const checkbox1 = calendarCells[0].querySelector('[role="checkbox"]');
@@ -39,7 +40,7 @@ describe("Calendar", () => {
     }
   });
 
-  test("Calendar Accessibility Labels are Applied", () => {
+  it("Calendar Accessibility Labels are Applied", () => {
     render(<Calendar onChange={() => {}} />);
     const cells = screen.getAllByRole("checkbox");
     cells.forEach((cell, index) => {

@@ -1,5 +1,6 @@
 // External imports
 import React from "react";
+import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
@@ -12,7 +13,7 @@ import { Checkbox } from "components/components";
 config.disabled = true;
 
 describe("Checkbox", () => {
-  test("Checkbox component", async () => {
+  it("Checkbox component", async () => {
     const user = userEvent.setup();
     render(<Checkbox label="Full Stack Developer" />);
     expect(screen.getByText("Full Stack Developer")).toBeInTheDocument();
@@ -29,7 +30,7 @@ describe("Checkbox", () => {
     expect(await screen.queryByRole("checkbox")).toBeChecked();
   });
 
-  test("Checkbox disabled", async () => {
+  it("Checkbox disabled", async () => {
     const user = userEvent.setup();
     render(<Checkbox label="disabled checkbox" disabled />);
 
@@ -45,7 +46,7 @@ describe("Checkbox", () => {
     expect(screen.queryByRole("checkbox")).not.toBeChecked();
   });
 
-  test("Checkbox defaultChecked", async () => {
+  it("Checkbox defaultChecked", async () => {
     const user = userEvent.setup();
     render(<Checkbox label="defaultChecked checkbox" defaultChecked />);
 
@@ -61,7 +62,7 @@ describe("Checkbox", () => {
     expect(screen.queryByRole("checkbox")).toBeChecked();
   });
 
-  test("Checkbox labelHidden", () => {
+  it("Checkbox labelHidden", () => {
     render(<Checkbox label="labelHidden checkbox" labelHidden />);
     expect(screen.getByLabelText(/labelHidden checkbox/)).toHaveClass(
       "sr-only",
