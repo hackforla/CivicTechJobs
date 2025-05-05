@@ -51,7 +51,7 @@ function Checkbox({
 
       {/* Circle Effect */}
       <span
-        className={cn(
+        className="absolute h-10 w-10 rounded-full opacity-0 peer-focus:bg-blue-dark peer-focus:opacity-[.16] peer-active:bg-blue-dark peer-active:opacity-[.32]"
           "absolute h-10 w-10 rounded-full opacity-0",
           "peer-focus:bg-blue-dark peer-focus:opacity-[.16] peer-active:bg-blue-dark peer-active:opacity-[.32]",
         )}
