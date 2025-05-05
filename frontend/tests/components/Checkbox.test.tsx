@@ -7,7 +7,7 @@ import "regenerator-runtime/runtime";
 import { config } from "react-transition-group";
 
 // Internal imports
-import Checkbox from "tw-components/Checkbox";
+import { Checkbox } from "tw-components/Checkbox";
 
 config.disabled = true;
 
