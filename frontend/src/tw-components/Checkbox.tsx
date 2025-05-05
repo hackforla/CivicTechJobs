@@ -50,19 +50,14 @@ function Checkbox({
       />
 
       {/* Circle Effect */}
-      <span
-        className="absolute h-10 w-10 rounded-full opacity-0 peer-focus:bg-blue-dark peer-focus:opacity-[.16] peer-active:bg-blue-dark peer-active:opacity-[.32]"
-          "absolute h-10 w-10 rounded-full opacity-0",
-          "peer-focus:bg-blue-dark peer-focus:opacity-[.16] peer-active:bg-blue-dark peer-active:opacity-[.32]",
-        )}
-      ></span>
+      <span className="absolute h-10 w-10 rounded-full opacity-0 peer-focus:bg-blue-dark peer-focus:opacity-[.16] peer-active:bg-blue-dark peer-active:opacity-[.32]"></span>
 
       {/* Label & Checkbox Icon */}
       <label
         htmlFor={checkboxId}
-        className={cn("relative flex cursor-pointer select-none items-center", {
-          className={`relative flex select-none items-center ${`disabled: "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
-        })}
+        className={`relative flex select-none items-center ${
+          disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"
+        }`}
       >
         <span className="relative flex h-10 w-10 items-center justify-center">
           {isChecked ? (
