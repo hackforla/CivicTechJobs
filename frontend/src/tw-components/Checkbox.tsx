@@ -61,7 +61,7 @@ function Checkbox({
       <label
         htmlFor={checkboxId}
         className={cn("relative flex cursor-pointer select-none items-center", {
-          "opacity-50 cursor-not-allowed": disabled,
+          className={`relative flex select-none items-center ${`disabled: "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
         })}
       >
         <span className="relative flex h-10 w-10 items-center justify-center">
