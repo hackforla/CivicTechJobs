@@ -4,13 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 // Internal Imports
 import Typography from "tw-components/Typography";
-import {
-  Dropdown,
-  DropdownOption,
-  Calendar,
-  IconButton,
-  Button,
-} from "components/components";
+import { Dropdown, DropdownOption, Calendar } from "components/components";
+import { Button, IconButton } from "tw-components";
 import { QualifierNav } from "./components/QualifierNav";
 import { timezones } from "../../api_data/timezoneData";
 import { iconArrowLeft } from "assets/images/images";
@@ -44,7 +39,7 @@ function QualifierPageCalendar() {
           iconUrl={iconArrowLeft}
           onClick={() => navigate("../2", { relative: "path" })}
         />
-        <Button size="lg" length="long" color="primary" href="/">
+        <Button size="large-long" href="/">
           View available roles
         </Button>
       </QualifierNav>

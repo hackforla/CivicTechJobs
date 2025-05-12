@@ -4,7 +4,7 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 // Internal imports
-import { Button } from "components/components";
+import { Button } from "tw-components";
 
 describe("Button", () => {
   test("Button component", () => {

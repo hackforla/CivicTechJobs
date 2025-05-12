@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Cookies from "js-cookie";
 
 // Internal Imports
-import { IconButton } from "components/components";
+import { IconButton } from "./Buttons";
 import { iconX } from "assets/images/images";
 
 function CookieBanner() {

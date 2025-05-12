@@ -6,7 +6,7 @@ import clsx from "clsx";
 // Internal Imports
 import { copDatum } from "api_data/copData";
 import Typography from "tw-components/Typography";
-import { Button } from "tw-components/Buttons";
+import { Button } from "tw-components";
 import { QualifierNav } from "../components/QualifierNav";
 import { IconCheckMark } from "assets/images/images";
 import { useQualifiersContext } from "context/QualifiersContext";
