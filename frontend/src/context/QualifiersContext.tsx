@@ -1,5 +1,15 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
-import { fetchAllCopData, fetchCopDataByTitle, copDatum } from "api_data/copData";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
+import {
+  fetchAllCopData,
+  fetchCopDataByTitle,
+  copDatum,
+} from "api_data/copData";
 
 // Individual Qualifier Type
 type QualifiersType = {
@@ -37,12 +47,16 @@ export const QualifiersProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [copData, setCopData] = useState<copDatum[]>([]);
-  const [selectedCopData, setSelectedCopData] = useState<copDatum | undefined>(undefined);
-  
+  const [selectedCopData, setSelectedCopData] = useState<copDatum | undefined>(
+    undefined,
+  );
+
   // Store qualifiers in state with initial local storage to persist data across sessions
   const [qualifiers, setQualifiers] = useState<QualifiersType>(() => {
     const storedQualifiers = localStorage.getItem("qualifiers");
-    return storedQualifiers ? JSON.parse(storedQualifiers) : { selectedCOP: undefined, skills_matrix: {} };
+    return storedQualifiers
+      ? JSON.parse(storedQualifiers)
+      : { selectedCOP: undefined, skills_matrix: {} };
   });
 
   const setFetchedCopData = async () => {
@@ -70,7 +84,7 @@ export const QualifiersProvider: React.FC<{ children: ReactNode }> = ({
   useEffect(() => {
     setFetchedCopData();
     console.log("COP Data fetched:", copData); // Log the fetched COP data TO DELETE
-  }, []);
+  }, [setFetchedCopData]);
 
   useEffect(() => {
     if (qualifiers.selectedCOP) {

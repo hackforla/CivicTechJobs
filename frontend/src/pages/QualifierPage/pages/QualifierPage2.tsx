@@ -12,14 +12,19 @@ import { useQualifiersContext } from "context/QualifiersContext";
 
 function QualifierPage2() {
   const navigate = useNavigate();
-  const { qualifiers, selectedCopData, updateQualifiers } = useQualifiersContext();
+  const { qualifiers, selectedCopData, updateQualifiers } =
+    useQualifiersContext();
   const [progressPercentage, setProgressPercentage] = useState(10);
   const [currentSkillsIndex, setCurrentSkillsIndex] = useState(0);
-    
+
   const updateProgressPercentage = () => {
-    // Use a fallback value of 1 for selectedCopData?.skills?.length to avoid division by zero
-    const increments = (Object.keys(qualifiers.skills_matrix || {}).length / (selectedCopData?.skills?.length ?? 1)) * 70;
-  }
+    const increments =
+      (Object.keys(qualifiers.skills_matrix || {}).length /
+        (selectedCopData?.skills?.length ?? 1)) *
+      70;
+    const newProgressPercentage = Math.min(10 + increments, 100);
+    setProgressPercentage(newProgressPercentage);
+  };
 
   const handleNavClick = (direction: "back" | "next") => {
     if (direction === "back") {
@@ -39,7 +44,7 @@ function QualifierPage2() {
       }
     }
   };
-  
+
   const handleSkillSelect = (skill: string, level: string) => {
     const newSkillsMatrix = {
       ...qualifiers.skills_matrix,
@@ -64,8 +69,13 @@ function QualifierPage2() {
           Evaluate each skill based on your experience
         </Typography.Paragraph3>
         <RadioButtonForm
-          selectedCOPData={selectedCopData?.title || ""}
-          skills={selectedCopData?.skills?.slice(currentSkillsIndex, currentSkillsIndex + 4) || []}
+          selectedCOPTitle={selectedCopData?.title || ""}
+          skills={
+            selectedCopData?.skills?.slice(
+              currentSkillsIndex,
+              currentSkillsIndex + 4,
+            ) || []
+          }
           onSkillSelect={handleSkillSelect}
           selectedSkillsLevel={qualifiers.skills_matrix || {}}
         />
@@ -86,10 +96,7 @@ function QualifierPage2() {
             >
               Back
             </Button>
-            <Button
-              size="medium-long"
-              onClick={() => handleNavClick("next")}
-            >
+            <Button size="medium-long" onClick={() => handleNavClick("next")}>
               Next
             </Button>
           </div>
