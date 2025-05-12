@@ -8,13 +8,13 @@ interface RadioButtonFormProps {
     Name: string;
     Description: string;
   }>;
-  selectedCOPData: string
+  selectedCOPTitle: string;
   onSkillSelect: (skill: string, level: string) => void;
   selectedSkillsLevel: Record<string, string>;
 }
 
 function RadioButtonForm({
-  selectedCOPData,
+  selectedCOPTitle,
   skills,
   onSkillSelect,
   selectedSkillsLevel,
@@ -24,7 +24,7 @@ function RadioButtonForm({
       <thead>
         <tr>
           <th className="w-2/3 text-left">
-            <Typography.Title4>{selectedCOPData}</Typography.Title4>
+            <Typography.Title4>{selectedCOPTitle}</Typography.Title4>
           </th>
           <th colSpan={3} className="pb-2 text-left">
             <Typography.Title5>Experience Level</Typography.Title5>
