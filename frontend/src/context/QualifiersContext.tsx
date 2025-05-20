@@ -1,18 +1,27 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
-import { copData, copDatum } from "api_data/copData";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
+import {
+  fetchAllCopData,
+  fetchCopDataByTitle,
+  copDatum,
+} from "api_data/copData";
 
-// Types
+// Individual Qualifier Type
 type QualifiersType = {
-  COPs: {
-    [copName: string]: string[];
-  };
-  selectedCOP?: string;
+  selectedCOP: string | undefined;
   skills_matrix?: { [skill: string]: string };
   // availabilityTimeSlots: string[];
 };
 
+// Entire Context Type
 type QualifiersContextType = {
   copData: copDatum[];
+  selectedCopData: copDatum | undefined;
   qualifiers: QualifiersType;
   updateQualifiers: (newQualifiers: QualifiersType) => void;
 };
@@ -22,7 +31,7 @@ const QualifiersContext = createContext<QualifiersContextType | undefined>(
   undefined,
 );
 
-// Custom hook to use the qualifiers context
+// hook to use the qualifiers context
 export const useQualifiersContext = () => {
   const context = useContext(QualifiersContext);
   if (!context) {
@@ -37,31 +46,56 @@ export const useQualifiersContext = () => {
 export const QualifiersProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  // Initial state for qualifiers only for testing purposes, actual data should be fetched once the user has an account, and then used to setQualifiers, by using useEffect
-  const initialState: QualifiersType = {
-    COPs: {
-      // Uncomment data below for testing
-      // "UI/UX": [
-      //   "UI/UX_Designer",
-      //   "UX_Researcher",
-      //   "UX_Writing",
-      //   "UX_Practice_Lead",
-      // ],
-      // Data_Science: ["Data_Scientist", "Data_Analyst"],
-    },
-    // availabilityTimeSlots: [],
-  };
+  const [copData, setCopData] = useState<copDatum[]>([]);
+  const [selectedCopData, setSelectedCopData] = useState<copDatum | undefined>(
+    undefined,
+  );
 
-  const [qualifiers, setQualifiers] = useState<QualifiersType>(initialState);
+  // Store qualifiers in state with initial local storage to persist data across sessions
+  const [qualifiers, setQualifiers] = useState<QualifiersType>(() => {
+    const storedQualifiers = localStorage.getItem("qualifiers");
+    return storedQualifiers
+      ? JSON.parse(storedQualifiers)
+      : { selectedCOP: undefined, skills_matrix: {} };
+  });
+
+  const setFetchedCopData = async () => {
+    try {
+      // TODO: Replace this with your actual API call to fetch COP data
+      const data = await fetchAllCopData(); // Await the resolution of fetchAllCopData
+      setCopData(data);
+
+      // Update selectedCopData as well if selectedCOP exists
+      if (qualifiers.selectedCOP) {
+        const selected = await fetchCopDataByTitle(qualifiers.selectedCOP); // Await the resolution of fetchCopDataByTitle
+        setSelectedCopData(selected);
+      }
+    } catch (error) {
+      console.error("Error fetching COP data:", error);
+    }
+  };
 
   const updateQualifiers = (newQualifiers: QualifiersType) => {
     console.log("Updated Qualifiers:", newQualifiers); // Log the updated qualifiers TO DELETE
     setQualifiers(newQualifiers);
+    localStorage.setItem("qualifiers", JSON.stringify(newQualifiers));
   };
+
+  useEffect(() => {
+    setFetchedCopData();
+    console.log("COP Data fetched:", copData); // Log the fetched COP data TO DELETE
+  }, [setFetchedCopData]);
+
+  useEffect(() => {
+    if (qualifiers.selectedCOP) {
+      const selected = fetchCopDataByTitle(qualifiers.selectedCOP);
+      setSelectedCopData(selected);
+    }
+  }, [qualifiers.selectedCOP]);
 
   return (
     <QualifiersContext.Provider
-      value={{ copData, qualifiers, updateQualifiers }}
+      value={{ copData, qualifiers, selectedCopData, updateQualifiers }}
     >
       {children}
     </QualifiersContext.Provider>

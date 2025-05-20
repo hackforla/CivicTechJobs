@@ -1,5 +1,5 @@
 // External Imports
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Internal Imports
@@ -12,7 +12,38 @@ import { useQualifiersContext } from "context/QualifiersContext";
 
 function QualifierPage2() {
   const navigate = useNavigate();
-  const { qualifiers, updateQualifiers } = useQualifiersContext();
+  const { qualifiers, selectedCopData, updateQualifiers } =
+    useQualifiersContext();
+  const [progressPercentage, setProgressPercentage] = useState(10);
+  const [currentSkillsIndex, setCurrentSkillsIndex] = useState(0);
+
+  const updateProgressPercentage = () => {
+    const increments =
+      (Object.keys(qualifiers.skills_matrix || {}).length /
+        (selectedCopData?.skills?.length ?? 1)) *
+      70;
+    const newProgressPercentage = Math.min(10 + increments, 100);
+    setProgressPercentage(newProgressPercentage);
+  };
+
+  const handleNavClick = (direction: "back" | "next") => {
+    if (direction === "back") {
+      if (currentSkillsIndex > 0) {
+        setCurrentSkillsIndex((prevIndex) => prevIndex - 4);
+      } else {
+        updateQualifiers({ ...qualifiers, skills_matrix: {} });
+        updateProgressPercentage();
+        navigate("../1", { relative: "path" });
+      }
+    } else if (direction === "next") {
+      if (currentSkillsIndex + 4 >= (selectedCopData?.skills?.length ?? 0)) {
+        navigate("../3", { relative: "path" });
+      } else {
+        updateProgressPercentage();
+        setCurrentSkillsIndex((prevIndex) => prevIndex + 4);
+      }
+    }
+  };
 
   const handleSkillSelect = (skill: string, level: string) => {
     const newSkillsMatrix = {
@@ -38,6 +69,13 @@ function QualifierPage2() {
           Evaluate each skill based on your experience
         </Typography.Paragraph3>
         <RadioButtonForm
+          selectedCOPTitle={selectedCopData?.title || ""}
+          skills={
+            selectedCopData?.skills?.slice(
+              currentSkillsIndex,
+              currentSkillsIndex + 4,
+            ) || []
+          }
           onSkillSelect={handleSkillSelect}
           selectedSkillsLevel={qualifiers.skills_matrix || {}}
         />
@@ -48,22 +86,17 @@ function QualifierPage2() {
             currentPart={1}
             totalParts={5}
             title="INSERT TITLE"
-            progressPercentage={10}
+            progressPercentage={progressPercentage}
           />
           <div className="flex gap-4">
             <Button
               size="medium-long"
               variant="primary-dark"
-              onClick={() => navigate("../1", { relative: "path" })}
+              onClick={() => handleNavClick("back")}
             >
               Back
             </Button>
-            <Button
-              size="medium-long"
-              onClick={() => {
-                navigate("../3", { relative: "path" });
-              }}
-            >
+            <Button size="medium-long" onClick={() => handleNavClick("next")}>
               Next
             </Button>
           </div>

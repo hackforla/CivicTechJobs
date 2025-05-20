@@ -1,10 +1,10 @@
 // External Imports
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import clsx from "clsx";
 
 // Internal Imports
-import { copDatum, fetchAllCopData } from "api_data/copData";
+import { copDatum } from "api_data/copData";
 import Typography from "tw-components/Typography";
 import { Button } from "tw-components/Buttons";
 import { QualifierNav } from "../components/QualifierNav";
@@ -14,10 +14,6 @@ import { useQualifiersContext } from "context/QualifiersContext";
 function QualifierPage1() {
   const navigate = useNavigate();
   const { copData, qualifiers, updateQualifiers } = useQualifiersContext();
-
-  useEffect(() => {
-    fetchAllCopData();
-  }, []);
 
   const handleSelectCOP = (
     e: React.MouseEvent<HTMLDivElement>,
@@ -41,7 +37,6 @@ function QualifierPage1() {
         <Typography.Paragraph3 className="my-5 text-grey-dark">
           Select one practice area
         </Typography.Paragraph3>
-
         {/* COP Cards */}
         <div className="w-4/5">
           <div className="grid w-full grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
@@ -73,9 +68,9 @@ function QualifierPage1() {
                       aria-hidden="true"
                     />
                   </div>
-                  <Typography.Title5 className="mt-10 text-charcoal">
+                  <Typography.Title3 className="mt-10 text-charcoal">
                     {cop.title}
-                  </Typography.Title5>
+                  </Typography.Title3>
                   <Typography.Paragraph5 className="mt-2 text-grey-dark">
                     {cop.subtitle}
                   </Typography.Paragraph5>
