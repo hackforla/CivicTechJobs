@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 
 // Internal Imports
-import { Button } from "components/components";
+import { Button } from "tw-components";
 import { Dialog, CircleCard, Typography } from "tw-components/index";
 import { CopCard, InnerCopCard, InnerCopNavCard } from "./LandingPageCopCards";
 import {
@@ -123,14 +123,11 @@ function LandingPageCop() {
                   {currentDatum.description}
                 </div>
                 <div>
-                  <Button
-                    color="primary"
-                    size="md"
-                    length="long"
-                    href="/qualifier/1"
-                  >
-                    Join Us
-                  </Button>
+                  <div className="inline-block">
+                    <Button size="medium-long" href="/qualifier/1">
+                      Join Us
+                    </Button>
+                  </div>
                 </div>
               </InnerCopCard>
             </div>

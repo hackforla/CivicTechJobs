@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 
 // Internal Imports
 import { combineClasses } from "../Utility/utils";
-import { Button } from "../Buttons/Button";
+import { Button } from "tw-components";
 
 function ClickCarousel({ hidden = false, selected = 0, ...props }) {
   const [items, setItems] = useState([]);
@@ -42,10 +42,10 @@ function ClickCarousel({ hidden = false, selected = 0, ...props }) {
         isHidden ? "hidden" : "",
       )}
     >
-      <Button size="icon" onClick={() => handleClick(false)}>
+      <Button size="icon-only" onClick={() => handleClick(false)}>
         &#8592;
       </Button>
-      <Button size="icon" onClick={() => handleClick(true)}>
+      <Button size="icon-only" onClick={() => handleClick(true)}>
         &#8594;
       </Button>
       {items ? items[index] : ""}

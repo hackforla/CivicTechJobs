@@ -7,3 +7,4 @@ export { default as Dialog } from "./Dialog";
 export { default as Typography } from "./Typography";
 export { CircleCard } from "./CircleCard";
 export { Checkbox } from "./Checkbox";
+export { Button, SearchButton, IconButton } from "./Buttons";

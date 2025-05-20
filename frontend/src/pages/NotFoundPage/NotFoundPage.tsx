@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 // Internal Imports
 import { HeaderNav, FooterNav } from "tw-components";
-import { Button } from "components/components";
+import { Button } from "tw-components";
 import { notFoundPageImg } from "assets/images/images";
 
 function NotFoundPage() {
@@ -21,7 +21,7 @@ function NotFoundPage() {
               We can't seem to find the page you're looking for. Try going back
               to the previous page.
             </p>
-            <Button length="long" size="lg" onClick={() => navigate(-1)}>
+            <Button size="large-long" onClick={() => navigate(-1)}>
               Go Back
             </Button>
           </div>

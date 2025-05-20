@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 
 // Internal imports
-import { Button } from "tw-components/Buttons";
+import { Button } from "tw-components";
 import { logoHorizontalOnDark, logoStackedOnDark } from "assets/images/images";
 
 interface menuObject {

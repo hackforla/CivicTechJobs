@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 // Internal Imports
 import Typography from "tw-components/Typography";
-import { Button } from "tw-components/Buttons";
+import { Button } from "tw-components";
 import { QualifierNav } from "../components/QualifierNav";
 import { RadioButtonForm } from "../components/RadioButtonForm";
 import { ProgressIndicator } from "../components/ProgressIndicator";

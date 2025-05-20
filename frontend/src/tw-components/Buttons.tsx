@@ -1,5 +1,6 @@
 import React from "react";
 import Typography from "tw-components/Typography";
+import { IconSearch } from "assets/images/images";
 import { cn } from "lib/utils";
 
 const buttonSizes = {
@@ -90,21 +91,19 @@ const BaseButton: React.FC<BaseButtonProps> = ({
 };
 
 // Default Button, extends base button, adds typography
-const buttonTypography: Record<
-  Exclude<ButtonSize, "icon-only">,
-  React.ElementType
-> = {
+const buttonTypography: Record<ButtonSize, React.ElementType> = {
   small: Typography.Title7,
   "small-long": Typography.Title7,
   medium: Typography.Title6,
   "medium-long": Typography.Title6,
   large: Typography.Title5,
   "large-long": Typography.Title5,
+  "icon-only": Typography.Title6,
 };
 
 type ButtonProps = Omit<BaseButtonProps, "children"> & {
-  size?: Exclude<ButtonSize, "icon-only">;
-  children: React.ReactNode;
+  size?: ButtonSize;
+  children?: React.ReactNode;
 };
 
 const Button: React.FC<ButtonProps> = ({
@@ -121,28 +120,42 @@ const Button: React.FC<ButtonProps> = ({
 };
 
 // Icon Button, extends base button, adds static svg
-type IconButtonProps = Omit<BaseButtonProps, "size" | "children">;
+interface SearchButtonProps extends Omit<BaseButtonProps, "size" | "children"> {
+  icon?: React.ReactNode;
+}
 
-const IconButton: React.FC<IconButtonProps> = (props) => {
+const SearchButton: React.FC<SearchButtonProps> = ({ ...props }) => {
   return (
     <BaseButton {...props} size="icon-only" className="rounded-[24px]">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-      >
-        <path
-          fill="none"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          d="m20 20l-4.05-4.05m0 0a7 7 0 1 0-9.9-9.9a7 7 0 0 0 9.9 9.9"
-        />
-      </svg>
+      <IconSearch />
     </BaseButton>
   );
 };
 
-export { Button, IconButton };
+interface IconButtonProps {
+  className?: string;
+  label: string;
+  onClick: (e?: React.SyntheticEvent) => void;
+  iconUrl: string;
+}
+
+function IconButton({ className, label, onClick, iconUrl }: IconButtonProps) {
+  return (
+    <div
+      className={cn("cursor-pointer focus:outline-none", className)}
+      onClick={onClick}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          onClick(e);
+        }
+      }}
+      role="button"
+      aria-label={label}
+      tabIndex={0}
+    >
+      <img src={iconUrl} alt={label} />
+    </div>
+  );
+}
+
+export { Button, SearchButton, IconButton };
