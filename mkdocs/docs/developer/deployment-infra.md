@@ -1,6 +1,9 @@
-![CTJ Infrastructure Diagram](https://github.com/hackforla/CivicTechJobs/blob/develop/mkdocs/docs/assets/logo-horizontal.svg)
-
 _<p style="text-align: center;">Project deployment and hosting</p>_
+
+
+
+![CTJ Infrastructure Diagram](../assets/ctj-infra-diagram.png)
+
 
 ### Summary
 CivicTechJobs is hosted on the Incubator AWS account, which is managed by the DevOps CoP. The application is deployed through Fargate, which itself deploys the CivicTechJob docker image. This repo sends updates to the Incubator through a github action `deploy-stage.yml`.
