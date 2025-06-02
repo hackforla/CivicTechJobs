@@ -1,3 +1,5 @@
+![CTJ Infrastructure Diagram](https://github.com/hackforla/CivicTechJobs/blob/develop/mkdocs/docs/assets/logo-horizontal.svg)
+
 _<p style="text-align: center;">Project deployment and hosting</p>_
 
 ### Summary
@@ -5,7 +7,11 @@ CivicTechJobs is hosted on the Incubator AWS account, which is managed by the De
 
 Incubator aws resources are managed using terraform files which are commited to the [Incubator Source](https://github.com/hackforla/incubator/tree/main/terraform/projects/civic-tech-jobs)
 
-The resources used by CTJ include: a database, a DNS entry, a fargate task definition, and a fargate task
+The resources used by CTJ include the following: 
+- A Database(shared with other projects)
+- DNS Entry
+- ECS Task Definition
+- A Fargate Task
 
 
 ### Github Action
@@ -19,3 +25,15 @@ Some values will come from the terraform modules, but in essense if you must add
 
 ### DNS
 The staging environment is current set to run at: https://stage.civictechjobs.org/
+
+Domain management is done in AWS Route53, through terraform files found in Incubator
+
+### Fargate
+AWS Fargate is a managed service which allows CTJ to easily deploy it's containerized application. This is done by updating a AWS task definition and then restarting the associated Fargate service. 
+
+Both of these steps are preformed automatically by the github action in `deploy-stage.yml` when new commits are merged into the `main` branch
+
+
+## Additional Resources
+
+[Incubator Repo](https://github.com/hackforla/incubator/tree/main/terraform/projects/civic-tech-jobs)
