@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Typography from "tw-components/Typography";
-import { Button, IconButton } from "tw-components/Buttons";
+import { Button, SearchButton } from "tw-components";
 import { Checkbox } from "tw-components/Checkbox";
-
 const DemoTailwind = () => {
   // Add a setDarkMode for testing dark mode styles
   const [darkMode, setDarkMode] = useState(false);
@@ -48,6 +47,7 @@ const DemoTailwind = () => {
         <div className="mb-4 flex flex-wrap items-center gap-4">
           <Button size="small">Small</Button>
           <Button size="small-long">Small-Long</Button>
+          <Button size="icon-only">Icon Size</Button>
           {/* Medium is the default*/}
           <Button>Medium</Button>
           <Button size="medium-long">Medium-Long</Button>
@@ -81,8 +81,8 @@ const DemoTailwind = () => {
           Search Icon
         </Typography.Title3>
         <div className="flex flex-wrap items-center gap-4">
-          <IconButton />
-          <IconButton disabled />
+          <SearchButton />
+          <SearchButton disabled />
         </div>
       </div>
 

@@ -3,9 +3,9 @@ import React from "react";
 import clsx from "clsx";
 
 // Internal Imports
-import { IconButton } from "components/Buttons/IconButton";
-import { Card } from "tw-components/StandardCard";
+import { IconButton } from "tw-components";
 import { iconX } from "assets/images/images";
+import { Card } from "tw-components/StandardCard";
 
 interface CopCardProps extends React.PropsWithChildren {
   addClass?: string;
@@ -24,7 +24,7 @@ function CopCard({ isHidden = true, size = "sm", ...props }: CopCardProps) {
       )}
     >
       <IconButton
-        addClass={`cop-card-${size}-x`}
+        className={`cop-card-${size}-x`}
         iconUrl={iconX}
         label="close"
         onClick={props.onClick}

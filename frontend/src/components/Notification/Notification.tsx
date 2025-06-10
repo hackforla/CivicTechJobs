@@ -1,10 +1,10 @@
 // External Imports
 import { combineClasses } from "components/Utility/utils";
 import React, { useEffect, useState } from "react";
-import { IconButton } from "components/components";
 
 // Internal Imports
-import { iconX } from "../../assets/images/images";
+import { IconButton } from "tw-components";
+import { iconX } from "assets/images/images";
 import { TransitionWrapper } from "components/components";
 
 interface NotificationProps extends React.PropsWithChildren {
@@ -45,7 +45,7 @@ function Notification({
 
     return (
       <IconButton
-        addClass="notification-x"
+        className="notification-x"
         iconUrl={iconX}
         label="close"
         onClick={() => {

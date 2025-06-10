@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 // Internal Imports
 import { logoHorizontal } from "assets/images/images";
 import { IconHamburgerMenu } from "assets/images/images";
-import { Button } from "../components/components";
+import { Button } from "tw-components";
 
 interface menuObject {
   name?: string;
@@ -60,9 +60,7 @@ function HeaderNav() {
         </nav>
 
         <Link to="/login" className="mg:ml-6 lg:ml-8">
-          <Button color="primary" size="sm">
-            Log In
-          </Button>
+          <Button size="small">Log In</Button>
         </Link>
         <button
           className="ml-3 md:hidden"
