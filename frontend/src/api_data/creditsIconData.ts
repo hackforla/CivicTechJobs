@@ -9,6 +9,12 @@ import {
   iconPlus,
   iconSearch,
   iconX,
+  iconFilter,
+  iconClipboard,
+  iconCarouselDots,
+  iconChevronLeft,
+  iconChevronRight,
+  iconMinus,
 } from "assets/images/images";
 
 interface iconDatum {
@@ -69,23 +75,22 @@ const iconData: iconDatum[] = [
     provider: "Majesticons",
     link: "https://www.majesticons.com/",
   },
-  // // Commented out icon info shown on Figma design but not yet used in MVP
-  // {
-  //   id: 7,
-  //   imgSrc: ,
-  //   name: "Chevron left",
-  //   usedIn: "How to Join",
-  //   provider: "Majesticons",
-  //   link: "https://www.majesticons.com/",
-  // },
-  // {
-  //   id: 8,
-  //   imgSrc: ,
-  //   name: "Chevron right",
-  //   usedIn: "How to Join",
-  //   provider: "Majesticons",
-  //   link: "https://www.majesticons.com/",
-  // },
+  {
+    id: 7,
+    imgSrc: iconChevronLeft,
+    name: "Chevron left",
+    usedIn: "How to Join",
+    provider: "Majesticons",
+    link: "https://www.majesticons.com/",
+  },
+  {
+    id: 8,
+    imgSrc: iconChevronRight,
+    name: "Chevron right",
+    usedIn: "How to Join",
+    provider: "Majesticons",
+    link: "https://www.majesticons.com/",
+  },
   {
     id: 9,
     imgSrc: iconSearch,
@@ -94,14 +99,14 @@ const iconData: iconDatum[] = [
     provider: "Majesticons",
     link: "https://www.majesticons.com/",
   },
-  // {
-  //   id: 10,
-  //   imgSrc: iconCarouselSvg,
-  //   name: "Carousel dot",
-  //   usedIn: "How to Join",
-  //   provider: "Majesticons",
-  //   link: "https://www.majesticons.com/",
-  // },
+  {
+    id: 10,
+    imgSrc: iconCarouselDots,
+    name: "Carousel dot",
+    usedIn: "How to Join",
+    provider: "Majesticons",
+    link: "https://www.majesticons.com/",
+  },
   {
     id: 11,
     imgSrc: iconCheckMarkDark,
@@ -110,14 +115,14 @@ const iconData: iconDatum[] = [
     provider: "Majesticons",
     link: "https://www.majesticons.com/",
   },
-  // {
-  //   id: 12,
-  //   imgSrc: iconMinusSvg,
-  //   name: "Minus line",
-  //   usedIn: "How to Join",
-  //   provider: "Majesticons",
-  //   link: "https://www.majesticons.com/",
-  // },
+  {
+    id: 12,
+    imgSrc: iconMinus,
+    name: "Minus line",
+    usedIn: "How to Join",
+    provider: "Majesticons",
+    link: "https://www.majesticons.com/",
+  },
   {
     id: 13,
     imgSrc: iconPlus,
@@ -126,22 +131,22 @@ const iconData: iconDatum[] = [
     provider: "Majesticons",
     link: "https://www.majesticons.com/",
   },
-  // {
-  //   id: 14,
-  //   imgSrc: iconClipboardSvg,
-  //   name: "Clipboard check",
-  //   usedIn: "How to Join",
-  //   provider: "Majesticons",
-  //   link: "https://www.majesticons.com/",
-  // },
-  // {
-  //   id: 15,
-  //   imgSrc: iconFilterSvg,
-  //   name: "Filter line",
-  //   usedIn: "How to Join",
-  //   provider: "Majesticons",
-  //   link: "https://www.majesticons.com/",
-  // },
+  {
+    id: 14,
+    imgSrc: iconClipboard,
+    name: "Clipboard check",
+    usedIn: "How to Join",
+    provider: "Majesticons",
+    link: "https://www.majesticons.com/",
+  },
+  {
+    id: 15,
+    imgSrc: iconFilter,
+    name: "Filter line",
+    usedIn: "How to Join",
+    provider: "Majesticons",
+    link: "https://www.majesticons.com/",
+  },
 ];
 
 export { iconDatum, iconData };
