@@ -2,7 +2,7 @@
 import {
   iconArrowDown,
   iconArrowLeft,
-  iconCheckMarkDark,
+  iconCheckMark,
   iconDropdownDown,
   iconDropdownUp,
   iconHamburgerMenu,
@@ -109,7 +109,7 @@ const iconData: iconDatum[] = [
   },
   {
     id: 11,
-    imgSrc: iconCheckMarkDark,
+    imgSrc: iconCheckMark,
     name: "Check line",
     usedIn: "How to Join",
     provider: "Majesticons",

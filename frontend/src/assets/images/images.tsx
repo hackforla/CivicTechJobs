@@ -252,3 +252,4 @@ export { default as iconClipboard } from "./svgs/icons/icon-clipboard.svg?url";
 export { default as iconMinus } from "./svgs/icons/icon-minus.svg?url";
 export { default as iconChevronLeft } from "./svgs/icons/icon-chevron-left.svg?url";
 export { default as iconChevronRight } from "./svgs/icons/icon-chevron-right.svg?url";
+export { default as iconCheckmark } from "./svgs/icons/icon-checkmark.svg?url";
