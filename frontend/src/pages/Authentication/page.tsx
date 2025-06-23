@@ -21,11 +21,16 @@ export default function AuthenticationPage() {
         style={{ height: "calc(100vh - 64px)", overflow: "hidden" }}
       >
         <div className="relative bg-tan-light max-lg:hidden lg:basis-1/2">
-          <img
-            src={loginIllustration}
-            alt="Team work Pana Illustration"
-            className="absolute left-1/2 top-1/2 z-20 w-4/5 -translate-x-1/2 -translate-y-1/2 transform"
-          />
+          <div className="absolute left-1/2 top-1/2 z-30 w-4/5 -translate-x-1/2 -translate-y-1/2 transform text-center">
+            <p className="my-8 px-10 text-3xl font-bold md:text-4xl md:leading-snug">
+              Together, we can create<br /> civic change.
+            </p>
+            <img
+              src={loginIllustration}
+              alt="Team work Pana Illustration"
+              className="mx-auto w-full"
+            />
+          </div>
           <img
             src={loginTanBg}
             alt="Tan background for login/register page"
