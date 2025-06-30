@@ -1,3 +1,8 @@
+// Redirect civictechjobs.org to stage site
+if (window.location.hostname === "civictechjobs.org") {
+  window.location.replace("https://stage.civictechjobs.org");
+}
+
 // External imports
 import React, { Suspense } from "react";
 import { RouterProvider } from "react-router-dom";
