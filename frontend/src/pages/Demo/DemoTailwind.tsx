@@ -2,7 +2,38 @@ import React, { useState, useEffect } from "react";
 import Typography from "tw-components/Typography";
 import { Button, SearchButton } from "tw-components";
 import { Checkbox } from "tw-components/Checkbox";
+import { AccordionFaq } from "tw-components/AccordionFaq";
+
 const DemoTailwind = () => {
+  // FAQ text as of August 4, 2025
+  const faqData = [
+    {
+      id: "1",
+      question:
+        "How many hours are you expected to commit to Civic Tech Jobs each week?",
+      answer: ["Need answer here."],
+    },
+    {
+      id: "2",
+      question: "What is a Community of Practice (CoP)?",
+      answer: ["Need answer here."],
+    },
+    {
+      id: "3",
+      question: "Why is onboarding mandatory?",
+      answer: ["Need answer here."],
+    },
+    {
+      id: "4",
+      question:
+        "Why is completing the Skills Evaluation survey a required step before joining a project?",
+      answer: [
+        "Our Skills Evaluation survey connects you with projects that align with your experience and career development goals. Whether you're looking to refine existing skills or explore new ones, you can find opportunities across our Communities of Practice (CoPs), including software development, data science, product management, and marketing.",
+        "How it works: Projects outline the key skills they need, while you self-select your competencies and experience levels. This ensures a precise match that supports both your growth and the success of the project.",
+      ],
+    },
+  ];
+
   // Add a setDarkMode for testing dark mode styles
   const [darkMode, setDarkMode] = useState(false);
 
@@ -20,7 +51,15 @@ const DemoTailwind = () => {
 
   return (
     <div className="min-h-screen bg-grey-light p-8">
-      <div className="mx-auto max-w-4xl rounded-lg bg-white p-6 shadow-md transition-colors duration-300 dark:bg-[#030D2D]">
+      {/* Demo FAQ */}
+      <div className="mx-auto flex max-w-5xl flex-col items-center rounded-lg bg-grey-light p-6 shadow-md">
+        <Typography.Title2 className="mb-12 text-charcoal">
+          Frequently Asked Questions
+        </Typography.Title2>
+        <AccordionFaq items={faqData} />
+      </div>
+
+      <div className="mx-auto max-w-5xl rounded-lg bg-white p-6 shadow-md transition-colors duration-300 dark:bg-[#030D2D]">
         <Typography.Title2 className="mb-4">Checkboxes</Typography.Title2>
         <Checkbox label="Enabled selected" defaultChecked />
         <Checkbox label="Enabled unselected" />
@@ -33,7 +72,7 @@ const DemoTailwind = () => {
           onChange={checkboxOnChange}
         />
       </div>
-      <div className="mx-auto max-w-4xl rounded-lg bg-white p-6 shadow-md transition-colors duration-300 dark:bg-[#030D2D]">
+      <div className="mx-auto max-w-5xl rounded-lg bg-white p-6 shadow-md transition-colors duration-300 dark:bg-[#030D2D]">
         <Typography.Title1 className="mb-4 text-blue-dark dark:text-white">
           Buttons
         </Typography.Title1>
@@ -86,7 +125,7 @@ const DemoTailwind = () => {
         </div>
       </div>
 
-      <div className="mx-auto max-w-4xl rounded-lg bg-white p-6 shadow-md">
+      <div className="mx-auto max-w-5xl rounded-lg bg-white p-6 shadow-md">
         <Typography.Title1 className="mb-4 text-blue-dark">
           Typography Demo (Title 1 - Roboto Bold 48/137% +0)
         </Typography.Title1>
