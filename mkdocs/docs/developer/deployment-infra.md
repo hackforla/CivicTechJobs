@@ -18,7 +18,7 @@ The resources used by CTJ include the following:
 
 
 ### Github Action
-Github actions are the mechanism used to convey changes in this CivicTechJobs repo to the AWS deployment. The deploy-stage action is set to run on any updates to the main branch. On run the action will assume an AWS credential, push the newest docker image to the ECR, then force a ECS-Fargate redeployment. This process will depend on OIDC to grant AWS permissions for its execution 
+Github actions are the mechanism used to convey changes in this CivicTechJobs repo to the AWS deployment. The deploy-stage action is set to run on any updates to the main branch. On run the action will assume an AWS credential, push the newest docker image to Amazon's Elastic Container Registry(ECR), then force a ECS-Fargate redeployment. This process will depend on OIDC to grant AWS permissions for its execution 
 
 ### Regarding Environment Variables
 The combination of Fargate(a managed service from AWS) and terraform means that environment variables are passed into the application differently than when the application is run locally. The environment variables are set in terraform at the following [location](https://github.com/hackforla/incubator/blob/main/terraform/projects/civic-tech-jobs/environment-stage.tf).
