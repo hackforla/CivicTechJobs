@@ -10,26 +10,31 @@ const DemoTailwind = () => {
     {
       id: "1",
       question:
-        "How many hours are you expected to commit to Civic Tech Jobs each week?",
-      answer: ["Need answer here."],
+        "How many hours are you expected to commit to Hack for LA each week?",
+      answer: [
+        "Most volunteers commit between 5–10 hours per week, but the exact time depends on the project and your availability. We encourage consistent engagement so you can make meaningful contributions and stay connected with your team.",
+      ],
     },
     {
       id: "2",
       question: "What is a Community of Practice (CoP)?",
-      answer: ["Need answer here."],
+      answer: [
+        "A Community of Practice is a group of people who share a common professional focus and learn from each other. At Hack for LA, CoPs bring together volunteers in areas such as software development, data science, product management, and marketing. These communities offer skill-building opportunities, peer support, and networking.",
+      ],
     },
     {
       id: "3",
       question: "Why is onboarding mandatory?",
-      answer: ["Need answer here."],
+      answer: [
+        "Onboarding ensures that every volunteer understands our mission, tools, and processes before joining a project. It helps you navigate our platforms, connect with your Community of Practice, and set you up for success in your role.",
+      ],
     },
     {
       id: "4",
       question:
         "Why is completing the Skills Evaluation survey a required step before joining a project?",
       answer: [
-        "Our Skills Evaluation survey connects you with projects that align with your experience and career development goals. Whether you're looking to refine existing skills or explore new ones, you can find opportunities across our Communities of Practice (CoPs), including software development, data science, product management, and marketing.",
-        "How it works: Projects outline the key skills they need, while you self-select your competencies and experience levels. This ensures a precise match that supports both your growth and the success of the project.",
+        "Our Skills Evaluation survey connects you with projects that match your experience and career goals. Projects outline the skills they need, and you self-select your competencies and experience levels. This ensures a strong fit that supports your growth while helping the project succeed.",
       ],
     },
   ];
