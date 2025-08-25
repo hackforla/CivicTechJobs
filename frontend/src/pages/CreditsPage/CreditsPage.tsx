@@ -104,9 +104,17 @@ const CreditsPage: FC = () => {
               usedIn={cardData.usedIn}
               provider={cardData.provider}
               imgSrc={cardData.imgSrc}
+              // imgStyleClasses={`${
+              //   activeButton === "icons" ? "w-1/6" : "w-2/3"
+              // } h-auto place-self-center`}
+              // imgStyleClasses={`${
+              //   activeButton === "icons" ? "max-h-6 max-w-16" : "w-2/3 h-auto"
+              // } place-self-center`}
               imgStyleClasses={`${
-                activeButton === "icons" ? "w-1/6" : "w-2/3"
-              } h-auto place-self-center`}
+                activeButton === "icons"
+                  ? "max-h-12 max-w-1/3 object-contain"
+                  : "w-2/3 h-auto"
+              } place-self-center`}
               imgContainerStyleClasses={`${
                 activeButton === "illustrations"
                   ? "bg-grey-light"
