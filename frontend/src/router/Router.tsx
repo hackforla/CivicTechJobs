@@ -4,6 +4,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 // Internal Imports
 import { CreditsPage } from "pages/CreditsPage/CreditsPage";
+import { JoinUsPage } from "pages/JoinUsPage/JoinUsPage";
 import { Demo } from "pages/Demo/Demo";
 import DemoTailwind from "pages/Demo/DemoTailwind";
 import { NotFoundPage } from "pages/NotFoundPage/NotFoundPage";
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
           {
             path: "privacypolicy",
             element: <PrivacyPolicyPage />,
+          },
+          {
+            path: "joinus",
+            element: <JoinUsPage />,
           },
         ],
       },
