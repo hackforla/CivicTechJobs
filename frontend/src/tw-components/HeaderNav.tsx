@@ -10,13 +10,15 @@ import { Button } from "tw-components";
 interface menuObject {
   name?: string;
   link: string;
+  internal?: boolean;
 }
 
 const menuItems: menuObject[] = [
   { name: "Hack for LA", link: "https://www.hackforla.org/" },
   {
     name: "How to Join",
-    link: "https://www.hackforla.org/getting-started",
+    link: "/joinus",
+    internal: true,
   },
   { name: "Projects", link: "https://www.hackforla.org/projects/" },
 ];
@@ -46,7 +48,15 @@ function HeaderNav() {
           aria-label="header-navigation"
         >
           {menuItems.map((item, index) => {
-            return (
+            return item.internal ? (
+              <Link
+                to={item.link}
+                className="font-bold hover:underline md:mx-6 lg:mx-8"
+                key={index}
+              >
+                {item.name}
+              </Link>
+            ) : (
               <a
                 className="font-bold hover:underline md:mx-6 lg:mx-8"
                 href={item.link}

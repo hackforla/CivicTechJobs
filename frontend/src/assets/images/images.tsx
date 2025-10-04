@@ -241,3 +241,8 @@ export { default as landingPageCreativeTeam } from "./svgs/landing-page-creative
 export { default as LandingPageBg } from "./svgs/landing-page-bg.svg?url";
 export { default as LandingPageFg } from "./svgs/landing-page-fg.svg?url";
 export { default as iconArrowDown } from "./svgs/icons/icon-arrow-down.svg?url";
+export { default as joinusAllPage } from "./svgs/joinus-all.svg?url";
+export { default as joinusStepOne } from "./svgs/joinus-step1.svg?url";
+export { default as joinusStepTwo } from "./svgs/joinus-step2.svg?url";
+export { default as joinusStepThree } from "./svgs/joinus-step3.svg?url";
+export { default as joinusStepFour } from "./svgs/joinus-step4.svg?url";
