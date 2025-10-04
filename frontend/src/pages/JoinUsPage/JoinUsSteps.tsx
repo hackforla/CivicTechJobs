@@ -23,7 +23,6 @@ const VolunteerSteps = () => {
         </>
       ),
       image: joinusStepOne,
-      imgPosition: "left",
     },
     {
       id: 2,
@@ -40,7 +39,6 @@ const VolunteerSteps = () => {
         </>
       ),
       image: joinusStepTwo,
-      imgPosition: "right",
     },
     {
       id: 3,
@@ -60,7 +58,6 @@ const VolunteerSteps = () => {
         </>
       ),
       image: joinusStepThree,
-      imgPosition: "left",
     },
     {
       id: 4,
@@ -73,41 +70,35 @@ const VolunteerSteps = () => {
         </>
       ),
       image: joinusStepFour,
-      imgPosition: "right",
     },
   ];
 
   return (
     <div className="container mx-auto px-4 py-12 h-[2400px] flex flex-col justify-between relative">
-    <div className="absolute left-1/6 top-0 h-full w-2 bg-gray-300"></div>
-    {steps.map((step, index) => (
+      {steps.map((step, index) => (
         <div
-        key={step.id}
-        className={`flex flex-row ${
-            step.imgPosition === "right" ? "md:flex-row-reverse" : ""
-        } items-center gap-16 my-10`}
+          key={step.id}
+          className="flex flex-row items-center gap-16 my-10"
         >
-        <div className="flex flex-col items-center w-1/3 relative my-10">
+          <div className="flex flex-col items-center w-1/3 relative my-10">
             <img
-            src={step.image}
-            alt={step.title}
-            className="w-full max-w-sm h-80 rounded-lg shadow-md z-10"
+              src={step.image}
+              alt={step.title}
+              className="w-full max-w-sm h-80 rounded-lg z-10"
             />
-        </div>
+          </div>
 
-        <div className="w-2/3 text-left pl-6">
+          <div className="w-2/3 text-left pl-6">
             <h2 className="text-2xl font-bold mb-4">
-            {step.id}. {step.title}
+              {step.id}. {step.title}
             </h2>
             <div className="text-gray-700 text-base md:text-lg leading-relaxed">
-            {step.description}
+              {step.description}
             </div>
+          </div>
         </div>
-        </div>
-    ))}
+      ))}
     </div>
-
-
   );
 };
 

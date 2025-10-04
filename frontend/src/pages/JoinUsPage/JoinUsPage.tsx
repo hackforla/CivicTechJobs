@@ -6,6 +6,7 @@ import { joinusAllPage } from "assets/images/images";
 
 import TopSvg from "./TopSvg";
 import JoinUsSteps from "./JoinUsSteps";
+import JoinUsFAQ from "./JoinUsFAQ";
 
 
 const JoinUsPage: FC = () => {
@@ -56,9 +57,14 @@ const JoinUsPage: FC = () => {
         <JoinUsSteps/>
 
       </div>
+      <div className="bg-white4 flex-1">
+        <div className="my-4 px-16 py-6 md:px-24 lg:px-32">
+        </div>
+
+        <JoinUsFAQ/>
+
+      </div>
     </div>
   );
 };
 export { JoinUsPage };
-
-
