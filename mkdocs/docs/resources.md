@@ -31,11 +31,11 @@ More resources to be added as project progresses:
 
 ### Team Meeting Agendas
 
-1. [CTJ: Monthly All Hands Team Meeting Agenda](https://github.com/hackforla/CivicTechJobs/issues/16)
-2. [CTJ: Leads Agenda](https://github.com/hackforla/CivicTechJobs/issues/476)
-3. [CTJ: Development Meeting Agenda](https://github.com/hackforla/CivicTechJobs/issues/450)
-4. [CTJ: UXR Meeting Agenda](https://github.com/hackforla/CivicTechJobs/issues/140)
-5. [CTJ: PM/ORG Meeting Agenda and Notes](https://github.com/hackforla/CivicTechJobs/issues/101)
+1. [CTJ: Monthly All Hands Team Meeting Agenda](https://github.com/hackforla/CivicTechJobs/issues/722)
+2. [CTJ: Leads Agenda](https://github.com/hackforla/CivicTechJobs/issues/723)
+3. [CTJ: Development Meeting Agenda](https://github.com/hackforla/CivicTechJobs/issues/725)
+4. [CTJ: UXR Meeting Agenda](https://github.com/hackforla/CivicTechJobs/issues/726)
+5. [CTJ: PM/ORG Meeting Agenda and Notes](https://github.com/hackforla/CivicTechJobs/issues/724)
 
 ### Design Resources
 
