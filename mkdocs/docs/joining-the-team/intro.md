@@ -13,15 +13,9 @@ Welcome to the Civic Tech Jobs team! This guide will help you get up to speed wi
 
 Click the link that applies to you to find a sequence of immediate action steps:
 
-[Web Developer](Web-Developer)
-
 [UI/UX Designer](UI-UX-Designer)
 
 [UI/UX Researcher](UI-UX-Researcher)
-
-[Product Manager/Owner](Product-Manager-and-Owner)
-
-[Other Volunteer](Other-Volunteer)
 
 ---
 
