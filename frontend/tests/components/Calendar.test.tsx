@@ -1,45 +1,40 @@
-// External imports
 import React from "react";
+import { describe, expect, test } from "vitest";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import "@testing-library/jest-dom";
-import "regenerator-runtime/runtime";
-import { config } from "react-transition-group";
 
-// Internal imports
-import { Calendar } from "components/components";
-
-config.disabled = true;
+import { Calendar } from "@/shared/components/Inputs/Calendar";
 
 describe("Calendar", () => {
-  test("Calendar Component", async () => {
+  test("renders the calendar root", () => {
     render(<Calendar onChange={() => {}} />);
     expect(screen.getByTestId("calendar-root")).toBeInTheDocument();
   });
 
-  test("Able to Drag to Select and Unselect Availability", async () => {
+  test("drag selects and unselects availability cells", async () => {
     const { container } = render(<Calendar onChange={() => {}} />);
     const calendarCells = container.querySelectorAll(".calendar-cell");
     const checkbox1 = calendarCells[0].querySelector('[role="checkbox"]');
     const checkbox2 = calendarCells[1].querySelector('[role="checkbox"]');
-    if (checkbox1 && checkbox2) {
-      fireEvent.mouseDown(checkbox1);
-      fireEvent.mouseMove(checkbox1);
-      fireEvent.mouseMove(checkbox2);
-      await waitFor(() => {
-        expect(calendarCells[0]).toHaveClass("selected");
-        expect(calendarCells[1]).toHaveClass("selected");
-      });
-      fireEvent.mouseDown(checkbox2);
-      fireEvent.mouseMove(checkbox2);
-      fireEvent.mouseMove(checkbox1);
-      await waitFor(() => {
-        expect(calendarCells[0]).not.toHaveClass("selected");
-        expect(calendarCells[1]).not.toHaveClass("selected");
-      });
-    }
+    if (!checkbox1 || !checkbox2) return;
+
+    fireEvent.mouseDown(checkbox1);
+    fireEvent.mouseMove(checkbox1);
+    fireEvent.mouseMove(checkbox2);
+    await waitFor(() => {
+      expect(calendarCells[0]).toHaveClass("selected");
+      expect(calendarCells[1]).toHaveClass("selected");
+    });
+
+    fireEvent.mouseDown(checkbox2);
+    fireEvent.mouseMove(checkbox2);
+    fireEvent.mouseMove(checkbox1);
+    await waitFor(() => {
+      expect(calendarCells[0]).not.toHaveClass("selected");
+      expect(calendarCells[1]).not.toHaveClass("selected");
+    });
   });
 
-  test("Calendar Accessibility Labels are Applied", () => {
+  test("applies aria-label per cell", () => {
     render(<Calendar onChange={() => {}} />);
     const cells = screen.getAllByRole("checkbox");
     cells.forEach((cell, index) => {
