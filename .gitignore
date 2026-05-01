@@ -26,3 +26,6 @@ dev/linter.env
 # static build files
 backend/frontend_dist
 backend/staticfiles
+
+# Nick's personal working dir
+scratch/
