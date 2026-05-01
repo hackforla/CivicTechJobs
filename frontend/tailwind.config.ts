@@ -1,20 +1,18 @@
-/** @type {import('tailwindcss').Config} */
+import type { Config } from "tailwindcss";
 
-/*
- * Please refer to CTJ Figma Design System for more details about custom theme values
- **/
-
-module.exports = {
+// Tailwind is preserved from the legacy app for visual parity during the
+// Next.js port. PR2 swaps Tailwind classes for CSS Modules; this config
+// will be removed alongside the Tailwind dependency at that point.
+//
+// Theme values mirror the CTJ Figma design system - see frontend.old/
+// during the port for the original config history.
+const config: Config = {
   darkMode: "class",
   content: [
-    "./src/pages/Demo/DemoTailwind.tsx",
-    "./src/pages/Authentication/*.tsx",
-    "./src/tw-components/*.tsx",
-    "./src/pages/LandingPage/*.tsx",
-    "./src/pages/PrivacyPolicyPage/*",
-    "./src/pages/CreditsPage/*.tsx",
-    "./src/pages/QualifierPage/**/*.tsx",
-  ], // Will change to "./src/**/*.{js,jsx,tsx}", "./templates/index.html"
+    "./src/app/**/*.{ts,tsx}",
+    "./src/features/**/*.{ts,tsx}",
+    "./src/shared/**/*.{ts,tsx}",
+  ],
   theme: {
     screens: {
       xs: "480px",
@@ -25,22 +23,18 @@ module.exports = {
     },
     colors: {
       transparent: "transparent",
-      // Primary Colors
       "blue-dark": "#3450a1",
       "blue-darker": "#323d69",
       "blue-dark-hover": "#445ea9",
       "blue-dark-focused": "#273c79",
-      // Primary on Dark Colors
       blue: "#44aff1",
       "blue-focused": "#3fa1de",
       "blue-link": "#3a4f9c",
-      // Secondary Colors
       tan: "#ffe0b9",
       "tan-light": "#ffefdb",
       "tan-bg": "#fbe8ce",
       green: "#13831e",
       red: "#c93329",
-      // Neutral Colors
       white: "#ffffff",
       "grey-light": "#f2f2f2",
       grey: "#c1c1c1",
@@ -101,8 +95,6 @@ module.exports = {
     },
   },
   plugins: [],
-  // // Temporarily disables preflight for all components
-  // corePlugins: {
-  //   preflight: false,
-  // }
 };
+
+export default config;

@@ -11,8 +11,8 @@ secret_key.txt
 *.pyc
 __pycache__
 db.sqlite3
-data
-media
+/data
+/media
 
 # IDEs
 .vscode/

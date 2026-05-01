@@ -41,26 +41,27 @@ services:
           path: ./backend
           target: /usr/src/app
 
-  vite:
+  next:
     build:
       context: frontend
-      dockerfile: ../dev/vite.Dockerfile
-    container_name: vite
+      dockerfile: ../dev/next.dockerfile
+    container_name: next
     env_file:
       - dev/dev.env
-    environment:
-      - VITE_APP_SERVER_URL=django://django:8000
-      - VITE_APP_CLIENT_URL=vite://vite:5175
     ports:
-      - "5175:5175"
+      - "3000:3000"
+    depends_on:
+      - django
     develop:
       watch:
         - action: sync
           path: ./frontend
           target: /usr/src/app
-    volumes:
-      - ./frontend:/usr/src/app 
-      - /usr/src/app/node_modules
+          ignore:
+            - node_modules/
+            - .next/
+        - action: rebuild
+          path: ./frontend/package.json
 
 volumes:
   postgres_data: {}
