@@ -176,11 +176,34 @@ How a Cognito-authenticated user reaches Django admin (`/admin/`) in Stage 2 is 
 Custom DRF permission classes in [backend/ctj_api/permissions.py](https://github.com/hackforla/CivicTechJobs/blob/main/backend/ctj_api/permissions.py):
 
 - **OpportunityPermission** - public read (no auth required, mirroring `/api/skills/`); only PMs can create; only the creator can update; any PM can delete. Public read because opportunities are a recruitment catalog - friction-to-browse should be zero, and signup belongs at the apply / register-skills step, not at discovery.
-- **UserProfilePermission** - `/api/users/me/` is self-only by construction (the endpoint resolves to the request's authenticated user); the permission class enforces that the user is authenticated.
+- **UserDetailPermission** - `/api/users/<uuid:pk>/` is self-only: a user can fetch their own record but not anyone else's. The class only overrides `has_object_permission`; request-level auth is enforced by stacking `IsAuthenticated` separately on the consuming view.
 
 Skill catalog mutation is gated by Django admin's built-in staff permission, not a separate DRF class - the API only exposes `GET /api/skills/`.
 
-PM status comes from the `is_project_manager` flag on `UserProfile`. Existing admins set the flag through Django admin.
+PM status comes from the `isProjectManager` flag on `CustomUser`. Existing admins set the flag through Django admin.
+
+### Permission class shape
+
+Permission classes override only the layers they need:
+
+- Override `has_permission` if any rule depends only on the request (HTTP method, user properties readable without a database lookup, headers).
+- Override `has_object_permission` if any rule depends on the row being checked (creator-only, organization-membership, status-based).
+- Override both if rules span both layers (this is `OpportunityPermission`'s shape).
+- Override neither and use a built-in (`IsAuthenticated`, `IsAuthenticatedOrReadOnly`, `AllowAny`) when the policy reduces to one of those — custom permission classes are reserved for resource-specific logic.
+
+Class naming: `<Resource>Permission` for resource-scoped policy. `Is<Capability>Permission` for cross-resource capabilities (none in the codebase yet, but reserved for the auth rebuild).
+
+Method-body conventions:
+
+- Early-return branches rather than nested `if`s. Each method ends with an explicit `return False` for fall-through.
+- Use `getattr(request.user, "attr", default)` for fields that anonymous users don't have — direct attribute access raises `AttributeError` on `AnonymousUser`.
+- `has_object_permission` should exempt SAFE methods (`if request.method in permissions.SAFE_METHODS: return True`) only when the resource is publicly readable. For self/owner-only resources where reads are also gated, do not exempt SAFE methods — the identity check handles all methods.
+
+`permission_classes` composition (in views):
+
+- Tuple for class-level attributes: `permission_classes = (IsAuthenticatedOrReadOnly, OpportunityPermission)`.
+- List for the `@permission_classes([...])` decorator on FBVs.
+- Order from least-to-most-specific: built-in DRF gates first (auth), resource-specific custom classes after. Reading top-to-bottom reads the gate progression.
 
 ## Django admin as CMS
 
