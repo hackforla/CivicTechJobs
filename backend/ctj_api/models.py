@@ -40,7 +40,7 @@ class CommunityOfPractice(models.Model):
     - `admin-managed` (edit through Django admin).
 
     Visibility:
-    - `public-read` via `/api/communityOfPractice/`.
+    - `public-read` via `/api/communities-of-practice/`.
     """
 
     class PracticeAreas(models.TextChoices):
