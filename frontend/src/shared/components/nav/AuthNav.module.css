@@ -1,0 +1,34 @@
+.header {
+  display: flex;
+  height: 64px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  box-shadow: -1px 1px 2px rgba(51, 51, 51, 0.2);
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.backWrap {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.arrow {
+  width: 20px;
+}
+
+.logo {
+  height: 24px;
+  width: auto;
+}
+
+@media (min-width: 769px) {
+  .logo {
+    height: 32px;
+  }
+}

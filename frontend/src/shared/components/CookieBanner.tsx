@@ -6,6 +6,8 @@ import Cookies from "js-cookie";
 
 import { IconButton } from "./Buttons";
 import IconX from "@/shared/icons/icon-x.svg";
+import { cn } from "@/shared/lib/utils";
+import styles from "./CookieBanner.module.css";
 
 function CookieBanner() {
   // Read the cookie after mount so server-rendered HTML (no cookie
@@ -38,45 +40,32 @@ function CookieBanner() {
     <div
       role="dialog"
       aria-label="cookies banner"
-      className={`${
-        hidden ? "hidden" : ""
-      } fixed bottom-12 left-1/2 z-50 flex w-3/4 -translate-x-1/2 transform flex-col rounded-lg bg-white p-4 shadow-2xl`}
+      className={cn(styles.banner, hidden && styles.bannerHidden)}
     >
-      <div className="max-h-64 min-h-48 justify-between space-y-5 p-6">
-        <div className="flex flex-row items-center justify-between">
-          <p className="text-xl font-bold text-charcoal">
-            This site use cookies!
-          </p>
+      <div className={styles.inner}>
+        <div className={styles.header}>
+          <p className={styles.title}>This site use cookies!</p>
           <IconButton
             Icon={IconX}
             label="close"
             onClick={() => {
               setIsHidden(true);
             }}
-          ></IconButton>{" "}
+          />
         </div>
-        <p className="max-w-[80%]">
+        <p className={styles.body}>
           We use cookies to improve your experience. By clicking "Accept
           Cookies", you are agreeing to the collection of data as described in
           our{" "}
-          <a
-            href="/privacy-policy"
-            className="cursor-pointer text-blue-dark underline hover:text-blue-dark-hover focus:bg-blue-dark-focused"
-          >
+          <a href="/privacy-policy" className={styles.link}>
             Cookie Policy
           </a>
         </p>
-        <div className="flex flex-row items-center space-x-12">
-          <button
-            className="rounded bg-blue-dark px-10 py-1 text-white hover:bg-blue-dark-hover hover:shadow-lg focus:bg-blue-dark-focused"
-            onClick={handleAcceptCookies}
-          >
+        <div className={styles.actions}>
+          <button className={styles.accept} onClick={handleAcceptCookies}>
             Accept
           </button>
-          <button
-            onClick={handleDeclineCookies}
-            className="cursor-pointer text-blue-dark hover:text-blue-dark-hover hover:drop-shadow-lg focus:bg-blue-dark-focused"
-          >
+          <button className={styles.decline} onClick={handleDeclineCookies}>
             No Thanks
           </button>
         </div>

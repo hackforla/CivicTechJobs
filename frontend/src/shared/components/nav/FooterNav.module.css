@@ -1,0 +1,92 @@
+.footer {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  background-color: var(--color-blue-dark);
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+@media (min-width: 1025px) {
+  .footer {
+    flex-direction: row;
+    padding-left: 176px;
+    padding-right: 176px;
+  }
+}
+
+.logoLink {
+  display: block;
+}
+
+.logoHorizontal {
+  display: none;
+  height: 56px;
+  width: auto;
+}
+
+@media (min-width: 577px) {
+  .logoHorizontal {
+    display: block;
+  }
+  .logoStacked {
+    display: none;
+  }
+}
+
+.logoStacked {
+  height: 72px;
+  width: auto;
+}
+
+.nav {
+  display: flex;
+}
+
+@media (max-width: 1024px) {
+  .nav {
+    order: 3;
+    width: 220px;
+  }
+}
+
+.divider {
+  margin: auto;
+  display: block;
+  width: 20px;
+  transform: rotate(90deg);
+  border: 1px solid var(--color-white);
+}
+
+.divider:first-child {
+  display: none;
+}
+
+@media (min-width: 1025px) {
+  .divider {
+    visibility: hidden;
+    width: 40px;
+  }
+  .divider:first-child {
+    visibility: visible;
+    display: block;
+  }
+}
+
+.menuItem {
+  font-size: 16px;
+  font-weight: var(--weight-bold);
+  color: var(--color-white);
+}
+
+.donateWrap {
+  display: flex;
+}
+
+@media (min-width: 1025px) {
+  .donateWrap {
+    margin-left: auto;
+  }
+}

@@ -4,6 +4,7 @@ import React from "react";
 import Typography from "./Typography";
 import IconDropdownDown from "@/shared/icons/icon-dropdown-down.svg";
 import IconDropdownUp from "@/shared/icons/icon-dropdown-up.svg";
+import styles from "./AccordionFaq.module.css";
 
 type FaqItem = {
   id: string;
@@ -20,30 +21,24 @@ const AccordionItem: React.FC<Omit<FaqItem, "id">> = ({ question, answer }) => {
 
   return (
     <div>
-      <div
-        className="flex cursor-pointer items-start justify-between"
-        onClick={toggleAccordion}
-      >
-        <Typography.Title5 className="pr-4 text-charcoal">
+      <div className={styles.header} onClick={toggleAccordion}>
+        <Typography.Title5 className={styles.questionPrefix}>
           {question}
         </Typography.Title5>
 
-        <div className="flex-shrink-0">
+        <div className={styles.iconWrap}>
           {isOpen ? (
-            <IconDropdownUp className="h-4 w-4" />
+            <IconDropdownUp className={styles.icon} />
           ) : (
-            <IconDropdownDown className="h-4 w-4" />
+            <IconDropdownDown className={styles.icon} />
           )}
         </div>
       </div>
 
       {isOpen && (
-        <div className="mr-4 mt-2">
+        <div className={styles.answer}>
           {answer.map((paragraph, index) => (
-            <Typography.Paragraph2
-              key={index}
-              className="mt-6 pr-8 text-charcoal"
-            >
+            <Typography.Paragraph2 key={index} className={styles.paragraph}>
               {paragraph}
             </Typography.Paragraph2>
           ))}
@@ -53,19 +48,15 @@ const AccordionItem: React.FC<Omit<FaqItem, "id">> = ({ question, answer }) => {
   );
 };
 
-// Main FAQ Component:
 type AccordionFaqProps = {
   items: FaqItem[];
 };
 
 const AccordionFaq: React.FC<AccordionFaqProps> = ({ items }) => {
   return (
-    <div className="mx-auto rounded-lg border border-solid border-blue-dark bg-white px-10 py-4 lg:w-[902px]">
+    <div className={styles.container}>
       {items.map((item) => (
-        <div
-          key={item.id}
-          className="border-b-[1.5px] border-grey py-6 last:border-b-0"
-        >
+        <div key={item.id} className={styles.item}>
           <AccordionItem question={item.question} answer={item.answer} />
         </div>
       ))}
