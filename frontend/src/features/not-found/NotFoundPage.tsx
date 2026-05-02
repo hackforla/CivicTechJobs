@@ -7,7 +7,6 @@ import HeaderNav from "@/shared/components/nav/HeaderNav";
 import FooterNav from "@/shared/components/nav/FooterNav";
 import { Button } from "@/shared/components/Buttons";
 import NotFoundPageImg from "@/shared/images/not-found-page.svg";
-import "./_NotFoundPage.scss";
 
 function NotFoundPage() {
   const router = useRouter();
