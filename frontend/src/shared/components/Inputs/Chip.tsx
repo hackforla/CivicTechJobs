@@ -4,7 +4,8 @@ import React, { useEffect, useState } from "react";
 
 import IconCheckMark from "@/shared/icons/icon-checkmark.svg";
 import IconPlus from "@/shared/icons/icon-plus.svg";
-import { combineClasses } from "@/shared/lib/utils";
+import { cn } from "@/shared/lib/utils";
+import styles from "./Chip.module.css";
 
 interface ChipProps {
   addClass?: string;
@@ -34,19 +35,17 @@ function Chip({
 
   function MultiSelectIcon() {
     if (active) {
-      return <IconCheckMark className="pr-1" aria-hidden="true" />;
+      return <IconCheckMark className={styles.iconLeading} aria-hidden="true" />;
     }
-    return <IconPlus className="pr-1" aria-hidden="true" />;
+    return <IconPlus className={styles.iconLeading} aria-hidden="true" />;
   }
 
   return (
     <button
       onClick={handleClick}
-      className={combineClasses(
-        `${variant}-chip`,
-        "px-4",
-        "paragraph-3",
-        active && "active",
+      className={cn(
+        variant === "multi" ? styles.multi : styles.single,
+        active && styles.active,
         addClass,
       )}
       role="checkbox"

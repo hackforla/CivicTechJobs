@@ -1,0 +1,31 @@
+.chip {
+  background-color: var(--color-white);
+  border-radius: 24px;
+  height: 40px;
+  padding: 0 16px;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.multi {
+  composes: chip;
+  border: 1px solid var(--color-blue-dark);
+  color: var(--color-charcoal);
+}
+
+.single {
+  composes: chip;
+  border: 1px solid var(--color-grey);
+  color: var(--color-grey-dark);
+}
+
+.active {
+  background-color: var(--color-blue-dark);
+  color: var(--color-white);
+}
+
+.iconLeading {
+  padding-right: 4px;
+}

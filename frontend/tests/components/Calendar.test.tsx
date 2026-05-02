@@ -11,26 +11,25 @@ describe("Calendar", () => {
   });
 
   test("drag selects and unselects availability cells", async () => {
-    const { container } = render(<Calendar onChange={() => {}} />);
-    const calendarCells = container.querySelectorAll(".calendar-cell");
-    const checkbox1 = calendarCells[0].querySelector('[role="checkbox"]');
-    const checkbox2 = calendarCells[1].querySelector('[role="checkbox"]');
-    if (!checkbox1 || !checkbox2) return;
+    render(<Calendar onChange={() => {}} />);
+    const checkboxes = screen.getAllByRole("checkbox");
+    const checkbox1 = checkboxes[0];
+    const checkbox2 = checkboxes[1];
 
     fireEvent.mouseDown(checkbox1);
     fireEvent.mouseMove(checkbox1);
     fireEvent.mouseMove(checkbox2);
     await waitFor(() => {
-      expect(calendarCells[0]).toHaveClass("selected");
-      expect(calendarCells[1]).toHaveClass("selected");
+      expect(checkbox1).toHaveAttribute("aria-checked", "true");
+      expect(checkbox2).toHaveAttribute("aria-checked", "true");
     });
 
     fireEvent.mouseDown(checkbox2);
     fireEvent.mouseMove(checkbox2);
     fireEvent.mouseMove(checkbox1);
     await waitFor(() => {
-      expect(calendarCells[0]).not.toHaveClass("selected");
-      expect(calendarCells[1]).not.toHaveClass("selected");
+      expect(checkbox1).toHaveAttribute("aria-checked", "false");
+      expect(checkbox2).toHaveAttribute("aria-checked", "false");
     });
   });
 

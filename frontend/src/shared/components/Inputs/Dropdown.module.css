@@ -1,0 +1,44 @@
+.dropdown {
+  composes: inputBase from "./ProtoInput.module.css";
+  border-radius: 8px 0 0 8px;
+  border-right: none;
+  appearance: none;
+  flex: 1;
+  white-space: nowrap;
+  z-index: var(--z-base);
+}
+
+.dropdownBox {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-grey);
+  border-radius: 8px;
+  height: 336px;
+  list-style-type: none;
+  overflow-y: scroll;
+  z-index: var(--z-dropdown);
+  padding: 0;
+  margin: 0;
+}
+
+.dropdownBoxHidden {
+  display: none;
+}
+
+.dropdownRow {
+  background-color: var(--color-white);
+  min-height: 44px;
+  padding: 0 8px;
+  cursor: pointer;
+}
+
+.dropdownRow > div {
+  padding: 13px 0;
+}
+
+.dropdownRow:not(:first-child) > div {
+  border-top: 1px solid var(--color-grey);
+}
+
+.dropdownRow:hover {
+  background-color: rgba(52, 80, 161, 0.15);
+}

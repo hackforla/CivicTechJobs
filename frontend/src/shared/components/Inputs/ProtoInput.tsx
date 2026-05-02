@@ -1,6 +1,7 @@
 import React from "react";
 
-import { combineClasses } from "@/shared/lib/utils";
+import { cn } from "@/shared/lib/utils";
+import styles from "./ProtoInput.module.css";
 
 interface ProtoInputProps extends React.PropsWithChildren {
   addClass?: string;
@@ -17,23 +18,25 @@ function ProtoInput({
   labelHidden = false,
   ...props
 }: ProtoInputProps) {
+  const iconClass =
+    iconPosition === "left" ? styles.inputIconLeft : styles.inputIconRight;
   return (
-    <div className={combineClasses(props.addClass)} ref={props.passRef}>
+    <div className={cn(props.addClass)} ref={props.passRef}>
       <label
-        className={combineClasses("title-6", "mb-1", labelHidden && "sr-only")}
+        className={cn(styles.label, labelHidden && styles.labelHidden)}
         htmlFor={props.id}
       >
         {props.label}
       </label>
-      <div className="flex-center-y">
+      <div className={styles.row}>
         {iconPosition == "left" && props.icon && (
-          <span className={`input-icon-${iconPosition}`}>
+          <span className={iconClass}>
             <props.icon />
           </span>
         )}
         {props.children}
         {iconPosition == "right" && props.icon && (
-          <span className={`input-icon-${iconPosition}`}>
+          <span className={iconClass}>
             <props.icon />
           </span>
         )}

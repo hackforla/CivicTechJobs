@@ -1,0 +1,62 @@
+.root {
+  width: 100%;
+}
+
+.labelRow {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 4px;
+  font-size: 16px;
+  font-weight: var(--weight-bold);
+}
+
+.labelRow > label {
+  flex: 1;
+}
+
+.forgot {
+  cursor: pointer;
+  font-weight: var(--weight-bold);
+  color: var(--color-blue-dark);
+  text-decoration: underline;
+}
+
+.inputWrapper {
+  position: relative;
+  height: 44px;
+}
+
+.input {
+  height: 44px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--color-grey);
+  padding: 0 8px;
+}
+.input:focus {
+  outline: 1px solid var(--color-blue-dark);
+}
+
+.inputError {
+  border-color: var(--color-red);
+}
+.inputError:focus {
+  outline-color: var(--color-red);
+}
+
+.passwordIcon {
+  position: absolute;
+  inset: 0 0 0 auto;
+  display: flex;
+  align-items: center;
+  padding-right: 8px;
+}
+
+.errorMessage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 32px;
+  font-weight: var(--weight-bold);
+  color: var(--color-red);
+}

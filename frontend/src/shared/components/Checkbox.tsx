@@ -4,8 +4,8 @@ import React, { useId, useRef, useState, useEffect } from "react";
 import IconCheckboxY from "@/shared/icons/icon-checkbox-yes.svg";
 import IconCheckboxN from "@/shared/icons/icon-checkbox-no.svg";
 import { cn } from "@/shared/lib/utils";
+import styles from "./Checkbox.module.css";
 
-// Type declaration for props
 interface CheckboxProps {
   className?: string;
   defaultChecked?: boolean;
@@ -41,7 +41,7 @@ function Checkbox({
   }
 
   return (
-    <div className={cn("relative flex items-center", props.className)}>
+    <div className={cn(styles.root, props.className)}>
       <input
         id={checkboxId}
         type="checkbox"
@@ -49,21 +49,20 @@ function Checkbox({
         disabled={disabled}
         ref={checkboxRef}
         onChange={handleChange}
-        className="peer sr-only"
+        className={styles.input}
         suppressHydrationWarning
       />
 
-      {/* Circle Effect */}
-      <span className="absolute h-10 w-10 rounded-full opacity-0 peer-focus:bg-blue-dark peer-focus:opacity-[.16] peer-active:bg-blue-dark peer-active:opacity-[.32]"></span>
+      <span className={styles.circleEffect}></span>
 
-      {/* Label & Checkbox Icon */}
       <label
         htmlFor={checkboxId}
-        className={`relative flex select-none items-center ${
-          disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"
-        }`}
+        className={cn(
+          styles.label,
+          disabled ? styles.labelDisabled : styles.labelEnabled,
+        )}
       >
-        <span className="relative flex h-10 w-10 items-center justify-center">
+        <span className={styles.iconWrapper}>
           {isChecked ? (
             <IconCheckboxY
               height="24"
@@ -84,7 +83,9 @@ function Checkbox({
             />
           )}
         </span>
-        <span className={labelHidden ? "sr-only" : "ml-1"}>{props.label}</span>
+        <span className={labelHidden ? styles.textHidden : styles.text}>
+          {props.label}
+        </span>
       </label>
     </div>
   );
