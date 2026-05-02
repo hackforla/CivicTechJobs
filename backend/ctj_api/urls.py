@@ -1,3 +1,15 @@
+"""URL routing for the CTJ API; mounted at `/api/` from `backend.urls`.
+
+Five resource routers are auto-registered via DRF's `DefaultRouter`,
+which generates standard list/detail paths for each ViewSet.
+Two explicit `path()` entries (`healthcheck` and `users/<uuid>/`)
+sit alongside, and a catch-all `re_path` at the end returns a JSON
+404 (via `api_not_found`) for anything else under `/api/*`.
+
+Order matters: the catch-all is last; if it moved up, it would
+match before the explicit paths and shadow them.
+"""
+
 from django.urls import include, path, re_path
 from rest_framework.routers import DefaultRouter
 
