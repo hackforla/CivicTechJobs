@@ -3,6 +3,7 @@
 import React from "react";
 
 import Typography from "@/shared/components/Typography";
+import styles from "./RadioButtonForm.module.css";
 
 interface RadioButtonFormProps {
   skills: Array<{
@@ -21,25 +22,25 @@ function RadioButtonForm({
   selectedSkillsLevel,
 }: RadioButtonFormProps) {
   return (
-    <table className="w-full table-fixed border-collapse text-charcoal">
+    <table className={styles.table}>
       <thead>
         <tr>
-          <th className="w-2/3 text-left">
+          <th className={styles.copCell}>
             <Typography.Title4>{selectedCOPTitle}</Typography.Title4>
           </th>
-          <th colSpan={3} className="pb-2 text-left">
+          <th colSpan={3} className={styles.experienceLabel}>
             <Typography.Title5>Experience Level</Typography.Title5>
           </th>
         </tr>
         <tr>
           <th></th>
-          <th className="pb-4 text-left font-normal text-grey-dark">
+          <th className={styles.colHeader}>
             <Typography.Paragraph4>0-2 yrs</Typography.Paragraph4>
           </th>
-          <th className="pb-4 text-left font-normal text-grey-dark">
+          <th className={styles.colHeader}>
             <Typography.Paragraph4>2-4 yrs</Typography.Paragraph4>
           </th>
-          <th className="pb-4 text-left font-normal text-grey-dark">
+          <th className={styles.colHeader}>
             <Typography.Paragraph4>4+ yrs</Typography.Paragraph4>
           </th>
         </tr>
@@ -73,10 +74,10 @@ function SkillRow({
   selectedLevel,
 }: SkillRowProps) {
   return (
-    <tr className="border-b-2 border-grey last:border-0">
-      <td className="pb-7 pt-6">
+    <tr className={styles.row}>
+      <td className={styles.skillCell}>
         <Typography.Title5>{skillName}</Typography.Title5>
-        <Typography.Paragraph3 className="text-grey-dark">
+        <Typography.Paragraph3 className={styles.skillDescription}>
           {description}
         </Typography.Paragraph3>
       </td>
@@ -123,7 +124,7 @@ function RadioButton({ value, name, checked, onChange }: RadioButtonProps) {
       value={value}
       checked={checked}
       onChange={onChange}
-      className="size-8 border-2 border-grey-dark checked:bg-blue-dark"
+      className={styles.radio}
       suppressHydrationWarning
     />
   );

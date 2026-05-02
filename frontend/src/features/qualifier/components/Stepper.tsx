@@ -5,87 +5,75 @@ import { useParams } from "next/navigation";
 
 import Typography from "@/shared/components/Typography";
 import IconCheckMark from "@/shared/icons/icon-checkmark.svg";
+import { cn } from "@/shared/lib/utils";
+import styles from "./Stepper.module.css";
 
 function Stepper() {
   return (
-    <div className="mt-4 flex w-full">
-      <Step step="1">Practice Area</Step>
+    <div className={styles.row}>
+      <Step step="1" position="first">
+        Practice Area
+      </Step>
       <Step step="2">Individual Skill Evaluation</Step>
-      <Step step="3">Availability</Step>
+      <Step step="3" position="last">
+        Availability
+      </Step>
     </div>
   );
 }
 
 interface StepProps extends React.PropsWithChildren {
   step: "1" | "2" | "3";
+  position?: "first" | "last";
 }
 
-function Step({ children, step }: StepProps) {
+type Status = "complete" | "active" | "pending";
+
+function Step({ children, step, position }: StepProps) {
   const params = useParams<{ page?: string }>();
   const page = params.page ?? "1";
 
-  const stepStatus =
+  const stepStatus: Status =
     step < page ? "complete" : page === step ? "active" : "pending";
 
   return (
-    <div className="group flex w-full flex-col items-center">
+    <div className={styles.step}>
       <Typography.Title6
-        className={
-          stepStatus === "pending" ? "text-grey-dark" : "text-blue-dark"
-        }
+        className={stepStatus === "pending" ? styles.labelPending : styles.label}
       >
         {children}
       </Typography.Title6>
-      <div className="mt-1 flex min-w-full items-center justify-center">
-        {renderSwitch(stepStatus)}
+      <div className={styles.connector}>
+        {renderSwitch(stepStatus, position)}
       </div>
     </div>
   );
 }
 
-type Status = "complete" | "active" | "pending";
+function renderSwitch(stepStatus: Status, position?: "first" | "last") {
+  const leftLine = stepStatus === "pending" ? styles.linePending : styles.line;
+  const rightLine =
+    stepStatus === "complete" ? styles.line : styles.linePending;
 
-function renderSwitch(stepStatus: Status) {
-  switch (stepStatus) {
-    case "complete":
-      return <CompleteStep />;
-    case "active":
-      return <ActiveStep />;
-    case "pending":
-      return <PendingStep />;
-    default:
-      return null;
-  }
-}
-
-function CompleteStep() {
   return (
     <>
-      <div className="w-1/2 border-y-2 border-blue-dark group-first:border-0" />
-      <div className="flex size-p3 items-center justify-center rounded-full border-2 border-dashed bg-blue-dark">
-        <IconCheckMark />
+      <div
+        className={cn(leftLine, position === "first" && styles.lineHidden)}
+      />
+      <div
+        className={
+          stepStatus === "complete"
+            ? styles.dotComplete
+            : stepStatus === "active"
+              ? styles.dotActive
+              : styles.dotPending
+        }
+      >
+        {stepStatus === "complete" && <IconCheckMark />}
       </div>
-      <div className="w-1/2 border-y-2 border-blue-dark group-last:border-0" />
-    </>
-  );
-}
-
-function ActiveStep() {
-  return (
-    <>
-      <div className="w-1/2 border-y-2 border-blue-dark group-first:border-0" />
-      <div className="size-p3 rounded-full border-2 border-dashed" />
-      <div className="w-1/2 border-y-2 border-grey group-last:border-0" />
-    </>
-  );
-}
-
-function PendingStep() {
-  return (
-    <>
-      <div className="w-1/2 border-y-2 border-grey group-first:border-0" />
-      <div className="size-p3 rounded-full bg-grey" />
-      <div className="w-1/2 border-y-2 border-grey group-last:border-0" />
+      <div
+        className={cn(rightLine, position === "last" && styles.lineHidden)}
+      />
     </>
   );
 }

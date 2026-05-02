@@ -2,6 +2,7 @@ import React from "react";
 
 import Typography from "@/shared/components/Typography";
 import { Chip } from "@/shared/components/Inputs/Chip";
+import styles from "./ChipsSelection.module.css";
 
 const tools: string[] = [
   "Figma",
@@ -24,11 +25,11 @@ const tools: string[] = [
 
 function ChipsSelection() {
   return (
-    <div className="mt-10">
-      <Typography.Title4 className="text-charcoal">
+    <div className={styles.section}>
+      <Typography.Title4 className={styles.title}>
         Technical Skills and Tools
       </Typography.Title4>
-      <div className="mt-10 flex flex-wrap justify-center gap-4 px-8">
+      <div className={styles.chips}>
         {tools.map((tool) => {
           return <Chip key={tool} value={tool} variant="multi" />;
         })}

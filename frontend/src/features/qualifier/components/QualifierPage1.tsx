@@ -2,7 +2,6 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
-import clsx from "clsx";
 
 import { type copDatum } from "@/shared/data/copData";
 import Typography from "@/shared/components/Typography";
@@ -10,6 +9,8 @@ import { Button } from "@/shared/components/Buttons";
 import IconCheckMark from "@/shared/icons/icon-checkmark.svg";
 import { QualifierNav } from "./QualifierNav";
 import { useQualifiersContext } from "../QualifiersContext";
+import { cn } from "@/shared/lib/utils";
+import styles from "./QualifierPage1.module.css";
 
 function QualifierPage1() {
   const router = useRouter();
@@ -24,42 +25,37 @@ function QualifierPage1() {
   };
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-between px-5 pb-10">
-      <Typography.Title2 className="mt-8 text-charcoal">
+    <div className={styles.page}>
+      <Typography.Title2 className={styles.title}>
         What type of Practice Area are you looking for?
       </Typography.Title2>
-      <Typography.Paragraph3 className="my-5 text-grey-dark">
+      <Typography.Paragraph3 className={styles.subtitle}>
         Select one practice area
       </Typography.Paragraph3>
-      <div className="w-4/5">
-        <div className="grid w-full grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      <div className={styles.content}>
+        <div className={styles.grid}>
           {copData.map((cop) => {
             const isSelected = qualifiers.selectedCOP === cop.title;
             return (
               <div
                 key={cop.id}
-                className={clsx(
-                  "flex min-w-60 flex-col rounded-lg border px-5 py-6 shadow-[0_5px_15px_#00000026] hover:cursor-pointer hover:border-blue-dark",
-                  isSelected
-                    ? "border-blue-dark bg-[#EDF2FF]"
-                    : "border-transparent",
-                )}
+                className={cn(styles.card, isSelected && styles.cardSelected)}
                 onClick={(e) => handleSelectCOP(e, cop)}
                 role="button"
                 tabIndex={0}
               >
                 <div
-                  className={clsx(
-                    "ml-auto flex size-12 items-center justify-center rounded-full text-blue-dark",
-                    isSelected ? "bg-white" : "bg-[#EFF3FF]",
+                  className={cn(
+                    styles.iconBubble,
+                    isSelected && styles.iconBubbleSelected,
                   )}
                 >
                   <cop.icon strokeWidth="0.2" height="25" aria-hidden="true" />
                 </div>
-                <Typography.Title3 className="mt-10 text-charcoal">
+                <Typography.Title3 className={styles.cardTitle}>
                   {cop.title}
                 </Typography.Title3>
-                <Typography.Paragraph5 className="mt-2 text-grey-dark">
+                <Typography.Paragraph5 className={styles.cardSubtitle}>
                   {cop.subtitle}
                 </Typography.Paragraph5>
               </div>
@@ -67,15 +63,13 @@ function QualifierPage1() {
           })}
         </div>
         <QualifierNav
-          className={`mt-20 justify-between ${
-            !qualifiers.selectedCOP && "hidden"
-          }`}
+          className={cn(styles.nav, !qualifiers.selectedCOP && styles.navHidden)}
         >
-          <div className="ml-4 flex items-center">
-            <div className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-dark">
+          <div className={styles.statusRow}>
+            <div className={styles.statusBadge}>
               <IconCheckMark height="12" width="12" aria-hidden="true" />
             </div>
-            <Typography.Paragraph3 className="ml-2 font-bold text-charcoal">
+            <Typography.Paragraph3 className={styles.statusText}>
               Practice Area: Complete
             </Typography.Paragraph3>
           </div>

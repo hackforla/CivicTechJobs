@@ -9,6 +9,7 @@ import { QualifierNav } from "./QualifierNav";
 import { RadioButtonForm } from "./RadioButtonForm";
 import { ProgressIndicator } from "./ProgressIndicator";
 import { useQualifiersContext } from "../QualifiersContext";
+import styles from "./QualifierPage2.module.css";
 
 function QualifierPage2() {
   const router = useRouter();
@@ -54,11 +55,11 @@ function QualifierPage2() {
 
   return (
     <>
-      <div className="flex w-full flex-col items-center px-5 pb-10">
-        <Typography.Title2 className="mt-8 text-charcoal">
+      <div className={styles.page}>
+        <Typography.Title2 className={styles.title}>
           Skill Evaluation
         </Typography.Title2>
-        <Typography.Paragraph3 className="my-5 text-grey-dark">
+        <Typography.Paragraph3 className={styles.subtitle}>
           Evaluate each skill based on your experience
         </Typography.Paragraph3>
         <RadioButtonForm
@@ -73,15 +74,15 @@ function QualifierPage2() {
           selectedSkillsLevel={qualifiers.skills_matrix || {}}
         />
       </div>
-      <div className="w-4/5">
-        <QualifierNav className="items-center justify-between">
+      <div className={styles.navWrap}>
+        <QualifierNav>
           <ProgressIndicator
             currentPart={1}
             totalParts={5}
             title="INSERT TITLE"
             progressPercentage={progressPercentage}
           />
-          <div className="flex gap-4">
+          <div className={styles.actions}>
             <Button
               size="medium-long"
               variant="primary-dark"

@@ -11,28 +11,29 @@ import IconArrowLeft from "@/shared/icons/icon-arrow-left.svg";
 
 import { QualifierNav } from "./QualifierNav";
 import { timezones } from "../data/timezoneData";
+import styles from "./QualifierPageCalendar.module.css";
 
 function QualifierPageCalendar() {
   const router = useRouter();
 
   return (
-    <div className="flex w-full flex-col items-center px-5">
-      <Typography.Title2 className="mt-8 text-charcoal">
+    <div className={styles.page}>
+      <Typography.Title2 className={styles.title}>
         What is your weekly availability?
       </Typography.Title2>
-      <Typography.Paragraph3 className="my-5 text-grey-dark">
+      <Typography.Paragraph3 className={styles.legend}>
         Drag to select.&nbsp;&nbsp;
-        <span className="inline-block size-6 rounded-sm bg-green leading-8"></span>
+        <span className={styles.legendSwatch}></span>
         &nbsp;=&nbsp;available
       </Typography.Paragraph3>
       <TimeZoneDropDown />
       <Calendar
-        addClass="mt-5"
+        addClass={styles.calendar}
         onChange={(e) => {
           console.log(e);
         }}
       />
-      <QualifierNav className="justify-between">
+      <QualifierNav>
         <IconButton
           label="previous page"
           Icon={IconArrowLeft}
@@ -60,9 +61,9 @@ function TimeZoneDropDown() {
   }, []);
 
   return (
-    <div className="flex w-full flex-wrap justify-end">
+    <div className={styles.tzWrap}>
       <Dropdown
-        addClass="col-3 ovflow-hidden"
+        addClass={styles.tzDropdown}
         ariaLabel="timezone-dropdown"
         label="Your timezone:"
         labelHidden={false}
