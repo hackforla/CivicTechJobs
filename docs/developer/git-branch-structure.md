@@ -38,7 +38,21 @@ Archive of the project's first iteration, before the backend was rewritten in 20
 
 ## Naming
 
-Use a short, kebab-case description (3-5 words is plenty). Prefixes like `feature/` or `fix/` are optional, not required. Long branch names get truncated in the UI; aim for descriptive but compact.
+Branch names use a `<type>/<short-description>` shape; the description is kebab-case. The type is required; pick the one that best fits the work:
+
+| Prefix | When |
+|--------|------|
+| `feat/` | New feature, new endpoint, new component |
+| `fix/` | Bug fix |
+| `chore/` | Dependency bumps, tooling, CI, build, formatting |
+| `docs/` | Documentation only |
+| `refactor/` | Restructuring without behavior change |
+
+Aim for descriptive but compact (3-5 words in the description). Long branch names get truncated in the UI.
+
+Examples: `feat/auth-stage1`, `fix/dropdown-keyboard-nav`, `chore/bump-django`, `docs/api-reference`, `refactor/extract-skill-matrix`.
+
+The convention applies to new branches. Branches that predate the convention are grandfathered; renaming live PRs to fit the new shape is more churn than it's worth.
 
 ## Why the three-branch model
 

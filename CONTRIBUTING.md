@@ -49,6 +49,24 @@ Most work falls into two broad categories. Under the Next.js + Django stack, the
 - **Frontend**: work in `frontend/` (Next.js app, components, server actions). Usually paired with a Figma reference; visual or interaction-heavy.
 - **Backend**: work in `backend/` (Django models, API endpoints, permissions, matching). Usually involves data flow, schema, or auth concerns and benefits from upfront discussion in the issue.
 
+## Commit messages
+
+Each commit title follows a `<type>: <description>` shape, with the same five types as [branch prefixes](docs/developer/git-branch-structure.md#naming):
+
+- `feat:` for new features
+- `fix:` for bug fixes
+- `chore:` for dependency bumps, tooling, CI, build, formatting
+- `docs:` for documentation-only changes
+- `refactor:` for restructuring without behavior change
+
+Optional scope after the type when it adds clarity: `feat(auth): wire login form to backend`.
+
+The description is in imperative mood ("Convert", "Bump", "Add"), sentence case, no trailing period.
+
+The body (prose after a blank line below the title) keeps the existing convention: explain *why* the change was made, not *what* (the diff already shows the what). For substantial commits, a body that walks the reader through the reasoning is welcome.
+
+The convention applies to new commits. Existing history is not rewritten.
+
 ## Code review
 
 PRs are reviewed against three criteria:
