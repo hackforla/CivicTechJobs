@@ -2,7 +2,7 @@ name: civic-tech-jobs
 
 services:
   pgdb:
-    image: postgres:16
+    image: postgres:18
     container_name: pgdb
     # user should be the same as your POSTGRES_USER .env variable
     user: postgres
