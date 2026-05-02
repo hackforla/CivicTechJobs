@@ -205,3 +205,10 @@ def immutable_file_test(path, url):
 
 
 WHITENOISE_IMMUTABLE_FILE_TEST = immutable_file_test
+
+# DRF: register the custom exception handler so all DRF-raised errors
+# render through the CTJ error envelope shape (see ctj_api.exceptions
+# and docs/developer/backend.md's 'Error envelope' section).
+REST_FRAMEWORK = {
+    "EXCEPTION_HANDLER": "ctj_api.exceptions.civic_exception_handler",
+}
