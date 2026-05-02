@@ -2,7 +2,8 @@
 
 import React, { useEffect, useRef, useState } from "react";
 
-import { combineClasses } from "@/shared/lib/utils";
+import { cn } from "@/shared/lib/utils";
+import styles from "./ScrollCarousel.module.css";
 
 interface ScrollCarouselProps extends React.PropsWithChildren {
   addClass?: string;
@@ -110,11 +111,7 @@ function ScrollCarousel({
 
   return (
     <div
-      className={combineClasses(
-        "scroll-carousel",
-        addClass,
-        hidden ? "hidden" : "",
-      )}
+      className={cn(styles.carousel, addClass, hidden && styles.hidden)}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}

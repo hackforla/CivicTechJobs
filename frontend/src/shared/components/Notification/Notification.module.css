@@ -1,0 +1,24 @@
+.bar {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-tan);
+  position: relative;
+  height: 55px;
+}
+
+.barHidden {
+  display: none;
+}
+
+.message {
+  font-size: 16px;
+  text-align: center;
+}
+
+.closeButton {
+  right: 16px;
+  position: absolute;
+  top: 8px;
+}

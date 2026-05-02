@@ -3,7 +3,8 @@
 import React, { useEffect, useState } from "react";
 
 import { Button } from "@/shared/components/Buttons";
-import { combineClasses } from "@/shared/lib/utils";
+import { cn } from "@/shared/lib/utils";
+import styles from "./ClickCarousel.module.css";
 
 interface ClickCarouselProps {
   addClass?: string;
@@ -37,11 +38,7 @@ function ClickCarousel({
 
   return (
     <div
-      className={combineClasses(
-        "click-carousel",
-        addClass,
-        hidden ? "hidden" : "",
-      )}
+      className={cn(styles.carousel, addClass, hidden && styles.hidden)}
     >
       <Button size="icon-only" onClick={() => handleClick(false)}>
         &#8592;
