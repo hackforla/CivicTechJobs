@@ -95,16 +95,35 @@ See [`backend/ctj_api/views.py`](https://github.com/hackforla/CivicTechJobs/blob
 
 Serializers are translation lenses between the model and JSON. The interesting policy lives on the model; the serializer just needs to say what shape it exposes and where it's consumed from.
 
+Per the serializer-shape rule (see [`backend.md`](backend.md)'s `Serializer shape` section), each resource has a separate `XxxReadSerializer` and `XxxWriteSerializer` when both shapes are needed. The docstring template is the same for both; only the naming and the `Used by:` consumers differ.
+
 ```python
-class FooSerializer(serializers.ModelSerializer):
-    """<purpose one-liner: what this serializer exposes>.
+class FooReadSerializer(serializers.ModelSerializer):
+    """<purpose one-liner: what this serializer exposes on read>.
 
     [Optional: prose paragraph for non-obvious behavior, e.g. fields
-    that are read-only-via-source, anti-enumeration rules, validation
-    location.]
+    that are stringified-on-read via `source=...`, fields that
+    surface FKs as embedded shapes vs. UUIDs, anti-enumeration
+    rules.]
 
     Used by:
     - `ConsumingView` (`<route>`).
+    """
+
+
+class FooWriteSerializer(serializers.ModelSerializer):
+    """<purpose one-liner: what this serializer accepts on write>.
+
+    [Optional: prose paragraph for non-obvious behavior. Worth
+    calling out which fields are *absent* from `Meta.fields` and
+    why - auto-managed fields (id, created_at, updated_at) and
+    request-stamped fields (e.g. created_by set from request.user
+    by the view) are absent rather than flagged read_only;
+    "absent" is the contract.]
+
+    Used by:
+    - `ConsumingView.create` (`POST <route>`).
+    - `ConsumingView.update` (`PUT <route>/<pk>/`).
     """
 ```
 
