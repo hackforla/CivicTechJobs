@@ -1,3 +1,20 @@
+/**
+ * Drag-selection state machinery for the Calendar component.
+ *
+ * The calendar's selection is encoded as a flat string of `0` and
+ * `1` characters (one per cell, row-major). `dissect` and
+ * `connect` convert between that flat string and a 2D array for
+ * easier indexed access; `useDragState` tracks whether the mouse
+ * is currently pressed AND whether the drag is selecting or
+ * unselecting (decided by the first cell hit). `useDragToSelectUnselect`
+ * is the per-cell hook that flips the appropriate bit when the
+ * mouse drags over.
+ *
+ * The string-encoded format is what gets passed back to the
+ * caller via `Calendar.onChange`. The format is owned here; if
+ * the encoding changes, both ends need to update.
+ */
+
 import { useState } from "react";
 
 import type { cell } from "./Calendar";

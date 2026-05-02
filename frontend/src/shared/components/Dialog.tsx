@@ -1,3 +1,21 @@
+/**
+ * Modal dialog primitive with backdrop and scroll-lock behavior.
+ *
+ * Rendered as `<div role="dialog">` inside a backdrop wrapper; the
+ * caller controls visibility via the `open` prop and provides an
+ * `onClose` handler that fires when the backdrop is clicked.
+ *
+ * On open, the component locks the document body's scroll and
+ * pads `body` to compensate for the scrollbar's width so that
+ * page content doesn't shift horizontally as the scrollbar
+ * appears / disappears. On close, both styles are reset.
+ *
+ * Note: this isn't a fully accessible dialog (no focus trap, no
+ * `Escape` close, no return-focus on close). For strict-WCAG
+ * usage, consider migrating to a library primitive like Radix's
+ * Dialog or Headless UI's Dialog.
+ */
+
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";

@@ -1,3 +1,13 @@
+/**
+ * Circular card primitive used for icon tiles and identity badges.
+ *
+ * Two sizes (`sm`, `lg`). Becomes interactive when an `onClick` is
+ * provided - adds a hover state, becomes Enter-key activatable,
+ * and the consumer should set `role="button"` to expose it to
+ * assistive tech. Used in the qualifier flow for the CoP-icon
+ * grid; non-interactive uses are landing-page decoration.
+ */
+
 "use client";
 
 import React from "react";

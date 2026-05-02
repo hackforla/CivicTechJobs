@@ -1,3 +1,23 @@
+/**
+ * Typography scale for the design system.
+ *
+ * Exposes a `Typography` object with named entries (`Title1`,
+ * `Paragraph2`, `Hyperlink`, etc.) that each render the
+ * appropriate semantic element (`<h1>`...`<h6>`, `<p>`, `<a>`)
+ * with the matched type-scale class. Pairs with the CSS Module
+ * stylesheet for size, weight, and line-height definitions.
+ *
+ * Use these instead of raw heading / paragraph tags so spacing and
+ * type scale stay consistent across pages. Semantic level
+ * (`h1`/`h2`/...) and visual size are decoupled - pick the
+ * `Title*` that matches the visual hierarchy you want, regardless
+ * of which heading level the document outline needs.
+ *
+ * Note: `Title7` renders as `<h6>` (because HTML stops at `h6`).
+ * For heading levels beyond six, the visual scale extends but the
+ * semantic level stays clamped.
+ */
+
 import React from "react";
 
 import { cn } from "@/shared/lib/utils";

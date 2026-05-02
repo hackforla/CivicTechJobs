@@ -1,3 +1,20 @@
+/**
+ * Weekly availability calendar with drag-to-select cells.
+ *
+ * Renders a 7-column (days of week) by 24-row (hours of day) grid
+ * of toggleable cells. Users select availability by clicking or
+ * dragging across cells; selection state is encoded as a string
+ * passed back via `onChange` (the format is owned by
+ * `dragToSelectUnselect.ts`).
+ *
+ * Used in the qualifier flow for "when are you available" entry.
+ *
+ * Note: drag-to-select is mouse-only; keyboard users can toggle
+ * individual cells via Enter but cannot drag a region. For
+ * strict-a11y usage this primitive needs additional keyboard
+ * support; flagging as a follow-up.
+ */
+
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -8,7 +25,6 @@ import styles from "./Calendar.module.css";
 import { daysOfWeek, hoursOfDay } from "./calendar_data";
 import { useDragToSelectUnselect, useDragState } from "./dragToSelectUnselect";
 
-// Type declaration for props
 interface CalendarProps extends React.PropsWithChildren {
   addClass?: string;
   onChange: (data: string) => void;

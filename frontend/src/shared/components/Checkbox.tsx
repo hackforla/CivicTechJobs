@@ -1,3 +1,18 @@
+/**
+ * Custom checkbox component with SVG-rendered check states.
+ *
+ * Hides the native `<input type="checkbox">` visually (via CSS)
+ * but keeps it in the DOM and focusable for keyboard /
+ * screen-reader users; the visible "check" is rendered through
+ * SVG icons that swap based on the controlled `isChecked` state.
+ *
+ * `labelHidden` keeps the label text in the DOM (still read by
+ * screen readers) but visually hides it via CSS - useful for
+ * icon-paired labels in dense layouts. The legacy CSS-only hide
+ * isn't reliably testable in jsdom; the test in
+ * `Checkbox.test.tsx > labelHidden` is skipped for that reason.
+ */
+
 "use client";
 
 import React, { useId, useRef, useState, useEffect } from "react";

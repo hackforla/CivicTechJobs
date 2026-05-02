@@ -1,3 +1,19 @@
+/**
+ * Button primitives for the design system.
+ *
+ * `Button` is the standard text button (default and primary-dark
+ * variants, six sizes mapped to typography scale). It can render
+ * as a native `<button>` or as an external link `<a>` depending on
+ * whether `href` is provided. Internal navigation should use
+ * Next.js `<Link>` directly, not this component.
+ *
+ * `IconButton` is a square icon-only button rendered as a
+ * keyboard-accessible `<div role="button">`. The `<div>` shape
+ * (rather than a native button) is a holdover from the legacy
+ * design; it's preserved for visual parity but accepts focus and
+ * Enter-key activation.
+ */
+
 "use client";
 
 import React from "react";

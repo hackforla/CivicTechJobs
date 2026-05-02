@@ -1,3 +1,19 @@
+/**
+ * Custom dropdown / select component with floating-ui positioning.
+ *
+ * Built on `ProtoInput` for the label + shell, and `@floating-ui`
+ * for the popover positioning + outside-click dismissal. Does NOT
+ * use a native `<select>` because the qualifier flow needs custom
+ * styling and option rendering that native select can't deliver.
+ *
+ * The trade-off: keyboard accessibility is custom-rolled (Enter
+ * to toggle open, Tab to dismiss). For a strict-WCAG dropdown,
+ * consider migrating to Radix's Select or Headless UI's Listbox.
+ *
+ * Used in the qualifier flow for CoP / role / availability
+ * selectors.
+ */
+
 "use client";
 
 import {

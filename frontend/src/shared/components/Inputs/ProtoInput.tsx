@@ -1,3 +1,17 @@
+/**
+ * Base "input shell" primitive composed by other Inputs.
+ *
+ * Renders the `<label>` + `<div.row>` shape that other input
+ * components share - the actual input element is passed as
+ * `children` so each consumer (Dropdown, future inputs) provides
+ * its own interactive control. Optional left or right icon slot.
+ *
+ * This component is consumed via `composes:` in the Dropdown CSS
+ * Module rather than via JSX nesting; that's why it exposes
+ * `passRef` (a callback ref) and a flat prop surface rather than
+ * the children-based composition pattern used elsewhere.
+ */
+
 import React from "react";
 
 import { cn } from "@/shared/lib/utils";

@@ -1,3 +1,27 @@
+/**
+ * Generic text input field tied to react-hook-form.
+ *
+ * Generic over the form's value shape (`TFormValues`) so the
+ * field name (`id` prop) is type-checked against the actual form
+ * schema at call site. The legacy version pinned this to a fixed
+ * `{ password: string }` type which broke for any non-password
+ * field.
+ *
+ * Renders a label, an `<input>` registered with RHF, an optional
+ * "eye" icon for password fields, and an inline error message.
+ * For controlled non-form inputs, use `<input>` directly or build
+ * a non-RHF wrapper - this component assumes RHF integration.
+ *
+ * Hydration note: password-manager extensions (Bitwarden, Roboform,
+ * etc.) both mutate input attributes and inject sibling icon
+ * elements between SSR HTML landing and React hydrating. React 19's
+ * hydration check treats the resulting tree-shape change as a
+ * mismatch even with `suppressHydrationWarning`. Gating the input
+ * on a post-mount flag means SSR renders the wrapper without the
+ * input, so there is nothing for the extension to mutate before
+ * hydration completes.
+ */
+
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -24,10 +48,6 @@ interface TextFieldProps<TFormValues extends FieldValues> {
   errors?: FieldError;
 }
 
-// Generic over the form's value shape so the field name (`id`) is checked
-// against the actual form schema. The legacy version pinned this to a
-// fixed `{ password: string }` type which broke for any non-password
-// field.
 export default function TextField<TFormValues extends FieldValues>({
   label,
   id,
@@ -36,14 +56,7 @@ export default function TextField<TFormValues extends FieldValues>({
   validations,
   errors,
 }: TextFieldProps<TFormValues>) {
-  // Password-manager extensions (Bitwarden, Roboform, the "shark" family)
-  // both mutate input attributes AND inject sibling icon elements
-  // between the SSR HTML landing and React hydrating. React 19's
-  // hydration check treats the resulting tree-shape change as a
-  // mismatch even with suppressHydrationWarning. Gating the input on
-  // a post-mount flag means SSR renders the wrapper without the
-  // input, so there is nothing for the extension to mutate before
-  // hydration completes.
+  // See module docstring for the password-manager hydration rationale.
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);

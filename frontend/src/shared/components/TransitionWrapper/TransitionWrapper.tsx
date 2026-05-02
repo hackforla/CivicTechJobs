@@ -1,3 +1,19 @@
+/**
+ * Mount / unmount wrapper used by Notification.
+ *
+ * Replaces the legacy `react-transition-group` usage from the
+ * pre-rewrite app. `react-transition-group` doesn't support
+ * React 19, and the fade timing it carried wasn't load-bearing
+ * for any behavior - just a visual effect. A CSS-only transition
+ * to replace the missing fade is a follow-up; flagging as a bug
+ * to track.
+ *
+ * `autoExit` causes the wrapper to unmount itself 500ms after
+ * mount (used for toast-like notifications that should disappear
+ * on their own). `show=false` always unmounts immediately.
+ * `onExited` fires when the wrapper unmounts via either path.
+ */
+
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -8,11 +24,6 @@ interface TransitionWrapperProps extends React.PropsWithChildren {
   show?: boolean;
 }
 
-// Mount/unmount wrapper that replaces the legacy `react-transition-group`
-// usage. `react-transition-group` does not support React 19, and the
-// fade timing this carries was never load-bearing for behavior - PR2
-// will reintroduce a CSS-only transition once styling moves to CSS
-// Modules.
 function TransitionWrapper({
   autoExit = false,
   onExited,

@@ -1,3 +1,22 @@
+/**
+ * Inline notification bar for status / alert messages.
+ *
+ * Renders a horizontal bar with a message and an optional close
+ * button. `role` controls assistive-tech announcement: `"status"`
+ * (polite) for non-urgent updates, `"alert"` (assertive) for
+ * errors and required attention.
+ *
+ * Three dismiss modes:
+ * - `closable=true`: shows an X button; clicking hides the bar.
+ * - `autoHidden=true`: bar fades out automatically after a delay
+ *   (managed by `TransitionWrapper`).
+ * - `fade=true`: bar fades on the `show` prop transitioning to
+ *   false.
+ *
+ * If both `fade` and `autoHidden` are off, the bar is always
+ * visible (or hidden by `show=false` without animation).
+ */
+
 "use client";
 
 import React, { useEffect, useState } from "react";
