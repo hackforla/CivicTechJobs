@@ -42,6 +42,19 @@ jobs:
         run: poetry run ruff format --check .
 
       - name: mypy
+        # `backend.settings` reads required env vars via python-decouple at
+        # import time. The django-stubs mypy plugin imports settings to walk
+        # the model graph, so it needs values present even though no real
+        # I/O happens. Dummy values are fine; they're never used.
+        env:
+          SECRET_KEY: lint-only-not-real
+          DJANGO_ALLOWED_HOSTS: localhost
+          SQL_ENGINE: django.db.backends.postgresql
+          SQL_DATABASE: lint
+          SQL_USER: lint
+          SQL_PASSWORD: lint
+          SQL_HOST: localhost
+          SQL_PORT: "5432"
         run: poetry run mypy ctj_api backend
 
       - name: bandit

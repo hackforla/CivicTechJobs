@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "lint:css": "stylelint \"src/**/*.{css,module.css}\"",
     "lint:dead": "knip",
-    "lint:types": "tsc --noEmit",
+    "lint:types": "next typegen && tsc --noEmit",
     "format": "prettier --ignore-path .gitignore --write \"src/**/*.{ts,tsx,js,jsx,json,css}\"",
     "format:check": "prettier --ignore-path .gitignore --check \"src/**/*.{ts,tsx,js,jsx,json,css}\"",
     "test": "vitest run",
