@@ -1,0 +1,87 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 64px;
+  transition: all 200ms;
+  cursor: pointer;
+}
+.button:focus {
+  outline: none;
+}
+.button:disabled {
+  cursor: not-allowed;
+}
+
+.sizeSmall {
+  padding-left: 24px;
+  padding-right: 24px;
+  height: 32px;
+}
+.sizeSmallLong {
+  padding-left: 40px;
+  padding-right: 40px;
+  height: 32px;
+}
+.sizeMedium {
+  padding-left: 32px;
+  padding-right: 32px;
+  height: 42px;
+}
+.sizeMediumLong {
+  padding-left: 48px;
+  padding-right: 48px;
+  height: 42px;
+}
+.sizeLarge {
+  padding-left: 40px;
+  padding-right: 40px;
+  height: 51px;
+}
+.sizeLargeLong {
+  padding-left: 56px;
+  padding-right: 56px;
+  height: 51px;
+}
+.sizeIconOnly {
+  padding-left: 24px;
+  padding-right: 24px;
+  height: 42px;
+}
+
+.variantDefault {
+  background-color: var(--color-blue-dark);
+  color: var(--color-white);
+}
+.variantDefault:hover {
+  background-color: var(--color-blue-dark-hover);
+}
+.variantDefault:focus,
+.variantDefault:active {
+  background-color: var(--color-blue-dark-focused);
+}
+.variantDefault:disabled {
+  background-color: var(--color-grey);
+  color: var(--color-white);
+}
+
+.variantPrimaryDark {
+  background-color: var(--color-white);
+  color: var(--color-blue-dark);
+}
+.variantPrimaryDark:hover,
+.variantPrimaryDark:focus,
+.variantPrimaryDark:active {
+  background-color: var(--color-grey-light);
+}
+
+.search {
+  border-radius: 24px;
+}
+
+.iconButton {
+  cursor: pointer;
+}
+.iconButton:focus {
+  outline: none;
+}

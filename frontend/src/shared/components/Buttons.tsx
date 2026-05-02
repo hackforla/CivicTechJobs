@@ -4,15 +4,16 @@ import React from "react";
 import Typography from "./Typography";
 import IconSearch from "@/shared/icons/icon-search.svg";
 import { cn } from "@/shared/lib/utils";
+import styles from "./Buttons.module.css";
 
 const buttonSizes = {
-  small: "px-[24px] h-[32px]",
-  "small-long": "px-[40px] h-[32px]",
-  medium: "px-[32px] h-[42px]",
-  "medium-long": "px-[48px] h-[42px]",
-  large: "px-[40px] h-[51px]",
-  "large-long": "px-[56px] h-[51px]",
-  "icon-only": "px-[24px] h-[42px]",
+  small: styles.sizeSmall,
+  "small-long": styles.sizeSmallLong,
+  medium: styles.sizeMedium,
+  "medium-long": styles.sizeMediumLong,
+  large: styles.sizeLarge,
+  "large-long": styles.sizeLargeLong,
+  "icon-only": styles.sizeIconOnly,
 };
 
 type ButtonSize = keyof typeof buttonSizes;
@@ -29,29 +30,8 @@ type BaseButtonProps = {
 };
 
 const variantStyles: Record<ButtonVariant, string> = {
-  default: `
-    bg-blue-dark
-    text-white
-    hover:bg-blue-dark-hover
-    focus:bg-blue-dark-focused
-    active:bg-blue-dark-focused
-    disabled:bg-grey
-    disabled:text-white
-    dark:bg-white
-    dark:text-blue-dark
-    dark:hover:bg-grey-light
-    dark:focus:bg-[#D9DBDF]
-    dark:active:bg-[#D9DBDF]
-    dark:disabled:bg-grey
-    dark:disabled:text-grey-light
-  `,
-  "primary-dark": `
-    bg-white
-    text-blue-dark
-    hover:bg-grey-light
-    focus:bg-grey-light
-    active:bg-grey-light
-  `,
+  default: styles.variantDefault,
+  "primary-dark": styles.variantPrimaryDark,
 };
 
 const BaseButton: React.FC<BaseButtonProps> = ({
@@ -64,7 +44,7 @@ const BaseButton: React.FC<BaseButtonProps> = ({
   href,
 }) => {
   const buttonClasses = cn(
-    "transition-all duration-200 flex items-center justify-center rounded-[64px] focus:outline-none disabled:cursor-not-allowed",
+    styles.button,
     buttonSizes[size],
     variantStyles[variant],
     className,
@@ -125,7 +105,7 @@ interface SearchButtonProps extends Omit<BaseButtonProps, "size" | "children"> {
 
 const SearchButton: React.FC<SearchButtonProps> = ({ ...props }) => {
   return (
-    <BaseButton {...props} size="icon-only" className="rounded-[24px]">
+    <BaseButton {...props} size="icon-only" className={styles.search}>
       <IconSearch />
     </BaseButton>
   );
@@ -141,7 +121,7 @@ interface IconButtonProps {
 function IconButton({ className, label, onClick, Icon }: IconButtonProps) {
   return (
     <div
-      className={cn("cursor-pointer focus:outline-none", className)}
+      className={cn(styles.iconButton, className)}
       onClick={onClick}
       onKeyDown={(e) => {
         if (e.key === "Enter") {

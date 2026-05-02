@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { cn } from "@/shared/lib/utils";
+import styles from "./Dialog.module.css";
 
 interface DialogProps extends React.PropsWithChildren {
   className?: string;
@@ -46,9 +47,8 @@ function Dialog({ open = false, ...props }: DialogProps) {
   return (
     <div
       className={cn(
-        "fixed inset-0 z-50 h-screen w-full overflow-auto bg-[rgba(0,0,0,0.4)] transition-opacity duration-[400ms] ease-in-out",
-        !isBackdropOpen && "pointer-events-none opacity-0",
-        isBackdropOpen && "opacity-100",
+        styles.backdrop,
+        isBackdropOpen ? styles.backdropOpen : styles.backdropClosed,
         props.className,
       )}
       ref={windowRef}
@@ -57,8 +57,8 @@ function Dialog({ open = false, ...props }: DialogProps) {
     >
       <div
         className={cn(
-          "fixed inset-0 flex items-start justify-center",
-          open ? "animate-slide-in-top" : "animate-slide-out-bottom",
+          styles.window,
+          open ? styles.windowOpen : styles.windowClosed,
           props.className,
         )}
         role="dialog"
