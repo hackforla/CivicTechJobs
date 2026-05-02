@@ -63,11 +63,14 @@ CTJ's domain models. The `Skill` table is locally curated in Stage 1; in Stage 2
 
 | Endpoint | Methods | Auth | Notes |
 |----------|---------|------|-------|
-| `/api/healthcheck` | GET | None | Uptime + version |
+| `/api/healthcheck/` | GET | None | Uptime + version |
 | `/api/skills/` | GET | None | Skill catalog (Stage 1: locally curated; Stage 2: locally cached from PeopleDepot) |
+| `/api/communities-of-practice/` | GET | None | CoP taxonomy (locked to 5 values) |
+| `/api/roles/` | GET | None | Role catalog |
+| `/api/projects/` | GET | None | Project list |
 | `/api/opportunities/` | GET, POST | GET: None, POST: PMs | List / create |
 | `/api/opportunities/{id}/` | GET, PUT, DELETE | GET: None, PUT: creator, DELETE: any PM | Detail / update / delete |
-| `/api/users/me/` | GET, PUT | Authenticated, self only | UserProfile (CoP, skill matrix, availability) |
+| `/api/users/<uuid:pk>/` | GET | Authenticated, self only | Per-user record |
 
 The matching endpoint (ranking opportunities against a user's `SkillMatrix` or vice versa) is part of Stage 1 work - see [What's not built yet](#whats-not-built-yet).
 
@@ -90,6 +93,21 @@ The rule is intentionally simple: any view that doesn't earn the full CRUD surfa
 When converting a viewset to FBVs, list and detail become two separate functions (e.g. `skill_list` and `skill_detail`). Each gets its own `path()` entry in [backend/ctj_api/urls.py](https://github.com/hackforla/CivicTechJobs/blob/main/backend/ctj_api/urls.py). The router only carries the `ModelViewSet`s.
 
 One detail worth flagging: object-level permission classes (`has_object_permission`) are auto-triggered by generic-view internals, but **not** by `@api_view`. An FBV that uses a permission class with object-level checks needs to call `request.parser_context["view"].check_object_permissions(request, obj)` explicitly after the object lookup. See `user_detail` in [backend/ctj_api/views.py](https://github.com/hackforla/CivicTechJobs/blob/main/backend/ctj_api/views.py) for the canonical example.
+
+## URL routing
+
+Resource URLs are **kebab-case, plural, with a trailing slash**. Non-resource endpoints (health, fallbacks) follow the same casing/slash rules but stay singular because they don't represent collections.
+
+| Aspect | Rule | Example |
+|--------|------|---------|
+| Word casing | kebab-case (`-` between words) | `communities-of-practice`, `forgot-password` |
+| Pluralization | Plural for collection endpoints; singular for non-resource | `/api/skills/`, `/api/healthcheck/` |
+| Trailing slash | Always present | `/api/skills/`, not `/api/skills` |
+| Path parameters | UUID via `<uuid:pk>`; named when multi-segment (`<uuid:project_id>`) | `/api/users/<uuid:pk>/` |
+
+Underscores in URLs are avoided (kebab over snake) — URLs are protocol-level path segments, not Python identifiers; the HTTP/REST tradition is kebab-case, and underscores can disappear under hyperlink underline. Trailing slashes are always present so Django's `APPEND_SLASH=True` default doesn't issue a 301 redirect on every request.
+
+If a route legitimately needs to deviate (a webhook endpoint where a third party requires a specific shape), flag the deviation in the URL config docstring.
 
 ## Serializer shape
 
