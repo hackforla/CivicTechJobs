@@ -124,8 +124,7 @@
   grid-template-columns: 1fr;
   place-items: stretch;
   align-content: center;
-  column-gap: 32px;
-  row-gap: 40px;
+  gap: 40px 32px;
   padding-left: 32px;
   padding-right: 32px;
 }
@@ -138,12 +137,12 @@
 }
 
 .cardImageContainerIllustration {
-  composes: cardImageContainer;
+  composes: cardimagecontainer;
   background-color: var(--color-grey-light);
 }
 
 .cardImageContainerIcon {
-  composes: cardImageContainer;
+  composes: cardimagecontainer;
   background-color: var(--color-tan-light);
 }
 
@@ -202,167 +201,204 @@
   flex: none;
 }
 
-@media (min-width: 480px) {
+@media (width >= 480px) {
   .grid {
     width: 83.333%;
   }
 }
 
-@media (min-width: 577px) {
+@media (width >= 577px) {
   .hero {
     top: 32px;
     flex-direction: row;
     align-items: flex-start;
   }
+
   .heroText {
     width: 50%;
     text-align: left;
   }
+
   .heroTitle {
     font-size: 30px;
   }
+
   .heroDescription {
     font-size: 14px;
   }
+
   .toggleBtn {
     height: 40px;
     padding-left: 28px;
     padding-right: 28px;
     font-size: 16px;
   }
+
   .tanStripe {
     height: 32px;
   }
+
   .grid {
     width: 80%;
     grid-template-columns: repeat(2, 1fr);
     padding-left: 0;
     padding-right: 0;
   }
+
   .cardImageContainer {
     width: 144px;
     height: 144px;
   }
+
   .footerInner {
     bottom: 25%;
     flex-direction: row;
     align-items: center;
   }
+
   .hflaLogo {
     width: 64px;
   }
+
   .footerText {
     text-align: left;
   }
+
   .joinTitle {
     font-size: 18px;
   }
+
   .joinBody {
     font-size: 14px;
   }
 }
 
-@media (min-width: 769px) {
+@media (width >= 769px) {
   .hero {
     top: 40px;
   }
+
   .heroText {
     width: 50%;
   }
+
   .heroTitle {
     margin-bottom: 12px;
     font-size: 36px;
   }
+
   .heroDescription {
     margin-top: 12px;
     font-size: 16px;
   }
+
   .heroIllustration {
     margin: 0 8px;
     margin-right: 16px;
     width: 40%;
   }
+
   .bodyHeader {
     padding-left: 96px;
     padding-right: 96px;
   }
+
   .bodyHeading {
     font-size: 30px;
   }
+
   .grid {
     width: 80%;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 32px;
   }
+
   .cardImageContainer {
     width: 144px;
     height: 144px;
   }
+
   .hflaLogo {
     margin-bottom: 8px;
     margin-right: 16px;
     width: 96px;
   }
+
   .joinTitle {
     margin-bottom: 12px;
     font-size: 24px;
   }
+
   .joinBody {
     font-size: 16px;
   }
 }
 
-@media (min-width: 1025px) {
+@media (width >= 1025px) {
   .hero {
     top: 64px;
   }
+
   .heroTitle {
     font-size: 48px;
   }
+
   .heroDescription {
     font-size: 18px;
   }
+
   .bodyHeader {
     padding-left: 128px;
     padding-right: 128px;
   }
+
   .bodyHeading {
     font-size: 36px;
   }
+
   .grid {
     column-gap: 48px;
   }
+
   .cardImageContainer {
     width: 176px;
     height: 176px;
   }
+
   .hflaLogo {
     width: 128px;
   }
+
   .joinTitle {
     font-size: 30px;
   }
+
   .joinBody {
     font-size: 18px;
   }
+
   .bottomSvg {
     width: 100%;
   }
 }
 
-@media (min-width: 1201px) {
+@media (width >= 1201px) {
   .hero {
     top: 88px;
   }
+
   .heroTitle {
     font-size: 60px;
   }
+
   .heroDescription {
     font-size: 24px;
   }
+
   .bodyHeading {
     font-size: 48px;
   }
+
   .grid {
     column-gap: 80px;
   }

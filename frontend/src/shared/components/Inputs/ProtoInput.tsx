@@ -1,6 +1,7 @@
 import React from "react";
 
 import { cn } from "@/shared/lib/utils";
+
 import styles from "./ProtoInput.module.css";
 
 interface ProtoInputProps extends React.PropsWithChildren {

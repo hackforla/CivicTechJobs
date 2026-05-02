@@ -1,12 +1,13 @@
-from rest_framework.test import APITestCase, APIClient
 from rest_framework import status
+from rest_framework.test import APIClient, APITestCase
+
 from ctj_api.models import (
     CommunityOfPractice,
+    CustomUser,
+    Opportunity,
+    Project,
     Role,
     Skill,
-    Project,
-    Opportunity,
-    CustomUser,
 )
 
 

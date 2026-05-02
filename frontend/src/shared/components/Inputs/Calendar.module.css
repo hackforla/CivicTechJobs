@@ -78,7 +78,7 @@
 }
 
 .cell:hover:not(.selected) {
-  background-color: rgba(19, 131, 30, 0.5);
+  background-color: rgb(19 131 30 / 50%);
 }
 
 .cell.selected {

@@ -1,9 +1,10 @@
-import { Fragment } from "react";
 import Link from "next/link";
+import { Fragment } from "react";
 
+import { Button } from "@/shared/components/Buttons";
 import LogoHorizontalOnDark from "@/shared/images/logos/logo-horizontal-on-dark.svg";
 import LogoStackedOnDark from "@/shared/images/logos/logo-stacked-on-dark.svg";
-import { Button } from "@/shared/components/Buttons";
+
 import styles from "./FooterNav.module.css";
 
 interface MenuObject {
@@ -19,8 +20,15 @@ const menuItems: MenuObject[] = [
 
 function Logo() {
   return (
-    <Link className={styles.logoLink} href="/" aria-label="Civic Tech Jobs - Home">
-      <LogoHorizontalOnDark className={styles.logoHorizontal} aria-hidden="true" />
+    <Link
+      className={styles.logoLink}
+      href="/"
+      aria-label="Civic Tech Jobs - Home"
+    >
+      <LogoHorizontalOnDark
+        className={styles.logoHorizontal}
+        aria-hidden="true"
+      />
       <LogoStackedOnDark className={styles.logoStacked} aria-hidden="true" />
     </Link>
   );

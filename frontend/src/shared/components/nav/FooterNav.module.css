@@ -9,7 +9,7 @@
   padding-bottom: 32px;
 }
 
-@media (min-width: 1025px) {
+@media (width >= 1025px) {
   .footer {
     flex-direction: row;
     padding-left: 176px;
@@ -27,10 +27,11 @@
   width: auto;
 }
 
-@media (min-width: 577px) {
+@media (width >= 577px) {
   .logoHorizontal {
     display: block;
   }
+
   .logoStacked {
     display: none;
   }
@@ -45,7 +46,7 @@
   display: flex;
 }
 
-@media (max-width: 1024px) {
+@media (width <= 1024px) {
   .nav {
     order: 3;
     width: 220px;
@@ -64,11 +65,12 @@
   display: none;
 }
 
-@media (min-width: 1025px) {
+@media (width >= 1025px) {
   .divider {
     visibility: hidden;
     width: 40px;
   }
+
   .divider:first-child {
     visibility: visible;
     display: block;
@@ -85,7 +87,7 @@
   display: flex;
 }
 
-@media (min-width: 1025px) {
+@media (width >= 1025px) {
   .donateWrap {
     margin-left: auto;
   }

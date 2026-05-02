@@ -1,5 +1,5 @@
 .dropdown {
-  composes: inputBase from "./ProtoInput.module.css";
+  composes: inputbase from "./ProtoInput.module.css";
   border-radius: 8px 0 0 8px;
   border-right: none;
   appearance: none;
@@ -40,5 +40,5 @@
 }
 
 .dropdownRow:hover {
-  background-color: rgba(52, 80, 161, 0.15);
+  background-color: rgb(52 80 161 / 15%);
 }

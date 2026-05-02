@@ -7,6 +7,7 @@ import React, {
   useEffect,
   type ReactNode,
 } from "react";
+
 import {
   fetchAllCopData,
   fetchCopDataByTitle,
@@ -51,7 +52,8 @@ export const QualifiersProvider: React.FC<{ children: ReactNode }> = ({
   const [selectedCopData, setSelectedCopData] = useState<copDatum | undefined>(
     undefined,
   );
-  const [qualifiers, setQualifiers] = useState<QualifiersType>(initialQualifiers);
+  const [qualifiers, setQualifiers] =
+    useState<QualifiersType>(initialQualifiers);
 
   // Hydrate from localStorage after mount - SSR cannot read localStorage,
   // so the initial state stays at the default and we promote any stored

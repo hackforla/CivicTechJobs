@@ -1,17 +1,17 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
-import Typography from "@/shared/components/Typography";
-import { Dropdown, DropdownOption } from "@/shared/components/Inputs/Dropdown";
-import { Calendar } from "@/shared/components/Inputs/Calendar";
 import { Button, IconButton } from "@/shared/components/Buttons";
+import { Calendar } from "@/shared/components/Inputs/Calendar";
+import { Dropdown, DropdownOption } from "@/shared/components/Inputs/Dropdown";
+import Typography from "@/shared/components/Typography";
 import IconArrowLeft from "@/shared/icons/icon-arrow-left.svg";
 
 import { QualifierNav } from "./QualifierNav";
-import { timezones } from "../data/timezoneData";
 import styles from "./QualifierPageCalendar.module.css";
+import { timezones } from "../data/timezoneData";
 
 function QualifierPageCalendar() {
   const router = useRouter();

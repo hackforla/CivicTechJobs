@@ -7,26 +7,32 @@
   font-size: 48px;
   font-weight: var(--weight-bold);
 }
+
 .title2 {
   font-size: 36px;
   font-weight: var(--weight-bold);
 }
+
 .title3 {
   font-size: 28px;
   font-weight: var(--weight-bold);
 }
+
 .title4 {
   font-size: 24px;
   font-weight: var(--weight-bold);
 }
+
 .title5 {
   font-size: 20px;
   font-weight: var(--weight-bold);
 }
+
 .title6 {
   font-size: 16px;
   font-weight: var(--weight-bold);
 }
+
 .title7 {
   font-size: 14px;
   font-weight: var(--weight-bold);
@@ -35,15 +41,19 @@
 .paragraph1 {
   font-size: 20px;
 }
+
 .paragraph2 {
   font-size: 18px;
 }
+
 .paragraph3 {
   font-size: 16px;
 }
+
 .paragraph4 {
   font-size: 15px;
 }
+
 .paragraph5 {
   font-size: 14px;
 }

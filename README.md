@@ -49,7 +49,7 @@ Developer docs live in [docs/developer/](docs/developer/):
 - [DevOps Architecture](docs/developer/devops.md)
 - [Deployment & Infrastructure](docs/developer/deployment-infra.md)
 - [Design System](docs/developer/design-system.md)
-- [ESLint Guide](docs/developer/eslint-guide.md)
+- [Frontend Lint Guide](docs/developer/frontend-lint-guide.md)
 - [Git Branch Structure](docs/developer/git-branch-structure.md)
 - [Installation](docs/developer/installation.md)
 - [Quickstart Guide](docs/developer/quickstart-guide.md)

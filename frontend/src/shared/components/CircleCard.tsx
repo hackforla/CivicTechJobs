@@ -1,7 +1,9 @@
 "use client";
 
 import React from "react";
+
 import { cn, onKey } from "@/shared/lib/utils";
+
 import styles from "./CircleCard.module.css";
 
 interface CircleCardProps extends React.PropsWithChildren {

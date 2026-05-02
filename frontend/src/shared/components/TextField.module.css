@@ -33,6 +33,7 @@
   border: 1px solid var(--color-grey);
   padding: 0 8px;
 }
+
 .input:focus {
   outline: 1px solid var(--color-blue-dark);
 }
@@ -40,6 +41,7 @@
 .inputError {
   border-color: var(--color-red);
 }
+
 .inputError:focus {
   outline-color: var(--color-red);
 }

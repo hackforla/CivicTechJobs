@@ -1,15 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 
-import Typography from "@/shared/components/Typography";
 import { Button } from "@/shared/components/Buttons";
-import { QualifierNav } from "./QualifierNav";
-import { RadioButtonForm } from "./RadioButtonForm";
+import Typography from "@/shared/components/Typography";
+
 import { ProgressIndicator } from "./ProgressIndicator";
-import { useQualifiersContext } from "../QualifiersContext";
+import { QualifierNav } from "./QualifierNav";
 import styles from "./QualifierPage2.module.css";
+import { RadioButtonForm } from "./RadioButtonForm";
+import { useQualifiersContext } from "../QualifiersContext";
 
 function QualifierPage2() {
   const router = useRouter();

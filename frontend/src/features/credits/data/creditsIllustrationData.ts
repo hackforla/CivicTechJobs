@@ -1,10 +1,10 @@
-import type React from "react";
-
 import CreditsPageHighFive from "@/shared/images/credits-page-high-five.svg";
 import LandingPageCreativeTeam from "@/shared/images/landing-page-creative-team.svg";
 import LoginIllustration from "@/shared/images/login-illustration.svg";
 import NotFoundPageImg from "@/shared/images/not-found-page.svg";
 import PrivacyPolicyIllustration from "@/shared/images/privacy-policy-illustration.svg";
+
+import type React from "react";
 
 export interface AssetDatum {
   id: number;

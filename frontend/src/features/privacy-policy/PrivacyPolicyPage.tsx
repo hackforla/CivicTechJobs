@@ -1,7 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
+import Link from "next/link";
 import React from "react";
 
 import PrivacyPolicyIllustration from "@/shared/images/privacy-policy-illustration.svg";
+
 import styles from "./PrivacyPolicyPage.module.css";
 
 const PrivacyPolicyPage = () => {
@@ -20,9 +22,9 @@ const PrivacyPolicyPage = () => {
                   and use your information responsibly.
                 </p>
                 <p className={styles.p}>
-                  <a href="/" className={styles.hyperlink}>
+                  <Link href="/" className={styles.hyperlink}>
                     civictechjobs.org
-                  </a>{" "}
+                  </Link>{" "}
                   is an informational website managed by Hack for LA which is a
                   project of Code for America Labs, Inc. ("Code for America",
                   "we", "us", "our"). This Privacy Policy describes how we
@@ -67,9 +69,9 @@ const PrivacyPolicyPage = () => {
           <h2 className={styles.h2}>The personal information we collect</h2>
           <p className={styles.p}>
             Visiting{" "}
-            <a href="/" className={styles.hyperlink}>
+            <Link href="/" className={styles.hyperlink}>
               civictechjobs.org
-            </a>
+            </Link>
           </p>
           <ul className={styles.bullets}>
             <li>
@@ -178,9 +180,7 @@ const PrivacyPolicyPage = () => {
             </a>{" "}
             for more info on how to opt out.
           </p>
-          <h2 className={styles.h2}>
-            Cookies and other tracking technologies
-          </h2>
+          <h2 className={styles.h2}>Cookies and other tracking technologies</h2>
           <ul className={styles.bullets}>
             <li>
               Cookies are small text files that websites place on the computers
@@ -230,10 +230,7 @@ const PrivacyPolicyPage = () => {
             any other site, you can do so through your browser setting. The
             'Help' function in your browser should explain how. Alternatively,
             you can visit{" "}
-            <a
-              href="http://www.aboutcookies.org"
-              className={styles.hyperlink}
-            >
+            <a href="http://www.aboutcookies.org" className={styles.hyperlink}>
               www.aboutcookies.org
             </a>
             , which contains comprehensive information on how to do this on a
@@ -307,9 +304,7 @@ const PrivacyPolicyPage = () => {
               security or privacy of your information.
             </li>
           </ul>
-          <h2 className={styles.h2}>
-            Right to be forgotten and rectification
-          </h2>
+          <h2 className={styles.h2}>Right to be forgotten and rectification</h2>
           <ul className={styles.bullets}>
             <li>
               You may request that we make corrections to any personal data that
@@ -341,10 +336,7 @@ const PrivacyPolicyPage = () => {
           <p className={styles.p}>
             If you have any questions, comments, concerns, or complaints related
             to our Review Tool websites, please contact us by email at{" "}
-            <a
-              href="mailto:privacy@hackforla.org"
-              className={styles.hyperlink}
-            >
+            <a href="mailto:privacy@hackforla.org" className={styles.hyperlink}>
               privacy@hackforla.org
             </a>
             , or by mail at:

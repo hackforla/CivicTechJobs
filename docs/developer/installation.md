@@ -8,14 +8,16 @@ If you get stuck, ask in the `#civictechjobs-dev` Slack channel or email <Civict
 
 - **Git**: [Windows](https://git-scm.com/download/win) / [macOS](https://git-scm.com/download/mac) / [Linux](https://git-scm.com/download/linux)
 - **Docker Desktop** (or Docker Engine on Linux): [Windows](https://docs.docker.com/desktop/windows/install/) / [macOS](https://docs.docker.com/desktop/mac/install/) / [Linux](https://docs.docker.com/engine/install/)
-- **Node.js 22 LTS** + **npm**: needed for the pre-commit JS hooks (ESLint / Prettier) that run on the host.
-- **Python 3.12** + **pre-commit**: needed for the pre-commit framework itself plus its Python hooks (`isort` / `black` / `flake8`).
+- **Node.js 24 LTS** + **npm**: needed for the pre-commit JS hooks (ESLint / Stylelint / Prettier) that run on the host.
+- **Python 3.13** + **pre-commit**: needed for the pre-commit framework itself plus its Python hooks (`ruff`).
 
 For backend development outside Docker (rarely needed), also install **Poetry**.
 
 ### Recommended editor setup
 
-- **Prettier VS Code extension** ([marketplace](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)): format-on-save in the editor; pairs with the pre-commit Prettier hook so your code is auto-formatted before commit. Use the equivalent for your editor of choice.
+- **ESLint VS Code extension** ([marketplace](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)): inline lint errors as you type.
+- **Stylelint VS Code extension** ([marketplace](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)): inline CSS Modules lint errors.
+- **Prettier VS Code extension** ([marketplace](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)): format-on-save; pairs with the pre-commit Prettier hook so your code is auto-formatted before commit. Use the equivalents for your editor of choice.
 
 <details>
 <summary>Note for macOS</summary>

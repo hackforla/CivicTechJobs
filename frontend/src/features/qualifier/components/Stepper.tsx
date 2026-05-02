@@ -1,11 +1,12 @@
 "use client";
 
-import React from "react";
 import { useParams } from "next/navigation";
+import React from "react";
 
 import Typography from "@/shared/components/Typography";
 import IconCheckMark from "@/shared/icons/icon-checkmark.svg";
 import { cn } from "@/shared/lib/utils";
+
 import styles from "./Stepper.module.css";
 
 function Stepper() {
@@ -39,7 +40,9 @@ function Step({ children, step, position }: StepProps) {
   return (
     <div className={styles.step}>
       <Typography.Title6
-        className={stepStatus === "pending" ? styles.labelPending : styles.label}
+        className={
+          stepStatus === "pending" ? styles.labelPending : styles.label
+        }
       >
         {children}
       </Typography.Title6>

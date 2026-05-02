@@ -3,9 +3,10 @@
 import React from "react";
 
 import { IconButton } from "@/shared/components/Buttons";
-import IconX from "@/shared/icons/icon-x.svg";
 import { Card } from "@/shared/components/StandardCard";
+import IconX from "@/shared/icons/icon-x.svg";
 import { cn } from "@/shared/lib/utils";
+
 import styles from "./LandingPageCopCards.module.css";
 
 interface CopCardProps extends React.PropsWithChildren {

@@ -3,9 +3,10 @@
 import React, { useEffect, useState } from "react";
 
 import { IconButton } from "@/shared/components/Buttons";
-import IconX from "@/shared/icons/icon-x.svg";
 import { TransitionWrapper } from "@/shared/components/TransitionWrapper/TransitionWrapper";
+import IconX from "@/shared/icons/icon-x.svg";
 import { cn } from "@/shared/lib/utils";
+
 import styles from "./Notification.module.css";
 
 interface NotificationProps extends React.PropsWithChildren {

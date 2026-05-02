@@ -51,7 +51,7 @@
 - [DevOps Architecture](developer/devops.md)
 - [Deployment & Infrastructure](developer/deployment-infra.md)
 - [Design System](developer/design-system.md)
-- [ESLint Guide](developer/eslint-guide.md)
+- [Frontend Lint Guide](developer/frontend-lint-guide.md)
 - [Git Branch Structure](developer/git-branch-structure.md)
 - [Installation](developer/installation.md)
 - [Quickstart Guide](developer/quickstart-guide.md)

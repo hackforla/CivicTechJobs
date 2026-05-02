@@ -1,7 +1,9 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+
 import { cn } from "@/shared/lib/utils";
+
 import styles from "./Dialog.module.css";
 
 interface DialogProps extends React.PropsWithChildren {

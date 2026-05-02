@@ -5,7 +5,6 @@ from django.db import models
 
 
 class CommunityOfPractice(models.Model):
-
     class PracticeAreas(models.TextChoices):
         DATA_SCIENCE = "data_science", "Data Science"
         ENGINEERING = "engineering", "Engineering"
@@ -150,7 +149,9 @@ class Opportunity(models.Model):
         help_text="Role.title will be the title of the opportunity.",
     )
     body = models.TextField(help_text="A description of the opportunity.")
-    min_experience_required = models.CharField(
+    # TODO: drop null=True (Django convention is "" for missing CharField);
+    # requires a migration, deferred to a follow-up PR.
+    min_experience_required = models.CharField(  # noqa: DJ001
         max_length=50,
         null=True,
         blank=True,
@@ -201,3 +202,6 @@ class Opportunity(models.Model):
         db_table = "opportunities"
         verbose_name = "Opportunity"
         verbose_name_plural = "Opportunities"
+
+    def __str__(self):
+        return f"{self.role.title} @ {self.project.name}"

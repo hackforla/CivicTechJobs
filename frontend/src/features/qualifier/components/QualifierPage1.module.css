@@ -32,13 +32,13 @@
   gap: 40px;
 }
 
-@media (min-width: 577px) {
+@media (width >= 577px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 1025px) {
+@media (width >= 1025px) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -51,7 +51,7 @@
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 24px 20px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 15px rgb(0 0 0 / 15%);
   cursor: pointer;
 }
 

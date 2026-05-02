@@ -3,10 +3,11 @@
 
 import { useRouter } from "next/navigation";
 
-import HeaderNav from "@/shared/components/nav/HeaderNav";
-import FooterNav from "@/shared/components/nav/FooterNav";
 import { Button } from "@/shared/components/Buttons";
+import FooterNav from "@/shared/components/nav/FooterNav";
+import HeaderNav from "@/shared/components/nav/HeaderNav";
 import NotFoundPageImg from "@/shared/images/not-found-page.svg";
+
 import styles from "./NotFoundPage.module.css";
 
 function NotFoundPage() {

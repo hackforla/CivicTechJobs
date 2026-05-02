@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   padding: 4px 12px;
-  box-shadow: -1px 1px 2px rgba(51, 51, 51, 0.2);
+  box-shadow: -1px 1px 2px rgb(51 51 51 / 20%);
 }
 
 .spacer {
@@ -27,7 +27,7 @@
   width: auto;
 }
 
-@media (min-width: 769px) {
+@media (width >= 769px) {
   .logo {
     height: 32px;
   }

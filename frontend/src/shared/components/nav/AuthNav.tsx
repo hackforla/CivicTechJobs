@@ -1,19 +1,22 @@
-import LogoHorizontal from "@/shared/images/logos/logo-horizontal.svg";
+import Link from "next/link";
+
 import IconArrowLeft from "@/shared/icons/icon-arrow-left.svg";
+import LogoHorizontal from "@/shared/images/logos/logo-horizontal.svg";
+
 import styles from "./AuthNav.module.css";
 
 function AuthNav() {
   return (
     <header className={styles.header}>
       <div className={styles.backWrap}>
-        <a href="/" aria-label="Back to home">
+        <Link href="/" aria-label="Back to home">
           <IconArrowLeft className={styles.arrow} aria-hidden="true" />
-        </a>
+        </Link>
       </div>
       <div>
-        <a href="/" rel="noopener noreferrer" aria-label="Civic Tech Jobs - Home">
+        <Link href="/" aria-label="Civic Tech Jobs - Home">
           <LogoHorizontal className={styles.logo} aria-hidden="true" />
-        </a>
+        </Link>
       </div>
       <div className={styles.spacer}></div>
     </header>

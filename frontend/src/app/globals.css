@@ -19,13 +19,15 @@
 html,
 body {
   height: 100%;
-  -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
 
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  font-family: var(--font-roboto), Tahoma, Verdana, sans-serif;
+  color: var(--color-charcoal);
+  background-color: var(--color-white);
 }
 
 img,
@@ -110,11 +112,11 @@ h6 {
   --color-tan-bg: #fbe8ce;
   --color-green: #13831e;
   --color-red: #c93329;
-  --color-white: #ffffff;
+  --color-white: #fff;
   --color-grey-light: #f2f2f2;
   --color-grey: #c1c1c1;
   --color-grey-dark: #585858;
-  --color-charcoal: #333333;
+  --color-charcoal: #333;
 
   /* Spacing scale (legacy p1-p10 = 8px increments) */
   --space-0: 0;
@@ -148,14 +150,4 @@ h6 {
   --z-overlay: 10;
   --z-dropdown: 20;
   --z-modal: 50;
-}
-
-/* ==========================================================================
-   Document base
-   ========================================================================== */
-
-body {
-  font-family: var(--font-roboto), Tahoma, Verdana, sans-serif;
-  color: var(--color-charcoal);
-  background-color: var(--color-white);
 }
