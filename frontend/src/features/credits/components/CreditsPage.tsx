@@ -1,3 +1,16 @@
+/**
+ * Credits page top-level component.
+ *
+ * Renders a hero section, a toggle between illustrations and icons,
+ * and a grid of `Card` components sourced from
+ * `creditsIllustrationData` / `creditsIconData`. The toggle swaps
+ * the active dataset and adjusts the card image styling
+ * accordingly (icons render smaller and centered; illustrations
+ * render larger).
+ *
+ * Mounted by `/credits` in the `(with-nav)` route group.
+ */
+
 "use client";
 /* eslint-disable react/no-unescaped-entities */
 

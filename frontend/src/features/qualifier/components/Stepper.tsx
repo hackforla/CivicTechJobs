@@ -1,3 +1,18 @@
+/**
+ * Three-step progress indicator for the qualifier flow.
+ *
+ * Renders the labels "Practice Area", "Individual Skill Evaluation",
+ * "Availability" with a horizontal connector line. Each step's
+ * status (complete / active / pending) is derived from the URL's
+ * `[page]` segment - completed steps show a check icon, the
+ * active step shows a filled dot, pending steps show a hollow
+ * dot.
+ *
+ * Step list is currently hard-coded in this file. Adding a new
+ * step means editing the `<Step>` JSX here, the switch in
+ * `QualifierConsole`, and adding a page component.
+ */
+
 "use client";
 
 import { useParams } from "next/navigation";

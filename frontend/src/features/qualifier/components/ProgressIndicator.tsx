@@ -1,3 +1,16 @@
+/**
+ * Circular progress indicator shown on qualifier step 2.
+ *
+ * Renders an SVG ring (full + filled-arc) showing
+ * `progressPercentage` (0-100, clamped) plus a "Part X of Y" label
+ * with a subtitle. Used to indicate skill-rating progress through
+ * the selected CoP's skill list.
+ *
+ * The arc math relies on a fixed `r=10` circle; if the SVG sizing
+ * changes, `strokeDasharray` and the constant 62.8 need to be
+ * recomputed (62.8 is approx 2*pi*10).
+ */
+
 import React from "react";
 
 import styles from "./ProgressIndicator.module.css";

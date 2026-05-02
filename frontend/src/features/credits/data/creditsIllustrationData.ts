@@ -1,3 +1,13 @@
+/**
+ * Attribution data for illustrations used across the site
+ * (credits page).
+ *
+ * Same shape as `creditsIconData.ts`, but for the larger
+ * illustration assets rather than icons. Update this file
+ * whenever a new illustration is introduced; the credits page
+ * reads from this list to render its illustration grid.
+ */
+
 import CreditsPageHighFive from "@/shared/images/credits-page-high-five.svg";
 import LandingPageCreativeTeam from "@/shared/images/landing-page-creative-team.svg";
 import LoginIllustration from "@/shared/images/login-illustration.svg";

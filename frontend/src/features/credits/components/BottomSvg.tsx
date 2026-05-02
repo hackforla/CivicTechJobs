@@ -1,3 +1,10 @@
+/**
+ * Decorative bottom-edge SVG for the credits page footer.
+ *
+ * Inlined as a React component, paired with `TopSvg`. See
+ * `TopSvg` for the rationale on inlining vs SVGR.
+ */
+
 import React from "react";
 import { FC, SVGProps } from "react";
 

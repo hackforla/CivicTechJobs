@@ -1,3 +1,16 @@
+/**
+ * Privacy policy page.
+ *
+ * Long-form static content listing what data CTJ collects, how
+ * it's used, and contact info for privacy questions. Mounted at
+ * `/privacy-policy` in the `(with-nav)` route group.
+ *
+ * Note: `domainName` is hard-coded to `"localhost:8000"`, which
+ * is wrong for stage / prod deployments. Should be sourced from
+ * an environment variable or removed in favor of relative
+ * references. Flagging as a bug.
+ */
+
 /* eslint-disable react/no-unescaped-entities */
 import Link from "next/link";
 import React from "react";

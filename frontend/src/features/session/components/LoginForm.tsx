@@ -1,3 +1,20 @@
+/**
+ * Login form for the `/login` route.
+ *
+ * Wires `react-hook-form` validation (RHF) for email and password
+ * fields with inline error messages. The `noValidate` attribute
+ * on the form disables browser-native validation so RHF rules are
+ * the single source of truth.
+ *
+ * Note: the form's `onSubmit` is currently a `console.log`
+ * placeholder; it does not yet hit the backend. Wiring auth is
+ * deferred to a future PR using
+ * `scratch/planning/planned_auth.md` as the spec. Flagging as
+ * known-incomplete.
+ *
+ * Mounted by the `/login` page route in the `(auth)` route group.
+ */
+
 "use client";
 
 import Link from "next/link";
@@ -12,7 +29,6 @@ type Inputs = {
   password: string;
 };
 
-// noValidate disables browser validation so react-hook-form rules apply alone.
 export default function LoginForm() {
   const {
     register,

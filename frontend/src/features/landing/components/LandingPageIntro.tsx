@@ -1,3 +1,13 @@
+/**
+ * Landing page hero / intro section.
+ *
+ * Top-of-page block: tagline, body copy, "Join us" CTA linking to
+ * the qualifier flow's first step (`/qualifier/1`), and a
+ * decorative foreground illustration. Below that, a "Our Mission"
+ * statement with a down-arrow indicator that visually transitions
+ * the reader to the next section.
+ */
+
 import Link from "next/link";
 
 import IconArrowDown from "@/shared/icons/icon-arrow-down.svg";

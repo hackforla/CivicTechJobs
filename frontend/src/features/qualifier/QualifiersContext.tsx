@@ -1,3 +1,25 @@
+/**
+ * Qualifier flow context for the multi-step skill survey.
+ *
+ * Holds the user's draft answers across the qualifier route group
+ * (`/qualifier/1` through `/qualifier/N`). The state shape is
+ * `{ selectedCOP, skills_matrix }` plus derived `copData` and
+ * `selectedCopData`. State is persisted to `localStorage` under
+ * key `"qualifiers"` on every update, so navigation between steps
+ * (and even hard reloads on the same browser) preserve answers.
+ *
+ * `useQualifiersContext` throws if called outside a
+ * `QualifiersProvider` - that's the standard React-context
+ * defensive pattern, surfaces missing-provider mistakes early.
+ *
+ * Hydration note: SSR cannot read `localStorage`, so the initial
+ * state always renders as the default. After mount, an effect
+ * promotes any stored value onto the state. Brief flash of
+ * default state on initial render is intentional - alternatives
+ * (cookies, server-side storage) would couple the qualifier flow
+ * to auth, which it doesn't currently require.
+ */
+
 "use client";
 
 import React, {
