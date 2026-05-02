@@ -45,7 +45,9 @@ The goal is that contributors can land work without fighting the type checker, w
 
 Backend code follows a labeled-section docstring convention modeled on the project's sister codebase (BNC). The shape is per-file-kind: heavy labeled templates for models and views (where there's substantive policy to document), lighter prose for serializers and config files. See [docs/developer/backend-docstring-style.md](docs/developer/backend-docstring-style.md) for the full templates, vocabulary, and rationale.
 
-Frontend has its own conventions (JSDoc in `*.tsx` files); see the design system guide for those.
+### Docstrings (frontend)
+
+Frontend code uses JSDoc with a different shape from the backend: **heavy on the module level, light at the per-export level**. The file header is the primary place for context (what the file does, why, design decisions); per-export comments are one-liners unless behavior is non-obvious. See [docs/developer/frontend-docstring-style.md](docs/developer/frontend-docstring-style.md) for the per-kind templates and examples.
 
 If an issue takes much longer than its size suggested, post an update on the issue with an honest read on whether you can finish; releasing it back to the backlog is fine.
 
