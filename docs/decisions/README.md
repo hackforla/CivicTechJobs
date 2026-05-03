@@ -21,6 +21,7 @@ These ADRs are public-facing and live in the repo. They cover decisions that con
 
 - [0006 - Five-prefix branch and commit naming convention](0006-five-prefix-git-convention.md)
 - [0007 - Docstring conventions](0007-docstring-conventions.md)
+- [0014 - Make as the canonical task runner](0014-make-canonical-task-runner.md)
 
 ### Code patterns
 
