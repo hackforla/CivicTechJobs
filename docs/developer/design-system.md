@@ -8,7 +8,7 @@ The CivicTechJobs Design System (CTJ-DS) is the shared visual + interaction lang
 |-------|------|
 | Framework | Next.js 16 (App Router) |
 | Library | React 19 |
-| Types | TypeScript 5 |
+| Types | TypeScript 6 |
 | Styling | CSS Modules (Next.js built-in) |
 | Theme | CSS custom properties in `app/globals.css` |
 
