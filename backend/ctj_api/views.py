@@ -171,8 +171,8 @@ class OpportunityViewSet(viewsets.ModelViewSet):
     - Reads are public; mutations are gated by `OpportunityPermission`
       (in `ctj_api.permissions`): only project managers can create,
       only the creator can update, and any PM can delete.
-    - Kept as a `ModelViewSet` per ADR-0010 because the view exposes
-      the full CRUD surface; narrower views use FBVs.
+    - Kept as a `ModelViewSet` because the view exposes the full
+      CRUD surface; narrower views use FBVs.
 
     Flow:
     - Standard DRF `ModelViewSet` CRUD.
