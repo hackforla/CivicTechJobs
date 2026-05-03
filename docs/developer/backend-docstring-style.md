@@ -1,6 +1,6 @@
 # Backend Docstring Style
 
-CTJ backend code follows a labeled-section docstring convention modeled on the project's sister codebase (BNC). The goal is scannability for less-experienced contributors: every artifact has a predictable shape, with the "what does this thing do" and "what rules govern it" called out as discrete sections rather than buried in prose.
+CTJ backend code follows a labeled-section docstring convention. The goal is scannability for less-experienced contributors: every artifact has a predictable shape, with the "what does this thing do" and "what rules govern it" called out as discrete sections rather than buried in prose.
 
 This guide covers what to put in docstrings for each kind of file in the backend. The frontend has its own conventions (via JSDoc in `*.tsx` files) and is out of scope here.
 
@@ -9,7 +9,7 @@ This guide covers what to put in docstrings for each kind of file in the backend
 | Rule | Convention |
 |------|-----------|
 | Code references | Single backticks (`` `CustomUser` ``, not RST double-backticks) |
-| Line length | 79 chars max (matches PEP 8 docstring norm; ruff enforces) |
+| Line length | 88 chars max (matches ruff format default; ruff enforces) |
 | Field-level documentation | Use Django's `help_text=` on the field, not an inline comment or docstring |
 | Bullet style | `-` (dashes), not `*` |
 | Method one-liners | Always use them, even on `__str__` or other obvious methods |
@@ -200,7 +200,7 @@ class FooTests(APITestCase):
         """<Subject> <verb phrase asserting expected outcome>."""
 ```
 
-Good test docstring (BNC style):
+Good test docstring:
 
 ```python
 """Three-way split of 33.33% each (99.99%) is rejected."""
@@ -262,7 +262,7 @@ When in doubt: match the spirit (scannable, labeled when there are real fixed-sh
 
 ## Tooling
 
-- ruff enforces line length (79 cols on docstrings) but doesn't validate docstring content or section presence.
+- ruff enforces line length (88 cols on docstrings) but doesn't validate docstring content or section presence.
 - No linter currently checks docstring shape; convention is enforced by review.
 
 If we move to `pydocstyle` later, the rule subset to enable would be the PEP 257 ones plus a custom check for the labeled sections - but that's significant tool work, not on the current roadmap.

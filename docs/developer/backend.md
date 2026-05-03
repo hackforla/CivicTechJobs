@@ -1,6 +1,6 @@
 # Backend Architecture
 
-**Stack:** Django 5.1 + Django REST Framework 3.15 + PostgreSQL 16, served via Daphne (ASGI).
+**Stack:** Django 6.0 + Django REST Framework 3.17 + PostgreSQL 18, served via Daphne (ASGI).
 
 The backend is a thin API layer for CivicTechJobs's owned domain: a skill catalog, the volunteer qualifier flow (where users record skills with proficiency levels and supply availability), opportunity listings, and the matching algorithm that connects volunteers to opportunities.
 

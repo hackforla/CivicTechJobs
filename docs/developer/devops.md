@@ -1,6 +1,6 @@
 # DevOps Architecture
 
-**Stack:** Docker + Docker Compose, Daphne (Django's reference ASGI server), Whitenoise (Django static files), Node.js (Next.js runtime), PostgreSQL 16.
+**Stack:** Docker + Docker Compose, Daphne (Django's reference ASGI server), Whitenoise (Django static files), Node.js (Next.js runtime), PostgreSQL 18.
 
 DevOps files configure the three environments developers interact with - local dev, local stage approximation, and deployed stage. The deployed-stage AWS infrastructure itself is documented separately in [deployment-infra.md](deployment-infra.md).
 
@@ -31,7 +31,7 @@ There is no linter container - lint runs on the host (see [Linting](#linting) be
 
 Defined by `docker-compose.yml` + the `dev/` directory. Three services:
 
-- **`pgdb`** - PostgreSQL 16, the dev database. Data persists across `docker compose up`/`down` via a named volume; `docker compose down -v` is the explicit reset.
+- **`pgdb`** - PostgreSQL 18, the dev database. Data persists across `docker compose up`/`down` via a named volume; `docker compose down -v` is the explicit reset.
 - **`django`** - Django app from `backend/`, built via `dev/django.dockerfile`. Uses `python manage.py runserver` for auto-reload + Django's debug pages. Migrations run on start, then it serves on `localhost:8000`.
 - **`next`** - Next.js dev server from `frontend/`, built via `dev/next.dockerfile`. Serves on `localhost:3000` with hot reload.
 
@@ -55,7 +55,7 @@ Django ships two ways to run the app: `manage.py runserver` (the dev server) and
 
 Three services:
 
-- **`pgdb`** - Postgres 16 with stage env vars.
+- **`pgdb`** - Postgres 18 with stage env vars.
 - **`django`** - Django stage container, built from `stage/django.dockerfile` (Poetry install, `collectstatic`, Daphne on port 8000).
 - **`next`** - Next.js stage container, built from `stage/next.dockerfile` (`npm run build`, Next.js production server on port 3000). Proxies `/api/*` and `/admin/*` to the `django` service. (Local-only convenience - deployed stage uses ALB path-based routing instead. See [deployment-infra.md](deployment-infra.md#topology).)
 
