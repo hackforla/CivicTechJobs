@@ -133,8 +133,8 @@ class OpportunityWriteSerializer(serializers.ModelSerializer):
 class SkillMatrixSerializer(serializers.ModelSerializer):
     """Read/write serializer for `SkillMatrix` records.
 
-    Note: defined but never imported. Not split into Read/Write per
-    ADR-0011's convention because the class is currently dead code.
+    Note: defined but never imported. Not split into Read/Write
+    because the class is currently dead code.
     The cleanup PR drops it. If `SkillMatrix` becomes API-exposed
     later, replace this with `SkillMatrixReadSerializer` (and
     `SkillMatrixWriteSerializer` if a write endpoint is added).
