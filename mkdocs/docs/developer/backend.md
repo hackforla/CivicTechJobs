@@ -64,7 +64,7 @@ These diagrams show how data flows through the app: [Frontend and Backend UML di
 
 **Backend Tech Stack**: Django, DjangoRESTFramework
 
-The backend architecture consists of the Django `backend/` project, and the `ctj_api/` Django apps. The `frontend_dist/` directory serves as our frontend build folder. More about the `frontend/` directory as it relates our frontend architecture can be found in our guide on [Frontend Architecture](../../developer/frontend/).
+The backend architecture consists of the Django `backend/` project, and the `ctj_api/` Django apps. The `frontend_dist/` directory serves as our frontend build folder.
 
 ### Overview of Directories and Files
 
