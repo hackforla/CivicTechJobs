@@ -41,12 +41,20 @@ class UserDetailTests(APITestCase):
     #     self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_authenticated_user_cannot_view_others_record(self):
-        """Authenticated user requesting someone else's record gets 403."""
+        """Authenticated user requesting someone else's record gets 403 envelope."""
         self.client.force_authenticate(user=self.user)
         response = self.client.get(f"/api/users/{self.other_user.id}/")
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        # Verify the envelope shape (custom exception handler wrapped DRF's
+        # PermissionDenied into the project-wide error format).
+        body = response.json()
+        self.assertEqual(body["error"]["code"], "permission_denied")
+        self.assertIsInstance(body["error"]["message"], str)
 
     def test_anonymous_cannot_view_user_record(self):
-        """Anonymous requests get 403 (DRF SessionAuth default)."""
+        """Anonymous requests get 403 envelope (DRF SessionAuth default)."""
         response = self.client.get(f"/api/users/{self.user.id}/")
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        body = response.json()
+        self.assertEqual(body["error"]["code"], "not_authenticated")
+        self.assertIsInstance(body["error"]["message"], str)

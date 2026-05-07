@@ -133,6 +133,46 @@ def get_serializer_class(self):
 
 FBVs reference the right serializer directly — they only do one thing, so they only ever need one class.
 
+## Error envelope
+
+All error responses share a single shape:
+
+```json
+{
+  "error": {
+    "code": "<machine_readable_snake_case>",
+    "message": "<human-readable string>",
+    "fields": { "<field>": ["<msg>"] }
+  }
+}
+```
+
+- `error` is always an object, never a string.
+- `error.code` is a snake_case identifier; clients switch on it. Stable across translations.
+- `error.message` is a human-readable string suitable for displaying to users when no field-level surface is appropriate.
+- `error.fields` is present **only** for validation errors. Keys are field names; values are arrays of messages. Top-level (non-field) validation errors land under the `non_field_errors` key, mirroring DRF's existing convention.
+- HTTP status code lives only in the response status; it is not duplicated in the envelope body.
+
+DRF-raised exceptions are wrapped through `ctj_api.exceptions.civic_exception_handler` (registered as `REST_FRAMEWORK["EXCEPTION_HANDLER"]` in `backend/settings.py`). The handler maps each DRF exception class to a code:
+
+| Exception | `error.code` |
+|-----------|--------------|
+| `ValidationError` | `validation_error` (with `error.fields`) |
+| `AuthenticationFailed` | `authentication_failed` |
+| `NotAuthenticated` | `not_authenticated` |
+| `PermissionDenied` | `permission_denied` |
+| `NotFound` | `not_found` |
+| `MethodNotAllowed` | `method_not_allowed` |
+| `NotAcceptable` | `not_acceptable` |
+| `UnsupportedMediaType` | `unsupported_media_type` |
+| `ParseError` | `parse_error` |
+| `Throttled` | `throttled` |
+| (other DRF `APIException`) | `error` |
+
+Manual error paths (the `api_not_found` catch-all for unknown `/api/*` routes is the current example) construct the envelope inline because they don't go through DRF's exception machinery — they're Django URL fallbacks. Use the same shape.
+
+When a new error path is added, prefer raising a DRF exception (`ValidationError`, `PermissionDenied`, etc.) so the handler renders the envelope automatically. Construct the envelope inline only when raising would be the wrong tool (e.g. URL-level catch-alls, asynchronous task error responses).
+
 ## Test shape
 
 Tests live in [backend/ctj_api/tests/](https://github.com/hackforla/CivicTechJobs/tree/main/backend/ctj_api/tests), one file per resource:

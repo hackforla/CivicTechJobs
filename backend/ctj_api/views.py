@@ -121,9 +121,10 @@ def api_not_found(request, exception=None):
     """
     return JsonResponse(
         {
-            "error": "API endpoint not found",
-            "status_code": 404,
-            "message": "The requested API endpoint does not exist",
+            "error": {
+                "code": "not_found",
+                "message": "The requested API endpoint does not exist.",
+            }
         },
         status=404,
     )
