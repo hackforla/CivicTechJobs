@@ -1,12 +1,13 @@
 "use client";
 /* eslint-disable react/no-unescaped-entities */
 
-import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
+import React, { useEffect, useState } from "react";
 
-import { IconButton } from "./Buttons";
 import IconX from "@/shared/icons/icon-x.svg";
 import { cn } from "@/shared/lib/utils";
+
+import { IconButton } from "./Buttons";
 import styles from "./CookieBanner.module.css";
 
 function CookieBanner() {

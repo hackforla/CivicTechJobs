@@ -1,5 +1,6 @@
-import type React from "react";
 import { clsx, type ClassValue } from "clsx";
+
+import type React from "react";
 
 // Conditional className composer. CSS Modules don't have collision
 // semantics the way Tailwind utilities did, so a plain clsx pass is
@@ -7,8 +8,6 @@ import { clsx, type ClassValue } from "clsx";
 export function cn(...inputs: ClassValue[]) {
   return clsx(inputs);
 }
-
-export const combineClasses = cn;
 
 type Handler = (() => void) | React.EventHandler<React.SyntheticEvent>;
 

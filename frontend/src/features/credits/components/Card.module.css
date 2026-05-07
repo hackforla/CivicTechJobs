@@ -7,8 +7,8 @@
   border-radius: 12px;
   padding: 12px;
   box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    0 4px 6px -1px rgb(0 0 0 / 10%),
+    0 2px 4px -2px rgb(0 0 0 / 10%);
 }
 
 .table {
@@ -37,35 +37,38 @@
   text-decoration: underline;
 }
 
-@media (min-width: 577px) {
+@media (width >= 577px) {
   .card {
     flex-direction: column;
   }
+
   .table {
     font-size: 14px;
   }
 }
 
-@media (min-width: 769px) {
+@media (width >= 769px) {
   .card {
     justify-content: space-evenly;
     padding: 24px;
   }
+
   .learnMoreWrap {
     margin-top: 24px;
   }
+
   .learnMore {
     font-size: 18px;
   }
 }
 
-@media (min-width: 1025px) {
+@media (width >= 1025px) {
   .table {
     font-size: 16px;
   }
 }
 
-@media (min-width: 1201px) {
+@media (width >= 1201px) {
   .table {
     font-size: 18px;
   }

@@ -1,8 +1,9 @@
 import Link from "next/link";
 
-import LogoHorizontal from "@/shared/images/logos/logo-horizontal.svg";
-import IconHamburgerMenu from "@/shared/icons/icon-hamburger-menu.svg";
 import { Button } from "@/shared/components/Buttons";
+import IconHamburgerMenu from "@/shared/icons/icon-hamburger-menu.svg";
+import LogoHorizontal from "@/shared/images/logos/logo-horizontal.svg";
+
 import styles from "./HeaderNav.module.css";
 
 interface MenuObject {

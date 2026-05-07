@@ -176,7 +176,7 @@ Pick based on whether the SVG needs to react to props.
 - WCAG 2.2 Level AA is the target compliance level.
 - All interactive elements must be keyboard-navigable.
 - All images need `alt` text; decorative SVGs use `aria-hidden="true"`.
-- The `eslint-plugin-jsx-a11y` rules catch most static issues (see [eslint-guide.md](eslint-guide.md)).
+- The `eslint-plugin-jsx-a11y` rules catch most static issues (see [frontend-lint-guide.md](frontend-lint-guide.md)).
 - Use `@axe-core/react` in development to catch runtime issues; it logs accessibility warnings to the browser console.
 
 ## Resources

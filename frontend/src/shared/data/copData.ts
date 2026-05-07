@@ -1075,9 +1075,4 @@ function fetchAllCopData() {
 }
 
 export type { copDatum };
-export {
-  sampleCopData,
-  fetchCopDataById,
-  fetchAllCopData,
-  fetchCopDataByTitle,
-};
+export { fetchCopDataById, fetchAllCopData, fetchCopDataByTitle };

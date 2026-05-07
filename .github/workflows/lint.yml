@@ -1,0 +1,95 @@
+name: Lint
+
+# Backend (ruff + mypy + bandit) and frontend (eslint + stylelint + knip +
+# tsc + prettier) lint suites run as separate parallel jobs. Each fails the
+# build on errors so pull requests cannot merge with a broken lint state.
+#
+# Pre-commit hooks (.pre-commit-config.yaml) run the same tools locally for
+# fast feedback; this workflow is the authoritative gate.
+
+on:
+  push:
+    branches-ignore: [master, main]
+  pull_request:
+    branches: [master, main]
+  workflow_dispatch:
+
+jobs:
+  backend:
+    name: Backend lint (ruff + mypy + bandit)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install Poetry
+        run: pipx install poetry
+
+      - name: Install dependencies
+        run: poetry install --no-interaction --no-ansi --no-root
+
+      - name: ruff check
+        run: poetry run ruff check .
+
+      - name: ruff format --check
+        run: poetry run ruff format --check .
+
+      - name: mypy
+        # `backend.settings` reads required env vars via python-decouple at
+        # import time. The django-stubs mypy plugin imports settings to walk
+        # the model graph, so it needs values present even though no real
+        # I/O happens. Dummy values are fine; they're never used.
+        env:
+          SECRET_KEY: lint-only-not-real
+          DJANGO_ALLOWED_HOSTS: localhost
+          SQL_ENGINE: django.db.backends.postgresql
+          SQL_DATABASE: lint
+          SQL_USER: lint
+          SQL_PASSWORD: lint
+          SQL_HOST: localhost
+          SQL_PORT: "5432"
+        run: poetry run mypy ctj_api backend
+
+      - name: bandit
+        run: poetry run bandit -r ctj_api backend -c pyproject.toml -q
+
+  frontend:
+    name: Frontend lint (eslint + stylelint + knip + tsc + prettier)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: prettier --check
+        run: npm run format:check
+
+      - name: eslint
+        run: npm run lint
+
+      - name: stylelint
+        run: npm run lint:css
+
+      - name: tsc --noEmit
+        run: npm run lint:types
+
+      - name: knip
+        run: npm run lint:dead

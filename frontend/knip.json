@@ -1,0 +1,14 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "ignoreDependencies": [
+    "@svgr/webpack"
+  ],
+  "rules": {
+    "files": "error",
+    "dependencies": "error",
+    "exports": "error",
+    "types": "error",
+    "unlisted": "error",
+    "binaries": "error"
+  }
+}

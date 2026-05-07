@@ -6,13 +6,14 @@ import { Button } from "@/shared/components/Buttons";
 import { CircleCard } from "@/shared/components/CircleCard";
 import Dialog from "@/shared/components/Dialog";
 import Typography from "@/shared/components/Typography";
-import { CopCard, InnerCopCard, InnerCopNavCard } from "./LandingPageCopCards";
 import {
   type copDatum,
   fetchAllCopData,
   fetchCopDataById,
 } from "@/shared/data/copData";
+
 import styles from "./LandingPageCop.module.css";
+import { CopCard, InnerCopCard, InnerCopNavCard } from "./LandingPageCopCards";
 
 function LandingPageCop() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);

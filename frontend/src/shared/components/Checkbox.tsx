@@ -1,9 +1,11 @@
 "use client";
 
 import React, { useId, useRef, useState, useEffect } from "react";
-import IconCheckboxY from "@/shared/icons/icon-checkbox-yes.svg";
+
 import IconCheckboxN from "@/shared/icons/icon-checkbox-no.svg";
+import IconCheckboxY from "@/shared/icons/icon-checkbox-yes.svg";
 import { cn } from "@/shared/lib/utils";
+
 import styles from "./Checkbox.module.css";
 
 interface CheckboxProps {

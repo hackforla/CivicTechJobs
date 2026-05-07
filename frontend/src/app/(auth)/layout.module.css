@@ -11,7 +11,7 @@
   background-color: var(--color-tan-light);
 }
 
-@media (min-width: 1025px) {
+@media (width >= 1025px) {
   .illustrationPane {
     display: block;
     flex: 0 0 50%;
@@ -37,10 +37,10 @@
   font-weight: var(--weight-bold);
 }
 
-@media (min-width: 769px) {
+@media (width >= 769px) {
   .tagline {
     font-size: 36px;
-    line-height: snug;
+    line-height: 1.375;
   }
 }
 
@@ -53,7 +53,7 @@
 
 .tanBg {
   position: absolute;
-  inset: auto 0 0 0;
+  inset: auto 0 0;
   width: 100%;
 }
 
@@ -83,7 +83,7 @@
   background-color: var(--color-tan);
 }
 
-@media (min-width: 1025px) {
+@media (width >= 1025px) {
   .formPane {
     flex: 0 0 50%;
     width: auto;
@@ -98,7 +98,7 @@
   justify-content: center;
 }
 
-@media (min-width: 1025px) {
+@media (width >= 1025px) {
   .formInner {
     background-color: var(--color-white);
   }
@@ -108,7 +108,7 @@
   width: 83.333%;
 }
 
-@media (min-width: 1025px) {
+@media (width >= 1025px) {
   .formColumn {
     width: 439px;
   }
@@ -120,7 +120,7 @@
   padding: 28px;
 }
 
-@media (min-width: 1025px) {
+@media (width >= 1025px) {
   .formCard {
     background-color: transparent;
     padding: 0;

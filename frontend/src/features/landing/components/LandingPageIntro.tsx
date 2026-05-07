@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import IconArrowDown from "@/shared/icons/icon-arrow-down.svg";
 import LandingPageFg from "@/shared/images/landing-page-fg.svg";
+
 import styles from "./LandingPageIntro.module.css";
 
 function LandingPageIntro() {
@@ -27,7 +28,10 @@ function LandingPageIntro() {
       </div>
 
       <div className={styles.mission}>
-        <IconArrowDown className={styles.missionArrow} aria-label="Arrow Down Icon" />
+        <IconArrowDown
+          className={styles.missionArrow}
+          aria-label="Arrow Down Icon"
+        />
         <h2 className={styles.missionTitle}>Our Mission</h2>
         <p className={styles.missionBody}>
           We bring together civic-minded volunteers from diverse backgrounds

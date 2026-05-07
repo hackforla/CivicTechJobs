@@ -75,18 +75,40 @@ Lives at https://stage.civictechjobs.org/, built and deployed via [.github/workf
 
 ## Linting
 
-Lint runs at commit time via [pre-commit](https://pre-commit.com/), installed on the host. One-time setup:
+CTJ runs two layers of lint enforcement:
+
+- **Pre-commit hooks** (fast local feedback at `git commit` time)
+- **CI workflow** ([`.github/workflows/lint.yml`](https://github.com/hackforla/CivicTechJobs/blob/main/.github/workflows/lint.yml)) — the authoritative gate; PRs cannot merge while it's red.
+
+Both run the same tools so an issue caught in CI is also catchable locally.
+
+### Tools
+
+| Surface | Tool | What it does |
+|---------|------|--------------|
+| Backend | `ruff check` / `ruff format` | Python linter + formatter + import sorter (replaces `black + flake8 + isort`) |
+| Backend | `mypy` | Type checker (gradual mode; see CONTRIBUTING.md) |
+| Backend | `bandit` | Security scanner |
+| Frontend | `eslint` | TS/TSX linter |
+| Frontend | `stylelint` | CSS Modules linter |
+| Frontend | `knip` | Unused files / exports / dependencies |
+| Frontend | `tsc --noEmit` | Type checker |
+| Frontend | `prettier` | Formatter (TS / TSX / JSON / CSS) |
+
+Backend tool configs all live in [`backend/pyproject.toml`](https://github.com/hackforla/CivicTechJobs/blob/main/backend/pyproject.toml). Frontend tool configs are in [`frontend/eslint.config.mjs`](https://github.com/hackforla/CivicTechJobs/blob/main/frontend/eslint.config.mjs), [`frontend/stylelint.config.mjs`](https://github.com/hackforla/CivicTechJobs/blob/main/frontend/stylelint.config.mjs), and [`frontend/knip.json`](https://github.com/hackforla/CivicTechJobs/blob/main/frontend/knip.json).
+
+### Pre-commit setup (one-time, on the host)
 
 ```sh
 pip install pre-commit
 pre-commit install
 ```
 
-After that, every `git commit` runs the configured hooks. Configuration is in [`.pre-commit-config.yaml`](https://github.com/hackforla/CivicTechJobs/blob/main/.pre-commit-config.yaml).
+After that, every `git commit` runs the configured hooks against staged files. Configuration is in [`.pre-commit-config.yaml`](https://github.com/hackforla/CivicTechJobs/blob/main/.pre-commit-config.yaml).
 
-**Why on the host rather than in a container:** pre-commit already creates an isolated env per hook (per-hook venv for Python tools, per-hook Node env for JS tools), so a container would be a second layer of isolation that doesn't add anything. Host pre-commit also avoids the per-commit Docker startup tax - that latency compounds badly across many commits.
+**Why on the host rather than in a container:** pre-commit already creates an isolated env per hook (per-hook venv for Python tools, per-hook Node env for JS tools), so a container would be a second layer of isolation that doesn't add anything. Host pre-commit also avoids the per-commit Docker startup tax — that latency compounds badly across many commits.
 
-Frontend lint (ESLint + Prettier) runs via `npm run lint` and `npm run format` against the Next.js project. Backend lint (`isort` / `black` / `flake8`) runs via pre-commit hooks reading config from `backend/pyproject.toml` and `backend/.flake8`. See [eslint-guide.md](eslint-guide.md) and [backend.md](backend.md) for ecosystem-specific commands.
+See [backend.md → Local dev - lint](backend.md#local-dev---lint) and [frontend-lint-guide.md](frontend-lint-guide.md) for ecosystem-specific commands and rule details.
 
 ## Useful Docker commands
 

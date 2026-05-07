@@ -5,7 +5,7 @@
 # combined-image stage/Dockerfile baked the Vite build into the
 # Django container; this file is the half that handles Django alone.
 
-FROM python:3.12-alpine
+FROM python:3.13-alpine
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app

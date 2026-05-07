@@ -1,7 +1,8 @@
-import { defineConfig } from "vitest/config";
+import path from "node:path";
+
 import react from "@vitejs/plugin-react";
 import svgr from "vite-plugin-svgr";
-import path from "node:path";
+import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   plugins: [
@@ -17,7 +18,10 @@ export default defineConfig({
     environment: "jsdom",
     globals: true,
     setupFiles: ["./vitest.setup.ts"],
-    include: ["src/**/*.{test,spec}.{ts,tsx}", "tests/**/*.{test,spec}.{ts,tsx}"],
+    include: [
+      "src/**/*.{test,spec}.{ts,tsx}",
+      "tests/**/*.{test,spec}.{ts,tsx}",
+    ],
   },
   resolve: {
     alias: {

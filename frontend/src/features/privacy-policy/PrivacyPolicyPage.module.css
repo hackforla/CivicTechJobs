@@ -41,7 +41,7 @@
   height: auto;
 }
 
-@media (min-width: 1025px) {
+@media (width >= 1025px) {
   .heroIllustration {
     display: block;
   }

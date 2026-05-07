@@ -1,6 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+
+import IconEyeOpen from "@/shared/icons/icon-eye-open.svg";
+import { cn } from "@/shared/lib/utils";
+
+import styles from "./TextField.module.css";
+
 import type {
   FieldValues,
   FieldError,
@@ -8,10 +14,6 @@ import type {
   RegisterOptions,
   UseFormRegister,
 } from "react-hook-form";
-
-import IconEyeOpen from "@/shared/icons/icon-eye-open.svg";
-import { cn } from "@/shared/lib/utils";
-import styles from "./TextField.module.css";
 
 interface TextFieldProps<TFormValues extends FieldValues> {
   label: string;
@@ -51,7 +53,9 @@ export default function TextField<TFormValues extends FieldValues>({
     <div className={styles.root}>
       <div className={styles.labelRow}>
         <label htmlFor={id}>{label}</label>
-        {type === "password" && <span className={styles.forgot}>Forgot password?</span>}
+        {type === "password" && (
+          <span className={styles.forgot}>Forgot password?</span>
+        )}
       </div>
       <div className={styles.inputWrapper}>
         {mounted && (

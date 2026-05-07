@@ -4,13 +4,13 @@
 }
 
 .copCardLg {
-  composes: copCard;
+  composes: copcard;
   min-height: 624px;
   max-width: 1088px;
 }
 
 .copCardSm {
-  composes: copCard;
+  composes: copcard;
   min-height: 600px;
   max-width: 312px;
 }
@@ -29,7 +29,7 @@
 }
 
 .contentSm {
-  padding: 74px 6.4vw 0 6.4vw;
+  padding: 74px 6.4vw 0;
 }
 
 .innerCard {

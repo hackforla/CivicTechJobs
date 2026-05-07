@@ -1,7 +1,8 @@
 import AuthNav from "@/shared/components/nav/AuthNav";
+import Dots from "@/shared/images/dots.svg";
 import LoginIllustration from "@/shared/images/login-illustration.svg";
 import LoginTanBg from "@/shared/images/login-tan-bg.svg";
-import Dots from "@/shared/images/dots.svg";
+
 import styles from "./layout.module.css";
 
 export default function AuthLayout({

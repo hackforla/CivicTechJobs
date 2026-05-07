@@ -2,7 +2,7 @@ name: civic-tech-jobs-stage
 
 services:
   pgdb:
-    image: postgres:16
+    image: postgres:18
     container_name: pgdb-stage
     user: postgres
     env_file:

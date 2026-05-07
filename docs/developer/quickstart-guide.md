@@ -76,23 +76,27 @@ Lint normally runs automatically via pre-commit on `git commit` (see [devops.md 
 
 ```sh
 poetry install
-poetry run isort .
-poetry run black .
-poetry run flake8
+poetry run ruff check .          # Lint (pyflakes + pycodestyle + isort + bugbear + django + ...)
+poetry run ruff format .         # Format (black-compatible)
+poetry run mypy ctj_api backend  # Type-check (gradual mode; see CONTRIBUTING.md)
+poetry run bandit -r ctj_api backend -c pyproject.toml  # Security scan
 ```
 
-Order matters: `isort` reorganizes imports, `black` reformats, `flake8` lints. Reversing the order can produce code that one tool rejects after another rewrote it.
+`ruff` does the linting + formatting + import sorting in one tool, replacing the legacy `black + flake8 + isort` chain. See [backend.md → Local dev - lint](backend.md#local-dev---lint) for tool-specific config notes.
 
 ## Frontend linting
 
 Same pattern: pre-commit runs these on `git commit`. Run manually from `frontend/`:
 
 ```sh
-npm run lint     # ESLint, auto-fixes what it can
-npm run format   # Prettier, formats JS/TS/JSON
+npm run lint           # ESLint
+npm run lint:css       # Stylelint (CSS Modules)
+npm run lint:dead      # Knip (unused files / exports / deps)
+npm run lint:types     # tsc --noEmit
+npm run format         # Prettier
 ```
 
-See [eslint-guide.md](eslint-guide.md) for rule details.
+See [frontend-lint-guide.md](frontend-lint-guide.md) for rule details.
 
 ## Deployed stage
 

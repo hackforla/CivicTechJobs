@@ -1,5 +1,3 @@
-import type React from "react";
-
 import IconArrowDown from "@/shared/icons/icon-arrow-down.svg";
 import IconArrowLeft from "@/shared/icons/icon-arrow-left.svg";
 import IconCheckMarkDark from "@/shared/icons/icon-checkmark-dark.svg";
@@ -10,7 +8,9 @@ import IconPlus from "@/shared/icons/icon-plus.svg";
 import IconSearch from "@/shared/icons/icon-search.svg";
 import IconX from "@/shared/icons/icon-x.svg";
 
-export interface AssetDatum {
+import type React from "react";
+
+interface AssetDatum {
   id: number;
   Image: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   name: string;

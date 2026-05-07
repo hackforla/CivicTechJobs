@@ -1,6 +1,5 @@
 "use client";
 
-import React, { Fragment, useId, useState } from "react";
 import {
   useFloating,
   useDismiss,
@@ -8,15 +7,18 @@ import {
   autoUpdate,
   offset,
 } from "@floating-ui/react";
+import React, { Fragment, useId, useState } from "react";
 
-import { ProtoInput, type ProtoInputProps } from "./ProtoInput";
 import IconDropdownDown from "@/shared/icons/icon-dropdown-down.svg";
 import IconDropdownUp from "@/shared/icons/icon-dropdown-up.svg";
 import { cn, onKey } from "@/shared/lib/utils";
+
 import styles from "./Dropdown.module.css";
+import { ProtoInput, type ProtoInputProps } from "./ProtoInput";
 
 interface DropdownProps
-  extends React.PropsWithChildren,
+  extends
+    React.PropsWithChildren,
     Omit<ProtoInputProps, "innerComponent" | "icon" | "iconPosition" | "id"> {
   ariaLabel: string;
   onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;

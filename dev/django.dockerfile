@@ -1,4 +1,4 @@
-FROM python:3.12-alpine
+FROM python:3.13-alpine
 
 # Set the working directory inside the container
 RUN mkdir -p /usr/src/app

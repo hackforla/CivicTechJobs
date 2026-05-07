@@ -4,7 +4,7 @@
 # Compose `develop.watch` so edits hot-reload without rebuilding the image.
 # The image rebuild is only needed when package.json/package-lock.json change.
 
-FROM node:22-alpine
+FROM node:24-alpine
 
 WORKDIR /usr/src/app
 

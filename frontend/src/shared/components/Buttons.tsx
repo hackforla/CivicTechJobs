@@ -1,10 +1,11 @@
 "use client";
 
 import React from "react";
-import Typography from "./Typography";
-import IconSearch from "@/shared/icons/icon-search.svg";
+
 import { cn } from "@/shared/lib/utils";
+
 import styles from "./Buttons.module.css";
+import Typography from "./Typography";
 
 const buttonSizes = {
   small: styles.sizeSmall,
@@ -99,18 +100,6 @@ const Button: React.FC<ButtonProps> = ({
   );
 };
 
-interface SearchButtonProps extends Omit<BaseButtonProps, "size" | "children"> {
-  icon?: React.ReactNode;
-}
-
-const SearchButton: React.FC<SearchButtonProps> = ({ ...props }) => {
-  return (
-    <BaseButton {...props} size="icon-only" className={styles.search}>
-      <IconSearch />
-    </BaseButton>
-  );
-};
-
 interface IconButtonProps {
   className?: string;
   label: string;
@@ -137,4 +126,4 @@ function IconButton({ className, label, onClick, Icon }: IconButtonProps) {
   );
 }
 
-export { Button, SearchButton, IconButton };
+export { Button, IconButton };

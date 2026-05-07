@@ -1,15 +1,16 @@
 "use client";
 
-import React from "react";
 import { useRouter } from "next/navigation";
+import React from "react";
 
-import { type copDatum } from "@/shared/data/copData";
-import Typography from "@/shared/components/Typography";
 import { Button } from "@/shared/components/Buttons";
+import Typography from "@/shared/components/Typography";
+import { type copDatum } from "@/shared/data/copData";
 import IconCheckMark from "@/shared/icons/icon-checkmark.svg";
+import { cn } from "@/shared/lib/utils";
+
 import { QualifierNav } from "./QualifierNav";
 import { useQualifiersContext } from "../QualifiersContext";
-import { cn } from "@/shared/lib/utils";
 import styles from "./QualifierPage1.module.css";
 
 function QualifierPage1() {
@@ -63,7 +64,10 @@ function QualifierPage1() {
           })}
         </div>
         <QualifierNav
-          className={cn(styles.nav, !qualifiers.selectedCOP && styles.navHidden)}
+          className={cn(
+            styles.nav,
+            !qualifiers.selectedCOP && styles.navHidden,
+          )}
         >
           <div className={styles.statusRow}>
             <div className={styles.statusBadge}>

@@ -1,14 +1,14 @@
 "use client";
 
-import React from "react";
 import { useParams } from "next/navigation";
+import React from "react";
 
 import { Stepper } from "./Stepper";
 import { QualifiersProvider } from "../QualifiersContext";
-import { QualifierPageCalendar } from "./QualifierPageCalendar";
+import styles from "./QualifierConsole.module.css";
 import { QualifierPage1 } from "./QualifierPage1";
 import { QualifierPage2 } from "./QualifierPage2";
-import styles from "./QualifierConsole.module.css";
+import { QualifierPageCalendar } from "./QualifierPageCalendar";
 
 function Content({ page }: { page: string }) {
   switch (page) {

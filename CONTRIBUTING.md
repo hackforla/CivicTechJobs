@@ -29,6 +29,17 @@ Filing the issue first (before writing code) lets feedback shape scope before im
 
 Frontend styling uses **CSS Modules**: co-locate a `Component.module.css` next to each component's `.tsx` file. No Tailwind, no styled-components, no CSS-in-JS runtime. See the [design system guide](docs/developer/design-system.md) for the full conventions.
 
+### Type annotations (backend)
+
+The Python codebase has `mypy` running in **gradual mode** — `disallow_untyped_defs` is `false`, so missing annotations don't fail CI. The intent is to ratchet stricter over time, not to demand annotations on every change. Concretely:
+
+- **New code**: add type annotations to function signatures (parameters and return types). Inside function bodies, only annotate where the type is non-obvious or the inference is wrong.
+- **Existing code you touch**: if you're already editing a function for another reason, adding annotations is welcome but not required.
+- **Don't annotate just to silence mypy.** If a type is genuinely ambiguous (`Any` is fine, `# type: ignore[code]` with the specific code is fine when you know why), say so explicitly rather than papering over it.
+- **Django models**: `django-stubs` and `djangorestframework-stubs` are installed; mypy can check ORM call sites without per-call annotation.
+
+The goal is that contributors can land work without fighting the type checker, while the typed surface grows incrementally where it pays for itself.
+
 If an issue takes much longer than its size suggested, post an update on the issue with an honest read on whether you can finish; releasing it back to the backlog is fine.
 
 ### Frontend vs backend issues

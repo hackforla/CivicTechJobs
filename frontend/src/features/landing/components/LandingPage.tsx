@@ -1,5 +1,5 @@
-import { LandingPageIntro } from "./LandingPageIntro";
 import { LandingPageCop } from "./LandingPageCop";
+import { LandingPageIntro } from "./LandingPageIntro";
 
 function LandingPage() {
   return (

@@ -1,5 +1,7 @@
 import React from "react";
+
 import { cn } from "@/shared/lib/utils";
+
 import styles from "./StandardCard.module.css";
 
 interface CardProps extends React.PropsWithChildren {
@@ -7,7 +9,9 @@ interface CardProps extends React.PropsWithChildren {
 }
 
 function Card({ ...props }: CardProps) {
-  return <div className={cn(styles.card, props.className)}>{props.children}</div>;
+  return (
+    <div className={cn(styles.card, props.className)}>{props.children}</div>
+  );
 }
 
 export { Card };

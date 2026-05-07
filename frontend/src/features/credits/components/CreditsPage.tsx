@@ -3,19 +3,19 @@
 
 import { useState, FC } from "react";
 
-import LogoHfla from "@/shared/images/logos/logo-hfla.svg";
-import CreditsPageHighFive from "@/shared/images/credits-page-high-five.svg";
 import { iconData } from "@/features/credits/data/creditsIconData";
 import {
   illustrationData,
   type AssetDatum,
 } from "@/features/credits/data/creditsIllustrationData";
-
-import Card from "./Card";
-import TopSvg from "./TopSvg";
-import BottomSvg from "./BottomSvg";
+import CreditsPageHighFive from "@/shared/images/credits-page-high-five.svg";
+import LogoHfla from "@/shared/images/logos/logo-hfla.svg";
 import { cn } from "@/shared/lib/utils";
+
+import BottomSvg from "./BottomSvg";
+import Card from "./Card";
 import styles from "./CreditsPage.module.css";
+import TopSvg from "./TopSvg";
 
 const CreditsPage: FC = () => {
   const [activeData, setActiveData] = useState<AssetDatum[]>(illustrationData);
@@ -112,10 +112,7 @@ const CreditsPage: FC = () => {
 
       <div className={styles.footer}>
         <div className={styles.footerInner}>
-          <LogoHfla
-            className={styles.hflaLogo}
-            aria-label="Hack for LA logo"
-          />
+          <LogoHfla className={styles.hflaLogo} aria-label="Hack for LA logo" />
           <div className={styles.footerText}>
             <h3 className={styles.joinTitle}>Join us!</h3>
             <p className={styles.joinBody}>

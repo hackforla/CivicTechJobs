@@ -1,6 +1,7 @@
 import React from "react";
 
 import { cn } from "@/shared/lib/utils";
+
 import styles from "./QualifierNav.module.css";
 
 interface QualifierNavProps {
