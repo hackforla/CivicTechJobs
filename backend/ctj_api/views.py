@@ -73,7 +73,7 @@ def healthcheck(request):
     3. Return a JSON 200 with metadata.
 
     URL:
-    - GET /api/healthcheck
+    - GET /api/healthcheck/
 
     Auth:
     - Public
@@ -243,7 +243,7 @@ def community_of_practice_list(request):
     2. Serialize via `CommunityOfPracticeReadSerializer` and return 200.
 
     URL:
-    - GET /api/communityOfPractice/
+    - GET /api/communities-of-practice/
 
     Auth:
     - Public (`AllowAny`).
@@ -268,7 +268,7 @@ def community_of_practice_detail(request, pk):
     2. Serialize via `CommunityOfPracticeReadSerializer` and return 200.
 
     URL:
-    - GET /api/communityOfPractice/<uuid:pk>/
+    - GET /api/communities-of-practice/<uuid:pk>/
 
     Auth:
     - Public (`AllowAny`).

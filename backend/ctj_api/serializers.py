@@ -158,9 +158,9 @@ class CommunityOfPracticeReadSerializer(serializers.ModelSerializer):
     """Read serializer for `CommunityOfPractice` records.
 
     Used by:
-    - `community_of_practice_list` FBV (`GET /api/communityOfPractice/`).
+    - `community_of_practice_list` FBV (`GET /api/communities-of-practice/`).
     - `community_of_practice_detail` FBV
-      (`GET /api/communityOfPractice/<uuid:pk>/`).
+      (`GET /api/communities-of-practice/<uuid:pk>/`).
     """
 
     class Meta:

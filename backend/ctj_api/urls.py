@@ -7,7 +7,7 @@ function-based view (see `ctj_api.views` for the shape rule):
 
 - `healthcheck`: the liveness endpoint.
 - `users/<uuid>/`: the per-user detail FBV.
-- `communityOfPractice/`, `roles/`, `skills/`, `projects/`:
+- `communities-of-practice/`, `roles/`, `skills/`, `projects/`:
   list + detail FBV pairs for read-only catalog resources.
 
 A catch-all `re_path` at the end returns a JSON 404 (via
@@ -27,11 +27,11 @@ router = DefaultRouter()
 router.register(r"opportunities", views.OpportunityViewSet)
 
 urlpatterns = [
-    path("healthcheck", views.healthcheck, name="healthcheck"),
+    path("healthcheck/", views.healthcheck, name="healthcheck"),
     path("users/<uuid:pk>/", views.user_detail),
-    path("communityOfPractice/", views.community_of_practice_list),
+    path("communities-of-practice/", views.community_of_practice_list),
     path(
-        "communityOfPractice/<uuid:pk>/",
+        "communities-of-practice/<uuid:pk>/",
         views.community_of_practice_detail,
     ),
     path("roles/", views.role_list),
