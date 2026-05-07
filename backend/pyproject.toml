@@ -25,6 +25,7 @@ mypy = "^1.20.2"
 django-stubs = "^6.0.3"
 djangorestframework-stubs = "^3.16.9"
 bandit = {extras = ["toml"], version = "^1.9.4"}
+pre-commit = "^4.4.0"
 
 [build-system]
 requires = ["poetry-core"]

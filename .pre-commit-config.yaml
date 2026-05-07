@@ -11,7 +11,7 @@
 
 default_language_version:
   python: python3.13
-  node: "24"
+  node: system
 
 repos:
   # File-shape hygiene. These are pre-commit's own hooks, applied to every
