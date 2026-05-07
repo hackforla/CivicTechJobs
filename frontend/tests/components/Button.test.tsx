@@ -1,25 +1,23 @@
-// External imports
 import React from "react";
+import { describe, expect, test } from "vitest";
 import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
 
-// Internal imports
-import { Button } from "tw-components";
+import { Button } from "@/shared/components/Buttons";
 
 describe("Button", () => {
-  test("Button component", () => {
+  test("renders children text", () => {
     render(<Button>Log in</Button>);
     expect(screen.getByText("Log in")).toBeInTheDocument();
     expect(screen.queryByText("Log out")).not.toBeInTheDocument();
   });
 
-  test("Button tag accessibility", () => {
+  test("renders as button when href is omitted", () => {
     render(<Button />);
     expect(screen.getByRole("button")).toBeInTheDocument();
     expect(screen.queryByRole("link")).not.toBeInTheDocument();
   });
 
-  test("Button tag accessibility with link", () => {
+  test("renders as link when href is provided", () => {
     render(<Button href="www.google.com" />);
     expect(screen.getByRole("link")).toBeInTheDocument();
     expect(screen.queryByRole("button")).not.toBeInTheDocument();

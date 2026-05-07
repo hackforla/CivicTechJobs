@@ -1,0 +1,24 @@
+// Legacy SCSS tokens + utility classes carried forward from the previous
+// frontend. PR2 (Tailwind -> CSS Modules) merges these into co-located
+// `*.module.css` files; for now they are applied globally so ported
+// components keep their existing visual surface.
+@use "@/shared/styles/normalize";
+@use "@/shared/styles/alignment";
+@use "@/shared/styles/layout";
+@use "@/shared/styles/spacing";
+@use "@/shared/styles/typography";
+@use "@/shared/styles/utils";
+
+// Component-paired SCSS that the legacy frontend loaded via component
+// imports. Next.js doesn't automatically pull these in the way Vite
+// did, so the components that still rely on global class names get
+// their styles forwarded here. PR2 (CSS Modules) replaces this.
+@use "@/shared/components/Inputs";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-roboto), Tahoma, Verdana, sans-serif;
+}

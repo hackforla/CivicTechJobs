@@ -1,0 +1,27 @@
+// Internal Imports
+@use "@/shared/styles" as *;
+
+@mixin chip-base {
+  background-color: $color-white;
+  border-radius: 24px;
+  height: 40px;
+
+  &.active {
+    background-color: $color-blue-dark;
+    color: $color-white;
+  }
+}
+
+.multi-chip {
+  @include chip-base;
+
+  border: 1px solid $color-blue-dark;
+  color: $color-charcoal;
+}
+
+.single-chip {
+  @include chip-base;
+
+  border: 1px solid $color-grey;
+  color: $color-grey-dark;
+}

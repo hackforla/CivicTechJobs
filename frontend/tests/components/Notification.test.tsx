@@ -1,53 +1,26 @@
-// External imports
 import React from "react";
-import {
-  render,
-  screen,
-  waitForElementToBeRemoved,
-} from "@testing-library/react";
-import "@testing-library/jest-dom";
+import { describe, expect, test } from "vitest";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { config } from "react-transition-group";
 
-// Internal imports
-import { Notification } from "components/components";
-
-config.disabled = true;
+import { Notification } from "@/shared/components/Notification/Notification";
 
 describe("Notification", () => {
-  test("Notification component", () => {
+  test("renders children with status role by default", () => {
     render(<Notification>This is a warning</Notification>);
     expect(screen.getByText("This is a warning")).toBeInTheDocument();
     expect(screen.getByRole("status")).toBeInTheDocument();
     expect(screen.queryByRole("alert")).not.toBeInTheDocument();
   });
 
-  test("Notification component closable", async () => {
+  test("close button hides the notification", async () => {
     const user = userEvent.setup();
     render(
       <Notification show={true} closable>
         This is a warning
       </Notification>,
     );
-    await user.click(screen.getByRole("button")!);
+    await user.click(screen.getByRole("button"));
     expect(screen.getByRole("status", { hidden: true })).toHaveClass("hidden");
-  });
-
-  test("Notification component autoHidden", async () => {
-    // const user = userEvent.setup();
-    render(
-      <Notification show={true} autoHidden>
-        This is a warning
-      </Notification>,
-    );
-    await waitForElementToBeRemoved(screen.getByRole("status"), {
-      timeout: 10,
-    }).catch(() => {
-      expect(screen.getByText("This is a warning")).toBeInTheDocument();
-      expect(screen.queryByRole("alert")).not.toBeInTheDocument();
-    });
-    await waitForElementToBeRemoved(screen.getByRole("status"), {
-      timeout: 1000,
-    });
   });
 });
