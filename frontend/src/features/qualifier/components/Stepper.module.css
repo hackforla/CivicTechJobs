@@ -1,0 +1,71 @@
+.row {
+  margin-top: 16px;
+  display: flex;
+  width: 100%;
+}
+
+.step {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label {
+  color: var(--color-blue-dark);
+}
+
+.labelPending {
+  color: var(--color-grey-dark);
+}
+
+.connector {
+  margin-top: 4px;
+  display: flex;
+  min-width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.line {
+  width: 50%;
+  border-top: 2px solid var(--color-blue-dark);
+  border-bottom: 2px solid var(--color-blue-dark);
+}
+
+.linePending {
+  width: 50%;
+  border-top: 2px solid var(--color-grey);
+  border-bottom: 2px solid var(--color-grey);
+}
+
+.lineHidden {
+  border: 0;
+}
+
+.dot {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px dashed transparent;
+}
+
+.dotComplete {
+  composes: dot;
+  background-color: var(--color-blue-dark);
+  border-color: transparent;
+}
+
+.dotActive {
+  composes: dot;
+  border-color: var(--color-grey-dark);
+}
+
+.dotPending {
+  composes: dot;
+  background-color: var(--color-grey);
+  border: 0;
+}

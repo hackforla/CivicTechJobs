@@ -2,38 +2,25 @@
 import React from "react";
 
 import PrivacyPolicyIllustration from "@/shared/images/privacy-policy-illustration.svg";
+import styles from "./PrivacyPolicyPage.module.css";
 
 const PrivacyPolicyPage = () => {
-  //Tailwind Classes - unsure of best practice
   const domainName = "localhost:8000";
-  const styleClass = {
-    hyperlink:
-      "text-blue-dark-hover cursor-pointer hover:text-blue-dark-focused font-bold",
-    h2: "my-6 pt-6 text-2xl font-bold text-charcoal",
-    h3: "my-6 font-bold text-charcoal",
-    bullets: "list-disc list-outside pl-4 ml-4 text-grey-dark",
-    p: "text-grey-dark",
-  };
 
   return (
-    <div className="flex flex-col justify-between" role="main">
-      <div
-        className="bg-cover bg-bottom bg-no-repeat pb-24"
-        style={{ backgroundImage: "url(/svgs/privacy-policy-bg-top.svg)" }}
-      >
-        <div className="flex justify-center">
-          <div className="mb-4 w-4/5">
-            <div className="flex flex-row items-end">
-              <div className="space-y-8">
-                <h1 className="my-6 py-8 text-4xl font-bold text-grey-dark">
-                  Privacy Policy
-                </h1>
-                <p className="text-grey-dark">
+    <div className={styles.page} role="main">
+      <div className={styles.heroBg}>
+        <div className={styles.heroContent}>
+          <div className={styles.contentColumn}>
+            <div className={styles.headerRow}>
+              <div className={styles.headerText}>
+                <h1 className={styles.title}>Privacy Policy</h1>
+                <p className={styles.p}>
                   We respect your privacy and recognize that we must maintain
                   and use your information responsibly.
                 </p>
-                <p className="text-grey-dark">
-                  <a href="/" className={styleClass.hyperlink}>
+                <p className={styles.p}>
+                  <a href="/" className={styles.hyperlink}>
                     civictechjobs.org
                   </a>{" "}
                   is an informational website managed by Hack for LA which is a
@@ -48,16 +35,16 @@ const PrivacyPolicyPage = () => {
               </div>
               <PrivacyPolicyIllustration
                 aria-label="Privacy Policy Pana Illustration"
-                className="float-right ml-24 hidden w-52 lg:block"
+                className={styles.heroIllustration}
               />
             </div>
           </div>
         </div>
       </div>
-      <div className="mb-12 flex justify-center">
-        <div className="mb-4 w-4/5 space-y-6">
-          <h2 className={styleClass.h2}>Overview</h2>
-          <ul className={`${styleClass.bullets} space-y-4`}>
+      <div className={styles.bodySection}>
+        <div className={styles.bodyColumn}>
+          <h2 className={styles.h2}>Overview</h2>
+          <ul className={styles.bulletsSpaced}>
             <li>
               We may collect information from you when you visit and take
               actions on our website. We use this information to provide the
@@ -77,18 +64,18 @@ const PrivacyPolicyPage = () => {
               and we take all reasonable measures to do so.
             </li>
           </ul>
-          <h2 className={styleClass.h2}>The personal information we collect</h2>
-          <p className={styleClass.p}>
+          <h2 className={styles.h2}>The personal information we collect</h2>
+          <p className={styles.p}>
             Visiting{" "}
-            <a href="/" className={styleClass.hyperlink}>
+            <a href="/" className={styles.hyperlink}>
               civictechjobs.org
             </a>
           </p>
-          <ul className={styleClass.bullets}>
+          <ul className={styles.bullets}>
             <li>
               We may automatically collect and store data about your visit to{" "}
               {domainName}
-              <ul className={styleClass.bullets}>
+              <ul className={styles.bullets}>
                 <li>Domain from which you access the Internet</li>
                 <li>
                   Operating system on your computer and information about the
@@ -118,8 +105,8 @@ const PrivacyPolicyPage = () => {
               described in this policy.
             </li>
           </ul>
-          <h2 className={styleClass.h2}>E-mail Addresses</h2>
-          <p className={styleClass.p}>
+          <h2 className={styles.h2}>E-mail Addresses</h2>
+          <p className={styles.p}>
             E-mail addresses obtained through the web site will not be sold or
             given to private companies for marketing purposes. The information
             collected is subject to the access and confidentiality provisions of
@@ -133,18 +120,18 @@ const PrivacyPolicyPage = () => {
             Individuals can cancel any communications regarding new service
             updates at any time.
           </p>
-          <h2 className={styleClass.h2}>Google Analytics</h2>
-          <ul className={styleClass.bullets}>
+          <h2 className={styles.h2}>Google Analytics</h2>
+          <ul className={styles.bullets}>
             <li>
               We use Google Analytics to understand how visitors use our site
               and to gather aggregate performance metrics.
             </li>
             <li>
-              We’ve set up Google Analytics so that it doesn’t collect your full
+              We've set up Google Analytics so that it doesn't collect your full
               IP address.
             </li>
             <li>
-              We don’t collect any personally identifiable information using
+              We don't collect any personally identifiable information using
               Google Analytics, and we do not combine the information collected
               through Google Analytics with any personally identifiable
               information.
@@ -157,21 +144,21 @@ const PrivacyPolicyPage = () => {
               the{" "}
               <a
                 href="http://www.google.com/analytics/terms/us.html"
-                className={styleClass.hyperlink}
+                className={styles.hyperlink}
               >
                 Google Analytics Terms of Use
               </a>{" "}
               and the{" "}
               <a
                 href="http://www.google.com/policies/privacy/"
-                className={styleClass.hyperlink}
+                className={styles.hyperlink}
               >
                 Google Privacy Policy
               </a>
               .
             </li>
           </ul>
-          <p className={styleClass.p}>
+          <p className={styles.p}>
             To provide website visitors the ability to prevent their data from
             being used by Google Analytics, Google has developed the Google
             Analytics opt-out browser add-on for the Google Analytics JavaScript
@@ -179,22 +166,22 @@ const PrivacyPolicyPage = () => {
             Analytics JavaScript (ga.js, analytics.js, and dc.js) running on
             websites to prohibit sending information to Google Analytics.
             However, the Google Analytics opt-out browser add-on does not
-            prevent data from being sent to the City’s site.
+            prevent data from being sent to the City's site.
           </p>
-          <p className={styleClass.p}>
+          <p className={styles.p}>
             Visit{" "}
             <a
               href="https://tools.google.com/dlpage/gaoptout/"
-              className={styleClass.hyperlink}
+              className={styles.hyperlink}
             >
               https://tools.google.com/dlpage/gaoptout/
             </a>{" "}
             for more info on how to opt out.
           </p>
-          <h2 className={styleClass.h2}>
+          <h2 className={styles.h2}>
             Cookies and other tracking technologies
           </h2>
-          <ul className={styleClass.bullets}>
+          <ul className={styles.bullets}>
             <li>
               Cookies are small text files that websites place on the computers
               and mobile devices of people who visit those websites. Pixel tags
@@ -212,8 +199,8 @@ const PrivacyPolicyPage = () => {
               Cookies.
             </li>
           </ul>
-          <h3 className={styleClass.h3}>Third party service providers</h3>
-          <p className={styleClass.p}>
+          <h3 className={styles.h3}>Third party service providers</h3>
+          <p className={styles.p}>
             We use third-party service providers to track and analyze
             statistical usage and volume information from our Site users. These
             third-party service providers use persistent Cookies to help us to
@@ -222,32 +209,30 @@ const PrivacyPolicyPage = () => {
             <br></br> Third-party service providers we may use include{" "}
             <a
               href="https://analytics.google.com/"
-              className={styleClass.hyperlink}
+              className={styles.hyperlink}
             >
               Google Analytics
             </a>
             ,{" "}
-            <a href="https://mixpanel.com/" className={styleClass.hyperlink}>
+            <a href="https://mixpanel.com/" className={styles.hyperlink}>
               Mixpanel
             </a>
             ,{" "}
-            <a href="https://www.hotjar.com/" className={styleClass.hyperlink}>
+            <a href="https://www.hotjar.com/" className={styles.hyperlink}>
               Hotjar
             </a>
             .
           </p>
-          <h3 className={styleClass.h3}>
-            How to opt-out of the use of cookies
-          </h3>
-          <p className={styleClass.p}>
+          <h3 className={styles.h3}>How to opt-out of the use of cookies</h3>
+          <p className={styles.p}>
             Most browsers are initially set up to accept HTTP cookies. If you
             want to restrict or block the cookies that are set by our Site, or
             any other site, you can do so through your browser setting. The
-            ‘Help’ function in your browser should explain how. Alternatively,
+            'Help' function in your browser should explain how. Alternatively,
             you can visit{" "}
             <a
               href="http://www.aboutcookies.org"
-              className={styleClass.hyperlink}
+              className={styles.hyperlink}
             >
               www.aboutcookies.org
             </a>
@@ -255,21 +240,21 @@ const PrivacyPolicyPage = () => {
             wide variety of browsers. You will find general information about
             cookies and details on how to delete cookies from your machine.
           </p>
-          <h2 className={styleClass.h2}>
+          <h2 className={styles.h2}>
             As required by law and similar disclosures
           </h2>
-          <ul className={styleClass.bullets}>
+          <ul className={styles.bullets}>
             <li>
               We may access, preserve, and disclose your information if we
               believe doing so is required or appropriate to:
-              <ul className={styleClass.bullets}>
+              <ul className={styles.bullets}>
                 <li>
                   comply with law enforcement requests and legal process, such
                   as a court order or subpoena;
                 </li>
                 <li>respond to your requests; or</li>
                 <li>
-                  protect your, our, or others’ rights, property, or safety.
+                  protect your, our, or others' rights, property, or safety.
                 </li>
               </ul>
             </li>
@@ -279,15 +264,15 @@ const PrivacyPolicyPage = () => {
               Site.
             </li>
           </ul>
-          <h2 className={styleClass.h2}>Consent</h2>
-          <ul className={styleClass.bullets}>
+          <h2 className={styles.h2}>Consent</h2>
+          <ul className={styles.bullets}>
             <li>
               We may also disclose information from you or about you or your
               devices with your permission.
             </li>
           </ul>
-          <h2 className={styleClass.h2}>Children's Privacy</h2>
-          <ul className={styleClass.bullets}>
+          <h2 className={styles.h2}>Children's Privacy</h2>
+          <ul className={styles.bullets}>
             <li>
               We do not knowingly collect, maintain, or use personal information
               from children under 13 years of age, and no part of our Site is
@@ -299,15 +284,15 @@ const PrivacyPolicyPage = () => {
               alert us at{" "}
               <a
                 href="mailto:privacy@hackforla.org?subject=HfLA%20TDM%20Calculator"
-                className={styleClass.hyperlink}
+                className={styles.hyperlink}
               >
                 privacy@hackforla.org
               </a>{" "}
-              and reference “Child Privacy Report" in the subject line.
+              and reference "Child Privacy Report" in the subject line.
             </li>
           </ul>
-          <h2 className={styleClass.h2}>Security</h2>
-          <ul className={styleClass.bullets}>
+          <h2 className={styles.h2}>Security</h2>
+          <ul className={styles.bullets}>
             <li>
               {domainName} utilizes Amazon Web Servcies (AWS). AWS operates
               "secure data networks" protected by industry standard firewalls
@@ -322,10 +307,10 @@ const PrivacyPolicyPage = () => {
               security or privacy of your information.
             </li>
           </ul>
-          <h2 className={styleClass.h2}>
+          <h2 className={styles.h2}>
             Right to be forgotten and rectification
           </h2>
-          <ul className={styleClass.bullets}>
+          <ul className={styles.bullets}>
             <li>
               You may request that we make corrections to any personal data that
               is stored on our internal databases at any time. You may request
@@ -333,38 +318,38 @@ const PrivacyPolicyPage = () => {
               corrected. Requests can be submitted to{" "}
               <a
                 href="mailto:privacy@HackforLa.org?subject=HfLA%20TDM%20Calculator%20-%20Public%20Website"
-                className={styleClass.hyperlink}
+                className={styles.hyperlink}
               >
                 privacy@HackforLA.org
               </a>{" "}
-              and reference “{domainName} Public Website” in the subject line.
+              and reference "{domainName} Public Website" in the subject line.
             </li>
           </ul>
-          <h2 className={styleClass.h2}>Changes</h2>
-          <p className={styleClass.p}>
+          <h2 className={styles.h2}>Changes</h2>
+          <p className={styles.p}>
             This {domainName} Privacy Policy is subject to change from time to
             time in response to, or as a result of changes in federal, state,
             and/or local law. Please check this page frequently for updates as
             your continued use of this site after any changes in this Privacy
             Policy will constitute your acceptance of the changes.
           </p>
-          <h2 className={styleClass.h2}>Effective Date</h2>
-          <p className={styleClass.p}>
+          <h2 className={styles.h2}>Effective Date</h2>
+          <p className={styles.p}>
             This version of the policy is effective October 1, 2020.
           </p>
-          <h2 className={styleClass.h2}>Questions</h2>
-          <p className={styleClass.p}>
+          <h2 className={styles.h2}>Questions</h2>
+          <p className={styles.p}>
             If you have any questions, comments, concerns, or complaints related
             to our Review Tool websites, please contact us by email at{" "}
             <a
               href="mailto:privacy@hackforla.org"
-              className={styleClass.hyperlink}
+              className={styles.hyperlink}
             >
               privacy@hackforla.org
             </a>
             , or by mail at:
           </p>
-          <p className={styleClass.p}>
+          <p className={styles.p}>
             Code for America <br></br>Ref: Hack for LA, {domainName}
             <br></br>155 9th Street
             <br></br>San Francisco, CA 94103

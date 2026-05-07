@@ -5,7 +5,8 @@ import React, { useEffect, useState } from "react";
 import { IconButton } from "@/shared/components/Buttons";
 import IconX from "@/shared/icons/icon-x.svg";
 import { TransitionWrapper } from "@/shared/components/TransitionWrapper/TransitionWrapper";
-import { combineClasses } from "@/shared/lib/utils";
+import { cn } from "@/shared/lib/utils";
+import styles from "./Notification.module.css";
 
 interface NotificationProps extends React.PropsWithChildren {
   autoHidden?: boolean;
@@ -45,7 +46,7 @@ function Notification({
 
     return (
       <IconButton
-        className="notification-x"
+        className={styles.closeButton}
         Icon={IconX}
         label="close"
         onClick={() => {
@@ -58,17 +59,12 @@ function Notification({
   const Bar = () => {
     return (
       <div
-        className={combineClasses(
-          "flex-center-x",
-          "align-center",
-          "notification",
-          isHidden && "hidden",
-        )}
+        className={cn(styles.bar, isHidden && styles.barHidden)}
         aria-hidden={isHidden}
         role={role}
       >
         {closable && <CloseButton />}
-        <div className="paragraph-3 text-center">{props.children}</div>
+        <div className={styles.message}>{props.children}</div>
       </div>
     );
   };

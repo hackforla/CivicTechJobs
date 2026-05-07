@@ -1,0 +1,28 @@
+.nav {
+  position: sticky;
+  bottom: 0;
+  box-sizing: content-box;
+  display: flex;
+  height: 64px;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  background-color: #fdfdfd;
+  opacity: 0.8;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.nav:hover {
+  opacity: 1;
+}
+
+.inner {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 24px;
+  padding-right: 24px;
+}

@@ -8,6 +8,7 @@ import { QualifiersProvider } from "../QualifiersContext";
 import { QualifierPageCalendar } from "./QualifierPageCalendar";
 import { QualifierPage1 } from "./QualifierPage1";
 import { QualifierPage2 } from "./QualifierPage2";
+import styles from "./QualifierConsole.module.css";
 
 function Content({ page }: { page: string }) {
   switch (page) {
@@ -29,10 +30,10 @@ function QualifierConsole() {
   return (
     <QualifiersProvider>
       <main>
-        <div className="container mx-auto mb-8">
-          <h1 className="sr-only">Qualifier Page</h1>
+        <div className={styles.container}>
+          <h1 className={styles.heading}>Qualifier Page</h1>
           <Stepper />
-          <div className="flex w-full flex-col items-center justify-center">
+          <div className={styles.contentSlot}>
             <Content page={page} />
           </div>
         </div>

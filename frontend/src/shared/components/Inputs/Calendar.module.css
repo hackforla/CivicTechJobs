@@ -1,0 +1,105 @@
+.root {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.headerColumn {
+  box-sizing: border-box;
+  padding-top: 30px;
+}
+
+.headerColumn > div:first-child {
+  background-color: var(--color-white);
+  box-shadow: 0 0 0 1px var(--color-white);
+  height: 36px;
+  position: sticky;
+  top: 0;
+}
+
+.headerColumn > div:not(:first-child, :last-child) {
+  height: 80px;
+}
+
+.headerLabel {
+  font-size: 16px;
+}
+
+.tableWrapper {
+  flex: 2 1 0;
+}
+
+.table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.headerRow > th {
+  background-color: var(--color-white);
+  box-shadow: 0 0 0 1px var(--color-white);
+  height: 36px;
+  position: sticky;
+  top: 0;
+}
+
+.headerRow > th:first-child {
+  width: 24px;
+}
+
+.row {
+  height: 36px;
+}
+
+.row.dashed:last-child {
+  border-bottom: 2px solid var(--color-grey);
+}
+
+.row.solid:last-child {
+  border-bottom: 2px dashed var(--color-grey);
+}
+
+.dashed {
+  border-top: 2px dashed var(--color-grey);
+}
+
+.solid {
+  border-top: 2px solid var(--color-grey);
+}
+
+.cell {
+  border-left: 2px solid var(--color-grey-dark);
+  height: 36px;
+}
+
+.cell:last-child {
+  border-right: 2px solid var(--color-grey-dark);
+}
+
+.cell:hover:not(.selected) {
+  background-color: rgba(19, 131, 30, 0.5);
+}
+
+.cell.selected {
+  background-color: var(--color-green);
+  border-top-color: var(--color-green);
+  user-select: none;
+}
+
+.cell > * {
+  height: 36px;
+}
+
+.ticksTop {
+  border-left: 2px solid var(--color-grey-dark);
+  height: 36px;
+}
+
+.ticksTop:last-child {
+  border-right: 2px solid var(--color-grey-dark);
+}
+
+.ticksLeft {
+  width: 24px;
+}

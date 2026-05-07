@@ -1,0 +1,76 @@
+.root {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.circleEffect {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: var(--color-blue-dark);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.input:focus ~ .circleEffect {
+  opacity: 0.16;
+}
+
+.input:active ~ .circleEffect {
+  opacity: 0.32;
+}
+
+.label {
+  position: relative;
+  display: flex;
+  user-select: none;
+  align-items: center;
+}
+
+.labelEnabled {
+  cursor: pointer;
+}
+
+.labelDisabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.iconWrapper {
+  position: relative;
+  display: flex;
+  height: 40px;
+  width: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  margin-left: 4px;
+}
+
+.textHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

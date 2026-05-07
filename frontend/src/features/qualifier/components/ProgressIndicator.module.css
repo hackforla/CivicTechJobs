@@ -1,0 +1,23 @@
+.root {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.svg {
+  color: var(--color-blue-dark);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: var(--weight-bold);
+  color: var(--color-charcoal);
+}
+
+.subtitle {
+  color: var(--color-charcoal);
+}

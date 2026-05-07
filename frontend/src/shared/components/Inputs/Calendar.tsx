@@ -2,12 +2,13 @@
 
 import React, { useEffect, useState } from "react";
 
-import { combineClasses, onKey, range } from "@/shared/lib/utils";
+import { cn, onKey, range } from "@/shared/lib/utils";
 import { daysOfWeek, hoursOfDay } from "./calendar_data";
 import {
   useDragToSelectUnselect,
   useDragState,
 } from "./dragToSelectUnselect";
+import styles from "./Calendar.module.css";
 
 // Type declaration for props
 interface CalendarProps extends React.PropsWithChildren {
@@ -55,27 +56,20 @@ function Calendar({ value = initialValue, addClass, onChange }: CalendarProps) {
   }, [onChange, data]);
 
   return (
-    <div
-      className={combineClasses("flex-container fill", addClass)}
-      data-testid="calendar-root"
-    >
-      {/* Side column with headers. Needs to be separate due to labels being on the border, and alternating */}
+    <div className={cn(styles.root, addClass)} data-testid="calendar-root">
       <CalendarHeaderColumn rowNames={hoursOfDay()} />
-      <div style={{ flex: "2 1 0" }}>
-        <table className="calendar">
+      <div className={styles.tableWrapper}>
+        <table className={styles.table}>
           <thead>
-            {/* Top row with the headers */}
             <CalendarHeaderRow columnNames={daysOfWeek} />
           </thead>
           <tbody>
-            {/* Top row with the ticks */}
             <tr aria-hidden={true}>
               <td></td>
               {range(1, 7).map((_, index) => {
-                return <td key={index} className="calendar-ticks-top"></td>;
+                return <td key={index} className={styles.ticksTop}></td>;
               })}
             </tr>
-            {/* Some number of typical rows */}
             {range(1, 48).map((row, index) => {
               return (
                 <CalendarRow key={index} rowNum={row}>
@@ -105,11 +99,11 @@ function Calendar({ value = initialValue, addClass, onChange }: CalendarProps) {
 
 function CalendarHeaderColumn(props: CalendarHeaderColumnProps) {
   return (
-    <div className="calendar-header-column pr-1">
+    <div className={styles.headerColumn}>
       <div aria-hidden="true"></div>
       {props.rowNames?.map((name, index) => {
         return (
-          <div key={index} className="paragraph-2">
+          <div key={index} className={styles.headerLabel}>
             {name}
           </div>
         );
@@ -120,7 +114,7 @@ function CalendarHeaderColumn(props: CalendarHeaderColumnProps) {
 
 function CalendarHeaderRow(props: CalendarHeadRowProps) {
   return (
-    <tr className="calendar-header-row">
+    <tr className={styles.headerRow}>
       <th aria-hidden="true"></th>
       {props.columnNames.map((name, index) => {
         return (
@@ -136,15 +130,15 @@ function CalendarHeaderRow(props: CalendarHeadRowProps) {
 function CalendarRow(props: CalendarRowProps) {
   return (
     <tr
-      className={combineClasses(
-        "calendar-row",
-        props.rowNum % 2 == 0 ? "dashed" : "solid",
+      className={cn(
+        styles.row,
+        props.rowNum % 2 == 0 ? styles.dashed : styles.solid,
       )}
     >
       <td
-        className={combineClasses(
-          "calendar-ticks-left",
-          props.rowNum % 2 == 0 ? "dashed" : "solid",
+        className={cn(
+          styles.ticksLeft,
+          props.rowNum % 2 == 0 ? styles.dashed : styles.solid,
         )}
         aria-hidden={true}
       ></td>
@@ -184,10 +178,10 @@ function CalendarCell({
   return (
     <td
       tabIndex={-1}
-      className={combineClasses(
-        "calendar-cell",
-        cell.row % 2 == 0 ? "dashed" : "solid",
-        next && "selected",
+      className={cn(
+        styles.cell,
+        cell.row % 2 == 0 ? styles.dashed : styles.solid,
+        next && styles.selected,
       )}
     >
       <div

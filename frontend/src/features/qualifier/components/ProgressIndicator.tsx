@@ -1,10 +1,12 @@
 import React from "react";
 
+import styles from "./ProgressIndicator.module.css";
+
 interface ProgressIndicatorProps {
   currentPart: number;
   totalParts: number;
   title: string;
-  progressPercentage: number; // New prop
+  progressPercentage: number;
 }
 
 export const ProgressIndicator: React.FC<ProgressIndicatorProps> = ({
@@ -13,7 +15,6 @@ export const ProgressIndicator: React.FC<ProgressIndicatorProps> = ({
   title,
   progressPercentage,
 }) => {
-  // Ensure progressPercentage is clamped between 0 and 100
   const validProgressPercentage = Math.min(
     Math.max(progressPercentage, 0),
     100,
@@ -21,9 +22,9 @@ export const ProgressIndicator: React.FC<ProgressIndicatorProps> = ({
   const strokeDashoffset = 62.8 - (62.8 * validProgressPercentage) / 100;
 
   return (
-    <div className="flex items-center gap-2">
+    <div className={styles.root}>
       <svg
-        className="text-blue-dark"
+        className={styles.svg}
         width="40"
         height="40"
         viewBox="0 0 36 36"
@@ -49,11 +50,11 @@ export const ProgressIndicator: React.FC<ProgressIndicatorProps> = ({
           transform="rotate(-90 18 18)"
         />
       </svg>
-      <div className="flex flex-col">
-        <span className="font-bold text-charcoal">
+      <div className={styles.text}>
+        <span className={styles.title}>
           Part {currentPart} of {totalParts}
         </span>
-        <span className="text-charcoal">{title}</span>
+        <span className={styles.subtitle}>{title}</span>
       </div>
     </div>
   );

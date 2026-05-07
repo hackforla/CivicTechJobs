@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useForm, type SubmitHandler } from "react-hook-form";
 
 import TextField from "@/shared/components/TextField";
+import styles from "./SessionForm.module.css";
 
 type Inputs = {
   email: string;
@@ -23,7 +24,7 @@ export default function LoginForm() {
 
   return (
     <div>
-      <h3 className="mb-8 text-4xl font-bold">Log in</h3>
+      <h3 className={styles.heading}>Log in</h3>
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <TextField
           label="Email"
@@ -54,25 +55,23 @@ export default function LoginForm() {
           }}
           errors={errors.password}
         />
-        <div className="mb-4 flex">
+        <div className={styles.checkboxRow}>
           {/* Browser extensions decorate inputs with data-* attributes
           after the SSR HTML lands; suppressHydrationWarning is the
           documented escape hatch for attribute-only mismatches. */}
           <input
             type="checkbox"
-            className="mr-2"
+            className={styles.checkbox}
             suppressHydrationWarning
           />
-          <p className="text-grey-dark">Keep me signed in</p>
+          <p className={styles.checkboxLabel}>Keep me signed in</p>
         </div>
-        <button className="w-full rounded-3xl bg-blue-dark py-[12px] font-bold text-white hover:bg-blue-dark-hover hover:shadow-lg focus:bg-blue-dark-focused">
-          Login
-        </button>
+        <button className={styles.submit}>Login</button>
       </form>
-      <div className="mt-4 text-center">
+      <div className={styles.altLink}>
         <p>
           New to Civic Tech Jobs?{" "}
-          <Link href="/signup" className="font-bold text-blue-dark underline">
+          <Link href="/signup" className={styles.altLinkAnchor}>
             Sign up
           </Link>
         </p>

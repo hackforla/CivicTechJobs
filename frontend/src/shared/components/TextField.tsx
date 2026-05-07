@@ -10,6 +10,8 @@ import type {
 } from "react-hook-form";
 
 import IconEyeOpen from "@/shared/icons/icon-eye-open.svg";
+import { cn } from "@/shared/lib/utils";
+import styles from "./TextField.module.css";
 
 interface TextFieldProps<TFormValues extends FieldValues> {
   label: string;
@@ -46,30 +48,22 @@ export default function TextField<TFormValues extends FieldValues>({
   }, []);
 
   return (
-    <div className="w-full">
-      <div className="mb-1 text-base font-bold">
+    <div className={styles.root}>
+      <div className={styles.labelRow}>
         <label htmlFor={id}>{label}</label>
-        {type === "password" && (
-          <span className="float-right cursor-pointer font-bold text-blue-dark underline">
-            Forgot password?
-          </span>
-        )}
+        {type === "password" && <span className={styles.forgot}>Forgot password?</span>}
       </div>
-      <div className="relative h-11">
+      <div className={styles.inputWrapper}>
         {mounted && (
           <>
             <input
               id={id}
               type={type}
               {...register(id, validations)}
-              className={`h-11 w-full rounded-lg border px-2 ${
-                errors
-                  ? "border-red focus:outline-red"
-                  : "border-grey focus:outline-blue-dark"
-              }`}
+              className={cn(styles.input, errors && styles.inputError)}
             />
             {type === "password" && (
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2">
+              <div className={styles.passwordIcon}>
                 <IconEyeOpen />
               </div>
             )}
@@ -77,9 +71,7 @@ export default function TextField<TFormValues extends FieldValues>({
         )}
       </div>
 
-      <div className="font-gothic flex h-8 flex-col justify-center font-bold text-red">
-        {errors && errors.message}
-      </div>
+      <div className={styles.errorMessage}>{errors && errors.message}</div>
     </div>
   );
 }

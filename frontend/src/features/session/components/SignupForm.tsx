@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useForm, type SubmitHandler } from "react-hook-form";
 
 import TextField from "@/shared/components/TextField";
+import styles from "./SessionForm.module.css";
 
 type Inputs = {
   firstName: string;
@@ -24,9 +25,9 @@ export default function SignupForm() {
 
   return (
     <div>
-      <h3 className="mb-10 text-4xl font-bold">Sign up</h3>
+      <h3 className={styles.headingWide}>Sign up</h3>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4">
+        <div className={styles.nameGrid}>
           <TextField
             label="First name"
             id="firstName"
@@ -73,14 +74,12 @@ export default function SignupForm() {
           }}
           errors={errors.password}
         />
-        <button className="w-full rounded-3xl bg-blue-dark py-[12px] font-bold text-white hover:bg-blue-dark-hover hover:shadow-lg focus:bg-blue-dark-focused">
-          Sign Up
-        </button>
+        <button className={styles.submit}>Sign Up</button>
       </form>
-      <div className="mt-4 text-center">
+      <div className={styles.altLink}>
         <p>
           Already on Civic Tech Jobs?{" "}
-          <Link href="/login" className="font-bold text-blue-dark underline">
+          <Link href="/login" className={styles.altLinkAnchor}>
             Log In
           </Link>
         </p>

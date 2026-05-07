@@ -12,7 +12,8 @@ import {
 import { ProtoInput, type ProtoInputProps } from "./ProtoInput";
 import IconDropdownDown from "@/shared/icons/icon-dropdown-down.svg";
 import IconDropdownUp from "@/shared/icons/icon-dropdown-up.svg";
-import { combineClasses, onKey } from "@/shared/lib/utils";
+import { cn, onKey } from "@/shared/lib/utils";
+import styles from "./Dropdown.module.css";
 
 interface DropdownProps
   extends React.PropsWithChildren,
@@ -55,7 +56,7 @@ function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
           aria-label={props.ariaLabel}
           aria-owns={dropdownBoxId}
           id={dropdownId}
-          className="dropdown"
+          className={styles.dropdown}
           onClick={() => setOpen(!open)}
           onKeyDown={(e) => onKey(() => setOpen(!open), "Enter")(e)}
           onMouseDown={(e) => e.preventDefault()}
@@ -68,7 +69,7 @@ function Dropdown({ labelHidden = false, ...props }: DropdownProps) {
       <ul
         {...getFloatingProps()}
         ref={refs.setFloating}
-        className={combineClasses("dropdown-box p-0 m-0", open || "hidden")}
+        className={cn(styles.dropdownBox, !open && styles.dropdownBoxHidden)}
         id={dropdownBoxId}
         role="listbox"
         style={floatingStyles}
@@ -89,7 +90,7 @@ function DropdownOption({ ...props }: DropdownOptionProps) {
   return (
     <li
       aria-selected={props.selected}
-      className="dropdown-row px-2"
+      className={styles.dropdownRow}
       onClick={() => props.onClick(props.value)}
       onKeyDown={(e) => onKey(() => props.onClick(props.value), "Enter")(e)}
       role="option"

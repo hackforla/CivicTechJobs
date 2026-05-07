@@ -1,0 +1,369 @@
+.page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.heroWrapper {
+  position: relative;
+  z-index: 0;
+  min-height: 300px;
+}
+
+.hero {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 20px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding-left: 64px;
+  padding-right: 32px;
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+}
+
+.heroTitle {
+  margin-top: 12px;
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: var(--weight-bold);
+}
+
+.heroDescription {
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+.heroIllustration {
+  height: auto;
+  width: 50%;
+}
+
+.tanStripe {
+  height: 96px;
+  width: 100%;
+  flex: none;
+  background-color: var(--color-tan-bg);
+}
+
+.topSvg {
+  width: 100%;
+  flex: none;
+}
+
+.body {
+  flex: 1;
+  background-color: var(--color-white);
+}
+
+.bodyHeader {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding: 24px 64px;
+}
+
+.bodyHeading {
+  font-size: 20px;
+  font-weight: var(--weight-bold);
+}
+
+.toggleRow {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.toggleBtn {
+  height: 24px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 4px;
+  font-size: 12px;
+  border: 1px solid;
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.toggleBtnActive {
+  border-color: var(--color-blue-dark);
+  background-color: var(--color-blue-dark);
+  color: var(--color-white);
+}
+
+.toggleBtnInactive {
+  border-color: var(--color-grey-dark);
+  background-color: var(--color-white);
+  color: var(--color-grey-dark);
+}
+
+.toggleBtn:hover {
+  background-color: var(--color-blue-dark-hover);
+  border-color: var(--color-blue-dark-hover);
+  color: var(--color-white);
+}
+
+.toggleBtn:focus {
+  background-color: var(--color-blue-dark-focused);
+  border-color: var(--color-blue-dark-focused);
+  color: var(--color-white);
+}
+
+.grid {
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr;
+  place-items: stretch;
+  align-content: center;
+  column-gap: 32px;
+  row-gap: 40px;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.cardImageContainer {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  display: grid;
+}
+
+.cardImageContainerIllustration {
+  composes: cardImageContainer;
+  background-color: var(--color-grey-light);
+}
+
+.cardImageContainerIcon {
+  composes: cardImageContainer;
+  background-color: var(--color-tan-light);
+}
+
+.cardImageIllustration {
+  width: 66.666%;
+  height: auto;
+  place-self: center;
+}
+
+.cardImageIcon {
+  width: 16.666%;
+  height: auto;
+  place-self: center;
+}
+
+.footer {
+  position: relative;
+  min-height: 200px;
+}
+
+.footerInner {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hflaLogo {
+  margin-bottom: 0;
+  margin-right: 8px;
+  width: 32px;
+}
+
+.footerText {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.joinTitle {
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.joinBody {
+  font-size: 12px;
+}
+
+.bottomSvg {
+  position: relative;
+  flex: none;
+}
+
+@media (min-width: 480px) {
+  .grid {
+    width: 83.333%;
+  }
+}
+
+@media (min-width: 577px) {
+  .hero {
+    top: 32px;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .heroText {
+    width: 50%;
+    text-align: left;
+  }
+  .heroTitle {
+    font-size: 30px;
+  }
+  .heroDescription {
+    font-size: 14px;
+  }
+  .toggleBtn {
+    height: 40px;
+    padding-left: 28px;
+    padding-right: 28px;
+    font-size: 16px;
+  }
+  .tanStripe {
+    height: 32px;
+  }
+  .grid {
+    width: 80%;
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .cardImageContainer {
+    width: 144px;
+    height: 144px;
+  }
+  .footerInner {
+    bottom: 25%;
+    flex-direction: row;
+    align-items: center;
+  }
+  .hflaLogo {
+    width: 64px;
+  }
+  .footerText {
+    text-align: left;
+  }
+  .joinTitle {
+    font-size: 18px;
+  }
+  .joinBody {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 769px) {
+  .hero {
+    top: 40px;
+  }
+  .heroText {
+    width: 50%;
+  }
+  .heroTitle {
+    margin-bottom: 12px;
+    font-size: 36px;
+  }
+  .heroDescription {
+    margin-top: 12px;
+    font-size: 16px;
+  }
+  .heroIllustration {
+    margin: 0 8px;
+    margin-right: 16px;
+    width: 40%;
+  }
+  .bodyHeader {
+    padding-left: 96px;
+    padding-right: 96px;
+  }
+  .bodyHeading {
+    font-size: 30px;
+  }
+  .grid {
+    width: 80%;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 32px;
+  }
+  .cardImageContainer {
+    width: 144px;
+    height: 144px;
+  }
+  .hflaLogo {
+    margin-bottom: 8px;
+    margin-right: 16px;
+    width: 96px;
+  }
+  .joinTitle {
+    margin-bottom: 12px;
+    font-size: 24px;
+  }
+  .joinBody {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .hero {
+    top: 64px;
+  }
+  .heroTitle {
+    font-size: 48px;
+  }
+  .heroDescription {
+    font-size: 18px;
+  }
+  .bodyHeader {
+    padding-left: 128px;
+    padding-right: 128px;
+  }
+  .bodyHeading {
+    font-size: 36px;
+  }
+  .grid {
+    column-gap: 48px;
+  }
+  .cardImageContainer {
+    width: 176px;
+    height: 176px;
+  }
+  .hflaLogo {
+    width: 128px;
+  }
+  .joinTitle {
+    font-size: 30px;
+  }
+  .joinBody {
+    font-size: 18px;
+  }
+  .bottomSvg {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1201px) {
+  .hero {
+    top: 88px;
+  }
+  .heroTitle {
+    font-size: 60px;
+  }
+  .heroDescription {
+    font-size: 24px;
+  }
+  .bodyHeading {
+    font-size: 48px;
+  }
+  .grid {
+    column-gap: 80px;
+  }
+}

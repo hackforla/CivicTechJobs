@@ -1,0 +1,50 @@
+.table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  color: var(--color-charcoal);
+}
+
+.copCell {
+  width: 66.666%;
+  text-align: left;
+}
+
+.experienceLabel {
+  padding-bottom: 8px;
+  text-align: left;
+}
+
+.colHeader {
+  padding-bottom: 16px;
+  text-align: left;
+  font-weight: var(--weight-normal);
+  color: var(--color-grey-dark);
+}
+
+.row {
+  border-bottom: 2px solid var(--color-grey);
+}
+
+.row:last-child {
+  border-bottom: 0;
+}
+
+.skillCell {
+  padding-top: 24px;
+  padding-bottom: 28px;
+}
+
+.skillDescription {
+  color: var(--color-grey-dark);
+}
+
+.radio {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--color-grey-dark);
+}
+
+.radio:checked {
+  background-color: var(--color-blue-dark);
+}

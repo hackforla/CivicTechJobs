@@ -1,0 +1,128 @@
+.shell {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 64px);
+  overflow: hidden;
+}
+
+.illustrationPane {
+  display: none;
+  position: relative;
+  background-color: var(--color-tan-light);
+}
+
+@media (min-width: 1025px) {
+  .illustrationPane {
+    display: block;
+    flex: 0 0 50%;
+  }
+}
+
+.illustrationContent {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 30;
+  width: 80%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.tagline {
+  margin-top: 32px;
+  margin-bottom: 32px;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-size: 30px;
+  font-weight: var(--weight-bold);
+}
+
+@media (min-width: 769px) {
+  .tagline {
+    font-size: 36px;
+    line-height: snug;
+  }
+}
+
+.illustration {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: auto;
+}
+
+.tanBg {
+  position: absolute;
+  inset: auto 0 0 0;
+  width: 100%;
+}
+
+.dots {
+  position: absolute;
+  z-index: 10;
+  width: 16.666%;
+  height: 16.666%;
+}
+
+.dotsTopRight {
+  composes: dots;
+  top: -16px;
+  right: -16px;
+  transform: rotate(290deg);
+}
+
+.dotsBottomLeft {
+  composes: dots;
+  bottom: -16px;
+  left: -16px;
+  transform: rotate(345deg);
+}
+
+.formPane {
+  width: 100%;
+  background-color: var(--color-tan);
+}
+
+@media (min-width: 1025px) {
+  .formPane {
+    flex: 0 0 50%;
+    width: auto;
+  }
+}
+
+.formInner {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 1025px) {
+  .formInner {
+    background-color: var(--color-white);
+  }
+}
+
+.formColumn {
+  width: 83.333%;
+}
+
+@media (min-width: 1025px) {
+  .formColumn {
+    width: 439px;
+  }
+}
+
+.formCard {
+  border-radius: 16px;
+  background-color: var(--color-white);
+  padding: 28px;
+}
+
+@media (min-width: 1025px) {
+  .formCard {
+    background-color: transparent;
+    padding: 0;
+  }
+}

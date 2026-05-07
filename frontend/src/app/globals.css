@@ -1,0 +1,161 @@
+/* ==========================================================================
+   Reset / baseline. Replaces Tailwind preflight + the legacy normalize.scss
+   with the minimum needed for the ported components to keep their existing
+   visual shape: predictable box model, zeroed margins, neutralized form
+   controls, block-level media. Inspired by Andy Bell's modern CSS reset.
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* ==========================================================================
+   Design tokens. Mirror the legacy SCSS variables and Tailwind theme so
+   that converting components is a className-to-CSS-Module swap rather
+   than a redesign. Breakpoints are listed as comments because CSS does
+   not (yet) allow custom properties inside @media queries; modules use
+   the literal pixel values.
+
+     xs: 480px
+     sm: 577px
+     md: 769px
+     lg: 1025px
+     xl: 1201px
+   ========================================================================== */
+
+:root {
+  /* Colors */
+  --color-blue-dark: #3450a1;
+  --color-blue-darker: #323d69;
+  --color-blue-dark-hover: #445ea9;
+  --color-blue-dark-focused: #273c79;
+  --color-blue: #44aff1;
+  --color-blue-focused: #3fa1de;
+  --color-blue-link: #3a4f9c;
+  --color-tan: #ffe0b9;
+  --color-tan-light: #ffefdb;
+  --color-tan-bg: #fbe8ce;
+  --color-green: #13831e;
+  --color-red: #c93329;
+  --color-white: #ffffff;
+  --color-grey-light: #f2f2f2;
+  --color-grey: #c1c1c1;
+  --color-grey-dark: #585858;
+  --color-charcoal: #333333;
+
+  /* Spacing scale (legacy p1-p10 = 8px increments) */
+  --space-0: 0;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-7: 56px;
+  --space-8: 64px;
+  --space-9: 72px;
+  --space-10: 80px;
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-default: 20px;
+  --radius-large: 60px;
+  --radius-xlarge: 100px;
+
+  /* Font weights */
+  --weight-thin: 100;
+  --weight-light: 300;
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+  --weight-black: 900;
+
+  /* z-index scale */
+  --z-base: 1;
+  --z-overlay: 10;
+  --z-dropdown: 20;
+  --z-modal: 50;
+}
+
+/* ==========================================================================
+   Document base
+   ========================================================================== */
+
+body {
+  font-family: var(--font-roboto), Tahoma, Verdana, sans-serif;
+  color: var(--color-charcoal);
+  background-color: var(--color-white);
+}

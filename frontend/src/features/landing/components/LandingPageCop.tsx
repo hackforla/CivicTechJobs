@@ -12,6 +12,7 @@ import {
   fetchAllCopData,
   fetchCopDataById,
 } from "@/shared/data/copData";
+import styles from "./LandingPageCop.module.css";
 
 function LandingPageCop() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -28,33 +29,31 @@ function LandingPageCop() {
   }
 
   return (
-    <div className="flex-container align-center justify-center py-5">
-      <h2 className="col-12 my-8 text-center text-4xl font-bold leading-normal">
-        Communities of Practice (COP)
-      </h2>
-      <div className="row paragraph-1 mb-5 max-w-[800px] text-center">
+    <div className={styles.section}>
+      <h2 className={styles.heading}>Communities of Practice (COP)</h2>
+      <div className={styles.intro}>
         A Community of Practice (CoP) is a group of volunteers who share a
         common interest in a topic and meet regularly to fulfill both individual
         and group goals. We use CoPs to share effective practices and relevant
         domain knowledge to help our members grow.
       </div>
-      <div className="m-10 box-border flex flex-wrap justify-evenly">
+      <div className={styles.circles}>
         {copData.map((cop) => (
           <CircleCard
             key={cop.id}
             size="lg"
-            className="m-8"
+            className={styles.circleCard}
             onClick={() => {
               handleCopData(cop.id);
               setIsDialogOpen(true);
             }}
             role="button"
           >
-            <div className="flex-column">
-              <div className="row justify-center pb-6">
+            <div className={styles.circleInner}>
+              <div className={styles.iconRow}>
                 <cop.icon strokeWidth="0.2" height="65" aria-hidden="true" />
               </div>
-              <div className="text-center text-blue-dark">
+              <div className={styles.titleWrap}>
                 <Typography.Title4>{cop.title}</Typography.Title4>
               </div>
             </div>
@@ -64,7 +63,7 @@ function LandingPageCop() {
       <Dialog
         open={isDialogOpen}
         onClose={() => setIsDialogOpen(false)}
-        className="flex flex-col items-center justify-center"
+        className={styles.dialogContent}
         ariaLabel="Communities of Practice (COP)"
       >
         <CopCard
@@ -72,8 +71,8 @@ function LandingPageCop() {
           size="lg"
           onClick={() => setIsDialogOpen(false)}
         >
-          <div className="flex-container">
-            <nav className="flex-column col-3 gap-y-8">
+          <div className={styles.cardLayout}>
+            <nav className={styles.nav}>
               {copData.map((cop) => {
                 const isActive = cop.id === currentDatum?.id;
                 return (
@@ -81,9 +80,9 @@ function LandingPageCop() {
                     key={cop.id}
                     isActive={isActive}
                     onClick={() => handleCopData(cop.id)}
-                    className="flex-container align-center justify-center p-2"
+                    className={styles.navItem}
                   >
-                    <div className="pr-2">
+                    <div className={styles.iconCell}>
                       <cop.icon
                         fill={isActive ? "white" : "black"}
                         stroke={isActive ? "white" : "black"}
@@ -93,16 +92,16 @@ function LandingPageCop() {
                         aria-hidden="true"
                       />
                     </div>
-                    <span className="title-6">{cop.title}</span>
+                    <span className={styles.navItemText}>{cop.title}</span>
                   </InnerCopNavCard>
                 );
               })}
             </nav>
-            <div className="col-9 ml-4">
+            <div className={styles.contentColumn}>
               <InnerCopCard>
                 <div>
-                  <div className="title-3 flex-container pb-4 align-bottom">
-                    <div className="pr-4">
+                  <div className={styles.cardHeader}>
+                    <div className={styles.cardIconCell}>
                       {currentDatum?.icon && (
                         <currentDatum.icon
                           fill="black"
@@ -119,7 +118,7 @@ function LandingPageCop() {
                   {currentDatum?.description}
                 </div>
                 <div>
-                  <div className="inline-block">
+                  <div className={styles.joinWrap}>
                     <Button size="medium-long" href="/qualifier/1">
                       Join Us
                     </Button>

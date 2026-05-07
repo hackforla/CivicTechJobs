@@ -1,0 +1,26 @@
+.card {
+  border-radius: 50%;
+  background-color: var(--color-grey-light);
+  box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
+}
+
+.sizeSm {
+  width: 144px;
+  height: 144px;
+}
+
+.sizeLg {
+  width: 256px;
+  height: 256px;
+}
+
+.interactive:hover {
+  text-decoration: underline;
+}
+
+.inner {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}

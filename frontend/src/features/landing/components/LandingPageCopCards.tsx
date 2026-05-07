@@ -1,11 +1,12 @@
 "use client";
 
 import React from "react";
-import clsx from "clsx";
 
 import { IconButton } from "@/shared/components/Buttons";
 import IconX from "@/shared/icons/icon-x.svg";
 import { Card } from "@/shared/components/StandardCard";
+import { cn } from "@/shared/lib/utils";
+import styles from "./LandingPageCopCards.module.css";
 
 interface CopCardProps extends React.PropsWithChildren {
   addClass?: string;
@@ -15,27 +16,20 @@ interface CopCardProps extends React.PropsWithChildren {
 }
 
 const copCardSize = {
-  lg: {
-    card: "min-h-[624px] max-w-[1088px]",
-    content: "pt-14 pb-10 pl-[3.4vw] pr-[7.6vw]",
-  },
-  sm: {
-    card: "min-h-[600px] max-w-[312px]",
-    content: "pt-[74px] px-[6.4vw]",
-  },
+  lg: { card: styles.copCardLg, content: styles.contentLg },
+  sm: { card: styles.copCardSm, content: styles.contentSm },
 } as const;
 
 function CopCard({ isHidden = true, size = "sm", ...props }: CopCardProps) {
   return (
     <Card
-      className={clsx(
-        "m-2 bg-grey-light",
+      className={cn(
         copCardSize[size].card,
         props.addClass,
-        isHidden ? "hidden" : undefined,
+        isHidden && styles.hidden,
       )}
     >
-      <div className="flex justify-end">
+      <div className={styles.closeRow}>
         <IconButton Icon={IconX} label="close" onClick={props.onClick} />
       </div>
       <div className={copCardSize[size].content}>{props.children}</div>
@@ -49,15 +43,8 @@ interface InnerCopCardProps extends React.PropsWithChildren {
 
 function InnerCopCard(props: InnerCopCardProps) {
   return (
-    <Card
-      className={clsx(
-        "h-full min-h-[448px] max-w-[625px] bg-white",
-        props.addClass,
-      )}
-    >
-      <div className="box-border flex h-full flex-col justify-between px-[0.6vw] py-2">
-        {props.children}
-      </div>
+    <Card className={cn(styles.innerCard, props.addClass)}>
+      <div className={styles.innerCardInner}>{props.children}</div>
     </Card>
   );
 }
@@ -84,9 +71,9 @@ type InnerCopNavCardProps =
 function InnerCopNavCard({ isActive = false, ...props }: InnerCopNavCardProps) {
   return (
     <button
-      className={clsx(
-        "min-h-16 max-w-[188px] rounded-2xl border-0 hover:underline",
-        isActive ? "bg-blue-dark text-white" : "bg-white",
+      className={cn(
+        styles.navCard,
+        isActive && styles.navCardActive,
         props.className,
       )}
       onClick={props.onClick}

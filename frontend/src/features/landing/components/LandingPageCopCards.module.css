@@ -1,0 +1,66 @@
+.copCard {
+  margin: 8px;
+  background-color: var(--color-grey-light);
+}
+
+.copCardLg {
+  composes: copCard;
+  min-height: 624px;
+  max-width: 1088px;
+}
+
+.copCardSm {
+  composes: copCard;
+  min-height: 600px;
+  max-width: 312px;
+}
+
+.hidden {
+  display: none;
+}
+
+.closeRow {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.contentLg {
+  padding: 56px 7.6vw 40px 3.4vw;
+}
+
+.contentSm {
+  padding: 74px 6.4vw 0 6.4vw;
+}
+
+.innerCard {
+  height: 100%;
+  min-height: 448px;
+  max-width: 625px;
+  background-color: var(--color-white);
+}
+
+.innerCardInner {
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px 0.6vw;
+}
+
+.navCard {
+  min-height: 64px;
+  max-width: 188px;
+  border-radius: 16px;
+  border: 0;
+  background-color: var(--color-white);
+}
+
+.navCard:hover {
+  text-decoration: underline;
+}
+
+.navCardActive {
+  background-color: var(--color-blue-dark);
+  color: var(--color-white);
+}

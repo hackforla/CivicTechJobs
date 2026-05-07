@@ -4,7 +4,8 @@ import React, { useCallback, useRef, useState } from "react";
 
 import IconChevronLeft from "@/shared/icons/icon-chevron-left.svg";
 import IconChevronRight from "@/shared/icons/icon-chevron-right.svg";
-import { combineClasses } from "@/shared/lib/utils";
+import { cn } from "@/shared/lib/utils";
+import styles from "./ChevronScroll.module.css";
 
 function ChevronScroll(props: { children: React.ReactNode }) {
   const [showRightChevron, setShowRightChevron] = useState(true);
@@ -46,15 +47,9 @@ function ChevronScroll(props: { children: React.ReactNode }) {
   };
 
   return (
-    <div className="chevron-scroll-outer-container">
+    <div className={styles.outerContainer}>
       <button
-        className={combineClasses(
-          "chevron-scroll-left-btn",
-          "align-center",
-          "justify-center",
-          "row",
-          showLeftChevron ? undefined : "hidden",
-        )}
+        className={cn(styles.leftBtn, !showLeftChevron && styles.hidden)}
         onClick={() => scrollMove("left")}
         aria-label="Scroll left"
       >
@@ -63,23 +58,18 @@ function ChevronScroll(props: { children: React.ReactNode }) {
       <div
         ref={scrollRef}
         onScroll={handleChevronVisibility}
-        className="chevron-scroll-child-container"
+        className={styles.childContainer}
       >
         {props.children}
       </div>
       <button
-        className={combineClasses(
-          "chevron-scroll-right-btn",
-          "align-center",
-          "row",
-          showRightChevron ? undefined : "hidden",
-        )}
+        className={cn(styles.rightBtn, !showRightChevron && styles.hidden)}
         onClick={() => scrollMove("right")}
         aria-label="Scroll right"
       >
         <IconChevronRight />
       </button>
-      <button className="chevron-scroll-clear-btn">Clear all</button>
+      <button className={styles.clearBtn}>Clear all</button>
     </div>
   );
 }

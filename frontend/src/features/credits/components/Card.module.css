@@ -1,0 +1,72 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.table {
+  table-layout: fixed;
+  text-align: left;
+  font-size: 12px;
+}
+
+.table th {
+  padding-right: 8px;
+}
+
+.table td,
+.table th {
+  padding-bottom: 4px;
+}
+
+.learnMoreWrap {
+  margin-top: 12px;
+}
+
+.learnMore {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-blue-link);
+  text-decoration: underline;
+}
+
+@media (min-width: 577px) {
+  .card {
+    flex-direction: column;
+  }
+  .table {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 769px) {
+  .card {
+    justify-content: space-evenly;
+    padding: 24px;
+  }
+  .learnMoreWrap {
+    margin-top: 24px;
+  }
+  .learnMore {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .table {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1201px) {
+  .table {
+    font-size: 18px;
+  }
+}

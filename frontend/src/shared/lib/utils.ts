@@ -1,21 +1,14 @@
 import type React from "react";
 import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
 
-// Class composer that resolves Tailwind class collisions (later wins).
-// Preferred over `combineClasses` for new code; the latter is kept for
-// the SCSS-class consumers that don't need Tailwind merge semantics.
+// Conditional className composer. CSS Modules don't have collision
+// semantics the way Tailwind utilities did, so a plain clsx pass is
+// sufficient. The `cn` alias is kept for ergonomic call sites.
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+  return clsx(inputs);
 }
 
-// Joins arbitrary inputs into a className string, filtering out anything
-// that isn't a string. Used by the legacy SCSS components.
-export function combineClasses(
-  ...args: (string | boolean | undefined)[]
-): string {
-  return args.filter((x) => typeof x === "string").join(" ");
-}
+export const combineClasses = cn;
 
 type Handler = (() => void) | React.EventHandler<React.SyntheticEvent>;
 

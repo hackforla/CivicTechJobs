@@ -21,6 +21,12 @@ describe("Notification", () => {
       </Notification>,
     );
     await user.click(screen.getByRole("button"));
-    expect(screen.getByRole("status", { hidden: true })).toHaveClass("hidden");
+    // After close, the bar gets aria-hidden and the .barHidden module
+    // class. aria-hidden is the stable signal across the styling
+    // migration; the hashed class name is not.
+    expect(screen.getByRole("status", { hidden: true })).toHaveAttribute(
+      "aria-hidden",
+      "true",
+    );
   });
 });

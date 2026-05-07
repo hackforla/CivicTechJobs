@@ -2,6 +2,7 @@
 
 import React from "react";
 import { cn, onKey } from "@/shared/lib/utils";
+import styles from "./CircleCard.module.css";
 
 interface CircleCardProps extends React.PropsWithChildren {
   className?: string;
@@ -11,26 +12,24 @@ interface CircleCardProps extends React.PropsWithChildren {
 }
 
 const cardSizes = {
-  sm: "size-[144px]",
-  lg: "size-[256px]",
+  sm: styles.sizeSm,
+  lg: styles.sizeLg,
 };
 
 function CircleCard({ size = "sm", ...props }: CircleCardProps) {
   return (
     <div
       className={cn(
-        "rounded-full bg-grey-light shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]",
+        styles.card,
         cardSizes[size],
-        props.onClick && "hover:underline",
+        props.onClick && styles.interactive,
         props.className,
       )}
       onClick={props.onClick}
       onKeyDown={props.onClick && onKey(props.onClick, "Enter")}
       role={props.role}
     >
-      <div className="flex h-full items-center justify-center">
-        {props.children}
-      </div>
+      <div className={styles.inner}>{props.children}</div>
     </div>
   );
 }
