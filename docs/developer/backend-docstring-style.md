@@ -178,16 +178,25 @@ See [`backend/ctj_api/urls.py`](https://github.com/hackforla/CivicTechJobs/blob/
 
 ### Tests — light template, behavioral test names
 
-Tests get a module docstring and a class docstring (one-liner each). Each test method's docstring is a behavioral statement of what the test verifies, not a label for the method.
+Tests live one file per resource under [`backend/ctj_api/tests/`](https://github.com/hackforla/CivicTechJobs/tree/main/backend/ctj_api/tests) (see [`backend.md`](backend.md)'s `Test shape` section for the full layout rule). Each file holds one `<Resource>Tests` class extending `APITestCase`; shared fixture-construction lives in `common.py` as factory helpers.
+
+Test method names follow `test_<subject>_<action>_<expectation>`. Each method's docstring is a behavioral statement of what the test verifies, not a label for the method.
 
 ```python
 """<one-liner: what this test module covers>."""
 
 
 class FooTests(APITestCase):
-    """<one-liner: what this test class scopes to>."""
+    """<one-liner: what this test class scopes to>.
 
-    def test_some_behavior(self):
+    [Optional: prose paragraph for the resource's policy
+    surface, e.g. "Reads are public; mutations gated by ...".]
+    """
+
+    def setUp(self):
+        ...
+
+    def test_<subject>_<action>_<expectation>(self):
         """<Subject> <verb phrase asserting expected outcome>."""
 ```
 

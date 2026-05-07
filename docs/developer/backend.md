@@ -115,6 +115,36 @@ def get_serializer_class(self):
 
 FBVs reference the right serializer directly — they only do one thing, so they only ever need one class.
 
+## Test shape
+
+Tests live in [backend/ctj_api/tests/](https://github.com/hackforla/CivicTechJobs/tree/main/backend/ctj_api/tests), one file per resource:
+
+```
+ctj_api/tests/
+├── common.py                       — factory helpers, no test classes
+├── test_healthcheck.py
+├── test_users.py
+├── test_opportunities.py
+├── test_community_of_practice.py
+├── test_roles.py
+├── test_skills.py
+└── test_projects.py
+```
+
+Each file holds one `<Resource>Tests` class extending `APITestCase`. Each class has its own `setUp` that constructs only the rows its tests need — there is no shared `APITestBase` because there is no meaningful universal setup (healthcheck needs nothing; user-detail needs users; opportunity tests need users + reference rows).
+
+Shared fixture-construction lives in `common.py` as factory functions (`make_pm_user`, `make_regular_user`, `make_cop`, `make_role`, `make_skill`, `make_project`, `make_opportunity`). Each call returns a saved instance; defaults are sensible and overridable via keyword arguments. The factories don't share state — each call creates a new row.
+
+Test method names follow `test_<subject>_<action>_<expectation>`:
+
+- subject — who's making the request (`anonymous`, `regular_user`, `pm_user`, `authenticated_user`)
+- action — what's being attempted (`list`, `create`, `view_own_record`)
+- expectation — the result (`returns_200`, `cannot_create`, `gets_403`)
+
+Examples: `test_anonymous_can_list_opportunities`, `test_regular_user_cannot_create_opportunity`, `test_authenticated_user_cannot_view_others_record`. Each test method also has a one-liner docstring describing the assertion in plain English.
+
+When a resource grows write tests alongside read tests (and the file gets long), split into multiple classes within the same file: `<Resource>ReadTests`, `<Resource>WriteTests`. Don't split into separate files unless the test count justifies it.
+
 ## Auth
 
 **Stage 1** - Django's default session authentication. The DRF API uses `SessionAuthentication`; the app frontend signs in through a Django-issued session cookie. `createsuperuser` is the bootstrap path for admin / PM accounts. Sessions over token auth here because Django admin already uses sessions, so reusing them keeps Stage 1 free of extra auth infrastructure.
