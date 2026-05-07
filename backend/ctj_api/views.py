@@ -10,13 +10,25 @@ Routing for these views lives in `ctj_api.urls` (mounted at
 `/api/` from `backend.urls`); permission classes live in
 `ctj_api.permissions`. Most read endpoints are public; mutations
 are gated per-view by DRF permission classes.
+
+View shape convention:
+- Full-CRUD resources (>=4 actions of list/create/retrieve/update/
+  destroy) use `ModelViewSet` and register on `DefaultRouter` in
+  `ctj_api.urls`.
+- Anything narrower (single method, list-only, retrieve-only,
+  list+retrieve) uses a function-based view decorated with
+  `@api_view([...])`, routed explicitly in `ctj_api.urls`.
+- Non-resource endpoints (health, fallbacks) use plain Django views.
 """
 
 import time
 
 from django.conf import settings
 from django.http import JsonResponse
-from rest_framework import generics, permissions, viewsets
+from django.shortcuts import get_object_or_404
+from rest_framework import permissions, viewsets
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.response import Response
 
 from ctj_api.models import (
     CommunityOfPractice,
@@ -116,7 +128,9 @@ def api_not_found(request, exception=None):
     )
 
 
-class UserDetail(generics.RetrieveAPIView):
+@api_view(["GET"])
+@permission_classes([permissions.IsAuthenticated, UserDetailPermission])
+def user_detail(request, pk):
     """
     Summary:
     - Return a single `CustomUser` record by UUID.
@@ -126,8 +140,9 @@ class UserDetail(generics.RetrieveAPIView):
       future Stage 2 PeopleDepot sync).
 
     Flow:
-    - Standard DRF `RetrieveAPIView` handling; `UserDetailPermission`
-      further restricts which records the requester is allowed to see.
+    1. Look up the `CustomUser` by primary-key UUID.
+    2. Trigger the object-level permission check (own-profile-only).
+    3. Serialize and return 200.
 
     URL:
     - GET /api/users/<uuid:pk>/
@@ -136,15 +151,17 @@ class UserDetail(generics.RetrieveAPIView):
     - IsAuthenticated + UserDetailPermission
 
     Errors:
-    - 401: Unauthenticated.
-    - 403: `UserDetailPermission` denied (requester not allowed to
-      view the target user).
+    - 403: Unauthenticated, OR `UserDetailPermission` denied
+      (requester is not the target user).
     - 404: No user exists with the given UUID.
     """
-
-    queryset = CustomUser.objects.all()
-    serializer_class = CustomUserSerializer
-    permission_classes = (permissions.IsAuthenticated, UserDetailPermission)
+    user = get_object_or_404(CustomUser, pk=pk)
+    # @permission_classes covers request-level (`has_permission`); the
+    # object-level (`has_object_permission`) check has to be triggered
+    # explicitly in FBVs since there's no APIView class to auto-call it.
+    request.parser_context["view"].check_object_permissions(request, user)
+    serializer = CustomUserSerializer(user)
+    return Response(serializer.data)
 
 
 class OpportunityViewSet(viewsets.ModelViewSet):
@@ -154,6 +171,8 @@ class OpportunityViewSet(viewsets.ModelViewSet):
     - Reads are public; mutations are gated by `OpportunityPermission`
       (in `ctj_api.permissions`): only project managers can create,
       only the creator can update, and any PM can delete.
+    - Kept as a `ModelViewSet` because the view exposes the full
+      CRUD surface; narrower views use FBVs.
 
     Flow:
     - Standard DRF `ModelViewSet` CRUD.
@@ -197,122 +216,216 @@ class OpportunityViewSet(viewsets.ModelViewSet):
         serializer.save(created_by=self.request.user)
 
 
-class CommunityOfPracticeViewSet(viewsets.ReadOnlyModelViewSet):
+@api_view(["GET"])
+@permission_classes([permissions.AllowAny])
+def community_of_practice_list(request):
     """
     Summary:
-    - Public read-only listing of the `CommunityOfPractice` taxonomy.
+    - Public list of the `CommunityOfPractice` taxonomy.
     - The CoP taxonomy is locked to a fixed set of five values (see
       `CommunityOfPractice.PracticeAreas`).
     - Admins edit the table itself through Django admin (`/admin/`),
       not through this API.
 
     Flow:
-    - Standard DRF `ReadOnlyModelViewSet` handling (list and retrieve
-      only).
+    1. Fetch all `CommunityOfPractice` rows.
+    2. Serialize via `CommunityOfPracticeSerializer` and return 200.
 
     URL:
-    - /api/communityOfPractice/
-
-    Methods:
-    - GET           list all CoPs
-    - GET <id>/     retrieve one
+    - GET /api/communityOfPractice/
 
     Auth:
-    - Public
+    - Public (`AllowAny`).
 
     Errors:
-    - 404: No CoP exists with the given ID.
+    - (none)
     """
+    cops = CommunityOfPractice.objects.all()
+    serializer = CommunityOfPracticeSerializer(cops, many=True)
+    return Response(serializer.data)
 
-    queryset = CommunityOfPractice.objects.all()
-    serializer_class = CommunityOfPracticeSerializer
 
-
-class RoleViewSet(viewsets.ReadOnlyModelViewSet):
+@api_view(["GET"])
+@permission_classes([permissions.AllowAny])
+def community_of_practice_detail(request, pk):
     """
     Summary:
-    - Public read-only listing of the `Role` table.
-    - Admins curate the role list through Django admin (`/admin/`);
-      the API itself is read-only.
+    - Public retrieval of a single `CommunityOfPractice` row by UUID.
 
     Flow:
-    - Standard DRF `ReadOnlyModelViewSet` handling (list and retrieve
-      only).
+    1. Look up the row by primary-key UUID.
+    2. Serialize via `CommunityOfPracticeSerializer` and return 200.
 
     URL:
-    - /api/roles/
-
-    Methods:
-    - GET           list all roles
-    - GET <id>/     retrieve one
+    - GET /api/communityOfPractice/<uuid:pk>/
 
     Auth:
-    - Public
+    - Public (`AllowAny`).
 
     Errors:
-    - 404: No role exists with the given ID.
+    - 404: No CoP exists with the given UUID.
     """
+    cop = get_object_or_404(CommunityOfPractice, pk=pk)
+    serializer = CommunityOfPracticeSerializer(cop)
+    return Response(serializer.data)
 
-    queryset = Role.objects.all()
-    serializer_class = RoleSerializer
 
-
-class SkillViewSet(viewsets.ReadOnlyModelViewSet):
+@api_view(["GET"])
+@permission_classes([permissions.AllowAny])
+def role_list(request):
     """
     Summary:
-    - Public read-only listing of the `Skill` catalog.
+    - Public list of the `Role` table.
+    - Stage 1: admins curate the role list through Django admin
+      (`/admin/`); the API itself is read-only.
+    - Stage 2: the role concept is replaced by PeopleDepot UUID
+      references on `Opportunity`; this endpoint is retired.
+
+    Flow:
+    1. Fetch all `Role` rows.
+    2. Serialize via `RoleSerializer` and return 200.
+
+    URL:
+    - GET /api/roles/
+
+    Auth:
+    - Public (`AllowAny`).
+
+    Errors:
+    - (none)
+    """
+    roles = Role.objects.all()
+    serializer = RoleSerializer(roles, many=True)
+    return Response(serializer.data)
+
+
+@api_view(["GET"])
+@permission_classes([permissions.AllowAny])
+def role_detail(request, pk):
+    """
+    Summary:
+    - Public retrieval of a single `Role` row by UUID.
+
+    Flow:
+    1. Look up the row by primary-key UUID.
+    2. Serialize via `RoleSerializer` and return 200.
+
+    URL:
+    - GET /api/roles/<uuid:pk>/
+
+    Auth:
+    - Public (`AllowAny`).
+
+    Errors:
+    - 404: No role exists with the given UUID.
+    """
+    role = get_object_or_404(Role, pk=pk)
+    serializer = RoleSerializer(role)
+    return Response(serializer.data)
+
+
+@api_view(["GET"])
+@permission_classes([permissions.AllowAny])
+def skill_list(request):
+    """
+    Summary:
+    - Public list of the `Skill` catalog.
     - Stage 1: admins curate the catalog through Django admin
       (`/admin/`).
-    - Stage 2: the catalog source moves to PeopleDepot and this view
-      continues to read from the local synced cache.
+    - Stage 2: the catalog source moves to PeopleDepot and this
+      endpoint continues to read from the local synced cache.
 
     Flow:
-    - Standard DRF `ReadOnlyModelViewSet` handling (list and retrieve
-      only).
+    1. Fetch all `Skill` rows.
+    2. Serialize via `SkillSerializer` and return 200.
 
     URL:
-    - /api/skills/
-
-    Methods:
-    - GET           list all skills
-    - GET <id>/     retrieve one
+    - GET /api/skills/
 
     Auth:
-    - Public
+    - Public (`AllowAny`).
 
     Errors:
-    - 404: No skill exists with the given ID.
+    - (none)
     """
+    skills = Skill.objects.all()
+    serializer = SkillSerializer(skills, many=True)
+    return Response(serializer.data)
 
-    queryset = Skill.objects.all()
-    serializer_class = SkillSerializer
 
-
-class ProjectViewSet(viewsets.ReadOnlyModelViewSet):
+@api_view(["GET"])
+@permission_classes([permissions.AllowAny])
+def skill_detail(request, pk):
     """
     Summary:
-    - Public read-only listing of the `Project` table.
+    - Public retrieval of a single `Skill` row by UUID.
+
+    Flow:
+    1. Look up the row by primary-key UUID.
+    2. Serialize via `SkillSerializer` and return 200.
+
+    URL:
+    - GET /api/skills/<uuid:pk>/
+
+    Auth:
+    - Public (`AllowAny`).
+
+    Errors:
+    - 404: No skill exists with the given UUID.
+    """
+    skill = get_object_or_404(Skill, pk=pk)
+    serializer = SkillSerializer(skill)
+    return Response(serializer.data)
+
+
+@api_view(["GET"])
+@permission_classes([permissions.AllowAny])
+def project_list(request):
+    """
+    Summary:
+    - Public list of the `Project` table.
     - Stage 1: admins curate the project list through Django admin
       (`/admin/`).
     - Stage 2: the project source moves to PeopleDepot.
 
     Flow:
-    - Standard DRF `ReadOnlyModelViewSet` handling (list and retrieve
-      only).
+    1. Fetch all `Project` rows.
+    2. Serialize via `ProjectSerializer` and return 200.
 
     URL:
-    - /api/projects/
-
-    Methods:
-    - GET           list all projects
-    - GET <id>/     retrieve one
+    - GET /api/projects/
 
     Auth:
-    - Public
+    - Public (`AllowAny`).
 
     Errors:
-    - 404: No project exists with the given ID.
+    - (none)
     """
+    projects = Project.objects.all()
+    serializer = ProjectSerializer(projects, many=True)
+    return Response(serializer.data)
 
-    queryset = Project.objects.all()
-    serializer_class = ProjectSerializer
+
+@api_view(["GET"])
+@permission_classes([permissions.AllowAny])
+def project_detail(request, pk):
+    """
+    Summary:
+    - Public retrieval of a single `Project` row by UUID.
+
+    Flow:
+    1. Look up the row by primary-key UUID.
+    2. Serialize via `ProjectSerializer` and return 200.
+
+    URL:
+    - GET /api/projects/<uuid:pk>/
+
+    Auth:
+    - Public (`AllowAny`).
+
+    Errors:
+    - 404: No project exists with the given UUID.
+    """
+    project = get_object_or_404(Project, pk=pk)
+    serializer = ProjectSerializer(project)
+    return Response(serializer.data)

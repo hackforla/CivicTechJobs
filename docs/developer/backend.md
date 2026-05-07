@@ -75,6 +75,22 @@ The OpenAPI spec is at [backend/openapi-schema.yml](https://github.com/hackforla
 
 Non-existent `/api/*` routes return a structured JSON 404.
 
+## View shape
+
+DRF gives several ways to write a view (`ModelViewSet`, `ReadOnlyModelViewSet`, single-purpose generics like `RetrieveAPIView`, function-based views with `@api_view`). Each hides different amounts of behavior. To keep `views.py` readable cold, this project uses two view shapes:
+
+| Endpoint shape | View shape |
+|----------------|------------|
+| Full CRUD on a resource (>=4 of list/create/retrieve/update/destroy) | `ModelViewSet` registered on `DefaultRouter` in [backend/ctj_api/urls.py](https://github.com/hackforla/CivicTechJobs/blob/main/backend/ctj_api/urls.py) |
+| Anything narrower (single method, list-only, retrieve-only, list+retrieve, custom action) | Function-based view decorated with `@api_view([...])` and `@permission_classes([...])`, routed explicitly with `path()` |
+| Non-resource (health, fallbacks) | Plain Django `def view(request)` |
+
+The rule is intentionally simple: any view that doesn't earn the full CRUD surface stays an FBV so the method, URL, and permission policy are visible inline at the function. `OpportunityViewSet` is the only `ModelViewSet` in the codebase; everything else is an FBV or a plain Django view.
+
+When converting a viewset to FBVs, list and detail become two separate functions (e.g. `skill_list` and `skill_detail`). Each gets its own `path()` entry in [backend/ctj_api/urls.py](https://github.com/hackforla/CivicTechJobs/blob/main/backend/ctj_api/urls.py). The router only carries the `ModelViewSet`s.
+
+One detail worth flagging: object-level permission classes (`has_object_permission`) are auto-triggered by generic-view internals, but **not** by `@api_view`. An FBV that uses a permission class with object-level checks needs to call `request.parser_context["view"].check_object_permissions(request, obj)` explicitly after the object lookup. See `user_detail` in [backend/ctj_api/views.py](https://github.com/hackforla/CivicTechJobs/blob/main/backend/ctj_api/views.py) for the canonical example.
+
 ## Auth
 
 **Stage 1** - Django's default session authentication. The DRF API uses `SessionAuthentication`; the app frontend signs in through a Django-issued session cookie. `createsuperuser` is the bootstrap path for admin / PM accounts. Sessions over token auth here because Django admin already uses sessions, so reusing them keeps Stage 1 free of extra auth infrastructure.
