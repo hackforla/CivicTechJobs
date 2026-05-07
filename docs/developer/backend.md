@@ -91,6 +91,30 @@ When converting a viewset to FBVs, list and detail become two separate functions
 
 One detail worth flagging: object-level permission classes (`has_object_permission`) are auto-triggered by generic-view internals, but **not** by `@api_view`. An FBV that uses a permission class with object-level checks needs to call `request.parser_context["view"].check_object_permissions(request, obj)` explicitly after the object lookup. See `user_detail` in [backend/ctj_api/views.py](https://github.com/hackforla/CivicTechJobs/blob/main/backend/ctj_api/views.py) for the canonical example.
 
+## Serializer shape
+
+Each resource gets a separate `XxxReadSerializer` and `XxxWriteSerializer` when both shapes are needed. Read-only resources only have a Read serializer; a Write serializer is added when (and only when) a write endpoint is added. This keeps the input/output contract entirely at the serializer layer rather than splitting it between the serializer (fields) and the view (allowed methods).
+
+| Resource state | Serializer classes |
+|----------------|--------------------|
+| Read-only (no write endpoint exists) | `XxxReadSerializer` only |
+| Read + write | `XxxReadSerializer` and `XxxWriteSerializer` |
+
+Auto-managed fields (`id`, `created_at`, `updated_at`) and request-stamped fields (e.g. `Opportunity.created_by`, set from `request.user` by the view) are **absent** from `XxxWriteSerializer.Meta.fields` rather than included with `read_only=True`. The absence is the contract: if the field doesn't appear in `Meta.fields`, the client cannot supply it.
+
+Read/write divergence (different exposed fields, computed-on-read fields like `OpportunityReadSerializer.created_by` stringified to email, validation only on write) becomes a class boundary rather than per-field flag manipulation. Future changes to write behavior land in `XxxWriteSerializer` only; read responses are untouched.
+
+`OpportunityViewSet` (the one `ModelViewSet` in the codebase) dispatches to the right serializer via `get_serializer_class()`:
+
+```python
+def get_serializer_class(self):
+    if self.action in ("list", "retrieve"):
+        return OpportunityReadSerializer
+    return OpportunityWriteSerializer
+```
+
+FBVs reference the right serializer directly — they only do one thing, so they only ever need one class.
+
 ## Auth
 
 **Stage 1** - Django's default session authentication. The DRF API uses `SessionAuthentication`; the app frontend signs in through a Django-issued session cookie. `createsuperuser` is the bootstrap path for admin / PM accounts. Sessions over token auth here because Django admin already uses sessions, so reusing them keeps Stage 1 free of extra auth infrastructure.

@@ -40,12 +40,13 @@ from ctj_api.models import (
 )
 from ctj_api.permissions import OpportunityPermission, UserDetailPermission
 from ctj_api.serializers import (
-    CommunityOfPracticeSerializer,
-    CustomUserSerializer,
-    OpportunitySerializer,
-    ProjectSerializer,
-    RoleSerializer,
-    SkillSerializer,
+    CommunityOfPracticeReadSerializer,
+    CustomUserReadSerializer,
+    OpportunityReadSerializer,
+    OpportunityWriteSerializer,
+    ProjectReadSerializer,
+    RoleReadSerializer,
+    SkillReadSerializer,
 )
 
 start_time = time.time()
@@ -160,7 +161,7 @@ def user_detail(request, pk):
     # object-level (`has_object_permission`) check has to be triggered
     # explicitly in FBVs since there's no APIView class to auto-call it.
     request.parser_context["view"].check_object_permissions(request, user)
-    serializer = CustomUserSerializer(user)
+    serializer = CustomUserReadSerializer(user)
     return Response(serializer.data)
 
 
@@ -195,8 +196,8 @@ class OpportunityViewSet(viewsets.ModelViewSet):
     - IsAuthenticatedOrReadOnly + OpportunityPermission
 
     Errors:
-    - 400: Validation error on create/update (`OpportunitySerializer`
-      rejected the payload).
+    - 400: Validation error on create/update
+      (`OpportunityWriteSerializer` rejected the payload).
     - 401: Unauthenticated mutation.
     - 403: `OpportunityPermission` denied (e.g. non-PM trying to
       create, non-creator trying to update). Note: PATCH is always
@@ -206,11 +207,21 @@ class OpportunityViewSet(viewsets.ModelViewSet):
     """
 
     queryset = Opportunity.objects.all()
-    serializer_class = OpportunitySerializer
+    serializer_class = OpportunityReadSerializer
     permission_classes = (
         permissions.IsAuthenticatedOrReadOnly,
         OpportunityPermission,
     )
+
+    def get_serializer_class(self):
+        # Dispatch by action: list/retrieve return the Read shape;
+        # create/update/destroy accept the Write shape. The class-level
+        # `serializer_class = OpportunityReadSerializer` above is the
+        # safe fallback (Read) if `self.action` is None during schema
+        # introspection.
+        if self.action in ("list", "retrieve"):
+            return OpportunityReadSerializer
+        return OpportunityWriteSerializer
 
     def perform_create(self, serializer):
         serializer.save(created_by=self.request.user)
@@ -229,7 +240,7 @@ def community_of_practice_list(request):
 
     Flow:
     1. Fetch all `CommunityOfPractice` rows.
-    2. Serialize via `CommunityOfPracticeSerializer` and return 200.
+    2. Serialize via `CommunityOfPracticeReadSerializer` and return 200.
 
     URL:
     - GET /api/communityOfPractice/
@@ -241,7 +252,7 @@ def community_of_practice_list(request):
     - (none)
     """
     cops = CommunityOfPractice.objects.all()
-    serializer = CommunityOfPracticeSerializer(cops, many=True)
+    serializer = CommunityOfPracticeReadSerializer(cops, many=True)
     return Response(serializer.data)
 
 
@@ -254,7 +265,7 @@ def community_of_practice_detail(request, pk):
 
     Flow:
     1. Look up the row by primary-key UUID.
-    2. Serialize via `CommunityOfPracticeSerializer` and return 200.
+    2. Serialize via `CommunityOfPracticeReadSerializer` and return 200.
 
     URL:
     - GET /api/communityOfPractice/<uuid:pk>/
@@ -266,7 +277,7 @@ def community_of_practice_detail(request, pk):
     - 404: No CoP exists with the given UUID.
     """
     cop = get_object_or_404(CommunityOfPractice, pk=pk)
-    serializer = CommunityOfPracticeSerializer(cop)
+    serializer = CommunityOfPracticeReadSerializer(cop)
     return Response(serializer.data)
 
 
@@ -283,7 +294,7 @@ def role_list(request):
 
     Flow:
     1. Fetch all `Role` rows.
-    2. Serialize via `RoleSerializer` and return 200.
+    2. Serialize via `RoleReadSerializer` and return 200.
 
     URL:
     - GET /api/roles/
@@ -295,7 +306,7 @@ def role_list(request):
     - (none)
     """
     roles = Role.objects.all()
-    serializer = RoleSerializer(roles, many=True)
+    serializer = RoleReadSerializer(roles, many=True)
     return Response(serializer.data)
 
 
@@ -308,7 +319,7 @@ def role_detail(request, pk):
 
     Flow:
     1. Look up the row by primary-key UUID.
-    2. Serialize via `RoleSerializer` and return 200.
+    2. Serialize via `RoleReadSerializer` and return 200.
 
     URL:
     - GET /api/roles/<uuid:pk>/
@@ -320,7 +331,7 @@ def role_detail(request, pk):
     - 404: No role exists with the given UUID.
     """
     role = get_object_or_404(Role, pk=pk)
-    serializer = RoleSerializer(role)
+    serializer = RoleReadSerializer(role)
     return Response(serializer.data)
 
 
@@ -337,7 +348,7 @@ def skill_list(request):
 
     Flow:
     1. Fetch all `Skill` rows.
-    2. Serialize via `SkillSerializer` and return 200.
+    2. Serialize via `SkillReadSerializer` and return 200.
 
     URL:
     - GET /api/skills/
@@ -349,7 +360,7 @@ def skill_list(request):
     - (none)
     """
     skills = Skill.objects.all()
-    serializer = SkillSerializer(skills, many=True)
+    serializer = SkillReadSerializer(skills, many=True)
     return Response(serializer.data)
 
 
@@ -362,7 +373,7 @@ def skill_detail(request, pk):
 
     Flow:
     1. Look up the row by primary-key UUID.
-    2. Serialize via `SkillSerializer` and return 200.
+    2. Serialize via `SkillReadSerializer` and return 200.
 
     URL:
     - GET /api/skills/<uuid:pk>/
@@ -374,7 +385,7 @@ def skill_detail(request, pk):
     - 404: No skill exists with the given UUID.
     """
     skill = get_object_or_404(Skill, pk=pk)
-    serializer = SkillSerializer(skill)
+    serializer = SkillReadSerializer(skill)
     return Response(serializer.data)
 
 
@@ -390,7 +401,7 @@ def project_list(request):
 
     Flow:
     1. Fetch all `Project` rows.
-    2. Serialize via `ProjectSerializer` and return 200.
+    2. Serialize via `ProjectReadSerializer` and return 200.
 
     URL:
     - GET /api/projects/
@@ -402,7 +413,7 @@ def project_list(request):
     - (none)
     """
     projects = Project.objects.all()
-    serializer = ProjectSerializer(projects, many=True)
+    serializer = ProjectReadSerializer(projects, many=True)
     return Response(serializer.data)
 
 
@@ -415,7 +426,7 @@ def project_detail(request, pk):
 
     Flow:
     1. Look up the row by primary-key UUID.
-    2. Serialize via `ProjectSerializer` and return 200.
+    2. Serialize via `ProjectReadSerializer` and return 200.
 
     URL:
     - GET /api/projects/<uuid:pk>/
@@ -427,5 +438,5 @@ def project_detail(request, pk):
     - 404: No project exists with the given UUID.
     """
     project = get_object_or_404(Project, pk=pk)
-    serializer = ProjectSerializer(project)
+    serializer = ProjectReadSerializer(project)
     return Response(serializer.data)
