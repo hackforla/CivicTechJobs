@@ -1,3 +1,21 @@
+/**
+ * Card primitives used inside the LandingPageCop dialog.
+ *
+ * Three exports tuned for the CoP-detail modal:
+ *
+ * - `CopCard` is the outer container (large for the modal, small
+ *   for inline previews). Owns the close (X) button.
+ * - `InnerCopCard` is a content card inside `CopCard` that holds
+ *   the active CoP's body content.
+ * - `InnerCopNavCard` is a side-nav row that highlights when its
+ *   `isActive` prop is true.
+ *
+ * Co-located here rather than in `shared/components` because the
+ * shapes are landing-page-specific - they encode the dialog's
+ * visual hierarchy. If a future feature needs the same primitive,
+ * generalize then.
+ */
+
 "use client";
 
 import React from "react";

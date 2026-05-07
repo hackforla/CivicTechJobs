@@ -1,3 +1,11 @@
+/**
+ * Decorative top-edge SVG for the credits page hero section.
+ *
+ * Inlined as a React component (rather than imported via SVGR)
+ * because the artwork carries dynamic class names that vary by
+ * viewport. If this is ever made static, prefer SVGR import.
+ */
+
 import React from "react";
 import { FC, SVGProps } from "react";
 

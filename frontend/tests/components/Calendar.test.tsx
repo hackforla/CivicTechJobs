@@ -1,3 +1,5 @@
+/** Component tests for `Calendar` from `shared/components/Inputs/Calendar.tsx`. */
+
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import React from "react";
 import { describe, expect, test } from "vitest";
@@ -5,11 +7,13 @@ import { describe, expect, test } from "vitest";
 import { Calendar } from "@/shared/components/Inputs/Calendar";
 
 describe("Calendar", () => {
+  /** Calendar root mounts with the test-id wrapper. */
   test("renders the calendar root", () => {
     render(<Calendar onChange={() => {}} />);
     expect(screen.getByTestId("calendar-root")).toBeInTheDocument();
   });
 
+  /** Mouse-drag flips aria-checked across the dragged cells, both directions. */
   test("drag selects and unselects availability cells", async () => {
     render(<Calendar onChange={() => {}} />);
     const checkboxes = screen.getAllByRole("checkbox");
@@ -33,6 +37,7 @@ describe("Calendar", () => {
     });
   });
 
+  /** Each cell exposes an aria-label encoding its row and column. */
   test("applies aria-label per cell", () => {
     render(<Calendar onChange={() => {}} />);
     const cells = screen.getAllByRole("checkbox");

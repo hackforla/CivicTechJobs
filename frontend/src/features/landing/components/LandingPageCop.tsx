@@ -1,3 +1,16 @@
+/**
+ * Communities-of-Practice section of the landing page.
+ *
+ * Renders five `CircleCard` tiles (one per CoP) sourced from the
+ * static `copData` reference data. Clicking a tile opens a
+ * modal `Dialog` with a side-nav listing all CoPs and a content
+ * pane showing the selected CoP's icon, name, description, and
+ * a "Join Us" CTA into the qualifier flow.
+ *
+ * The dialog navigation is in-modal: clicking a sibling CoP in
+ * the side-nav swaps the content pane without closing/reopening.
+ */
+
 "use client";
 
 import React, { useEffect, useState } from "react";

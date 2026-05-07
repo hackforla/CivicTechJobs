@@ -1,18 +1,22 @@
-"""
-URL configuration for backend project.
+"""Top-level URL routing for the backend Django project.
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+Three top-level mounts:
+- `/admin/` for the Django admin site.
+- `/api/` delegates to `ctj_api.urls` for all CTJ API routes.
+- Everything else falls through to the SPA catchall in
+  `backend.views`, which serves an HTML template.
+
+Order matters: the SPA catchall is last so the explicit `/admin/`
+and `/api/` mounts win first.
+
+Architectural note: the SPA catchall is a remnant from the
+pre-rewrite monolithic setup, when Django served both the API and
+the rendered SPA shell from one process. The post-rewrite
+architecture runs the frontend as a separate Next.js container that
+handles all non-API traffic; anyone hitting the backend service
+directly at a non-`/admin/`, non-`/api/` path is probably misrouted.
+The catchall is preserved for now but is a candidate for removal -
+deferred out of this docs-only PR.
 """
 
 from django.contrib import admin

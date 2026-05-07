@@ -1,3 +1,15 @@
+/**
+ * Qualifier step 1: practice-area selection.
+ *
+ * Renders the five Communities of Practice as a grid of selectable
+ * cards. The user picks one; the selection writes to the
+ * qualifier context and persists to localStorage.
+ *
+ * Validation is loose: the component allows progressing to step 2
+ * even if no CoP is selected. Step 2 reads the same context, so
+ * unselected state will surface there as an empty skill list.
+ */
+
 "use client";
 
 import { useRouter } from "next/navigation";

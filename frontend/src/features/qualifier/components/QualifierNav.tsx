@@ -1,3 +1,12 @@
+/**
+ * Bottom navigation bar shared by all qualifier step components.
+ *
+ * Provides the layout container; consumers pass back/next buttons
+ * (or other actions) as children. Pinned to the bottom of the
+ * step content via CSS so each step has consistent footer
+ * placement.
+ */
+
 import React from "react";
 
 import { cn } from "@/shared/lib/utils";

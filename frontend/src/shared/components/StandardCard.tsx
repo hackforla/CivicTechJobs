@@ -1,3 +1,12 @@
+/**
+ * Generic rectangular card primitive.
+ *
+ * A thin wrapper around a styled `<div>` - lets a consumer pass
+ * children and an optional className. No interactive behavior; for
+ * clickable cards, wrap the content in a button or use an
+ * interactive primitive like `CircleCard` instead.
+ */
+
 import React from "react";
 
 import { cn } from "@/shared/lib/utils";

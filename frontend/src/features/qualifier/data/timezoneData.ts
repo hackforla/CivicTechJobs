@@ -1,3 +1,20 @@
+/**
+ * Timezone reference data for the qualifier availability step.
+ *
+ * Each entry is `{ value, abbr, offset, isdst, text, utc }`:
+ * - `value` is a Windows-style timezone name (legacy).
+ * - `abbr` is the short code (PST, EST, etc.).
+ * - `offset` is the UTC offset in hours.
+ * - `text` is the display label shown in the dropdown.
+ * - `utc` is an array of IANA timezone names that map to this
+ *   entry; used to auto-detect the user's timezone via
+ *   `Intl.DateTimeFormat`.
+ *
+ * This list is curated from the standard Windows timezone table.
+ * If a new IANA timezone needs to map here, add it to the matching
+ * entry's `utc` array.
+ */
+
 const timezones = [
   {
     value: "Dateline Standard Time",

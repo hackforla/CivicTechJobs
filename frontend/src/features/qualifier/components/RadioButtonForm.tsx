@@ -1,3 +1,19 @@
+/**
+ * Skill-rating radio table for qualifier step 2.
+ *
+ * Renders a table with one row per skill in the active CoP's
+ * skill list. Each row has three radio buttons for experience
+ * level (0-2 yrs, 2-4 yrs, 4+ yrs). Selecting a level fires
+ * `onSkillSelect(skillName, level)`, which the parent
+ * (`QualifierPage2`) writes back to the qualifier context.
+ *
+ * The three-bucket experience scale is a frontend simplification;
+ * the backend's `SkillMatrix` model uses a 1-5 mastery scale.
+ * Mapping between the two is deferred until the qualifier flow
+ * actually hits the backend (currently stops at localStorage).
+ * Flagging as a frontend/backend schema gap.
+ */
+
 "use client";
 
 import React from "react";

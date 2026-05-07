@@ -1,3 +1,16 @@
+/**
+ * Bottom-of-page navigation footer for the `(with-nav)` route group.
+ *
+ * Renders the CTJ logo (linking home), an internal-link nav row
+ * (Credits, Sitemap, Join Us), and a "Donate" button linking to
+ * Hack for LA's donation page. The Sitemap link currently points
+ * to `#` because the sitemap page is unimplemented; flagging as a
+ * bug.
+ *
+ * Two logo variants are present (horizontal + stacked); CSS swaps
+ * which one is visible based on viewport width.
+ */
+
 import Link from "next/link";
 import { Fragment } from "react";
 

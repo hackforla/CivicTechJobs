@@ -1,3 +1,17 @@
+/**
+ * Signup form for the `/signup` route.
+ *
+ * Wires `react-hook-form` validation (RHF) for first name, last
+ * name, email, and password fields with inline error messages.
+ *
+ * Note: like `LoginForm`, the `onSubmit` is currently a
+ * `console.log` placeholder; backend signup is deferred. See
+ * `LoginForm` for the same flag.
+ *
+ * Mounted by the `/signup` page route in the `(auth)` route
+ * group.
+ */
+
 "use client";
 
 import Link from "next/link";

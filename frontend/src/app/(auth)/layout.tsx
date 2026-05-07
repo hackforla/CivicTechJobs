@@ -1,3 +1,16 @@
+/**
+ * Layout for the `(auth)` route group (login + signup pages).
+ *
+ * Renders a two-column shell: a left illustration pane (decorative
+ * background, tagline, and the team-work illustration) and a right
+ * form pane that the page's child component (`LoginForm` or
+ * `SignupForm`) drops into.
+ *
+ * Distinct from the `(with-nav)` layout - auth pages get their
+ * own minimal `AuthNav` instead of the full `HeaderNav` /
+ * `FooterNav` chrome, so the visual emphasis stays on the form.
+ */
+
 import AuthNav from "@/shared/components/nav/AuthNav";
 import Dots from "@/shared/images/dots.svg";
 import LoginIllustration from "@/shared/images/login-illustration.svg";

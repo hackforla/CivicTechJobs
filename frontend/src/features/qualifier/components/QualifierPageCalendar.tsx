@@ -1,3 +1,18 @@
+/**
+ * Qualifier step 3: weekly availability calendar.
+ *
+ * Renders a timezone dropdown (auto-detected from
+ * `Intl.DateTimeFormat`'s resolved timezone) and the drag-to-
+ * select `Calendar` primitive. The user marks blocks of time
+ * they're available across the week.
+ *
+ * Note: the Calendar's `onChange` is currently a `console.log`
+ * placeholder; availability is not persisted to the qualifier
+ * context. The "View available roles" button at the bottom links
+ * to `/`, which is also a placeholder - the real "your matches"
+ * page doesn't exist yet. Both are flagged as known-incomplete.
+ */
+
 "use client";
 
 import { useRouter } from "next/navigation";

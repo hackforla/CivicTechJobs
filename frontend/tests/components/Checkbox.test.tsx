@@ -1,3 +1,5 @@
+/** Component tests for `Checkbox` from `shared/components/Checkbox.tsx`. */
+
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import React from "react";
@@ -6,6 +8,7 @@ import { describe, expect, test } from "vitest";
 import { Checkbox } from "@/shared/components/Checkbox";
 
 describe("Checkbox", () => {
+  /** Click and Space-key both toggle the checked state. */
   test("toggles via mouse and keyboard", async () => {
     const user = userEvent.setup();
     render(<Checkbox label="Full Stack Developer" />);
@@ -23,6 +26,7 @@ describe("Checkbox", () => {
     expect(screen.queryByRole("checkbox")).toBeChecked();
   });
 
+  /** Disabled checkbox doesn't accept click toggles. */
   test("disabled cannot be toggled", async () => {
     const user = userEvent.setup();
     render(<Checkbox label="disabled checkbox" disabled />);
@@ -34,6 +38,7 @@ describe("Checkbox", () => {
     expect(screen.queryByRole("checkbox")).not.toBeChecked();
   });
 
+  /** With `defaultChecked`, initial render is checked; clicking unchecks. */
   test("defaultChecked starts checked", async () => {
     const user = userEvent.setup();
     render(<Checkbox label="defaultChecked checkbox" defaultChecked />);
@@ -45,10 +50,12 @@ describe("Checkbox", () => {
     expect(screen.queryByRole("checkbox")).not.toBeChecked();
   });
 
-  test.skip("labelHidden visually hides the label text", () => {
-    // The hiding is purely CSS (clip/position/overflow on a hashed
-    // .module.css class). jsdom doesn't apply stylesheet declarations
-    // to getComputedStyle output, so there's nothing meaningful to
-    // assert from the test runtime. Verified by hand in the browser.
-  });
+  /**
+   * `labelHidden` visually hides the label text - skipped because
+   * the hiding is purely CSS (clip/position/overflow on a hashed
+   * `.module.css` class). jsdom doesn't apply stylesheet declarations
+   * to `getComputedStyle` output, so there's nothing meaningful to
+   * assert from the test runtime. Verified by hand in the browser.
+   */
+  test.skip("labelHidden visually hides the label text", () => {});
 });

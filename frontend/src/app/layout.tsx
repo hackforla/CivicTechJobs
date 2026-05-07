@@ -1,3 +1,17 @@
+/**
+ * Root layout for the entire app.
+ *
+ * Sets up the `<html>` and `<body>` shells, loads the Roboto font
+ * family as a local font (twelve weight/italic variants), and
+ * mounts global chrome that should appear on every page (currently
+ * just the cookie banner).
+ *
+ * Page-specific chrome (header, footer, side-illustration) is
+ * provided by the route-group layouts under `(with-nav)/` and
+ * `(auth)/`. This root layout intentionally stays thin so route
+ * groups can compose differently.
+ */
+
 import type { Metadata } from "next";
 
 import localFont from "next/font/local";
@@ -5,10 +19,13 @@ import "./globals.css";
 
 import CookieBanner from "@/shared/components/CookieBanner";
 
-// Roboto loaded locally from the legacy app's bundled `.ttf` files. Each
-// weight + italic variant maps to one source file; the full set lets
-// arbitrary `font-weight`/`font-style` combinations resolve without
-// faux-bold/italic browser fallbacks.
+/**
+ * Roboto loaded locally from bundled `.ttf` files.
+ *
+ * Each weight + italic variant maps to one source file; the full
+ * set lets arbitrary `font-weight` / `font-style` combinations
+ * resolve without browser-side faux-bold / faux-italic fallbacks.
+ */
 const roboto = localFont({
   src: [
     {

@@ -1,3 +1,24 @@
+/**
+ * Site-wide cookie consent banner.
+ *
+ * Mounted from the root layout, so it appears on every page until
+ * the user accepts or declines. Choice is persisted in a
+ * `cookieConsent` cookie (string `"true"` or `"false"`, 1-year
+ * expiry); subsequent visits read the cookie at mount and skip
+ * rendering if already set.
+ *
+ * Hydration note: the cookie can only be read on the client, so
+ * SSR HTML always renders the banner shell. Returning `null` until
+ * `mounted` flips true is what avoids a hydration mismatch for
+ * users who have already consented (server renders the banner
+ * visible, client would render it hidden).
+ *
+ * The X close button hides the banner without persisting consent
+ * state - clicking close is treated as "ask me again next page
+ * load", which is intentional for users who don't want to commit
+ * to a choice yet.
+ */
+
 "use client";
 /* eslint-disable react/no-unescaped-entities */
 
@@ -11,10 +32,6 @@ import { IconButton } from "./Buttons";
 import styles from "./CookieBanner.module.css";
 
 function CookieBanner() {
-  // Read the cookie after mount so server-rendered HTML (no cookie
-  // access) matches the first client render. Returning null until
-  // mounted avoids the hydration mismatch that surfaces when a user
-  // who has already consented loads any page.
   const [mounted, setMounted] = useState(false);
   const [hidden, setIsHidden] = useState(false);
 

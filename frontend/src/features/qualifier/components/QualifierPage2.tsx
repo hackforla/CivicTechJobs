@@ -1,3 +1,21 @@
+/**
+ * Qualifier step 2: per-skill mastery rating.
+ *
+ * Walks the user through the skills associated with their selected
+ * CoP (from step 1), one at a time. For each skill, the user picks
+ * a rating (1-5) via `RadioButtonForm`. Progress through the
+ * skills list is reflected in `ProgressIndicator`.
+ *
+ * State writes go to the qualifier context's `skills_matrix` field,
+ * keyed by skill name. The state shape mirrors the backend's
+ * `SkillMatrix` model (UUID-to-rating in production; name-to-rating
+ * here because Stage 1 doesn't have stable skill UUIDs yet).
+ *
+ * If step 1 wasn't completed (no `selectedCopData`), the page
+ * renders an empty skill list. See `QualifierPage1` note about
+ * loose validation.
+ */
+
 "use client";
 
 import { useRouter } from "next/navigation";

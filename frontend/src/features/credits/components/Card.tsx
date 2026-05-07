@@ -1,3 +1,13 @@
+/**
+ * Single attribution card for the credits page.
+ *
+ * Renders an SVG image (illustration or icon) above a small
+ * metadata table (Name, Used In, Provider) with a "Learn more"
+ * link. The container and image-class props let the parent
+ * (`CreditsPage`) swap layout between illustration and icon
+ * presentations without forking the component.
+ */
+
 import React from "react";
 
 import styles from "./Card.module.css";

@@ -1,3 +1,13 @@
+/**
+ * Minimal navigation header for the `(auth)` route group.
+ *
+ * Distinct from `HeaderNav`: this version renders only a back-arrow
+ * link to `/` and the CTJ logo (also linking home). No external
+ * org links, no login button, no hamburger menu - the auth pages
+ * (login, signup) want minimal chrome so the visual emphasis stays
+ * on the form.
+ */
+
 import Link from "next/link";
 
 import IconArrowLeft from "@/shared/icons/icon-arrow-left.svg";

@@ -1,3 +1,17 @@
+/**
+ * Top-of-page navigation header for the `(with-nav)` route group.
+ *
+ * Renders the CTJ logo (linking home), three external links to
+ * Hack for LA org pages, a "Log In" button (linking to `/login`),
+ * and a mobile hamburger menu trigger. The `(auth)` route group
+ * uses a different `AuthNav` component.
+ *
+ * The hamburger button is currently inert - `aria-expanded` is
+ * hard-coded to `"false"` and there's no click handler to open a
+ * menu. The mobile menu interaction is unimplemented; flagging as
+ * a bug to expand on later.
+ */
+
 import Link from "next/link";
 
 import { Button } from "@/shared/components/Buttons";

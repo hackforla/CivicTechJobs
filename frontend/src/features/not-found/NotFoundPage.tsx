@@ -1,3 +1,17 @@
+/**
+ * 404 not-found page.
+ *
+ * Mounted by `src/app/not-found.tsx` (Next.js wires this
+ * automatically when no route matches). Renders the standard
+ * site chrome (HeaderNav + FooterNav) plus a "Page not found"
+ * message and a "Go Back" button that calls `router.back()`.
+ *
+ * Distinct from the `(with-nav)` route group's pages because it's
+ * a Next-special boundary file (`not-found.tsx` at the app root)
+ * and renders its own chrome rather than composing into the
+ * route-group layout.
+ */
+
 "use client";
 /* eslint-disable react/no-unescaped-entities */
 

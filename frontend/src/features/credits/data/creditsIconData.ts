@@ -1,3 +1,13 @@
+/**
+ * Attribution data for icons used across the site (credits page).
+ *
+ * Each entry pairs an icon (imported from `src/shared/icons/`)
+ * with its name, the page(s) it appears on, the provider, and a
+ * "learn more" link. Update this file whenever a new icon source
+ * is introduced; missing attributions are easy to overlook because
+ * nothing breaks at runtime.
+ */
+
 import IconArrowDown from "@/shared/icons/icon-arrow-down.svg";
 import IconArrowLeft from "@/shared/icons/icon-arrow-left.svg";
 import IconCheckMarkDark from "@/shared/icons/icon-checkmark-dark.svg";

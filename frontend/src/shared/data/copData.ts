@@ -1,3 +1,20 @@
+/**
+ * Static reference data for Communities of Practice.
+ *
+ * Mirrors the backend's `CommunityOfPractice.PracticeAreas` enum
+ * (data_science, engineering, devops, project_management, ui_ux),
+ * plus a CTJ-specific bundle of associated roles and skills per
+ * CoP. Update this file alongside the backend `PracticeAreas`
+ * choices when the taxonomy changes; out-of-sync values cause
+ * silent rendering of unknown CoP names as raw strings.
+ *
+ * The skills list is curated locally in Stage 1; in Stage 2 the
+ * skill catalog moves to PeopleDepot and this file should either
+ * be replaced with a fetch from `/api/skills/` or be kept as a
+ * fallback for offline / SSR rendering. See
+ * `docs/developer/backend.md` for the Stage 2 plan.
+ */
+
 import CopIconData from "@/shared/images/communities-of-practice/cop-icon-datascience.svg";
 import CopIconEngineering from "@/shared/images/communities-of-practice/cop-icon-engineering.svg";
 import CopIconOps from "@/shared/images/communities-of-practice/cop-icon-ops.svg";
@@ -1054,6 +1071,7 @@ const sampleCopData: copDatum[] = [
   },
 ];
 
+/** Look up a CoP by its numeric id; returns undefined if not found. */
 function fetchCopDataById(id: number) {
   for (const item of sampleCopData) {
     if (item.id == id) {
@@ -1062,6 +1080,7 @@ function fetchCopDataById(id: number) {
   }
 }
 
+/** Look up a CoP by its display title; returns undefined if not found. */
 function fetchCopDataByTitle(title: string) {
   for (const item of sampleCopData) {
     if (item.title == title) {
@@ -1070,6 +1089,7 @@ function fetchCopDataByTitle(title: string) {
   }
 }
 
+/** Return all CoPs in the order declared in this module. */
 function fetchAllCopData() {
   return sampleCopData;
 }
