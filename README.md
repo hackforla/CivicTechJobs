@@ -26,9 +26,9 @@ The current process involves several manual steps for both sides. CivicTechJobs 
 
 ## Stack
 
-- **Frontend**: Next.js 16 (App Router) + React 19 + TypeScript 5, styled with CSS Modules.
-- **Backend**: Django 5.1 + Django REST Framework 3.15, served via Daphne (ASGI).
-- **Database**: PostgreSQL 16.
+- **Frontend**: Next.js 16 (App Router) + React 19 + TypeScript 6, styled with CSS Modules.
+- **Backend**: Django 6.0 + Django REST Framework 3.17, served via Daphne (ASGI).
+- **Database**: PostgreSQL 18.
 - **Deployment**: AWS ECS (three containers in one task) on Hack for LA's Incubator account.
 
 See [docs/developer/](docs/developer/) for the full architecture writeup.

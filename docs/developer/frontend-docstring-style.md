@@ -1,6 +1,6 @@
 # Frontend Docstring Style
 
-CTJ frontend code follows a JSDoc convention modeled on the project's sister codebase (BNC). The shape inverts the backend's: **heavy on the module level, light at the per-export level**. Backend's substantive policy lived on classes; on the frontend, the file itself is usually the unit of design (a component, a context, a utility cluster), so the file-header is where context goes.
+CTJ frontend code follows a JSDoc convention. The shape inverts the backend's: **heavy on the module level, light at the per-export level**. Backend's substantive policy lived on classes; on the frontend, the file itself is usually the unit of design (a component, a context, a utility cluster), so the file-header is where context goes.
 
 This guide covers what to put in JSDoc comments for each kind of frontend file. The backend has its own conventions; see [backend-docstring-style.md](./backend-docstring-style.md).
 
@@ -18,7 +18,6 @@ This guide covers what to put in JSDoc comments for each kind of frontend file. 
 Frontend JSDoc is **prose-style**, not labeled-section style. Reasons:
 - Components and utilities have a single purpose; there's nothing to label.
 - React conventions favor prose JSDoc (TypeScript handles the structured part: prop types).
-- BNC's frontend uses prose; matching that keeps both codebases readable in the same register.
 
 ## Module headers — heavy
 

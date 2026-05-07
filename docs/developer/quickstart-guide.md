@@ -33,7 +33,7 @@ For one-shot commands inside running containers (migrations, package installs, e
 
 ## Development mode (without Docker)
 
-Useful for debugging stack-specific issues. Requires Node.js 22 LTS, Python 3.12, and Poetry installed locally; Postgres still runs in Docker so you don't need a local install.
+Useful for debugging stack-specific issues. Requires Node.js 24, Python 3.13, and Poetry installed locally; Postgres still runs in Docker so you don't need a local install.
 
 Start the database container:
 

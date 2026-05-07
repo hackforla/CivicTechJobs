@@ -17,7 +17,7 @@ CTJ runs as three containers in a shared ECS task on the `incubator-prod` cluste
 
 - **Next.js container** - serves the frontend (App Router pages, server components, server actions).
 - **Django container** - serves the CTJ API (`/api/*`) and the Django admin (`/admin/*`).
-- **Postgres container** - Postgres 16, the only database in scope for the rewrite.
+- **Postgres container** - Postgres 18, the only database in scope for the rewrite.
 
 Containers share the task's network namespace. Cross-container calls hop localhost (Django → Postgres on `localhost:5432`; Next.js → Django on `localhost:8000`). One task instead of three because cross-container traffic stays on localhost (no service discovery, no inter-task networking), and the three containers scale together as a unit.
 

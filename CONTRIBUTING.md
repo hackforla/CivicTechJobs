@@ -43,7 +43,7 @@ The goal is that contributors can land work without fighting the type checker, w
 
 ### Docstrings (backend)
 
-Backend code follows a labeled-section docstring convention modeled on the project's sister codebase (BNC). The shape is per-file-kind: heavy labeled templates for models and views (where there's substantive policy to document), lighter prose for serializers and config files. See [docs/developer/backend-docstring-style.md](docs/developer/backend-docstring-style.md) for the full templates, vocabulary, and rationale.
+Backend code follows a labeled-section docstring convention. The shape is per-file-kind: heavy labeled templates for models and views (where there's substantive policy to document), lighter prose for serializers and config files. See [docs/developer/backend-docstring-style.md](docs/developer/backend-docstring-style.md) for the full templates, vocabulary, and rationale.
 
 ### Docstrings (frontend)
 
