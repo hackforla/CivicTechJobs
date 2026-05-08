@@ -208,9 +208,20 @@ def immutable_file_test(path, url):
 
 WHITENOISE_IMMUTABLE_FILE_TEST = immutable_file_test
 
-# DRF: register the custom exception handler so all DRF-raised errors
-# render through the CTJ error envelope shape (see ctj_api.exceptions
-# and docs/developer/backend.md's 'Error envelope' section).
+# DRF configuration.
+#
+# - `EXCEPTION_HANDLER`: register the custom exception handler so all
+#   DRF-raised errors render through the CTJ error envelope shape
+#   (see ctj_api.exceptions and docs/developer/backend.md's 'Error
+#   envelope' section).
+# - `DEFAULT_AUTHENTICATION_CLASSES`: pin to `SessionAuthentication`
+#   only. DRF's default also enables `BasicAuthentication`, which
+#   nothing here uses (Stage 1 is cookie/session SPA auth; Stage 2
+#   will be Cognito ID-token). Pinning explicitly keeps the auth
+#   surface tight.
 REST_FRAMEWORK = {
     "EXCEPTION_HANDLER": "ctj_api.exceptions.civic_exception_handler",
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.SessionAuthentication",
+    ],
 }

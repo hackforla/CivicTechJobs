@@ -28,17 +28,14 @@ class UserDetailTests(APITestCase):
             people_depot_user_id="user_b_pd_id",
         )
 
-    # The following test is currently commented out because it exercises
-    # the `CustomUserReadSerializer` read path, which crashes due to the
-    # broken `opportunities` field (a writable PK-related-field that
-    # references a non-existent attribute on `CustomUser`). Uncomment
-    # once the field is dropped from the serializer.
-    #
-    # def test_authenticated_user_can_view_own_record(self):
-    #     """A user can fetch their own /api/users/<uuid>/ record (200)."""
-    #     self.client.force_authenticate(user=self.user)
-    #     response = self.client.get(f"/api/users/{self.user.id}/")
-    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
+    def test_authenticated_user_can_view_own_record(self):
+        """A user can fetch their own /api/users/<uuid>/ record (200)."""
+        self.client.force_authenticate(user=self.user)
+        response = self.client.get(f"/api/users/{self.user.id}/")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        body = response.json()
+        self.assertEqual(body["id"], str(self.user.id))
+        self.assertEqual(body["email"], self.user.email)
 
     def test_authenticated_user_cannot_view_others_record(self):
         """Authenticated user requesting someone else's record gets 403 envelope."""
