@@ -29,12 +29,22 @@ const nextConfig: NextConfig = {
     return config;
   },
 
-  // When `BACKEND_INTERNAL_URL` is set (local stage compose points it at
-  // the django service), proxy `/api/*` and `/admin/*` through the
-  // Next runtime to the backend so the frontend can use relative
-  // URLs end-to-end. Deployed stage leaves this unset - the ALB does
-  // path-based routing instead. Local dev also leaves it unset; the
-  // dev frontend calls django cross-origin via NEXT_PUBLIC_API_URL.
+  // Proxy `/api/*` and `/admin/*` through the Next runtime to the
+  // backend so the frontend can use relative URLs end-to-end.
+  // `BACKEND_INTERNAL_URL` resolves differently per environment:
+  //
+  //   - compose dev (`make docker-up`): `http://django:8000` (the docker
+  //     service DNS name; comes from `dev/dev.env`).
+  //   - host dev (`make local-run-frontend`): `http://localhost:8000`
+  //     (the Makefile target sources `dev.env` and overrides this
+  //     value, parallel to how `BACKEND_RUN` overrides `SQL_HOST`).
+  //   - local stage (`make stage-up`): the `next` container's compose
+  //     env points it at the `django` container.
+  //   - deployed stage: leaves it unset; the ALB does path-based
+  //     routing at the load balancer instead, and this function
+  //     returns `[]` so Next doesn't add a redundant proxy.
+  //
+  // Same-origin in dev / stage / prod means no CORS headers anywhere.
   async rewrites() {
     const backend = process.env.BACKEND_INTERNAL_URL;
     if (!backend) return [];
