@@ -4,9 +4,18 @@
  * Wires `react-hook-form` validation (RHF) for first name, last
  * name, email, and password fields with inline error messages.
  *
- * Note: like `LoginForm`, the `onSubmit` is currently a
- * `console.log` placeholder; backend signup is deferred. See
- * `LoginForm` for the same flag.
+ * On submit:
+ * 1. Combines `firstName + lastName` into a single `name` (the
+ *    backend's `RegisterSerializer` takes one `name` field).
+ * 2. Calls `authApi.signup` via the `useAuth()` context. The
+ *    backend auto-logs-in on success, so the context updates
+ *    `user` directly and the form pushes the router to `/`
+ *    (landing).
+ * 3. On `ApiError`, surfaces the server's `message` at the top of
+ *    the form (e.g. "A user with that email already exists.",
+ *    "Request validation failed."). Field-level errors
+ *    (`err.fields`) aren't displayed inline yet; the top-level
+ *    message is sufficient for the common cases.
  *
  * Mounted by the `/signup` page route in the `(auth)` route
  * group.
@@ -15,9 +24,13 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 
 import TextField from "@/shared/components/TextField";
+import { useAuth } from "@/shared/contexts/AuthContext";
+import { ApiError } from "@/shared/lib/api/client";
 
 import styles from "./SessionForm.module.css";
 
@@ -34,14 +47,40 @@ export default function SignupForm() {
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log("Sending form data to server...", data);
+  const { signup } = useAuth();
+  const router = useRouter();
+  const [serverError, setServerError] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    setServerError(null);
+    setSubmitting(true);
+    try {
+      await signup({
+        email: data.email,
+        password: data.password,
+        name: `${data.firstName} ${data.lastName}`.trim(),
+      });
+      router.push("/");
+    } catch (err) {
+      if (err instanceof ApiError) {
+        setServerError(err.message);
+      } else {
+        setServerError("Something went wrong. Please try again.");
+      }
+      setSubmitting(false);
+    }
   };
 
   return (
     <div>
       <h3 className={styles.headingWide}>Sign up</h3>
       <form onSubmit={handleSubmit(onSubmit)}>
+        {serverError ? (
+          <p className={styles.serverError} role="alert">
+            {serverError}
+          </p>
+        ) : null}
         <div className={styles.nameGrid}>
           <TextField
             label="First name"
@@ -89,7 +128,9 @@ export default function SignupForm() {
           }}
           errors={errors.password}
         />
-        <button className={styles.submit}>Sign Up</button>
+        <button className={styles.submit} type="submit" disabled={submitting}>
+          {submitting ? "Signing up..." : "Sign Up"}
+        </button>
       </form>
       <div className={styles.altLink}>
         <p>

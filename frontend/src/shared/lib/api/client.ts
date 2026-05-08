@@ -29,26 +29,26 @@ export type ApiErrorBody = {
   error: {
     code: string;
     message: string;
-    details?: unknown;
+    fields?: Record<string, string[]>;
   };
 };
 
 export class ApiError extends Error {
   status: number;
   code: string;
-  details?: unknown;
+  fields?: Record<string, string[]>;
 
   constructor(
     status: number,
     code: string,
     message: string,
-    details?: unknown,
+    fields?: Record<string, string[]>,
   ) {
     super(message);
     this.name = "ApiError";
     this.status = status;
     this.code = code;
-    this.details = details;
+    this.fields = fields;
   }
 }
 
@@ -124,7 +124,7 @@ export async function apiFetch<T>(
       response.status,
       body?.error?.code ?? "unknown",
       body?.error?.message ?? response.statusText,
-      body?.error?.details,
+      body?.error?.fields,
     );
   }
 

@@ -88,8 +88,8 @@ describe("apiFetch", () => {
         JSON.stringify({
           error: {
             code: "validation_error",
-            message: "bad input",
-            details: { field: "email" },
+            message: "Request validation failed.",
+            fields: { email: ["Enter a valid email address."] },
           },
         }),
         {
@@ -108,8 +108,10 @@ describe("apiFetch", () => {
     const apiErr = caught as ApiError;
     expect(apiErr.status).toBe(400);
     expect(apiErr.code).toBe("validation_error");
-    expect(apiErr.message).toBe("bad input");
-    expect(apiErr.details).toEqual({ field: "email" });
+    expect(apiErr.message).toBe("Request validation failed.");
+    expect(apiErr.fields).toEqual({
+      email: ["Enter a valid email address."],
+    });
   });
 
   test("falls back to status text when error body is not JSON", async () => {
