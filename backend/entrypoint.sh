@@ -13,6 +13,6 @@ python manage.py collectstatic --noinput --clear --link && \
     python manage.py makemigrations && \
     python manage.py migrate && \
     python manage.py generateschema --file openapi-schema.yml && \
-    
+
     # This command starts the daphne ASGI server
     daphne -b 0.0.0.0 -p 8000 backend.asgi:application
