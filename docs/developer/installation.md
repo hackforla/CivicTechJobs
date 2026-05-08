@@ -79,7 +79,7 @@ git checkout -b develop upstream/develop
 
 ## Local-dev auth
 
-Stage 1 local dev runs Django's default session authentication; no Cognito, no PeopleDepot, no auth env vars needed beyond what's already in `dev.env.example`.
+Stage 1 local dev runs Django's default session authentication; no Cognito, no PeopleDepot, no auth env vars needed beyond what's already in `dev.env.example`. Regular users sign up through the SPA at http://localhost:3000/signup; the form hits `POST /api/auth/signup/` and auto-logs-in on success.
 
 Bootstrap an admin / PM account with:
 
@@ -87,7 +87,7 @@ Bootstrap an admin / PM account with:
 docker compose run django python manage.py createsuperuser
 ```
 
-That account can sign into Django admin at http://localhost:8000/admin/ and is what you'll use to exercise PM-gated flows. Subsequent admin and PM elevations happen through Django admin's UI.
+That account can sign into Django admin at http://localhost:8000/admin/ and is what you'll use to exercise PM-gated flows. Subsequent admin and PM elevations happen through Django admin's UI (toggle the `isProjectManager` flag on the user record).
 
 Stage 2 will introduce Cognito JWT verification and PeopleDepot client mocks; that work lands when the upstream PeopleDepot deployment posture stabilizes. See [backend.md](backend.md#auth) for the Stage 2 design.
 
