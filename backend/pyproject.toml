@@ -73,4 +73,4 @@ django_settings_module = "backend.settings"
 [tool.bandit]
 # Skip migrations (auto-generated, lots of false positives) and the test
 # suite (assertions are not security issues in tests).
-exclude_dirs = ["migrations", "ctj_api/tests"]
+exclude_dirs = ["migrations", "ctj_api/tests", "accounts/tests"]

@@ -18,52 +18,12 @@ from rest_framework import serializers
 
 from ctj_api.models import (
     CommunityOfPractice,
-    CustomUser,
     Opportunity,
     Project,
     Role,
     Skill,
     SkillMatrix,
 )
-
-
-class CustomUserReadSerializer(serializers.ModelSerializer):
-    """Read serializer for `CustomUser` records.
-
-    Note: the `opportunities` field is broken - it declares a writable
-    `PrimaryKeyRelatedField(many=True)` but `CustomUser` has no
-    `opportunities` attribute (the actual reverse relation from
-    `Opportunity.created_by` is named `created_opportunities`).
-    Reads would fail with `AttributeError`; writes would fail
-    attempting to set `instance.opportunities`. Currently masked
-    because no exercised code path hits it. The right fix is to drop
-    the field entirely - deferred out of this shape-only PR. See
-    `archive/feat-auth-stage1` for a worked example of the removal.
-
-    Used by:
-    - `user_detail` FBV (`GET /api/users/<uuid>/`).
-    """
-
-    opportunities = serializers.PrimaryKeyRelatedField(
-        many=True, queryset=Opportunity.objects.all()
-    )
-
-    class Meta:
-        model = CustomUser
-        fields = [
-            "id",
-            "people_depot_user_id",
-            "name",
-            "email",
-            "community_of_practice",
-            "skills_learned_matrix",
-            "max_available_hours",
-            "meeting_availability",
-            "isProjectManager",
-            "opportunities",
-            "created_at",
-            "updated_at",
-        ]
 
 
 class OpportunityReadSerializer(serializers.ModelSerializer):

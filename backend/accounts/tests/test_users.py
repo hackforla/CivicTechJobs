@@ -3,7 +3,7 @@
 from rest_framework import status
 from rest_framework.test import APIClient, APITestCase
 
-from ctj_api.tests.common import make_regular_user
+from accounts.tests.common import make_regular_user
 
 
 class UserDetailTests(APITestCase):

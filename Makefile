@@ -134,7 +134,7 @@ local-superuser:
 local-test: local-test-backend local-test-frontend
 
 local-test-backend:
-	$(BACKEND_RUN) python manage.py test ctj_api.tests --keepdb --noinput
+	$(BACKEND_RUN) python manage.py test --keepdb --noinput
 
 local-test-frontend:
 	cd $(FRONTEND_DIR) && npx vitest run

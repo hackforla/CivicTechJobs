@@ -1,57 +1,27 @@
 """Shared factory helpers for `ctj_api` test files.
 
-Each helper saves a model instance with sensible defaults that callers
-can override via keyword arguments. The helpers do not return shared
-state - each call creates a new row. Callers wire factories together
-explicitly when they need relationships (e.g. an `Opportunity` needs
-a `Project`, a `Role`, and a `created_by` user; the test's `setUp`
-creates the dependencies and passes them in).
+Each helper saves a domain-model instance with sensible defaults that
+callers can override via keyword arguments. The helpers do not return
+shared state - each call creates a new row. Callers wire factories
+together explicitly when they need relationships (e.g. an `Opportunity`
+needs a `Project`, a `Role`, and a `created_by` user; the test's
+`setUp` creates the dependencies and passes them in).
+
+User factories (`make_pm_user`, `make_regular_user`) live in
+`accounts.tests.common` since the `CustomUser` model lives in the
+`accounts` app. Tests that span both apps import from both modules.
 
 Per-test-file `setUp` methods import only the helpers they need.
 """
 
+from accounts.models import CustomUser
 from ctj_api.models import (
     CommunityOfPractice,
-    CustomUser,
     Opportunity,
     Project,
     Role,
     Skill,
 )
-
-
-def make_pm_user(
-    *,
-    username: str = "pm_user",
-    email: str = "pm_user@example.com",
-    password: str = "password123",
-    people_depot_user_id: str = "pm_user_pd_id",
-) -> CustomUser:
-    """Create a project-manager user."""
-    return CustomUser.objects.create_user(
-        username=username,
-        email=email,
-        password=password,
-        people_depot_user_id=people_depot_user_id,
-        isProjectManager=True,
-    )
-
-
-def make_regular_user(
-    *,
-    username: str = "regular_user",
-    email: str = "regular_user@example.com",
-    password: str = "password123",
-    people_depot_user_id: str = "regular_user_pd_id",
-) -> CustomUser:
-    """Create a non-PM user."""
-    return CustomUser.objects.create_user(
-        username=username,
-        email=email,
-        password=password,
-        people_depot_user_id=people_depot_user_id,
-        isProjectManager=False,
-    )
 
 
 def make_cop(

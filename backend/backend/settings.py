@@ -10,8 +10,9 @@ vars; devops populates the values per environment (incubator
 repo).
 
 Notable choices:
-- `AUTH_USER_MODEL = "ctj_api.CustomUser"` (subclasses
-  `AbstractUser` rather than extending the default User).
+- `AUTH_USER_MODEL = "accounts.CustomUser"` (subclasses
+  `AbstractUser` rather than extending the default User; lives in
+  the `accounts` app, which owns identity / auth concerns).
 - `daphne` is first in `INSTALLED_APPS` so Django's `runserver` and
   the production server both route through ASGI - see
   `backend.asgi`.
@@ -60,6 +61,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "accounts.apps.AccountsConfig",
     "ctj_api.apps.CtjApiConfig",
     "rest_framework",
 ]
@@ -153,7 +155,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Enable django custom User model
 # https://docs.djangoproject.com/en/5.1/topics/auth/customizing/#substituting-a-custom-user-model
-AUTH_USER_MODEL = "ctj_api.CustomUser"
+AUTH_USER_MODEL = "accounts.CustomUser"
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/

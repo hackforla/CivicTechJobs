@@ -6,16 +6,20 @@ other endpoint is an explicit `path()` entry pointing at a
 function-based view (see `ctj_api.views` for the shape rule):
 
 - `healthcheck`: the liveness endpoint.
-- `users/<uuid>/`: the per-user detail FBV.
 - `communities-of-practice/`, `roles/`, `skills/`, `projects/`:
   list + detail FBV pairs for read-only catalog resources.
+
+The user detail endpoint (`users/<uuid>/`) lives in `accounts.urls`
+and is mounted at the same `/api/` prefix from `backend.urls`.
 
 A catch-all `re_path` at the end returns a JSON 404 (via
 `api_not_found`) for anything else under `/api/*`.
 
 Order matters: the catch-all is last; if it moved up, it would
 match before the explicit paths and shadow them. The router
-include sits before the catch-all for the same reason.
+include sits before the catch-all for the same reason. At the
+root urlconf level, `accounts.urls` is included BEFORE this module
+so the catch-all here doesn't shadow accounts routes.
 """
 
 from django.urls import include, path, re_path
@@ -28,7 +32,6 @@ router.register(r"opportunities", views.OpportunityViewSet)
 
 urlpatterns = [
     path("healthcheck/", views.healthcheck, name="healthcheck"),
-    path("users/<uuid:pk>/", views.user_detail),
     path("communities-of-practice/", views.community_of_practice_list),
     path(
         "communities-of-practice/<uuid:pk>/",
