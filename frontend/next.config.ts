@@ -45,12 +45,24 @@ const nextConfig: NextConfig = {
   //     returns `[]` so Next doesn't add a redundant proxy.
   //
   // Same-origin in dev / stage / prod means no CORS headers anywhere.
+  //
+  // Destinations always carry a trailing slash because the Django side
+  // uses trailing-slash routes (ADR-0011) with no slashless variants,
+  // and Next's default `trailingSlash: false` strips the slash off
+  // incoming requests (308) before this rewrite runs. Without the
+  // appended slash here, `/api/auth/csrf/` from the SPA would proxy to
+  // `${backend}/api/auth/csrf`, miss every `path()` entry, and hit the
+  // `api_not_found` catch-all. The paired slash/no-slash `source`
+  // entries cover both the post-308 form and any caller that omits the
+  // slash to begin with.
   async rewrites() {
     const backend = process.env.BACKEND_INTERNAL_URL;
     if (!backend) return [];
     return [
-      { source: "/api/:path*", destination: `${backend}/api/:path*` },
-      { source: "/admin/:path*", destination: `${backend}/admin/:path*` },
+      { source: "/api/:path*/", destination: `${backend}/api/:path*/` },
+      { source: "/api/:path*", destination: `${backend}/api/:path*/` },
+      { source: "/admin/:path*/", destination: `${backend}/admin/:path*/` },
+      { source: "/admin/:path*", destination: `${backend}/admin/:path*/` },
     ];
   },
 };
