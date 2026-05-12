@@ -56,14 +56,14 @@ git checkout -b develop upstream/develop
 3. Start the full stack:
 
     ```sh
-    docker compose up --watch
+    make docker-up
     ```
 
 4. Open the app:
     - **Frontend**: http://localhost:3000
     - **Backend (Django admin + API)**: http://localhost:8000
 
-`docker compose up --watch` enables hot reload; file edits in `frontend/` or `backend/` sync into the running containers automatically. Docker for local dev keeps the environment consistent across contributors (same Postgres version, same Node and Python versions inside the containers) without anyone needing a local Postgres install.
+`make docker-up` builds the images and brings the stack up detached. For hot reload (file edits in `frontend/` or `backend/` syncing into the running containers), run `make docker-watch` instead. See `make help` or [quickstart-guide.md](quickstart-guide.md) for the full command set. Docker for local dev keeps the environment consistent across contributors (same Postgres version, same Node and Python versions inside the containers) without anyone needing a local Postgres install.
 
 ## dev.env values
 
