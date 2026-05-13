@@ -1,5 +1,6 @@
 """Tests for `/api/auth/{csrf,signup,login,logout,me}/`."""
 
+from django.test import override_settings
 from rest_framework import status
 from rest_framework.test import APIClient, APITestCase
 
@@ -173,6 +174,58 @@ class AuthLogoutTests(APITestCase):
         """Calling logout without a session is safe (204)."""
         response = self.client.post("/api/auth/logout/")
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+
+class AuthCsrfOriginTests(APITestCase):
+    """Authenticated mutations accept the proxied SPA `Origin`.
+
+    The SPA is served on a different port and proxied to Django (which
+    sees a different request host), so an authenticated POST arrives
+    carrying `Origin: http://localhost:3000`. Django's CSRF middleware
+    rejects that unless the origin is in `settings.CSRF_TRUSTED_ORIGINS`.
+    These exercise the real session + CSRF-token path (rather than
+    `force_authenticate`, which bypasses it) to guard the setting that
+    keeps logout - and every post-login mutation - working through the
+    dev / compose proxy.
+    """
+
+    SPA_ORIGIN = "http://localhost:3000"
+
+    def setUp(self):
+        self.client = APIClient(enforce_csrf_checks=True)
+        # Login authenticates against `username`, which signup stamps with
+        # the email; mirror that here so the login call below succeeds.
+        self.user = make_regular_user(
+            username="csrf_origin@example.com",
+            email="csrf_origin@example.com",
+            password="password123",
+        )
+        # Real session via the login endpoint (CSRF-exempt: anonymous when
+        # called), then seed the `csrftoken` cookie so the next POST can
+        # echo it back in the `X-CSRFToken` header.
+        self.client.post(
+            "/api/auth/login/",
+            {"email": "csrf_origin@example.com", "password": "password123"},
+            format="json",
+        )
+        self.client.get("/api/auth/csrf/")
+        self.csrf_token = self.client.cookies["csrftoken"].value
+
+    def _logout(self, *, origin):
+        return self.client.post(
+            "/api/auth/logout/",
+            HTTP_X_CSRFTOKEN=self.csrf_token,
+            HTTP_ORIGIN=origin,
+        )
+
+    def test_logout_succeeds_with_trusted_spa_origin(self):
+        self.assertEqual(self._logout(origin=self.SPA_ORIGIN).status_code, 204)
+
+    @override_settings(CSRF_TRUSTED_ORIGINS=[])
+    def test_logout_rejected_when_spa_origin_not_trusted(self):
+        # Without the setting, Django's CSRF Origin check fails first
+        # (before the token check) - this is the bug the setting fixes.
+        self.assertEqual(self._logout(origin=self.SPA_ORIGIN).status_code, 403)
 
 
 class AuthMeTests(APITestCase):

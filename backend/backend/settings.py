@@ -35,7 +35,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 import re
 from pathlib import Path
 
-from decouple import config
+from decouple import Csv, config
 
 VERSION = "1.0.0"
 
@@ -50,6 +50,23 @@ SECRET_KEY = config("SECRET_KEY")
 DEBUG = config("DEBUG", default=False, cast=bool)
 
 ALLOWED_HOSTS = config("DJANGO_ALLOWED_HOSTS", default="localhost").split(" ")
+
+# Origins the CSRF middleware trusts in addition to the request's own host.
+# The SPA is served on a different port (`:3000`) and proxied to Django via
+# Next `rewrites()`, which rewrite the `Host` header to the backend's address
+# - so an authenticated POST arrives at Django carrying `Origin:
+# http://localhost:3000` against a request host that is *not* that origin.
+# Django's CSRF check rejects that ("Origin checking failed") unless the
+# origin is listed here, which breaks logout and every post-login mutation.
+# Deployed stage/prod route `/api/*` to Django on the same hostname (the ALB
+# does path routing), so the request host already matches there; devops still
+# sets `CSRF_TRUSTED_ORIGINS` per environment. The default covers the
+# host-dev and compose-dev SPA origins (both `localhost:3000`).
+CSRF_TRUSTED_ORIGINS = config(
+    "CSRF_TRUSTED_ORIGINS",
+    default="http://localhost:3000,http://127.0.0.1:3000",
+    cast=Csv(),
+)
 
 # Application definition
 INSTALLED_APPS = [
