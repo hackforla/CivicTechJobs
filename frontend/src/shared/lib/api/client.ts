@@ -25,7 +25,11 @@
  * Next-rewrites layer and may hit CORS in production.
  */
 
-export type ApiErrorBody = {
+// Internal: shape of the structured error envelope returned by
+// Django's `unified_exception_handler`. Not exported - consumers
+// should read `ApiError.code` / `.message` / `.fields` instead of
+// parsing the raw body themselves.
+type ApiErrorBody = {
   error: {
     code: string;
     message: string;
