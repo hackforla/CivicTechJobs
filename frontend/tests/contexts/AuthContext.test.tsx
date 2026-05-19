@@ -2,7 +2,15 @@
 
 import { act, render, renderHook, waitFor } from "@testing-library/react";
 import React from "react";
-import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
+import {
+  afterEach,
+  beforeEach,
+  describe,
+  expect,
+  test,
+  vi,
+  type MockInstance,
+} from "vitest";
 
 import { AuthProvider, useAuth } from "@/shared/contexts/AuthContext";
 import { authApi, type User } from "@/shared/lib/api/auth";
@@ -29,8 +37,16 @@ const wrapper = ({ children }: { children: React.ReactNode }) => (
 describe("AuthProvider", () => {
   let csrfSpy: ReturnType<typeof vi.spyOn>;
   let meSpy: ReturnType<typeof vi.spyOn>;
-  let loginSpy: ReturnType<typeof vi.spyOn>;
-  let signupSpy: ReturnType<typeof vi.spyOn>;
+  // Type the spy directly via vitest's `MockInstance<F>`. Bare
+  // `ReturnType<typeof vi.spyOn>` defaults to
+  // `MockInstance<(this: unknown, ...args: unknown[]) => unknown>`,
+  // which the parameterized spy returned by the actual call can't
+  // assign into (function parameters are contravariant). vitest 3
+  // narrowed that default; vitest 2 was looser. Only login/signup
+  // need it - csrf/me/logout take no args, so the contravariance
+  // problem doesn't arise.
+  let loginSpy: MockInstance<typeof authApi.login>;
+  let signupSpy: MockInstance<typeof authApi.signup>;
   let logoutSpy: ReturnType<typeof vi.spyOn>;
 
   beforeEach(() => {

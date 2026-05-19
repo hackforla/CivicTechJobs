@@ -1,11 +1,22 @@
 /** Tests for the shared `apiFetch` client. */
 
-import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
+import {
+  afterEach,
+  beforeEach,
+  describe,
+  expect,
+  test,
+  vi,
+  type MockInstance,
+} from "vitest";
 
 import { ApiError, apiFetch } from "@/shared/lib/api/client";
 
 describe("apiFetch", () => {
-  let fetchSpy: ReturnType<typeof vi.spyOn>;
+  // Type the spy directly via vitest's `MockInstance<F>`; see the
+  // matching note in `tests/contexts/AuthContext.test.tsx` for the
+  // vitest-3 narrowing mechanism.
+  let fetchSpy: MockInstance<typeof fetch>;
 
   beforeEach(() => {
     fetchSpy = vi.spyOn(global, "fetch");
