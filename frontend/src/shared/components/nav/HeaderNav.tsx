@@ -1,10 +1,10 @@
 /**
  * Top-of-page navigation header for the `(with-nav)` route group.
  *
- * Renders the CTJ logo (linking home), three external links to
- * Hack for LA org pages, an auth control on the right, and a mobile
- * hamburger menu trigger. The `(auth)` route group uses a different
- * `AuthNav` component.
+ * Renders the CTJ logo (linking home), a single external link to
+ * the Hack for LA org site, an auth control on the right, and a
+ * mobile hamburger menu trigger. The `(auth)` route group uses a
+ * different `AuthNav` component.
  *
  * Auth control: there is no Figma frame for the signed-in nav state
  * - the original app had no auth UI at all. Until a design exists,
@@ -39,10 +39,13 @@ interface MenuObject {
   link: string;
 }
 
+// "How to Join" and "Projects" were dropped per the 2026-05-14 nav
+// decision; "View Opportunities" is the intended replacement but is
+// blocked on its destination (internal route vs hackforla.org), so
+// it lands in a follow-up. Kept as an array since that follow-up
+// re-adds an entry.
 const menuItems: MenuObject[] = [
   { name: "Hack for LA", link: "https://www.hackforla.org/" },
-  { name: "How to Join", link: "https://www.hackforla.org/getting-started" },
-  { name: "Projects", link: "https://www.hackforla.org/projects/" },
 ];
 
 function Logo() {
