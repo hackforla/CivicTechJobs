@@ -20,6 +20,11 @@ DEV_ENV := dev/dev.env
 # because dev.env's `pgdb` is a docker-network DNS name; on host, pgdb's port
 # is published on localhost.
 BACKEND_RUN := set -a; . $(DEV_ENV); SQL_HOST=localhost; set +a; cd $(BACKEND_DIR) && poetry run
+# Same idea for the host Next dev server: dev.env's BACKEND_INTERNAL_URL points
+# at the docker `django` service for compose; on host, override to localhost
+# so next.config.ts's rewrites() proxies /api/* + /admin/* to the host backend
+# (`make local-run-backend` on :8000). Same-origin in dev like stage/prod.
+FRONTEND_RUN := set -a; . $(DEV_ENV); BACKEND_INTERNAL_URL=http://localhost:8000; set +a; cd $(FRONTEND_DIR)
 DEV_COMPOSE ?= docker compose
 STAGE_COMPOSE ?= docker compose -f docker-compose.stage.yml
 STAGE_ENV := stage/stage.env
@@ -117,7 +122,7 @@ local-stop-docker-backend:
 	@$(DEV_COMPOSE) stop $(BACKEND_SERVICE) >/dev/null 2>&1 || true
 
 local-run-frontend: local-stop-docker-frontend
-	cd $(FRONTEND_DIR) && npm run dev
+	$(FRONTEND_RUN) && npm run dev
 
 local-run-backend: local-stop-docker-backend local-check-db
 	$(BACKEND_RUN) python manage.py runserver
@@ -134,7 +139,7 @@ local-superuser:
 local-test: local-test-backend local-test-frontend
 
 local-test-backend:
-	$(BACKEND_RUN) python manage.py test ctj_api.tests --keepdb --noinput
+	$(BACKEND_RUN) python manage.py test --keepdb --noinput
 
 local-test-frontend:
 	cd $(FRONTEND_DIR) && npx vitest run

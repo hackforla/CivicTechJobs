@@ -3,12 +3,11 @@
 from rest_framework import status
 from rest_framework.test import APIClient, APITestCase
 
+from accounts.tests.common import make_pm_user, make_regular_user
 from ctj_api.tests.common import (
     make_cop,
     make_opportunity,
-    make_pm_user,
     make_project,
-    make_regular_user,
     make_role,
 )
 

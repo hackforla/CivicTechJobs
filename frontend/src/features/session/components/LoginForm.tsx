@@ -2,15 +2,18 @@
  * Login form for the `/login` route.
  *
  * Wires `react-hook-form` validation (RHF) for email and password
- * fields with inline error messages. The `noValidate` attribute
- * on the form disables browser-native validation so RHF rules are
- * the single source of truth.
+ * fields with inline error messages. The `noValidate` attribute on
+ * the form disables browser-native validation so RHF rules are the
+ * single source of truth.
  *
- * Note: the form's `onSubmit` is currently a `console.log`
- * placeholder; it does not yet hit the backend. Wiring auth is
- * deferred to a future PR using
- * `scratch/planning/planned_auth.md` as the spec. Flagging as
- * known-incomplete.
+ * On submit:
+ * 1. Calls `authApi.login` via the `useAuth()` context.
+ * 2. On success, the context updates `user` and the form pushes the
+ *    router to `/` (landing).
+ * 3. On `ApiError`, surfaces the server's `message` at the top of
+ *    the form. Field-level errors (`err.fields`) are not displayed
+ *    inline yet - login errors are typically a single
+ *    "Invalid email or password" string, not field-shaped.
  *
  * Mounted by the `/login` page route in the `(auth)` route group.
  */
@@ -18,9 +21,13 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 
 import TextField from "@/shared/components/TextField";
+import { useAuth } from "@/shared/contexts/AuthContext";
+import { ApiError } from "@/shared/lib/api/client";
 
 import styles from "./SessionForm.module.css";
 
@@ -35,14 +42,36 @@ export default function LoginForm() {
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log("Sending form data to server...", data);
+  const { login } = useAuth();
+  const router = useRouter();
+  const [serverError, setServerError] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    setServerError(null);
+    setSubmitting(true);
+    try {
+      await login({ email: data.email, password: data.password });
+      router.push("/");
+    } catch (err) {
+      if (err instanceof ApiError) {
+        setServerError(err.message);
+      } else {
+        setServerError("Something went wrong. Please try again.");
+      }
+      setSubmitting(false);
+    }
   };
 
   return (
     <div>
       <h3 className={styles.heading}>Log in</h3>
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
+        {serverError ? (
+          <p className={styles.serverError} role="alert">
+            {serverError}
+          </p>
+        ) : null}
         <TextField
           label="Email"
           id="email"
@@ -83,7 +112,9 @@ export default function LoginForm() {
           />
           <p className={styles.checkboxLabel}>Keep me signed in</p>
         </div>
-        <button className={styles.submit}>Login</button>
+        <button className={styles.submit} type="submit" disabled={submitting}>
+          {submitting ? "Logging in..." : "Login"}
+        </button>
       </form>
       <div className={styles.altLink}>
         <p>

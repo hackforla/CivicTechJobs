@@ -55,10 +55,10 @@ jobs:
           SQL_PASSWORD: lint
           SQL_HOST: localhost
           SQL_PORT: "5432"
-        run: poetry run mypy ctj_api backend
+        run: poetry run mypy accounts ctj_api backend
 
       - name: bandit
-        run: poetry run bandit -r ctj_api backend -c pyproject.toml -q
+        run: poetry run bandit -r accounts ctj_api backend -c pyproject.toml -q
 
   frontend:
     name: Frontend lint (eslint + stylelint + knip + tsc + prettier)

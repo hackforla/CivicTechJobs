@@ -18,6 +18,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 import CookieBanner from "@/shared/components/CookieBanner";
+import { AuthProvider } from "@/shared/contexts/AuthContext";
 
 /**
  * Roboto loaded locally from bundled `.ttf` files.
@@ -107,7 +108,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={roboto.variable}>
       <body>
-        {children}
+        <AuthProvider>{children}</AuthProvider>
         <CookieBanner />
       </body>
     </html>

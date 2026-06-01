@@ -56,14 +56,14 @@ git checkout -b develop upstream/develop
 3. Start the full stack:
 
     ```sh
-    docker compose up --watch
+    make docker-up
     ```
 
 4. Open the app:
     - **Frontend**: http://localhost:3000
     - **Backend (Django admin + API)**: http://localhost:8000
 
-`docker compose up --watch` enables hot reload; file edits in `frontend/` or `backend/` sync into the running containers automatically. Docker for local dev keeps the environment consistent across contributors (same Postgres version, same Node and Python versions inside the containers) without anyone needing a local Postgres install.
+`make docker-up` builds the images and brings the stack up detached. For hot reload (file edits in `frontend/` or `backend/` syncing into the running containers), run `make docker-watch` instead. See `make help` or [quickstart-guide.md](quickstart-guide.md) for the full command set. Docker for local dev keeps the environment consistent across contributors (same Postgres version, same Node and Python versions inside the containers) without anyone needing a local Postgres install.
 
 ## dev.env values
 
@@ -79,7 +79,7 @@ git checkout -b develop upstream/develop
 
 ## Local-dev auth
 
-Stage 1 local dev runs Django's default session authentication; no Cognito, no PeopleDepot, no auth env vars needed beyond what's already in `dev.env.example`.
+Stage 1 local dev runs Django's default session authentication; no Cognito, no PeopleDepot, no auth env vars needed beyond what's already in `dev.env.example`. Regular users sign up through the SPA at http://localhost:3000/signup; the form hits `POST /api/auth/signup/` and auto-logs-in on success.
 
 Bootstrap an admin / PM account with:
 
@@ -87,7 +87,7 @@ Bootstrap an admin / PM account with:
 docker compose run django python manage.py createsuperuser
 ```
 
-That account can sign into Django admin at http://localhost:8000/admin/ and is what you'll use to exercise PM-gated flows. Subsequent admin and PM elevations happen through Django admin's UI.
+That account can sign into Django admin at http://localhost:8000/admin/ and is what you'll use to exercise PM-gated flows. Subsequent admin and PM elevations happen through Django admin's UI (toggle the `isProjectManager` flag on the user record).
 
 Stage 2 will introduce Cognito JWT verification and PeopleDepot client mocks; that work lands when the upstream PeopleDepot deployment posture stabilizes. See [backend.md](backend.md#auth) for the Stage 2 design.
 

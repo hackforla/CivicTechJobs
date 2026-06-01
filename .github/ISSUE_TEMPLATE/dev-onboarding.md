@@ -10,7 +10,7 @@ assignees: ''
 
 ### Overview
 
-This issue has been created for our new Developer [PLEASE ADD WHETHER FRONT-END OR BACK-END] to familiarize themselves with CTJ project and set-up their dev environment. 
+This issue has been created for our new Developer [PLEASE ADD WHETHER FRONT-END OR BACK-END] to familiarize themselves with CTJ project and set-up their dev environment.
 
 ### Action Items
 

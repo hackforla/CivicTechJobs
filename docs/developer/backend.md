@@ -26,14 +26,23 @@ backend/
 │   ├── asgi.py
 │   ├── wsgi.py
 │   └── templates/
-├── ctj_api/                   # Main Django app - CTJ-owned domain
-│   ├── models.py
+├── accounts/                  # Identity / auth app - owns CustomUser + /api/auth/*
+│   ├── models.py              # CustomUser (the project's AUTH_USER_MODEL)
+│   ├── views.py               # user_detail + auth_{csrf,signup,login,logout,me}
+│   ├── serializers.py         # CustomUserReadSerializer + Register/Login serializers
+│   ├── permissions.py         # UserDetailPermission
+│   ├── urls.py                # /api/users/<uuid>/ + /api/auth/*
+│   ├── admin.py
+│   ├── auth.py                # Cognito JWT auth backend (Stage 2 stub)
+│   ├── migrations/
+│   └── tests/
+├── ctj_api/                   # Domain app - recruitment catalog + taxonomy
+│   ├── models.py              # Opportunity, Project, Role, Skill, SkillMatrix, CommunityOfPractice
 │   ├── views.py
 │   ├── serializers.py
-│   ├── permissions.py
+│   ├── permissions.py         # OpportunityPermission
 │   ├── urls.py
 │   ├── admin.py               # PM/admin-facing CMS configuration
-│   ├── auth.py                # Cognito JWT auth backend (Stage 2 stub)
 │   ├── clients/
 │   │   └── peopledepot.py     # PeopleDepot API client (Stage 2 stub)
 │   ├── migrations/
@@ -46,9 +55,9 @@ backend/
 └── startServer.sh             # Run the server outside Docker
 ```
 
-`backend/backend/` is the Django *project* (config + routing). `backend/ctj_api/` is the only Django *app* - all CTJ-owned domain logic lives there.
+`backend/backend/` is the Django *project* (config + routing). `accounts/` and `ctj_api/` are the two Django *apps*: `accounts/` owns identity / auth (`CustomUser`, the `/api/auth/*` flow, the per-user detail endpoint); `ctj_api/` owns the recruitment-catalog and taxonomy domain. Cross-app FKs to user use `settings.AUTH_USER_MODEL` so the boundary stays explicit.
 
-`auth.py` and `clients/peopledepot.py` are placeholders for Stage 2; they will be added when Cognito + PeopleDepot integration lands and are not part of Stage 1.
+`accounts/auth.py` and `ctj_api/clients/peopledepot.py` are placeholders for Stage 2; they will be added when Cognito + PeopleDepot integration lands and are not part of Stage 1.
 
 ## Data model
 
@@ -71,6 +80,11 @@ CTJ's domain models. The `Skill` table is locally curated in Stage 1; in Stage 2
 | `/api/opportunities/` | GET, POST | GET: None, POST: PMs | List / create |
 | `/api/opportunities/{id}/` | GET, PUT, DELETE | GET: None, PUT: creator, DELETE: any PM | Detail / update / delete |
 | `/api/users/<uuid:pk>/` | GET | Authenticated, self only | Per-user record |
+| `/api/auth/csrf/` | GET | None | Set the `csrftoken` cookie; SPA calls once on app load |
+| `/api/auth/signup/` | POST | None | Create a user from `{email, password, name}` and auto-login |
+| `/api/auth/login/` | POST | None | Validate `{email, password}` and create a session |
+| `/api/auth/logout/` | POST | None | Clear the session (idempotent) |
+| `/api/auth/me/` | GET | Authenticated | Return the current authenticated user |
 
 The matching endpoint (ranking opportunities against a user's `SkillMatrix` or vice versa) is part of Stage 1 work - see [What's not built yet](#whats-not-built-yet).
 
@@ -175,23 +189,34 @@ When a new error path is added, prefer raising a DRF exception (`ValidationError
 
 ## Test shape
 
-Tests live in [backend/ctj_api/tests/](https://github.com/hackforla/CivicTechJobs/tree/main/backend/ctj_api/tests), one file per resource:
+Tests live alongside each app, one file per resource:
+[backend/ctj_api/tests/](https://github.com/hackforla/CivicTechJobs/tree/develop/backend/ctj_api/tests) for the domain models and
+[backend/accounts/tests/](https://github.com/hackforla/CivicTechJobs/tree/develop/backend/accounts/tests) for the identity / auth flow:
 
 ```
-ctj_api/tests/
-├── common.py                       — factory helpers, no test classes
-├── test_healthcheck.py
+accounts/tests/
+├── common.py                       — user factories (make_pm_user, make_regular_user)
 ├── test_users.py
+└── test_auth.py
+
+ctj_api/tests/
+├── common.py                       — domain factories, no test classes
+├── test_healthcheck.py
 ├── test_opportunities.py
 ├── test_community_of_practice.py
 ├── test_roles.py
 ├── test_skills.py
+├── test_errors.py
 └── test_projects.py
 ```
 
 Each file holds one `<Resource>Tests` class extending `APITestCase`. Each class has its own `setUp` that constructs only the rows its tests need — there is no shared `APITestBase` because there is no meaningful universal setup (healthcheck needs nothing; user-detail needs users; opportunity tests need users + reference rows).
 
-Shared fixture-construction lives in `common.py` as factory functions (`make_pm_user`, `make_regular_user`, `make_cop`, `make_role`, `make_skill`, `make_project`, `make_opportunity`). Each call returns a saved instance; defaults are sensible and overridable via keyword arguments. The factories don't share state — each call creates a new row.
+Shared fixture-construction lives per-app in `common.py` as factory functions:
+- `accounts.tests.common`: `make_pm_user`, `make_regular_user` (consumers in either app import from here).
+- `ctj_api.tests.common`: `make_cop`, `make_role`, `make_skill`, `make_project`, `make_opportunity`.
+
+Each call returns a saved instance; defaults are sensible and overridable via keyword arguments. The factories don't share state — each call creates a new row.
 
 Test method names follow `test_<subject>_<action>_<expectation>`:
 
@@ -205,18 +230,31 @@ When a resource grows write tests alongside read tests (and the file gets long),
 
 ## Auth
 
-**Stage 1** - Django's default session authentication. The DRF API uses `SessionAuthentication`; the app frontend signs in through a Django-issued session cookie. `createsuperuser` is the bootstrap path for admin / PM accounts. Sessions over token auth here because Django admin already uses sessions, so reusing them keeps Stage 1 free of extra auth infrastructure.
+**Stage 1** - Django's default session authentication. The DRF API uses `SessionAuthentication` (pinned via `REST_FRAMEWORK["DEFAULT_AUTHENTICATION_CLASSES"]`; DRF's default `BasicAuthentication` is dropped). The SPA signs in through a Django-issued session cookie. Sessions over token auth here because Django admin already uses sessions, so reusing them keeps Stage 1 free of extra auth infrastructure. `createsuperuser` is the bootstrap path for admin / PM accounts; signup goes through `/api/auth/signup/` for everyone else.
 
-**Stage 2 (deferred)** - Cognito JWT (ID-token), validated by a custom DRF authentication backend at `backend/ctj_api/auth.py` (added when Stage 2 work begins). The Next.js frontend signs the user into Cognito, holds the tokens server-side, and forwards the ID token in `Authorization: Bearer <token>` for protected mutations. The backend verifies the JWT signature against Cognito's JWKS, validates `iss` / `aud` / `exp`, and resolves `sub` to a local `UserProfile` row. ID-token over access-token because the ID-token carries identity claims directly; the API doesn't need to call Cognito's userinfo endpoint per request.
+The five `/api/auth/*` endpoints (see [API endpoints](#api-endpoints)) live in the [accounts](https://github.com/hackforla/CivicTechJobs/tree/develop/backend/accounts) app, separate from the `ctj_api` domain app.
+
+**SPA cookie + CSRF flow:**
+
+1. **App load.** The browser hits `GET /api/auth/csrf/`. The view is decorated `@ensure_csrf_cookie`, so Django sets `csrftoken` on the response.
+2. **Mutating requests.** The frontend's fetch wrapper reads `csrftoken` from `document.cookie` and sends it as the `X-CSRFToken` header on every `POST` / `PUT` / `PATCH` / `DELETE`. Every request uses `credentials: "include"` so the `sessionid` cookie rides along once it exists.
+3. **Login.** `POST /api/auth/login/` validates credentials and calls `django.contrib.auth.login(request, user)`, which sets the `sessionid` cookie. From here on, the SPA is authenticated.
+4. **Logout.** `POST /api/auth/logout/` calls `logout(request)` and returns 204; the SPA clears its in-memory user state.
+
+Same-origin in dev / stage / prod (Next rewrites proxy `/api/*` and `/admin/*` through the Next runtime to Django; see [next.config.ts](https://github.com/hackforla/CivicTechJobs/blob/develop/frontend/next.config.ts)) means cookies always apply and there's no CORS surface anywhere. One wrinkle: the SPA runs on a different port (`:3000`) and the proxy rewrites the `Host` header to the backend's address, so an authenticated POST reaches Django carrying `Origin: http://localhost:3000` against a request host that isn't that origin - and Django's CSRF Origin check rejects it ("Origin checking failed") unless the SPA origin is in `CSRF_TRUSTED_ORIGINS` (env var; dev defaults cover `localhost:3000`). Deployed stage/prod route `/api/*` to Django on the same hostname (ALB path routing), so the host already matches there; devops still sets the var per environment.
+
+CSRF caveat: DRF's `@api_view` marks the resulting view csrf_exempt at the Django middleware level; CSRF is enforced only by `SessionAuthentication`'s own check, which fires for authenticated requests. Signup and login are anonymous when called, so they do not enforce CSRF; logout, me, and any post-login mutation do. The frontend client sends `X-CSRFToken` on every mutation regardless - it's free once the cookie is set. Hardening signup/login CSRF is a follow-up.
+
+**Stage 2 (deferred)** - Cognito JWT (ID-token), validated by a custom DRF authentication backend at `backend/accounts/auth.py` (added when Stage 2 work begins). The Next.js frontend signs the user into Cognito, holds the tokens server-side, and forwards the ID token in `Authorization: Bearer <token>` for protected mutations. The backend verifies the JWT signature against Cognito's JWKS, validates `iss` / `aud` / `exp`, and resolves `sub` to the local `CustomUser` row. ID-token over access-token because the ID-token carries identity claims directly; the API doesn't need to call Cognito's userinfo endpoint per request.
 
 How a Cognito-authenticated user reaches Django admin (`/admin/`) in Stage 2 is an open design question, deferred until Stage 2 work begins. Stage 1 doesn't hit this problem because Django admin's native login flow is the auth path.
 
 ## Permissions
 
-Custom DRF permission classes in [backend/ctj_api/permissions.py](https://github.com/hackforla/CivicTechJobs/blob/main/backend/ctj_api/permissions.py):
+Custom DRF permission classes, per app:
 
-- **OpportunityPermission** - public read (no auth required, mirroring `/api/skills/`); only PMs can create; only the creator can update; any PM can delete. Public read because opportunities are a recruitment catalog - friction-to-browse should be zero, and signup belongs at the apply / register-skills step, not at discovery.
-- **UserDetailPermission** - `/api/users/<uuid:pk>/` is self-only: a user can fetch their own record but not anyone else's. The class only overrides `has_object_permission`; request-level auth is enforced by stacking `IsAuthenticated` separately on the consuming view.
+- **OpportunityPermission** ([backend/ctj_api/permissions.py](https://github.com/hackforla/CivicTechJobs/blob/develop/backend/ctj_api/permissions.py)) - public read (no auth required, mirroring `/api/skills/`); only PMs can create; only the creator can update; any PM can delete. Public read because opportunities are a recruitment catalog - friction-to-browse should be zero, and signup belongs at the apply / register-skills step, not at discovery.
+- **UserDetailPermission** ([backend/accounts/permissions.py](https://github.com/hackforla/CivicTechJobs/blob/develop/backend/accounts/permissions.py)) - `/api/users/<uuid:pk>/` is self-only: a user can fetch their own record but not anyone else's. The class only overrides `has_object_permission`; request-level auth is enforced by stacking `IsAuthenticated` separately on the consuming view.
 
 Skill catalog mutation is gated by Django admin's built-in staff permission, not a separate DRF class - the API only exposes `GET /api/skills/`.
 
@@ -303,8 +341,8 @@ The backend lint stack is `ruff` (lint + format + import sort, replacing the leg
 ```sh
 poetry run ruff check .          # Lint (pyflakes + pycodestyle + isort + bugbear + django + ...)
 poetry run ruff format .         # Format (black-compatible)
-poetry run mypy ctj_api backend  # Type-check (gradual mode; see CONTRIBUTING.md)
-poetry run bandit -r ctj_api backend -c pyproject.toml  # Security scan
+poetry run mypy accounts ctj_api backend  # Type-check (gradual mode; see CONTRIBUTING.md)
+poetry run bandit -r accounts ctj_api backend -c pyproject.toml  # Security scan
 ```
 
 All four tool configs live in [backend/pyproject.toml](https://github.com/hackforla/CivicTechJobs/blob/main/backend/pyproject.toml) under `[tool.ruff]`, `[tool.mypy]`, `[tool.django-stubs]`, and `[tool.bandit]`. Pre-commit hooks run ruff automatically; CI runs the full suite per PR. See [devops.md → Linting](devops.md#linting).

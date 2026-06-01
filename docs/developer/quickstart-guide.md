@@ -20,12 +20,12 @@ Endpoints:
 - **Frontend**: http://localhost:3000 (Next.js dev server)
 - **Backend API**: http://localhost:8000/api/
 - **Django admin**: http://localhost:8000/admin/ (bootstrap an account with `make local-superuser`)
-- **Healthcheck**: http://localhost:8000/api/healthcheck
+- **Healthcheck**: http://localhost:8000/api/healthcheck/
 
 Test that the backend is wired up:
 
 ```sh
-curl http://localhost:8000/api/healthcheck
+curl http://localhost:8000/api/healthcheck/
 ```
 
 A non-existent API endpoint returns a structured 404:

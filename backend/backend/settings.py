@@ -10,8 +10,9 @@ vars; devops populates the values per environment (incubator
 repo).
 
 Notable choices:
-- `AUTH_USER_MODEL = "ctj_api.CustomUser"` (subclasses
-  `AbstractUser` rather than extending the default User).
+- `AUTH_USER_MODEL = "accounts.CustomUser"` (subclasses
+  `AbstractUser` rather than extending the default User; lives in
+  the `accounts` app, which owns identity / auth concerns).
 - `daphne` is first in `INSTALLED_APPS` so Django's `runserver` and
   the production server both route through ASGI - see
   `backend.asgi`.
@@ -34,7 +35,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 import re
 from pathlib import Path
 
-from decouple import config
+from decouple import Csv, config
 
 VERSION = "1.0.0"
 
@@ -50,6 +51,23 @@ DEBUG = config("DEBUG", default=False, cast=bool)
 
 ALLOWED_HOSTS = config("DJANGO_ALLOWED_HOSTS", default="localhost").split(" ")
 
+# Origins the CSRF middleware trusts in addition to the request's own host.
+# The SPA is served on a different port (`:3000`) and proxied to Django via
+# Next `rewrites()`, which rewrite the `Host` header to the backend's address
+# - so an authenticated POST arrives at Django carrying `Origin:
+# http://localhost:3000` against a request host that is *not* that origin.
+# Django's CSRF check rejects that ("Origin checking failed") unless the
+# origin is listed here, which breaks logout and every post-login mutation.
+# Deployed stage/prod route `/api/*` to Django on the same hostname (the ALB
+# does path routing), so the request host already matches there; devops still
+# sets `CSRF_TRUSTED_ORIGINS` per environment. The default covers the
+# host-dev and compose-dev SPA origins (both `localhost:3000`).
+CSRF_TRUSTED_ORIGINS = config(
+    "CSRF_TRUSTED_ORIGINS",
+    default="http://localhost:3000,http://127.0.0.1:3000",
+    cast=Csv(),
+)
+
 # Application definition
 INSTALLED_APPS = [
     "daphne",
@@ -60,6 +78,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "accounts.apps.AccountsConfig",
     "ctj_api.apps.CtjApiConfig",
     "rest_framework",
 ]
@@ -153,7 +172,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Enable django custom User model
 # https://docs.djangoproject.com/en/5.1/topics/auth/customizing/#substituting-a-custom-user-model
-AUTH_USER_MODEL = "ctj_api.CustomUser"
+AUTH_USER_MODEL = "accounts.CustomUser"
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
@@ -206,9 +225,20 @@ def immutable_file_test(path, url):
 
 WHITENOISE_IMMUTABLE_FILE_TEST = immutable_file_test
 
-# DRF: register the custom exception handler so all DRF-raised errors
-# render through the CTJ error envelope shape (see ctj_api.exceptions
-# and docs/developer/backend.md's 'Error envelope' section).
+# DRF configuration.
+#
+# - `EXCEPTION_HANDLER`: register the custom exception handler so all
+#   DRF-raised errors render through the CTJ error envelope shape
+#   (see ctj_api.exceptions and docs/developer/backend.md's 'Error
+#   envelope' section).
+# - `DEFAULT_AUTHENTICATION_CLASSES`: pin to `SessionAuthentication`
+#   only. DRF's default also enables `BasicAuthentication`, which
+#   nothing here uses (Stage 1 is cookie/session SPA auth; Stage 2
+#   will be Cognito ID-token). Pinning explicitly keeps the auth
+#   surface tight.
 REST_FRAMEWORK = {
     "EXCEPTION_HANDLER": "ctj_api.exceptions.civic_exception_handler",
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.SessionAuthentication",
+    ],
 }
