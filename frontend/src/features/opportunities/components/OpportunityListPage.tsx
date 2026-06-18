@@ -1,12 +1,13 @@
 /**
  * Top-level component for the `/opportunities` listing page.
  *
- * Currently renders the reshaped Opportunity card against static
- * sample data (see `sampleOpportunities`) and a stand-in current user
- * (see `sampleCurrentUser`) that the Availability and Skills filters
- * compare against. The sample sources will be swapped for a live
- * fetch of the auth-gated `/api/opportunities/` endpoint and the
- * signed-in user once the API client lands.
+ * Two-column layout matching the Figma: a sticky filter sidebar on
+ * the left and a results column on the right (results count + card
+ * list). Currently renders the reshaped Opportunity card against
+ * static sample data (see `sampleOpportunities`) and a stand-in
+ * current user (see `sampleCurrentUser`) that the Availability and
+ * Skills filters compare against. Both sample sources go away in the
+ * same swap once the API client + auth wire-up land.
  *
  * Mounted by `/opportunities` in the `(with-nav)` route group.
  */
@@ -55,30 +56,45 @@ function OpportunityListPage() {
         </Typography.Paragraph3>
       </header>
 
-      <OpportunityFilters
-        filters={filters}
-        onAvailabilityChange={(availability) =>
-          setFilters((prev) => ({ ...prev, availability }))
-        }
-        onProjectQueryChange={(projectQuery) =>
-          setFilters((prev) => ({ ...prev, projectQuery }))
-        }
-        onSkillsModeChange={(skillsMode: SkillsFilterMode) =>
-          setFilters((prev) => ({ ...prev, skillsMode }))
-        }
-      />
+      <div className={styles.layout}>
+        <div className={styles.filterRail}>
+          <OpportunityFilters
+            filters={filters}
+            onAvailabilityChange={(availability) =>
+              setFilters((prev) => ({ ...prev, availability }))
+            }
+            onProjectQueryChange={(projectQuery) =>
+              setFilters((prev) => ({ ...prev, projectQuery }))
+            }
+            onSkillsModeChange={(skillsMode: SkillsFilterMode) =>
+              setFilters((prev) => ({ ...prev, skillsMode }))
+            }
+            onClearAll={() => setFilters(INITIAL_FILTERS)}
+          />
+        </div>
 
-      <section className={styles.list}>
-        {visibleOpportunities.length === 0 ? (
-          <Typography.Paragraph3 className={styles.empty}>
-            No opportunities match the current filters.
+        <section className={styles.results} aria-label="Opportunity results">
+          <Typography.Paragraph3 className={styles.resultsCount}>
+            {visibleOpportunities.length}{" "}
+            {visibleOpportunities.length === 1 ? "result" : "results"}
           </Typography.Paragraph3>
-        ) : (
-          visibleOpportunities.map((opportunity) => (
-            <OpportunityCard key={opportunity.id} opportunity={opportunity} />
-          ))
-        )}
-      </section>
+
+          <div className={styles.list}>
+            {visibleOpportunities.length === 0 ? (
+              <Typography.Paragraph3 className={styles.empty}>
+                No opportunities match the current filters.
+              </Typography.Paragraph3>
+            ) : (
+              visibleOpportunities.map((opportunity) => (
+                <OpportunityCard
+                  key={opportunity.id}
+                  opportunity={opportunity}
+                />
+              ))
+            )}
+          </div>
+        </section>
+      </div>
     </main>
   );
 }
