@@ -1,0 +1,52 @@
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  padding: var(--space-3);
+  background-color: var(--color-tan-light);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-grey-light);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 200px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.groupLabel {
+  color: var(--color-grey-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.textInput {
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--color-grey);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-white);
+  font: inherit;
+  color: var(--color-charcoal);
+}
+
+.textInput:focus {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 1px;
+}
+
+.radioRow {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.radioLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--color-charcoal);
+  cursor: pointer;
+}
