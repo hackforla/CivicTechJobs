@@ -3,17 +3,24 @@
  * `/opportunities` listing page to preview the reshaped Opportunity
  * shape.
  *
- * Two-column layout matching the Figma target: a prose column on the
- * left ("About the Project" / "Role Overview" / "Responsibilities &
- * Requirements") and a metadata sidebar on the right (project name +
- * posted date, grouped meeting times, and the condensed skills list).
+ * Two-column layout: a prose column on the left (role title + project
+ * name, "About the Project" / "Role Overview" / "Responsibilities &
+ * Requirements") and a metadata sidebar on the right (Meeting Times,
+ * Skills). This surface is the replacement for the GitHub-listed
+ * project-role catalog HfLA volunteers currently browse - read as
+ * "join a project role", not "apply to a job posting".
  *
- * Departures from the legacy Figma, per Ryan's clarification (`blah.`):
+ * Departures from the legacy Figma, per Ryan's clarification (`blah.`)
+ * and subsequent review:
  * - No "Program Area" chip (concept deleted).
  * - Skills are one flat list with no Tech/Languages split and no
  *   ratings (ratings are intentionally never surfaced).
  * - No project logo (the project is now a free-text name, no image).
  * - No login banner / "create account" CTA (sign-in is required).
+ * - No status badge - the listing only ever shows open opportunities
+ *   by design.
+ * - No posted date - the surface is a role catalog, not a feed of
+ *   recent postings.
  */
 
 import Typography from "@/shared/components/Typography";
@@ -43,7 +50,6 @@ function OpportunityCard({ opportunity }: { opportunity: Opportunity }) {
     work_environment,
     meeting_times,
     skills,
-    posted,
   } = opportunity;
 
   return (
@@ -102,10 +108,6 @@ function OpportunityCard({ opportunity }: { opportunity: Opportunity }) {
 
       {/* Right: metadata sidebar */}
       <aside className={styles.sidebar}>
-        <Typography.Paragraph5 className={styles.posted}>
-          Posted: {posted}
-        </Typography.Paragraph5>
-
         {meeting_times.length > 0 ? (
           <section className={styles.sidebarSection}>
             <Typography.Paragraph4 className={styles.sidebarLabel}>

@@ -40,9 +40,6 @@ export interface Opportunity {
   meeting_times: MeetingSlot[];
   skills: string[];
   status: OpportunityStatus;
-  // Display-only: the real serializer returns `created_at` (ISO);
-  // pre-formatted here for the preview ("Posted: ..." in the sidebar).
-  posted: string;
 }
 
 export const sampleOpportunities: Opportunity[] = [
@@ -64,7 +61,6 @@ export const sampleOpportunities: Opportunity[] = [
     ],
     skills: ["Python", "Django", "PostgreSQL", "REST APIs"],
     status: "open",
-    posted: "May 12, 2026",
   },
   {
     id: "22222222-2222-2222-2222-222222222222",
@@ -83,7 +79,6 @@ export const sampleOpportunities: Opportunity[] = [
     ],
     skills: ["Figma", "User Research", "Prototyping"],
     status: "open",
-    posted: "May 28, 2026",
   },
   {
     id: "33333333-3333-3333-3333-333333333333",
@@ -101,7 +96,6 @@ export const sampleOpportunities: Opportunity[] = [
       { team: "Dev Team", day: "Thu", start: "19:00", end: "20:00" },
     ],
     skills: ["TypeScript", "React", "Next.js", "CSS"],
-    status: "on_hold",
-    posted: "Apr 30, 2026",
+    status: "open",
   },
 ];

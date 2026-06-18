@@ -80,10 +80,6 @@
   border-left: 1px solid var(--color-grey-light);
 }
 
-.posted {
-  color: var(--color-grey-dark);
-}
-
 .sidebarSection {
   display: flex;
   flex-direction: column;
