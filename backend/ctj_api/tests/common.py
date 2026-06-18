@@ -20,6 +20,7 @@ from ctj_api.models import (
     Opportunity,
     Role,
     Skill,
+    SkillMatrix,
 )
 
 
@@ -52,6 +53,20 @@ def make_skill(*, name: str = "Python") -> Skill:
     return Skill.objects.create(name=name)
 
 
+def make_skill_matrix(*skills: Skill, default_rating: int = 3) -> SkillMatrix:
+    """Create a SkillMatrix populated with the given skills.
+
+    Builds the matrix shape (`{skill_id: rating}`) from the provided
+    Skill rows; all entries get `default_rating` (3 by default) unless
+    a caller overrides. Tests that need varied ratings should populate
+    `matrix.skill_matrix` directly after this returns.
+    """
+    matrix = SkillMatrix.objects.create(
+        skill_matrix={str(skill.id): default_rating for skill in skills},
+    )
+    return matrix
+
+
 def make_opportunity(
     *,
     role: Role,
@@ -64,6 +79,7 @@ def make_opportunity(
     min_hours_required: int = 10,
     work_environment: str = "remote",
     meeting_times: list | None = None,
+    skills_required_matrix: SkillMatrix | None = None,
     status: str = "open",
 ) -> Opportunity:
     """Create an Opportunity row.
@@ -72,7 +88,7 @@ def make_opportunity(
     tests typically want to assert against a specific PM user; the
     project is now plain free-text (`project_name`). Tests that exercise
     card rendering should pass explicit `overview` / `responsibilities`
-    / `meeting_times`.
+    / `meeting_times` / `skills_required_matrix`.
     """
     return Opportunity.objects.create(
         role=role,
@@ -84,6 +100,7 @@ def make_opportunity(
         min_hours_required=min_hours_required,
         work_environment=work_environment,
         meeting_times=meeting_times,
+        skills_required_matrix=skills_required_matrix,
         status=status,
         created_by=created_by,
     )

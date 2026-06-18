@@ -177,6 +177,18 @@ class OpportunityViewSet(viewsets.ModelViewSet):
         OpportunityPermission,
     )
 
+    def get_queryset(self):
+        # The browse surface (list) shows only open opportunities by
+        # design - drafts, on-hold, filled, and closed records aren't
+        # part of the volunteer-facing catalog. Retrieve / update /
+        # destroy still operate against the full set so PMs can edit
+        # their own non-open records (the upcoming PM CMS surface
+        # reads from those).
+        queryset = Opportunity.objects.all()
+        if self.action == "list":
+            queryset = queryset.filter(status="open")
+        return queryset
+
     def get_serializer_class(self):
         # Dispatch by action: list/retrieve return the Read shape;
         # create/update/destroy accept the Write shape. The class-level

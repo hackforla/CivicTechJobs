@@ -24,6 +24,30 @@ from ctj_api.models import (
 )
 
 
+def _resolve_skill_names(matrix):
+    """Resolve a `SkillMatrix` to its sorted list of skill names.
+
+    Skill names are sorted alphabetically so consumer rendering is
+    stable. Returns `[]` for a `None` matrix or an empty
+    `skill_matrix` dict (the underlying field defaults to `{}`).
+
+    Used by both `OpportunityReadSerializer.get_skill_names`
+    (matrix is `skills_required_matrix`) and
+    `CustomUserReadSerializer.get_skill_names` (matrix is
+    `skills_learned_matrix`).
+    """
+    if matrix is None:
+        return []
+    skill_ids = list(matrix.skill_matrix.keys())
+    if not skill_ids:
+        return []
+    return list(
+        Skill.objects.filter(id__in=skill_ids)
+        .order_by("name")
+        .values_list("name", flat=True)
+    )
+
+
 class OpportunityReadSerializer(serializers.ModelSerializer):
     """Read serializer for `Opportunity` records.
 
@@ -32,12 +56,23 @@ class OpportunityReadSerializer(serializers.ModelSerializer):
     so list/retrieve responses surface a human-readable identity
     rather than an internal ID.
 
+    `role_title` and `skill_names` are derived display-only fields.
+    `role_title` saves the client an extra `/api/roles/<uuid>/` fetch
+    just to render the opportunity's role title; `skill_names`
+    resolves the `skills_required_matrix` to alphabetically-sorted
+    skill names so the card can render them without a SkillMatrix
+    fetch + N `Skill` lookups. The underlying `role` (UUID) and
+    `skills_required_matrix` (UUID) stay on the wire for clients
+    that need the references (matching algorithm, future ratings UI).
+
     Used by:
     - `OpportunityViewSet.list` (`GET /api/opportunities/`).
     - `OpportunityViewSet.retrieve` (`GET /api/opportunities/<pk>/`).
     """
 
     created_by = serializers.ReadOnlyField(source="created_by.email")
+    role_title = serializers.ReadOnlyField(source="role.title")
+    skill_names = serializers.SerializerMethodField()
 
     class Meta:
         model = Opportunity
@@ -45,6 +80,7 @@ class OpportunityReadSerializer(serializers.ModelSerializer):
             "id",
             "project_name",
             "role",
+            "role_title",
             "overview",
             "body",
             "responsibilities",
@@ -53,11 +89,15 @@ class OpportunityReadSerializer(serializers.ModelSerializer):
             "work_environment",
             "meeting_times",
             "skills_required_matrix",
+            "skill_names",
             "status",
             "created_by",
             "created_at",
             "updated_at",
         ]
+
+    def get_skill_names(self, obj):
+        return _resolve_skill_names(obj.skills_required_matrix)
 
 
 class OpportunityWriteSerializer(serializers.ModelSerializer):

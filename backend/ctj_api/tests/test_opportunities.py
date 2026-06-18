@@ -8,6 +8,8 @@ from ctj_api.tests.common import (
     make_cop,
     make_opportunity,
     make_role,
+    make_skill,
+    make_skill_matrix,
 )
 
 
@@ -53,6 +55,71 @@ class OpportunityTests(APITestCase):
         response = self.client.get("/api/opportunities/")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertGreater(len(response.data), 0)
+
+    def test_list_filters_to_status_open(self):
+        """Only `status="open"` rows appear in the list (browse surface
+        rule); drafts, on-hold, filled, and closed are filtered out."""
+        # Mark the setUp opportunity (default `open`) and add one of each
+        # non-open status.
+        for non_open in ("draft", "on_hold", "filled", "closed"):
+            make_opportunity(
+                role=self.role,
+                created_by=self.pm_user,
+                status=non_open,
+                body=f"Should not appear ({non_open}).",
+            )
+        self.client.force_authenticate(user=self.regular_user)
+        response = self.client.get("/api/opportunities/")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        statuses = {row["status"] for row in response.data}
+        self.assertEqual(statuses, {"open"})
+
+    def test_retrieve_returns_non_open_opportunity(self):
+        """Retrieve isn't filtered by status - only list is. PMs reading
+        their own draft / on-hold rows by UUID still get them."""
+        draft_opp = make_opportunity(
+            role=self.role,
+            created_by=self.pm_user,
+            status="draft",
+            body="Drafted, not yet published.",
+        )
+        self.client.force_authenticate(user=self.pm_user)
+        response = self.client.get(f"/api/opportunities/{draft_opp.id}/")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data["status"], "draft")
+
+    def test_list_exposes_role_title_and_skill_names(self):
+        """`role_title` (from `role.title`) and `skill_names` (resolved
+        from `skills_required_matrix`) appear on the read shape so the
+        card can render without extra `/api/roles/` + `/api/skills/`
+        lookups. `skill_names` is sorted alphabetically."""
+        matrix = make_skill_matrix(
+            make_skill(name="React"),
+            make_skill(name="Django"),
+            make_skill(name="PostgreSQL"),
+        )
+        opp = make_opportunity(
+            role=make_role(title="Backend Engineer", cop=self.cop),
+            created_by=self.pm_user,
+            skills_required_matrix=matrix,
+        )
+        self.client.force_authenticate(user=self.regular_user)
+        response = self.client.get(f"/api/opportunities/{opp.id}/")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data["role_title"], "Backend Engineer")
+        self.assertEqual(
+            list(response.data["skill_names"]), ["Django", "PostgreSQL", "React"]
+        )
+
+    def test_list_skill_names_empty_when_no_matrix(self):
+        """An opportunity with no `skills_required_matrix` returns
+        `skill_names: []`, not null - the card renders an empty list
+        rather than crashing on a missing field."""
+        # Use the setUp opportunity (no matrix attached).
+        self.client.force_authenticate(user=self.regular_user)
+        response = self.client.get(f"/api/opportunities/{self.opportunity.id}/")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data["skill_names"], [])
 
     def test_list_exposes_card_fields(self):
         """The reshaped card content (`project_name`, `overview`,

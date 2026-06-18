@@ -84,7 +84,22 @@ class CustomUser(AbstractUser):
     max_available_hours = models.IntegerField(
         null=True, blank=True, help_text="User's available hours per week."
     )
-    meeting_availability = models.JSONField(null=True, blank=True)
+    # JSON shape: list of objects with keys `day` (str), `start`
+    # ("HH:MM"), `end` ("HH:MM"). Example entry:
+    # `{"day": "Wed", "start": "17:00", "end": "21:00"}`.
+    # Parallels `Opportunity.meeting_times` shape but omits the
+    # `team` key (opportunity-side metadata, not user-side). The
+    # Availability filter on the browse surface keeps an opportunity
+    # if any of its `meeting_times` slots overlaps any of these
+    # windows. Not enforced by a JSONSchema validator yet.
+    meeting_availability = models.JSONField(
+        null=True,
+        blank=True,
+        help_text=(
+            "Availability windows the user can attend. JSON shape: "
+            '[{"day": "Wed", "start": "17:00", "end": "21:00"}, ...]'
+        ),
+    )
     isProjectManager = models.BooleanField(
         default=False,
         help_text="A user that is a PM can create and edit opportunities in the CMS.",
