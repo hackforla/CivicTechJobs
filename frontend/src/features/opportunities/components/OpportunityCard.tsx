@@ -30,7 +30,7 @@ import styles from "./OpportunityCard.module.css";
 import type {
   Opportunity,
   WorkEnvironment,
-} from "@/features/opportunities/data/sampleOpportunities";
+} from "@/shared/lib/api/opportunities";
 
 const WORK_ENVIRONMENT_LABELS: Record<WorkEnvironment, string> = {
   remote: "Remote",
@@ -49,7 +49,7 @@ function OpportunityCard({ opportunity }: { opportunity: Opportunity }) {
     min_hours_required,
     work_environment,
     meeting_times,
-    skills,
+    skill_names,
   } = opportunity;
 
   return (
@@ -108,7 +108,7 @@ function OpportunityCard({ opportunity }: { opportunity: Opportunity }) {
 
       {/* Right: metadata sidebar */}
       <aside className={styles.sidebar}>
-        {meeting_times.length > 0 ? (
+        {meeting_times && meeting_times.length > 0 ? (
           <section className={styles.sidebarSection}>
             <Typography.Paragraph4 className={styles.sidebarLabel}>
               Meeting Times
@@ -131,12 +131,14 @@ function OpportunityCard({ opportunity }: { opportunity: Opportunity }) {
           </section>
         ) : null}
 
-        {skills.length > 0 ? (
+        {skill_names.length > 0 ? (
           <section className={styles.sidebarSection}>
             <Typography.Paragraph4 className={styles.sidebarLabel}>
               Skills
             </Typography.Paragraph4>
-            <Typography.Paragraph5>{skills.join(", ")}</Typography.Paragraph5>
+            <Typography.Paragraph5>
+              {skill_names.join(", ")}
+            </Typography.Paragraph5>
           </section>
         ) : null}
       </aside>

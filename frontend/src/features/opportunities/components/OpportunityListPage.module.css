@@ -53,6 +53,12 @@
   padding: var(--space-4) 0;
 }
 
+.notice {
+  color: var(--color-grey-dark);
+  padding: var(--space-4) 0;
+  text-align: center;
+}
+
 @media (width <= 768px) {
   .layout {
     grid-template-columns: 1fr;
