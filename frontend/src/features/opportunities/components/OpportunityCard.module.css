@@ -23,8 +23,19 @@
   gap: var(--space-1);
 }
 
+.titleRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px var(--space-2);
+}
+
 .role {
   color: var(--color-charcoal);
+}
+
+.project {
+  color: var(--color-grey-dark);
 }
 
 .experience {
@@ -69,48 +80,7 @@
   border-left: 1px solid var(--color-grey-light);
 }
 
-.sidebarHead {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.project {
-  font-weight: var(--weight-bold);
-  color: var(--color-charcoal);
-}
-
 .posted {
-  color: var(--color-grey-dark);
-}
-
-.statusBadge {
-  align-self: flex-start;
-  padding: 2px 12px;
-  border-radius: var(--radius-xlarge);
-  font-size: 0.8rem;
-  font-weight: var(--weight-medium);
-  white-space: nowrap;
-}
-
-.statusOpen {
-  background-color: var(--color-green);
-  color: var(--color-white);
-}
-
-.statusOnHold {
-  background-color: var(--color-tan);
-  color: var(--color-charcoal);
-}
-
-.statusFilled {
-  background-color: var(--color-blue);
-  color: var(--color-white);
-}
-
-.statusClosed,
-.statusDraft {
-  background-color: var(--color-grey-light);
   color: var(--color-grey-dark);
 }
 

@@ -17,13 +17,11 @@
  */
 
 import Typography from "@/shared/components/Typography";
-import { cn } from "@/shared/lib/utils";
 
 import styles from "./OpportunityCard.module.css";
 
 import type {
   Opportunity,
-  OpportunityStatus,
   WorkEnvironment,
 } from "@/features/opportunities/data/sampleOpportunities";
 
@@ -31,23 +29,6 @@ const WORK_ENVIRONMENT_LABELS: Record<WorkEnvironment, string> = {
   remote: "Remote",
   hybrid: "Hybrid",
   in_person: "In Person",
-};
-
-const STATUS_LABELS: Record<OpportunityStatus, string> = {
-  open: "Open",
-  closed: "Closed",
-  on_hold: "On hold",
-  filled: "Filled",
-  draft: "Draft",
-};
-
-// Maps each status to a CSS-module class so the badge color tracks state.
-const STATUS_CLASSES: Record<OpportunityStatus, string> = {
-  open: styles.statusOpen,
-  closed: styles.statusClosed,
-  on_hold: styles.statusOnHold,
-  filled: styles.statusFilled,
-  draft: styles.statusDraft,
 };
 
 function OpportunityCard({ opportunity }: { opportunity: Opportunity }) {
@@ -62,7 +43,6 @@ function OpportunityCard({ opportunity }: { opportunity: Opportunity }) {
     work_environment,
     meeting_times,
     skills,
-    status,
     posted,
   } = opportunity;
 
@@ -71,9 +51,14 @@ function OpportunityCard({ opportunity }: { opportunity: Opportunity }) {
       {/* Left: prose column */}
       <div className={styles.main}>
         <header className={styles.titleBlock}>
-          <Typography.Title5 className={styles.role}>
-            {role_title}
-          </Typography.Title5>
+          <div className={styles.titleRow}>
+            <Typography.Title5 className={styles.role}>
+              {role_title}
+            </Typography.Title5>
+            <Typography.Paragraph3 className={styles.project}>
+              {project_name}
+            </Typography.Paragraph3>
+          </div>
           {min_experience_required ? (
             <Typography.Paragraph3 className={styles.experience}>
               {min_experience_required}
@@ -117,17 +102,9 @@ function OpportunityCard({ opportunity }: { opportunity: Opportunity }) {
 
       {/* Right: metadata sidebar */}
       <aside className={styles.sidebar}>
-        <div className={styles.sidebarHead}>
-          <Typography.Paragraph3 className={styles.project}>
-            {project_name}
-          </Typography.Paragraph3>
-          <span className={cn(styles.statusBadge, STATUS_CLASSES[status])}>
-            {STATUS_LABELS[status]}
-          </span>
-          <Typography.Paragraph5 className={styles.posted}>
-            Posted: {posted}
-          </Typography.Paragraph5>
-        </div>
+        <Typography.Paragraph5 className={styles.posted}>
+          Posted: {posted}
+        </Typography.Paragraph5>
 
         {meeting_times.length > 0 ? (
           <section className={styles.sidebarSection}>

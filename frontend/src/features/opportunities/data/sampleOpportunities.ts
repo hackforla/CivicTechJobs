@@ -16,12 +16,7 @@
  * page is the quickest way to eyeball the card without auth plumbing.
  */
 
-export type OpportunityStatus =
-  | "open"
-  | "closed"
-  | "on_hold"
-  | "filled"
-  | "draft";
+type OpportunityStatus = "open" | "closed" | "on_hold" | "filled" | "draft";
 
 export type WorkEnvironment = "remote" | "hybrid" | "in_person";
 
