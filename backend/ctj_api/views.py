@@ -1,16 +1,17 @@
 """DRF views for CTJ's domain endpoints, mounted under `/api/`.
 
 This module hosts the read/write endpoints for the recruitment
-catalog: opportunities, projects, roles, the skill catalog, and
-the community-of-practice taxonomy. It also provides the
-unauthenticated `healthcheck` endpoint and a JSON-shaped catch-all
-404 handler for unknown `/api/*` paths. The per-user detail
-endpoint lives in `accounts.views`.
+catalog: opportunities, roles, the skill catalog, and the
+community-of-practice taxonomy. It also provides the unauthenticated
+`healthcheck` endpoint and a JSON-shaped catch-all 404 handler for
+unknown `/api/*` paths. The per-user detail endpoint lives in
+`accounts.views`.
 
 Routing for these views lives in `ctj_api.urls` (mounted at
 `/api/` from `backend.urls`); permission classes live in
-`ctj_api.permissions`. Most read endpoints are public; mutations
-are gated per-view by DRF permission classes.
+`ctj_api.permissions`. The opportunities endpoint requires sign-in
+for all methods (no public listings); the read-only catalog FBVs
+(roles, skills, communities-of-practice) remain public.
 
 View shape convention:
 - Full-CRUD resources (>=4 actions of list/create/retrieve/update/
@@ -34,7 +35,6 @@ from rest_framework.response import Response
 from ctj_api.models import (
     CommunityOfPractice,
     Opportunity,
-    Project,
     Role,
     Skill,
 )
@@ -43,7 +43,6 @@ from ctj_api.serializers import (
     CommunityOfPracticeReadSerializer,
     OpportunityReadSerializer,
     OpportunityWriteSerializer,
-    ProjectReadSerializer,
     RoleReadSerializer,
     SkillReadSerializer,
 )
@@ -133,9 +132,11 @@ class OpportunityViewSet(viewsets.ModelViewSet):
     """
     Summary:
     - Full-CRUD endpoint for the `Opportunity` recruitment catalog.
-    - Reads are public; mutations are gated by `OpportunityPermission`
-      (in `ctj_api.permissions`): only project managers can create,
-      only the creator can update, and any PM can delete.
+    - Sign-in required for everything (no public listings). Reads need
+      authentication; mutations are further gated by
+      `OpportunityPermission` (in `ctj_api.permissions`): only project
+      managers can create, only the creator can update, and any PM can
+      delete.
     - Kept as a `ModelViewSet` because the view exposes the full
       CRUD surface; narrower views use FBVs.
 
@@ -157,23 +158,22 @@ class OpportunityViewSet(viewsets.ModelViewSet):
     - DELETE <id>/          delete
 
     Auth:
-    - IsAuthenticatedOrReadOnly + OpportunityPermission
+    - IsAuthenticated + OpportunityPermission
 
     Errors:
     - 400: Validation error on create/update
       (`OpportunityWriteSerializer` rejected the payload).
-    - 401: Unauthenticated mutation.
+    - 401: Unauthenticated request (reads and writes both require
+      sign-in).
     - 403: `OpportunityPermission` denied (e.g. non-PM trying to
-      create, non-creator trying to update). Note: PATCH is always
-      403'd due to a gap in `OpportunityPermission` (no PATCH branch);
-      flagged for fix in `ctj_api.permissions`.
+      create, non-creator trying to update or partial-update).
     - 404: No opportunity exists with the given ID.
     """
 
     queryset = Opportunity.objects.all()
     serializer_class = OpportunityReadSerializer
     permission_classes = (
-        permissions.IsAuthenticatedOrReadOnly,
+        permissions.IsAuthenticated,
         OpportunityPermission,
     )
 
@@ -350,57 +350,4 @@ def skill_detail(request, pk):
     """
     skill = get_object_or_404(Skill, pk=pk)
     serializer = SkillReadSerializer(skill)
-    return Response(serializer.data)
-
-
-@api_view(["GET"])
-@permission_classes([permissions.AllowAny])
-def project_list(request):
-    """
-    Summary:
-    - Public list of the `Project` table.
-    - Stage 1: admins curate the project list through Django admin
-      (`/admin/`).
-    - Stage 2: the project source moves to PeopleDepot.
-
-    Flow:
-    1. Fetch all `Project` rows.
-    2. Serialize via `ProjectReadSerializer` and return 200.
-
-    URL:
-    - GET /api/projects/
-
-    Auth:
-    - Public (`AllowAny`).
-
-    Errors:
-    - (none)
-    """
-    projects = Project.objects.all()
-    serializer = ProjectReadSerializer(projects, many=True)
-    return Response(serializer.data)
-
-
-@api_view(["GET"])
-@permission_classes([permissions.AllowAny])
-def project_detail(request, pk):
-    """
-    Summary:
-    - Public retrieval of a single `Project` row by UUID.
-
-    Flow:
-    1. Look up the row by primary-key UUID.
-    2. Serialize via `ProjectReadSerializer` and return 200.
-
-    URL:
-    - GET /api/projects/<uuid:pk>/
-
-    Auth:
-    - Public (`AllowAny`).
-
-    Errors:
-    - 404: No project exists with the given UUID.
-    """
-    project = get_object_or_404(Project, pk=pk)
-    serializer = ProjectReadSerializer(project)
     return Response(serializer.data)

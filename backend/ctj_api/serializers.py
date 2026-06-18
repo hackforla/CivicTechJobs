@@ -19,10 +19,8 @@ from rest_framework import serializers
 from ctj_api.models import (
     CommunityOfPractice,
     Opportunity,
-    Project,
     Role,
     Skill,
-    SkillMatrix,
 )
 
 
@@ -45,12 +43,15 @@ class OpportunityReadSerializer(serializers.ModelSerializer):
         model = Opportunity
         fields = [
             "id",
-            "project",
+            "project_name",
             "role",
+            "overview",
             "body",
+            "responsibilities",
             "min_experience_required",
             "min_hours_required",
             "work_environment",
+            "meeting_times",
             "skills_required_matrix",
             "status",
             "created_by",
@@ -71,46 +72,23 @@ class OpportunityWriteSerializer(serializers.ModelSerializer):
     Used by:
     - `OpportunityViewSet.create` (`POST /api/opportunities/`).
     - `OpportunityViewSet.update` / `partial_update`
-      (`PUT/PATCH /api/opportunities/<pk>/`). Note: PATCH is currently
-      403'd by `OpportunityPermission` (no PATCH branch); flagged for
-      fix in `ctj_api.permissions`.
+      (`PUT/PATCH /api/opportunities/<pk>/`).
     """
 
     class Meta:
         model = Opportunity
         fields = [
-            "project",
+            "project_name",
             "role",
+            "overview",
             "body",
+            "responsibilities",
             "min_experience_required",
             "min_hours_required",
             "work_environment",
+            "meeting_times",
             "skills_required_matrix",
             "status",
-        ]
-
-
-class SkillMatrixSerializer(serializers.ModelSerializer):
-    """Read/write serializer for `SkillMatrix` records.
-
-    Note: defined but never imported. Not split into Read/Write
-    because the class is currently dead code.
-    The cleanup PR drops it. If `SkillMatrix` becomes API-exposed
-    later, replace this with `SkillMatrixReadSerializer` (and
-    `SkillMatrixWriteSerializer` if a write endpoint is added).
-    Deferred out of this shape-only PR.
-
-    Used by:
-    - (none currently).
-    """
-
-    class Meta:
-        model = SkillMatrix
-        fields = [
-            "id",
-            "skill_matrix",
-            "created_at",
-            "updated_at",
         ]
 
 
@@ -144,7 +122,13 @@ class RoleReadSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Role
-        fields = ["id", "title", "community_of_practice", "created_at", "updated_at"]
+        fields = [
+            "id",
+            "title",
+            "community_of_practice",
+            "created_at",
+            "updated_at",
+        ]
 
 
 class SkillReadSerializer(serializers.ModelSerializer):
@@ -158,23 +142,3 @@ class SkillReadSerializer(serializers.ModelSerializer):
     class Meta:
         model = Skill
         fields = ["id", "name", "communities_of_practice", "created_at", "updated_at"]
-
-
-class ProjectReadSerializer(serializers.ModelSerializer):
-    """Read serializer for `Project` records.
-
-    Used by:
-    - `project_list` FBV (`GET /api/projects/`).
-    - `project_detail` FBV (`GET /api/projects/<uuid:pk>/`).
-    """
-
-    class Meta:
-        model = Project
-        fields = [
-            "id",
-            "people_depot_project_id",
-            "name",
-            "meeting_times",
-            "created_at",
-            "updated_at",
-        ]
