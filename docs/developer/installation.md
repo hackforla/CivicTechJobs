@@ -89,6 +89,19 @@ docker compose run django python manage.py createsuperuser
 
 That account can sign into Django admin at http://localhost:8000/admin/ and is what you'll use to exercise PM-gated flows. Subsequent admin and PM elevations happen through Django admin's UI (toggle the `isProjectManager` flag on the user record).
 
+### Seed user (browse-surface fixtures)
+
+`make db-seed` creates a deterministic PM user and three open opportunities so the `/opportunities` surface has something to render without building the dependency graph by hand. The command is idempotent (re-running is a no-op except for refreshing the opportunity fields), and the data is non-production - the seed lives in [`backend/ctj_api/management/commands/seed_dev.py`](../../backend/ctj_api/management/commands/seed_dev.py) and is never invoked by views or tests.
+
+| Field | Value |
+|-------|-------|
+| Email / username | `dev@example.com` |
+| Password | `password123!` |
+| `isProjectManager` | `true` |
+| `is_staff` / `is_superuser` | `true` (signs into Django admin at `/admin/`) |
+
+Sign in at http://localhost:3000/login. The seeded opportunities cover a mix of work environments (remote, hybrid) and experience levels (junior, mid-level, senior) so the filter UI on `/opportunities` is exerciseable on a fresh DB.
+
 Stage 2 will introduce Cognito JWT verification and PeopleDepot client mocks; that work lands when the upstream PeopleDepot deployment posture stabilizes. See [backend.md](backend.md#auth) for the Stage 2 design.
 
 ## Additional Resources

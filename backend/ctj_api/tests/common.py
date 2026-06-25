@@ -4,8 +4,8 @@ Each helper saves a domain-model instance with sensible defaults that
 callers can override via keyword arguments. The helpers do not return
 shared state - each call creates a new row. Callers wire factories
 together explicitly when they need relationships (e.g. an `Opportunity`
-needs a `Project`, a `Role`, and a `created_by` user; the test's
-`setUp` creates the dependencies and passes them in).
+needs a `Role` and a `created_by` user; the test's `setUp` creates the
+dependencies and passes them in - the project is now plain free-text).
 
 User factories (`make_pm_user`, `make_regular_user`) live in
 `accounts.tests.common` since the `CustomUser` model lives in the
@@ -18,9 +18,9 @@ from accounts.models import CustomUser
 from ctj_api.models import (
     CommunityOfPractice,
     Opportunity,
-    Project,
     Role,
     Skill,
+    SkillMatrix,
 )
 
 
@@ -36,9 +36,16 @@ def make_cop(
     )
 
 
-def make_role(*, title: str = "Developer", cop: CommunityOfPractice) -> Role:
+def make_role(
+    *,
+    title: str = "Developer",
+    cop: CommunityOfPractice,
+) -> Role:
     """Create a Role row anchored to the given CoP."""
-    return Role.objects.create(title=title, community_of_practice=cop)
+    return Role.objects.create(
+        title=title,
+        community_of_practice=cop,
+    )
 
 
 def make_skill(*, name: str = "Python") -> Skill:
@@ -46,43 +53,54 @@ def make_skill(*, name: str = "Python") -> Skill:
     return Skill.objects.create(name=name)
 
 
-def make_project(
-    *,
-    name: str = "Civic Tech Jobs",
-    people_depot_project_id: str = "1234-abcd",
-) -> Project:
-    """Create a Project row."""
-    return Project.objects.create(
-        name=name,
-        people_depot_project_id=people_depot_project_id,
+def make_skill_matrix(*skills: Skill, default_rating: int = 3) -> SkillMatrix:
+    """Create a SkillMatrix populated with the given skills.
+
+    Builds the matrix shape (`{skill_id: rating}`) from the provided
+    Skill rows; all entries get `default_rating` (3 by default) unless
+    a caller overrides. Tests that need varied ratings should populate
+    `matrix.skill_matrix` directly after this returns.
+    """
+    matrix = SkillMatrix.objects.create(
+        skill_matrix={str(skill.id): default_rating for skill in skills},
     )
+    return matrix
 
 
 def make_opportunity(
     *,
-    project: Project,
     role: Role,
     created_by: CustomUser,
+    project_name: str = "Civic Tech Jobs",
+    overview: str = "",
     body: str = "Test opportunity",
+    responsibilities: str = "",
     min_experience_required: str = "junior",
     min_hours_required: int = 10,
     work_environment: str = "remote",
+    meeting_times: list | None = None,
+    skills_required_matrix: SkillMatrix | None = None,
     status: str = "open",
 ) -> Opportunity:
     """Create an Opportunity row.
 
-    Caller supplies the FK rows (project, role, created_by) explicitly
-    because tests typically want to assert against a specific PM user
-    or project; default-constructing them inside the helper would
-    obscure those references.
+    Caller supplies the FK rows (role, created_by) explicitly because
+    tests typically want to assert against a specific PM user; the
+    project is now plain free-text (`project_name`). Tests that exercise
+    card rendering should pass explicit `overview` / `responsibilities`
+    / `meeting_times` / `skills_required_matrix`.
     """
     return Opportunity.objects.create(
-        project=project,
         role=role,
+        project_name=project_name,
+        overview=overview,
         body=body,
+        responsibilities=responsibilities,
         min_experience_required=min_experience_required,
         min_hours_required=min_hours_required,
         work_environment=work_environment,
+        meeting_times=meeting_times,
+        skills_required_matrix=skills_required_matrix,
         status=status,
         created_by=created_by,
     )

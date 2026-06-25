@@ -23,6 +23,7 @@ const baseUser: User = {
   email: "test@example.com",
   community_of_practice: null,
   skills_learned_matrix: null,
+  skill_names: [],
   max_available_hours: null,
   meeting_availability: null,
   isProjectManager: false,

@@ -1,12 +1,11 @@
 """Domain models for the CTJ platform.
 
-This module defines the six Django models that back CTJ's core
+This module defines the five Django models that back CTJ's core
 flows: the practice-area taxonomy (`CommunityOfPractice`, `Role`),
 the skill system (`Skill`, `SkillMatrix`), and the recruitment
-catalog (`Project`, `Opportunity`). The user / identity model
-(`CustomUser`) lives in the `accounts` app; FKs to it use
-`settings.AUTH_USER_MODEL` so this module avoids importing the
-user model directly.
+catalog (`Opportunity`). The user / identity model (`CustomUser`)
+lives in the `accounts` app; FKs to it use `settings.AUTH_USER_MODEL`
+so this module avoids importing the user model directly.
 
 Stage 1 / Stage 2 boundary: several of these tables are locally
 curated in Stage 1 and migrate to PeopleDepot-backed shapes in
@@ -150,45 +149,6 @@ class Skill(models.Model):
         return self.name
 
 
-class Project(models.Model):
-    """
-    Summary:
-    - A real-world HfLA project that opportunities are posted under.
-
-    Business workflow:
-    - HfLA runs many concurrent civic-tech projects (Tabler, Food
-      Oasis, CivicTechJobs itself, etc.); each owns its own
-      opportunities and meeting cadence.
-    - `people_depot_project_id` is the link to the upstream PeopleDepot
-      project record (PD owns project metadata; CTJ stores only what
-      it needs locally for the qualifier flow).
-
-    Current policy:
-    - Stage 1: local table populated alongside PD.
-    - Stage 2: `Opportunity.project` swaps to a PeopleDepot UUID
-      reference and this table goes away.
-
-    Lifecycle control:
-    - `admin-managed` (Stage 1).
-
-    Visibility:
-    - `public-read` via `/api/projects/`.
-    """
-
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    people_depot_project_id = models.CharField(max_length=255, unique=True)
-    name = models.CharField(max_length=50)
-    meeting_times = models.JSONField(null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        db_table = "projects"
-
-    def __str__(self):
-        return self.name
-
-
 class SkillMatrix(models.Model):
     """
     Summary:
@@ -241,43 +201,54 @@ class SkillMatrix(models.Model):
 class Opportunity(models.Model):
     """
     Summary:
-    - An open volunteer position posted under a Project.
+    - An open volunteer position - the unit volunteers browse and match
+      against. Sign-in required to view; there are no public listings.
 
     Business workflow:
     - The recruitment-catalog row that the matching algorithm ranks
       against a user's `SkillMatrix`.
-    - Belongs to one `Project` (the team it's part of), takes the
-      title of one `Role` (the kind of position), declares its
-      required skills via a `SkillMatrix` reference, and tracks
-      status through a small enum (open / closed / on hold / filled /
-      draft).
-    - Posted by a project manager; viewable publicly in the catalog.
+    - Names its project as free-text (`project_name`), takes the title
+      of one `Role` (the kind of position), carries its own card
+      content (`overview`, `body`, `responsibilities`), declares its
+      required skills via a `SkillMatrix` reference, and tracks status
+      through a small enum (open / closed / on_hold / filled / draft).
+    - Posted by a project manager; visible to authenticated users only.
 
     Current policy:
+    - `project_name` is plain free-text, not a foreign key: project
+      metadata is not modeled locally. PeopleDepot owns Projects/Roles
+      upstream; an external reference may replace this string later.
+      Doubles as the (deliberately weak) project filter key.
+    - `meeting_times` (JSON) lives here too: an opportunity is shown to
+      a volunteer if they can make at least one of its meeting slots.
+    - `overview` / `responsibilities` are the opportunity's own card
+      content (the "Role Overview" and "Responsibilities" sections),
+      authored per-opportunity rather than inherited from `Role`.
     - `created_by` uses `on_delete=SET_NULL`: deleting a user does not
-      cascade-delete their posted opportunities. Loss of authorship
-      is preferable to losing the public-facing listings.
-    - `min_experience_required` is currently a nullable `CharField`,
-      which violates Django's "use empty string for missing
-      `CharField`" convention (DJ001). The TODO inline is to drop
-      `null=True` in a follow-up migration; the `noqa` keeps current
-      state lint-clean until then.
-    - Stage 2: `project` and `role` swap to PeopleDepot UUID references;
-      local `Project` and `Role` tables go away.
+      cascade-delete their posted opportunities. Loss of authorship is
+      preferable to losing the listings.
+    - `status` defaults to `"draft"`: PMs work in draft, transition to
+      `"open"` to publish. Conservative default.
 
     Lifecycle control:
     - `creator-managed` (only the creator can update; any PM can
       delete) - see `OpportunityPermission` in `ctj_api.permissions`.
 
     Visibility:
-    - `public-read` for browsing.
+    - `auth-read` for browsing (sign-in required; no public listings).
     - `pm-write` for creation; `creator-write` for updates;
       `pm-delete` for deletion.
     """
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    project = models.ForeignKey(
-        Project, on_delete=models.CASCADE, related_name="opportunities"
+    project_name = models.CharField(
+        max_length=255,
+        default="",
+        blank=True,
+        help_text=(
+            "Free-text project name. Not a FK - PeopleDepot owns projects "
+            "upstream. Doubles as the (deliberately weak) project filter key."
+        ),
     )
     role = models.ForeignKey(
         Role,
@@ -285,12 +256,20 @@ class Opportunity(models.Model):
         related_name="opportunities",
         help_text="Role.title will be the title of the opportunity.",
     )
+    overview = models.TextField(
+        default="",
+        blank=True,
+        help_text='Card "Role Overview" section: what this position is and does.',
+    )
     body = models.TextField(help_text="A description of the opportunity.")
-    # TODO: drop null=True (Django convention is "" for missing CharField);
-    # requires a migration, deferred to a follow-up PR.
-    min_experience_required = models.CharField(  # noqa: DJ001
+    responsibilities = models.TextField(
+        default="",
+        blank=True,
+        help_text='Card "Responsibilities" section: what is expected of the volunteer.',
+    )
+    min_experience_required = models.CharField(
         max_length=50,
-        null=True,
+        default="",
         blank=True,
         help_text="min_experience_required: junior, senior, mid-level, etc.",
     )
@@ -305,6 +284,13 @@ class Opportunity(models.Model):
             ("in_person", "In Person"),
         ],
     )
+    # JSON shape: list of objects with keys `team` (str), `day` (str),
+    # `start` ("HH:MM"), `end` ("HH:MM"). Example entry:
+    # `{"team": "Developer Team", "day": "Wed", "start": "12:30", "end": "13:30"}`.
+    # Not enforced by a JSONSchema validator yet -- the card renders
+    # whatever's there. A volunteer is shown the opportunity if they can
+    # make at least one slot.
+    meeting_times = models.JSONField(null=True, blank=True)
     skills_required_matrix = models.OneToOneField(
         SkillMatrix,
         on_delete=models.SET_NULL,
@@ -318,11 +304,12 @@ class Opportunity(models.Model):
         choices=[
             ("open", "Open"),
             ("closed", "Closed"),
-            ("on hold", "On hold"),
+            ("on_hold", "On hold"),
             ("filled", "Filled"),
             ("draft", "Draft"),
         ],
-        help_text="Status will determine how the opportunity will be shown publicly.",
+        default="draft",
+        help_text="Status will determine how the opportunity is shown.",
     )
     created_by = models.ForeignKey(
         settings.AUTH_USER_MODEL,
@@ -341,4 +328,4 @@ class Opportunity(models.Model):
         verbose_name_plural = "Opportunities"
 
     def __str__(self):
-        return f"{self.role.title} @ {self.project.name}"
+        return f"{self.role.title} @ {self.project_name}"

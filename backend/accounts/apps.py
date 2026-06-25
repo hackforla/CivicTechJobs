@@ -7,7 +7,7 @@ class AccountsConfig(AppConfig):
     Owns the `CustomUser` model (the project's `AUTH_USER_MODEL`),
     the per-user detail endpoint, the auth flow endpoints (signup,
     login, logout, me, csrf), and their permission classes /
-    serializers. Domain models (Opportunity, Project, etc.) stay in
+    serializers. Domain models (Opportunity, Role, etc.) stay in
     `ctj_api`; cross-app FKs to user use `settings.AUTH_USER_MODEL`
     so the boundary stays explicit.
 
