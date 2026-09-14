@@ -68,6 +68,7 @@ Common DB targets (against the running dev stack):
 ```sh
 make db-migrate                # apply Django migrations
 make db-makemigrations         # create migration files
+make db-seed                   # seed a PM user + a few open opportunities (idempotent)
 make db-reset                  # truncate all app data (keeps schema + migrations); prompts for 'yes'
 make db-reset-hard             # drop the volume and recreate the DB container; prompts for 'yes'
 make db-grant-test-db-perms    # grant the test runner CREATEDB perms

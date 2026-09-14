@@ -6,7 +6,7 @@ other endpoint is an explicit `path()` entry pointing at a
 function-based view (see `ctj_api.views` for the shape rule):
 
 - `healthcheck`: the liveness endpoint.
-- `communities-of-practice/`, `roles/`, `skills/`, `projects/`:
+- `communities-of-practice/`, `roles/`, `skills/`:
   list + detail FBV pairs for read-only catalog resources.
 
 The user detail endpoint (`users/<uuid>/`) lives in `accounts.urls`
@@ -41,8 +41,6 @@ urlpatterns = [
     path("roles/<uuid:pk>/", views.role_detail),
     path("skills/", views.skill_list),
     path("skills/<uuid:pk>/", views.skill_detail),
-    path("projects/", views.project_list),
-    path("projects/<uuid:pk>/", views.project_detail),
     re_path(r"^", include(router.urls)),
     # Catch-all for incorrect API routes
     re_path(r"^.*$", views.api_not_found),

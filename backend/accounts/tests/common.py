@@ -3,9 +3,8 @@
 Each helper saves a `CustomUser` instance with sensible defaults
 that callers can override via keyword arguments. Per-test-file
 `setUp` methods import only the helpers they need. Domain factories
-(CoP, Role, Skill, Project, Opportunity) live in
-`ctj_api.tests.common` and are imported separately when a test
-spans both apps.
+(CoP, Role, Skill, Opportunity) live in `ctj_api.tests.common` and
+are imported separately when a test spans both apps.
 """
 
 from accounts.models import CustomUser

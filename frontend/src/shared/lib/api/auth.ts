@@ -12,13 +12,28 @@
 import { apiFetch } from "./client";
 
 /**
+ * One availability window the user can attend. Parallels the
+ * `meeting_availability` JSON shape on `CustomUser`; same fields as
+ * `MeetingSlot` minus `team`. Used by the Availability filter on the
+ * `/opportunities` browse surface.
+ */
+interface AvailabilitySlot {
+  day: string;
+  start: string; // "HH:MM"
+  end: string; // "HH:MM"
+}
+
+/**
  * Response shape of `GET /api/auth/me/`, `POST /api/auth/login/`,
  * `POST /api/auth/signup/`, and `GET /api/users/<uuid>/`.
  *
  * Mirrors `CustomUserReadSerializer.Meta.fields` on the backend.
  * `community_of_practice` and `skills_learned_matrix` are foreign
  * key UUIDs (not nested objects); resolve them via separate
- * endpoints if the UI needs full records.
+ * endpoints if the UI needs full records. `skill_names` is the
+ * serializer-resolved alphabetical list of the user's skill names
+ * (sourced off `skills_learned_matrix`); the browse surface's Skills
+ * filter reads this directly.
  */
 export type User = {
   id: string;
@@ -27,8 +42,9 @@ export type User = {
   email: string;
   community_of_practice: string | null;
   skills_learned_matrix: string | null;
+  skill_names: string[];
   max_available_hours: number | null;
-  meeting_availability: unknown;
+  meeting_availability: AvailabilitySlot[] | null;
   isProjectManager: boolean;
   created_at: string;
   updated_at: string;

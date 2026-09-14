@@ -7,7 +7,7 @@
 	local-test local-test-backend local-test-frontend \
 	local-clean local-kill-ports \
 	docker-up db-up docker-down docker-logs docker-watch \
-	db-migrate db-makemigrations db-reset db-reset-hard db-grant-test-db-perms \
+	db-migrate db-makemigrations db-seed db-reset db-reset-hard db-grant-test-db-perms \
 	stage-smoke stage-up stage-down \
 	docker-shell-backend docker-shell-frontend docker-shell-db \
 	lint install-hooks
@@ -57,6 +57,7 @@ help:
 	@echo "  make docker-watch           Run compose watch (live host->container sync)"
 	@echo "  make db-migrate             Apply Django migrations against dev DB"
 	@echo "  make db-makemigrations      Create Django migration files (in container)"
+	@echo "  make db-seed                Seed dev DB with a PM user + a few open opportunities"
 	@echo "  make db-reset               Truncate all app data (keeps schema + migrations)"
 	@echo "  make db-reset-hard          Drop dev DB volume and recreate DB container"
 	@echo "  make db-grant-test-db-perms Grant test-DB CREATEDB perms (for Django tests)"
@@ -204,6 +205,9 @@ db-migrate:
 
 db-makemigrations:
 	$(DEV_COMPOSE) exec $(BACKEND_SERVICE) python manage.py makemigrations
+
+db-seed:
+	$(DEV_COMPOSE) exec $(BACKEND_SERVICE) python manage.py seed_dev
 
 db-reset:
 	@echo "This will truncate all app data (schema + migrations preserved). Type 'yes' to confirm:"

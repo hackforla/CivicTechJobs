@@ -6,6 +6,7 @@ from rest_framework.test import APIClient, APITestCase
 
 from accounts.models import CustomUser
 from accounts.tests.common import make_regular_user
+from ctj_api.tests.common import make_skill, make_skill_matrix
 
 
 class AuthCsrfTests(APITestCase):
@@ -251,3 +252,31 @@ class AuthMeTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
         body = response.json()
         self.assertEqual(body["error"]["code"], "not_authenticated")
+
+    def test_me_includes_skill_names_resolved_from_matrix(self):
+        """`skill_names` resolves the user's `skills_learned_matrix` to
+        alphabetically-sorted skill names. The browse surface's Skills
+        filter (warm-referral partial match) reads off this field rather
+        than fetching the matrix + N `Skill` lookups itself."""
+        matrix = make_skill_matrix(
+            make_skill(name="TypeScript"),
+            make_skill(name="React"),
+            make_skill(name="PostgreSQL"),
+        )
+        self.user.skills_learned_matrix = matrix
+        self.user.save()
+        self.client.force_authenticate(user=self.user)
+        response = self.client.get("/api/auth/me/")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(
+            list(response.json()["skill_names"]),
+            ["PostgreSQL", "React", "TypeScript"],
+        )
+
+    def test_me_returns_empty_skill_names_when_no_matrix(self):
+        """A user with no `skills_learned_matrix` returns
+        `skill_names: []`, not null."""
+        self.client.force_authenticate(user=self.user)
+        response = self.client.get("/api/auth/me/")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.json()["skill_names"], [])

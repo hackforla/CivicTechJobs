@@ -1,0 +1,123 @@
+.card {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border: 1px solid var(--color-grey);
+  border-radius: 16px;
+  background-color: var(--color-white);
+  box-shadow: 0 10px 30px -15px rgb(0 0 0 / 25%);
+}
+
+/* Left: prose column */
+.main {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.titleRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px var(--space-2);
+}
+
+.role {
+  color: var(--color-charcoal);
+}
+
+.project {
+  color: var(--color-grey-dark);
+}
+
+.experience {
+  font-weight: var(--weight-bold);
+  color: var(--color-charcoal);
+  text-transform: capitalize;
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-top: 4px;
+}
+
+.metaChip {
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-tan-light);
+  color: var(--color-charcoal);
+  font-size: 0.85rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sectionLabel {
+  font-weight: var(--weight-bold);
+  color: var(--color-charcoal);
+}
+
+/* Right: metadata sidebar */
+.sidebar {
+  flex: 0 0 240px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-left: var(--space-4);
+  border-left: 1px solid var(--color-grey-light);
+}
+
+.sidebarSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.sidebarLabel {
+  font-weight: var(--weight-bold);
+  color: var(--color-charcoal);
+}
+
+.meetingList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.meeting {
+  display: flex;
+  flex-direction: column;
+}
+
+.meetingTeam {
+  font-weight: var(--weight-bold);
+  color: var(--color-grey-dark);
+}
+
+/* Stack the sidebar under the prose on narrow viewports (md: 769px). */
+@media (width <= 768px) {
+  .card {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    flex-basis: auto;
+    padding-left: 0;
+    padding-top: var(--space-3);
+    border-left: none;
+    border-top: 1px solid var(--color-grey-light);
+  }
+}

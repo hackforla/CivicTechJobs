@@ -17,16 +17,27 @@ from django.contrib.auth.password_validation import validate_password
 from rest_framework import serializers
 
 from accounts.models import CustomUser
+from ctj_api.serializers import _resolve_skill_names
 
 
 class CustomUserReadSerializer(serializers.ModelSerializer):
     """Read serializer for `CustomUser` records.
+
+    `skill_names` is a derived display-only field that resolves the
+    `skills_learned_matrix` JSON to an alphabetically-sorted list of
+    skill names. The frontend warm-referral filter compares this
+    list against the opportunity's `skill_names`; surfacing the
+    resolved names here saves the consumer a SkillMatrix fetch + N
+    `Skill` lookups. The matrix UUID stays on the wire for clients
+    that need the underlying ratings (matching algorithm).
 
     Used by:
     - `user_detail` FBV (`GET /api/users/<uuid>/`).
     - `auth_me` / `auth_signup` / `auth_login` for response bodies
       where the canonical "current user" shape is needed.
     """
+
+    skill_names = serializers.SerializerMethodField()
 
     class Meta:
         model = CustomUser
@@ -37,12 +48,16 @@ class CustomUserReadSerializer(serializers.ModelSerializer):
             "email",
             "community_of_practice",
             "skills_learned_matrix",
+            "skill_names",
             "max_available_hours",
             "meeting_availability",
             "isProjectManager",
             "created_at",
             "updated_at",
         ]
+
+    def get_skill_names(self, obj):
+        return _resolve_skill_names(obj.skills_learned_matrix)
 
 
 class RegisterSerializer(serializers.Serializer):
